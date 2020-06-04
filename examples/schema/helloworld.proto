@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option go_package = "bitbucket.org/no-name-game/nn-ws/schema";
+
+package helloworld;
+
+// The greeting service definition.
+service Greeter {
+    rpc SayHello (HelloRequest) returns (HelloReply) {}
+    rpc SayHelloAgain (HelloAgainRequest) returns (HelloAgainReply) {}
+}
+
+message HelloRequest {
+    string name = 1;
+}
+
+message HelloReply {
+    string message = 1;
+}
+
+message HelloAgainRequest {
+    string name = 1;
+    string surname = 2;
+}
+
+message HelloAgainReply {
+    string message = 1;
+    string error = 2;
+}
