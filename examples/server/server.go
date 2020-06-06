@@ -34,6 +34,28 @@ func (s *server) SayHelloAgain(ctx context.Context, in *pb.HelloAgainRequest) (*
 	return response, nil
 }
 
+// func (p *PlayerController) All(in *pb.PlayerRequest, stream pb.NoName_AllServer) (err error) {
+// 	log.Println("Message recived")
+//
+// 	var players models.Players
+// 	err = players.All()
+//
+// 	log.Println(players)
+//
+// 	for _, player := range players {
+// 		test := &pb.PlayerResponse{
+// 			Id:       int32(player.ID),
+// 			Username: player.Username,
+// 		}
+//
+// 		if err := stream.Send(test); err != nil {
+// 			return err
+// 		}
+// 	}
+//
+// 	return err
+// }
+
 func main() {
 	lis, err := net.Listen("tcp", port)
 	if err != nil {

@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "schema";
+
+package player;
+
+// The greeting service definition.
+service NoName {
+    // Unary
+    rpc Show(PlayerRequest) returns (PlayerResponse) {}
+
+    // Server streaming
+    rpc All(PlayerRequest) returns (stream PlayerResponse) {}
+}
+
+message PlayerRequest {}
+
+//message PlayersResponse {
+//    repeated Player players = 1;
+//}
+
+message PlayerResponse {
+    int32 id = 1;
+    string username = 2;
+}

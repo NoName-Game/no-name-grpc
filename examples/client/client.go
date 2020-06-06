@@ -40,5 +40,24 @@ func main() {
 		log.Panicln(err)
 	}
 
+	// Request streaming
+	// stream, err := c.All(ctx, &pb.PlayerRequest{})
+	// if err != nil {
+	// 	log.Fatalf("%v.ListFeatures(_) = _, %v", c, err)
+	// }
+	//
+	// for {
+	// 	feature, err := stream.Recv()
+	// 	if err == io.EOF {
+	// 		break
+	// 	}
+	//
+	// 	if err != nil {
+	// 		log.Fatalf("%v.ListFeatures(_) = _, %v", c, err)
+	// 	}
+	//
+	// 	log.Println(feature)
+	// }
+
 	log.Printf("Responde: %v", response.GetMessage())
 }
