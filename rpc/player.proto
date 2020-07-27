@@ -5,10 +5,10 @@ option go_package = "rpc";
 package player;
 
 // The greeting service definition.
-service Player {
-    // Sends a greeting
-    rpc GetMoney (GetMoneyRequest) returns (GetMoneyResponse) {}
-}
+//service Player {
+//    // Sends a greeting
+//    rpc GetMoney (GetMoneyRequest) returns (GetMoneyResponse) {}
+//}
 
 // The request message containing the user's name.
 message GetMoneyRequest {

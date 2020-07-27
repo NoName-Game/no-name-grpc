@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import public "rpc/armor.proto";
+import public "rpc/player.proto";
+
+
+//option go_package = "rpc";
+
+// The greeting service definition.
+service NoName {
+    // Armor
+    rpc GetArmorByID (armor.GetArmorByIDRequest) returns (armor.GetArmorByIDResponse) {}
+    rpc FindArmorByName (armor.FindArmorByNameRequest) returns (armor.FindArmorByNameResponse) {}
+    rpc UpdateArmor (armor.UpdateArmorRequest) returns (armor.UpdateArmorResponse) {}
+
+    // Player
+    rpc GetMoney (player.GetMoneyRequest) returns (player.GetMoneyResponse) {}
+}
+
+

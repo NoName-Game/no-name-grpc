@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option go_package = "rpc";
+
+package armor;
+
+
+message GetArmorByIDRequest {
+    int32 id = 1;
+}
+message GetArmorByIDResponse {
+    // Passare tutta la struttura armor
+    bool equipped = 1;
+}
+
+
+message FindArmorByNameRequest {
+    string name = 1;
+}
+message FindArmorByNameResponse {
+    //
+}
+
+message UpdateArmorRequest {
+    // Passare tutta la struttura armor
+}
+message UpdateArmorResponse {
+    //
+}

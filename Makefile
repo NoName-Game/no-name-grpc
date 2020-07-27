@@ -1,2 +1,2 @@
 compile:
-	protoc  --go_out=plugins=grpc:. ./rpc/player.proto
+	protoc  --go_out=plugins=grpc:. ./rpc/*.proto

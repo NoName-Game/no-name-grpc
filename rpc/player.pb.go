@@ -4,12 +4,8 @@
 package rpc
 
 import (
-	context "context"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
-	grpc "google.golang.org/grpc"
-	codes "google.golang.org/grpc/codes"
-	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -114,97 +110,13 @@ func init() {
 }
 
 var fileDescriptor_a959b2d7d9524502 = []byte{
-	// 148 bytes of a gzipped FileDescriptorProto
+	// 119 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x28, 0x2a, 0x48, 0xd6,
 	0x2f, 0xc8, 0x49, 0xac, 0x4c, 0x2d, 0xd2, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x83, 0xf0,
 	0x94, 0x54, 0xb9, 0xf8, 0xdd, 0x53, 0x4b, 0x7c, 0xf3, 0xf3, 0x52, 0x2b, 0x83, 0x52, 0x0b, 0x4b,
 	0x53, 0x8b, 0x4b, 0x84, 0x84, 0xb8, 0x58, 0xf2, 0x12, 0x73, 0x53, 0x25, 0x18, 0x15, 0x18, 0x35,
 	0x38, 0x83, 0xc0, 0x6c, 0x25, 0x1d, 0x2e, 0x01, 0x84, 0xb2, 0xe2, 0x82, 0xfc, 0xbc, 0xe2, 0x54,
-	0x21, 0x09, 0x2e, 0xf6, 0xdc, 0xd4, 0xe2, 0xe2, 0xc4, 0x74, 0x98, 0x52, 0x18, 0xd7, 0xc8, 0x93,
-	0x8b, 0x2d, 0x00, 0x6c, 0xbc, 0x90, 0x3d, 0x17, 0x07, 0x4c, 0x9f, 0x90, 0xb8, 0x1e, 0xd4, 0x05,
-	0x68, 0x16, 0x4a, 0x49, 0x60, 0x4a, 0x40, 0xac, 0x50, 0x62, 0x70, 0x62, 0x8d, 0x62, 0x2e, 0x2a,
-	0x48, 0x4e, 0x62, 0x03, 0xbb, 0xda, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0x57, 0xdf, 0x7b, 0xa1,
-	0xc9, 0x00, 0x00, 0x00,
-}
-
-// Reference imports to suppress errors if they are not otherwise used.
-var _ context.Context
-var _ grpc.ClientConnInterface
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion6
-
-// PlayerClient is the client API for Player service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type PlayerClient interface {
-	// Sends a greeting
-	GetMoney(ctx context.Context, in *GetMoneyRequest, opts ...grpc.CallOption) (*GetMoneyResponse, error)
-}
-
-type playerClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPlayerClient(cc grpc.ClientConnInterface) PlayerClient {
-	return &playerClient{cc}
-}
-
-func (c *playerClient) GetMoney(ctx context.Context, in *GetMoneyRequest, opts ...grpc.CallOption) (*GetMoneyResponse, error) {
-	out := new(GetMoneyResponse)
-	err := c.cc.Invoke(ctx, "/player.Player/GetMoney", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PlayerServer is the server API for Player service.
-type PlayerServer interface {
-	// Sends a greeting
-	GetMoney(context.Context, *GetMoneyRequest) (*GetMoneyResponse, error)
-}
-
-// UnimplementedPlayerServer can be embedded to have forward compatible implementations.
-type UnimplementedPlayerServer struct {
-}
-
-func (*UnimplementedPlayerServer) GetMoney(ctx context.Context, req *GetMoneyRequest) (*GetMoneyResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetMoney not implemented")
-}
-
-func RegisterPlayerServer(s *grpc.Server, srv PlayerServer) {
-	s.RegisterService(&_Player_serviceDesc, srv)
-}
-
-func _Player_GetMoney_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMoneyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PlayerServer).GetMoney(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/player.Player/GetMoney",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PlayerServer).GetMoney(ctx, req.(*GetMoneyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-var _Player_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "player.Player",
-	HandlerType: (*PlayerServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetMoney",
-			Handler:    _Player_GetMoney_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "rpc/player.proto",
+	0x21, 0x09, 0x2e, 0xf6, 0xdc, 0xd4, 0xe2, 0xe2, 0xc4, 0x74, 0x98, 0x52, 0x18, 0xd7, 0x89, 0x35,
+	0x8a, 0xb9, 0xa8, 0x20, 0x39, 0x89, 0x0d, 0x6c, 0x95, 0x31, 0x20, 0x00, 0x00, 0xff, 0xff, 0xa3,
+	0x2a, 0x3a, 0x60, 0x7e, 0x00, 0x00, 0x00,
 }
