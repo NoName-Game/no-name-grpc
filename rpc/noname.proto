@@ -9,6 +9,7 @@ import public "rpc/item_category.proto";
 import public "rpc/language.proto";
 import public "rpc/map.proto";
 import public "rpc/npc.proto";
+import public "rpc/planet.proto";
 
 // The greeting service definition.
 service NoName {
@@ -47,4 +48,8 @@ service NoName {
     rpc GetAll (npc.GetAllRequest) returns (npc.GetAllResponse) {}
     rpc Bank (npc.BankRequest) returns (npc.BankResponse) {}
     rpc Craft (npc.CraftRequest) returns (npc.CraftResponse) {}
+
+    // Planet
+    rpc GetPlanetByCoordinate (npc.GetPlanetByCoordinateRequest) returns (npc.GetPlanetByCoordinateResponse) {}
+
 }

@@ -1,0 +1,13 @@
+syntax = "proto3";
+import public "rpc/planet.proto";
+option go_package = "rpc";
+package planet_system;
+
+message PlanetSystem {
+    uint32 ID = 1;
+    string Name = 2;
+    double Size = 3;
+    int32 Density = 4;
+    double Deviation = 5;
+    repeated planet.Planet Plantes = 6;
+}

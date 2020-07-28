@@ -4,15 +4,19 @@ import public "rpc/tresure.proto";
 option go_package = "rpc";
 package map;
 
-// GetMapByID
-message GetMapByIDRequest {
-    int32 ID = 1;
-}
-message GetMapByIDResponse {
+message Map {
     uint32 ID = 1;
     string CellGrid = 2;
     int32 StartPositionX = 3;
     int32 StartPositionY = 4;
     repeated enemy.Enemy Enemies = 5;
     repeated tresure.Tresure Tresures = 6;
+}
+
+// GetMapByID
+message GetMapByIDRequest {
+    int32 ID = 1;
+}
+message GetMapByIDResponse {
+    Map Map = 1;
 }

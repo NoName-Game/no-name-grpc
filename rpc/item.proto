@@ -1,5 +1,6 @@
 syntax = "proto3";
 import public "rpc/item_category.proto";
+import public "rpc/rarity.proto";
 option go_package = "rpc";
 package item;
 
@@ -10,12 +11,12 @@ message Item {
     uint32 RecipeID = 4;
     // TODO: Recipe Recipe
     uint32 RarityID = 5;
-    // TODO: Rarity Rarity
-    uint32 ItemCategoryID = 6;
-    item_category.ItemCategory ItemCategory = 7;
-    int32 Value = 8;
-    uint32 MinIntellectLvl = 9;
-    uint32 Price = 10;
+    rarity.Rarity Rarity = 6;
+    uint32 ItemCategoryID = 7;
+    item_category.ItemCategory ItemCategory = 8;
+    int32 Value = 9;
+    uint32 MinIntellectLvl = 10;
+    uint32 Price = 11;
 }
 
 // GetAllItems
