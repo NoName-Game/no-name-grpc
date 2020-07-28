@@ -1,0 +1,58 @@
+syntax = "proto3";
+import public "rpc/player.proto";
+import public "google/protobuf/timestamp.proto";
+option go_package = "rpc";
+package player_state;
+
+message PlayerState {
+    uint32 ID = 1;
+    uint32 PlayerID = 2;
+    player.Player Player = 3;
+    string Controller = 4;
+    uint32 Father = 5;
+    string Payload = 6;
+    int32 Stage = 7;
+    bool ToNotify = 8;
+    bool Completed = 9;
+    google.protobuf.Timestamp FinishAt = 10;
+}
+
+// GetPlayerStateByID
+message GetPlayerStateByIDRequest {
+    uint32 ID = 1;
+}
+message GetPlayerStateByIDResponse {
+    PlayerState PlayerState = 1;
+}
+
+// GetPlayerStateToNotify
+message GetPlayerStateToNotifyRequest {
+    // Empty
+}
+message GetPlayerStateToNotifyResponse {
+    repeated PlayerState PlayerState = 1;
+}
+
+// CreatePlayerState
+message CreatePlayerStateRequest {
+    PlayerState PlayerState = 1;
+}
+message CreatePlayerStateResponse {
+    PlayerState PlayerState = 1;
+}
+
+// UpdatePlayerState
+message UpdatePlayerStateRequest {
+    PlayerState PlayerState = 1;
+}
+message UpdatePlayerStateResponse {
+    PlayerState PlayerState = 1;
+}
+
+// DeletePlayerState
+message DeletePlayerStateRequest {
+    PlayerState PlayerState = 1;
+}
+message DeletePlayerStateResponse {
+    PlayerState PlayerState = 1;
+}

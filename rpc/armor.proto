@@ -22,14 +22,14 @@ message Armor {
 }
 
 message GetArmorByIDRequest {
-    int32 id = 1;
+    int32 ID = 1;
 }
 message GetArmorByIDResponse {
     Armor Armor = 1;
 }
 
 message FindArmorByNameRequest {
-    string name = 1;
+    string Name = 1;
 }
 message FindArmorByNameResponse {
     Armor Armor = 1;

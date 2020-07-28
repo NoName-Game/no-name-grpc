@@ -2,7 +2,10 @@ syntax = "proto3";
 
 import public "rpc/armor.proto";
 import public "rpc/armor_category.proto";
+import public "rpc/weapon.proto";
+import public "rpc/weapon_category.proto";
 import public "rpc/player.proto";
+import public "rpc/player_state.proto";
 import public "rpc/enemy.proto";
 import public "rpc/item.proto";
 import public "rpc/item_category.proto";
@@ -10,6 +13,10 @@ import public "rpc/language.proto";
 import public "rpc/map.proto";
 import public "rpc/npc.proto";
 import public "rpc/planet.proto";
+import public "rpc/resource.proto";
+import public "rpc/ship.proto";
+import public "rpc/transaction.proto";
+import public "rpc/tresure.proto";
 
 // The greeting service definition.
 service NoName {
@@ -35,7 +42,14 @@ service NoName {
     rpc GetPlayerItems (player.GetPlayerItemsRequest) returns (player.GetPlayerItemsResponse) {}
     rpc GetPlayerEconomy (player.GetPlayerEconomyRequest) returns (player.GetPlayerEconomyResponse) {}
     rpc GetRestsInfo (player.GetRestsInfoRequest) returns (player.GetRestsInfoResponse) {}
-    rpc EndPlayerRest (playerEndPlayerRestRequest) returns (playerEndPlayerRestResponse) {}
+    rpc EndPlayerRest (player.EndPlayerRestRequest) returns (player.EndPlayerRestResponse) {}
+
+    // PlayerState
+    rpc GetPlayerStateByID (player_state.GetPlayerStateByIDRequest) returns (player_state.GetPlayerStateByIDResponse) {}
+    rpc GetPlayerStateToNotify (player_state.GetPlayerStateToNotifyRequest) returns (player_state.GetPlayerStateToNotifyResponse) {}
+    rpc CreatePlayerState (player_state.CreatePlayerStateRequest) returns (player_state.CreatePlayerStateResponse) {}
+    rpc UpdatePlayerState (player_state.UpdatePlayerStateRequest) returns (player_state.UpdatePlayerStateResponse) {}
+    rpc DeletePlayerState (player_state.DeletePlayerStateRequest) returns (player_state.DeletePlayerStateResponse) {}
 
     // Enemy
     rpc GetEnemyByID (enemy.GetEnemyByIDRequest) returns (enemy.GetEnemyByIDResponse) {}
@@ -63,6 +77,32 @@ service NoName {
     rpc Craft (npc.CraftRequest) returns (npc.CraftResponse) {}
 
     // Planet
-    rpc GetPlanetByCoordinate (npc.GetPlanetByCoordinateRequest) returns (npc.GetPlanetByCoordinateResponse) {}
+    rpc GetPlanetByCoordinate (planet.GetPlanetByCoordinateRequest) returns (planet.GetPlanetByCoordinateResponse) {}
+
+    // Resouce
+    rpc GetResourceByID (resource.GetResourceByIDRequest) returns (resource.GetResourceByIDResponse) {}
+    rpc GetResourceByName (resource.GetResourceByNameRequest) returns (resource.GetResourceByNameResponse) {}
+    rpc DropResource (resource.DropResourceRequest) returns (resource.DropResourceResponse) {}
+
+    // Ship
+    rpc GetShipRepairInfo (ship.GetShipRepairInfoRequest) returns (ship.GetShipRepairInfoResponse) {}
+    rpc StartShipRepair (ship.StartShipRepairRequest) returns (ship.StartShipRepairResponse) {}
+    rpc EndShipRepair (ship.EndShipRepairRequest) returns (ship.EndShipRepairResponse) {}
+    rpc GetShipExplorationInfo (ship.GetShipExplorationInfoRequest) returns (ship.GetShipExplorationInfoResponse) {}
+    rpc EndShipExploration (ship.EndShipExplorationRequest) returns (ship.EndShipExplorationResponse) {}
+
+    // Transaction
+    rpc CreateTransaction (transaction.CreateTransactionRequest) returns (transaction.CreateTransactionResponse) {}
+
+    // Tresure
+    rpc DropTresure (tresure.DropTresureRequest) returns (tresure.DropTresureResponse) {}
+
+    // Weapon
+    rpc GetWeaponByID (weapon.GetWeaponByIDRequest) returns (weapon.GetWeaponByIDResponse) {}
+    rpc FindWeaponByName (weapon.FindWeaponByNameRequest) returns (weapon.FindWeaponByNameResponse) {}
+    rpc UpdateWeapon (weapon.UpdateWeaponRequest) returns (weapon.UpdateWeaponResponse) {}
+
+    // ArmorCategory
+    rpc GetAllWeaponCategory (weapon_category.GetAllWeaponCategoryRequest) returns (weapon_category.GetAllWeaponCategoryResponse) {}
 
 }

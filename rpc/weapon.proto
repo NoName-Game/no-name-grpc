@@ -20,3 +20,24 @@ message Weapon {
     float Penetration = 12;
     uint32 Potential = 13;
 }
+
+message GetWeaponByIDRequest {
+    int32 ID = 1;
+}
+message GetWeaponByIDResponse {
+    Weapon Weapon = 1;
+}
+
+message FindWeaponByNameRequest {
+    string Name = 1;
+}
+message FindWeaponByNameResponse {
+    Weapon Weapon = 1;
+}
+
+message UpdateWeaponRequest {
+    Weapon Weapon = 1;
+}
+message UpdateWeaponResponse {
+    Weapon Weapon = 1;
+}

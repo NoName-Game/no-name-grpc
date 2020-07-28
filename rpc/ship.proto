@@ -3,6 +3,7 @@ import public "rpc/rarity.proto";
 import public "rpc/ship_category.proto";
 import public "rpc/ship_stats.proto";
 import public "rpc/player.proto";
+import public "rpc/planet.proto";
 option go_package = "rpc";
 package ship;
 
@@ -19,3 +20,58 @@ message Ship {
     ship_stats.ShipStats ShipStats = 10;
     bool Equipped = 11;
 }
+
+// GetShipRepairInfo
+message GetShipRepairInfoRequest {
+    Ship Ship = 1;
+}
+message GetShipRepairInfoResponse {
+    bool NeedRepairs = 1;
+    int32 RepairTime = 2;
+    int32 QuantityResources = 3;
+    string TypeResources = 4;
+}
+
+// StartShipRepair
+message StartShipRepairRequest {
+    Ship Ship = 1;
+}
+message StartShipRepair {
+    uint32 ResourceID = 1;
+    int32 Quantity = 2;
+}
+message StartShipRepairResponse {
+     repeated StartShipRepair StartShipRepair = 1;
+}
+
+// StartShipRepair
+message EndShipRepairRequest {
+    Ship Ship = 1;
+}
+message EndShipRepairResponse {
+    // Empty
+}
+
+// GetShipExplorationInfo
+message GetShipExplorationInfoRequest {
+    Ship Ship = 1;
+}
+message GetShipExplorationInfo {
+    planet.Planet  Planet = 1;
+    double Distance = 2;
+    int32 Time = 3;
+    double Fuel = 4;
+    uint32 Integrity = 5;
+}
+message GetShipExplorationInfoResponse {
+    repeated GetShipExplorationInfo GetShipExplorationInfo = 1;
+}
+
+// EndShipExploration
+message EndShipExplorationRequest {
+    // TODO: Da verificare
+}
+message EndShipExplorationResponse {
+    // TODO: Da verificare
+}
+

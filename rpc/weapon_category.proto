@@ -7,3 +7,10 @@ message WeaponCategory {
     string Name = 2;
     string Slug = 3;
 }
+
+message GetAllWeaponCategoryRequest {
+    // Empty
+}
+message GetAllWeaponCategoryResponse {
+    repeated WeaponCategory WeaponCategories = 1;
+}

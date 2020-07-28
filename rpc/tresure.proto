@@ -1,7 +1,16 @@
 syntax = "proto3";
 import public "rpc/rarity.proto";
+import public "rpc/item.proto";
+import public "rpc/resource.proto";
+import public "rpc/transaction.proto";
 option go_package = "rpc";
 package tresure;
+
+message Trap {
+    uint32 ID = 1;
+    int32 Damage = 2;
+    bool PlayerDie = 3;
+}
 
 message Tresure {
     uint32 ID = 1;
@@ -10,4 +19,16 @@ message Tresure {
     int32 PositionY = 5;
     uint32 RarityID = 6;
     rarity.Rarity Rarity = 7;
+}
+
+// DropTresure
+message DropTresureRequest {
+    uint32 TresureID = 1;
+    uint32 PlayerID = 2;
+}
+message DropTresureResponse {
+    item.Item Item = 1;
+    resource.Resource Resource = 2;
+    transaction.Transaction Transaction = 3;
+    Trap Trap = 4;
 }
