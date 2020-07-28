@@ -1,29 +1,43 @@
 syntax = "proto3";
-
+import public "rpc/rarity.proto";
+import public "rpc/armor_category.proto";
+import public "rpc/player.proto";
 option go_package = "rpc";
-
 package armor;
 
+message Armor {
+    uint32 ID = 1;
+    string Name = 2;
+    uint32 RarityID = 3;
+    rarity.Rarity Rarity = 4;
+    uint32 ArmorCategoryID = 5;
+    armor_category.ArmorCategory ArmorCategory = 6;
+    uint32 PlayerID = 7;
+    player.Player Player = 8;
+    bool Equipped = 9;
+    float Defense = 10;
+    float Evasion = 11;
+    float Halving = 12;
+    uint32 Potential = 13;
+}
 
 message GetArmorByIDRequest {
     int32 id = 1;
 }
 message GetArmorByIDResponse {
-    // Passare tutta la struttura armor
-    bool equipped = 1;
+    Armor Armor = 1;
 }
-
 
 message FindArmorByNameRequest {
     string name = 1;
 }
 message FindArmorByNameResponse {
-    //
+    Armor Armor = 1;
 }
 
 message UpdateArmorRequest {
-    // Passare tutta la struttura armor
+    Armor Armor = 1;
 }
 message UpdateArmorResponse {
-    //
+    Armor Armor = 1;
 }

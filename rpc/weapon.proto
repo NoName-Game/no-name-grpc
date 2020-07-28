@@ -1,0 +1,22 @@
+syntax = "proto3";
+import public "rpc/rarity.proto";
+import public "rpc/weapon_category.proto";
+import public "rpc/player.proto";
+option go_package = "rpc";
+package weapon;
+
+message Weapon {
+    uint32 ID = 1;
+    string Name = 2;
+    float RawDamage = 3;
+    uint32 PlayerID = 4;
+    player.Player Player = 5;
+    bool Equipped = 6;
+    uint32 RarityID = 7;
+    rarity.Rarity Rarity = 8;
+    uint32 WeaponCategoryID = 9;
+    weapon_category.WeaponCategory WeaponCategory = 10;
+    float Precision = 11;
+    float Penetration = 12;
+    uint32 Potential = 13;
+}

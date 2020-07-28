@@ -1,14 +1,24 @@
 syntax = "proto3";
-
+import public "rpc/language.proto";
 option go_package = "rpc";
-
 package player;
 
-// The greeting service definition.
-//service Player {
-//    // Sends a greeting
-//    rpc GetMoney (GetMoneyRequest) returns (GetMoneyResponse) {}
-//}
+message Player {
+    uint32 ID = 1;
+    string Username = 2;
+    int64 ChatID = 3;
+//    States       PlayerStates
+//    Planets      Planets
+//    Positions    PlayerPositions
+//    Ships        Ships
+//    Weapons      Weapons
+//    Armors       Armors
+//    Stats        PlayerStats
+    uint32 LanguageID = 4;
+    language.Language Language = 5;
+//    Transactions Transactions
+    bool banned = 6;
+}
 
 // The request message containing the user's name.
 message GetMoneyRequest {

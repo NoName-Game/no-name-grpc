@@ -1,0 +1,44 @@
+syntax = "proto3";
+import public "rpc/item_category.proto";
+option go_package = "rpc";
+package item;
+
+message Item {
+    uint32 ID = 1;
+    string Name = 2;
+    string Slug = 3;
+    uint32 RecipeID = 4;
+    // TODO: Recipe Recipe
+    uint32 RarityID = 5;
+    // TODO: Rarity Rarity
+    uint32 ItemCategoryID = 6;
+    item_category.ItemCategory ItemCategory = 7;
+    int32 Value = 8;
+    uint32 MinIntellectLvl = 9;
+    uint32 Price = 10;
+}
+
+// GetAllItems
+message GetAllItemsRequest {
+    // Empty
+}
+message GetAllItemsResponse {
+    repeated Item Item = 1;
+}
+
+// GetItemByCategoryID
+message GetItemByCategoryIDRequest {
+    uint32 categoryID = 1;
+}
+message GetItemByCategoryIDResponse {
+    repeated Item Item = 1;
+}
+
+// UseItem
+message UseItemRequest {
+    uint32 PlayerID = 1;
+    uint32 ItemID = 2;
+}
+message UseItemResponse {
+    // Empty
+}

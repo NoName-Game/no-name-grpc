@@ -1,0 +1,13 @@
+syntax = "proto3";
+import public "rpc/rarity.proto";
+option go_package = "rpc";
+package tresure;
+
+message Tresure {
+    uint32 ID = 1;
+    uint32 MapID = 3;
+    int32 PositionX = 4;
+    int32 PositionY = 5;
+    uint32 RarityID = 6;
+    rarity.Rarity Rarity = 7;
+}

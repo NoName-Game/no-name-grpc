@@ -1,0 +1,33 @@
+syntax = "proto3";
+option go_package = "rpc";
+package language;
+
+message Language {
+    uint32 ID = 1;
+    string Name = 2;
+    string Slug = 3;
+}
+
+// FindLanguageBySlug
+message FindLanguageBySlugRequest {
+    string Slug = 1;
+}
+message FindLanguageBySlugResponse {
+    Language Language = 1;
+}
+
+// FindLanguageBySlug
+message FindLanguageByRequest {
+    string Value = 1;
+}
+message FindLanguageByResponse {
+    Language Language = 1;
+}
+
+// GetLanguages
+message GetLanguagesRequest {
+    // Empty
+}
+message GetLanguagesResponse {
+    repeated Language Language = 1;
+}

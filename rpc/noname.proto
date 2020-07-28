@@ -1,10 +1,14 @@
 syntax = "proto3";
 
 import public "rpc/armor.proto";
+import public "rpc/armor_category.proto";
 import public "rpc/player.proto";
-
-
-//option go_package = "rpc";
+import public "rpc/enemy.proto";
+import public "rpc/item.proto";
+import public "rpc/item_category.proto";
+import public "rpc/language.proto";
+import public "rpc/map.proto";
+import public "rpc/npc.proto";
 
 // The greeting service definition.
 service NoName {
@@ -13,8 +17,34 @@ service NoName {
     rpc FindArmorByName (armor.FindArmorByNameRequest) returns (armor.FindArmorByNameResponse) {}
     rpc UpdateArmor (armor.UpdateArmorRequest) returns (armor.UpdateArmorResponse) {}
 
+    // ArmorCategory
+    rpc GetAllArmorCategory (armor_category.GetAllArmorCategoryRequest) returns (armor_category.GetAllArmorCategoryResponse) {}
+
     // Player
     rpc GetMoney (player.GetMoneyRequest) returns (player.GetMoneyResponse) {}
+
+    // Enemy
+    rpc GetEnemyByID (enemy.GetEnemyByIDRequest) returns (enemy.GetEnemyByIDResponse) {}
+    rpc HitEnemy (enemy.HitEnemyRequest) returns (enemy.HitEnemyResponse) {}
+
+    // Item
+    rpc GetAllItems (item.GetAllItemsRequest) returns (item.GetAllItemsResponse) {}
+    rpc GetItemByCategoryID (item.GetItemByCategoryIDRequest) returns (item.GetItemByCategoryIDResponse) {}
+    rpc UseItem (item.UseItemRequest) returns (item.UseItemResponse) {}
+
+    // ItemCateogory
+    rpc GetAllItemCategories (item_category.GetAllItemCategoriesRequest) returns (item_category.GetAllItemCategoriesResponse) {}
+
+    // Language
+    rpc FindLanguageBySlug (language.FindLanguageBySlugRequest) returns (language.FindLanguageBySlugResponse) {}
+    rpc FindLanguageBy (language.FindLanguageByRequest) returns (language.FindLanguageByResponse) {}
+    rpc GetLanguages (language.GetLanguagesRequest) returns (language.GetLanguagesResponse) {}
+
+    // Map
+    rpc GetMapByID (map.GetMapByIDRequest) returns (map.GetMapByIDResponse) {}
+
+    // NPC
+    rpc GetAll (npc.GetAllRequest) returns (npc.GetAllResponse) {}
+    rpc Bank (npc.BankRequest) returns (npc.BankResponse) {}
+    rpc Craft (npc.CraftRequest) returns (npc.CraftResponse) {}
 }
-
-
