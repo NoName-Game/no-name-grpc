@@ -1,0 +1,11 @@
+syntax = "proto3";
+option go_package = "rpc";
+package player_position;
+
+message PlayerPosition {
+    uint32 ID = 1;
+    uint32 PlayerID = 2;
+    double X = 3;
+    double Y = 4;
+    double Z = 5;
+}

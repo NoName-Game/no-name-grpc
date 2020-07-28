@@ -1,5 +1,10 @@
 syntax = "proto3";
 import public "rpc/language.proto";
+import public "rpc/player_stats.proto";
+import public "rpc/armor.proto";
+import public "rpc/weapon.proto";
+import public "rpc/ship.proto";
+import public "rpc/player_position.proto";
 option go_package = "rpc";
 package player;
 
@@ -13,19 +18,95 @@ message Player {
 //    Ships        Ships
 //    Weapons      Weapons
 //    Armors       Armors
-//    Stats        PlayerStats
-    uint32 LanguageID = 4;
-    language.Language Language = 5;
+    player_stats.PlayerStats Stats = 4;
+    uint32 LanguageID = 5;
+    language.Language Language = 6;
 //    Transactions Transactions
-    bool banned = 6;
+    bool banned = 7;
 }
 
-// The request message containing the user's name.
-message GetMoneyRequest {
-    string name = 1;
+// GetPlayerByID
+message GetPlayerByIDRequest {
+    uint32 ID = 1;
+}
+message GetPlayerByIDResponse {
+    Player Player = 1;
 }
 
-// The response message containing the greetings
-message GetMoneyResponse {
-    string message = 1;
+// FindPlayerByUsername
+message FindPlayerByUsernameRequest {
+    string Username = 1;
+}
+message FindPlayerByUsernameResponse {
+    Player Player = 1;
+}
+
+// GetPlayerStats
+message GetPlayerStatsRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerStatsResponse {
+    player_stats.PlayerStats PlayerStats = 1;
+}
+
+// GetPlayerArmors
+message GetPlayerArmorsRequest {
+    uint32 PlayerID = 1;
+    bool Equipped = 2;
+}
+message GetPlayerArmorsResponse {
+    repeated armor.Armor Armors = 1;
+}
+
+// GetPlayerWeapons
+message GetPlayerWeaponsRequest {
+    uint32 PlayerID = 1;
+    bool Equipped = 2;
+}
+message GetPlayerWeaponsResponse {
+    repeated weapon.Weapon Weapons = 1;
+}
+
+// GetPlayerShips
+message GetPlayerShipsRequest {
+    uint32 PlayerID = 1;
+    bool Equipped = 2;
+}
+message GetPlayerShipsResponse {
+    repeated ship.Ship Ships = 1;
+}
+
+// GetPlayerLastPosition
+message GetPlayerLastPositionRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerLastPositionResponse {
+    player_position.PlayerPosition PlayerPosition = 1;
+}
+
+// SignIn
+message SignInRequest {
+    Player Player = 1;
+}
+message SignInResponse {
+    Player Player = 1;
+}
+
+// ManagePlayerInventory
+message ManagePlayerInventoryRequest {
+    uint32 PlayerID = 1;
+    uint32 ItemID = 2;
+    string ItemType = 3;
+    int32 Quantity = 4;
+}
+message ManagePlayerInventoryResponse {
+    // Empty
+}
+
+// GetPlayerResources
+message GetPlayerResourcesRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerResourcesResponse {
+    // TODO: continuare qui
 }

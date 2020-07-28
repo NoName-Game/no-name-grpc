@@ -1,0 +1,21 @@
+syntax = "proto3";
+import public "rpc/rarity.proto";
+import public "rpc/ship_category.proto";
+import public "rpc/ship_stats.proto";
+import public "rpc/player.proto";
+option go_package = "rpc";
+package ship;
+
+message Ship {
+    uint32 ID = 1;
+    string Name = 2;
+    uint32 PlayerID = 3;
+    player.Player Player = 4;
+    uint32 RarityID = 5;
+    rarity.Rarity Rarity = 6;
+    uint32 ShipCategoryID = 7;
+    ship_category.ShipCategory ShipCategory = 8;
+    uint32 ShipStatsID = 9;
+    ship_stats.ShipStats ShipStats = 10;
+    bool Equipped = 11;
+}

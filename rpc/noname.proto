@@ -22,7 +22,20 @@ service NoName {
     rpc GetAllArmorCategory (armor_category.GetAllArmorCategoryRequest) returns (armor_category.GetAllArmorCategoryResponse) {}
 
     // Player
-    rpc GetMoney (player.GetMoneyRequest) returns (player.GetMoneyResponse) {}
+    rpc GetPlayerByID (player.GetPlayerByIDRequest) returns (player.GetPlayerByIDResponse) {}
+    rpc FindPlayerByUsername (player.FindPlayerByUsernameRequest) returns (player.FindPlayerByUsernameResponse) {}
+    rpc GetPlayerStats (player.GetPlayerStatsRequest) returns (player.GetPlayerStatsResponse) {}
+    rpc GetPlayerArmors (player.GetPlayerArmorsRequest) returns (player.GetPlayerArmorsResponse) {}
+    rpc GetPlayerWeapons (player.GetPlayerWeaponsRequest) returns (player.GetPlayerWeaponsResponse) {}
+    rpc GetPlayerShips (player.GetPlayerShipsRequest) returns (player.GetPlayerShipsResponse) {}
+    rpc GetPlayerLastPosition (player.GetPlayerLastPositionRequest) returns (player.GetPlayerLastPositionResponse) {}
+    rpc SignIn (player.SignInRequest) returns (player.SignInResponse) {}
+    rpc ManagePlayerInventory (player.ManagePlayerInventoryRequest) returns (player.ManagePlayerInventoryResponse) {}
+    rpc GetPlayerResources (player.GetPlayerResourcesRequest) returns (player.GetPlayerResourcesResponse) {}
+    rpc GetPlayerItems (player.GetPlayerItemsRequest) returns (player.GetPlayerItemsResponse) {}
+    rpc GetPlayerEconomy (player.GetPlayerEconomyRequest) returns (player.GetPlayerEconomyResponse) {}
+    rpc GetRestsInfo (player.GetRestsInfoRequest) returns (player.GetRestsInfoResponse) {}
+    rpc EndPlayerRest (playerEndPlayerRestRequest) returns (playerEndPlayerRestResponse) {}
 
     // Enemy
     rpc GetEnemyByID (enemy.GetEnemyByIDRequest) returns (enemy.GetEnemyByIDResponse) {}
