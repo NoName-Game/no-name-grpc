@@ -10,7 +10,7 @@ import public "rpc/enemy.proto";
 import public "rpc/item.proto";
 import public "rpc/item_category.proto";
 import public "rpc/language.proto";
-import public "rpc/map.proto";
+import public "rpc/maps.proto";
 import public "rpc/npc.proto";
 import public "rpc/planet.proto";
 import public "rpc/resource.proto";
@@ -69,7 +69,7 @@ service NoName {
     rpc GetLanguages (language.GetLanguagesRequest) returns (language.GetLanguagesResponse) {}
 
     // Map
-    rpc GetMapByID (map.GetMapByIDRequest) returns (map.GetMapByIDResponse) {}
+    rpc GetMapByID (maps.GetMapByIDRequest) returns (maps.GetMapByIDResponse) {}
 
     // NPC
     rpc GetAll (npc.GetAllRequest) returns (npc.GetAllResponse) {}

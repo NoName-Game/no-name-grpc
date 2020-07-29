@@ -1,11 +1,11 @@
 syntax = "proto3";
-import public "rpc/language.proto";
-import public "rpc/player_stats.proto";
-import public "rpc/armor.proto";
-import public "rpc/weapon.proto";
-import public "rpc/ship.proto";
-import public "rpc/player_position.proto";
-import public "rpc/player_inventory.proto";
+import "rpc/language.proto";
+import "rpc/player_stats.proto";
+import "rpc/armor.proto";
+import "rpc/weapon.proto";
+import "rpc/ship.proto";
+import "rpc/player_position.proto";
+import "rpc/player_inventory.proto";
 option go_package = "rpc";
 package player;
 
