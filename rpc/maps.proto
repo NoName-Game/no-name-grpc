@@ -15,7 +15,7 @@ message Maps {
 
 // GetMapByID
 message GetMapByIDRequest {
-    int32 ID = 1;
+    uint32 ID = 1;
 }
 message GetMapByIDResponse {
     Maps Maps = 1;

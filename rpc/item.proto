@@ -1,6 +1,7 @@
 syntax = "proto3";
 import public "rpc/item_category.proto";
 import public "rpc/rarity.proto";
+import public "rpc/recipe.proto";
 option go_package = "rpc";
 package item;
 
@@ -9,14 +10,14 @@ message Item {
     string Name = 2;
     string Slug = 3;
     uint32 RecipeID = 4;
-    // TODO: Recipe Recipe
-    uint32 RarityID = 5;
-    rarity.Rarity Rarity = 6;
-    uint32 ItemCategoryID = 7;
-    item_category.ItemCategory ItemCategory = 8;
-    int32 Value = 9;
-    uint32 MinIntellectLvl = 10;
-    uint32 Price = 11;
+    recipe.Recipe Recipe = 5;
+    uint32 RarityID = 6;
+    rarity.Rarity Rarity = 7;
+    uint32 ItemCategoryID = 8;
+    item_category.ItemCategory ItemCategory = 9;
+    int32 Value = 10;
+    uint32 MinIntellectLvl = 11;
+    uint32 Price = 12;
 }
 
 // GetAllItems

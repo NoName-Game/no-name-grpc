@@ -6,6 +6,7 @@ import "rpc/weapon.proto";
 import "rpc/ship.proto";
 import "rpc/player_position.proto";
 import "rpc/player_inventory.proto";
+import "rpc/player_state.proto";
 option go_package = "rpc";
 package player;
 
@@ -13,17 +14,17 @@ message Player {
     uint32 ID = 1;
     string Username = 2;
     int64 ChatID = 3;
-//    States       PlayerStates
+    repeated player_state.PlayerState States = 4;
+    repeated weapon.Weapon Weapons = 5;
 //    Planets      Planets
 //    Positions    PlayerPositions
 //    Ships        Ships
-//    Weapons      Weapons
 //    Armors       Armors
-    player_stats.PlayerStats Stats = 4;
-    uint32 LanguageID = 5;
-    language.Language Language = 6;
+    player_stats.PlayerStats Stats = 6;
+    uint32 LanguageID = 7;
+    language.Language Language = 8;
 //    Transactions Transactions
-    bool banned = 7;
+    bool banned = 9;
 }
 
 // GetPlayerByID

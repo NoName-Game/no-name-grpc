@@ -1,5 +1,4 @@
 syntax = "proto3";
-import public "rpc/player.proto";
 import public "google/protobuf/timestamp.proto";
 option go_package = "rpc";
 package player_state;
@@ -7,14 +6,13 @@ package player_state;
 message PlayerState {
     uint32 ID = 1;
     uint32 PlayerID = 2;
-    player.Player Player = 3;
-    string Controller = 4;
-    uint32 Father = 5;
-    string Payload = 6;
-    int32 Stage = 7;
-    bool ToNotify = 8;
-    bool Completed = 9;
-    google.protobuf.Timestamp FinishAt = 10;
+    string Controller = 3;
+    uint32 Father = 4;
+    string Payload = 5;
+    int32 Stage = 6;
+    bool ToNotify = 7;
+    bool Completed = 8;
+    google.protobuf.Timestamp FinishAt = 9;
 }
 
 // GetPlayerStateByID

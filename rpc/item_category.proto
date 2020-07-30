@@ -10,8 +10,7 @@ message ItemCategory {
 
 // GetAllItemCategories
 message GetAllItemCategoriesRequest {
-    uint32 PlayerID = 1;
-    uint32 ItemID = 2;
+    // Empty
 }
 message GetAllItemCategoriesResponse {
     repeated ItemCategory ItemCategory = 1;

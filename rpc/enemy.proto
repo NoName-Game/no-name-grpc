@@ -17,7 +17,7 @@ message Enemy {
 
 // GetEnemyByID
 message GetEnemyByIDRequest {
-    int32 id = 1;
+    uint32 ID = 1;
 }
 message GetEnemyByIDResponse {
     Enemy Enemy = 1;
@@ -25,7 +25,7 @@ message GetEnemyByIDResponse {
 
 // HitEnemy
 message HitEnemyRequest {
-    int32 EnemyID = 1;
+    uint32 EnemyID = 1;
     uint32 PlayerID = 2;
     int32 PlayerPositionX = 3;
     int32 PlayerPositionY = 4;
