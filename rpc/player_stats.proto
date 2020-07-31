@@ -6,7 +6,7 @@ message PlayerStats {
     uint32 ID = 1;
     uint32 PlayerID = 2;
     bool Dead = 3;
-    uint32 LifePoint = 4;
+    int32 LifePoint = 4;
     uint32 Experience = 5;
     uint32 Level = 6;
     uint32 Strength = 7;
