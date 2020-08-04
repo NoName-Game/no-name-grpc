@@ -17,17 +17,17 @@ message FindLanguageBySlugResponse {
 }
 
 // FindLanguageBySlug
-message FindLanguageByRequest {
-    string Value = 1;
+message FindLanguageByNameRequest {
+    string Name = 1;
 }
-message FindLanguageByResponse {
+message FindLanguageByNameResponse {
     Language Language = 1;
 }
 
 // GetLanguages
-message GetLanguagesRequest {
+message GetAllLanguagesRequest {
     // Empty
 }
-message GetLanguagesResponse {
-    repeated Language Language = 1;
+message GetAllLanguagesResponse {
+    repeated Language Languages = 1;
 }

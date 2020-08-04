@@ -20,7 +20,7 @@ message Weapon {
 }
 
 message GetWeaponByIDRequest {
-    int32 ID = 1;
+    uint32 ID = 1;
 }
 message GetWeaponByIDResponse {
     Weapon Weapon = 1;
@@ -37,5 +37,5 @@ message UpdateWeaponRequest {
     Weapon Weapon = 1;
 }
 message UpdateWeaponResponse {
-    Weapon Weapon = 1;
+    // Empty
 }

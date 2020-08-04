@@ -28,7 +28,7 @@ message GetPlayerStateToNotifyRequest {
     // Empty
 }
 message GetPlayerStateToNotifyResponse {
-    repeated PlayerState PlayerState = 1;
+    repeated PlayerState PlayerStates = 1;
 }
 
 // CreatePlayerState

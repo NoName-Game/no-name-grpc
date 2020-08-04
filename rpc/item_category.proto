@@ -13,5 +13,5 @@ message GetAllItemCategoriesRequest {
     // Empty
 }
 message GetAllItemCategoriesResponse {
-    repeated ItemCategory ItemCategory = 1;
+    repeated ItemCategory ItemCategories = 1;
 }

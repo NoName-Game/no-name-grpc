@@ -19,12 +19,12 @@ message Player {
 //    Planets      Planets
 //    Positions    PlayerPositions
 //    Ships        Ships
-//    Armors       Armors
-    player_stats.PlayerStats Stats = 6;
-    uint32 LanguageID = 7;
-    language.Language Language = 8;
+    repeated armor.Armor Armors = 6;
+    player_stats.PlayerStats Stats = 7;
+    uint32 LanguageID = 8;
+    language.Language Language = 9;
 //    Transactions Transactions
-    bool banned = 9;
+    bool banned = 10;
 }
 
 // GetPlayerByID
@@ -36,10 +36,10 @@ message GetPlayerByIDResponse {
 }
 
 // FindPlayerByUsername
-message FindPlayerByUsernameRequest {
+message GetPlayerByUsernameRequest {
     string Username = 1;
 }
-message FindPlayerByUsernameResponse {
+message GetPlayerByUsernameResponse {
     Player Player = 1;
 }
 

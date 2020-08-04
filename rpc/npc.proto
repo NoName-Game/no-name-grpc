@@ -16,10 +16,10 @@ message NPC {
 }
 
 // GetMapByID
-message GetAllRequest {
+message GetAllNPCRequest {
     int32 ID = 1;
 }
-message GetAllResponse {
+message GetAllNPCResponse {
     repeated NPC NPCs = 1;
 }
 

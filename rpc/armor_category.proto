@@ -12,5 +12,5 @@ message GetAllArmorCategoryRequest {
     // Empty
 }
 message GetAllArmorCategoryResponse {
-    repeated ArmorCategory ArmorCategory = 1;
+    repeated ArmorCategory ArmorCategories = 1;
 }

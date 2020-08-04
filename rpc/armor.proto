@@ -37,5 +37,5 @@ message UpdateArmorRequest {
     Armor Armor = 1;
 }
 message UpdateArmorResponse {
-    Armor Armor = 1;
+    // Empty
 }

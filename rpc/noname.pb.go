@@ -28,83 +28,83 @@ func init() { proto.RegisterFile("rpc/noname.proto", fileDescriptor_5f9649581b23
 
 var fileDescriptor_5f9649581b23721b = []byte{
 	// 1231 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x58, 0x59, 0x77, 0xdc, 0x34,
-	0x14, 0x2e, 0xd0, 0xa6, 0x45, 0x69, 0x36, 0x35, 0xfb, 0xd2, 0xb4, 0x49, 0x17, 0x4e, 0x17, 0xc3,
-	0xa1, 0x2f, 0xf0, 0xc0, 0x43, 0x27, 0x93, 0x86, 0x81, 0x36, 0x98, 0x49, 0x42, 0xe1, 0x1c, 0xa0,
-	0x47, 0x4c, 0x94, 0xa9, 0x0f, 0x33, 0xb6, 0x6b, 0x69, 0x80, 0xf9, 0x79, 0xfc, 0xb3, 0x1e, 0x2d,
-	0xf7, 0x4a, 0xb6, 0x65, 0x27, 0x6f, 0xa3, 0xef, 0xfb, 0xee, 0x77, 0x25, 0x59, 0xcb, 0xd5, 0x90,
-	0xc5, 0x22, 0x1f, 0x7c, 0x99, 0x66, 0x29, 0x1b, 0xf3, 0x28, 0x2f, 0x32, 0x99, 0x6d, 0x2e, 0x28,
-	0x84, 0x15, 0xe3, 0xac, 0xb0, 0xc0, 0x3a, 0x02, 0xef, 0x06, 0x4c, 0xf2, 0x61, 0x56, 0x4c, 0x2d,
-	0xa3, 0x83, 0xff, 0xe5, 0x2c, 0xcf, 0x52, 0x8b, 0x6c, 0x38, 0x24, 0x28, 0xce, 0x47, 0x6c, 0xca,
-	0xc1, 0x78, 0xd5, 0x21, 0xef, 0x84, 0x64, 0xb2, 0xd4, 0x03, 0x9e, 0xf2, 0x31, 0x84, 0xce, 0x2b,
-	0x20, 0x91, 0x7c, 0x6c, 0xdb, 0x6b, 0xd0, 0xae, 0xe6, 0xa0, 0x8a, 0x18, 0xb1, 0x74, 0x38, 0x61,
-	0x43, 0xee, 0x07, 0x8f, 0x59, 0x2e, 0x6c, 0x7b, 0x4e, 0x8f, 0x38, 0x1f, 0x54, 0xba, 0x95, 0x72,
-	0xe9, 0x9b, 0x14, 0x5c, 0x64, 0x93, 0x62, 0x50, 0x32, 0x11, 0xef, 0x93, 0xdc, 0xb6, 0x57, 0x54,
-	0x5b, 0x16, 0x2c, 0x15, 0x6c, 0x20, 0x13, 0x1c, 0xfe, 0x92, 0x81, 0xb9, 0x98, 0x14, 0x36, 0xf2,
-	0xeb, 0xff, 0xf7, 0xc8, 0xcc, 0x71, 0x76, 0xcc, 0xc6, 0x9c, 0xf6, 0xc8, 0xed, 0x23, 0x2e, 0x5f,
-	0xaa, 0x99, 0xec, 0x4c, 0x7b, 0x5d, 0xba, 0x19, 0x99, 0x69, 0xf6, 0xc1, 0x3e, 0xff, 0x30, 0xe1,
-	0x42, 0x6e, 0x6e, 0x05, 0x39, 0x91, 0x67, 0xa9, 0xe0, 0x7b, 0xd7, 0x68, 0x9f, 0x2c, 0xbc, 0x4a,
-	0xd2, 0x73, 0x4b, 0x69, 0xf7, 0x1d, 0x1b, 0x51, 0xc1, 0xc1, 0xf0, 0x6e, 0x13, 0x8d, 0x9e, 0xaf,
-	0xc8, 0xec, 0x59, 0x7e, 0xce, 0x24, 0xd7, 0x34, 0xdd, 0xb0, 0x01, 0x1e, 0x06, 0x5e, 0x9b, 0x21,
-	0x0a, 0x7d, 0x72, 0x72, 0x47, 0xf5, 0x7a, 0x34, 0xd2, 0xc4, 0x81, 0xfd, 0x42, 0xf4, 0x49, 0x54,
-	0x59, 0x43, 0x01, 0x11, 0x24, 0x78, 0x7a, 0x25, 0x2d, 0x66, 0x3c, 0x26, 0x73, 0x47, 0x5c, 0xc6,
-	0x7a, 0x25, 0xe9, 0x99, 0xdd, 0x8e, 0xec, 0x42, 0x2b, 0xc1, 0xe0, 0xbe, 0xd3, 0xc0, 0xa2, 0xdf,
-	0x80, 0x2c, 0xab, 0x69, 0x02, 0xee, 0x4c, 0xf0, 0x42, 0x6d, 0x10, 0xba, 0x0f, 0x81, 0x21, 0x16,
-	0xdc, 0x1f, 0xb4, 0x8b, 0x30, 0xc9, 0xcf, 0x64, 0x1e, 0xf3, 0x9f, 0x48, 0x26, 0x05, 0xad, 0xf7,
-	0x4b, 0xe3, 0xee, 0x0b, 0x36, 0xd0, 0x68, 0x79, 0x4a, 0x16, 0x90, 0xd3, 0x73, 0x25, 0x68, 0x3d,
-	0xc8, 0x10, 0x60, 0xba, 0xdb, 0xc8, 0xa3, 0xeb, 0x5b, 0xb2, 0x88, 0xe4, 0x5b, 0xbd, 0xb5, 0x05,
-	0xad, 0x87, 0x59, 0x06, 0x7c, 0xef, 0x35, 0x0b, 0xc2, 0x33, 0xf0, 0x3e, 0xc9, 0x83, 0x33, 0xa0,
-	0xf0, 0x96, 0x19, 0x30, 0x34, 0x5a, 0x5e, 0x90, 0x15, 0xe4, 0x5e, 0x33, 0x21, 0xe3, 0x4c, 0x24,
-	0x6a, 0x7f, 0xd2, 0x07, 0xb5, 0x50, 0x9f, 0x86, 0x04, 0x0f, 0x2f, 0x51, 0x61, 0x9e, 0x6f, 0xc9,
-	0xcc, 0x49, 0x32, 0x4c, 0x7b, 0x29, 0x5d, 0x81, 0x10, 0xd3, 0x06, 0xa7, 0xd5, 0x2a, 0xec, 0x77,
-	0xf1, 0x0d, 0x4b, 0xd9, 0x90, 0x9b, 0x04, 0xbd, 0xf4, 0x1f, 0x9e, 0x4a, 0xb5, 0x41, 0xb0, 0x8b,
-	0x41, 0xba, 0xd6, 0xc5, 0x06, 0x15, 0xe6, 0xf9, 0x83, 0x50, 0x1c, 0x45, 0xdf, 0x9e, 0x66, 0x82,
-	0xde, 0xaf, 0x8d, 0x10, 0x39, 0xc8, 0xb0, 0xd7, 0x26, 0x09, 0x7e, 0xbc, 0x9e, 0xe4, 0xe3, 0xd0,
-	0xc7, 0xd3, 0x78, 0xf3, 0xc7, 0xb3, 0x74, 0x70, 0xa1, 0x1d, 0x0e, 0xb2, 0x34, 0x1b, 0x4f, 0x03,
-	0x0b, 0xcd, 0x32, 0xcd, 0x0b, 0x0d, 0x05, 0x68, 0xfc, 0xa3, 0x3e, 0x78, 0xfb, 0x5c, 0x48, 0xd1,
-	0x4b, 0x2f, 0x32, 0xba, 0xe5, 0xc5, 0x20, 0x0a, 0x86, 0xdb, 0x61, 0xd2, 0x3f, 0x6c, 0x0e, 0x61,
-	0x63, 0x2b, 0xde, 0x1d, 0x36, 0x25, 0xb8, 0x76, 0xd8, 0x54, 0x58, 0xf4, 0x4b, 0xbc, 0xef, 0xa4,
-	0x36, 0x34, 0xd7, 0x27, 0xd8, 0xe3, 0xa8, 0x74, 0x31, 0xd6, 0x15, 0xe0, 0xff, 0xc5, 0xe5, 0x42,
-	0x4c, 0x35, 0x21, 0xab, 0x65, 0xfe, 0x34, 0x3b, 0xce, 0x64, 0x72, 0x31, 0xa5, 0x4f, 0xdb, 0x5c,
-	0x40, 0x05, 0x29, 0x9f, 0x5d, 0x4d, 0xec, 0xad, 0xf8, 0xa5, 0x83, 0x82, 0x33, 0xc9, 0x3d, 0x19,
-	0x7d, 0x54, 0x36, 0xa9, 0x09, 0x20, 0xd9, 0xe3, 0x4b, 0x75, 0x7e, 0x1e, 0x73, 0x23, 0xb5, 0xe4,
-	0xa9, 0x09, 0x1a, 0xf2, 0x04, 0x74, 0x7e, 0x9e, 0x2e, 0x1f, 0xf1, 0xd6, 0x3c, 0x35, 0x41, 0x43,
-	0x9e, 0x80, 0x0e, 0xf3, 0x98, 0x7a, 0xe1, 0x50, 0x15, 0x42, 0xb6, 0x5e, 0x30, 0x45, 0x91, 0x0f,
-	0xba, 0x7a, 0x21, 0xc4, 0xa1, 0xd5, 0x77, 0xe4, 0xd6, 0xf7, 0x89, 0x61, 0xe8, 0xaa, 0x95, 0x02,
-	0x00, 0x16, 0x6b, 0x35, 0x1c, 0xc3, 0xbb, 0x64, 0xd6, 0xdc, 0xc0, 0x66, 0xa7, 0xaf, 0x47, 0xba,
-	0x18, 0xf3, 0x20, 0xf0, 0xd8, 0x08, 0x30, 0xe8, 0xf2, 0xbb, 0x2e, 0x0c, 0x14, 0xda, 0x99, 0xc2,
-	0x2d, 0xde, 0xeb, 0xd2, 0x7b, 0x18, 0x53, 0xa5, 0xc0, 0xf5, 0x7e, 0x8b, 0x02, 0xdd, 0xbf, 0x21,
-	0x37, 0xcf, 0x04, 0x57, 0x02, 0xba, 0x6c, 0xf4, 0xb6, 0x09, 0x2e, 0x2b, 0x15, 0x14, 0x23, 0x3f,
-	0x90, 0x65, 0xd7, 0x61, 0xeb, 0x9d, 0x70, 0x41, 0x9f, 0x44, 0xe5, 0x1a, 0x33, 0x24, 0x72, 0x15,
-	0xcb, 0x55, 0xb4, 0x98, 0x92, 0x11, 0xaa, 0xca, 0x83, 0xd7, 0xb6, 0x54, 0xed, 0x4c, 0x4f, 0x46,
-	0x93, 0x21, 0xdd, 0x8f, 0xb0, 0x76, 0xad, 0xb3, 0xae, 0xbe, 0x68, 0x15, 0x61, 0x8a, 0x33, 0x32,
-	0x5f, 0xe6, 0xe9, 0x6e, 0x53, 0xa4, 0x3b, 0x4b, 0x1b, 0x05, 0x68, 0xfb, 0x93, 0x5e, 0x94, 0x40,
-	0xa9, 0x53, 0x1f, 0x63, 0x7c, 0xdc, 0x9d, 0xfa, 0x0d, 0x34, 0x1a, 0xbe, 0x24, 0xe4, 0x88, 0xcb,
-	0x37, 0x2c, 0xd7, 0x6b, 0x7c, 0x2d, 0xd2, 0xa5, 0xba, 0x43, 0xc0, 0x68, 0xbd, 0x4e, 0xa0, 0xc5,
-	0x0b, 0x32, 0x63, 0xe6, 0x9b, 0xd2, 0x48, 0x55, 0xf6, 0xa6, 0x01, 0x91, 0x77, 0x4a, 0x18, 0x06,
-	0x3d, 0x27, 0xd7, 0x3b, 0x2c, 0xfd, 0x9b, 0x2e, 0x6a, 0x5a, 0xfd, 0x84, 0x80, 0x25, 0x0f, 0x41,
-	0xf9, 0x57, 0xe4, 0xc6, 0x41, 0xc1, 0x2e, 0x24, 0x35, 0xac, 0xfe, 0x0d, 0x01, 0xd4, 0x87, 0xea,
-	0xb5, 0x48, 0xca, 0x65, 0x67, 0x7a, 0x90, 0x65, 0xc5, 0x79, 0x92, 0xaa, 0xa3, 0x42, 0x5f, 0xf4,
-	0xea, 0xbd, 0x11, 0xa4, 0x4b, 0x17, 0x7d, 0x8b, 0x0a, 0xf3, 0xfc, 0xaa, 0xab, 0x3e, 0xb8, 0xa3,
-	0x3b, 0x66, 0x4b, 0xe1, 0xfb, 0xa5, 0x42, 0xb9, 0x2d, 0xd5, 0xac, 0x40, 0xe7, 0x3f, 0xc9, 0x52,
-	0x89, 0xd4, 0xef, 0x8c, 0xbd, 0x86, 0x48, 0xff, 0xb1, 0xb1, 0xdf, 0xaa, 0xf1, 0xd7, 0x52, 0xb7,
-	0xc8, 0x72, 0xe0, 0xe9, 0x8e, 0x0b, 0xf3, 0x71, 0xb7, 0x96, 0x1a, 0x68, 0x34, 0xfc, 0x45, 0x77,
-	0x58, 0x15, 0x85, 0x7d, 0x9e, 0xb3, 0xa4, 0xd0, 0xb7, 0xfd, 0xdd, 0x48, 0x3f, 0xdc, 0x6a, 0x84,
-	0x2b, 0x81, 0x9b, 0x78, 0xf4, 0x8d, 0xc9, 0xc2, 0x89, 0x64, 0x85, 0x27, 0xa0, 0xdb, 0x26, 0xaa,
-	0x02, 0xbb, 0x5b, 0x3f, 0xcc, 0xa2, 0xe3, 0x0f, 0xba, 0x8a, 0xf0, 0xfc, 0x36, 0x4d, 0x44, 0x09,
-	0x74, 0x87, 0x7b, 0x88, 0x43, 0x2f, 0xae, 0xaf, 0x75, 0x45, 0x1d, 0xfe, 0x97, 0x8f, 0xb2, 0x82,
-	0xa9, 0x62, 0x55, 0x0f, 0x7d, 0xbf, 0x34, 0xb4, 0x0a, 0xeb, 0x0e, 0x94, 0x56, 0x11, 0xa6, 0xf9,
-	0x8d, 0x50, 0xdb, 0x03, 0x4f, 0x43, 0x77, 0x4b, 0x7d, 0xf3, 0x18, 0x77, 0xa8, 0x34, 0x0a, 0xd0,
-	0xfa, 0x1c, 0x2a, 0x84, 0x53, 0xf7, 0xa4, 0xa6, 0x0f, 0x23, 0xff, 0x81, 0x5d, 0xe3, 0xc1, 0xff,
-	0xd1, 0x65, 0x32, 0x6f, 0xce, 0x67, 0xd5, 0xba, 0x39, 0x35, 0xef, 0x73, 0xba, 0x15, 0xc1, 0x4b,
-	0xdd, 0x43, 0x5d, 0x15, 0x18, 0x24, 0x2b, 0x4f, 0x4e, 0xf3, 0xa6, 0xb1, 0x4f, 0x4e, 0xfb, 0x47,
-	0x48, 0x09, 0x76, 0xeb, 0x21, 0xcc, 0xfa, 0xb5, 0xaf, 0x3a, 0x72, 0x81, 0xd3, 0x3b, 0x6d, 0x17,
-	0x82, 0xaa, 0x8c, 0x9b, 0xda, 0x46, 0x81, 0x5f, 0xfb, 0x9a, 0x5a, 0xc6, 0xf0, 0x74, 0x0b, 0x62,
-	0x7c, 0xd4, 0x8d, 0x3a, 0x48, 0x7a, 0x05, 0xa4, 0xbd, 0x29, 0x0d, 0x83, 0x6f, 0xfb, 0x67, 0x51,
-	0xf5, 0x3f, 0x9f, 0x90, 0x0c, 0xb2, 0x3c, 0xbf, 0xa2, 0x1a, 0xd2, 0xc6, 0xd7, 0xe2, 0x4f, 0xe2,
-	0x4f, 0xe3, 0xcf, 0xe2, 0xeb, 0xf1, 0x8d, 0x78, 0x26, 0xbe, 0x19, 0xdf, 0x8a, 0x3f, 0x8f, 0x49,
-	0x3c, 0x1b, 0xdf, 0x8e, 0xe7, 0xe2, 0xf9, 0x78, 0x21, 0x5e, 0xfc, 0x6b, 0x46, 0xff, 0xd9, 0xf2,
-	0xe2, 0x63, 0x00, 0x00, 0x00, 0xff, 0xff, 0x28, 0xc0, 0xc7, 0x99, 0xcf, 0x12, 0x00, 0x00,
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x58, 0x59, 0x77, 0xdc, 0x44,
+	0x13, 0xcd, 0xf7, 0x91, 0x38, 0x49, 0x7b, 0x6f, 0xe2, 0xdd, 0x8e, 0xd7, 0x24, 0x9c, 0x2c, 0x82,
+	0x03, 0x2f, 0x70, 0x0e, 0x3c, 0x78, 0x8b, 0x19, 0x48, 0x06, 0xe1, 0x85, 0xc0, 0x03, 0x98, 0x66,
+	0xdc, 0x9e, 0xe8, 0x30, 0x23, 0x29, 0xea, 0x1e, 0x60, 0x7e, 0x2d, 0x7f, 0x85, 0xd3, 0x4b, 0x55,
+	0xb7, 0xa4, 0x96, 0xec, 0xb7, 0xe9, 0x7b, 0x6f, 0xdd, 0xd2, 0x94, 0x5a, 0xa5, 0x6a, 0x91, 0xb9,
+	0x22, 0xef, 0x7d, 0x9a, 0x66, 0x29, 0x1b, 0xf2, 0x28, 0x2f, 0x32, 0x99, 0xad, 0xce, 0x2a, 0x84,
+	0x15, 0xc3, 0xac, 0xb0, 0xc0, 0x32, 0x02, 0x97, 0x3d, 0x26, 0x79, 0x3f, 0x2b, 0xc6, 0x96, 0xd1,
+	0xc1, 0x7f, 0x73, 0x96, 0x67, 0xa9, 0x45, 0x56, 0x1c, 0x12, 0x14, 0xe7, 0x03, 0x36, 0xe6, 0x60,
+	0xbc, 0xe8, 0x90, 0x4b, 0x21, 0x99, 0x2c, 0x5d, 0x01, 0x4f, 0xf9, 0x10, 0x42, 0x67, 0x14, 0x90,
+	0x48, 0x3e, 0xb4, 0xeb, 0x25, 0x58, 0x57, 0x73, 0x50, 0x45, 0x0c, 0x58, 0xda, 0x1f, 0xb1, 0x3e,
+	0xf7, 0x83, 0x87, 0x2c, 0x17, 0x76, 0x3d, 0xad, 0xff, 0x71, 0xde, 0xab, 0x5c, 0x56, 0xca, 0xa5,
+	0x6f, 0x52, 0x70, 0x91, 0x8d, 0x8a, 0x5e, 0xc9, 0x44, 0xbc, 0x4f, 0x72, 0xbb, 0x5e, 0x50, 0x6b,
+	0x59, 0xb0, 0x54, 0xb0, 0x9e, 0x4c, 0xf0, 0xef, 0xcf, 0x1b, 0x98, 0x8b, 0x51, 0x61, 0x23, 0x3f,
+	0xff, 0x77, 0x87, 0x4c, 0x74, 0xb3, 0x2e, 0x1b, 0x72, 0xda, 0x21, 0x53, 0x27, 0x5c, 0xee, 0xab,
+	0x4a, 0x1e, 0x8c, 0x3b, 0x47, 0x74, 0x35, 0x32, 0x65, 0xf6, 0xc1, 0x53, 0xfe, 0x61, 0xc4, 0x85,
+	0x5c, 0x5d, 0x0b, 0x72, 0x22, 0xcf, 0x52, 0xc1, 0x77, 0xee, 0xd0, 0x53, 0x32, 0xfb, 0x3a, 0x49,
+	0xaf, 0x2c, 0xa5, 0xdd, 0x37, 0x6c, 0x44, 0x05, 0x07, 0xc3, 0xc7, 0x4d, 0x34, 0x7a, 0xbe, 0x26,
+	0x93, 0x17, 0xf9, 0x15, 0x93, 0x5c, 0xd3, 0x74, 0xc5, 0x06, 0x78, 0x18, 0x78, 0xad, 0x86, 0x28,
+	0xf4, 0xc9, 0xc9, 0xc7, 0xea, 0xaa, 0x07, 0x03, 0x4d, 0x1c, 0xda, 0x3b, 0x44, 0x9f, 0x47, 0x95,
+	0x3d, 0x14, 0x10, 0x41, 0x82, 0x17, 0xb7, 0xd2, 0x62, 0xc6, 0x2e, 0x99, 0x3e, 0xe1, 0xf2, 0x9d,
+	0xde, 0x76, 0xba, 0xb2, 0xeb, 0x91, 0xdd, 0x95, 0x25, 0x18, 0xdc, 0x37, 0x1a, 0x58, 0xf4, 0x7b,
+	0x47, 0xe6, 0x54, 0x99, 0x80, 0xd3, 0xe5, 0xdd, 0x84, 0xa0, 0x2a, 0x03, 0xae, 0x5b, 0xcd, 0x02,
+	0x34, 0xfe, 0x9e, 0x4c, 0x99, 0x9a, 0x19, 0x9e, 0xae, 0x41, 0x8c, 0x8f, 0x82, 0xe1, 0x7a, 0x98,
+	0x44, 0xb3, 0x11, 0x79, 0x64, 0xca, 0x62, 0x18, 0x2c, 0xf4, 0xcb, 0xa8, 0xfa, 0x00, 0x86, 0x64,
+	0x90, 0xe5, 0xd5, 0x2d, 0xd5, 0x95, 0x62, 0xc7, 0xfa, 0xb1, 0xb5, 0xc5, 0xb6, 0x4f, 0x75, 0x09,
+	0x76, 0xc5, 0x0e, 0xb3, 0xe8, 0xf7, 0xbb, 0xde, 0x2e, 0x40, 0x5d, 0x08, 0x5e, 0xa8, 0x66, 0x44,
+	0x77, 0x02, 0x71, 0x40, 0x82, 0xf7, 0x6e, 0xab, 0x06, 0x33, 0xfc, 0x48, 0x66, 0x50, 0x70, 0x26,
+	0x99, 0x14, 0xb4, 0x7e, 0x51, 0x1a, 0x77, 0xcf, 0x4a, 0x03, 0x8d, 0x96, 0xe7, 0x64, 0x16, 0x39,
+	0xbd, 0x2b, 0x05, 0xad, 0x07, 0x19, 0x02, 0x4c, 0x37, 0x1b, 0x79, 0x7f, 0xdf, 0x21, 0x69, 0xea,
+	0x2f, 0x68, 0x3d, 0xcc, 0x32, 0x6e, 0xdf, 0x35, 0x0a, 0xc2, 0x15, 0x78, 0x9f, 0xe4, 0xc1, 0x0a,
+	0x28, 0xbc, 0xa5, 0x02, 0x86, 0x46, 0xcb, 0x6b, 0xb2, 0x80, 0xdc, 0x1b, 0x26, 0x64, 0x9c, 0x89,
+	0x44, 0x75, 0x42, 0xba, 0x57, 0x0b, 0xf5, 0x69, 0x48, 0xf0, 0xe4, 0x06, 0x15, 0xe6, 0xf9, 0x95,
+	0x50, 0x94, 0x9c, 0xda, 0xa6, 0x2c, 0xe8, 0x76, 0x2d, 0x1c, 0x39, 0xc8, 0xb0, 0xd3, 0x26, 0x09,
+	0x56, 0xa6, 0x23, 0xf9, 0x30, 0x54, 0x19, 0x8d, 0x37, 0x57, 0xc6, 0xd2, 0xc1, 0xbb, 0x78, 0xdc,
+	0xcb, 0xd2, 0x6c, 0x38, 0x0e, 0xdc, 0x45, 0xcb, 0x34, 0xdf, 0x45, 0x14, 0xf8, 0x25, 0x7f, 0xcb,
+	0x52, 0xd6, 0xe7, 0x36, 0x6f, 0xfa, 0x17, 0x4f, 0xa5, 0x7a, 0xe2, 0xb1, 0xe4, 0x41, 0xba, 0x56,
+	0xf2, 0x06, 0x95, 0xdf, 0xa5, 0x4e, 0xb8, 0x3c, 0xe5, 0x42, 0x8a, 0x4e, 0x7a, 0x9d, 0xd1, 0x35,
+	0xef, 0xda, 0x10, 0x75, 0x5d, 0x2a, 0x48, 0xfa, 0xed, 0xe2, 0x38, 0xbd, 0xc2, 0x1b, 0x20, 0x5d,
+	0xbb, 0x28, 0xc1, 0xb5, 0x76, 0x51, 0x61, 0xd1, 0xef, 0x2b, 0x32, 0x71, 0x96, 0xf4, 0xd3, 0x4e,
+	0x4a, 0x17, 0x40, 0x6a, 0xd6, 0xe0, 0xb0, 0x58, 0x85, 0x31, 0x34, 0xf1, 0xb6, 0x92, 0x7a, 0xa0,
+	0xb9, 0x6e, 0x5f, 0xcf, 0xa2, 0xd2, 0x08, 0x52, 0x57, 0x80, 0xf1, 0x27, 0x37, 0x0b, 0xbd, 0xde,
+	0xbc, 0x58, 0xe6, 0xcf, 0xb3, 0x6e, 0x26, 0x93, 0xeb, 0x31, 0x7d, 0xd1, 0xe6, 0x02, 0x2a, 0x48,
+	0xf9, 0xf2, 0x76, 0x62, 0x6f, 0x87, 0xcc, 0x1f, 0x16, 0x9c, 0x49, 0xee, 0xc9, 0xe8, 0xd3, 0xb2,
+	0x49, 0x4d, 0x00, 0xc9, 0x9e, 0xdd, 0xa8, 0xf3, 0xf3, 0x98, 0x97, 0x52, 0x4b, 0x9e, 0x9a, 0xa0,
+	0x21, 0x4f, 0x40, 0xe7, 0xe7, 0x39, 0xe2, 0x03, 0xde, 0x9a, 0xa7, 0x26, 0x68, 0xc8, 0x13, 0xd0,
+	0x61, 0x1e, 0x33, 0x99, 0x1d, 0xab, 0x91, 0xd3, 0x4e, 0x66, 0x66, 0xfc, 0xf4, 0x41, 0x37, 0x99,
+	0x85, 0x38, 0xb4, 0xfa, 0x86, 0x3c, 0xf8, 0x36, 0x31, 0x0c, 0x5d, 0xb4, 0x52, 0x00, 0xc0, 0x62,
+	0xa9, 0x86, 0x63, 0x38, 0x23, 0x54, 0xcd, 0x0f, 0x6f, 0xec, 0x0c, 0x7b, 0x30, 0x3e, 0x1b, 0x8c,
+	0xfa, 0x74, 0x37, 0xc2, 0xa1, 0xb6, 0xce, 0x82, 0xeb, 0x5e, 0xbb, 0xa8, 0x39, 0x85, 0x9e, 0x6f,
+	0x1a, 0x53, 0xf8, 0x33, 0xce, 0x5e, 0xbb, 0x08, 0x53, 0xfc, 0xac, 0x5f, 0x8f, 0xfb, 0x83, 0x01,
+	0x28, 0x04, 0xdd, 0x72, 0xa1, 0x15, 0x0a, 0xcc, 0xb7, 0x5b, 0x14, 0xe8, 0xfc, 0x35, 0x79, 0x68,
+	0xc8, 0x6e, 0x7c, 0x48, 0x17, 0x22, 0x35, 0xc7, 0xe3, 0xda, 0x75, 0x80, 0x0a, 0x8c, 0xd1, 0xaf,
+	0xc8, 0xdd, 0x03, 0x96, 0xfe, 0x49, 0xe7, 0xb4, 0x42, 0xfd, 0x84, 0x98, 0x79, 0x0f, 0x41, 0xf9,
+	0x67, 0xe4, 0xde, 0x61, 0xc1, 0xae, 0x25, 0x35, 0xac, 0xfe, 0x0d, 0x01, 0xd4, 0x87, 0xea, 0x6f,
+	0xc5, 0x94, 0xcb, 0x83, 0xf1, 0x61, 0x96, 0x15, 0x57, 0x49, 0xaa, 0x36, 0xad, 0x6e, 0xd1, 0xea,
+	0x8c, 0x11, 0xa4, 0x4b, 0x2d, 0xba, 0x45, 0x85, 0x79, 0xf6, 0x09, 0x39, 0xe1, 0xf2, 0x2d, 0xcb,
+	0xf5, 0x76, 0x5d, 0x8a, 0xf4, 0xf9, 0xc6, 0x21, 0xe0, 0xb7, 0x5c, 0x27, 0x2a, 0xf7, 0x08, 0xde,
+	0x89, 0xda, 0x67, 0x2b, 0xc2, 0x63, 0x4f, 0x85, 0x72, 0xf7, 0xa8, 0x59, 0x81, 0xce, 0xbf, 0x91,
+	0xf9, 0x12, 0xd9, 0x35, 0xf3, 0x5c, 0x38, 0xb2, 0x5b, 0x9a, 0xe7, 0xda, 0x34, 0xe8, 0xff, 0x03,
+	0x99, 0x3a, 0x2a, 0xb2, 0x1c, 0x78, 0xba, 0xe1, 0xc2, 0x7c, 0xdc, 0xbd, 0xb1, 0x1b, 0x68, 0x34,
+	0x3c, 0x22, 0x93, 0x66, 0xb7, 0x98, 0x09, 0x60, 0x39, 0xd2, 0x67, 0x4d, 0x0f, 0x02, 0xab, 0x95,
+	0x00, 0x83, 0x2e, 0x97, 0x7a, 0x1e, 0xd7, 0xe8, 0xc1, 0x18, 0x06, 0xe7, 0xce, 0x11, 0xdd, 0xc6,
+	0xa0, 0x1a, 0xe7, 0x66, 0x95, 0x16, 0x09, 0x26, 0xf8, 0x92, 0xdc, 0xbf, 0x10, 0x5c, 0x29, 0xe8,
+	0x23, 0x13, 0x60, 0x97, 0x60, 0xb3, 0x50, 0x41, 0x31, 0xf2, 0x03, 0x1c, 0x15, 0x14, 0x6e, 0xbd,
+	0x13, 0x2e, 0xe8, 0xf3, 0xa8, 0x7c, 0x8a, 0x0e, 0x89, 0xdc, 0x99, 0xec, 0x36, 0x5a, 0x4c, 0xf9,
+	0x93, 0xde, 0x04, 0x6a, 0x6a, 0x3c, 0xe5, 0x39, 0x4b, 0x0a, 0x3d, 0x49, 0x3c, 0x8e, 0xf4, 0x19,
+	0xba, 0x46, 0xb8, 0x19, 0xb9, 0x89, 0x47, 0xdf, 0x98, 0xcc, 0x9e, 0x49, 0x56, 0x78, 0x02, 0xba,
+	0x6e, 0xa2, 0x2a, 0xb0, 0x9b, 0x28, 0xc2, 0x2c, 0x3a, 0x7e, 0xa7, 0x27, 0x14, 0xcf, 0x6f, 0xd5,
+	0x44, 0x94, 0x40, 0xd7, 0xfd, 0x43, 0x1c, 0x7a, 0x71, 0xfd, 0xde, 0x57, 0xd4, 0xf1, 0x3f, 0xf9,
+	0x20, 0x2b, 0x98, 0x9a, 0x66, 0xf5, 0x5f, 0xdf, 0x2d, 0xfd, 0xb5, 0x0a, 0xeb, 0xfa, 0x6b, 0xab,
+	0x08, 0xd3, 0xfc, 0x42, 0xa8, 0xbd, 0x02, 0x4f, 0x43, 0x37, 0x4b, 0xd7, 0xe6, 0x31, 0x6e, 0xc8,
+	0x6c, 0x14, 0xa0, 0xf5, 0x15, 0x8c, 0x10, 0xe7, 0xee, 0xeb, 0x06, 0x7d, 0x12, 0xf9, 0xdf, 0x3a,
+	0x6a, 0x3c, 0xf8, 0x3f, 0xbd, 0x49, 0xe6, 0xd5, 0x7c, 0x52, 0x3d, 0x8b, 0xe7, 0xe6, 0x53, 0x09,
+	0x5d, 0x8b, 0xe0, 0xa3, 0x89, 0x87, 0xba, 0x09, 0x33, 0x48, 0x82, 0x57, 0x7c, 0x27, 0xfe, 0x5f,
+	0xfc, 0xff, 0xf8, 0xa3, 0xf8, 0x6e, 0x7c, 0x2f, 0x9e, 0x88, 0xef, 0xc7, 0x0f, 0xe2, 0x87, 0x31,
+	0x89, 0x27, 0xe3, 0xa9, 0x78, 0x3a, 0x9e, 0x89, 0x67, 0xe3, 0xb9, 0x3f, 0x26, 0xf4, 0xa7, 0x98,
+	0x2f, 0xfe, 0x0b, 0x00, 0x00, 0xff, 0xff, 0xb7, 0x21, 0x45, 0xa5, 0xed, 0x12, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -125,21 +125,29 @@ type NoNameClient interface {
 	UpdateArmor(ctx context.Context, in *UpdateArmorRequest, opts ...grpc.CallOption) (*UpdateArmorResponse, error)
 	// ArmorCategory
 	GetAllArmorCategory(ctx context.Context, in *GetAllArmorCategoryRequest, opts ...grpc.CallOption) (*GetAllArmorCategoryResponse, error)
+	// Weapon
+	GetWeaponByID(ctx context.Context, in *GetWeaponByIDRequest, opts ...grpc.CallOption) (*GetWeaponByIDResponse, error)
+	FindWeaponByName(ctx context.Context, in *FindWeaponByNameRequest, opts ...grpc.CallOption) (*FindWeaponByNameResponse, error)
+	UpdateWeapon(ctx context.Context, in *UpdateWeaponRequest, opts ...grpc.CallOption) (*UpdateWeaponResponse, error)
+	// WeaponCategory
+	GetAllWeaponCategory(ctx context.Context, in *GetAllWeaponCategoryRequest, opts ...grpc.CallOption) (*GetAllWeaponCategoryResponse, error)
 	// Player
 	GetPlayerByID(ctx context.Context, in *GetPlayerByIDRequest, opts ...grpc.CallOption) (*GetPlayerByIDResponse, error)
-	FindPlayerByUsername(ctx context.Context, in *FindPlayerByUsernameRequest, opts ...grpc.CallOption) (*FindPlayerByUsernameResponse, error)
+	GetPlayerByUsername(ctx context.Context, in *GetPlayerByUsernameRequest, opts ...grpc.CallOption) (*GetPlayerByUsernameResponse, error)
 	GetPlayerStats(ctx context.Context, in *GetPlayerStatsRequest, opts ...grpc.CallOption) (*GetPlayerStatsResponse, error)
 	GetPlayerArmors(ctx context.Context, in *GetPlayerArmorsRequest, opts ...grpc.CallOption) (*GetPlayerArmorsResponse, error)
 	GetPlayerWeapons(ctx context.Context, in *GetPlayerWeaponsRequest, opts ...grpc.CallOption) (*GetPlayerWeaponsResponse, error)
 	GetPlayerShips(ctx context.Context, in *GetPlayerShipsRequest, opts ...grpc.CallOption) (*GetPlayerShipsResponse, error)
 	GetPlayerLastPosition(ctx context.Context, in *GetPlayerLastPositionRequest, opts ...grpc.CallOption) (*GetPlayerLastPositionResponse, error)
-	SignIn(ctx context.Context, in *SignInRequest, opts ...grpc.CallOption) (*SignInResponse, error)
-	ManagePlayerInventory(ctx context.Context, in *ManagePlayerInventoryRequest, opts ...grpc.CallOption) (*ManagePlayerInventoryResponse, error)
 	GetPlayerResources(ctx context.Context, in *GetPlayerResourcesRequest, opts ...grpc.CallOption) (*GetPlayerResourcesResponse, error)
 	GetPlayerItems(ctx context.Context, in *GetPlayerItemsRequest, opts ...grpc.CallOption) (*GetPlayerItemsResponse, error)
 	GetPlayerEconomy(ctx context.Context, in *GetPlayerEconomyRequest, opts ...grpc.CallOption) (*GetPlayerEconomyResponse, error)
+	ManagePlayerInventory(ctx context.Context, in *ManagePlayerInventoryRequest, opts ...grpc.CallOption) (*ManagePlayerInventoryResponse, error)
+	// Rests
 	GetRestsInfo(ctx context.Context, in *GetRestsInfoRequest, opts ...grpc.CallOption) (*GetRestsInfoResponse, error)
 	EndPlayerRest(ctx context.Context, in *EndPlayerRestRequest, opts ...grpc.CallOption) (*EndPlayerRestResponse, error)
+	// SignIn
+	SignIn(ctx context.Context, in *SignInRequest, opts ...grpc.CallOption) (*SignInResponse, error)
 	// PlayerState
 	GetPlayerStateByID(ctx context.Context, in *GetPlayerStateByIDRequest, opts ...grpc.CallOption) (*GetPlayerStateByIDResponse, error)
 	GetPlayerStateToNotify(ctx context.Context, in *GetPlayerStateToNotifyRequest, opts ...grpc.CallOption) (*GetPlayerStateToNotifyResponse, error)
@@ -149,28 +157,28 @@ type NoNameClient interface {
 	// Enemy
 	GetEnemyByID(ctx context.Context, in *GetEnemyByIDRequest, opts ...grpc.CallOption) (*GetEnemyByIDResponse, error)
 	HitEnemy(ctx context.Context, in *HitEnemyRequest, opts ...grpc.CallOption) (*HitEnemyResponse, error)
-	// Item
-	GetAllItems(ctx context.Context, in *GetAllItemsRequest, opts ...grpc.CallOption) (*GetAllItemsResponse, error)
-	GetItemByCategoryID(ctx context.Context, in *GetItemByCategoryIDRequest, opts ...grpc.CallOption) (*GetItemByCategoryIDResponse, error)
-	UseItem(ctx context.Context, in *UseItemRequest, opts ...grpc.CallOption) (*UseItemResponse, error)
-	// ItemCateogory
-	GetAllItemCategories(ctx context.Context, in *GetAllItemCategoriesRequest, opts ...grpc.CallOption) (*GetAllItemCategoriesResponse, error)
 	// Language
 	FindLanguageBySlug(ctx context.Context, in *FindLanguageBySlugRequest, opts ...grpc.CallOption) (*FindLanguageBySlugResponse, error)
-	FindLanguageBy(ctx context.Context, in *FindLanguageByRequest, opts ...grpc.CallOption) (*FindLanguageByResponse, error)
-	GetLanguages(ctx context.Context, in *GetLanguagesRequest, opts ...grpc.CallOption) (*GetLanguagesResponse, error)
-	// Map
-	GetMapByID(ctx context.Context, in *GetMapByIDRequest, opts ...grpc.CallOption) (*GetMapByIDResponse, error)
+	FindLanguageByName(ctx context.Context, in *FindLanguageByNameRequest, opts ...grpc.CallOption) (*FindLanguageByNameResponse, error)
+	GetAllLanguages(ctx context.Context, in *GetAllLanguagesRequest, opts ...grpc.CallOption) (*GetAllLanguagesResponse, error)
 	// NPC
-	GetAll(ctx context.Context, in *GetAllRequest, opts ...grpc.CallOption) (*GetAllResponse, error)
+	GetAllNPC(ctx context.Context, in *GetAllNPCRequest, opts ...grpc.CallOption) (*GetAllNPCResponse, error)
 	Bank(ctx context.Context, in *BankRequest, opts ...grpc.CallOption) (*BankResponse, error)
 	Craft(ctx context.Context, in *CraftRequest, opts ...grpc.CallOption) (*CraftResponse, error)
 	// Planet
 	GetPlanetByCoordinate(ctx context.Context, in *GetPlanetByCoordinateRequest, opts ...grpc.CallOption) (*GetPlanetByCoordinateResponse, error)
+	// Map
+	GetMapByID(ctx context.Context, in *GetMapByIDRequest, opts ...grpc.CallOption) (*GetMapByIDResponse, error)
 	// Resouce
 	GetResourceByID(ctx context.Context, in *GetResourceByIDRequest, opts ...grpc.CallOption) (*GetResourceByIDResponse, error)
 	GetResourceByName(ctx context.Context, in *GetResourceByNameRequest, opts ...grpc.CallOption) (*GetResourceByNameResponse, error)
 	DropResource(ctx context.Context, in *DropResourceRequest, opts ...grpc.CallOption) (*DropResourceResponse, error)
+	// Item
+	GetAllItems(ctx context.Context, in *GetAllItemsRequest, opts ...grpc.CallOption) (*GetAllItemsResponse, error)
+	GetItemsByCategoryID(ctx context.Context, in *GetItemsByCategoryIDRequest, opts ...grpc.CallOption) (*GetItemsByCategoryIDResponse, error)
+	UseItem(ctx context.Context, in *UseItemRequest, opts ...grpc.CallOption) (*UseItemResponse, error)
+	// ItemCateogory
+	GetAllItemCategories(ctx context.Context, in *GetAllItemCategoriesRequest, opts ...grpc.CallOption) (*GetAllItemCategoriesResponse, error)
 	// Ship
 	GetShipRepairInfo(ctx context.Context, in *GetShipRepairInfoRequest, opts ...grpc.CallOption) (*GetShipRepairInfoResponse, error)
 	StartShipRepair(ctx context.Context, in *StartShipRepairRequest, opts ...grpc.CallOption) (*StartShipRepairResponse, error)
@@ -181,12 +189,6 @@ type NoNameClient interface {
 	CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error)
 	// Tresure
 	DropTresure(ctx context.Context, in *DropTresureRequest, opts ...grpc.CallOption) (*DropTresureResponse, error)
-	// Weapon
-	GetWeaponByID(ctx context.Context, in *GetWeaponByIDRequest, opts ...grpc.CallOption) (*GetWeaponByIDResponse, error)
-	FindWeaponByName(ctx context.Context, in *FindWeaponByNameRequest, opts ...grpc.CallOption) (*FindWeaponByNameResponse, error)
-	UpdateWeapon(ctx context.Context, in *UpdateWeaponRequest, opts ...grpc.CallOption) (*UpdateWeaponResponse, error)
-	// ArmorCategory
-	GetAllWeaponCategory(ctx context.Context, in *GetAllWeaponCategoryRequest, opts ...grpc.CallOption) (*GetAllWeaponCategoryResponse, error)
 }
 
 type noNameClient struct {
@@ -233,6 +235,42 @@ func (c *noNameClient) GetAllArmorCategory(ctx context.Context, in *GetAllArmorC
 	return out, nil
 }
 
+func (c *noNameClient) GetWeaponByID(ctx context.Context, in *GetWeaponByIDRequest, opts ...grpc.CallOption) (*GetWeaponByIDResponse, error) {
+	out := new(GetWeaponByIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetWeaponByID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) FindWeaponByName(ctx context.Context, in *FindWeaponByNameRequest, opts ...grpc.CallOption) (*FindWeaponByNameResponse, error) {
+	out := new(FindWeaponByNameResponse)
+	err := c.cc.Invoke(ctx, "/NoName/FindWeaponByName", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) UpdateWeapon(ctx context.Context, in *UpdateWeaponRequest, opts ...grpc.CallOption) (*UpdateWeaponResponse, error) {
+	out := new(UpdateWeaponResponse)
+	err := c.cc.Invoke(ctx, "/NoName/UpdateWeapon", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetAllWeaponCategory(ctx context.Context, in *GetAllWeaponCategoryRequest, opts ...grpc.CallOption) (*GetAllWeaponCategoryResponse, error) {
+	out := new(GetAllWeaponCategoryResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAllWeaponCategory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetPlayerByID(ctx context.Context, in *GetPlayerByIDRequest, opts ...grpc.CallOption) (*GetPlayerByIDResponse, error) {
 	out := new(GetPlayerByIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerByID", in, out, opts...)
@@ -242,9 +280,9 @@ func (c *noNameClient) GetPlayerByID(ctx context.Context, in *GetPlayerByIDReque
 	return out, nil
 }
 
-func (c *noNameClient) FindPlayerByUsername(ctx context.Context, in *FindPlayerByUsernameRequest, opts ...grpc.CallOption) (*FindPlayerByUsernameResponse, error) {
-	out := new(FindPlayerByUsernameResponse)
-	err := c.cc.Invoke(ctx, "/NoName/FindPlayerByUsername", in, out, opts...)
+func (c *noNameClient) GetPlayerByUsername(ctx context.Context, in *GetPlayerByUsernameRequest, opts ...grpc.CallOption) (*GetPlayerByUsernameResponse, error) {
+	out := new(GetPlayerByUsernameResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerByUsername", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -296,24 +334,6 @@ func (c *noNameClient) GetPlayerLastPosition(ctx context.Context, in *GetPlayerL
 	return out, nil
 }
 
-func (c *noNameClient) SignIn(ctx context.Context, in *SignInRequest, opts ...grpc.CallOption) (*SignInResponse, error) {
-	out := new(SignInResponse)
-	err := c.cc.Invoke(ctx, "/NoName/SignIn", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) ManagePlayerInventory(ctx context.Context, in *ManagePlayerInventoryRequest, opts ...grpc.CallOption) (*ManagePlayerInventoryResponse, error) {
-	out := new(ManagePlayerInventoryResponse)
-	err := c.cc.Invoke(ctx, "/NoName/ManagePlayerInventory", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *noNameClient) GetPlayerResources(ctx context.Context, in *GetPlayerResourcesRequest, opts ...grpc.CallOption) (*GetPlayerResourcesResponse, error) {
 	out := new(GetPlayerResourcesResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerResources", in, out, opts...)
@@ -341,6 +361,15 @@ func (c *noNameClient) GetPlayerEconomy(ctx context.Context, in *GetPlayerEconom
 	return out, nil
 }
 
+func (c *noNameClient) ManagePlayerInventory(ctx context.Context, in *ManagePlayerInventoryRequest, opts ...grpc.CallOption) (*ManagePlayerInventoryResponse, error) {
+	out := new(ManagePlayerInventoryResponse)
+	err := c.cc.Invoke(ctx, "/NoName/ManagePlayerInventory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetRestsInfo(ctx context.Context, in *GetRestsInfoRequest, opts ...grpc.CallOption) (*GetRestsInfoResponse, error) {
 	out := new(GetRestsInfoResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetRestsInfo", in, out, opts...)
@@ -353,6 +382,15 @@ func (c *noNameClient) GetRestsInfo(ctx context.Context, in *GetRestsInfoRequest
 func (c *noNameClient) EndPlayerRest(ctx context.Context, in *EndPlayerRestRequest, opts ...grpc.CallOption) (*EndPlayerRestResponse, error) {
 	out := new(EndPlayerRestResponse)
 	err := c.cc.Invoke(ctx, "/NoName/EndPlayerRest", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) SignIn(ctx context.Context, in *SignInRequest, opts ...grpc.CallOption) (*SignInResponse, error) {
+	out := new(SignInResponse)
+	err := c.cc.Invoke(ctx, "/NoName/SignIn", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -422,42 +460,6 @@ func (c *noNameClient) HitEnemy(ctx context.Context, in *HitEnemyRequest, opts .
 	return out, nil
 }
 
-func (c *noNameClient) GetAllItems(ctx context.Context, in *GetAllItemsRequest, opts ...grpc.CallOption) (*GetAllItemsResponse, error) {
-	out := new(GetAllItemsResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetAllItems", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) GetItemByCategoryID(ctx context.Context, in *GetItemByCategoryIDRequest, opts ...grpc.CallOption) (*GetItemByCategoryIDResponse, error) {
-	out := new(GetItemByCategoryIDResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetItemByCategoryID", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) UseItem(ctx context.Context, in *UseItemRequest, opts ...grpc.CallOption) (*UseItemResponse, error) {
-	out := new(UseItemResponse)
-	err := c.cc.Invoke(ctx, "/NoName/UseItem", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) GetAllItemCategories(ctx context.Context, in *GetAllItemCategoriesRequest, opts ...grpc.CallOption) (*GetAllItemCategoriesResponse, error) {
-	out := new(GetAllItemCategoriesResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetAllItemCategories", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *noNameClient) FindLanguageBySlug(ctx context.Context, in *FindLanguageBySlugRequest, opts ...grpc.CallOption) (*FindLanguageBySlugResponse, error) {
 	out := new(FindLanguageBySlugResponse)
 	err := c.cc.Invoke(ctx, "/NoName/FindLanguageBySlug", in, out, opts...)
@@ -467,36 +469,27 @@ func (c *noNameClient) FindLanguageBySlug(ctx context.Context, in *FindLanguageB
 	return out, nil
 }
 
-func (c *noNameClient) FindLanguageBy(ctx context.Context, in *FindLanguageByRequest, opts ...grpc.CallOption) (*FindLanguageByResponse, error) {
-	out := new(FindLanguageByResponse)
-	err := c.cc.Invoke(ctx, "/NoName/FindLanguageBy", in, out, opts...)
+func (c *noNameClient) FindLanguageByName(ctx context.Context, in *FindLanguageByNameRequest, opts ...grpc.CallOption) (*FindLanguageByNameResponse, error) {
+	out := new(FindLanguageByNameResponse)
+	err := c.cc.Invoke(ctx, "/NoName/FindLanguageByName", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *noNameClient) GetLanguages(ctx context.Context, in *GetLanguagesRequest, opts ...grpc.CallOption) (*GetLanguagesResponse, error) {
-	out := new(GetLanguagesResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetLanguages", in, out, opts...)
+func (c *noNameClient) GetAllLanguages(ctx context.Context, in *GetAllLanguagesRequest, opts ...grpc.CallOption) (*GetAllLanguagesResponse, error) {
+	out := new(GetAllLanguagesResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAllLanguages", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *noNameClient) GetMapByID(ctx context.Context, in *GetMapByIDRequest, opts ...grpc.CallOption) (*GetMapByIDResponse, error) {
-	out := new(GetMapByIDResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetMapByID", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) GetAll(ctx context.Context, in *GetAllRequest, opts ...grpc.CallOption) (*GetAllResponse, error) {
-	out := new(GetAllResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetAll", in, out, opts...)
+func (c *noNameClient) GetAllNPC(ctx context.Context, in *GetAllNPCRequest, opts ...grpc.CallOption) (*GetAllNPCResponse, error) {
+	out := new(GetAllNPCResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAllNPC", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -530,6 +523,15 @@ func (c *noNameClient) GetPlanetByCoordinate(ctx context.Context, in *GetPlanetB
 	return out, nil
 }
 
+func (c *noNameClient) GetMapByID(ctx context.Context, in *GetMapByIDRequest, opts ...grpc.CallOption) (*GetMapByIDResponse, error) {
+	out := new(GetMapByIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetMapByID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetResourceByID(ctx context.Context, in *GetResourceByIDRequest, opts ...grpc.CallOption) (*GetResourceByIDResponse, error) {
 	out := new(GetResourceByIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetResourceByID", in, out, opts...)
@@ -551,6 +553,42 @@ func (c *noNameClient) GetResourceByName(ctx context.Context, in *GetResourceByN
 func (c *noNameClient) DropResource(ctx context.Context, in *DropResourceRequest, opts ...grpc.CallOption) (*DropResourceResponse, error) {
 	out := new(DropResourceResponse)
 	err := c.cc.Invoke(ctx, "/NoName/DropResource", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetAllItems(ctx context.Context, in *GetAllItemsRequest, opts ...grpc.CallOption) (*GetAllItemsResponse, error) {
+	out := new(GetAllItemsResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAllItems", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetItemsByCategoryID(ctx context.Context, in *GetItemsByCategoryIDRequest, opts ...grpc.CallOption) (*GetItemsByCategoryIDResponse, error) {
+	out := new(GetItemsByCategoryIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetItemsByCategoryID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) UseItem(ctx context.Context, in *UseItemRequest, opts ...grpc.CallOption) (*UseItemResponse, error) {
+	out := new(UseItemResponse)
+	err := c.cc.Invoke(ctx, "/NoName/UseItem", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetAllItemCategories(ctx context.Context, in *GetAllItemCategoriesRequest, opts ...grpc.CallOption) (*GetAllItemCategoriesResponse, error) {
+	out := new(GetAllItemCategoriesResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAllItemCategories", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -620,42 +658,6 @@ func (c *noNameClient) DropTresure(ctx context.Context, in *DropTresureRequest, 
 	return out, nil
 }
 
-func (c *noNameClient) GetWeaponByID(ctx context.Context, in *GetWeaponByIDRequest, opts ...grpc.CallOption) (*GetWeaponByIDResponse, error) {
-	out := new(GetWeaponByIDResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetWeaponByID", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) FindWeaponByName(ctx context.Context, in *FindWeaponByNameRequest, opts ...grpc.CallOption) (*FindWeaponByNameResponse, error) {
-	out := new(FindWeaponByNameResponse)
-	err := c.cc.Invoke(ctx, "/NoName/FindWeaponByName", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) UpdateWeapon(ctx context.Context, in *UpdateWeaponRequest, opts ...grpc.CallOption) (*UpdateWeaponResponse, error) {
-	out := new(UpdateWeaponResponse)
-	err := c.cc.Invoke(ctx, "/NoName/UpdateWeapon", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) GetAllWeaponCategory(ctx context.Context, in *GetAllWeaponCategoryRequest, opts ...grpc.CallOption) (*GetAllWeaponCategoryResponse, error) {
-	out := new(GetAllWeaponCategoryResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetAllWeaponCategory", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // NoNameServer is the server API for NoName service.
 type NoNameServer interface {
 	// Armor
@@ -664,21 +666,29 @@ type NoNameServer interface {
 	UpdateArmor(context.Context, *UpdateArmorRequest) (*UpdateArmorResponse, error)
 	// ArmorCategory
 	GetAllArmorCategory(context.Context, *GetAllArmorCategoryRequest) (*GetAllArmorCategoryResponse, error)
+	// Weapon
+	GetWeaponByID(context.Context, *GetWeaponByIDRequest) (*GetWeaponByIDResponse, error)
+	FindWeaponByName(context.Context, *FindWeaponByNameRequest) (*FindWeaponByNameResponse, error)
+	UpdateWeapon(context.Context, *UpdateWeaponRequest) (*UpdateWeaponResponse, error)
+	// WeaponCategory
+	GetAllWeaponCategory(context.Context, *GetAllWeaponCategoryRequest) (*GetAllWeaponCategoryResponse, error)
 	// Player
 	GetPlayerByID(context.Context, *GetPlayerByIDRequest) (*GetPlayerByIDResponse, error)
-	FindPlayerByUsername(context.Context, *FindPlayerByUsernameRequest) (*FindPlayerByUsernameResponse, error)
+	GetPlayerByUsername(context.Context, *GetPlayerByUsernameRequest) (*GetPlayerByUsernameResponse, error)
 	GetPlayerStats(context.Context, *GetPlayerStatsRequest) (*GetPlayerStatsResponse, error)
 	GetPlayerArmors(context.Context, *GetPlayerArmorsRequest) (*GetPlayerArmorsResponse, error)
 	GetPlayerWeapons(context.Context, *GetPlayerWeaponsRequest) (*GetPlayerWeaponsResponse, error)
 	GetPlayerShips(context.Context, *GetPlayerShipsRequest) (*GetPlayerShipsResponse, error)
 	GetPlayerLastPosition(context.Context, *GetPlayerLastPositionRequest) (*GetPlayerLastPositionResponse, error)
-	SignIn(context.Context, *SignInRequest) (*SignInResponse, error)
-	ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error)
 	GetPlayerResources(context.Context, *GetPlayerResourcesRequest) (*GetPlayerResourcesResponse, error)
 	GetPlayerItems(context.Context, *GetPlayerItemsRequest) (*GetPlayerItemsResponse, error)
 	GetPlayerEconomy(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error)
+	ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error)
+	// Rests
 	GetRestsInfo(context.Context, *GetRestsInfoRequest) (*GetRestsInfoResponse, error)
 	EndPlayerRest(context.Context, *EndPlayerRestRequest) (*EndPlayerRestResponse, error)
+	// SignIn
+	SignIn(context.Context, *SignInRequest) (*SignInResponse, error)
 	// PlayerState
 	GetPlayerStateByID(context.Context, *GetPlayerStateByIDRequest) (*GetPlayerStateByIDResponse, error)
 	GetPlayerStateToNotify(context.Context, *GetPlayerStateToNotifyRequest) (*GetPlayerStateToNotifyResponse, error)
@@ -688,28 +698,28 @@ type NoNameServer interface {
 	// Enemy
 	GetEnemyByID(context.Context, *GetEnemyByIDRequest) (*GetEnemyByIDResponse, error)
 	HitEnemy(context.Context, *HitEnemyRequest) (*HitEnemyResponse, error)
-	// Item
-	GetAllItems(context.Context, *GetAllItemsRequest) (*GetAllItemsResponse, error)
-	GetItemByCategoryID(context.Context, *GetItemByCategoryIDRequest) (*GetItemByCategoryIDResponse, error)
-	UseItem(context.Context, *UseItemRequest) (*UseItemResponse, error)
-	// ItemCateogory
-	GetAllItemCategories(context.Context, *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error)
 	// Language
 	FindLanguageBySlug(context.Context, *FindLanguageBySlugRequest) (*FindLanguageBySlugResponse, error)
-	FindLanguageBy(context.Context, *FindLanguageByRequest) (*FindLanguageByResponse, error)
-	GetLanguages(context.Context, *GetLanguagesRequest) (*GetLanguagesResponse, error)
-	// Map
-	GetMapByID(context.Context, *GetMapByIDRequest) (*GetMapByIDResponse, error)
+	FindLanguageByName(context.Context, *FindLanguageByNameRequest) (*FindLanguageByNameResponse, error)
+	GetAllLanguages(context.Context, *GetAllLanguagesRequest) (*GetAllLanguagesResponse, error)
 	// NPC
-	GetAll(context.Context, *GetAllRequest) (*GetAllResponse, error)
+	GetAllNPC(context.Context, *GetAllNPCRequest) (*GetAllNPCResponse, error)
 	Bank(context.Context, *BankRequest) (*BankResponse, error)
 	Craft(context.Context, *CraftRequest) (*CraftResponse, error)
 	// Planet
 	GetPlanetByCoordinate(context.Context, *GetPlanetByCoordinateRequest) (*GetPlanetByCoordinateResponse, error)
+	// Map
+	GetMapByID(context.Context, *GetMapByIDRequest) (*GetMapByIDResponse, error)
 	// Resouce
 	GetResourceByID(context.Context, *GetResourceByIDRequest) (*GetResourceByIDResponse, error)
 	GetResourceByName(context.Context, *GetResourceByNameRequest) (*GetResourceByNameResponse, error)
 	DropResource(context.Context, *DropResourceRequest) (*DropResourceResponse, error)
+	// Item
+	GetAllItems(context.Context, *GetAllItemsRequest) (*GetAllItemsResponse, error)
+	GetItemsByCategoryID(context.Context, *GetItemsByCategoryIDRequest) (*GetItemsByCategoryIDResponse, error)
+	UseItem(context.Context, *UseItemRequest) (*UseItemResponse, error)
+	// ItemCateogory
+	GetAllItemCategories(context.Context, *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error)
 	// Ship
 	GetShipRepairInfo(context.Context, *GetShipRepairInfoRequest) (*GetShipRepairInfoResponse, error)
 	StartShipRepair(context.Context, *StartShipRepairRequest) (*StartShipRepairResponse, error)
@@ -720,12 +730,6 @@ type NoNameServer interface {
 	CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error)
 	// Tresure
 	DropTresure(context.Context, *DropTresureRequest) (*DropTresureResponse, error)
-	// Weapon
-	GetWeaponByID(context.Context, *GetWeaponByIDRequest) (*GetWeaponByIDResponse, error)
-	FindWeaponByName(context.Context, *FindWeaponByNameRequest) (*FindWeaponByNameResponse, error)
-	UpdateWeapon(context.Context, *UpdateWeaponRequest) (*UpdateWeaponResponse, error)
-	// ArmorCategory
-	GetAllWeaponCategory(context.Context, *GetAllWeaponCategoryRequest) (*GetAllWeaponCategoryResponse, error)
 }
 
 // UnimplementedNoNameServer can be embedded to have forward compatible implementations.
@@ -744,11 +748,23 @@ func (*UnimplementedNoNameServer) UpdateArmor(ctx context.Context, req *UpdateAr
 func (*UnimplementedNoNameServer) GetAllArmorCategory(ctx context.Context, req *GetAllArmorCategoryRequest) (*GetAllArmorCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllArmorCategory not implemented")
 }
+func (*UnimplementedNoNameServer) GetWeaponByID(ctx context.Context, req *GetWeaponByIDRequest) (*GetWeaponByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetWeaponByID not implemented")
+}
+func (*UnimplementedNoNameServer) FindWeaponByName(ctx context.Context, req *FindWeaponByNameRequest) (*FindWeaponByNameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FindWeaponByName not implemented")
+}
+func (*UnimplementedNoNameServer) UpdateWeapon(ctx context.Context, req *UpdateWeaponRequest) (*UpdateWeaponResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateWeapon not implemented")
+}
+func (*UnimplementedNoNameServer) GetAllWeaponCategory(ctx context.Context, req *GetAllWeaponCategoryRequest) (*GetAllWeaponCategoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllWeaponCategory not implemented")
+}
 func (*UnimplementedNoNameServer) GetPlayerByID(ctx context.Context, req *GetPlayerByIDRequest) (*GetPlayerByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerByID not implemented")
 }
-func (*UnimplementedNoNameServer) FindPlayerByUsername(ctx context.Context, req *FindPlayerByUsernameRequest) (*FindPlayerByUsernameResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FindPlayerByUsername not implemented")
+func (*UnimplementedNoNameServer) GetPlayerByUsername(ctx context.Context, req *GetPlayerByUsernameRequest) (*GetPlayerByUsernameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerByUsername not implemented")
 }
 func (*UnimplementedNoNameServer) GetPlayerStats(ctx context.Context, req *GetPlayerStatsRequest) (*GetPlayerStatsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerStats not implemented")
@@ -765,12 +781,6 @@ func (*UnimplementedNoNameServer) GetPlayerShips(ctx context.Context, req *GetPl
 func (*UnimplementedNoNameServer) GetPlayerLastPosition(ctx context.Context, req *GetPlayerLastPositionRequest) (*GetPlayerLastPositionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerLastPosition not implemented")
 }
-func (*UnimplementedNoNameServer) SignIn(ctx context.Context, req *SignInRequest) (*SignInResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SignIn not implemented")
-}
-func (*UnimplementedNoNameServer) ManagePlayerInventory(ctx context.Context, req *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ManagePlayerInventory not implemented")
-}
 func (*UnimplementedNoNameServer) GetPlayerResources(ctx context.Context, req *GetPlayerResourcesRequest) (*GetPlayerResourcesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerResources not implemented")
 }
@@ -780,11 +790,17 @@ func (*UnimplementedNoNameServer) GetPlayerItems(ctx context.Context, req *GetPl
 func (*UnimplementedNoNameServer) GetPlayerEconomy(ctx context.Context, req *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerEconomy not implemented")
 }
+func (*UnimplementedNoNameServer) ManagePlayerInventory(ctx context.Context, req *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ManagePlayerInventory not implemented")
+}
 func (*UnimplementedNoNameServer) GetRestsInfo(ctx context.Context, req *GetRestsInfoRequest) (*GetRestsInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRestsInfo not implemented")
 }
 func (*UnimplementedNoNameServer) EndPlayerRest(ctx context.Context, req *EndPlayerRestRequest) (*EndPlayerRestResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EndPlayerRest not implemented")
+}
+func (*UnimplementedNoNameServer) SignIn(ctx context.Context, req *SignInRequest) (*SignInResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SignIn not implemented")
 }
 func (*UnimplementedNoNameServer) GetPlayerStateByID(ctx context.Context, req *GetPlayerStateByIDRequest) (*GetPlayerStateByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerStateByID not implemented")
@@ -807,32 +823,17 @@ func (*UnimplementedNoNameServer) GetEnemyByID(ctx context.Context, req *GetEnem
 func (*UnimplementedNoNameServer) HitEnemy(ctx context.Context, req *HitEnemyRequest) (*HitEnemyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HitEnemy not implemented")
 }
-func (*UnimplementedNoNameServer) GetAllItems(ctx context.Context, req *GetAllItemsRequest) (*GetAllItemsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAllItems not implemented")
-}
-func (*UnimplementedNoNameServer) GetItemByCategoryID(ctx context.Context, req *GetItemByCategoryIDRequest) (*GetItemByCategoryIDResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetItemByCategoryID not implemented")
-}
-func (*UnimplementedNoNameServer) UseItem(ctx context.Context, req *UseItemRequest) (*UseItemResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UseItem not implemented")
-}
-func (*UnimplementedNoNameServer) GetAllItemCategories(ctx context.Context, req *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAllItemCategories not implemented")
-}
 func (*UnimplementedNoNameServer) FindLanguageBySlug(ctx context.Context, req *FindLanguageBySlugRequest) (*FindLanguageBySlugResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindLanguageBySlug not implemented")
 }
-func (*UnimplementedNoNameServer) FindLanguageBy(ctx context.Context, req *FindLanguageByRequest) (*FindLanguageByResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FindLanguageBy not implemented")
+func (*UnimplementedNoNameServer) FindLanguageByName(ctx context.Context, req *FindLanguageByNameRequest) (*FindLanguageByNameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FindLanguageByName not implemented")
 }
-func (*UnimplementedNoNameServer) GetLanguages(ctx context.Context, req *GetLanguagesRequest) (*GetLanguagesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetLanguages not implemented")
+func (*UnimplementedNoNameServer) GetAllLanguages(ctx context.Context, req *GetAllLanguagesRequest) (*GetAllLanguagesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllLanguages not implemented")
 }
-func (*UnimplementedNoNameServer) GetMapByID(ctx context.Context, req *GetMapByIDRequest) (*GetMapByIDResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetMapByID not implemented")
-}
-func (*UnimplementedNoNameServer) GetAll(ctx context.Context, req *GetAllRequest) (*GetAllResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAll not implemented")
+func (*UnimplementedNoNameServer) GetAllNPC(ctx context.Context, req *GetAllNPCRequest) (*GetAllNPCResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllNPC not implemented")
 }
 func (*UnimplementedNoNameServer) Bank(ctx context.Context, req *BankRequest) (*BankResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Bank not implemented")
@@ -843,6 +844,9 @@ func (*UnimplementedNoNameServer) Craft(ctx context.Context, req *CraftRequest) 
 func (*UnimplementedNoNameServer) GetPlanetByCoordinate(ctx context.Context, req *GetPlanetByCoordinateRequest) (*GetPlanetByCoordinateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlanetByCoordinate not implemented")
 }
+func (*UnimplementedNoNameServer) GetMapByID(ctx context.Context, req *GetMapByIDRequest) (*GetMapByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMapByID not implemented")
+}
 func (*UnimplementedNoNameServer) GetResourceByID(ctx context.Context, req *GetResourceByIDRequest) (*GetResourceByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetResourceByID not implemented")
 }
@@ -851,6 +855,18 @@ func (*UnimplementedNoNameServer) GetResourceByName(ctx context.Context, req *Ge
 }
 func (*UnimplementedNoNameServer) DropResource(ctx context.Context, req *DropResourceRequest) (*DropResourceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DropResource not implemented")
+}
+func (*UnimplementedNoNameServer) GetAllItems(ctx context.Context, req *GetAllItemsRequest) (*GetAllItemsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllItems not implemented")
+}
+func (*UnimplementedNoNameServer) GetItemsByCategoryID(ctx context.Context, req *GetItemsByCategoryIDRequest) (*GetItemsByCategoryIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetItemsByCategoryID not implemented")
+}
+func (*UnimplementedNoNameServer) UseItem(ctx context.Context, req *UseItemRequest) (*UseItemResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UseItem not implemented")
+}
+func (*UnimplementedNoNameServer) GetAllItemCategories(ctx context.Context, req *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllItemCategories not implemented")
 }
 func (*UnimplementedNoNameServer) GetShipRepairInfo(ctx context.Context, req *GetShipRepairInfoRequest) (*GetShipRepairInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetShipRepairInfo not implemented")
@@ -872,18 +888,6 @@ func (*UnimplementedNoNameServer) CreateTransaction(ctx context.Context, req *Cr
 }
 func (*UnimplementedNoNameServer) DropTresure(ctx context.Context, req *DropTresureRequest) (*DropTresureResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DropTresure not implemented")
-}
-func (*UnimplementedNoNameServer) GetWeaponByID(ctx context.Context, req *GetWeaponByIDRequest) (*GetWeaponByIDResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetWeaponByID not implemented")
-}
-func (*UnimplementedNoNameServer) FindWeaponByName(ctx context.Context, req *FindWeaponByNameRequest) (*FindWeaponByNameResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FindWeaponByName not implemented")
-}
-func (*UnimplementedNoNameServer) UpdateWeapon(ctx context.Context, req *UpdateWeaponRequest) (*UpdateWeaponResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateWeapon not implemented")
-}
-func (*UnimplementedNoNameServer) GetAllWeaponCategory(ctx context.Context, req *GetAllWeaponCategoryRequest) (*GetAllWeaponCategoryResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAllWeaponCategory not implemented")
 }
 
 func RegisterNoNameServer(s *grpc.Server, srv NoNameServer) {
@@ -962,6 +966,78 @@ func _NoName_GetAllArmorCategory_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetWeaponByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWeaponByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetWeaponByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetWeaponByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetWeaponByID(ctx, req.(*GetWeaponByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_FindWeaponByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FindWeaponByNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).FindWeaponByName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/FindWeaponByName",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).FindWeaponByName(ctx, req.(*FindWeaponByNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_UpdateWeapon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateWeaponRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).UpdateWeapon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/UpdateWeapon",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).UpdateWeapon(ctx, req.(*UpdateWeaponRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetAllWeaponCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllWeaponCategoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllWeaponCategory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllWeaponCategory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllWeaponCategory(ctx, req.(*GetAllWeaponCategoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetPlayerByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPlayerByIDRequest)
 	if err := dec(in); err != nil {
@@ -980,20 +1056,20 @@ func _NoName_GetPlayerByID_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_FindPlayerByUsername_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FindPlayerByUsernameRequest)
+func _NoName_GetPlayerByUsername_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerByUsernameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).FindPlayerByUsername(ctx, in)
+		return srv.(NoNameServer).GetPlayerByUsername(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/FindPlayerByUsername",
+		FullMethod: "/NoName/GetPlayerByUsername",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).FindPlayerByUsername(ctx, req.(*FindPlayerByUsernameRequest))
+		return srv.(NoNameServer).GetPlayerByUsername(ctx, req.(*GetPlayerByUsernameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1088,42 +1164,6 @@ func _NoName_GetPlayerLastPosition_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_SignIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SignInRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).SignIn(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/SignIn",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).SignIn(ctx, req.(*SignInRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_ManagePlayerInventory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ManagePlayerInventoryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).ManagePlayerInventory(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/ManagePlayerInventory",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).ManagePlayerInventory(ctx, req.(*ManagePlayerInventoryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _NoName_GetPlayerResources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPlayerResourcesRequest)
 	if err := dec(in); err != nil {
@@ -1178,6 +1218,24 @@ func _NoName_GetPlayerEconomy_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_ManagePlayerInventory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ManagePlayerInventoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).ManagePlayerInventory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/ManagePlayerInventory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).ManagePlayerInventory(ctx, req.(*ManagePlayerInventoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetRestsInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRestsInfoRequest)
 	if err := dec(in); err != nil {
@@ -1210,6 +1268,24 @@ func _NoName_EndPlayerRest_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).EndPlayerRest(ctx, req.(*EndPlayerRestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_SignIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SignInRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).SignIn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/SignIn",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).SignIn(ctx, req.(*SignInRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1340,78 +1416,6 @@ func _NoName_HitEnemy_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_GetAllItems_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllItemsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).GetAllItems(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/GetAllItems",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetAllItems(ctx, req.(*GetAllItemsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_GetItemByCategoryID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetItemByCategoryIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).GetItemByCategoryID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/GetItemByCategoryID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetItemByCategoryID(ctx, req.(*GetItemByCategoryIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_UseItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UseItemRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).UseItem(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/UseItem",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).UseItem(ctx, req.(*UseItemRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_GetAllItemCategories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllItemCategoriesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).GetAllItemCategories(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/GetAllItemCategories",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetAllItemCategories(ctx, req.(*GetAllItemCategoriesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _NoName_FindLanguageBySlug_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(FindLanguageBySlugRequest)
 	if err := dec(in); err != nil {
@@ -1430,74 +1434,56 @@ func _NoName_FindLanguageBySlug_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_FindLanguageBy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FindLanguageByRequest)
+func _NoName_FindLanguageByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FindLanguageByNameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).FindLanguageBy(ctx, in)
+		return srv.(NoNameServer).FindLanguageByName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/FindLanguageBy",
+		FullMethod: "/NoName/FindLanguageByName",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).FindLanguageBy(ctx, req.(*FindLanguageByRequest))
+		return srv.(NoNameServer).FindLanguageByName(ctx, req.(*FindLanguageByNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_GetLanguages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLanguagesRequest)
+func _NoName_GetAllLanguages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllLanguagesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).GetLanguages(ctx, in)
+		return srv.(NoNameServer).GetAllLanguages(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/GetLanguages",
+		FullMethod: "/NoName/GetAllLanguages",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetLanguages(ctx, req.(*GetLanguagesRequest))
+		return srv.(NoNameServer).GetAllLanguages(ctx, req.(*GetAllLanguagesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_GetMapByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMapByIDRequest)
+func _NoName_GetAllNPC_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllNPCRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).GetMapByID(ctx, in)
+		return srv.(NoNameServer).GetAllNPC(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/GetMapByID",
+		FullMethod: "/NoName/GetAllNPC",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetMapByID(ctx, req.(*GetMapByIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_GetAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).GetAll(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/GetAll",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetAll(ctx, req.(*GetAllRequest))
+		return srv.(NoNameServer).GetAllNPC(ctx, req.(*GetAllNPCRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1556,6 +1542,24 @@ func _NoName_GetPlanetByCoordinate_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetMapByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMapByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetMapByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetMapByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetMapByID(ctx, req.(*GetMapByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetResourceByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetResourceByIDRequest)
 	if err := dec(in); err != nil {
@@ -1606,6 +1610,78 @@ func _NoName_DropResource_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).DropResource(ctx, req.(*DropResourceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetAllItems_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllItemsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllItems(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllItems",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllItems(ctx, req.(*GetAllItemsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetItemsByCategoryID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetItemsByCategoryIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetItemsByCategoryID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetItemsByCategoryID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetItemsByCategoryID(ctx, req.(*GetItemsByCategoryIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_UseItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UseItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).UseItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/UseItem",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).UseItem(ctx, req.(*UseItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetAllItemCategories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllItemCategoriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllItemCategories(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllItemCategories",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllItemCategories(ctx, req.(*GetAllItemCategoriesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1736,78 +1812,6 @@ func _NoName_DropTresure_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_GetWeaponByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWeaponByIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).GetWeaponByID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/GetWeaponByID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetWeaponByID(ctx, req.(*GetWeaponByIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_FindWeaponByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FindWeaponByNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).FindWeaponByName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/FindWeaponByName",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).FindWeaponByName(ctx, req.(*FindWeaponByNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_UpdateWeapon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateWeaponRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).UpdateWeapon(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/UpdateWeapon",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).UpdateWeapon(ctx, req.(*UpdateWeaponRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_GetAllWeaponCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllWeaponCategoryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).GetAllWeaponCategory(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/GetAllWeaponCategory",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetAllWeaponCategory(ctx, req.(*GetAllWeaponCategoryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 var _NoName_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "NoName",
 	HandlerType: (*NoNameServer)(nil),
@@ -1829,12 +1833,28 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetAllArmorCategory_Handler,
 		},
 		{
+			MethodName: "GetWeaponByID",
+			Handler:    _NoName_GetWeaponByID_Handler,
+		},
+		{
+			MethodName: "FindWeaponByName",
+			Handler:    _NoName_FindWeaponByName_Handler,
+		},
+		{
+			MethodName: "UpdateWeapon",
+			Handler:    _NoName_UpdateWeapon_Handler,
+		},
+		{
+			MethodName: "GetAllWeaponCategory",
+			Handler:    _NoName_GetAllWeaponCategory_Handler,
+		},
+		{
 			MethodName: "GetPlayerByID",
 			Handler:    _NoName_GetPlayerByID_Handler,
 		},
 		{
-			MethodName: "FindPlayerByUsername",
-			Handler:    _NoName_FindPlayerByUsername_Handler,
+			MethodName: "GetPlayerByUsername",
+			Handler:    _NoName_GetPlayerByUsername_Handler,
 		},
 		{
 			MethodName: "GetPlayerStats",
@@ -1857,14 +1877,6 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetPlayerLastPosition_Handler,
 		},
 		{
-			MethodName: "SignIn",
-			Handler:    _NoName_SignIn_Handler,
-		},
-		{
-			MethodName: "ManagePlayerInventory",
-			Handler:    _NoName_ManagePlayerInventory_Handler,
-		},
-		{
 			MethodName: "GetPlayerResources",
 			Handler:    _NoName_GetPlayerResources_Handler,
 		},
@@ -1877,12 +1889,20 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetPlayerEconomy_Handler,
 		},
 		{
+			MethodName: "ManagePlayerInventory",
+			Handler:    _NoName_ManagePlayerInventory_Handler,
+		},
+		{
 			MethodName: "GetRestsInfo",
 			Handler:    _NoName_GetRestsInfo_Handler,
 		},
 		{
 			MethodName: "EndPlayerRest",
 			Handler:    _NoName_EndPlayerRest_Handler,
+		},
+		{
+			MethodName: "SignIn",
+			Handler:    _NoName_SignIn_Handler,
 		},
 		{
 			MethodName: "GetPlayerStateByID",
@@ -1913,40 +1933,20 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_HitEnemy_Handler,
 		},
 		{
-			MethodName: "GetAllItems",
-			Handler:    _NoName_GetAllItems_Handler,
-		},
-		{
-			MethodName: "GetItemByCategoryID",
-			Handler:    _NoName_GetItemByCategoryID_Handler,
-		},
-		{
-			MethodName: "UseItem",
-			Handler:    _NoName_UseItem_Handler,
-		},
-		{
-			MethodName: "GetAllItemCategories",
-			Handler:    _NoName_GetAllItemCategories_Handler,
-		},
-		{
 			MethodName: "FindLanguageBySlug",
 			Handler:    _NoName_FindLanguageBySlug_Handler,
 		},
 		{
-			MethodName: "FindLanguageBy",
-			Handler:    _NoName_FindLanguageBy_Handler,
+			MethodName: "FindLanguageByName",
+			Handler:    _NoName_FindLanguageByName_Handler,
 		},
 		{
-			MethodName: "GetLanguages",
-			Handler:    _NoName_GetLanguages_Handler,
+			MethodName: "GetAllLanguages",
+			Handler:    _NoName_GetAllLanguages_Handler,
 		},
 		{
-			MethodName: "GetMapByID",
-			Handler:    _NoName_GetMapByID_Handler,
-		},
-		{
-			MethodName: "GetAll",
-			Handler:    _NoName_GetAll_Handler,
+			MethodName: "GetAllNPC",
+			Handler:    _NoName_GetAllNPC_Handler,
 		},
 		{
 			MethodName: "Bank",
@@ -1961,6 +1961,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetPlanetByCoordinate_Handler,
 		},
 		{
+			MethodName: "GetMapByID",
+			Handler:    _NoName_GetMapByID_Handler,
+		},
+		{
 			MethodName: "GetResourceByID",
 			Handler:    _NoName_GetResourceByID_Handler,
 		},
@@ -1971,6 +1975,22 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DropResource",
 			Handler:    _NoName_DropResource_Handler,
+		},
+		{
+			MethodName: "GetAllItems",
+			Handler:    _NoName_GetAllItems_Handler,
+		},
+		{
+			MethodName: "GetItemsByCategoryID",
+			Handler:    _NoName_GetItemsByCategoryID_Handler,
+		},
+		{
+			MethodName: "UseItem",
+			Handler:    _NoName_UseItem_Handler,
+		},
+		{
+			MethodName: "GetAllItemCategories",
+			Handler:    _NoName_GetAllItemCategories_Handler,
 		},
 		{
 			MethodName: "GetShipRepairInfo",
@@ -1999,22 +2019,6 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DropTresure",
 			Handler:    _NoName_DropTresure_Handler,
-		},
-		{
-			MethodName: "GetWeaponByID",
-			Handler:    _NoName_GetWeaponByID_Handler,
-		},
-		{
-			MethodName: "FindWeaponByName",
-			Handler:    _NoName_FindWeaponByName_Handler,
-		},
-		{
-			MethodName: "UpdateWeapon",
-			Handler:    _NoName_UpdateWeapon_Handler,
-		},
-		{
-			MethodName: "GetAllWeaponCategory",
-			Handler:    _NoName_GetAllWeaponCategory_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

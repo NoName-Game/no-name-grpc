@@ -25,15 +25,15 @@ message GetAllItemsRequest {
     // Empty
 }
 message GetAllItemsResponse {
-    repeated Item Item = 1;
+    repeated Item Items = 1;
 }
 
 // GetItemByCategoryID
-message GetItemByCategoryIDRequest {
+message GetItemsByCategoryIDRequest {
     uint32 categoryID = 1;
 }
-message GetItemByCategoryIDResponse {
-    repeated Item Item = 1;
+message GetItemsByCategoryIDResponse {
+    repeated Item Items = 1;
 }
 
 // UseItem

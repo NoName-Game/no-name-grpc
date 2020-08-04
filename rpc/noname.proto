@@ -28,21 +28,33 @@ service NoName {
     // ArmorCategory
     rpc GetAllArmorCategory (armor_category.GetAllArmorCategoryRequest) returns (armor_category.GetAllArmorCategoryResponse) {}
 
+    // Weapon
+    rpc GetWeaponByID (weapon.GetWeaponByIDRequest) returns (weapon.GetWeaponByIDResponse) {}
+    rpc FindWeaponByName (weapon.FindWeaponByNameRequest) returns (weapon.FindWeaponByNameResponse) {}
+    rpc UpdateWeapon (weapon.UpdateWeaponRequest) returns (weapon.UpdateWeaponResponse) {}
+
+    // WeaponCategory
+    rpc GetAllWeaponCategory (weapon_category.GetAllWeaponCategoryRequest) returns (weapon_category.GetAllWeaponCategoryResponse) {}
+
     // Player
     rpc GetPlayerByID (player.GetPlayerByIDRequest) returns (player.GetPlayerByIDResponse) {}
-    rpc FindPlayerByUsername (player.FindPlayerByUsernameRequest) returns (player.FindPlayerByUsernameResponse) {}
+    rpc GetPlayerByUsername (player.GetPlayerByUsernameRequest) returns (player.GetPlayerByUsernameResponse) {}
     rpc GetPlayerStats (player.GetPlayerStatsRequest) returns (player.GetPlayerStatsResponse) {}
     rpc GetPlayerArmors (player.GetPlayerArmorsRequest) returns (player.GetPlayerArmorsResponse) {}
     rpc GetPlayerWeapons (player.GetPlayerWeaponsRequest) returns (player.GetPlayerWeaponsResponse) {}
     rpc GetPlayerShips (player.GetPlayerShipsRequest) returns (player.GetPlayerShipsResponse) {}
     rpc GetPlayerLastPosition (player.GetPlayerLastPositionRequest) returns (player.GetPlayerLastPositionResponse) {}
-    rpc SignIn (player.SignInRequest) returns (player.SignInResponse) {}
-    rpc ManagePlayerInventory (player.ManagePlayerInventoryRequest) returns (player.ManagePlayerInventoryResponse) {}
     rpc GetPlayerResources (player.GetPlayerResourcesRequest) returns (player.GetPlayerResourcesResponse) {}
     rpc GetPlayerItems (player.GetPlayerItemsRequest) returns (player.GetPlayerItemsResponse) {}
     rpc GetPlayerEconomy (player.GetPlayerEconomyRequest) returns (player.GetPlayerEconomyResponse) {}
+    rpc ManagePlayerInventory (player.ManagePlayerInventoryRequest) returns (player.ManagePlayerInventoryResponse) {}
+
+    // Rests
     rpc GetRestsInfo (player.GetRestsInfoRequest) returns (player.GetRestsInfoResponse) {}
     rpc EndPlayerRest (player.EndPlayerRestRequest) returns (player.EndPlayerRestResponse) {}
+
+    // SignIn
+    rpc SignIn (player.SignInRequest) returns (player.SignInResponse) {}
 
     // PlayerState
     rpc GetPlayerStateByID (player_state.GetPlayerStateByIDRequest) returns (player_state.GetPlayerStateByIDResponse) {}
@@ -55,34 +67,34 @@ service NoName {
     rpc GetEnemyByID (enemy.GetEnemyByIDRequest) returns (enemy.GetEnemyByIDResponse) {}
     rpc HitEnemy (enemy.HitEnemyRequest) returns (enemy.HitEnemyResponse) {}
 
-    // Item
-    rpc GetAllItems (item.GetAllItemsRequest) returns (item.GetAllItemsResponse) {}
-    rpc GetItemByCategoryID (item.GetItemByCategoryIDRequest) returns (item.GetItemByCategoryIDResponse) {}
-    rpc UseItem (item.UseItemRequest) returns (item.UseItemResponse) {}
-
-    // ItemCateogory
-    rpc GetAllItemCategories (item_category.GetAllItemCategoriesRequest) returns (item_category.GetAllItemCategoriesResponse) {}
-
     // Language
     rpc FindLanguageBySlug (language.FindLanguageBySlugRequest) returns (language.FindLanguageBySlugResponse) {}
-    rpc FindLanguageBy (language.FindLanguageByRequest) returns (language.FindLanguageByResponse) {}
-    rpc GetLanguages (language.GetLanguagesRequest) returns (language.GetLanguagesResponse) {}
-
-    // Map
-    rpc GetMapByID (maps.GetMapByIDRequest) returns (maps.GetMapByIDResponse) {}
+    rpc FindLanguageByName (language.FindLanguageByNameRequest) returns (language.FindLanguageByNameResponse) {}
+    rpc GetAllLanguages (language.GetAllLanguagesRequest) returns (language.GetAllLanguagesResponse) {}
 
     // NPC
-    rpc GetAll (npc.GetAllRequest) returns (npc.GetAllResponse) {}
+    rpc GetAllNPC (npc.GetAllNPCRequest) returns (npc.GetAllNPCResponse) {}
     rpc Bank (npc.BankRequest) returns (npc.BankResponse) {}
     rpc Craft (npc.CraftRequest) returns (npc.CraftResponse) {}
 
     // Planet
     rpc GetPlanetByCoordinate (planet.GetPlanetByCoordinateRequest) returns (planet.GetPlanetByCoordinateResponse) {}
 
+    // Map
+    rpc GetMapByID (maps.GetMapByIDRequest) returns (maps.GetMapByIDResponse) {}
+
     // Resouce
     rpc GetResourceByID (resource.GetResourceByIDRequest) returns (resource.GetResourceByIDResponse) {}
     rpc GetResourceByName (resource.GetResourceByNameRequest) returns (resource.GetResourceByNameResponse) {}
     rpc DropResource (resource.DropResourceRequest) returns (resource.DropResourceResponse) {}
+
+    // Item
+    rpc GetAllItems (item.GetAllItemsRequest) returns (item.GetAllItemsResponse) {}
+    rpc GetItemsByCategoryID (item.GetItemsByCategoryIDRequest) returns (item.GetItemsByCategoryIDResponse) {}
+    rpc UseItem (item.UseItemRequest) returns (item.UseItemResponse) {}
+
+    // ItemCateogory
+    rpc GetAllItemCategories (item_category.GetAllItemCategoriesRequest) returns (item_category.GetAllItemCategoriesResponse) {}
 
     // Ship
     rpc GetShipRepairInfo (ship.GetShipRepairInfoRequest) returns (ship.GetShipRepairInfoResponse) {}
@@ -96,13 +108,4 @@ service NoName {
 
     // Tresure
     rpc DropTresure (tresure.DropTresureRequest) returns (tresure.DropTresureResponse) {}
-
-    // Weapon
-    rpc GetWeaponByID (weapon.GetWeaponByIDRequest) returns (weapon.GetWeaponByIDResponse) {}
-    rpc FindWeaponByName (weapon.FindWeaponByNameRequest) returns (weapon.FindWeaponByNameResponse) {}
-    rpc UpdateWeapon (weapon.UpdateWeaponRequest) returns (weapon.UpdateWeaponResponse) {}
-
-    // ArmorCategory
-    rpc GetAllWeaponCategory (weapon_category.GetAllWeaponCategoryRequest) returns (weapon_category.GetAllWeaponCategoryResponse) {}
-
 }

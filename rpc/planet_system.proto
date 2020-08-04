@@ -9,5 +9,5 @@ message PlanetSystem {
     double Size = 3;
     int32 Density = 4;
     double Deviation = 5;
-    repeated planet.Planet Plantes = 6;
+    repeated planet.Planet Planets = 6;
 }

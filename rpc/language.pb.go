@@ -155,78 +155,78 @@ func (m *FindLanguageBySlugResponse) GetLanguage() *Language {
 }
 
 // FindLanguageBySlug
-type FindLanguageByRequest struct {
-	Value                string   `protobuf:"bytes,1,opt,name=Value,proto3" json:"Value,omitempty"`
+type FindLanguageByNameRequest struct {
+	Name                 string   `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *FindLanguageByRequest) Reset()         { *m = FindLanguageByRequest{} }
-func (m *FindLanguageByRequest) String() string { return proto.CompactTextString(m) }
-func (*FindLanguageByRequest) ProtoMessage()    {}
-func (*FindLanguageByRequest) Descriptor() ([]byte, []int) {
+func (m *FindLanguageByNameRequest) Reset()         { *m = FindLanguageByNameRequest{} }
+func (m *FindLanguageByNameRequest) String() string { return proto.CompactTextString(m) }
+func (*FindLanguageByNameRequest) ProtoMessage()    {}
+func (*FindLanguageByNameRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_9f8bc0f2196202c2, []int{3}
 }
 
-func (m *FindLanguageByRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_FindLanguageByRequest.Unmarshal(m, b)
+func (m *FindLanguageByNameRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_FindLanguageByNameRequest.Unmarshal(m, b)
 }
-func (m *FindLanguageByRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_FindLanguageByRequest.Marshal(b, m, deterministic)
+func (m *FindLanguageByNameRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_FindLanguageByNameRequest.Marshal(b, m, deterministic)
 }
-func (m *FindLanguageByRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_FindLanguageByRequest.Merge(m, src)
+func (m *FindLanguageByNameRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_FindLanguageByNameRequest.Merge(m, src)
 }
-func (m *FindLanguageByRequest) XXX_Size() int {
-	return xxx_messageInfo_FindLanguageByRequest.Size(m)
+func (m *FindLanguageByNameRequest) XXX_Size() int {
+	return xxx_messageInfo_FindLanguageByNameRequest.Size(m)
 }
-func (m *FindLanguageByRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_FindLanguageByRequest.DiscardUnknown(m)
+func (m *FindLanguageByNameRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_FindLanguageByNameRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_FindLanguageByRequest proto.InternalMessageInfo
+var xxx_messageInfo_FindLanguageByNameRequest proto.InternalMessageInfo
 
-func (m *FindLanguageByRequest) GetValue() string {
+func (m *FindLanguageByNameRequest) GetName() string {
 	if m != nil {
-		return m.Value
+		return m.Name
 	}
 	return ""
 }
 
-type FindLanguageByResponse struct {
+type FindLanguageByNameResponse struct {
 	Language             *Language `protobuf:"bytes,1,opt,name=Language,proto3" json:"Language,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
 	XXX_unrecognized     []byte    `json:"-"`
 	XXX_sizecache        int32     `json:"-"`
 }
 
-func (m *FindLanguageByResponse) Reset()         { *m = FindLanguageByResponse{} }
-func (m *FindLanguageByResponse) String() string { return proto.CompactTextString(m) }
-func (*FindLanguageByResponse) ProtoMessage()    {}
-func (*FindLanguageByResponse) Descriptor() ([]byte, []int) {
+func (m *FindLanguageByNameResponse) Reset()         { *m = FindLanguageByNameResponse{} }
+func (m *FindLanguageByNameResponse) String() string { return proto.CompactTextString(m) }
+func (*FindLanguageByNameResponse) ProtoMessage()    {}
+func (*FindLanguageByNameResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_9f8bc0f2196202c2, []int{4}
 }
 
-func (m *FindLanguageByResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_FindLanguageByResponse.Unmarshal(m, b)
+func (m *FindLanguageByNameResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_FindLanguageByNameResponse.Unmarshal(m, b)
 }
-func (m *FindLanguageByResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_FindLanguageByResponse.Marshal(b, m, deterministic)
+func (m *FindLanguageByNameResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_FindLanguageByNameResponse.Marshal(b, m, deterministic)
 }
-func (m *FindLanguageByResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_FindLanguageByResponse.Merge(m, src)
+func (m *FindLanguageByNameResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_FindLanguageByNameResponse.Merge(m, src)
 }
-func (m *FindLanguageByResponse) XXX_Size() int {
-	return xxx_messageInfo_FindLanguageByResponse.Size(m)
+func (m *FindLanguageByNameResponse) XXX_Size() int {
+	return xxx_messageInfo_FindLanguageByNameResponse.Size(m)
 }
-func (m *FindLanguageByResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_FindLanguageByResponse.DiscardUnknown(m)
+func (m *FindLanguageByNameResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_FindLanguageByNameResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_FindLanguageByResponse proto.InternalMessageInfo
+var xxx_messageInfo_FindLanguageByNameResponse proto.InternalMessageInfo
 
-func (m *FindLanguageByResponse) GetLanguage() *Language {
+func (m *FindLanguageByNameResponse) GetLanguage() *Language {
 	if m != nil {
 		return m.Language
 	}
@@ -234,72 +234,72 @@ func (m *FindLanguageByResponse) GetLanguage() *Language {
 }
 
 // GetLanguages
-type GetLanguagesRequest struct {
+type GetAllLanguagesRequest struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetLanguagesRequest) Reset()         { *m = GetLanguagesRequest{} }
-func (m *GetLanguagesRequest) String() string { return proto.CompactTextString(m) }
-func (*GetLanguagesRequest) ProtoMessage()    {}
-func (*GetLanguagesRequest) Descriptor() ([]byte, []int) {
+func (m *GetAllLanguagesRequest) Reset()         { *m = GetAllLanguagesRequest{} }
+func (m *GetAllLanguagesRequest) String() string { return proto.CompactTextString(m) }
+func (*GetAllLanguagesRequest) ProtoMessage()    {}
+func (*GetAllLanguagesRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_9f8bc0f2196202c2, []int{5}
 }
 
-func (m *GetLanguagesRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetLanguagesRequest.Unmarshal(m, b)
+func (m *GetAllLanguagesRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetAllLanguagesRequest.Unmarshal(m, b)
 }
-func (m *GetLanguagesRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetLanguagesRequest.Marshal(b, m, deterministic)
+func (m *GetAllLanguagesRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetAllLanguagesRequest.Marshal(b, m, deterministic)
 }
-func (m *GetLanguagesRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetLanguagesRequest.Merge(m, src)
+func (m *GetAllLanguagesRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetAllLanguagesRequest.Merge(m, src)
 }
-func (m *GetLanguagesRequest) XXX_Size() int {
-	return xxx_messageInfo_GetLanguagesRequest.Size(m)
+func (m *GetAllLanguagesRequest) XXX_Size() int {
+	return xxx_messageInfo_GetAllLanguagesRequest.Size(m)
 }
-func (m *GetLanguagesRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetLanguagesRequest.DiscardUnknown(m)
+func (m *GetAllLanguagesRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetAllLanguagesRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetLanguagesRequest proto.InternalMessageInfo
+var xxx_messageInfo_GetAllLanguagesRequest proto.InternalMessageInfo
 
-type GetLanguagesResponse struct {
-	Language             []*Language `protobuf:"bytes,1,rep,name=Language,proto3" json:"Language,omitempty"`
+type GetAllLanguagesResponse struct {
+	Languages            []*Language `protobuf:"bytes,1,rep,name=Languages,proto3" json:"Languages,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
 	XXX_unrecognized     []byte      `json:"-"`
 	XXX_sizecache        int32       `json:"-"`
 }
 
-func (m *GetLanguagesResponse) Reset()         { *m = GetLanguagesResponse{} }
-func (m *GetLanguagesResponse) String() string { return proto.CompactTextString(m) }
-func (*GetLanguagesResponse) ProtoMessage()    {}
-func (*GetLanguagesResponse) Descriptor() ([]byte, []int) {
+func (m *GetAllLanguagesResponse) Reset()         { *m = GetAllLanguagesResponse{} }
+func (m *GetAllLanguagesResponse) String() string { return proto.CompactTextString(m) }
+func (*GetAllLanguagesResponse) ProtoMessage()    {}
+func (*GetAllLanguagesResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_9f8bc0f2196202c2, []int{6}
 }
 
-func (m *GetLanguagesResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetLanguagesResponse.Unmarshal(m, b)
+func (m *GetAllLanguagesResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetAllLanguagesResponse.Unmarshal(m, b)
 }
-func (m *GetLanguagesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetLanguagesResponse.Marshal(b, m, deterministic)
+func (m *GetAllLanguagesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetAllLanguagesResponse.Marshal(b, m, deterministic)
 }
-func (m *GetLanguagesResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetLanguagesResponse.Merge(m, src)
+func (m *GetAllLanguagesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetAllLanguagesResponse.Merge(m, src)
 }
-func (m *GetLanguagesResponse) XXX_Size() int {
-	return xxx_messageInfo_GetLanguagesResponse.Size(m)
+func (m *GetAllLanguagesResponse) XXX_Size() int {
+	return xxx_messageInfo_GetAllLanguagesResponse.Size(m)
 }
-func (m *GetLanguagesResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetLanguagesResponse.DiscardUnknown(m)
+func (m *GetAllLanguagesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetAllLanguagesResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetLanguagesResponse proto.InternalMessageInfo
+var xxx_messageInfo_GetAllLanguagesResponse proto.InternalMessageInfo
 
-func (m *GetLanguagesResponse) GetLanguage() []*Language {
+func (m *GetAllLanguagesResponse) GetLanguages() []*Language {
 	if m != nil {
-		return m.Language
+		return m.Languages
 	}
 	return nil
 }
@@ -308,16 +308,16 @@ func init() {
 	proto.RegisterType((*Language)(nil), "language.Language")
 	proto.RegisterType((*FindLanguageBySlugRequest)(nil), "language.FindLanguageBySlugRequest")
 	proto.RegisterType((*FindLanguageBySlugResponse)(nil), "language.FindLanguageBySlugResponse")
-	proto.RegisterType((*FindLanguageByRequest)(nil), "language.FindLanguageByRequest")
-	proto.RegisterType((*FindLanguageByResponse)(nil), "language.FindLanguageByResponse")
-	proto.RegisterType((*GetLanguagesRequest)(nil), "language.GetLanguagesRequest")
-	proto.RegisterType((*GetLanguagesResponse)(nil), "language.GetLanguagesResponse")
+	proto.RegisterType((*FindLanguageByNameRequest)(nil), "language.FindLanguageByNameRequest")
+	proto.RegisterType((*FindLanguageByNameResponse)(nil), "language.FindLanguageByNameResponse")
+	proto.RegisterType((*GetAllLanguagesRequest)(nil), "language.GetAllLanguagesRequest")
+	proto.RegisterType((*GetAllLanguagesResponse)(nil), "language.GetAllLanguagesResponse")
 }
 
 func init() { proto.RegisterFile("rpc/language.proto", fileDescriptor_9f8bc0f2196202c2) }
 
 var fileDescriptor_9f8bc0f2196202c2 = []byte{
-	// 217 bytes of a gzipped FileDescriptorProto
+	// 220 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2a, 0x2a, 0x48, 0xd6,
 	0xcf, 0x49, 0xcc, 0x4b, 0x2f, 0x4d, 0x4c, 0x4f, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2,
 	0x80, 0xf1, 0x95, 0x9c, 0xb8, 0x38, 0x7c, 0xa0, 0x6c, 0x21, 0x3e, 0x2e, 0x26, 0x4f, 0x17, 0x09,
@@ -326,10 +326,10 @@ var fileDescriptor_9f8bc0f2196202c2 = []byte{
 	0xc1, 0x0c, 0x11, 0x03, 0xb1, 0x95, 0xf4, 0xb9, 0x24, 0xdd, 0x32, 0xf3, 0x52, 0x60, 0xe6, 0x38,
 	0x55, 0x82, 0x44, 0x83, 0x52, 0x0b, 0x4b, 0x53, 0x8b, 0x4b, 0xe0, 0x1a, 0x18, 0x91, 0x34, 0xf8,
 	0x70, 0x49, 0x61, 0xd3, 0x50, 0x5c, 0x90, 0x9f, 0x57, 0x9c, 0x2a, 0xa4, 0x87, 0x70, 0x12, 0x58,
-	0x17, 0xb7, 0x91, 0x90, 0x1e, 0xdc, 0xfd, 0x30, 0x99, 0x20, 0xb8, 0x1a, 0x25, 0x5d, 0x2e, 0x51,
-	0x54, 0xd3, 0x60, 0x56, 0x8b, 0x70, 0xb1, 0x86, 0x25, 0xe6, 0x94, 0xa6, 0x42, 0xed, 0x86, 0x70,
-	0x94, 0x3c, 0xb8, 0xc4, 0xd0, 0x95, 0x93, 0x69, 0xb1, 0x28, 0x97, 0xb0, 0x7b, 0x6a, 0x09, 0x8c,
-	0x5b, 0x0c, 0xb5, 0x56, 0xc9, 0x8d, 0x4b, 0x04, 0x55, 0x18, 0xab, 0xf1, 0xcc, 0x84, 0x8c, 0x77,
-	0x62, 0x8d, 0x62, 0x2e, 0x2a, 0x48, 0x4e, 0x62, 0x03, 0x47, 0x99, 0x31, 0x20, 0x00, 0x00, 0xff,
-	0xff, 0xb5, 0x7c, 0xd2, 0xfd, 0xc8, 0x01, 0x00, 0x00,
+	0x17, 0xb7, 0x91, 0x90, 0x1e, 0xdc, 0xfd, 0x30, 0x99, 0x20, 0xb8, 0x1a, 0x4c, 0xeb, 0x41, 0x0e,
+	0x45, 0xb2, 0x1e, 0xec, 0x07, 0x46, 0x84, 0x1f, 0x30, 0xad, 0x87, 0x68, 0x20, 0xd3, 0x7a, 0x09,
+	0x2e, 0x31, 0xf7, 0xd4, 0x12, 0xc7, 0x9c, 0x1c, 0x98, 0x48, 0x31, 0xd4, 0x6e, 0x25, 0x6f, 0x2e,
+	0x71, 0x0c, 0x19, 0xa8, 0x25, 0x06, 0x5c, 0x9c, 0x70, 0x41, 0x09, 0x46, 0x05, 0x66, 0x1c, 0xb6,
+	0x20, 0x14, 0x39, 0xb1, 0x46, 0x31, 0x17, 0x15, 0x24, 0x27, 0xb1, 0x81, 0x23, 0xd0, 0x18, 0x10,
+	0x00, 0x00, 0xff, 0xff, 0x09, 0x2b, 0x12, 0x2e, 0xd6, 0x01, 0x00, 0x00,
 }
