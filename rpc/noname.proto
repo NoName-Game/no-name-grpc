@@ -58,6 +58,7 @@ service NoName {
 
     // PlayerState
     rpc GetPlayerStateByID (player_state.GetPlayerStateByIDRequest) returns (player_state.GetPlayerStateByIDResponse) {}
+    rpc GetActivePlayerStates (player_state.GetActivePlayerStatesRequest) returns (player_state.GetActivePlayerStatesResponse) {}
     rpc GetPlayerStateToNotify (player_state.GetPlayerStateToNotifyRequest) returns (player_state.GetPlayerStateToNotifyResponse) {}
     rpc CreatePlayerState (player_state.CreatePlayerStateRequest) returns (player_state.CreatePlayerStateResponse) {}
     rpc UpdatePlayerState (player_state.UpdatePlayerStateRequest) returns (player_state.UpdatePlayerStateResponse) {}

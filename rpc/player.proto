@@ -14,17 +14,17 @@ message Player {
     uint32 ID = 1;
     string Username = 2;
     int64 ChatID = 3;
-    repeated player_state.PlayerState States = 4;
-    repeated weapon.Weapon Weapons = 5;
+//    repeated player_state.PlayerState States = 4;
+//    repeated weapon.Weapon Weapons = 5;
 //    Planets      Planets
 //    Positions    PlayerPositions
 //    Ships        Ships
-    repeated armor.Armor Armors = 6;
-    player_stats.PlayerStats Stats = 7;
-    uint32 LanguageID = 8;
-    language.Language Language = 9;
+//    repeated armor.Armor Armors = 6;
+//    player_stats.PlayerStats Stats = 7;
+    uint32 LanguageID = 4;
+    language.Language Language = 5;
 //    Transactions Transactions
-    bool banned = 10;
+    bool banned = 6;
 }
 
 // GetPlayerByID
@@ -88,7 +88,9 @@ message GetPlayerLastPositionResponse {
 
 // SignIn
 message SignInRequest {
-    Player Player = 1;
+    string Username = 1;
+    int64 ChatID = 2;
+    uint32 LanguageID = 3;
 }
 message SignInResponse {
     Player Player = 1;

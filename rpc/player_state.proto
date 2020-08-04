@@ -23,6 +23,14 @@ message GetPlayerStateByIDResponse {
     PlayerState PlayerState = 1;
 }
 
+// GetActivePlayerStates
+message GetActivePlayerStatesRequest {
+    uint32 PlayerID = 1;
+}
+message GetActivePlayerStatesResponse {
+    repeated PlayerState States = 1;
+}
+
 // GetPlayerStateToNotify
 message GetPlayerStateToNotifyRequest {
     // Empty
