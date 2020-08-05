@@ -1,6 +1,6 @@
 syntax = "proto3";
 import "rpc/rarity.proto";
-import "rpc/drop.proto";
+import "rpc/tresure.proto";
 option go_package = "rpc";
 package enemy;
 
@@ -40,5 +40,5 @@ message HitEnemyResponse {
     int32 PlayerDamage = 4;
     int32 PlayerExperience = 5;
     int32 EnemyDamage = 6;
-    drop.DropResponse EnemyDrop =7;
+    tresure.DropTresureResponse EnemyDrop = 7;
 }
