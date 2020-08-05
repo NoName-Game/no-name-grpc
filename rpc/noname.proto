@@ -24,6 +24,7 @@ service NoName {
     rpc GetArmorByID (armor.GetArmorByIDRequest) returns (armor.GetArmorByIDResponse) {}
     rpc FindArmorByName (armor.FindArmorByNameRequest) returns (armor.FindArmorByNameResponse) {}
     rpc UpdateArmor (armor.UpdateArmorRequest) returns (armor.UpdateArmorResponse) {}
+    rpc GetPlayerArmors (armor.GetPlayerArmorsRequest) returns (armor.GetPlayerArmorsResponse) {}
 
     // ArmorCategory
     rpc GetAllArmorCategory (armor_category.GetAllArmorCategoryRequest) returns (armor_category.GetAllArmorCategoryResponse) {}
@@ -32,6 +33,8 @@ service NoName {
     rpc GetWeaponByID (weapon.GetWeaponByIDRequest) returns (weapon.GetWeaponByIDResponse) {}
     rpc FindWeaponByName (weapon.FindWeaponByNameRequest) returns (weapon.FindWeaponByNameResponse) {}
     rpc UpdateWeapon (weapon.UpdateWeaponRequest) returns (weapon.UpdateWeaponResponse) {}
+    rpc GetPlayerWeapons (weapon.GetPlayerWeaponsRequest) returns (weapon.GetPlayerWeaponsResponse) {}
+    rpc GetPlayerWeaponEquipped (weapon.GetPlayerWeaponEquippedRequest) returns (weapon.GetPlayerWeaponEquippedResponse) {}
 
     // WeaponCategory
     rpc GetAllWeaponCategory (weapon_category.GetAllWeaponCategoryRequest) returns (weapon_category.GetAllWeaponCategoryResponse) {}
@@ -40,9 +43,6 @@ service NoName {
     rpc GetPlayerByID (player.GetPlayerByIDRequest) returns (player.GetPlayerByIDResponse) {}
     rpc GetPlayerByUsername (player.GetPlayerByUsernameRequest) returns (player.GetPlayerByUsernameResponse) {}
     rpc GetPlayerStats (player.GetPlayerStatsRequest) returns (player.GetPlayerStatsResponse) {}
-    rpc GetPlayerArmors (player.GetPlayerArmorsRequest) returns (player.GetPlayerArmorsResponse) {}
-    rpc GetPlayerWeapons (player.GetPlayerWeaponsRequest) returns (player.GetPlayerWeaponsResponse) {}
-    rpc GetPlayerShips (player.GetPlayerShipsRequest) returns (player.GetPlayerShipsResponse) {}
     rpc GetPlayerLastPosition (player.GetPlayerLastPositionRequest) returns (player.GetPlayerLastPositionResponse) {}
     rpc GetPlayerResources (player.GetPlayerResourcesRequest) returns (player.GetPlayerResourcesResponse) {}
     rpc GetPlayerItems (player.GetPlayerItemsRequest) returns (player.GetPlayerItemsResponse) {}
@@ -103,6 +103,8 @@ service NoName {
     rpc EndShipRepair (ship.EndShipRepairRequest) returns (ship.EndShipRepairResponse) {}
     rpc GetShipExplorationInfo (ship.GetShipExplorationInfoRequest) returns (ship.GetShipExplorationInfoResponse) {}
     rpc EndShipExploration (ship.EndShipExplorationRequest) returns (ship.EndShipExplorationResponse) {}
+    rpc GetPlayerShips (ship.GetPlayerShipsRequest) returns (ship.GetPlayerShipsResponse) {}
+    rpc GetPlayerShipEquipped (ship.GetPlayerShipEquippedRequest) returns (ship.GetPlayerShipEquippedResponse) {}
 
     // Transaction
     rpc CreateTransaction (transaction.CreateTransactionRequest) returns (transaction.CreateTransactionResponse) {}

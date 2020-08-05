@@ -19,6 +19,7 @@ message Weapon {
     uint32 Potential = 12;
 }
 
+// GetWeaponByID
 message GetWeaponByIDRequest {
     uint32 ID = 1;
 }
@@ -26,6 +27,7 @@ message GetWeaponByIDResponse {
     Weapon Weapon = 1;
 }
 
+// FindWeaponByName
 message FindWeaponByNameRequest {
     string Name = 1;
 }
@@ -33,9 +35,26 @@ message FindWeaponByNameResponse {
     Weapon Weapon = 1;
 }
 
+// UpdateWeapon
 message UpdateWeaponRequest {
     Weapon Weapon = 1;
 }
 message UpdateWeaponResponse {
     // Empty
+}
+
+// GetPlayerWeapons
+message GetPlayerWeaponsRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerWeaponsResponse {
+    repeated weapon.Weapon Weapons = 1;
+}
+
+// GetPlayerWeaponEquipped
+message GetPlayerWeaponEquippedRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerWeaponEquippedResponse {
+    weapon.Weapon Weapon = 1;
 }

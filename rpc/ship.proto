@@ -73,3 +73,18 @@ message EndShipExplorationResponse {
     // TODO: Da verificare
 }
 
+// GetPlayerShips
+message GetPlayerShipsRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerShipsResponse {
+    repeated ship.Ship Ships = 1;
+}
+
+// GetPlayerShipEquipped
+message GetPlayerShipEquippedRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerShipEquippedResponse {
+    ship.Ship Ship = 1;
+}

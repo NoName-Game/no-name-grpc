@@ -1,6 +1,6 @@
 syntax = "proto3";
-import public "rpc/resource_category.proto";
-import public "rpc/rarity.proto";
+import "rpc/resource_category.proto";
+import "rpc/rarity.proto";
 option go_package = "rpc";
 package resource;
 

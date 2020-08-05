@@ -2,7 +2,6 @@ syntax = "proto3";
 import "rpc/language.proto";
 import "rpc/player_stats.proto";
 import "rpc/armor.proto";
-import "rpc/weapon.proto";
 import "rpc/ship.proto";
 import "rpc/player_position.proto";
 import "rpc/player_inventory.proto";
@@ -14,16 +13,8 @@ message Player {
     uint32 ID = 1;
     string Username = 2;
     int64 ChatID = 3;
-//    repeated player_state.PlayerState States = 4;
-//    repeated weapon.Weapon Weapons = 5;
-//    Planets      Planets
-//    Positions    PlayerPositions
-//    Ships        Ships
-//    repeated armor.Armor Armors = 6;
-//    player_stats.PlayerStats Stats = 7;
     uint32 LanguageID = 4;
     language.Language Language = 5;
-//    Transactions Transactions
     bool banned = 6;
 }
 
@@ -49,33 +40,6 @@ message GetPlayerStatsRequest {
 }
 message GetPlayerStatsResponse {
     player_stats.PlayerStats PlayerStats = 1;
-}
-
-// GetPlayerArmors
-message GetPlayerArmorsRequest {
-    uint32 PlayerID = 1;
-    bool Equipped = 2;
-}
-message GetPlayerArmorsResponse {
-    repeated armor.Armor Armors = 1;
-}
-
-// GetPlayerWeapons
-message GetPlayerWeaponsRequest {
-    uint32 PlayerID = 1;
-    bool Equipped = 2;
-}
-message GetPlayerWeaponsResponse {
-    repeated weapon.Weapon Weapons = 1;
-}
-
-// GetPlayerShips
-message GetPlayerShipsRequest {
-    uint32 PlayerID = 1;
-    bool Equipped = 2;
-}
-message GetPlayerShipsResponse {
-    repeated ship.Ship Ships = 1;
 }
 
 // GetPlayerLastPosition

@@ -39,3 +39,12 @@ message UpdateArmorRequest {
 message UpdateArmorResponse {
     // Empty
 }
+
+// GetPlayerArmors
+message GetPlayerArmorsRequest {
+    uint32 PlayerID = 1;
+    bool Equipped = 2;
+}
+message GetPlayerArmorsResponse {
+    repeated armor.Armor Armors = 1;
+}
