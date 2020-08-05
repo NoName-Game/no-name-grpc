@@ -75,8 +75,14 @@ service NoName {
 
     // NPC
     rpc GetAllNPC (npc.GetAllNPCRequest) returns (npc.GetAllNPCResponse) {}
-    rpc Bank (npc.BankRequest) returns (npc.BankResponse) {}
-    rpc Craft (npc.CraftRequest) returns (npc.CraftResponse) {}
+
+    // NPC - Crafter
+    rpc CraftArmor (npc.CraftArmorRequest) returns (npc.CraftArmorResponse) {}
+    rpc CraftWeapon (npc.CraftWeaponRequest) returns (npc.CraftWeaponResponse) {}
+
+    // NPC - Banck
+    rpc BankDeposit (npc.BankDepositRequest) returns (npc.BankDepositResponse) {}
+    rpc BankWithdraw (npc.BankWithdrawRequest) returns (npc.BankWithdrawResponse) {}
 
     // Planet
     rpc GetPlanetByCoordinate (planet.GetPlanetByCoordinateRequest) returns (planet.GetPlanetByCoordinateResponse) {}

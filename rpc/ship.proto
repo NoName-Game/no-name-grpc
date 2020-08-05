@@ -67,10 +67,15 @@ message GetShipExplorationInfoResponse {
 
 // EndShipExploration
 message EndShipExplorationRequest {
-    // TODO: Da verificare
+    uint32 Integrity = 1;
+    double Tank = 2;
+    double PositionX = 3;
+    double PositionY = 4;
+    double PositionZ = 5;
+    uint32 ShipID = 6;
 }
 message EndShipExplorationResponse {
-    // TODO: Da verificare
+    // Empty
 }
 
 // GetPlayerShips

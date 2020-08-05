@@ -23,24 +23,40 @@ message GetAllNPCResponse {
     repeated NPC NPCs = 1;
 }
 
-// Bank
-message BankRequest {
-    uint32 OperationType = 1;  // deposit 0 | withdraw 1
+// Bank Deposit
+message BankDepositRequest {
     uint32 PlayerID = 2;
     int32 Amount = 3;
 }
-message BankResponse {
+message BankDepositResponse {
     int32 Value = 1;
 }
 
-// Craft
-message CraftRequest {
-    string CraftType = 1;
-    string Category = 2;
-    string Items = 3;
-    uint32 PlayerID = 4;
+// Bank Deposit Withdraw
+message BankWithdrawRequest {
+    uint32 PlayerID = 2;
+    int32 Amount = 3;
 }
-message CraftResponse {
+message BankWithdrawResponse {
+    int32 Value = 1;
+}
+
+// Craft Armor
+message CraftArmorRequest {
+    string Category = 1;
+    string Items = 2;
+    uint32 PlayerID = 3;
+}
+message CraftArmorResponse {
     armor.Armor Armor = 1;
-    weapon.Weapon Weapon = 2;
+}
+
+// Craft Weapon
+message CraftWeaponRequest {
+    string Category = 1;
+    string Items = 2;
+    uint32 PlayerID = 3;
+}
+message CraftWeaponResponse {
+    weapon.Weapon Weapon = 1;
 }

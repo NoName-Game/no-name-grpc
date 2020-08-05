@@ -1,0 +1,14 @@
+syntax = "proto3";
+import "rpc/item.proto";
+import "rpc/resource.proto";
+import "rpc/transaction.proto";
+import "rpc/trap.proto";
+option go_package = "rpc";
+package drop;
+
+message DropResponse {
+    item.Item Item = 1;
+    resource.Resource Resource = 2;
+    transaction.Transaction Transaction = 3;
+    trap.Trap Trap = 4;
+}
