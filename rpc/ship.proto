@@ -1,0 +1,95 @@
+syntax = "proto3";
+import public "rpc/rarity.proto";
+import public "rpc/ship_category.proto";
+import public "rpc/ship_stats.proto";
+import public "rpc/planet.proto";
+option go_package = "rpc";
+package ship;
+
+message Ship {
+    uint32 ID = 1;
+    string Name = 2;
+    uint32 PlayerID = 3;
+    uint32 RarityID = 5;
+    rarity.Rarity Rarity = 6;
+    uint32 ShipCategoryID = 7;
+    ship_category.ShipCategory ShipCategory = 8;
+    uint32 ShipStatsID = 9;
+    ship_stats.ShipStats ShipStats = 10;
+    bool Equipped = 11;
+}
+
+// GetShipRepairInfo
+message GetShipRepairInfoRequest {
+    Ship Ship = 1;
+}
+message GetShipRepairInfoResponse {
+    bool NeedRepairs = 1;
+    int32 RepairTime = 2;
+    int32 QuantityResources = 3;
+    string TypeResources = 4;
+}
+
+// StartShipRepair
+message StartShipRepairRequest {
+    Ship Ship = 1;
+}
+message StartShipRepair {
+    uint32 ResourceID = 1;
+    int32 Quantity = 2;
+}
+message StartShipRepairResponse {
+     repeated StartShipRepair StartShipRepair = 1;
+}
+
+// StartShipRepair
+message EndShipRepairRequest {
+    Ship Ship = 1;
+}
+message EndShipRepairResponse {
+    // Empty
+}
+
+// GetShipExplorationInfo
+message GetShipExplorationInfoRequest {
+    Ship Ship = 1;
+}
+message GetShipExplorationInfo {
+    planet.Planet  Planet = 1;
+    double Distance = 2;
+    int32 Time = 3;
+    double Fuel = 4;
+    uint32 Integrity = 5;
+}
+message GetShipExplorationInfoResponse {
+    repeated GetShipExplorationInfo GetShipExplorationInfo = 1;
+}
+
+// EndShipExploration
+message EndShipExplorationRequest {
+    uint32 Integrity = 1;
+    double Tank = 2;
+    double PositionX = 3;
+    double PositionY = 4;
+    double PositionZ = 5;
+    uint32 ShipID = 6;
+}
+message EndShipExplorationResponse {
+    // Empty
+}
+
+// GetPlayerShips
+message GetPlayerShipsRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerShipsResponse {
+    repeated ship.Ship Ships = 1;
+}
+
+// GetPlayerShipEquipped
+message GetPlayerShipEquippedRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerShipEquippedResponse {
+    ship.Ship Ship = 1;
+}

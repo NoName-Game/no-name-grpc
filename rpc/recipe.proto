@@ -1,0 +1,9 @@
+syntax = "proto3";
+option go_package = "rpc";
+package recipe;
+
+message Recipe {
+    uint32 ID = 1;
+    string RecipeList = 2;
+    uint32 WaitingTime = 3;
+}

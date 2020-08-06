@@ -1,0 +1,34 @@
+syntax = "proto3";
+import "rpc/biome.proto";
+import "rpc/atmosphere.proto";
+import "rpc/maps.proto";
+option go_package = "rpc";
+package planet;
+
+message Planet {
+    uint32 ID = 1;
+    string Name = 2;
+    double X = 3;
+    double Y = 4;
+    double Z = 5;
+    uint32 PlayerID = 6;
+    uint32 BiomeID = 8;
+    biome.Biome Biome = 9;
+    uint32 AtmosphereID = 10;
+    atmosphere.Atmosphere Atmosphere = 11;
+    uint32 MapID = 12;
+    maps.Maps Maps = 13;
+    string Resources = 14;
+    bool safe = 15;
+    uint32 PlanetSystemID = 16;
+}
+
+// GetPlanetByCoordinate
+message GetPlanetByCoordinateRequest {
+    double X = 1;
+    double Y = 2;
+    double Z = 3;
+}
+message GetPlanetByCoordinateResponse {
+    Planet Planet = 1;
+}

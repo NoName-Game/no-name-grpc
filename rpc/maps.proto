@@ -1,0 +1,22 @@
+syntax = "proto3";
+import public "rpc/enemy.proto";
+import public "rpc/tresure.proto";
+option go_package = "rpc";
+package maps;
+
+message Maps {
+    uint32 ID = 1;
+    string CellGrid = 2;
+    int32 StartPositionX = 3;
+    int32 StartPositionY = 4;
+    repeated enemy.Enemy Enemies = 5;
+    repeated tresure.Tresure Tresures = 6;
+}
+
+// GetMapByID
+message GetMapByIDRequest {
+    uint32 ID = 1;
+}
+message GetMapByIDResponse {
+    Maps Maps = 1;
+}
