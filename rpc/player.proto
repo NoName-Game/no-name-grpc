@@ -3,7 +3,6 @@ import "rpc/language.proto";
 import "rpc/player_stats.proto";
 import "rpc/armor.proto";
 import "rpc/ship.proto";
-import "rpc/player_position.proto";
 import "rpc/player_inventory.proto";
 import "rpc/player_state.proto";
 option go_package = "rpc";
@@ -40,14 +39,6 @@ message GetPlayerStatsRequest {
 }
 message GetPlayerStatsResponse {
     player_stats.PlayerStats PlayerStats = 1;
-}
-
-// GetPlayerLastPosition
-message GetPlayerLastPositionRequest {
-    uint32 PlayerID = 1;
-}
-message GetPlayerLastPositionResponse {
-    player_position.PlayerPosition PlayerPosition = 1;
 }
 
 // SignIn

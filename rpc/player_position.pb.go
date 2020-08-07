@@ -23,9 +23,7 @@ const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 type PlayerPosition struct {
 	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
 	PlayerID             uint32   `protobuf:"varint,2,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	X                    float64  `protobuf:"fixed64,3,opt,name=X,proto3" json:"X,omitempty"`
-	Y                    float64  `protobuf:"fixed64,4,opt,name=Y,proto3" json:"Y,omitempty"`
-	Z                    float64  `protobuf:"fixed64,5,opt,name=Z,proto3" json:"Z,omitempty"`
+	PlanetID             uint32   `protobuf:"varint,3,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -70,42 +68,278 @@ func (m *PlayerPosition) GetPlayerID() uint32 {
 	return 0
 }
 
-func (m *PlayerPosition) GetX() float64 {
+func (m *PlayerPosition) GetPlanetID() uint32 {
 	if m != nil {
-		return m.X
+		return m.PlanetID
 	}
 	return 0
 }
 
-func (m *PlayerPosition) GetY() float64 {
+// GetPlayerCurrentPlanet
+type GetPlayerCurrentPlanetRequest struct {
+	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetPlayerCurrentPlanetRequest) Reset()         { *m = GetPlayerCurrentPlanetRequest{} }
+func (m *GetPlayerCurrentPlanetRequest) String() string { return proto.CompactTextString(m) }
+func (*GetPlayerCurrentPlanetRequest) ProtoMessage()    {}
+func (*GetPlayerCurrentPlanetRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9a8e4d5a504c8881, []int{1}
+}
+
+func (m *GetPlayerCurrentPlanetRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetPlayerCurrentPlanetRequest.Unmarshal(m, b)
+}
+func (m *GetPlayerCurrentPlanetRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetPlayerCurrentPlanetRequest.Marshal(b, m, deterministic)
+}
+func (m *GetPlayerCurrentPlanetRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetPlayerCurrentPlanetRequest.Merge(m, src)
+}
+func (m *GetPlayerCurrentPlanetRequest) XXX_Size() int {
+	return xxx_messageInfo_GetPlayerCurrentPlanetRequest.Size(m)
+}
+func (m *GetPlayerCurrentPlanetRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetPlayerCurrentPlanetRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetPlayerCurrentPlanetRequest proto.InternalMessageInfo
+
+func (m *GetPlayerCurrentPlanetRequest) GetPlayerID() uint32 {
 	if m != nil {
-		return m.Y
+		return m.PlayerID
 	}
 	return 0
 }
 
-func (m *PlayerPosition) GetZ() float64 {
+type GetPlayerCurrentPlanetResponse struct {
+	Planet               *Planet  `protobuf:"bytes,1,opt,name=Planet,proto3" json:"Planet,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetPlayerCurrentPlanetResponse) Reset()         { *m = GetPlayerCurrentPlanetResponse{} }
+func (m *GetPlayerCurrentPlanetResponse) String() string { return proto.CompactTextString(m) }
+func (*GetPlayerCurrentPlanetResponse) ProtoMessage()    {}
+func (*GetPlayerCurrentPlanetResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9a8e4d5a504c8881, []int{2}
+}
+
+func (m *GetPlayerCurrentPlanetResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetPlayerCurrentPlanetResponse.Unmarshal(m, b)
+}
+func (m *GetPlayerCurrentPlanetResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetPlayerCurrentPlanetResponse.Marshal(b, m, deterministic)
+}
+func (m *GetPlayerCurrentPlanetResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetPlayerCurrentPlanetResponse.Merge(m, src)
+}
+func (m *GetPlayerCurrentPlanetResponse) XXX_Size() int {
+	return xxx_messageInfo_GetPlayerCurrentPlanetResponse.Size(m)
+}
+func (m *GetPlayerCurrentPlanetResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetPlayerCurrentPlanetResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetPlayerCurrentPlanetResponse proto.InternalMessageInfo
+
+func (m *GetPlayerCurrentPlanetResponse) GetPlanet() *Planet {
 	if m != nil {
-		return m.Z
+		return m.Planet
+	}
+	return nil
+}
+
+// CountPlanetVisited
+type CountPlanetVisitedRequest struct {
+	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CountPlanetVisitedRequest) Reset()         { *m = CountPlanetVisitedRequest{} }
+func (m *CountPlanetVisitedRequest) String() string { return proto.CompactTextString(m) }
+func (*CountPlanetVisitedRequest) ProtoMessage()    {}
+func (*CountPlanetVisitedRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9a8e4d5a504c8881, []int{3}
+}
+
+func (m *CountPlanetVisitedRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CountPlanetVisitedRequest.Unmarshal(m, b)
+}
+func (m *CountPlanetVisitedRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CountPlanetVisitedRequest.Marshal(b, m, deterministic)
+}
+func (m *CountPlanetVisitedRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CountPlanetVisitedRequest.Merge(m, src)
+}
+func (m *CountPlanetVisitedRequest) XXX_Size() int {
+	return xxx_messageInfo_CountPlanetVisitedRequest.Size(m)
+}
+func (m *CountPlanetVisitedRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CountPlanetVisitedRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CountPlanetVisitedRequest proto.InternalMessageInfo
+
+func (m *CountPlanetVisitedRequest) GetPlayerID() uint32 {
+	if m != nil {
+		return m.PlayerID
+	}
+	return 0
+}
+
+type CountPlanetVisitedResponse struct {
+	Value                uint32   `protobuf:"varint,1,opt,name=Value,proto3" json:"Value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CountPlanetVisitedResponse) Reset()         { *m = CountPlanetVisitedResponse{} }
+func (m *CountPlanetVisitedResponse) String() string { return proto.CompactTextString(m) }
+func (*CountPlanetVisitedResponse) ProtoMessage()    {}
+func (*CountPlanetVisitedResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9a8e4d5a504c8881, []int{4}
+}
+
+func (m *CountPlanetVisitedResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CountPlanetVisitedResponse.Unmarshal(m, b)
+}
+func (m *CountPlanetVisitedResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CountPlanetVisitedResponse.Marshal(b, m, deterministic)
+}
+func (m *CountPlanetVisitedResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CountPlanetVisitedResponse.Merge(m, src)
+}
+func (m *CountPlanetVisitedResponse) XXX_Size() int {
+	return xxx_messageInfo_CountPlanetVisitedResponse.Size(m)
+}
+func (m *CountPlanetVisitedResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CountPlanetVisitedResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CountPlanetVisitedResponse proto.InternalMessageInfo
+
+func (m *CountPlanetVisitedResponse) GetValue() uint32 {
+	if m != nil {
+		return m.Value
+	}
+	return 0
+}
+
+// CountSystemVisited
+type CountSystemVisitedRequest struct {
+	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CountSystemVisitedRequest) Reset()         { *m = CountSystemVisitedRequest{} }
+func (m *CountSystemVisitedRequest) String() string { return proto.CompactTextString(m) }
+func (*CountSystemVisitedRequest) ProtoMessage()    {}
+func (*CountSystemVisitedRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9a8e4d5a504c8881, []int{5}
+}
+
+func (m *CountSystemVisitedRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CountSystemVisitedRequest.Unmarshal(m, b)
+}
+func (m *CountSystemVisitedRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CountSystemVisitedRequest.Marshal(b, m, deterministic)
+}
+func (m *CountSystemVisitedRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CountSystemVisitedRequest.Merge(m, src)
+}
+func (m *CountSystemVisitedRequest) XXX_Size() int {
+	return xxx_messageInfo_CountSystemVisitedRequest.Size(m)
+}
+func (m *CountSystemVisitedRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CountSystemVisitedRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CountSystemVisitedRequest proto.InternalMessageInfo
+
+func (m *CountSystemVisitedRequest) GetPlayerID() uint32 {
+	if m != nil {
+		return m.PlayerID
+	}
+	return 0
+}
+
+type CountSystemVisitedResponse struct {
+	Value                uint32   `protobuf:"varint,1,opt,name=Value,proto3" json:"Value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CountSystemVisitedResponse) Reset()         { *m = CountSystemVisitedResponse{} }
+func (m *CountSystemVisitedResponse) String() string { return proto.CompactTextString(m) }
+func (*CountSystemVisitedResponse) ProtoMessage()    {}
+func (*CountSystemVisitedResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9a8e4d5a504c8881, []int{6}
+}
+
+func (m *CountSystemVisitedResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CountSystemVisitedResponse.Unmarshal(m, b)
+}
+func (m *CountSystemVisitedResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CountSystemVisitedResponse.Marshal(b, m, deterministic)
+}
+func (m *CountSystemVisitedResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CountSystemVisitedResponse.Merge(m, src)
+}
+func (m *CountSystemVisitedResponse) XXX_Size() int {
+	return xxx_messageInfo_CountSystemVisitedResponse.Size(m)
+}
+func (m *CountSystemVisitedResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CountSystemVisitedResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CountSystemVisitedResponse proto.InternalMessageInfo
+
+func (m *CountSystemVisitedResponse) GetValue() uint32 {
+	if m != nil {
+		return m.Value
 	}
 	return 0
 }
 
 func init() {
 	proto.RegisterType((*PlayerPosition)(nil), "player_position.PlayerPosition")
+	proto.RegisterType((*GetPlayerCurrentPlanetRequest)(nil), "player_position.GetPlayerCurrentPlanetRequest")
+	proto.RegisterType((*GetPlayerCurrentPlanetResponse)(nil), "player_position.GetPlayerCurrentPlanetResponse")
+	proto.RegisterType((*CountPlanetVisitedRequest)(nil), "player_position.CountPlanetVisitedRequest")
+	proto.RegisterType((*CountPlanetVisitedResponse)(nil), "player_position.CountPlanetVisitedResponse")
+	proto.RegisterType((*CountSystemVisitedRequest)(nil), "player_position.CountSystemVisitedRequest")
+	proto.RegisterType((*CountSystemVisitedResponse)(nil), "player_position.CountSystemVisitedResponse")
 }
 
 func init() { proto.RegisterFile("rpc/player_position.proto", fileDescriptor_9a8e4d5a504c8881) }
 
 var fileDescriptor_9a8e4d5a504c8881 = []byte{
-	// 136 bytes of a gzipped FileDescriptorProto
+	// 242 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x2c, 0x2a, 0x48, 0xd6,
 	0x2f, 0xc8, 0x49, 0xac, 0x4c, 0x2d, 0x8a, 0x2f, 0xc8, 0x2f, 0xce, 0x2c, 0xc9, 0xcc, 0xcf, 0xd3,
-	0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0x47, 0x13, 0x56, 0x4a, 0xe3, 0xe2, 0x0b, 0x00, 0x0b,
-	0x05, 0x40, 0x45, 0x84, 0xf8, 0xb8, 0x98, 0x3c, 0x5d, 0x24, 0x18, 0x15, 0x18, 0x35, 0x78, 0x83,
-	0x98, 0x3c, 0x5d, 0x84, 0xa4, 0xb8, 0x38, 0x20, 0x2a, 0x3c, 0x5d, 0x24, 0x98, 0xc0, 0xa2, 0x70,
-	0xbe, 0x10, 0x0f, 0x17, 0x63, 0x84, 0x04, 0xb3, 0x02, 0xa3, 0x06, 0x63, 0x10, 0x63, 0x04, 0x88,
-	0x17, 0x29, 0xc1, 0x02, 0xe1, 0x45, 0x82, 0x78, 0x51, 0x12, 0xac, 0x10, 0x5e, 0x94, 0x13, 0x6b,
-	0x14, 0x73, 0x51, 0x41, 0x72, 0x12, 0x1b, 0xd8, 0x19, 0xc6, 0x80, 0x00, 0x00, 0x00, 0xff, 0xff,
-	0x50, 0xe6, 0x4d, 0x42, 0xa3, 0x00, 0x00, 0x00,
+	0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0x47, 0x13, 0x96, 0x12, 0x80, 0xaa, 0xcd, 0x4b, 0x2d,
+	0x81, 0x28, 0x51, 0x8a, 0xe0, 0xe2, 0x0b, 0x00, 0x2b, 0x0a, 0x80, 0xaa, 0x11, 0xe2, 0xe3, 0x62,
+	0xf2, 0x74, 0x91, 0x60, 0x54, 0x60, 0xd4, 0xe0, 0x0d, 0x62, 0xf2, 0x74, 0x11, 0x92, 0xe2, 0xe2,
+	0x80, 0xa8, 0xf0, 0x74, 0x91, 0x60, 0x02, 0x8b, 0xc2, 0xf9, 0x50, 0xb9, 0xbc, 0xd4, 0x12, 0x4f,
+	0x17, 0x09, 0x66, 0xb8, 0x1c, 0x98, 0xaf, 0x64, 0xcd, 0x25, 0xeb, 0x9e, 0x5a, 0x02, 0x51, 0xea,
+	0x5c, 0x5a, 0x54, 0x94, 0x9a, 0x57, 0x02, 0x91, 0x0b, 0x4a, 0x2d, 0x2c, 0x4d, 0x2d, 0x2e, 0x41,
+	0x31, 0x98, 0x11, 0xd5, 0x60, 0x25, 0x0f, 0x2e, 0x39, 0x5c, 0x9a, 0x8b, 0x0b, 0xf2, 0xf3, 0x8a,
+	0x53, 0x85, 0xd4, 0xb8, 0xd8, 0x20, 0x22, 0x60, 0xbd, 0xdc, 0x46, 0x7c, 0x7a, 0x50, 0x7f, 0x41,
+	0xd5, 0x41, 0x65, 0x95, 0xcc, 0xb9, 0x24, 0x9d, 0xf3, 0x4b, 0x61, 0xda, 0xc3, 0x32, 0x8b, 0x33,
+	0x4b, 0x52, 0x53, 0x88, 0x71, 0x82, 0x11, 0x97, 0x14, 0x36, 0x8d, 0x50, 0xeb, 0x45, 0xb8, 0x58,
+	0xc3, 0x12, 0x73, 0x4a, 0x53, 0xa1, 0xda, 0x20, 0x1c, 0xb8, 0x65, 0xc1, 0x95, 0xc5, 0x25, 0xa9,
+	0xb9, 0x64, 0x58, 0x86, 0xa6, 0x11, 0x9f, 0x65, 0x4e, 0xac, 0x51, 0xcc, 0x45, 0x05, 0xc9, 0x49,
+	0x6c, 0xe0, 0x88, 0x34, 0x06, 0x04, 0x00, 0x00, 0xff, 0xff, 0xbe, 0x1e, 0xd8, 0x70, 0x08, 0x02,
+	0x00, 0x00,
 }

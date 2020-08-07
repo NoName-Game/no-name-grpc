@@ -1,11 +1,34 @@
 syntax = "proto3";
 option go_package = "rpc";
+import "rpc/planet.proto";
 package player_position;
 
 message PlayerPosition {
     uint32 ID = 1;
     uint32 PlayerID = 2;
-    double X = 3;
-    double Y = 4;
-    double Z = 5;
+    uint32 PlanetID = 3;
+}
+
+// GetPlayerCurrentPlanet
+message GetPlayerCurrentPlanetRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerCurrentPlanetResponse {
+    planet.Planet Planet = 1;
+}
+
+// CountPlanetVisited
+message CountPlanetVisitedRequest {
+    uint32 PlayerID = 1;
+}
+message CountPlanetVisitedResponse {
+    uint32 Value = 1;
+}
+
+// CountSystemVisited
+message CountSystemVisitedRequest {
+    uint32 PlayerID = 1;
+}
+message CountSystemVisitedResponse {
+    uint32 Value = 1;
 }
