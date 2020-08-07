@@ -11,7 +11,8 @@ message Planet {
     double X = 3;
     double Y = 4;
     double Z = 5;
-    uint32 PlayerID = 6;
+    string HashPosition = 6;
+    uint32 PlayerID = 7;
     uint32 BiomeID = 8;
     biome.Biome Biome = 9;
     uint32 AtmosphereID = 10;

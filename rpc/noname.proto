@@ -1,22 +1,23 @@
 syntax = "proto3";
 
-import public "rpc/armor.proto";
-import public "rpc/armor_category.proto";
-import public "rpc/weapon.proto";
-import public "rpc/weapon_category.proto";
-import public "rpc/player.proto";
-import public "rpc/player_state.proto";
-import public "rpc/enemy.proto";
-import public "rpc/item.proto";
-import public "rpc/item_category.proto";
-import public "rpc/language.proto";
-import public "rpc/maps.proto";
-import public "rpc/npc.proto";
-import public "rpc/planet.proto";
-import public "rpc/resource.proto";
-import public "rpc/ship.proto";
-import public "rpc/transaction.proto";
-import public "rpc/tresure.proto";
+import "rpc/armor.proto";
+import "rpc/armor_category.proto";
+import "rpc/weapon.proto";
+import "rpc/weapon_category.proto";
+import "rpc/player.proto";
+import "rpc/player_state.proto";
+import "rpc/player_position.proto";
+import "rpc/enemy.proto";
+import "rpc/item.proto";
+import "rpc/item_category.proto";
+import "rpc/language.proto";
+import "rpc/maps.proto";
+import "rpc/npc.proto";
+import "rpc/planet.proto";
+import "rpc/resource.proto";
+import "rpc/ship.proto";
+import "rpc/transaction.proto";
+import "rpc/tresure.proto";
 
 // The greeting service definition.
 service NoName {
@@ -43,11 +44,15 @@ service NoName {
     rpc GetPlayerByID (player.GetPlayerByIDRequest) returns (player.GetPlayerByIDResponse) {}
     rpc GetPlayerByUsername (player.GetPlayerByUsernameRequest) returns (player.GetPlayerByUsernameResponse) {}
     rpc GetPlayerStats (player.GetPlayerStatsRequest) returns (player.GetPlayerStatsResponse) {}
-    rpc GetPlayerLastPosition (player.GetPlayerLastPositionRequest) returns (player.GetPlayerLastPositionResponse) {}
     rpc GetPlayerResources (player.GetPlayerResourcesRequest) returns (player.GetPlayerResourcesResponse) {}
     rpc GetPlayerItems (player.GetPlayerItemsRequest) returns (player.GetPlayerItemsResponse) {}
     rpc GetPlayerEconomy (player.GetPlayerEconomyRequest) returns (player.GetPlayerEconomyResponse) {}
     rpc ManagePlayerInventory (player.ManagePlayerInventoryRequest) returns (player.ManagePlayerInventoryResponse) {}
+
+    // PlayerPosition
+    rpc GetPlayerCurrentPlanet (player_position.GetPlayerCurrentPlanetRequest) returns (player_position.GetPlayerCurrentPlanetResponse) {}
+    rpc CountPlanetVisited (player_position.CountPlanetVisitedRequest) returns (player_position.CountPlanetVisitedResponse) {}
+    rpc CountSystemVisited (player_position.CountSystemVisitedRequest) returns (player_position.CountSystemVisitedResponse) {}
 
     // Rests
     rpc GetRestsInfo (player.GetRestsInfoRequest) returns (player.GetRestsInfoResponse) {}
