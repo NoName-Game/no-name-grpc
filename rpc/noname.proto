@@ -112,8 +112,8 @@ service NoName {
     rpc GetShipRepairInfo (ship.GetShipRepairInfoRequest) returns (ship.GetShipRepairInfoResponse) {}
     rpc StartShipRepair (ship.StartShipRepairRequest) returns (ship.StartShipRepairResponse) {}
     rpc EndShipRepair (ship.EndShipRepairRequest) returns (ship.EndShipRepairResponse) {}
-    rpc GetShipExplorationInfo (ship.GetShipExplorationInfoRequest) returns (ship.GetShipExplorationInfoResponse) {}
-    rpc EndShipExploration (ship.EndShipExplorationRequest) returns (ship.EndShipExplorationResponse) {}
+    rpc GetShipTravelInfo (ship.GetShipTravelInfoRequest) returns (ship.GetShipTravelInfoResponse) {}
+    rpc EndShipTravel (ship.EndShipTravelRequest) returns (ship.EndShipTravelResponse) {}
     rpc GetPlayerShips (ship.GetPlayerShipsRequest) returns (ship.GetPlayerShipsResponse) {}
     rpc GetPlayerShipEquipped (ship.GetPlayerShipEquippedRequest) returns (ship.GetPlayerShipEquippedResponse) {}
 
