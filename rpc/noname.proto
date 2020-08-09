@@ -18,6 +18,7 @@ import "rpc/resource.proto";
 import "rpc/ship.proto";
 import "rpc/transaction.proto";
 import "rpc/tresure.proto";
+import "rpc/mission.proto";
 
 // The greeting service definition.
 service NoName {
@@ -122,4 +123,7 @@ service NoName {
 
     // Tresure
     rpc DropTresure (tresure.DropTresureRequest) returns (tresure.DropTresureResponse) {}
+
+    // Mission
+    rpc GetMission (mission.GetMissionRequest) returns (mission.GetMissionResponse) {}
 }

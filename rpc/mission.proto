@@ -1,0 +1,19 @@
+syntax = "proto3";
+option go_package = "rpc";
+import "rpc/mission_category.proto";
+package mission;
+
+message Mission {
+    uint32 ID = 1;
+    uint32 MissionCategoryID = 2;
+    mission_category.MissionCategory MissionCategory = 3;
+    string Payload = 4;
+}
+
+// GetMission
+message GetMissionRequest {
+    uint32 PlayerID = 1;
+}
+message GetMissionResponse {
+    Mission Mission = 1;
+}
