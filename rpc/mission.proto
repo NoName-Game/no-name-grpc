@@ -17,3 +17,12 @@ message GetMissionRequest {
 message GetMissionResponse {
     Mission Mission = 1;
 }
+
+// CheckMission
+message CheckMissionRequest {
+    uint32 PlayerID = 1;
+    uint32 MissionID = 2;
+}
+message CheckMissionResponse {
+    bool Completed = 1;
+}

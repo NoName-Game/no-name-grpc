@@ -162,16 +162,105 @@ func (m *GetMissionResponse) GetMission() *Mission {
 	return nil
 }
 
+// CheckMission
+type CheckMissionRequest struct {
+	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	MissionID            uint32   `protobuf:"varint,2,opt,name=MissionID,proto3" json:"MissionID,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CheckMissionRequest) Reset()         { *m = CheckMissionRequest{} }
+func (m *CheckMissionRequest) String() string { return proto.CompactTextString(m) }
+func (*CheckMissionRequest) ProtoMessage()    {}
+func (*CheckMissionRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6be2e0af6b2b450d, []int{3}
+}
+
+func (m *CheckMissionRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CheckMissionRequest.Unmarshal(m, b)
+}
+func (m *CheckMissionRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CheckMissionRequest.Marshal(b, m, deterministic)
+}
+func (m *CheckMissionRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CheckMissionRequest.Merge(m, src)
+}
+func (m *CheckMissionRequest) XXX_Size() int {
+	return xxx_messageInfo_CheckMissionRequest.Size(m)
+}
+func (m *CheckMissionRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CheckMissionRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CheckMissionRequest proto.InternalMessageInfo
+
+func (m *CheckMissionRequest) GetPlayerID() uint32 {
+	if m != nil {
+		return m.PlayerID
+	}
+	return 0
+}
+
+func (m *CheckMissionRequest) GetMissionID() uint32 {
+	if m != nil {
+		return m.MissionID
+	}
+	return 0
+}
+
+type CheckMissionResponse struct {
+	Completed            bool     `protobuf:"varint,1,opt,name=Completed,proto3" json:"Completed,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CheckMissionResponse) Reset()         { *m = CheckMissionResponse{} }
+func (m *CheckMissionResponse) String() string { return proto.CompactTextString(m) }
+func (*CheckMissionResponse) ProtoMessage()    {}
+func (*CheckMissionResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6be2e0af6b2b450d, []int{4}
+}
+
+func (m *CheckMissionResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CheckMissionResponse.Unmarshal(m, b)
+}
+func (m *CheckMissionResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CheckMissionResponse.Marshal(b, m, deterministic)
+}
+func (m *CheckMissionResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CheckMissionResponse.Merge(m, src)
+}
+func (m *CheckMissionResponse) XXX_Size() int {
+	return xxx_messageInfo_CheckMissionResponse.Size(m)
+}
+func (m *CheckMissionResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CheckMissionResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CheckMissionResponse proto.InternalMessageInfo
+
+func (m *CheckMissionResponse) GetCompleted() bool {
+	if m != nil {
+		return m.Completed
+	}
+	return false
+}
+
 func init() {
 	proto.RegisterType((*Mission)(nil), "mission.Mission")
 	proto.RegisterType((*GetMissionRequest)(nil), "mission.GetMissionRequest")
 	proto.RegisterType((*GetMissionResponse)(nil), "mission.GetMissionResponse")
+	proto.RegisterType((*CheckMissionRequest)(nil), "mission.CheckMissionRequest")
+	proto.RegisterType((*CheckMissionResponse)(nil), "mission.CheckMissionResponse")
 }
 
 func init() { proto.RegisterFile("rpc/mission.proto", fileDescriptor_6be2e0af6b2b450d) }
 
 var fileDescriptor_6be2e0af6b2b450d = []byte{
-	// 216 bytes of a gzipped FileDescriptorProto
+	// 264 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2c, 0x2a, 0x48, 0xd6,
 	0xcf, 0xcd, 0x2c, 0x2e, 0xce, 0xcc, 0xcf, 0xd3, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x87,
 	0x72, 0xa5, 0xa4, 0x90, 0xe4, 0xe2, 0x93, 0x13, 0x4b, 0x52, 0xd3, 0xf3, 0x8b, 0x2a, 0x21, 0x8a,
@@ -183,7 +272,10 @@ var fileDescriptor_6be2e0af6b2b450d = []byte{
 	0x0c, 0x82, 0x71, 0x95, 0xf4, 0xb9, 0x04, 0xdd, 0x53, 0x4b, 0xa0, 0xea, 0x83, 0x52, 0x0b, 0x4b,
 	0x53, 0x8b, 0x4b, 0x84, 0xa4, 0xb8, 0x38, 0x02, 0x72, 0x12, 0x2b, 0x53, 0x8b, 0xe0, 0xee, 0x87,
 	0xf3, 0x95, 0x1c, 0xb8, 0x84, 0x90, 0x35, 0x14, 0x17, 0xe4, 0xe7, 0x15, 0xa7, 0x0a, 0x69, 0xc1,
-	0xbd, 0x0d, 0xd6, 0xc0, 0x6d, 0x24, 0x00, 0x73, 0x25, 0xcc, 0x71, 0x41, 0x30, 0x05, 0x4e, 0xac,
-	0x51, 0xcc, 0x45, 0x05, 0xc9, 0x49, 0x6c, 0xe0, 0x10, 0x33, 0x06, 0x04, 0x00, 0x00, 0xff, 0xff,
-	0x76, 0x24, 0x66, 0xf6, 0x6b, 0x01, 0x00, 0x00,
+	0xbd, 0x0d, 0xd6, 0xc0, 0x6d, 0x24, 0x00, 0x73, 0x25, 0xcc, 0x71, 0x41, 0x30, 0x05, 0x4a, 0xfe,
+	0x5c, 0xc2, 0xce, 0x19, 0xa9, 0xc9, 0xd9, 0xc4, 0x5b, 0x2a, 0x24, 0xc3, 0xc5, 0x09, 0x55, 0x0d,
+	0x0f, 0x32, 0x84, 0x80, 0x92, 0x09, 0x97, 0x08, 0xaa, 0x81, 0x50, 0x47, 0xc9, 0x70, 0x71, 0x3a,
+	0xe7, 0xe7, 0x16, 0xe4, 0xa4, 0x96, 0xa4, 0xa6, 0x80, 0x8d, 0xe4, 0x08, 0x42, 0x08, 0x38, 0xb1,
+	0x46, 0x31, 0x17, 0x15, 0x24, 0x27, 0xb1, 0x81, 0x23, 0xce, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff,
+	0xac, 0x6f, 0x72, 0xee, 0xf2, 0x01, 0x00, 0x00,
 }
