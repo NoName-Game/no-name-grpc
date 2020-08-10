@@ -127,4 +127,5 @@ service NoName {
     // Mission
     rpc GetMission (mission.GetMissionRequest) returns (mission.GetMissionResponse) {}
     rpc CheckMission (mission.CheckMissionRequest) returns (mission.CheckMissionResponse) {}
+    rpc GetMissionReward (mission.GetMissionRewardRequest) returns (mission.GetMissionRewardResponse) {}
 }
