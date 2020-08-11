@@ -18,6 +18,7 @@ import "rpc/resource.proto";
 import "rpc/ship.proto";
 import "rpc/transaction.proto";
 import "rpc/tresure.proto";
+import "rpc/mission.proto";
 
 // The greeting service definition.
 service NoName {
@@ -90,7 +91,9 @@ service NoName {
     rpc BankWithdraw (npc.BankWithdrawRequest) returns (npc.BankWithdrawResponse) {}
 
     // Planet
+    rpc GetPlanetByID (planet.GetPlanetByIDRequest) returns (planet.GetPlanetByIDResponse) {}
     rpc GetPlanetByCoordinate (planet.GetPlanetByCoordinateRequest) returns (planet.GetPlanetByCoordinateResponse) {}
+    rpc GetPlanetByMapID (planet.GetPlanetByMapIDRequest) returns (planet.GetPlanetByMapIDResponse) {}
 
     // Map
     rpc GetMapByID (maps.GetMapByIDRequest) returns (maps.GetMapByIDResponse) {}
@@ -112,8 +115,8 @@ service NoName {
     rpc GetShipRepairInfo (ship.GetShipRepairInfoRequest) returns (ship.GetShipRepairInfoResponse) {}
     rpc StartShipRepair (ship.StartShipRepairRequest) returns (ship.StartShipRepairResponse) {}
     rpc EndShipRepair (ship.EndShipRepairRequest) returns (ship.EndShipRepairResponse) {}
-    rpc GetShipExplorationInfo (ship.GetShipExplorationInfoRequest) returns (ship.GetShipExplorationInfoResponse) {}
-    rpc EndShipExploration (ship.EndShipExplorationRequest) returns (ship.EndShipExplorationResponse) {}
+    rpc GetShipTravelInfo (ship.GetShipTravelInfoRequest) returns (ship.GetShipTravelInfoResponse) {}
+    rpc EndShipTravel (ship.EndShipTravelRequest) returns (ship.EndShipTravelResponse) {}
     rpc GetPlayerShips (ship.GetPlayerShipsRequest) returns (ship.GetPlayerShipsResponse) {}
     rpc GetPlayerShipEquipped (ship.GetPlayerShipEquippedRequest) returns (ship.GetPlayerShipEquippedResponse) {}
 
@@ -122,4 +125,9 @@ service NoName {
 
     // Tresure
     rpc DropTresure (tresure.DropTresureRequest) returns (tresure.DropTresureResponse) {}
+
+    // Mission
+    rpc GetMission (mission.GetMissionRequest) returns (mission.GetMissionResponse) {}
+    rpc CheckMission (mission.CheckMissionRequest) returns (mission.CheckMissionResponse) {}
+    rpc GetMissionReward (mission.GetMissionRewardRequest) returns (mission.GetMissionRewardResponse) {}
 }

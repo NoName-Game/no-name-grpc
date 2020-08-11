@@ -33,3 +33,19 @@ message GetPlanetByCoordinateRequest {
 message GetPlanetByCoordinateResponse {
     Planet Planet = 1;
 }
+
+// GetPlanetByID
+message GetPlanetByIDRequest {
+    uint32 PlanetID = 1;
+}
+message GetPlanetByIDResponse {
+    Planet Planet = 1;
+}
+
+// GetPlanetByMapID
+message GetPlanetByMapIDRequest {
+    uint32 MapID = 1;
+}
+message GetPlanetByMapIDResponse {
+    Planet Planet = 1;
+}
