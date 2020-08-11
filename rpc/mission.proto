@@ -35,4 +35,5 @@ message GetMissionRewardRequest {
 message GetMissionRewardResponse {
     int32 Money = 1;
     int32 Diamond = 2;
+    int32 Exp = 3;
 }
