@@ -8,9 +8,16 @@ message MissionCategory {
     string Slug = 3;
 }
 
+// Struct per la tipologia di mission
 message MissionResourcesFinding {
     uint32 ResourceQty = 1;
     uint32 ResourceID = 2;
+}
+message MissionKillMob {
+    uint32 EnemyID = 1;
+}
+message MissionPlanetFinding {
+    uint32 PlanetID = 1;
 }
 
 // GetAllMissionCategories
