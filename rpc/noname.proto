@@ -19,6 +19,7 @@ import "rpc/ship.proto";
 import "rpc/transaction.proto";
 import "rpc/tresure.proto";
 import "rpc/mission.proto";
+import "rpc/titan.proto";
 
 // The greeting service definition.
 service NoName {
@@ -73,6 +74,11 @@ service NoName {
     // Enemy
     rpc GetEnemyByID (enemy.GetEnemyByIDRequest) returns (enemy.GetEnemyByIDResponse) {}
     rpc HitEnemy (enemy.HitEnemyRequest) returns (enemy.HitEnemyResponse) {}
+
+    // Titan
+    rpc GetTitanByID (titan.GetTitanByIDRequest) returns (titan.GetTitanByIDResponse) {}
+    rpc GetTitanByPlanetID (titan.GetTitanByPlanetIDRequest) returns (titan.GetTitanByPlanetIDResponse) {}
+    rpc HitTitan (titan.HitTitanRequest) returns (titan.HitTitanResponse) {}
 
     // Language
     rpc FindLanguageBySlug (language.FindLanguageBySlugRequest) returns (language.FindLanguageBySlugResponse) {}
