@@ -9,6 +9,15 @@ message PlayerPosition {
     uint32 PlanetID = 3;
 }
 
+// CreatePlayerPosition
+message CreatePlayerPositionRequest {
+    uint32 PlayerID = 1;
+    uint32 PlanetID = 2;
+}
+message CreatePlayerPositionResponse {
+    // Empty
+}
+
 // GetPlayerCurrentPlanet
 message GetPlayerCurrentPlanetRequest {
     uint32 PlayerID = 1;

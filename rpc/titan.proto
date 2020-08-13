@@ -8,8 +8,6 @@ message Titan {
     uint32 PlanetID = 3;
     uint32 LifeMax = 8;
     int32 LifePoint = 9;
-    bool Died = 10;
-    uint32 RespawnCounter = 11;
 }
 
 // GetTitanByID
@@ -28,13 +26,20 @@ message GetTitanByPlanetIDResponse {
     Titan Titan = 1;
 }
 
+// GetTitanByName
+message GetTitanByNameRequest {
+    string Name = 1;
+}
+message GetTitanByNameResponse {
+    Titan Titan = 1;
+}
+
 // HiTitan
 message HitTitanRequest {
     uint32 TitanID = 1;
     uint32 PlayerID = 2;
     int32 BodySelection = 3;
 }
-
 message HitTitanResponse {
     bool PlayerDie = 1;
     bool TitanDie = 2;
@@ -42,5 +47,12 @@ message HitTitanResponse {
     int32 PlayerDamage = 4;
     int32 PlayerExperience = 5;
     int32 TitanDamage = 6;
-//    tresure.DropTresureResponse EnemyDrop = 7;
+}
+
+//TitanDiscovered
+message TitanDiscoveredRequest {
+    // Empty
+}
+message TitanDiscoveredResponse {
+    repeated Titan Titans = 1;
 }
