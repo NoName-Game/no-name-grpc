@@ -2,6 +2,7 @@ syntax = "proto3";
 import "rpc/biome.proto";
 import "rpc/atmosphere.proto";
 import "rpc/maps.proto";
+import "rpc/planet_system.proto";
 option go_package = "rpc";
 package planet;
 
@@ -23,6 +24,7 @@ message Planet {
     bool Safe = 15;
     bool Titan = 16;
     uint32 PlanetSystemID = 17;
+    planet_system.PlanetSystem PlanetSystem = 18;
 }
 
 // GetPlanetByCoordinate

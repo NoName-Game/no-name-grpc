@@ -56,6 +56,7 @@ service NoName {
     rpc GetPlayerCurrentPlanet (player_position.GetPlayerCurrentPlanetRequest) returns (player_position.GetPlayerCurrentPlanetResponse) {}
     rpc CountPlanetVisited (player_position.CountPlanetVisitedRequest) returns (player_position.CountPlanetVisitedResponse) {}
     rpc CountSystemVisited (player_position.CountSystemVisitedRequest) returns (player_position.CountSystemVisitedResponse) {}
+    rpc CountPlayerVisitedCurrentPlanet (player_position.CountPlayerVisitedCurrentPlanetRequest) returns (player_position.CountPlayerVisitedCurrentPlanetResponse) {}
 
     // Rests
     rpc GetRestsInfo (player.GetRestsInfoRequest) returns (player.GetRestsInfoResponse) {}

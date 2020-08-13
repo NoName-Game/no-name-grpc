@@ -41,3 +41,11 @@ message CountSystemVisitedRequest {
 message CountSystemVisitedResponse {
     uint32 Value = 1;
 }
+
+// CountPlayerVisitedCurrentPlanet
+message CountPlayerVisitedCurrentPlanetRequest {
+    uint32 PlanetID = 1;
+}
+message CountPlayerVisitedCurrentPlanetResponse {
+    uint32 Value = 1;
+}
