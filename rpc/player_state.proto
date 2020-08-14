@@ -57,8 +57,9 @@ message UpdatePlayerStateResponse {
 
 // DeletePlayerState
 message DeletePlayerStateRequest {
-    PlayerState PlayerState = 1;
+    uint32 PlayerStateID = 1;
+    bool ForceDelete = 2;
 }
 message DeletePlayerStateResponse {
-    PlayerState PlayerState = 1;
+    // Empty
 }
