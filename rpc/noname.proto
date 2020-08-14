@@ -19,6 +19,7 @@ import "rpc/ship.proto";
 import "rpc/transaction.proto";
 import "rpc/tresure.proto";
 import "rpc/mission.proto";
+import "rpc/titan.proto";
 
 // The greeting service definition.
 service NoName {
@@ -51,9 +52,11 @@ service NoName {
     rpc ManagePlayerInventory (player.ManagePlayerInventoryRequest) returns (player.ManagePlayerInventoryResponse) {}
 
     // PlayerPosition
+    rpc CreatePlayerPosition (player_position.CreatePlayerPositionRequest) returns (player_position.CreatePlayerPositionResponse) {}
     rpc GetPlayerCurrentPlanet (player_position.GetPlayerCurrentPlanetRequest) returns (player_position.GetPlayerCurrentPlanetResponse) {}
     rpc CountPlanetVisited (player_position.CountPlanetVisitedRequest) returns (player_position.CountPlanetVisitedResponse) {}
     rpc CountSystemVisited (player_position.CountSystemVisitedRequest) returns (player_position.CountSystemVisitedResponse) {}
+    rpc CountPlayerVisitedCurrentPlanet (player_position.CountPlayerVisitedCurrentPlanetRequest) returns (player_position.CountPlayerVisitedCurrentPlanetResponse) {}
 
     // Rests
     rpc GetRestsInfo (player.GetRestsInfoRequest) returns (player.GetRestsInfoResponse) {}
@@ -73,6 +76,13 @@ service NoName {
     // Enemy
     rpc GetEnemyByID (enemy.GetEnemyByIDRequest) returns (enemy.GetEnemyByIDResponse) {}
     rpc HitEnemy (enemy.HitEnemyRequest) returns (enemy.HitEnemyResponse) {}
+
+    // Titan
+    rpc GetTitanByID (titan.GetTitanByIDRequest) returns (titan.GetTitanByIDResponse) {}
+    rpc GetTitanByName (titan.GetTitanByNameRequest) returns (titan.GetTitanByNameResponse) {}
+    rpc GetTitanByPlanetID (titan.GetTitanByPlanetIDRequest) returns (titan.GetTitanByPlanetIDResponse) {}
+    rpc HitTitan (titan.HitTitanRequest) returns (titan.HitTitanResponse) {}
+    rpc TitanDiscovered (titan.TitanDiscoveredRequest) returns (titan.TitanDiscoveredResponse) {}
 
     // Language
     rpc FindLanguageBySlug (language.FindLanguageBySlugRequest) returns (language.FindLanguageBySlugResponse) {}
