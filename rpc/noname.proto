@@ -28,6 +28,7 @@ service NoName {
     rpc FindArmorByName (armor.FindArmorByNameRequest) returns (armor.FindArmorByNameResponse) {}
     rpc UpdateArmor (armor.UpdateArmorRequest) returns (armor.UpdateArmorResponse) {}
     rpc GetPlayerArmors (armor.GetPlayerArmorsRequest) returns (armor.GetPlayerArmorsResponse) {}
+    rpc GetPlayerArmorsEquipped (armor.GetPlayerArmorsEquippedRequest) returns (armor.GetPlayerArmorsEquippedResponse) {}
 
     // ArmorCategory
     rpc GetAllArmorCategory (armor_category.GetAllArmorCategoryRequest) returns (armor_category.GetAllArmorCategoryResponse) {}
