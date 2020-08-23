@@ -1,6 +1,6 @@
 compile:
-	protoc --go_out=../build/pb/ \
-			 --go-grpc_out=../build/pb/ \
+	protoc --go_out=../build/ \
+			 --go-grpc_out=../build/ \
 			 --go_opt=paths=source_relative \
 			 --go-grpc_opt=paths=source_relative \
-			 ./*.proto ./service/noname.proto
+			 ./proto/*.proto ./service/noname.proto

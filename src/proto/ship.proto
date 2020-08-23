@@ -1,0 +1,93 @@
+syntax = "proto3";
+import "proto/rarity.proto";
+import "proto/ship_category.proto";
+import "proto/ship_stats.proto";
+import "proto/planet.proto";
+option go_package = ".;pb";
+package ship;
+
+message Ship {
+    uint32 ID = 1;
+    string Name = 2;
+    uint32 PlayerID = 3;
+    uint32 RarityID = 5;
+    rarity.Rarity Rarity = 6;
+    uint32 ShipCategoryID = 7;
+    ship_category.ShipCategory ShipCategory = 8;
+    uint32 ShipStatsID = 9;
+    ship_stats.ShipStats ShipStats = 10;
+    bool Equipped = 11;
+}
+
+// GetShipRepairInfo
+message GetShipRepairInfoRequest {
+    Ship Ship = 1;
+}
+message GetShipRepairInfoResponse {
+    bool NeedRepairs = 1;
+    int32 RepairTime = 2;
+    int32 QuantityResources = 3;
+    string TypeResources = 4;
+}
+
+// StartShipRepair
+message StartShipRepairRequest {
+    Ship Ship = 1;
+}
+message StartShipRepair {
+    uint32 ResourceID = 1;
+    int32 Quantity = 2;
+}
+message StartShipRepairResponse {
+     repeated StartShipRepair StartShipRepair = 1;
+}
+
+// StartShipRepair
+message EndShipRepairRequest {
+    Ship Ship = 1;
+}
+message EndShipRepairResponse {
+    // Empty
+}
+
+// GetShipTravelInfo
+message GetShipTravelInfoRequest {
+    Ship Ship = 1;
+}
+message GetShipTravelInfo {
+    planet.Planet  Planet = 1;
+    double Distance = 2;
+    int32 Time = 3;
+    double Fuel = 4;
+    uint32 Integrity = 5;
+}
+message GetShipTravelInfoResponse {
+    repeated GetShipTravelInfo Info = 1;
+}
+
+// EndShipTravel
+message EndShipTravelRequest {
+    uint32 Integrity = 1;
+    double Tank = 2;
+    uint32 PlanetID = 3;
+    uint32 ShipID = 4;
+}
+message EndShipTravelResponse {
+    // Empty
+}
+
+// GetPlayerShips
+message GetPlayerShipsRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerShipsResponse {
+    repeated ship.Ship Ships = 1;
+}
+
+// GetPlayerShipEquipped
+message GetPlayerShipEquippedRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerShipEquippedResponse {
+    ship.Ship Ship = 1;
+}

@@ -1,25 +1,25 @@
 syntax = "proto3";
 
-import "armor.proto";
-import "armor_category.proto";
-import "weapon.proto";
-import "weapon_category.proto";
-import "player.proto";
-import "player_state.proto";
-import "player_position.proto";
-import "enemy.proto";
-import "item.proto";
-import "item_category.proto";
-import "language.proto";
-import "maps.proto";
-import "npc.proto";
-import "planet.proto";
-import "resource.proto";
-import "ship.proto";
-import "transaction.proto";
-import "tresure.proto";
-import "mission.proto";
-import "titan.proto";
+import "proto/armor.proto";
+import "proto/armor_category.proto";
+import "proto/weapon.proto";
+import "proto/weapon_category.proto";
+import "proto/player.proto";
+import "proto/player_state.proto";
+import "proto/player_position.proto";
+import "proto/enemy.proto";
+import "proto/item.proto";
+import "proto/item_category.proto";
+import "proto/language.proto";
+import "proto/maps.proto";
+import "proto/npc.proto";
+import "proto/planet.proto";
+import "proto/resource.proto";
+import "proto/ship.proto";
+import "proto/transaction.proto";
+import "proto/tresure.proto";
+import "proto/mission.proto";
+import "proto/titan.proto";
 
 option go_package = "./service";
 
