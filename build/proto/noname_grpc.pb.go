@@ -84,6 +84,7 @@ type NoNameClient interface {
 	GetPlanetByID(ctx context.Context, in *GetPlanetByIDRequest, opts ...grpc.CallOption) (*GetPlanetByIDResponse, error)
 	GetPlanetByCoordinate(ctx context.Context, in *GetPlanetByCoordinateRequest, opts ...grpc.CallOption) (*GetPlanetByCoordinateResponse, error)
 	GetPlanetByMapID(ctx context.Context, in *GetPlanetByMapIDRequest, opts ...grpc.CallOption) (*GetPlanetByMapIDResponse, error)
+	GetExpansionInfo(ctx context.Context, in *GetExpansionInfoRequest, opts ...grpc.CallOption) (*GetExpansionInfoResponse, error)
 	// Map
 	GetMapByID(ctx context.Context, in *GetMapByIDRequest, opts ...grpc.CallOption) (*GetMapByIDResponse, error)
 	// Resouce
@@ -581,6 +582,15 @@ func (c *noNameClient) GetPlanetByMapID(ctx context.Context, in *GetPlanetByMapI
 	return out, nil
 }
 
+func (c *noNameClient) GetExpansionInfo(ctx context.Context, in *GetExpansionInfoRequest, opts ...grpc.CallOption) (*GetExpansionInfoResponse, error) {
+	out := new(GetExpansionInfoResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetExpansionInfo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetMapByID(ctx context.Context, in *GetMapByIDRequest, opts ...grpc.CallOption) (*GetMapByIDResponse, error) {
 	out := new(GetMapByIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetMapByID", in, out, opts...)
@@ -832,6 +842,7 @@ type NoNameServer interface {
 	GetPlanetByID(context.Context, *GetPlanetByIDRequest) (*GetPlanetByIDResponse, error)
 	GetPlanetByCoordinate(context.Context, *GetPlanetByCoordinateRequest) (*GetPlanetByCoordinateResponse, error)
 	GetPlanetByMapID(context.Context, *GetPlanetByMapIDRequest) (*GetPlanetByMapIDResponse, error)
+	GetExpansionInfo(context.Context, *GetExpansionInfoRequest) (*GetExpansionInfoResponse, error)
 	// Map
 	GetMapByID(context.Context, *GetMapByIDRequest) (*GetMapByIDResponse, error)
 	// Resouce
@@ -1019,6 +1030,9 @@ func (*UnimplementedNoNameServer) GetPlanetByCoordinate(context.Context, *GetPla
 }
 func (*UnimplementedNoNameServer) GetPlanetByMapID(context.Context, *GetPlanetByMapIDRequest) (*GetPlanetByMapIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlanetByMapID not implemented")
+}
+func (*UnimplementedNoNameServer) GetExpansionInfo(context.Context, *GetExpansionInfoRequest) (*GetExpansionInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetExpansionInfo not implemented")
 }
 func (*UnimplementedNoNameServer) GetMapByID(context.Context, *GetMapByIDRequest) (*GetMapByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMapByID not implemented")
@@ -2004,6 +2018,24 @@ func _NoName_GetPlanetByMapID_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetExpansionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExpansionInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetExpansionInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetExpansionInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetExpansionInfo(ctx, req.(*GetExpansionInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetMapByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMapByIDRequest)
 	if err := dec(in); err != nil {
@@ -2571,6 +2603,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPlanetByMapID",
 			Handler:    _NoName_GetPlanetByMapID_Handler,
+		},
+		{
+			MethodName: "GetExpansionInfo",
+			Handler:    _NoName_GetExpansionInfo_Handler,
 		},
 		{
 			MethodName: "GetMapByID",

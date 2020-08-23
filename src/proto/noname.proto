@@ -107,6 +107,7 @@ service NoName {
     rpc GetPlanetByID (planet.GetPlanetByIDRequest) returns (planet.GetPlanetByIDResponse) {}
     rpc GetPlanetByCoordinate (planet.GetPlanetByCoordinateRequest) returns (planet.GetPlanetByCoordinateResponse) {}
     rpc GetPlanetByMapID (planet.GetPlanetByMapIDRequest) returns (planet.GetPlanetByMapIDResponse) {}
+    rpc GetExpansionInfo (planet.GetExpansionInfoRequest) returns (planet.GetExpansionInfoResponse) {}
 
     // Map
     rpc GetMapByID (maps.GetMapByIDRequest) returns (maps.GetMapByIDResponse) {}

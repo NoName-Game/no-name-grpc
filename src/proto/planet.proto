@@ -52,3 +52,12 @@ message GetPlanetByMapIDRequest {
 message GetPlanetByMapIDResponse {
     Planet Planet = 1;
 }
+
+// GetExpansionInfo
+message GetExpansionInfoRequest {
+    // Empty
+}
+message GetExpansionInfoResponse {
+    uint32 MissPlanetsCounter = 1;
+    planet_system.PlanetSystem LastSystemDiscovered = 2;
+}
