@@ -1,0 +1,16 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package armor_category;
+
+message ArmorCategory {
+    uint32 ID = 1;
+    string Name = 2;
+    string Slug = 3;
+}
+
+message GetAllArmorCategoryRequest {
+    // Empty
+}
+message GetAllArmorCategoryResponse {
+    repeated ArmorCategory ArmorCategories = 1;
+}

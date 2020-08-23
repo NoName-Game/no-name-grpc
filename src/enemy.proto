@@ -1,0 +1,45 @@
+syntax = "proto3";
+import "rarity.proto";
+import "tresure.proto";
+option go_package = ".;pb";
+package enemy;
+
+message Enemy {
+    uint32 ID = 1;
+    string Name = 2;
+    uint32 MapID = 3;
+    int32 PositionX = 4;
+    int32 PositionY = 5;
+    uint32 RarityID = 6;
+    rarity.Rarity Rarity = 7;
+    uint32 LifeMax = 8;
+    int32 LifePoint = 9;
+}
+
+// GetEnemyByID
+message GetEnemyByIDRequest {
+    uint32 ID = 1;
+}
+message GetEnemyByIDResponse {
+    Enemy Enemy = 1;
+}
+
+// HitEnemy
+message HitEnemyRequest {
+    uint32 EnemyID = 1;
+    uint32 PlayerID = 2;
+    int32 PlayerPositionX = 3;
+    int32 PlayerPositionY = 4;
+    int32 BodySelection = 5;
+}
+
+message HitEnemyResponse {
+    bool PlayerDie = 1;
+    bool EnemyDie = 2;
+    bool EnemyDodge = 3;
+    int32 PlayerDamage = 4;
+    int32 PlayerExperience = 5;
+    int32 EnemyDamage = 6;
+    tresure.DropTresureResponse EnemyDrop = 7;
+    bool PlayerDodge = 8;
+}

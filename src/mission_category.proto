@@ -1,0 +1,29 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package mission_category;
+
+message MissionCategory {
+    uint32 ID = 1;
+    string Name = 2;
+    string Slug = 3;
+}
+
+// Struct per la tipologia di mission
+message MissionResourcesFinding {
+    uint32 ResourceQty = 1;
+    uint32 ResourceID = 2;
+}
+message MissionKillMob {
+    uint32 EnemyID = 1;
+}
+message MissionPlanetFinding {
+    uint32 PlanetID = 1;
+}
+
+// GetAllMissionCategories
+message GetAllMissionCategoriesRequest {
+    // Empty
+}
+message GetAllMissionCategoriesResponse {
+    repeated MissionCategory MissionCategories = 1;
+}

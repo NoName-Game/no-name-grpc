@@ -1,0 +1,58 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package titan;
+
+message Titan {
+    uint32 ID = 1;
+    string Name = 2;
+    uint32 PlanetID = 3;
+    uint32 LifeMax = 8;
+    int32 LifePoint = 9;
+}
+
+// GetTitanByID
+message GetTitanByIDRequest {
+    uint32 ID = 1;
+}
+message GetTitanByIDResponse {
+    Titan Titan = 1;
+}
+
+// GetTitanByPlanetID
+message GetTitanByPlanetIDRequest {
+    uint32 PlanetID = 1;
+}
+message GetTitanByPlanetIDResponse {
+    Titan Titan = 1;
+}
+
+// GetTitanByName
+message GetTitanByNameRequest {
+    string Name = 1;
+}
+message GetTitanByNameResponse {
+    Titan Titan = 1;
+}
+
+// HiTitan
+message HitTitanRequest {
+    uint32 TitanID = 1;
+    uint32 PlayerID = 2;
+    int32 BodySelection = 3;
+}
+message HitTitanResponse {
+    bool PlayerDie = 1;
+    bool TitanDie = 2;
+    bool DodgeAttack = 3;
+    int32 PlayerDamage = 4;
+    int32 PlayerExperience = 5;
+    int32 TitanDamage = 6;
+}
+
+//TitanDiscovered
+message TitanDiscoveredRequest {
+    // Empty
+}
+message TitanDiscoveredResponse {
+    repeated Titan Titans = 1;
+}

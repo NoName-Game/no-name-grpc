@@ -1,0 +1,54 @@
+syntax = "proto3";
+import "biome.proto";
+import "atmosphere.proto";
+import "maps.proto";
+import "planet_system.proto";
+option go_package = ".;pb";
+package planet;
+
+message Planet {
+    uint32 ID = 1;
+    string Name = 2;
+    double X = 3;
+    double Y = 4;
+    double Z = 5;
+    string HashPosition = 6;
+    uint32 PlayerID = 7;
+    uint32 BiomeID = 8;
+    biome.Biome Biome = 9;
+    uint32 AtmosphereID = 10;
+    atmosphere.Atmosphere Atmosphere = 11;
+    uint32 MapID = 12;
+    maps.Maps Maps = 13;
+    string Resources = 14;
+    bool Safe = 15;
+    bool Titan = 16;
+    uint32 PlanetSystemID = 17;
+    planet_system.PlanetSystem PlanetSystem = 18;
+}
+
+// GetPlanetByCoordinate
+message GetPlanetByCoordinateRequest {
+    double X = 1;
+    double Y = 2;
+    double Z = 3;
+}
+message GetPlanetByCoordinateResponse {
+    Planet Planet = 1;
+}
+
+// GetPlanetByID
+message GetPlanetByIDRequest {
+    uint32 PlanetID = 1;
+}
+message GetPlanetByIDResponse {
+    Planet Planet = 1;
+}
+
+// GetPlanetByMapID
+message GetPlanetByMapIDRequest {
+    uint32 MapID = 1;
+}
+message GetPlanetByMapIDResponse {
+    Planet Planet = 1;
+}
