@@ -1,0 +1,11 @@
+syntax = "proto3";
+option go_package = "proto";
+package planet_system;
+
+message PlanetSystem {
+    uint32 ID = 1;
+    string Name = 2;
+    double Size = 3;
+    int32 Density = 4;
+    double Deviation = 5;
+}

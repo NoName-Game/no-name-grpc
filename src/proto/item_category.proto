@@ -1,0 +1,17 @@
+syntax = "proto3";
+option go_package = "proto";
+package item_category;
+
+message ItemCategory {
+    uint32 ID = 1;
+    string Name = 2;
+    string Slug = 3;
+}
+
+// GetAllItemCategories
+message GetAllItemCategoriesRequest {
+    // Empty
+}
+message GetAllItemCategoriesResponse {
+    repeated ItemCategory ItemCategories = 1;
+}

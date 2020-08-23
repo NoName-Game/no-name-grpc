@@ -1,0 +1,42 @@
+syntax = "proto3";
+import "proto/resource_category.proto";
+import "proto/rarity.proto";
+option go_package = "proto";
+package resource;
+
+message Resource {
+    uint32 ID = 1;
+    string Name = 2;
+    uint32 RarityID = 3;
+    rarity.Rarity Rarity = 4;
+    uint32 ResourceCategoryID = 5;
+    resource_category.ResourceCategory ResourceCategory = 6;
+}
+
+// GetResourceByID
+message GetResourceByIDRequest {
+    uint32 ID = 1;
+}
+message GetResourceByIDResponse {
+    Resource Resource = 1;
+}
+
+// GetResourceByName
+message GetResourceByNameRequest {
+    string Name = 1;
+}
+message GetResourceByNameResponse {
+    Resource Resource = 1;
+}
+
+// DropResource
+message DropResourceRequest {
+    string TypeExploration = 1;
+    int32 QtyExploration = 2;
+    uint32 PlayerID = 3;
+    uint32 PlanetID = 4;
+}
+message DropResourceResponse {
+    Resource Resource = 1;
+    int32 Quantity = 2;
+}

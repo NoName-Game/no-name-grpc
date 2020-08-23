@@ -1,0 +1,146 @@
+syntax = "proto3";
+
+import "proto/armor.proto";
+import "proto/armor_category.proto";
+import "proto/weapon.proto";
+import "proto/weapon_category.proto";
+import "proto/player.proto";
+import "proto/player_state.proto";
+import "proto/player_position.proto";
+import "proto/enemy.proto";
+import "proto/item.proto";
+import "proto/item_category.proto";
+import "proto/language.proto";
+import "proto/maps.proto";
+import "proto/npc.proto";
+import "proto/planet.proto";
+import "proto/resource.proto";
+import "proto/ship.proto";
+import "proto/transaction.proto";
+import "proto/tresure.proto";
+import "proto/mission.proto";
+import "proto/titan.proto";
+
+option go_package = "proto";
+
+// The greeting service definition.
+service NoName {
+    // Armor
+    rpc GetArmorByID (armor.GetArmorByIDRequest) returns (armor.GetArmorByIDResponse) {}
+    rpc FindArmorByName (armor.FindArmorByNameRequest) returns (armor.FindArmorByNameResponse) {}
+    rpc UpdateArmor (armor.UpdateArmorRequest) returns (armor.UpdateArmorResponse) {}
+    rpc GetPlayerArmors (armor.GetPlayerArmorsRequest) returns (armor.GetPlayerArmorsResponse) {}
+    rpc GetPlayerArmorsEquipped (armor.GetPlayerArmorsEquippedRequest) returns (armor.GetPlayerArmorsEquippedResponse) {}
+
+    // ArmorCategory
+    rpc GetAllArmorCategory (armor_category.GetAllArmorCategoryRequest) returns (armor_category.GetAllArmorCategoryResponse) {}
+
+    // Weapon
+    rpc GetWeaponByID (weapon.GetWeaponByIDRequest) returns (weapon.GetWeaponByIDResponse) {}
+    rpc FindWeaponByName (weapon.FindWeaponByNameRequest) returns (weapon.FindWeaponByNameResponse) {}
+    rpc UpdateWeapon (weapon.UpdateWeaponRequest) returns (weapon.UpdateWeaponResponse) {}
+    rpc GetPlayerWeapons (weapon.GetPlayerWeaponsRequest) returns (weapon.GetPlayerWeaponsResponse) {}
+    rpc GetPlayerWeaponEquipped (weapon.GetPlayerWeaponEquippedRequest) returns (weapon.GetPlayerWeaponEquippedResponse) {}
+
+    // WeaponCategory
+    rpc GetAllWeaponCategory (weapon_category.GetAllWeaponCategoryRequest) returns (weapon_category.GetAllWeaponCategoryResponse) {}
+
+    // Player
+    rpc GetPlayerByID (player.GetPlayerByIDRequest) returns (player.GetPlayerByIDResponse) {}
+    rpc GetPlayerByUsername (player.GetPlayerByUsernameRequest) returns (player.GetPlayerByUsernameResponse) {}
+    rpc GetPlayerStats (player.GetPlayerStatsRequest) returns (player.GetPlayerStatsResponse) {}
+    rpc GetPlayerResources (player.GetPlayerResourcesRequest) returns (player.GetPlayerResourcesResponse) {}
+    rpc GetPlayerItems (player.GetPlayerItemsRequest) returns (player.GetPlayerItemsResponse) {}
+    rpc GetPlayerEconomy (player.GetPlayerEconomyRequest) returns (player.GetPlayerEconomyResponse) {}
+    rpc ManagePlayerInventory (player.ManagePlayerInventoryRequest) returns (player.ManagePlayerInventoryResponse) {}
+
+    // PlayerPosition
+    rpc CreatePlayerPosition (player_position.CreatePlayerPositionRequest) returns (player_position.CreatePlayerPositionResponse) {}
+    rpc GetPlayerCurrentPlanet (player_position.GetPlayerCurrentPlanetRequest) returns (player_position.GetPlayerCurrentPlanetResponse) {}
+    rpc CountPlanetVisited (player_position.CountPlanetVisitedRequest) returns (player_position.CountPlanetVisitedResponse) {}
+    rpc CountSystemVisited (player_position.CountSystemVisitedRequest) returns (player_position.CountSystemVisitedResponse) {}
+    rpc CountPlayerVisitedCurrentPlanet (player_position.CountPlayerVisitedCurrentPlanetRequest) returns (player_position.CountPlayerVisitedCurrentPlanetResponse) {}
+
+    // Rests
+    rpc GetRestsInfo (player.GetRestsInfoRequest) returns (player.GetRestsInfoResponse) {}
+    rpc EndPlayerRest (player.EndPlayerRestRequest) returns (player.EndPlayerRestResponse) {}
+
+    // SignIn
+    rpc SignIn (player.SignInRequest) returns (player.SignInResponse) {}
+
+    // PlayerState
+    rpc GetPlayerStateByID (player_state.GetPlayerStateByIDRequest) returns (player_state.GetPlayerStateByIDResponse) {}
+    rpc GetActivePlayerStates (player_state.GetActivePlayerStatesRequest) returns (player_state.GetActivePlayerStatesResponse) {}
+    rpc GetPlayerStateToNotify (player_state.GetPlayerStateToNotifyRequest) returns (player_state.GetPlayerStateToNotifyResponse) {}
+    rpc CreatePlayerState (player_state.CreatePlayerStateRequest) returns (player_state.CreatePlayerStateResponse) {}
+    rpc UpdatePlayerState (player_state.UpdatePlayerStateRequest) returns (player_state.UpdatePlayerStateResponse) {}
+    rpc DeletePlayerState (player_state.DeletePlayerStateRequest) returns (player_state.DeletePlayerStateResponse) {}
+
+    // Enemy
+    rpc GetEnemyByID (enemy.GetEnemyByIDRequest) returns (enemy.GetEnemyByIDResponse) {}
+    rpc HitEnemy (enemy.HitEnemyRequest) returns (enemy.HitEnemyResponse) {}
+
+    // Titan
+    rpc GetTitanByID (titan.GetTitanByIDRequest) returns (titan.GetTitanByIDResponse) {}
+    rpc GetTitanByName (titan.GetTitanByNameRequest) returns (titan.GetTitanByNameResponse) {}
+    rpc GetTitanByPlanetID (titan.GetTitanByPlanetIDRequest) returns (titan.GetTitanByPlanetIDResponse) {}
+    rpc HitTitan (titan.HitTitanRequest) returns (titan.HitTitanResponse) {}
+    rpc TitanDiscovered (titan.TitanDiscoveredRequest) returns (titan.TitanDiscoveredResponse) {}
+
+    // Language
+    rpc FindLanguageBySlug (language.FindLanguageBySlugRequest) returns (language.FindLanguageBySlugResponse) {}
+    rpc FindLanguageByName (language.FindLanguageByNameRequest) returns (language.FindLanguageByNameResponse) {}
+    rpc GetAllLanguages (language.GetAllLanguagesRequest) returns (language.GetAllLanguagesResponse) {}
+
+    // NPC
+    rpc GetAllNPC (npc.GetAllNPCRequest) returns (npc.GetAllNPCResponse) {}
+
+    // NPC - Crafter
+    rpc CraftArmor (npc.CraftArmorRequest) returns (npc.CraftArmorResponse) {}
+    rpc CraftWeapon (npc.CraftWeaponRequest) returns (npc.CraftWeaponResponse) {}
+
+    // NPC - Banck
+    rpc BankDeposit (npc.BankDepositRequest) returns (npc.BankDepositResponse) {}
+    rpc BankWithdraw (npc.BankWithdrawRequest) returns (npc.BankWithdrawResponse) {}
+
+    // Planet
+    rpc GetPlanetByID (planet.GetPlanetByIDRequest) returns (planet.GetPlanetByIDResponse) {}
+    rpc GetPlanetByCoordinate (planet.GetPlanetByCoordinateRequest) returns (planet.GetPlanetByCoordinateResponse) {}
+    rpc GetPlanetByMapID (planet.GetPlanetByMapIDRequest) returns (planet.GetPlanetByMapIDResponse) {}
+
+    // Map
+    rpc GetMapByID (maps.GetMapByIDRequest) returns (maps.GetMapByIDResponse) {}
+
+    // Resouce
+    rpc GetResourceByID (resource.GetResourceByIDRequest) returns (resource.GetResourceByIDResponse) {}
+    rpc GetResourceByName (resource.GetResourceByNameRequest) returns (resource.GetResourceByNameResponse) {}
+    rpc DropResource (resource.DropResourceRequest) returns (resource.DropResourceResponse) {}
+
+    // Item
+    rpc GetAllItems (item.GetAllItemsRequest) returns (item.GetAllItemsResponse) {}
+    rpc GetItemsByCategoryID (item.GetItemsByCategoryIDRequest) returns (item.GetItemsByCategoryIDResponse) {}
+    rpc UseItem (item.UseItemRequest) returns (item.UseItemResponse) {}
+
+    // ItemCateogory
+    rpc GetAllItemCategories (item_category.GetAllItemCategoriesRequest) returns (item_category.GetAllItemCategoriesResponse) {}
+
+    // Ship
+    rpc GetShipRepairInfo (ship.GetShipRepairInfoRequest) returns (ship.GetShipRepairInfoResponse) {}
+    rpc StartShipRepair (ship.StartShipRepairRequest) returns (ship.StartShipRepairResponse) {}
+    rpc EndShipRepair (ship.EndShipRepairRequest) returns (ship.EndShipRepairResponse) {}
+    rpc GetShipTravelInfo (ship.GetShipTravelInfoRequest) returns (ship.GetShipTravelInfoResponse) {}
+    rpc EndShipTravel (ship.EndShipTravelRequest) returns (ship.EndShipTravelResponse) {}
+    rpc GetPlayerShips (ship.GetPlayerShipsRequest) returns (ship.GetPlayerShipsResponse) {}
+    rpc GetPlayerShipEquipped (ship.GetPlayerShipEquippedRequest) returns (ship.GetPlayerShipEquippedResponse) {}
+
+    // Transaction
+    rpc CreateTransaction (transaction.CreateTransactionRequest) returns (transaction.CreateTransactionResponse) {}
+
+    // Tresure
+    rpc DropTresure (tresure.DropTresureRequest) returns (tresure.DropTresureResponse) {}
+
+    // Mission
+    rpc GetMission (mission.GetMissionRequest) returns (mission.GetMissionResponse) {}
+    rpc CheckMission (mission.CheckMissionRequest) returns (mission.CheckMissionResponse) {}
+    rpc GetMissionReward (mission.GetMissionRewardRequest) returns (mission.GetMissionRewardResponse) {}
+}

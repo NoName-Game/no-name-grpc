@@ -1,0 +1,9 @@
+syntax = "proto3";
+option go_package = "proto";
+package ship_category;
+
+message ShipCategory {
+    uint32 ID = 1;
+    string Name = 2;
+    string Slug = 3;
+}

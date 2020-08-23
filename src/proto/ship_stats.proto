@@ -1,0 +1,16 @@
+syntax = "proto3";
+option go_package = "proto";
+package ship_stats;
+
+message ShipStats {
+    uint32 ID = 1;
+    uint32 Integrity = 2;
+    double Tank = 3;
+    uint32 Hold = 4;
+    double Engine = 5;
+    uint32 Speed = 6;
+    uint32 Radar = 7;
+    double Attack = 8;
+    double Shields = 9;
+    double Evasion = 10;
+}

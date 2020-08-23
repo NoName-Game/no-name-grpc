@@ -1,0 +1,15 @@
+syntax = "proto3";
+option go_package = "proto";
+import "proto/item.proto";
+import "proto/resource.proto";
+package player_inventory;
+
+message PlayerInventory {
+    uint32 ID = 1;
+    uint32 PlayerID = 2;
+    int32 Quantity = 3;
+    uint32 ItemID = 4;
+    string ItemType = 5;
+    resource.Resource Resource = 6;
+    item.Item Item = 7;
+}

@@ -1,0 +1,9 @@
+syntax = "proto3";
+option go_package = "proto";
+package trap;
+
+message Trap {
+    uint32 ID = 1;
+    int32 Damage = 2;
+    bool PlayerDie = 3;
+}
