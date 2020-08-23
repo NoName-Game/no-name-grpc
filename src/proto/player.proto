@@ -2,7 +2,7 @@ syntax = "proto3";
 import "proto/language.proto";
 import "proto/player_stats.proto";
 import "proto/player_inventory.proto";
-option go_package = ".;pb";
+option go_package = "proto";
 package player;
 
 message Player {

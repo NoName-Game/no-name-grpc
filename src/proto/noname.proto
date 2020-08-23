@@ -21,7 +21,7 @@ import "proto/tresure.proto";
 import "proto/mission.proto";
 import "proto/titan.proto";
 
-option go_package = "./service";
+option go_package = "proto";
 
 // The greeting service definition.
 service NoName {

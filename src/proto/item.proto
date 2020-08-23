@@ -2,7 +2,7 @@ syntax = "proto3";
 import "proto/item_category.proto";
 import "proto/rarity.proto";
 import "proto/recipe.proto";
-option go_package = ".;pb";
+option go_package = "proto";
 package item;
 
 message Item {
