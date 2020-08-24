@@ -1,0 +1,26 @@
+syntax = "proto3";
+import "proto/planet.proto";
+option go_package = "proto";
+package expansion;
+
+// GetTeletrasportSafePlanetList
+message TeletrasportSafePlanetList {
+    planet.Planet Planet = 1;
+    uint32 Price = 2;
+}
+message GetTeletrasportSafePlanetListRequest {
+    uint32 PlanetID = 1;
+}
+message GetTeletrasportSafePlanetListResponse {
+    repeated TeletrasportSafePlanetList SafePlanets = 1;
+}
+
+// EndTeletrasportSafePlanet
+message EndTeletrasportSafePlanetRequest {
+    uint32 PlayerID = 1;
+    uint32 PlanetID = 2;
+    int32 Price = 3;
+}
+message EndTeletrasportSafePlanetResponse {
+    // Empty
+}

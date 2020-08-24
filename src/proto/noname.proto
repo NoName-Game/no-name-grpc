@@ -20,6 +20,7 @@ import "proto/transaction.proto";
 import "proto/tresure.proto";
 import "proto/mission.proto";
 import "proto/titan.proto";
+import "proto/expansion.proto";
 
 option go_package = "proto";
 
@@ -105,9 +106,11 @@ service NoName {
 
     // Planet
     rpc GetPlanetByID (planet.GetPlanetByIDRequest) returns (planet.GetPlanetByIDResponse) {}
+    rpc GetPlanetByName (planet.GetPlanetByNameRequest) returns (planet.GetPlanetByNameResponse) {}
     rpc GetPlanetByCoordinate (planet.GetPlanetByCoordinateRequest) returns (planet.GetPlanetByCoordinateResponse) {}
     rpc GetPlanetByMapID (planet.GetPlanetByMapIDRequest) returns (planet.GetPlanetByMapIDResponse) {}
     rpc GetExpansionInfo (planet.GetExpansionInfoRequest) returns (planet.GetExpansionInfoResponse) {}
+    rpc GetSafePlanets (planet.GetSafePlanetsRequest) returns (planet.GetSafePlanetsResponse) {}
 
     // Map
     rpc GetMapByID (maps.GetMapByIDRequest) returns (maps.GetMapByIDResponse) {}
@@ -144,4 +147,8 @@ service NoName {
     rpc GetMission (mission.GetMissionRequest) returns (mission.GetMissionResponse) {}
     rpc CheckMission (mission.CheckMissionRequest) returns (mission.CheckMissionResponse) {}
     rpc GetMissionReward (mission.GetMissionRewardRequest) returns (mission.GetMissionRewardResponse) {}
+
+    // Expansion
+    rpc GetTeletrasportSafePlanetList (expansion.GetTeletrasportSafePlanetListRequest) returns (expansion.GetTeletrasportSafePlanetListResponse) {}
+    rpc EndTeletrasportSafePlanet (expansion.EndTeletrasportSafePlanetRequest) returns (expansion.EndTeletrasportSafePlanetResponse) {}
 }
