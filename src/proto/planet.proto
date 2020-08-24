@@ -59,5 +59,6 @@ message GetExpansionInfoRequest {
 }
 message GetExpansionInfoResponse {
     uint32 MissPlanetsCounter = 1;
-    planet_system.PlanetSystem LastSystemDiscovered = 2;
+    uint32 TotalPlanetsCounter = 2;
+    planet_system.PlanetSystem LastSystemDiscovered = 3;
 }
