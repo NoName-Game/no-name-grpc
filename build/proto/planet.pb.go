@@ -414,6 +414,101 @@ func (x *GetPlanetByIDResponse) GetPlanet() *Planet {
 	return nil
 }
 
+// GetPlanetByName
+type GetPlanetByNameRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	PlanetName string `protobuf:"bytes,1,opt,name=PlanetName,proto3" json:"PlanetName,omitempty"`
+}
+
+func (x *GetPlanetByNameRequest) Reset() {
+	*x = GetPlanetByNameRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_planet_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetPlanetByNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPlanetByNameRequest) ProtoMessage() {}
+
+func (x *GetPlanetByNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_planet_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPlanetByNameRequest.ProtoReflect.Descriptor instead.
+func (*GetPlanetByNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_planet_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetPlanetByNameRequest) GetPlanetName() string {
+	if x != nil {
+		return x.PlanetName
+	}
+	return ""
+}
+
+type GetPlanetByNameResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Planet *Planet `protobuf:"bytes,1,opt,name=Planet,proto3" json:"Planet,omitempty"`
+}
+
+func (x *GetPlanetByNameResponse) Reset() {
+	*x = GetPlanetByNameResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_planet_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetPlanetByNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPlanetByNameResponse) ProtoMessage() {}
+
+func (x *GetPlanetByNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_planet_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPlanetByNameResponse.ProtoReflect.Descriptor instead.
+func (*GetPlanetByNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_planet_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetPlanetByNameResponse) GetPlanet() *Planet {
+	if x != nil {
+		return x.Planet
+	}
+	return nil
+}
+
 // GetPlanetByMapID
 type GetPlanetByMapIDRequest struct {
 	state         protoimpl.MessageState
@@ -426,7 +521,7 @@ type GetPlanetByMapIDRequest struct {
 func (x *GetPlanetByMapIDRequest) Reset() {
 	*x = GetPlanetByMapIDRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_planet_proto_msgTypes[5]
+		mi := &file_proto_planet_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -439,7 +534,7 @@ func (x *GetPlanetByMapIDRequest) String() string {
 func (*GetPlanetByMapIDRequest) ProtoMessage() {}
 
 func (x *GetPlanetByMapIDRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_planet_proto_msgTypes[5]
+	mi := &file_proto_planet_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -452,7 +547,7 @@ func (x *GetPlanetByMapIDRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlanetByMapIDRequest.ProtoReflect.Descriptor instead.
 func (*GetPlanetByMapIDRequest) Descriptor() ([]byte, []int) {
-	return file_proto_planet_proto_rawDescGZIP(), []int{5}
+	return file_proto_planet_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetPlanetByMapIDRequest) GetMapID() uint32 {
@@ -473,7 +568,7 @@ type GetPlanetByMapIDResponse struct {
 func (x *GetPlanetByMapIDResponse) Reset() {
 	*x = GetPlanetByMapIDResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_planet_proto_msgTypes[6]
+		mi := &file_proto_planet_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -486,7 +581,7 @@ func (x *GetPlanetByMapIDResponse) String() string {
 func (*GetPlanetByMapIDResponse) ProtoMessage() {}
 
 func (x *GetPlanetByMapIDResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_planet_proto_msgTypes[6]
+	mi := &file_proto_planet_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -499,12 +594,200 @@ func (x *GetPlanetByMapIDResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlanetByMapIDResponse.ProtoReflect.Descriptor instead.
 func (*GetPlanetByMapIDResponse) Descriptor() ([]byte, []int) {
-	return file_proto_planet_proto_rawDescGZIP(), []int{6}
+	return file_proto_planet_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetPlanetByMapIDResponse) GetPlanet() *Planet {
 	if x != nil {
 		return x.Planet
+	}
+	return nil
+}
+
+// GetExpansionInfo
+type GetExpansionInfoRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *GetExpansionInfoRequest) Reset() {
+	*x = GetExpansionInfoRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_planet_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetExpansionInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExpansionInfoRequest) ProtoMessage() {}
+
+func (x *GetExpansionInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_planet_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExpansionInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetExpansionInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_planet_proto_rawDescGZIP(), []int{9}
+}
+
+type GetExpansionInfoResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	MissPlanetsCounter   uint32        `protobuf:"varint,1,opt,name=MissPlanetsCounter,proto3" json:"MissPlanetsCounter,omitempty"`
+	TotalPlanetsCounter  uint32        `protobuf:"varint,2,opt,name=TotalPlanetsCounter,proto3" json:"TotalPlanetsCounter,omitempty"`
+	LastSystemDiscovered *PlanetSystem `protobuf:"bytes,3,opt,name=LastSystemDiscovered,proto3" json:"LastSystemDiscovered,omitempty"`
+}
+
+func (x *GetExpansionInfoResponse) Reset() {
+	*x = GetExpansionInfoResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_planet_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetExpansionInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExpansionInfoResponse) ProtoMessage() {}
+
+func (x *GetExpansionInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_planet_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExpansionInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetExpansionInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_planet_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetExpansionInfoResponse) GetMissPlanetsCounter() uint32 {
+	if x != nil {
+		return x.MissPlanetsCounter
+	}
+	return 0
+}
+
+func (x *GetExpansionInfoResponse) GetTotalPlanetsCounter() uint32 {
+	if x != nil {
+		return x.TotalPlanetsCounter
+	}
+	return 0
+}
+
+func (x *GetExpansionInfoResponse) GetLastSystemDiscovered() *PlanetSystem {
+	if x != nil {
+		return x.LastSystemDiscovered
+	}
+	return nil
+}
+
+// GetSafePlanets
+type GetSafePlanetsRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *GetSafePlanetsRequest) Reset() {
+	*x = GetSafePlanetsRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_planet_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetSafePlanetsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSafePlanetsRequest) ProtoMessage() {}
+
+func (x *GetSafePlanetsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_planet_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSafePlanetsRequest.ProtoReflect.Descriptor instead.
+func (*GetSafePlanetsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_planet_proto_rawDescGZIP(), []int{11}
+}
+
+type GetSafePlanetsResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	SafePlanets []*Planet `protobuf:"bytes,1,rep,name=SafePlanets,proto3" json:"SafePlanets,omitempty"`
+}
+
+func (x *GetSafePlanetsResponse) Reset() {
+	*x = GetSafePlanetsResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_planet_proto_msgTypes[12]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetSafePlanetsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSafePlanetsResponse) ProtoMessage() {}
+
+func (x *GetSafePlanetsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_planet_proto_msgTypes[12]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSafePlanetsResponse.ProtoReflect.Descriptor instead.
+func (*GetSafePlanetsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_planet_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetSafePlanetsResponse) GetSafePlanets() []*Planet {
+	if x != nil {
+		return x.SafePlanets
 	}
 	return nil
 }
@@ -569,15 +852,44 @@ var file_proto_planet_proto_rawDesc = []byte{
 	0x65, 0x74, 0x42, 0x79, 0x49, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x26,
 	0x0a, 0x06, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e,
 	0x2e, 0x70, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x2e, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x52, 0x06,
-	0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x22, 0x2f, 0x0a, 0x17, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61,
-	0x6e, 0x65, 0x74, 0x42, 0x79, 0x4d, 0x61, 0x70, 0x49, 0x44, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x12, 0x14, 0x0a, 0x05, 0x4d, 0x61, 0x70, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d,
-	0x52, 0x05, 0x4d, 0x61, 0x70, 0x49, 0x44, 0x22, 0x42, 0x0a, 0x18, 0x47, 0x65, 0x74, 0x50, 0x6c,
-	0x61, 0x6e, 0x65, 0x74, 0x42, 0x79, 0x4d, 0x61, 0x70, 0x49, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x12, 0x26, 0x0a, 0x06, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x70, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x2e, 0x50, 0x6c, 0x61,
-	0x6e, 0x65, 0x74, 0x52, 0x06, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x42, 0x07, 0x5a, 0x05, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x22, 0x38, 0x0a, 0x16, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61,
+	0x6e, 0x65, 0x74, 0x42, 0x79, 0x4e, 0x61, 0x6d, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x1e, 0x0a, 0x0a, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x4e, 0x61, 0x6d, 0x65,
+	0x22, 0x41, 0x0a, 0x17, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x42, 0x79, 0x4e,
+	0x61, 0x6d, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x26, 0x0a, 0x06, 0x50,
+	0x6c, 0x61, 0x6e, 0x65, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x70, 0x6c,
+	0x61, 0x6e, 0x65, 0x74, 0x2e, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x52, 0x06, 0x50, 0x6c, 0x61,
+	0x6e, 0x65, 0x74, 0x22, 0x2f, 0x0a, 0x17, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74,
+	0x42, 0x79, 0x4d, 0x61, 0x70, 0x49, 0x44, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14,
+	0x0a, 0x05, 0x4d, 0x61, 0x70, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x4d,
+	0x61, 0x70, 0x49, 0x44, 0x22, 0x42, 0x0a, 0x18, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x6e, 0x65,
+	0x74, 0x42, 0x79, 0x4d, 0x61, 0x70, 0x49, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x26, 0x0a, 0x06, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x0e, 0x2e, 0x70, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x2e, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74,
+	0x52, 0x06, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x22, 0x19, 0x0a, 0x17, 0x47, 0x65, 0x74, 0x45,
+	0x78, 0x70, 0x61, 0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x22, 0xcd, 0x01, 0x0a, 0x18, 0x47, 0x65, 0x74, 0x45, 0x78, 0x70, 0x61, 0x6e,
+	0x73, 0x69, 0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x2e, 0x0a, 0x12, 0x4d, 0x69, 0x73, 0x73, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x73, 0x43,
+	0x6f, 0x75, 0x6e, 0x74, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x12, 0x4d, 0x69,
+	0x73, 0x73, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x73, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x65, 0x72,
+	0x12, 0x30, 0x0a, 0x13, 0x54, 0x6f, 0x74, 0x61, 0x6c, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x73,
+	0x43, 0x6f, 0x75, 0x6e, 0x74, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x13, 0x54,
+	0x6f, 0x74, 0x61, 0x6c, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x73, 0x43, 0x6f, 0x75, 0x6e, 0x74,
+	0x65, 0x72, 0x12, 0x4f, 0x0a, 0x14, 0x4c, 0x61, 0x73, 0x74, 0x53, 0x79, 0x73, 0x74, 0x65, 0x6d,
+	0x44, 0x69, 0x73, 0x63, 0x6f, 0x76, 0x65, 0x72, 0x65, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x1b, 0x2e, 0x70, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x5f, 0x73, 0x79, 0x73, 0x74, 0x65, 0x6d,
+	0x2e, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x53, 0x79, 0x73, 0x74, 0x65, 0x6d, 0x52, 0x14, 0x4c,
+	0x61, 0x73, 0x74, 0x53, 0x79, 0x73, 0x74, 0x65, 0x6d, 0x44, 0x69, 0x73, 0x63, 0x6f, 0x76, 0x65,
+	0x72, 0x65, 0x64, 0x22, 0x17, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x53, 0x61, 0x66, 0x65, 0x50, 0x6c,
+	0x61, 0x6e, 0x65, 0x74, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x4a, 0x0a, 0x16,
+	0x47, 0x65, 0x74, 0x53, 0x61, 0x66, 0x65, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x73, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x0b, 0x53, 0x61, 0x66, 0x65, 0x50, 0x6c,
+	0x61, 0x6e, 0x65, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x70, 0x6c,
+	0x61, 0x6e, 0x65, 0x74, 0x2e, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x52, 0x0b, 0x53, 0x61, 0x66,
+	0x65, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x73, 0x42, 0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -592,33 +904,42 @@ func file_proto_planet_proto_rawDescGZIP() []byte {
 	return file_proto_planet_proto_rawDescData
 }
 
-var file_proto_planet_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_proto_planet_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_proto_planet_proto_goTypes = []interface{}{
 	(*Planet)(nil),                        // 0: planet.Planet
 	(*GetPlanetByCoordinateRequest)(nil),  // 1: planet.GetPlanetByCoordinateRequest
 	(*GetPlanetByCoordinateResponse)(nil), // 2: planet.GetPlanetByCoordinateResponse
 	(*GetPlanetByIDRequest)(nil),          // 3: planet.GetPlanetByIDRequest
 	(*GetPlanetByIDResponse)(nil),         // 4: planet.GetPlanetByIDResponse
-	(*GetPlanetByMapIDRequest)(nil),       // 5: planet.GetPlanetByMapIDRequest
-	(*GetPlanetByMapIDResponse)(nil),      // 6: planet.GetPlanetByMapIDResponse
-	(*Biome)(nil),                         // 7: biome.Biome
-	(*Atmosphere)(nil),                    // 8: atmosphere.Atmosphere
-	(*Maps)(nil),                          // 9: maps.Maps
-	(*PlanetSystem)(nil),                  // 10: planet_system.PlanetSystem
+	(*GetPlanetByNameRequest)(nil),        // 5: planet.GetPlanetByNameRequest
+	(*GetPlanetByNameResponse)(nil),       // 6: planet.GetPlanetByNameResponse
+	(*GetPlanetByMapIDRequest)(nil),       // 7: planet.GetPlanetByMapIDRequest
+	(*GetPlanetByMapIDResponse)(nil),      // 8: planet.GetPlanetByMapIDResponse
+	(*GetExpansionInfoRequest)(nil),       // 9: planet.GetExpansionInfoRequest
+	(*GetExpansionInfoResponse)(nil),      // 10: planet.GetExpansionInfoResponse
+	(*GetSafePlanetsRequest)(nil),         // 11: planet.GetSafePlanetsRequest
+	(*GetSafePlanetsResponse)(nil),        // 12: planet.GetSafePlanetsResponse
+	(*Biome)(nil),                         // 13: biome.Biome
+	(*Atmosphere)(nil),                    // 14: atmosphere.Atmosphere
+	(*Maps)(nil),                          // 15: maps.Maps
+	(*PlanetSystem)(nil),                  // 16: planet_system.PlanetSystem
 }
 var file_proto_planet_proto_depIdxs = []int32{
-	7,  // 0: planet.Planet.Biome:type_name -> biome.Biome
-	8,  // 1: planet.Planet.Atmosphere:type_name -> atmosphere.Atmosphere
-	9,  // 2: planet.Planet.Maps:type_name -> maps.Maps
-	10, // 3: planet.Planet.PlanetSystem:type_name -> planet_system.PlanetSystem
+	13, // 0: planet.Planet.Biome:type_name -> biome.Biome
+	14, // 1: planet.Planet.Atmosphere:type_name -> atmosphere.Atmosphere
+	15, // 2: planet.Planet.Maps:type_name -> maps.Maps
+	16, // 3: planet.Planet.PlanetSystem:type_name -> planet_system.PlanetSystem
 	0,  // 4: planet.GetPlanetByCoordinateResponse.Planet:type_name -> planet.Planet
 	0,  // 5: planet.GetPlanetByIDResponse.Planet:type_name -> planet.Planet
-	0,  // 6: planet.GetPlanetByMapIDResponse.Planet:type_name -> planet.Planet
-	7,  // [7:7] is the sub-list for method output_type
-	7,  // [7:7] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	0,  // 6: planet.GetPlanetByNameResponse.Planet:type_name -> planet.Planet
+	0,  // 7: planet.GetPlanetByMapIDResponse.Planet:type_name -> planet.Planet
+	16, // 8: planet.GetExpansionInfoResponse.LastSystemDiscovered:type_name -> planet_system.PlanetSystem
+	0,  // 9: planet.GetSafePlanetsResponse.SafePlanets:type_name -> planet.Planet
+	10, // [10:10] is the sub-list for method output_type
+	10, // [10:10] is the sub-list for method input_type
+	10, // [10:10] is the sub-list for extension type_name
+	10, // [10:10] is the sub-list for extension extendee
+	0,  // [0:10] is the sub-list for field type_name
 }
 
 func init() { file_proto_planet_proto_init() }
@@ -692,7 +1013,7 @@ func file_proto_planet_proto_init() {
 			}
 		}
 		file_proto_planet_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetPlanetByMapIDRequest); i {
+			switch v := v.(*GetPlanetByNameRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -704,7 +1025,79 @@ func file_proto_planet_proto_init() {
 			}
 		}
 		file_proto_planet_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetPlanetByNameResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_planet_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetPlanetByMapIDRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_planet_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlanetByMapIDResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_planet_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetExpansionInfoRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_planet_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetExpansionInfoResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_planet_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetSafePlanetsRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_planet_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetSafePlanetsResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -722,7 +1115,7 @@ func file_proto_planet_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_planet_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

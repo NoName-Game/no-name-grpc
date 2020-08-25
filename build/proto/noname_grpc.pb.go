@@ -82,8 +82,11 @@ type NoNameClient interface {
 	BankWithdraw(ctx context.Context, in *BankWithdrawRequest, opts ...grpc.CallOption) (*BankWithdrawResponse, error)
 	// Planet
 	GetPlanetByID(ctx context.Context, in *GetPlanetByIDRequest, opts ...grpc.CallOption) (*GetPlanetByIDResponse, error)
+	GetPlanetByName(ctx context.Context, in *GetPlanetByNameRequest, opts ...grpc.CallOption) (*GetPlanetByNameResponse, error)
 	GetPlanetByCoordinate(ctx context.Context, in *GetPlanetByCoordinateRequest, opts ...grpc.CallOption) (*GetPlanetByCoordinateResponse, error)
 	GetPlanetByMapID(ctx context.Context, in *GetPlanetByMapIDRequest, opts ...grpc.CallOption) (*GetPlanetByMapIDResponse, error)
+	GetExpansionInfo(ctx context.Context, in *GetExpansionInfoRequest, opts ...grpc.CallOption) (*GetExpansionInfoResponse, error)
+	GetSafePlanets(ctx context.Context, in *GetSafePlanetsRequest, opts ...grpc.CallOption) (*GetSafePlanetsResponse, error)
 	// Map
 	GetMapByID(ctx context.Context, in *GetMapByIDRequest, opts ...grpc.CallOption) (*GetMapByIDResponse, error)
 	// Resouce
@@ -112,6 +115,9 @@ type NoNameClient interface {
 	GetMission(ctx context.Context, in *GetMissionRequest, opts ...grpc.CallOption) (*GetMissionResponse, error)
 	CheckMission(ctx context.Context, in *CheckMissionRequest, opts ...grpc.CallOption) (*CheckMissionResponse, error)
 	GetMissionReward(ctx context.Context, in *GetMissionRewardRequest, opts ...grpc.CallOption) (*GetMissionRewardResponse, error)
+	// Expansion
+	GetTeletrasportSafePlanetList(ctx context.Context, in *GetTeletrasportSafePlanetListRequest, opts ...grpc.CallOption) (*GetTeletrasportSafePlanetListResponse, error)
+	EndTeletrasportSafePlanet(ctx context.Context, in *EndTeletrasportSafePlanetRequest, opts ...grpc.CallOption) (*EndTeletrasportSafePlanetResponse, error)
 }
 
 type noNameClient struct {
@@ -563,6 +569,15 @@ func (c *noNameClient) GetPlanetByID(ctx context.Context, in *GetPlanetByIDReque
 	return out, nil
 }
 
+func (c *noNameClient) GetPlanetByName(ctx context.Context, in *GetPlanetByNameRequest, opts ...grpc.CallOption) (*GetPlanetByNameResponse, error) {
+	out := new(GetPlanetByNameResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlanetByName", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetPlanetByCoordinate(ctx context.Context, in *GetPlanetByCoordinateRequest, opts ...grpc.CallOption) (*GetPlanetByCoordinateResponse, error) {
 	out := new(GetPlanetByCoordinateResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlanetByCoordinate", in, out, opts...)
@@ -575,6 +590,24 @@ func (c *noNameClient) GetPlanetByCoordinate(ctx context.Context, in *GetPlanetB
 func (c *noNameClient) GetPlanetByMapID(ctx context.Context, in *GetPlanetByMapIDRequest, opts ...grpc.CallOption) (*GetPlanetByMapIDResponse, error) {
 	out := new(GetPlanetByMapIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlanetByMapID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetExpansionInfo(ctx context.Context, in *GetExpansionInfoRequest, opts ...grpc.CallOption) (*GetExpansionInfoResponse, error) {
+	out := new(GetExpansionInfoResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetExpansionInfo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetSafePlanets(ctx context.Context, in *GetSafePlanetsRequest, opts ...grpc.CallOption) (*GetSafePlanetsResponse, error) {
+	out := new(GetSafePlanetsResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetSafePlanets", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -761,6 +794,24 @@ func (c *noNameClient) GetMissionReward(ctx context.Context, in *GetMissionRewar
 	return out, nil
 }
 
+func (c *noNameClient) GetTeletrasportSafePlanetList(ctx context.Context, in *GetTeletrasportSafePlanetListRequest, opts ...grpc.CallOption) (*GetTeletrasportSafePlanetListResponse, error) {
+	out := new(GetTeletrasportSafePlanetListResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetTeletrasportSafePlanetList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) EndTeletrasportSafePlanet(ctx context.Context, in *EndTeletrasportSafePlanetRequest, opts ...grpc.CallOption) (*EndTeletrasportSafePlanetResponse, error) {
+	out := new(EndTeletrasportSafePlanetResponse)
+	err := c.cc.Invoke(ctx, "/NoName/EndTeletrasportSafePlanet", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // NoNameServer is the server API for NoName service.
 // All implementations must embed UnimplementedNoNameServer
 // for forward compatibility
@@ -830,8 +881,11 @@ type NoNameServer interface {
 	BankWithdraw(context.Context, *BankWithdrawRequest) (*BankWithdrawResponse, error)
 	// Planet
 	GetPlanetByID(context.Context, *GetPlanetByIDRequest) (*GetPlanetByIDResponse, error)
+	GetPlanetByName(context.Context, *GetPlanetByNameRequest) (*GetPlanetByNameResponse, error)
 	GetPlanetByCoordinate(context.Context, *GetPlanetByCoordinateRequest) (*GetPlanetByCoordinateResponse, error)
 	GetPlanetByMapID(context.Context, *GetPlanetByMapIDRequest) (*GetPlanetByMapIDResponse, error)
+	GetExpansionInfo(context.Context, *GetExpansionInfoRequest) (*GetExpansionInfoResponse, error)
+	GetSafePlanets(context.Context, *GetSafePlanetsRequest) (*GetSafePlanetsResponse, error)
 	// Map
 	GetMapByID(context.Context, *GetMapByIDRequest) (*GetMapByIDResponse, error)
 	// Resouce
@@ -860,6 +914,9 @@ type NoNameServer interface {
 	GetMission(context.Context, *GetMissionRequest) (*GetMissionResponse, error)
 	CheckMission(context.Context, *CheckMissionRequest) (*CheckMissionResponse, error)
 	GetMissionReward(context.Context, *GetMissionRewardRequest) (*GetMissionRewardResponse, error)
+	// Expansion
+	GetTeletrasportSafePlanetList(context.Context, *GetTeletrasportSafePlanetListRequest) (*GetTeletrasportSafePlanetListResponse, error)
+	EndTeletrasportSafePlanet(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error)
 	mustEmbedUnimplementedNoNameServer()
 }
 
@@ -1014,11 +1071,20 @@ func (*UnimplementedNoNameServer) BankWithdraw(context.Context, *BankWithdrawReq
 func (*UnimplementedNoNameServer) GetPlanetByID(context.Context, *GetPlanetByIDRequest) (*GetPlanetByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlanetByID not implemented")
 }
+func (*UnimplementedNoNameServer) GetPlanetByName(context.Context, *GetPlanetByNameRequest) (*GetPlanetByNameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlanetByName not implemented")
+}
 func (*UnimplementedNoNameServer) GetPlanetByCoordinate(context.Context, *GetPlanetByCoordinateRequest) (*GetPlanetByCoordinateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlanetByCoordinate not implemented")
 }
 func (*UnimplementedNoNameServer) GetPlanetByMapID(context.Context, *GetPlanetByMapIDRequest) (*GetPlanetByMapIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlanetByMapID not implemented")
+}
+func (*UnimplementedNoNameServer) GetExpansionInfo(context.Context, *GetExpansionInfoRequest) (*GetExpansionInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetExpansionInfo not implemented")
+}
+func (*UnimplementedNoNameServer) GetSafePlanets(context.Context, *GetSafePlanetsRequest) (*GetSafePlanetsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetSafePlanets not implemented")
 }
 func (*UnimplementedNoNameServer) GetMapByID(context.Context, *GetMapByIDRequest) (*GetMapByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMapByID not implemented")
@@ -1079,6 +1145,12 @@ func (*UnimplementedNoNameServer) CheckMission(context.Context, *CheckMissionReq
 }
 func (*UnimplementedNoNameServer) GetMissionReward(context.Context, *GetMissionRewardRequest) (*GetMissionRewardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMissionReward not implemented")
+}
+func (*UnimplementedNoNameServer) GetTeletrasportSafePlanetList(context.Context, *GetTeletrasportSafePlanetListRequest) (*GetTeletrasportSafePlanetListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTeletrasportSafePlanetList not implemented")
+}
+func (*UnimplementedNoNameServer) EndTeletrasportSafePlanet(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EndTeletrasportSafePlanet not implemented")
 }
 func (*UnimplementedNoNameServer) mustEmbedUnimplementedNoNameServer() {}
 
@@ -1968,6 +2040,24 @@ func _NoName_GetPlanetByID_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetPlanetByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlanetByNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlanetByName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlanetByName",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlanetByName(ctx, req.(*GetPlanetByNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetPlanetByCoordinate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPlanetByCoordinateRequest)
 	if err := dec(in); err != nil {
@@ -2000,6 +2090,42 @@ func _NoName_GetPlanetByMapID_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetPlanetByMapID(ctx, req.(*GetPlanetByMapIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetExpansionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExpansionInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetExpansionInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetExpansionInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetExpansionInfo(ctx, req.(*GetExpansionInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetSafePlanets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSafePlanetsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetSafePlanets(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetSafePlanets",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetSafePlanets(ctx, req.(*GetSafePlanetsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2364,6 +2490,42 @@ func _NoName_GetMissionReward_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetTeletrasportSafePlanetList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTeletrasportSafePlanetListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetTeletrasportSafePlanetList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetTeletrasportSafePlanetList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetTeletrasportSafePlanetList(ctx, req.(*GetTeletrasportSafePlanetListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_EndTeletrasportSafePlanet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EndTeletrasportSafePlanetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).EndTeletrasportSafePlanet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/EndTeletrasportSafePlanet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).EndTeletrasportSafePlanet(ctx, req.(*EndTeletrasportSafePlanetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _NoName_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "NoName",
 	HandlerType: (*NoNameServer)(nil),
@@ -2565,12 +2727,24 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetPlanetByID_Handler,
 		},
 		{
+			MethodName: "GetPlanetByName",
+			Handler:    _NoName_GetPlanetByName_Handler,
+		},
+		{
 			MethodName: "GetPlanetByCoordinate",
 			Handler:    _NoName_GetPlanetByCoordinate_Handler,
 		},
 		{
 			MethodName: "GetPlanetByMapID",
 			Handler:    _NoName_GetPlanetByMapID_Handler,
+		},
+		{
+			MethodName: "GetExpansionInfo",
+			Handler:    _NoName_GetExpansionInfo_Handler,
+		},
+		{
+			MethodName: "GetSafePlanets",
+			Handler:    _NoName_GetSafePlanets_Handler,
 		},
 		{
 			MethodName: "GetMapByID",
@@ -2651,6 +2825,14 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetMissionReward",
 			Handler:    _NoName_GetMissionReward_Handler,
+		},
+		{
+			MethodName: "GetTeletrasportSafePlanetList",
+			Handler:    _NoName_GetTeletrasportSafePlanetList_Handler,
+		},
+		{
+			MethodName: "EndTeletrasportSafePlanet",
+			Handler:    _NoName_EndTeletrasportSafePlanet_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

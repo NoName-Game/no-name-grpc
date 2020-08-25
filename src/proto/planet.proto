@@ -45,10 +45,36 @@ message GetPlanetByIDResponse {
     Planet Planet = 1;
 }
 
+// GetPlanetByName
+message GetPlanetByNameRequest {
+    string PlanetName = 1;
+}
+message GetPlanetByNameResponse {
+    Planet Planet = 1;
+}
+
 // GetPlanetByMapID
 message GetPlanetByMapIDRequest {
     uint32 MapID = 1;
 }
 message GetPlanetByMapIDResponse {
     Planet Planet = 1;
+}
+
+// GetExpansionInfo
+message GetExpansionInfoRequest {
+    // Empty
+}
+message GetExpansionInfoResponse {
+    uint32 MissPlanetsCounter = 1;
+    uint32 TotalPlanetsCounter = 2;
+    planet_system.PlanetSystem LastSystemDiscovered = 3;
+}
+
+// GetSafePlanets
+message GetSafePlanetsRequest {
+    // Empty
+}
+message GetSafePlanetsResponse {
+    repeated Planet SafePlanets = 1;
 }
