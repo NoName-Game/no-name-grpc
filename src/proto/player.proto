@@ -11,7 +11,8 @@ message Player {
     int64 ChatID = 3;
     uint32 LanguageID = 4;
     language.Language Language = 5;
-    bool banned = 6;
+    bool Tutorial = 6;
+    bool Banned = 7;
 }
 
 // GetPlayerByID
@@ -82,6 +83,15 @@ message GetPlayerEconomyRequest {
 }
 message GetPlayerEconomyResponse {
     int32 Value = 1;
+}
+
+// PlayerEndTutorial
+message PlayerEndTutorialRequest {
+    uint32 PlayerID = 1;
+    bool End = 3;
+}
+message PlayerEndTutorialResponse {
+    // Empty
 }
 
 // GetRestsInfo
