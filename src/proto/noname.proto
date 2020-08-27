@@ -54,6 +54,7 @@ service NoName {
     rpc GetPlayerItems (player.GetPlayerItemsRequest) returns (player.GetPlayerItemsResponse) {}
     rpc GetPlayerEconomy (player.GetPlayerEconomyRequest) returns (player.GetPlayerEconomyResponse) {}
     rpc ManagePlayerInventory (player.ManagePlayerInventoryRequest) returns (player.ManagePlayerInventoryResponse) {}
+    rpc PlayerEndTutorial (player.PlayerEndTutorialRequest) returns (player.PlayerEndTutorialResponse) {}
 
     // PlayerPosition
     rpc CreatePlayerPosition (player_position.CreatePlayerPositionRequest) returns (player_position.CreatePlayerPositionResponse) {}
