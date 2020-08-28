@@ -91,7 +91,8 @@ message PlayerEndTutorialRequest {
     bool End = 3;
 }
 message PlayerEndTutorialResponse {
-    // Empty
+    uint32 Money = 1;
+    uint32 Exp = 2;
 }
 
 // GetRestsInfo
