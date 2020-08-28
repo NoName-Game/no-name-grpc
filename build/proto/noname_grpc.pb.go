@@ -119,6 +119,8 @@ type NoNameClient interface {
 	// Expansion
 	GetTeletrasportSafePlanetList(ctx context.Context, in *GetTeletrasportSafePlanetListRequest, opts ...grpc.CallOption) (*GetTeletrasportSafePlanetListResponse, error)
 	EndTeletrasportSafePlanet(ctx context.Context, in *EndTeletrasportSafePlanetRequest, opts ...grpc.CallOption) (*EndTeletrasportSafePlanetResponse, error)
+	// Exploration Category
+	GetAllExplorationCategories(ctx context.Context, in *GetAllExplorationCategoriesRequest, opts ...grpc.CallOption) (*GetAllExplorationCategoriesResponse, error)
 }
 
 type noNameClient struct {
@@ -822,6 +824,15 @@ func (c *noNameClient) EndTeletrasportSafePlanet(ctx context.Context, in *EndTel
 	return out, nil
 }
 
+func (c *noNameClient) GetAllExplorationCategories(ctx context.Context, in *GetAllExplorationCategoriesRequest, opts ...grpc.CallOption) (*GetAllExplorationCategoriesResponse, error) {
+	out := new(GetAllExplorationCategoriesResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAllExplorationCategories", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // NoNameServer is the server API for NoName service.
 // All implementations must embed UnimplementedNoNameServer
 // for forward compatibility
@@ -928,6 +939,8 @@ type NoNameServer interface {
 	// Expansion
 	GetTeletrasportSafePlanetList(context.Context, *GetTeletrasportSafePlanetListRequest) (*GetTeletrasportSafePlanetListResponse, error)
 	EndTeletrasportSafePlanet(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error)
+	// Exploration Category
+	GetAllExplorationCategories(context.Context, *GetAllExplorationCategoriesRequest) (*GetAllExplorationCategoriesResponse, error)
 	mustEmbedUnimplementedNoNameServer()
 }
 
@@ -1165,6 +1178,9 @@ func (*UnimplementedNoNameServer) GetTeletrasportSafePlanetList(context.Context,
 }
 func (*UnimplementedNoNameServer) EndTeletrasportSafePlanet(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EndTeletrasportSafePlanet not implemented")
+}
+func (*UnimplementedNoNameServer) GetAllExplorationCategories(context.Context, *GetAllExplorationCategoriesRequest) (*GetAllExplorationCategoriesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllExplorationCategories not implemented")
 }
 func (*UnimplementedNoNameServer) mustEmbedUnimplementedNoNameServer() {}
 
@@ -2558,6 +2574,24 @@ func _NoName_EndTeletrasportSafePlanet_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetAllExplorationCategories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllExplorationCategoriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllExplorationCategories(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllExplorationCategories",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllExplorationCategories(ctx, req.(*GetAllExplorationCategoriesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _NoName_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "NoName",
 	HandlerType: (*NoNameServer)(nil),
@@ -2869,6 +2903,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "EndTeletrasportSafePlanet",
 			Handler:    _NoName_EndTeletrasportSafePlanet_Handler,
+		},
+		{
+			MethodName: "GetAllExplorationCategories",
+			Handler:    _NoName_GetAllExplorationCategories_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

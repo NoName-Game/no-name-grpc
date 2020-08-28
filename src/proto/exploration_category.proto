@@ -1,0 +1,16 @@
+syntax = "proto3";
+option go_package = "proto";
+package exploration_category;
+
+message ExplorationCategory {
+    uint32 ID = 1;
+    string Name = 2;
+    string Slug = 3;
+}
+
+message GetAllExplorationCategoriesRequest {
+    // Empty
+}
+message GetAllExplorationCategoriesResponse {
+    repeated ExplorationCategory ExplorationCategories = 1;
+}

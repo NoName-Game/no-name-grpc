@@ -21,6 +21,7 @@ import "proto/tresure.proto";
 import "proto/mission.proto";
 import "proto/titan.proto";
 import "proto/expansion.proto";
+import "proto/exploration_category.proto";
 
 option go_package = "proto";
 
@@ -152,4 +153,9 @@ service NoName {
     // Expansion
     rpc GetTeletrasportSafePlanetList (expansion.GetTeletrasportSafePlanetListRequest) returns (expansion.GetTeletrasportSafePlanetListResponse) {}
     rpc EndTeletrasportSafePlanet (expansion.EndTeletrasportSafePlanetRequest) returns (expansion.EndTeletrasportSafePlanetResponse) {}
+
+    // Exploration Category
+    rpc GetAllExplorationCategories (exploration_category.GetAllExplorationCategoriesRequest) returns (exploration_category.GetAllExplorationCategoriesResponse) {}
+
+
 }
