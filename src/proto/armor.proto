@@ -49,10 +49,28 @@ message GetPlayerArmorsResponse {
     repeated Armor Armors = 1;
 }
 
+// GetPlayerArmorsByCategoryID
+message GetPlayerArmorsByCategoryIDRequest {
+    uint32 PlayerID = 1;
+    uint32 CategoryID = 2;
+}
+message GetPlayerArmorsByCategoryIDResponse {
+    repeated Armor Armors = 1;
+}
+
 // GetPlayerArmorsEquipped
 message GetPlayerArmorsEquippedRequest {
     uint32 PlayerID = 1;
 }
 message GetPlayerArmorsEquippedResponse {
     repeated Armor Armors = 1;
+}
+
+// GetPlayerArmorsEquippedByCategoryID
+message GetPlayerArmorEquippedByCategoryIDRequest {
+    uint32 PlayerID = 1;
+    uint32 CategoryID = 2;
+}
+message GetPlayerArmorEquippedByCategoryIDResponse {
+    Armor Armor = 1;
 }

@@ -22,9 +22,12 @@ type NoNameClient interface {
 	FindArmorByName(ctx context.Context, in *FindArmorByNameRequest, opts ...grpc.CallOption) (*FindArmorByNameResponse, error)
 	UpdateArmor(ctx context.Context, in *UpdateArmorRequest, opts ...grpc.CallOption) (*UpdateArmorResponse, error)
 	GetPlayerArmors(ctx context.Context, in *GetPlayerArmorsRequest, opts ...grpc.CallOption) (*GetPlayerArmorsResponse, error)
+	GetPlayerArmorsByCategoryID(ctx context.Context, in *GetPlayerArmorsByCategoryIDRequest, opts ...grpc.CallOption) (*GetPlayerArmorsByCategoryIDResponse, error)
 	GetPlayerArmorsEquipped(ctx context.Context, in *GetPlayerArmorsEquippedRequest, opts ...grpc.CallOption) (*GetPlayerArmorsEquippedResponse, error)
+	GetPlayerArmorEquippedByCategoryID(ctx context.Context, in *GetPlayerArmorEquippedByCategoryIDRequest, opts ...grpc.CallOption) (*GetPlayerArmorEquippedByCategoryIDResponse, error)
 	// ArmorCategory
 	GetAllArmorCategory(ctx context.Context, in *GetAllArmorCategoryRequest, opts ...grpc.CallOption) (*GetAllArmorCategoryResponse, error)
+	GetArmorCategoryBySlug(ctx context.Context, in *GetArmorCategoryBySlugRequest, opts ...grpc.CallOption) (*GetArmorCategoryBySlugResponse, error)
 	// Weapon
 	GetWeaponByID(ctx context.Context, in *GetWeaponByIDRequest, opts ...grpc.CallOption) (*GetWeaponByIDResponse, error)
 	FindWeaponByName(ctx context.Context, in *FindWeaponByNameRequest, opts ...grpc.CallOption) (*FindWeaponByNameResponse, error)
@@ -165,6 +168,15 @@ func (c *noNameClient) GetPlayerArmors(ctx context.Context, in *GetPlayerArmorsR
 	return out, nil
 }
 
+func (c *noNameClient) GetPlayerArmorsByCategoryID(ctx context.Context, in *GetPlayerArmorsByCategoryIDRequest, opts ...grpc.CallOption) (*GetPlayerArmorsByCategoryIDResponse, error) {
+	out := new(GetPlayerArmorsByCategoryIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerArmorsByCategoryID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetPlayerArmorsEquipped(ctx context.Context, in *GetPlayerArmorsEquippedRequest, opts ...grpc.CallOption) (*GetPlayerArmorsEquippedResponse, error) {
 	out := new(GetPlayerArmorsEquippedResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerArmorsEquipped", in, out, opts...)
@@ -174,9 +186,27 @@ func (c *noNameClient) GetPlayerArmorsEquipped(ctx context.Context, in *GetPlaye
 	return out, nil
 }
 
+func (c *noNameClient) GetPlayerArmorEquippedByCategoryID(ctx context.Context, in *GetPlayerArmorEquippedByCategoryIDRequest, opts ...grpc.CallOption) (*GetPlayerArmorEquippedByCategoryIDResponse, error) {
+	out := new(GetPlayerArmorEquippedByCategoryIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerArmorEquippedByCategoryID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetAllArmorCategory(ctx context.Context, in *GetAllArmorCategoryRequest, opts ...grpc.CallOption) (*GetAllArmorCategoryResponse, error) {
 	out := new(GetAllArmorCategoryResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAllArmorCategory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetArmorCategoryBySlug(ctx context.Context, in *GetArmorCategoryBySlugRequest, opts ...grpc.CallOption) (*GetArmorCategoryBySlugResponse, error) {
+	out := new(GetArmorCategoryBySlugResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetArmorCategoryBySlug", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -831,9 +861,12 @@ type NoNameServer interface {
 	FindArmorByName(context.Context, *FindArmorByNameRequest) (*FindArmorByNameResponse, error)
 	UpdateArmor(context.Context, *UpdateArmorRequest) (*UpdateArmorResponse, error)
 	GetPlayerArmors(context.Context, *GetPlayerArmorsRequest) (*GetPlayerArmorsResponse, error)
+	GetPlayerArmorsByCategoryID(context.Context, *GetPlayerArmorsByCategoryIDRequest) (*GetPlayerArmorsByCategoryIDResponse, error)
 	GetPlayerArmorsEquipped(context.Context, *GetPlayerArmorsEquippedRequest) (*GetPlayerArmorsEquippedResponse, error)
+	GetPlayerArmorEquippedByCategoryID(context.Context, *GetPlayerArmorEquippedByCategoryIDRequest) (*GetPlayerArmorEquippedByCategoryIDResponse, error)
 	// ArmorCategory
 	GetAllArmorCategory(context.Context, *GetAllArmorCategoryRequest) (*GetAllArmorCategoryResponse, error)
+	GetArmorCategoryBySlug(context.Context, *GetArmorCategoryBySlugRequest) (*GetArmorCategoryBySlugResponse, error)
 	// Weapon
 	GetWeaponByID(context.Context, *GetWeaponByIDRequest) (*GetWeaponByIDResponse, error)
 	FindWeaponByName(context.Context, *FindWeaponByNameRequest) (*FindWeaponByNameResponse, error)
@@ -947,11 +980,20 @@ func (*UnimplementedNoNameServer) UpdateArmor(context.Context, *UpdateArmorReque
 func (*UnimplementedNoNameServer) GetPlayerArmors(context.Context, *GetPlayerArmorsRequest) (*GetPlayerArmorsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerArmors not implemented")
 }
+func (*UnimplementedNoNameServer) GetPlayerArmorsByCategoryID(context.Context, *GetPlayerArmorsByCategoryIDRequest) (*GetPlayerArmorsByCategoryIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerArmorsByCategoryID not implemented")
+}
 func (*UnimplementedNoNameServer) GetPlayerArmorsEquipped(context.Context, *GetPlayerArmorsEquippedRequest) (*GetPlayerArmorsEquippedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerArmorsEquipped not implemented")
 }
+func (*UnimplementedNoNameServer) GetPlayerArmorEquippedByCategoryID(context.Context, *GetPlayerArmorEquippedByCategoryIDRequest) (*GetPlayerArmorEquippedByCategoryIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerArmorEquippedByCategoryID not implemented")
+}
 func (*UnimplementedNoNameServer) GetAllArmorCategory(context.Context, *GetAllArmorCategoryRequest) (*GetAllArmorCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllArmorCategory not implemented")
+}
+func (*UnimplementedNoNameServer) GetArmorCategoryBySlug(context.Context, *GetArmorCategoryBySlugRequest) (*GetArmorCategoryBySlugResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetArmorCategoryBySlug not implemented")
 }
 func (*UnimplementedNoNameServer) GetWeaponByID(context.Context, *GetWeaponByIDRequest) (*GetWeaponByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetWeaponByID not implemented")
@@ -1244,6 +1286,24 @@ func _NoName_GetPlayerArmors_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetPlayerArmorsByCategoryID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerArmorsByCategoryIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerArmorsByCategoryID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerArmorsByCategoryID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerArmorsByCategoryID(ctx, req.(*GetPlayerArmorsByCategoryIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetPlayerArmorsEquipped_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPlayerArmorsEquippedRequest)
 	if err := dec(in); err != nil {
@@ -1262,6 +1322,24 @@ func _NoName_GetPlayerArmorsEquipped_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetPlayerArmorEquippedByCategoryID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerArmorEquippedByCategoryIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerArmorEquippedByCategoryID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerArmorEquippedByCategoryID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerArmorEquippedByCategoryID(ctx, req.(*GetPlayerArmorEquippedByCategoryIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetAllArmorCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAllArmorCategoryRequest)
 	if err := dec(in); err != nil {
@@ -1276,6 +1354,24 @@ func _NoName_GetAllArmorCategory_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetAllArmorCategory(ctx, req.(*GetAllArmorCategoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetArmorCategoryBySlug_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetArmorCategoryBySlugRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetArmorCategoryBySlug(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetArmorCategoryBySlug",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetArmorCategoryBySlug(ctx, req.(*GetArmorCategoryBySlugRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2579,12 +2675,24 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetPlayerArmors_Handler,
 		},
 		{
+			MethodName: "GetPlayerArmorsByCategoryID",
+			Handler:    _NoName_GetPlayerArmorsByCategoryID_Handler,
+		},
+		{
 			MethodName: "GetPlayerArmorsEquipped",
 			Handler:    _NoName_GetPlayerArmorsEquipped_Handler,
 		},
 		{
+			MethodName: "GetPlayerArmorEquippedByCategoryID",
+			Handler:    _NoName_GetPlayerArmorEquippedByCategoryID_Handler,
+		},
+		{
 			MethodName: "GetAllArmorCategory",
 			Handler:    _NoName_GetAllArmorCategory_Handler,
+		},
+		{
+			MethodName: "GetArmorCategoryBySlug",
+			Handler:    _NoName_GetArmorCategoryBySlug_Handler,
 		},
 		{
 			MethodName: "GetWeaponByID",

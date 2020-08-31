@@ -31,10 +31,13 @@ service NoName {
     rpc FindArmorByName (armor.FindArmorByNameRequest) returns (armor.FindArmorByNameResponse) {}
     rpc UpdateArmor (armor.UpdateArmorRequest) returns (armor.UpdateArmorResponse) {}
     rpc GetPlayerArmors (armor.GetPlayerArmorsRequest) returns (armor.GetPlayerArmorsResponse) {}
+    rpc GetPlayerArmorsByCategoryID (armor.GetPlayerArmorsByCategoryIDRequest) returns (armor.GetPlayerArmorsByCategoryIDResponse) {}
     rpc GetPlayerArmorsEquipped (armor.GetPlayerArmorsEquippedRequest) returns (armor.GetPlayerArmorsEquippedResponse) {}
+    rpc GetPlayerArmorEquippedByCategoryID (armor.GetPlayerArmorEquippedByCategoryIDRequest) returns (armor.GetPlayerArmorEquippedByCategoryIDResponse) {}
 
     // ArmorCategory
     rpc GetAllArmorCategory (armor_category.GetAllArmorCategoryRequest) returns (armor_category.GetAllArmorCategoryResponse) {}
+    rpc GetArmorCategoryBySlug (armor_category.GetArmorCategoryBySlugRequest) returns (armor_category.GetArmorCategoryBySlugResponse) {}
 
     // Weapon
     rpc GetWeaponByID (weapon.GetWeaponByIDRequest) returns (weapon.GetWeaponByIDResponse) {}
