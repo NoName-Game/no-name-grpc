@@ -51,9 +51,8 @@ message CraftArmorResponse {
 
 // Craft Weapon
 message CraftWeaponRequest {
-    string Category = 1;
-    string Items = 2;
-    uint32 PlayerID = 3;
+    string Items = 1;
+    uint32 PlayerID = 2;
 }
 message CraftWeaponResponse {
     weapon.Weapon Weapon = 1;

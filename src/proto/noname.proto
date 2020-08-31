@@ -3,7 +3,6 @@ syntax = "proto3";
 import "proto/armor.proto";
 import "proto/armor_category.proto";
 import "proto/weapon.proto";
-import "proto/weapon_category.proto";
 import "proto/player.proto";
 import "proto/player_state.proto";
 import "proto/player_position.proto";
@@ -43,9 +42,6 @@ service NoName {
     rpc UpdateWeapon (weapon.UpdateWeaponRequest) returns (weapon.UpdateWeaponResponse) {}
     rpc GetPlayerWeapons (weapon.GetPlayerWeaponsRequest) returns (weapon.GetPlayerWeaponsResponse) {}
     rpc GetPlayerWeaponEquipped (weapon.GetPlayerWeaponEquippedRequest) returns (weapon.GetPlayerWeaponEquippedResponse) {}
-
-    // WeaponCategory
-    rpc GetAllWeaponCategory (weapon_category.GetAllWeaponCategoryRequest) returns (weapon_category.GetAllWeaponCategoryResponse) {}
 
     // Player
     rpc GetPlayerByID (player.GetPlayerByIDRequest) returns (player.GetPlayerByIDResponse) {}

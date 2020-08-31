@@ -31,8 +31,6 @@ type NoNameClient interface {
 	UpdateWeapon(ctx context.Context, in *UpdateWeaponRequest, opts ...grpc.CallOption) (*UpdateWeaponResponse, error)
 	GetPlayerWeapons(ctx context.Context, in *GetPlayerWeaponsRequest, opts ...grpc.CallOption) (*GetPlayerWeaponsResponse, error)
 	GetPlayerWeaponEquipped(ctx context.Context, in *GetPlayerWeaponEquippedRequest, opts ...grpc.CallOption) (*GetPlayerWeaponEquippedResponse, error)
-	// WeaponCategory
-	GetAllWeaponCategory(ctx context.Context, in *GetAllWeaponCategoryRequest, opts ...grpc.CallOption) (*GetAllWeaponCategoryResponse, error)
 	// Player
 	GetPlayerByID(ctx context.Context, in *GetPlayerByIDRequest, opts ...grpc.CallOption) (*GetPlayerByIDResponse, error)
 	GetPlayerByUsername(ctx context.Context, in *GetPlayerByUsernameRequest, opts ...grpc.CallOption) (*GetPlayerByUsernameResponse, error)
@@ -224,15 +222,6 @@ func (c *noNameClient) GetPlayerWeapons(ctx context.Context, in *GetPlayerWeapon
 func (c *noNameClient) GetPlayerWeaponEquipped(ctx context.Context, in *GetPlayerWeaponEquippedRequest, opts ...grpc.CallOption) (*GetPlayerWeaponEquippedResponse, error) {
 	out := new(GetPlayerWeaponEquippedResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerWeaponEquipped", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) GetAllWeaponCategory(ctx context.Context, in *GetAllWeaponCategoryRequest, opts ...grpc.CallOption) (*GetAllWeaponCategoryResponse, error) {
-	out := new(GetAllWeaponCategoryResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetAllWeaponCategory", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -851,8 +840,6 @@ type NoNameServer interface {
 	UpdateWeapon(context.Context, *UpdateWeaponRequest) (*UpdateWeaponResponse, error)
 	GetPlayerWeapons(context.Context, *GetPlayerWeaponsRequest) (*GetPlayerWeaponsResponse, error)
 	GetPlayerWeaponEquipped(context.Context, *GetPlayerWeaponEquippedRequest) (*GetPlayerWeaponEquippedResponse, error)
-	// WeaponCategory
-	GetAllWeaponCategory(context.Context, *GetAllWeaponCategoryRequest) (*GetAllWeaponCategoryResponse, error)
 	// Player
 	GetPlayerByID(context.Context, *GetPlayerByIDRequest) (*GetPlayerByIDResponse, error)
 	GetPlayerByUsername(context.Context, *GetPlayerByUsernameRequest) (*GetPlayerByUsernameResponse, error)
@@ -980,9 +967,6 @@ func (*UnimplementedNoNameServer) GetPlayerWeapons(context.Context, *GetPlayerWe
 }
 func (*UnimplementedNoNameServer) GetPlayerWeaponEquipped(context.Context, *GetPlayerWeaponEquippedRequest) (*GetPlayerWeaponEquippedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerWeaponEquipped not implemented")
-}
-func (*UnimplementedNoNameServer) GetAllWeaponCategory(context.Context, *GetAllWeaponCategoryRequest) (*GetAllWeaponCategoryResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAllWeaponCategory not implemented")
 }
 func (*UnimplementedNoNameServer) GetPlayerByID(context.Context, *GetPlayerByIDRequest) (*GetPlayerByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerByID not implemented")
@@ -1382,24 +1366,6 @@ func _NoName_GetPlayerWeaponEquipped_Handler(srv interface{}, ctx context.Contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetPlayerWeaponEquipped(ctx, req.(*GetPlayerWeaponEquippedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_GetAllWeaponCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllWeaponCategoryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).GetAllWeaponCategory(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/GetAllWeaponCategory",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetAllWeaponCategory(ctx, req.(*GetAllWeaponCategoryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2639,10 +2605,6 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPlayerWeaponEquipped",
 			Handler:    _NoName_GetPlayerWeaponEquipped_Handler,
-		},
-		{
-			MethodName: "GetAllWeaponCategory",
-			Handler:    _NoName_GetAllWeaponCategory_Handler,
 		},
 		{
 			MethodName: "GetPlayerByID",
