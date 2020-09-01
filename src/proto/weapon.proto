@@ -1,6 +1,5 @@
 syntax = "proto3";
 import "proto/rarity.proto";
-import "proto/weapon_category.proto";
 option go_package = "proto";
 package weapon;
 
@@ -12,8 +11,6 @@ message Weapon {
     bool Equipped = 5;
     uint32 RarityID = 6;
     rarity.Rarity Rarity = 7;
-    uint32 WeaponCategoryID = 8;
-    weapon_category.WeaponCategory WeaponCategory = 9;
     float Precision = 10;
     float Penetration = 11;
     uint32 Potential = 12;

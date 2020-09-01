@@ -8,9 +8,18 @@ message ArmorCategory {
     string Slug = 3;
 }
 
+// GetAllArmorCategory
 message GetAllArmorCategoryRequest {
     // Empty
 }
 message GetAllArmorCategoryResponse {
     repeated ArmorCategory ArmorCategories = 1;
+}
+
+// GetArmorCategoryBySlug
+message GetArmorCategoryBySlugRequest {
+    string Slug = 1;
+}
+message GetArmorCategoryBySlugResponse {
+    ArmorCategory ArmorCategory = 1;
 }
