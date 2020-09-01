@@ -1,0 +1,34 @@
+syntax = "proto3";
+option go_package = "proto";
+package titan_event;
+
+// TitanEvent
+message TitanEvent {
+    uint32 ID = 1;
+    string Text = 2;
+    repeated EventChoice choices = 3;
+}
+
+// GetTitanEventByID
+message GetTitanEventByIDRequest {
+    uint32 ID = 1;
+}
+
+message GetTitanEventByIDResponse {
+    TitanEvent event = 1;
+}
+
+message EventChoice {
+    uint32 ID = 1;
+    bool Correct = 2;
+    string Text = 3;
+}
+
+// GetEventChoiceByID
+message GetEventChoiceByIDRequest {
+    uint32 ID = 1;
+}
+
+message GetEventChoicetByIDResponse {
+    EventChoice choice = 1;
+}
