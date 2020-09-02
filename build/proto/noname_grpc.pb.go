@@ -43,6 +43,7 @@ type NoNameClient interface {
 	GetPlayerEconomy(ctx context.Context, in *GetPlayerEconomyRequest, opts ...grpc.CallOption) (*GetPlayerEconomyResponse, error)
 	ManagePlayerInventory(ctx context.Context, in *ManagePlayerInventoryRequest, opts ...grpc.CallOption) (*ManagePlayerInventoryResponse, error)
 	PlayerEndTutorial(ctx context.Context, in *PlayerEndTutorialRequest, opts ...grpc.CallOption) (*PlayerEndTutorialResponse, error)
+	GetPlayerExperience(ctx context.Context, in *GetPlayerExperienceRequest, opts ...grpc.CallOption) (*GetPlayerExperienceResponse, error)
 	// PlayerPosition
 	CreatePlayerPosition(ctx context.Context, in *CreatePlayerPositionRequest, opts ...grpc.CallOption) (*CreatePlayerPositionResponse, error)
 	GetPlayerCurrentPlanet(ctx context.Context, in *GetPlayerCurrentPlanetRequest, opts ...grpc.CallOption) (*GetPlayerCurrentPlanetResponse, error)
@@ -324,6 +325,15 @@ func (c *noNameClient) ManagePlayerInventory(ctx context.Context, in *ManagePlay
 func (c *noNameClient) PlayerEndTutorial(ctx context.Context, in *PlayerEndTutorialRequest, opts ...grpc.CallOption) (*PlayerEndTutorialResponse, error) {
 	out := new(PlayerEndTutorialResponse)
 	err := c.cc.Invoke(ctx, "/NoName/PlayerEndTutorial", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetPlayerExperience(ctx context.Context, in *GetPlayerExperienceRequest, opts ...grpc.CallOption) (*GetPlayerExperienceResponse, error) {
+	out := new(GetPlayerExperienceResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerExperience", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -882,6 +892,7 @@ type NoNameServer interface {
 	GetPlayerEconomy(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error)
 	ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error)
 	PlayerEndTutorial(context.Context, *PlayerEndTutorialRequest) (*PlayerEndTutorialResponse, error)
+	GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error)
 	// PlayerPosition
 	CreatePlayerPosition(context.Context, *CreatePlayerPositionRequest) (*CreatePlayerPositionResponse, error)
 	GetPlayerCurrentPlanet(context.Context, *GetPlayerCurrentPlanetRequest) (*GetPlayerCurrentPlanetResponse, error)
@@ -1033,6 +1044,9 @@ func (*UnimplementedNoNameServer) ManagePlayerInventory(context.Context, *Manage
 }
 func (*UnimplementedNoNameServer) PlayerEndTutorial(context.Context, *PlayerEndTutorialRequest) (*PlayerEndTutorialResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PlayerEndTutorial not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerExperience not implemented")
 }
 func (*UnimplementedNoNameServer) CreatePlayerPosition(context.Context, *CreatePlayerPositionRequest) (*CreatePlayerPositionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatePlayerPosition not implemented")
@@ -1606,6 +1620,24 @@ func _NoName_PlayerEndTutorial_Handler(srv interface{}, ctx context.Context, dec
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).PlayerEndTutorial(ctx, req.(*PlayerEndTutorialRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerExperience_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerExperienceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerExperience(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerExperience",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerExperience(ctx, req.(*GetPlayerExperienceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2745,6 +2777,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "PlayerEndTutorial",
 			Handler:    _NoName_PlayerEndTutorial_Handler,
+		},
+		{
+			MethodName: "GetPlayerExperience",
+			Handler:    _NoName_GetPlayerExperience_Handler,
 		},
 		{
 			MethodName: "CreatePlayerPosition",
