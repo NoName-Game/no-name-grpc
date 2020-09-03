@@ -5,7 +5,7 @@ package titan_event;
 // TitanEvent
 message TitanEvent {
     uint32 ID = 1;
-    string Text = 2;
+    string TextCode = 2;
     repeated EventChoice Choices = 3;
 }
 
@@ -21,7 +21,7 @@ message GetTitanEventByIDResponse {
 message EventChoice {
     uint32 ID = 1;
     bool Correct = 2;
-    string Text = 3;
+    string TextCode = 3;
     uint32 TitanEventID = 4;
 }
 
