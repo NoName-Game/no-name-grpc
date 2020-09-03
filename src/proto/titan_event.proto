@@ -22,6 +22,7 @@ message EventChoice {
     uint32 ID = 1;
     bool Correct = 2;
     string Text = 3;
+    uint32 TitanEventID = 4;
 }
 
 // GetEventChoiceByID
