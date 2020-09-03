@@ -24,11 +24,11 @@ message GetWeaponByIDResponse {
     Weapon Weapon = 1;
 }
 
-// FindWeaponByName
-message FindWeaponByNameRequest {
+// GetWeaponByName
+message GetWeaponByNameRequest {
     string Name = 1;
 }
-message FindWeaponByNameResponse {
+message GetWeaponByNameResponse {
     Weapon Weapon = 1;
 }
 

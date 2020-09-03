@@ -20,20 +20,23 @@ message Armor {
     uint32 Potential = 13;
 }
 
+// GetArmorByID
 message GetArmorByIDRequest {
-    uint32 ID = 1;
+    uint32 ArmorID = 1;
 }
 message GetArmorByIDResponse {
     Armor Armor = 1;
 }
 
-message FindArmorByNameRequest {
+// GetArmorByName
+message GetArmorByNameRequest {
     string Name = 1;
 }
-message FindArmorByNameResponse {
+message GetArmorByNameResponse {
     Armor Armor = 1;
 }
 
+// UpdateArmor
 message UpdateArmorRequest {
     Armor Armor = 1;
 }

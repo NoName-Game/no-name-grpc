@@ -26,61 +26,6 @@ const (
 const _ = proto.ProtoPackageIsVersion4
 
 // GetTeletrasportSafePlanetList
-type TeletrasportSafePlanetList struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Planet *Planet `protobuf:"bytes,1,opt,name=Planet,proto3" json:"Planet,omitempty"`
-	Price  uint32  `protobuf:"varint,2,opt,name=Price,proto3" json:"Price,omitempty"`
-}
-
-func (x *TeletrasportSafePlanetList) Reset() {
-	*x = TeletrasportSafePlanetList{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_expansion_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *TeletrasportSafePlanetList) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TeletrasportSafePlanetList) ProtoMessage() {}
-
-func (x *TeletrasportSafePlanetList) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_expansion_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TeletrasportSafePlanetList.ProtoReflect.Descriptor instead.
-func (*TeletrasportSafePlanetList) Descriptor() ([]byte, []int) {
-	return file_proto_expansion_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *TeletrasportSafePlanetList) GetPlanet() *Planet {
-	if x != nil {
-		return x.Planet
-	}
-	return nil
-}
-
-func (x *TeletrasportSafePlanetList) GetPrice() uint32 {
-	if x != nil {
-		return x.Price
-	}
-	return 0
-}
-
 type GetTeletrasportSafePlanetListRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -92,7 +37,7 @@ type GetTeletrasportSafePlanetListRequest struct {
 func (x *GetTeletrasportSafePlanetListRequest) Reset() {
 	*x = GetTeletrasportSafePlanetListRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_expansion_proto_msgTypes[1]
+		mi := &file_proto_expansion_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -105,7 +50,7 @@ func (x *GetTeletrasportSafePlanetListRequest) String() string {
 func (*GetTeletrasportSafePlanetListRequest) ProtoMessage() {}
 
 func (x *GetTeletrasportSafePlanetListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_expansion_proto_msgTypes[1]
+	mi := &file_proto_expansion_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -118,7 +63,7 @@ func (x *GetTeletrasportSafePlanetListRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetTeletrasportSafePlanetListRequest.ProtoReflect.Descriptor instead.
 func (*GetTeletrasportSafePlanetListRequest) Descriptor() ([]byte, []int) {
-	return file_proto_expansion_proto_rawDescGZIP(), []int{1}
+	return file_proto_expansion_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *GetTeletrasportSafePlanetListRequest) GetPlanetID() uint32 {
@@ -133,13 +78,13 @@ type GetTeletrasportSafePlanetListResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	SafePlanets []*TeletrasportSafePlanetList `protobuf:"bytes,1,rep,name=SafePlanets,proto3" json:"SafePlanets,omitempty"`
+	SafePlanets []*GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList `protobuf:"bytes,1,rep,name=SafePlanets,proto3" json:"SafePlanets,omitempty"`
 }
 
 func (x *GetTeletrasportSafePlanetListResponse) Reset() {
 	*x = GetTeletrasportSafePlanetListResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_expansion_proto_msgTypes[2]
+		mi := &file_proto_expansion_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -152,7 +97,7 @@ func (x *GetTeletrasportSafePlanetListResponse) String() string {
 func (*GetTeletrasportSafePlanetListResponse) ProtoMessage() {}
 
 func (x *GetTeletrasportSafePlanetListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_expansion_proto_msgTypes[2]
+	mi := &file_proto_expansion_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -165,10 +110,10 @@ func (x *GetTeletrasportSafePlanetListResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use GetTeletrasportSafePlanetListResponse.ProtoReflect.Descriptor instead.
 func (*GetTeletrasportSafePlanetListResponse) Descriptor() ([]byte, []int) {
-	return file_proto_expansion_proto_rawDescGZIP(), []int{2}
+	return file_proto_expansion_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetTeletrasportSafePlanetListResponse) GetSafePlanets() []*TeletrasportSafePlanetList {
+func (x *GetTeletrasportSafePlanetListResponse) GetSafePlanets() []*GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList {
 	if x != nil {
 		return x.SafePlanets
 	}
@@ -189,7 +134,7 @@ type EndTeletrasportSafePlanetRequest struct {
 func (x *EndTeletrasportSafePlanetRequest) Reset() {
 	*x = EndTeletrasportSafePlanetRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_expansion_proto_msgTypes[3]
+		mi := &file_proto_expansion_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -202,7 +147,7 @@ func (x *EndTeletrasportSafePlanetRequest) String() string {
 func (*EndTeletrasportSafePlanetRequest) ProtoMessage() {}
 
 func (x *EndTeletrasportSafePlanetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_expansion_proto_msgTypes[3]
+	mi := &file_proto_expansion_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -215,7 +160,7 @@ func (x *EndTeletrasportSafePlanetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EndTeletrasportSafePlanetRequest.ProtoReflect.Descriptor instead.
 func (*EndTeletrasportSafePlanetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_expansion_proto_rawDescGZIP(), []int{3}
+	return file_proto_expansion_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *EndTeletrasportSafePlanetRequest) GetPlayerID() uint32 {
@@ -248,7 +193,7 @@ type EndTeletrasportSafePlanetResponse struct {
 func (x *EndTeletrasportSafePlanetResponse) Reset() {
 	*x = EndTeletrasportSafePlanetResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_expansion_proto_msgTypes[4]
+		mi := &file_proto_expansion_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -261,7 +206,7 @@ func (x *EndTeletrasportSafePlanetResponse) String() string {
 func (*EndTeletrasportSafePlanetResponse) ProtoMessage() {}
 
 func (x *EndTeletrasportSafePlanetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_expansion_proto_msgTypes[4]
+	mi := &file_proto_expansion_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -274,7 +219,62 @@ func (x *EndTeletrasportSafePlanetResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use EndTeletrasportSafePlanetResponse.ProtoReflect.Descriptor instead.
 func (*EndTeletrasportSafePlanetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_expansion_proto_rawDescGZIP(), []int{4}
+	return file_proto_expansion_proto_rawDescGZIP(), []int{3}
+}
+
+type GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Planet *Planet `protobuf:"bytes,1,opt,name=Planet,proto3" json:"Planet,omitempty"`
+	Price  uint32  `protobuf:"varint,2,opt,name=Price,proto3" json:"Price,omitempty"`
+}
+
+func (x *GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList) Reset() {
+	*x = GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_expansion_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList) ProtoMessage() {}
+
+func (x *GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_expansion_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList.ProtoReflect.Descriptor instead.
+func (*GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList) Descriptor() ([]byte, []int) {
+	return file_proto_expansion_proto_rawDescGZIP(), []int{1, 0}
+}
+
+func (x *GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList) GetPlanet() *Planet {
+	if x != nil {
+		return x.Planet
+	}
+	return nil
+}
+
+func (x *GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList) GetPrice() uint32 {
+	if x != nil {
+		return x.Price
+	}
+	return 0
 }
 
 var File_proto_expansion_proto protoreflect.FileDescriptor
@@ -283,34 +283,37 @@ var file_proto_expansion_proto_rawDesc = []byte{
 	0x0a, 0x15, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x65, 0x78, 0x70, 0x61, 0x6e, 0x73, 0x69, 0x6f,
 	0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x09, 0x65, 0x78, 0x70, 0x61, 0x6e, 0x73, 0x69,
 	0x6f, 0x6e, 0x1a, 0x12, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x70, 0x6c, 0x61, 0x6e, 0x65, 0x74,
-	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x5a, 0x0a, 0x1a, 0x54, 0x65, 0x6c, 0x65, 0x74, 0x72,
-	0x61, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x53, 0x61, 0x66, 0x65, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74,
-	0x4c, 0x69, 0x73, 0x74, 0x12, 0x26, 0x0a, 0x06, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x70, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x2e, 0x50, 0x6c,
-	0x61, 0x6e, 0x65, 0x74, 0x52, 0x06, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x12, 0x14, 0x0a, 0x05,
-	0x50, 0x72, 0x69, 0x63, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x50, 0x72, 0x69,
-	0x63, 0x65, 0x22, 0x42, 0x0a, 0x24, 0x47, 0x65, 0x74, 0x54, 0x65, 0x6c, 0x65, 0x74, 0x72, 0x61,
-	0x73, 0x70, 0x6f, 0x72, 0x74, 0x53, 0x61, 0x66, 0x65, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x4c,
-	0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c,
-	0x61, 0x6e, 0x65, 0x74, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c,
-	0x61, 0x6e, 0x65, 0x74, 0x49, 0x44, 0x22, 0x70, 0x0a, 0x25, 0x47, 0x65, 0x74, 0x54, 0x65, 0x6c,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x42, 0x0a, 0x24, 0x47, 0x65, 0x74, 0x54, 0x65, 0x6c,
 	0x65, 0x74, 0x72, 0x61, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x53, 0x61, 0x66, 0x65, 0x50, 0x6c, 0x61,
-	0x6e, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x47, 0x0a, 0x0b, 0x53, 0x61, 0x66, 0x65, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x73, 0x18, 0x01,
-	0x20, 0x03, 0x28, 0x0b, 0x32, 0x25, 0x2e, 0x65, 0x78, 0x70, 0x61, 0x6e, 0x73, 0x69, 0x6f, 0x6e,
-	0x2e, 0x54, 0x65, 0x6c, 0x65, 0x74, 0x72, 0x61, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x53, 0x61, 0x66,
-	0x65, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x0b, 0x53, 0x61, 0x66,
-	0x65, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x73, 0x22, 0x70, 0x0a, 0x20, 0x45, 0x6e, 0x64, 0x54,
-	0x65, 0x6c, 0x65, 0x74, 0x72, 0x61, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x53, 0x61, 0x66, 0x65, 0x50,
-	0x6c, 0x61, 0x6e, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08,
-	0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08,
-	0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x6e,
-	0x65, 0x74, 0x49, 0x44, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x6e,
-	0x65, 0x74, 0x49, 0x44, 0x12, 0x14, 0x0a, 0x05, 0x50, 0x72, 0x69, 0x63, 0x65, 0x18, 0x03, 0x20,
-	0x01, 0x28, 0x05, 0x52, 0x05, 0x50, 0x72, 0x69, 0x63, 0x65, 0x22, 0x23, 0x0a, 0x21, 0x45, 0x6e,
-	0x64, 0x54, 0x65, 0x6c, 0x65, 0x74, 0x72, 0x61, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x53, 0x61, 0x66,
-	0x65, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42,
-	0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6e, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a,
+	0x0a, 0x08, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d,
+	0x52, 0x08, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x49, 0x44, 0x22, 0xf2, 0x01, 0x0a, 0x25, 0x47,
+	0x65, 0x74, 0x54, 0x65, 0x6c, 0x65, 0x74, 0x72, 0x61, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x53, 0x61,
+	0x66, 0x65, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x6d, 0x0a, 0x0b, 0x53, 0x61, 0x66, 0x65, 0x50, 0x6c, 0x61, 0x6e,
+	0x65, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x4b, 0x2e, 0x65, 0x78, 0x70, 0x61,
+	0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x54, 0x65, 0x6c, 0x65, 0x74, 0x72, 0x61,
+	0x73, 0x70, 0x6f, 0x72, 0x74, 0x53, 0x61, 0x66, 0x65, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x4c,
+	0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x54, 0x65, 0x6c, 0x65,
+	0x74, 0x72, 0x61, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x53, 0x61, 0x66, 0x65, 0x50, 0x6c, 0x61, 0x6e,
+	0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x0b, 0x53, 0x61, 0x66, 0x65, 0x50, 0x6c, 0x61, 0x6e,
+	0x65, 0x74, 0x73, 0x1a, 0x5a, 0x0a, 0x1a, 0x54, 0x65, 0x6c, 0x65, 0x74, 0x72, 0x61, 0x73, 0x70,
+	0x6f, 0x72, 0x74, 0x53, 0x61, 0x66, 0x65, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x4c, 0x69, 0x73,
+	0x74, 0x12, 0x26, 0x0a, 0x06, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x0e, 0x2e, 0x70, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x2e, 0x50, 0x6c, 0x61, 0x6e, 0x65,
+	0x74, 0x52, 0x06, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x50, 0x72, 0x69,
+	0x63, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x50, 0x72, 0x69, 0x63, 0x65, 0x22,
+	0x70, 0x0a, 0x20, 0x45, 0x6e, 0x64, 0x54, 0x65, 0x6c, 0x65, 0x74, 0x72, 0x61, 0x73, 0x70, 0x6f,
+	0x72, 0x74, 0x53, 0x61, 0x66, 0x65, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x12,
+	0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x49, 0x44, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x49, 0x44, 0x12, 0x14, 0x0a, 0x05, 0x50,
+	0x72, 0x69, 0x63, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x05, 0x52, 0x05, 0x50, 0x72, 0x69, 0x63,
+	0x65, 0x22, 0x23, 0x0a, 0x21, 0x45, 0x6e, 0x64, 0x54, 0x65, 0x6c, 0x65, 0x74, 0x72, 0x61, 0x73,
+	0x70, 0x6f, 0x72, 0x74, 0x53, 0x61, 0x66, 0x65, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -327,16 +330,16 @@ func file_proto_expansion_proto_rawDescGZIP() []byte {
 
 var file_proto_expansion_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_proto_expansion_proto_goTypes = []interface{}{
-	(*TeletrasportSafePlanetList)(nil),            // 0: expansion.TeletrasportSafePlanetList
-	(*GetTeletrasportSafePlanetListRequest)(nil),  // 1: expansion.GetTeletrasportSafePlanetListRequest
-	(*GetTeletrasportSafePlanetListResponse)(nil), // 2: expansion.GetTeletrasportSafePlanetListResponse
-	(*EndTeletrasportSafePlanetRequest)(nil),      // 3: expansion.EndTeletrasportSafePlanetRequest
-	(*EndTeletrasportSafePlanetResponse)(nil),     // 4: expansion.EndTeletrasportSafePlanetResponse
+	(*GetTeletrasportSafePlanetListRequest)(nil),                             // 0: expansion.GetTeletrasportSafePlanetListRequest
+	(*GetTeletrasportSafePlanetListResponse)(nil),                            // 1: expansion.GetTeletrasportSafePlanetListResponse
+	(*EndTeletrasportSafePlanetRequest)(nil),                                 // 2: expansion.EndTeletrasportSafePlanetRequest
+	(*EndTeletrasportSafePlanetResponse)(nil),                                // 3: expansion.EndTeletrasportSafePlanetResponse
+	(*GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList)(nil), // 4: expansion.GetTeletrasportSafePlanetListResponse.TeletrasportSafePlanetList
 	(*Planet)(nil), // 5: planet.Planet
 }
 var file_proto_expansion_proto_depIdxs = []int32{
-	5, // 0: expansion.TeletrasportSafePlanetList.Planet:type_name -> planet.Planet
-	0, // 1: expansion.GetTeletrasportSafePlanetListResponse.SafePlanets:type_name -> expansion.TeletrasportSafePlanetList
+	4, // 0: expansion.GetTeletrasportSafePlanetListResponse.SafePlanets:type_name -> expansion.GetTeletrasportSafePlanetListResponse.TeletrasportSafePlanetList
+	5, // 1: expansion.GetTeletrasportSafePlanetListResponse.TeletrasportSafePlanetList.Planet:type_name -> planet.Planet
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -352,18 +355,6 @@ func file_proto_expansion_proto_init() {
 	file_proto_planet_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_proto_expansion_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*TeletrasportSafePlanetList); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_proto_expansion_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetTeletrasportSafePlanetListRequest); i {
 			case 0:
 				return &v.state
@@ -375,7 +366,7 @@ func file_proto_expansion_proto_init() {
 				return nil
 			}
 		}
-		file_proto_expansion_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_expansion_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetTeletrasportSafePlanetListResponse); i {
 			case 0:
 				return &v.state
@@ -387,7 +378,7 @@ func file_proto_expansion_proto_init() {
 				return nil
 			}
 		}
-		file_proto_expansion_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_expansion_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*EndTeletrasportSafePlanetRequest); i {
 			case 0:
 				return &v.state
@@ -399,8 +390,20 @@ func file_proto_expansion_proto_init() {
 				return nil
 			}
 		}
-		file_proto_expansion_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_expansion_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*EndTeletrasportSafePlanetResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_expansion_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList); i {
 			case 0:
 				return &v.state
 			case 1:

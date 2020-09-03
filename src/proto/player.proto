@@ -112,3 +112,11 @@ message EndPlayerRestRequest {
 message EndPlayerRestResponse {
     // Empty
 }
+
+// GetPlayerExperience
+message GetPlayerExperienceRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerExperienceResponse {
+    int32 Value = 1;
+}

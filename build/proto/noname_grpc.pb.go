@@ -11,7 +11,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion7
+const _ = grpc.SupportPackageIsVersion6
 
 // NoNameClient is the client API for NoName service.
 //
@@ -19,7 +19,7 @@ const _ = grpc.SupportPackageIsVersion7
 type NoNameClient interface {
 	// Armor
 	GetArmorByID(ctx context.Context, in *GetArmorByIDRequest, opts ...grpc.CallOption) (*GetArmorByIDResponse, error)
-	FindArmorByName(ctx context.Context, in *FindArmorByNameRequest, opts ...grpc.CallOption) (*FindArmorByNameResponse, error)
+	GetArmorByName(ctx context.Context, in *GetArmorByNameRequest, opts ...grpc.CallOption) (*GetArmorByNameResponse, error)
 	UpdateArmor(ctx context.Context, in *UpdateArmorRequest, opts ...grpc.CallOption) (*UpdateArmorResponse, error)
 	GetPlayerArmors(ctx context.Context, in *GetPlayerArmorsRequest, opts ...grpc.CallOption) (*GetPlayerArmorsResponse, error)
 	GetPlayerArmorsByCategoryID(ctx context.Context, in *GetPlayerArmorsByCategoryIDRequest, opts ...grpc.CallOption) (*GetPlayerArmorsByCategoryIDResponse, error)
@@ -30,7 +30,7 @@ type NoNameClient interface {
 	GetArmorCategoryBySlug(ctx context.Context, in *GetArmorCategoryBySlugRequest, opts ...grpc.CallOption) (*GetArmorCategoryBySlugResponse, error)
 	// Weapon
 	GetWeaponByID(ctx context.Context, in *GetWeaponByIDRequest, opts ...grpc.CallOption) (*GetWeaponByIDResponse, error)
-	FindWeaponByName(ctx context.Context, in *FindWeaponByNameRequest, opts ...grpc.CallOption) (*FindWeaponByNameResponse, error)
+	GetWeaponByName(ctx context.Context, in *GetWeaponByNameRequest, opts ...grpc.CallOption) (*GetWeaponByNameResponse, error)
 	UpdateWeapon(ctx context.Context, in *UpdateWeaponRequest, opts ...grpc.CallOption) (*UpdateWeaponResponse, error)
 	GetPlayerWeapons(ctx context.Context, in *GetPlayerWeaponsRequest, opts ...grpc.CallOption) (*GetPlayerWeaponsResponse, error)
 	GetPlayerWeaponEquipped(ctx context.Context, in *GetPlayerWeaponEquippedRequest, opts ...grpc.CallOption) (*GetPlayerWeaponEquippedResponse, error)
@@ -43,6 +43,7 @@ type NoNameClient interface {
 	GetPlayerEconomy(ctx context.Context, in *GetPlayerEconomyRequest, opts ...grpc.CallOption) (*GetPlayerEconomyResponse, error)
 	ManagePlayerInventory(ctx context.Context, in *ManagePlayerInventoryRequest, opts ...grpc.CallOption) (*ManagePlayerInventoryResponse, error)
 	PlayerEndTutorial(ctx context.Context, in *PlayerEndTutorialRequest, opts ...grpc.CallOption) (*PlayerEndTutorialResponse, error)
+	GetPlayerExperience(ctx context.Context, in *GetPlayerExperienceRequest, opts ...grpc.CallOption) (*GetPlayerExperienceResponse, error)
 	// PlayerPosition
 	CreatePlayerPosition(ctx context.Context, in *CreatePlayerPositionRequest, opts ...grpc.CallOption) (*CreatePlayerPositionResponse, error)
 	GetPlayerCurrentPlanet(ctx context.Context, in *GetPlayerCurrentPlanetRequest, opts ...grpc.CallOption) (*GetPlayerCurrentPlanetResponse, error)
@@ -71,8 +72,8 @@ type NoNameClient interface {
 	HitTitan(ctx context.Context, in *HitTitanRequest, opts ...grpc.CallOption) (*HitTitanResponse, error)
 	TitanDiscovered(ctx context.Context, in *TitanDiscoveredRequest, opts ...grpc.CallOption) (*TitanDiscoveredResponse, error)
 	// Language
-	FindLanguageBySlug(ctx context.Context, in *FindLanguageBySlugRequest, opts ...grpc.CallOption) (*FindLanguageBySlugResponse, error)
-	FindLanguageByName(ctx context.Context, in *FindLanguageByNameRequest, opts ...grpc.CallOption) (*FindLanguageByNameResponse, error)
+	GetLanguageBySlug(ctx context.Context, in *GetLanguageBySlugRequest, opts ...grpc.CallOption) (*GetLanguageBySlugResponse, error)
+	GetLanguageByName(ctx context.Context, in *GetLanguageByNameRequest, opts ...grpc.CallOption) (*GetLanguageByNameResponse, error)
 	GetAllLanguages(ctx context.Context, in *GetAllLanguagesRequest, opts ...grpc.CallOption) (*GetAllLanguagesResponse, error)
 	// NPC
 	GetAllNPC(ctx context.Context, in *GetAllNPCRequest, opts ...grpc.CallOption) (*GetAllNPCResponse, error)
@@ -132,10 +133,6 @@ func NewNoNameClient(cc grpc.ClientConnInterface) NoNameClient {
 	return &noNameClient{cc}
 }
 
-var noNameGetArmorByIDStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetArmorByID",
-}
-
 func (c *noNameClient) GetArmorByID(ctx context.Context, in *GetArmorByIDRequest, opts ...grpc.CallOption) (*GetArmorByIDResponse, error) {
 	out := new(GetArmorByIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetArmorByID", in, out, opts...)
@@ -145,21 +142,13 @@ func (c *noNameClient) GetArmorByID(ctx context.Context, in *GetArmorByIDRequest
 	return out, nil
 }
 
-var noNameFindArmorByNameStreamDesc = &grpc.StreamDesc{
-	StreamName: "FindArmorByName",
-}
-
-func (c *noNameClient) FindArmorByName(ctx context.Context, in *FindArmorByNameRequest, opts ...grpc.CallOption) (*FindArmorByNameResponse, error) {
-	out := new(FindArmorByNameResponse)
-	err := c.cc.Invoke(ctx, "/NoName/FindArmorByName", in, out, opts...)
+func (c *noNameClient) GetArmorByName(ctx context.Context, in *GetArmorByNameRequest, opts ...grpc.CallOption) (*GetArmorByNameResponse, error) {
+	out := new(GetArmorByNameResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetArmorByName", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameUpdateArmorStreamDesc = &grpc.StreamDesc{
-	StreamName: "UpdateArmor",
 }
 
 func (c *noNameClient) UpdateArmor(ctx context.Context, in *UpdateArmorRequest, opts ...grpc.CallOption) (*UpdateArmorResponse, error) {
@@ -171,10 +160,6 @@ func (c *noNameClient) UpdateArmor(ctx context.Context, in *UpdateArmorRequest, 
 	return out, nil
 }
 
-var noNameGetPlayerArmorsStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerArmors",
-}
-
 func (c *noNameClient) GetPlayerArmors(ctx context.Context, in *GetPlayerArmorsRequest, opts ...grpc.CallOption) (*GetPlayerArmorsResponse, error) {
 	out := new(GetPlayerArmorsResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerArmors", in, out, opts...)
@@ -182,10 +167,6 @@ func (c *noNameClient) GetPlayerArmors(ctx context.Context, in *GetPlayerArmorsR
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetPlayerArmorsByCategoryIDStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerArmorsByCategoryID",
 }
 
 func (c *noNameClient) GetPlayerArmorsByCategoryID(ctx context.Context, in *GetPlayerArmorsByCategoryIDRequest, opts ...grpc.CallOption) (*GetPlayerArmorsByCategoryIDResponse, error) {
@@ -197,10 +178,6 @@ func (c *noNameClient) GetPlayerArmorsByCategoryID(ctx context.Context, in *GetP
 	return out, nil
 }
 
-var noNameGetPlayerArmorsEquippedStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerArmorsEquipped",
-}
-
 func (c *noNameClient) GetPlayerArmorsEquipped(ctx context.Context, in *GetPlayerArmorsEquippedRequest, opts ...grpc.CallOption) (*GetPlayerArmorsEquippedResponse, error) {
 	out := new(GetPlayerArmorsEquippedResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerArmorsEquipped", in, out, opts...)
@@ -208,10 +185,6 @@ func (c *noNameClient) GetPlayerArmorsEquipped(ctx context.Context, in *GetPlaye
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetPlayerArmorEquippedByCategoryIDStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerArmorEquippedByCategoryID",
 }
 
 func (c *noNameClient) GetPlayerArmorEquippedByCategoryID(ctx context.Context, in *GetPlayerArmorEquippedByCategoryIDRequest, opts ...grpc.CallOption) (*GetPlayerArmorEquippedByCategoryIDResponse, error) {
@@ -223,10 +196,6 @@ func (c *noNameClient) GetPlayerArmorEquippedByCategoryID(ctx context.Context, i
 	return out, nil
 }
 
-var noNameGetAllArmorCategoryStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetAllArmorCategory",
-}
-
 func (c *noNameClient) GetAllArmorCategory(ctx context.Context, in *GetAllArmorCategoryRequest, opts ...grpc.CallOption) (*GetAllArmorCategoryResponse, error) {
 	out := new(GetAllArmorCategoryResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAllArmorCategory", in, out, opts...)
@@ -234,10 +203,6 @@ func (c *noNameClient) GetAllArmorCategory(ctx context.Context, in *GetAllArmorC
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetArmorCategoryBySlugStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetArmorCategoryBySlug",
 }
 
 func (c *noNameClient) GetArmorCategoryBySlug(ctx context.Context, in *GetArmorCategoryBySlugRequest, opts ...grpc.CallOption) (*GetArmorCategoryBySlugResponse, error) {
@@ -249,10 +214,6 @@ func (c *noNameClient) GetArmorCategoryBySlug(ctx context.Context, in *GetArmorC
 	return out, nil
 }
 
-var noNameGetWeaponByIDStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetWeaponByID",
-}
-
 func (c *noNameClient) GetWeaponByID(ctx context.Context, in *GetWeaponByIDRequest, opts ...grpc.CallOption) (*GetWeaponByIDResponse, error) {
 	out := new(GetWeaponByIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetWeaponByID", in, out, opts...)
@@ -262,21 +223,13 @@ func (c *noNameClient) GetWeaponByID(ctx context.Context, in *GetWeaponByIDReque
 	return out, nil
 }
 
-var noNameFindWeaponByNameStreamDesc = &grpc.StreamDesc{
-	StreamName: "FindWeaponByName",
-}
-
-func (c *noNameClient) FindWeaponByName(ctx context.Context, in *FindWeaponByNameRequest, opts ...grpc.CallOption) (*FindWeaponByNameResponse, error) {
-	out := new(FindWeaponByNameResponse)
-	err := c.cc.Invoke(ctx, "/NoName/FindWeaponByName", in, out, opts...)
+func (c *noNameClient) GetWeaponByName(ctx context.Context, in *GetWeaponByNameRequest, opts ...grpc.CallOption) (*GetWeaponByNameResponse, error) {
+	out := new(GetWeaponByNameResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetWeaponByName", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameUpdateWeaponStreamDesc = &grpc.StreamDesc{
-	StreamName: "UpdateWeapon",
 }
 
 func (c *noNameClient) UpdateWeapon(ctx context.Context, in *UpdateWeaponRequest, opts ...grpc.CallOption) (*UpdateWeaponResponse, error) {
@@ -288,10 +241,6 @@ func (c *noNameClient) UpdateWeapon(ctx context.Context, in *UpdateWeaponRequest
 	return out, nil
 }
 
-var noNameGetPlayerWeaponsStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerWeapons",
-}
-
 func (c *noNameClient) GetPlayerWeapons(ctx context.Context, in *GetPlayerWeaponsRequest, opts ...grpc.CallOption) (*GetPlayerWeaponsResponse, error) {
 	out := new(GetPlayerWeaponsResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerWeapons", in, out, opts...)
@@ -299,10 +248,6 @@ func (c *noNameClient) GetPlayerWeapons(ctx context.Context, in *GetPlayerWeapon
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetPlayerWeaponEquippedStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerWeaponEquipped",
 }
 
 func (c *noNameClient) GetPlayerWeaponEquipped(ctx context.Context, in *GetPlayerWeaponEquippedRequest, opts ...grpc.CallOption) (*GetPlayerWeaponEquippedResponse, error) {
@@ -314,10 +259,6 @@ func (c *noNameClient) GetPlayerWeaponEquipped(ctx context.Context, in *GetPlaye
 	return out, nil
 }
 
-var noNameGetPlayerByIDStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerByID",
-}
-
 func (c *noNameClient) GetPlayerByID(ctx context.Context, in *GetPlayerByIDRequest, opts ...grpc.CallOption) (*GetPlayerByIDResponse, error) {
 	out := new(GetPlayerByIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerByID", in, out, opts...)
@@ -325,10 +266,6 @@ func (c *noNameClient) GetPlayerByID(ctx context.Context, in *GetPlayerByIDReque
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetPlayerByUsernameStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerByUsername",
 }
 
 func (c *noNameClient) GetPlayerByUsername(ctx context.Context, in *GetPlayerByUsernameRequest, opts ...grpc.CallOption) (*GetPlayerByUsernameResponse, error) {
@@ -340,10 +277,6 @@ func (c *noNameClient) GetPlayerByUsername(ctx context.Context, in *GetPlayerByU
 	return out, nil
 }
 
-var noNameGetPlayerStatsStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerStats",
-}
-
 func (c *noNameClient) GetPlayerStats(ctx context.Context, in *GetPlayerStatsRequest, opts ...grpc.CallOption) (*GetPlayerStatsResponse, error) {
 	out := new(GetPlayerStatsResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerStats", in, out, opts...)
@@ -351,10 +284,6 @@ func (c *noNameClient) GetPlayerStats(ctx context.Context, in *GetPlayerStatsReq
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetPlayerResourcesStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerResources",
 }
 
 func (c *noNameClient) GetPlayerResources(ctx context.Context, in *GetPlayerResourcesRequest, opts ...grpc.CallOption) (*GetPlayerResourcesResponse, error) {
@@ -366,10 +295,6 @@ func (c *noNameClient) GetPlayerResources(ctx context.Context, in *GetPlayerReso
 	return out, nil
 }
 
-var noNameGetPlayerItemsStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerItems",
-}
-
 func (c *noNameClient) GetPlayerItems(ctx context.Context, in *GetPlayerItemsRequest, opts ...grpc.CallOption) (*GetPlayerItemsResponse, error) {
 	out := new(GetPlayerItemsResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerItems", in, out, opts...)
@@ -377,10 +302,6 @@ func (c *noNameClient) GetPlayerItems(ctx context.Context, in *GetPlayerItemsReq
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetPlayerEconomyStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerEconomy",
 }
 
 func (c *noNameClient) GetPlayerEconomy(ctx context.Context, in *GetPlayerEconomyRequest, opts ...grpc.CallOption) (*GetPlayerEconomyResponse, error) {
@@ -392,10 +313,6 @@ func (c *noNameClient) GetPlayerEconomy(ctx context.Context, in *GetPlayerEconom
 	return out, nil
 }
 
-var noNameManagePlayerInventoryStreamDesc = &grpc.StreamDesc{
-	StreamName: "ManagePlayerInventory",
-}
-
 func (c *noNameClient) ManagePlayerInventory(ctx context.Context, in *ManagePlayerInventoryRequest, opts ...grpc.CallOption) (*ManagePlayerInventoryResponse, error) {
 	out := new(ManagePlayerInventoryResponse)
 	err := c.cc.Invoke(ctx, "/NoName/ManagePlayerInventory", in, out, opts...)
@@ -403,10 +320,6 @@ func (c *noNameClient) ManagePlayerInventory(ctx context.Context, in *ManagePlay
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNamePlayerEndTutorialStreamDesc = &grpc.StreamDesc{
-	StreamName: "PlayerEndTutorial",
 }
 
 func (c *noNameClient) PlayerEndTutorial(ctx context.Context, in *PlayerEndTutorialRequest, opts ...grpc.CallOption) (*PlayerEndTutorialResponse, error) {
@@ -418,8 +331,13 @@ func (c *noNameClient) PlayerEndTutorial(ctx context.Context, in *PlayerEndTutor
 	return out, nil
 }
 
-var noNameCreatePlayerPositionStreamDesc = &grpc.StreamDesc{
-	StreamName: "CreatePlayerPosition",
+func (c *noNameClient) GetPlayerExperience(ctx context.Context, in *GetPlayerExperienceRequest, opts ...grpc.CallOption) (*GetPlayerExperienceResponse, error) {
+	out := new(GetPlayerExperienceResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerExperience", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *noNameClient) CreatePlayerPosition(ctx context.Context, in *CreatePlayerPositionRequest, opts ...grpc.CallOption) (*CreatePlayerPositionResponse, error) {
@@ -431,10 +349,6 @@ func (c *noNameClient) CreatePlayerPosition(ctx context.Context, in *CreatePlaye
 	return out, nil
 }
 
-var noNameGetPlayerCurrentPlanetStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerCurrentPlanet",
-}
-
 func (c *noNameClient) GetPlayerCurrentPlanet(ctx context.Context, in *GetPlayerCurrentPlanetRequest, opts ...grpc.CallOption) (*GetPlayerCurrentPlanetResponse, error) {
 	out := new(GetPlayerCurrentPlanetResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerCurrentPlanet", in, out, opts...)
@@ -442,10 +356,6 @@ func (c *noNameClient) GetPlayerCurrentPlanet(ctx context.Context, in *GetPlayer
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameCountPlanetVisitedStreamDesc = &grpc.StreamDesc{
-	StreamName: "CountPlanetVisited",
 }
 
 func (c *noNameClient) CountPlanetVisited(ctx context.Context, in *CountPlanetVisitedRequest, opts ...grpc.CallOption) (*CountPlanetVisitedResponse, error) {
@@ -457,10 +367,6 @@ func (c *noNameClient) CountPlanetVisited(ctx context.Context, in *CountPlanetVi
 	return out, nil
 }
 
-var noNameCountSystemVisitedStreamDesc = &grpc.StreamDesc{
-	StreamName: "CountSystemVisited",
-}
-
 func (c *noNameClient) CountSystemVisited(ctx context.Context, in *CountSystemVisitedRequest, opts ...grpc.CallOption) (*CountSystemVisitedResponse, error) {
 	out := new(CountSystemVisitedResponse)
 	err := c.cc.Invoke(ctx, "/NoName/CountSystemVisited", in, out, opts...)
@@ -468,10 +374,6 @@ func (c *noNameClient) CountSystemVisited(ctx context.Context, in *CountSystemVi
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameCountPlayerVisitedCurrentPlanetStreamDesc = &grpc.StreamDesc{
-	StreamName: "CountPlayerVisitedCurrentPlanet",
 }
 
 func (c *noNameClient) CountPlayerVisitedCurrentPlanet(ctx context.Context, in *CountPlayerVisitedCurrentPlanetRequest, opts ...grpc.CallOption) (*CountPlayerVisitedCurrentPlanetResponse, error) {
@@ -483,10 +385,6 @@ func (c *noNameClient) CountPlayerVisitedCurrentPlanet(ctx context.Context, in *
 	return out, nil
 }
 
-var noNameGetRestsInfoStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetRestsInfo",
-}
-
 func (c *noNameClient) GetRestsInfo(ctx context.Context, in *GetRestsInfoRequest, opts ...grpc.CallOption) (*GetRestsInfoResponse, error) {
 	out := new(GetRestsInfoResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetRestsInfo", in, out, opts...)
@@ -494,10 +392,6 @@ func (c *noNameClient) GetRestsInfo(ctx context.Context, in *GetRestsInfoRequest
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameEndPlayerRestStreamDesc = &grpc.StreamDesc{
-	StreamName: "EndPlayerRest",
 }
 
 func (c *noNameClient) EndPlayerRest(ctx context.Context, in *EndPlayerRestRequest, opts ...grpc.CallOption) (*EndPlayerRestResponse, error) {
@@ -509,10 +403,6 @@ func (c *noNameClient) EndPlayerRest(ctx context.Context, in *EndPlayerRestReque
 	return out, nil
 }
 
-var noNameSignInStreamDesc = &grpc.StreamDesc{
-	StreamName: "SignIn",
-}
-
 func (c *noNameClient) SignIn(ctx context.Context, in *SignInRequest, opts ...grpc.CallOption) (*SignInResponse, error) {
 	out := new(SignInResponse)
 	err := c.cc.Invoke(ctx, "/NoName/SignIn", in, out, opts...)
@@ -520,10 +410,6 @@ func (c *noNameClient) SignIn(ctx context.Context, in *SignInRequest, opts ...gr
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetPlayerStateByIDStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerStateByID",
 }
 
 func (c *noNameClient) GetPlayerStateByID(ctx context.Context, in *GetPlayerStateByIDRequest, opts ...grpc.CallOption) (*GetPlayerStateByIDResponse, error) {
@@ -535,10 +421,6 @@ func (c *noNameClient) GetPlayerStateByID(ctx context.Context, in *GetPlayerStat
 	return out, nil
 }
 
-var noNameGetActivePlayerStatesStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetActivePlayerStates",
-}
-
 func (c *noNameClient) GetActivePlayerStates(ctx context.Context, in *GetActivePlayerStatesRequest, opts ...grpc.CallOption) (*GetActivePlayerStatesResponse, error) {
 	out := new(GetActivePlayerStatesResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetActivePlayerStates", in, out, opts...)
@@ -546,10 +428,6 @@ func (c *noNameClient) GetActivePlayerStates(ctx context.Context, in *GetActiveP
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetPlayerStateToNotifyStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerStateToNotify",
 }
 
 func (c *noNameClient) GetPlayerStateToNotify(ctx context.Context, in *GetPlayerStateToNotifyRequest, opts ...grpc.CallOption) (*GetPlayerStateToNotifyResponse, error) {
@@ -561,10 +439,6 @@ func (c *noNameClient) GetPlayerStateToNotify(ctx context.Context, in *GetPlayer
 	return out, nil
 }
 
-var noNameCreatePlayerStateStreamDesc = &grpc.StreamDesc{
-	StreamName: "CreatePlayerState",
-}
-
 func (c *noNameClient) CreatePlayerState(ctx context.Context, in *CreatePlayerStateRequest, opts ...grpc.CallOption) (*CreatePlayerStateResponse, error) {
 	out := new(CreatePlayerStateResponse)
 	err := c.cc.Invoke(ctx, "/NoName/CreatePlayerState", in, out, opts...)
@@ -572,10 +446,6 @@ func (c *noNameClient) CreatePlayerState(ctx context.Context, in *CreatePlayerSt
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameUpdatePlayerStateStreamDesc = &grpc.StreamDesc{
-	StreamName: "UpdatePlayerState",
 }
 
 func (c *noNameClient) UpdatePlayerState(ctx context.Context, in *UpdatePlayerStateRequest, opts ...grpc.CallOption) (*UpdatePlayerStateResponse, error) {
@@ -587,10 +457,6 @@ func (c *noNameClient) UpdatePlayerState(ctx context.Context, in *UpdatePlayerSt
 	return out, nil
 }
 
-var noNameDeletePlayerStateStreamDesc = &grpc.StreamDesc{
-	StreamName: "DeletePlayerState",
-}
-
 func (c *noNameClient) DeletePlayerState(ctx context.Context, in *DeletePlayerStateRequest, opts ...grpc.CallOption) (*DeletePlayerStateResponse, error) {
 	out := new(DeletePlayerStateResponse)
 	err := c.cc.Invoke(ctx, "/NoName/DeletePlayerState", in, out, opts...)
@@ -598,10 +464,6 @@ func (c *noNameClient) DeletePlayerState(ctx context.Context, in *DeletePlayerSt
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetEnemyByIDStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetEnemyByID",
 }
 
 func (c *noNameClient) GetEnemyByID(ctx context.Context, in *GetEnemyByIDRequest, opts ...grpc.CallOption) (*GetEnemyByIDResponse, error) {
@@ -613,10 +475,6 @@ func (c *noNameClient) GetEnemyByID(ctx context.Context, in *GetEnemyByIDRequest
 	return out, nil
 }
 
-var noNameHitEnemyStreamDesc = &grpc.StreamDesc{
-	StreamName: "HitEnemy",
-}
-
 func (c *noNameClient) HitEnemy(ctx context.Context, in *HitEnemyRequest, opts ...grpc.CallOption) (*HitEnemyResponse, error) {
 	out := new(HitEnemyResponse)
 	err := c.cc.Invoke(ctx, "/NoName/HitEnemy", in, out, opts...)
@@ -624,10 +482,6 @@ func (c *noNameClient) HitEnemy(ctx context.Context, in *HitEnemyRequest, opts .
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetTitanByIDStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetTitanByID",
 }
 
 func (c *noNameClient) GetTitanByID(ctx context.Context, in *GetTitanByIDRequest, opts ...grpc.CallOption) (*GetTitanByIDResponse, error) {
@@ -639,10 +493,6 @@ func (c *noNameClient) GetTitanByID(ctx context.Context, in *GetTitanByIDRequest
 	return out, nil
 }
 
-var noNameGetTitanByNameStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetTitanByName",
-}
-
 func (c *noNameClient) GetTitanByName(ctx context.Context, in *GetTitanByNameRequest, opts ...grpc.CallOption) (*GetTitanByNameResponse, error) {
 	out := new(GetTitanByNameResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetTitanByName", in, out, opts...)
@@ -650,10 +500,6 @@ func (c *noNameClient) GetTitanByName(ctx context.Context, in *GetTitanByNameReq
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetTitanByPlanetIDStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetTitanByPlanetID",
 }
 
 func (c *noNameClient) GetTitanByPlanetID(ctx context.Context, in *GetTitanByPlanetIDRequest, opts ...grpc.CallOption) (*GetTitanByPlanetIDResponse, error) {
@@ -665,10 +511,6 @@ func (c *noNameClient) GetTitanByPlanetID(ctx context.Context, in *GetTitanByPla
 	return out, nil
 }
 
-var noNameHitTitanStreamDesc = &grpc.StreamDesc{
-	StreamName: "HitTitan",
-}
-
 func (c *noNameClient) HitTitan(ctx context.Context, in *HitTitanRequest, opts ...grpc.CallOption) (*HitTitanResponse, error) {
 	out := new(HitTitanResponse)
 	err := c.cc.Invoke(ctx, "/NoName/HitTitan", in, out, opts...)
@@ -676,10 +518,6 @@ func (c *noNameClient) HitTitan(ctx context.Context, in *HitTitanRequest, opts .
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameTitanDiscoveredStreamDesc = &grpc.StreamDesc{
-	StreamName: "TitanDiscovered",
 }
 
 func (c *noNameClient) TitanDiscovered(ctx context.Context, in *TitanDiscoveredRequest, opts ...grpc.CallOption) (*TitanDiscoveredResponse, error) {
@@ -691,34 +529,22 @@ func (c *noNameClient) TitanDiscovered(ctx context.Context, in *TitanDiscoveredR
 	return out, nil
 }
 
-var noNameFindLanguageBySlugStreamDesc = &grpc.StreamDesc{
-	StreamName: "FindLanguageBySlug",
-}
-
-func (c *noNameClient) FindLanguageBySlug(ctx context.Context, in *FindLanguageBySlugRequest, opts ...grpc.CallOption) (*FindLanguageBySlugResponse, error) {
-	out := new(FindLanguageBySlugResponse)
-	err := c.cc.Invoke(ctx, "/NoName/FindLanguageBySlug", in, out, opts...)
+func (c *noNameClient) GetLanguageBySlug(ctx context.Context, in *GetLanguageBySlugRequest, opts ...grpc.CallOption) (*GetLanguageBySlugResponse, error) {
+	out := new(GetLanguageBySlugResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetLanguageBySlug", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-var noNameFindLanguageByNameStreamDesc = &grpc.StreamDesc{
-	StreamName: "FindLanguageByName",
-}
-
-func (c *noNameClient) FindLanguageByName(ctx context.Context, in *FindLanguageByNameRequest, opts ...grpc.CallOption) (*FindLanguageByNameResponse, error) {
-	out := new(FindLanguageByNameResponse)
-	err := c.cc.Invoke(ctx, "/NoName/FindLanguageByName", in, out, opts...)
+func (c *noNameClient) GetLanguageByName(ctx context.Context, in *GetLanguageByNameRequest, opts ...grpc.CallOption) (*GetLanguageByNameResponse, error) {
+	out := new(GetLanguageByNameResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetLanguageByName", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetAllLanguagesStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetAllLanguages",
 }
 
 func (c *noNameClient) GetAllLanguages(ctx context.Context, in *GetAllLanguagesRequest, opts ...grpc.CallOption) (*GetAllLanguagesResponse, error) {
@@ -730,10 +556,6 @@ func (c *noNameClient) GetAllLanguages(ctx context.Context, in *GetAllLanguagesR
 	return out, nil
 }
 
-var noNameGetAllNPCStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetAllNPC",
-}
-
 func (c *noNameClient) GetAllNPC(ctx context.Context, in *GetAllNPCRequest, opts ...grpc.CallOption) (*GetAllNPCResponse, error) {
 	out := new(GetAllNPCResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAllNPC", in, out, opts...)
@@ -741,10 +563,6 @@ func (c *noNameClient) GetAllNPC(ctx context.Context, in *GetAllNPCRequest, opts
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameCraftArmorStreamDesc = &grpc.StreamDesc{
-	StreamName: "CraftArmor",
 }
 
 func (c *noNameClient) CraftArmor(ctx context.Context, in *CraftArmorRequest, opts ...grpc.CallOption) (*CraftArmorResponse, error) {
@@ -756,10 +574,6 @@ func (c *noNameClient) CraftArmor(ctx context.Context, in *CraftArmorRequest, op
 	return out, nil
 }
 
-var noNameCraftWeaponStreamDesc = &grpc.StreamDesc{
-	StreamName: "CraftWeapon",
-}
-
 func (c *noNameClient) CraftWeapon(ctx context.Context, in *CraftWeaponRequest, opts ...grpc.CallOption) (*CraftWeaponResponse, error) {
 	out := new(CraftWeaponResponse)
 	err := c.cc.Invoke(ctx, "/NoName/CraftWeapon", in, out, opts...)
@@ -767,10 +581,6 @@ func (c *noNameClient) CraftWeapon(ctx context.Context, in *CraftWeaponRequest, 
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameBankDepositStreamDesc = &grpc.StreamDesc{
-	StreamName: "BankDeposit",
 }
 
 func (c *noNameClient) BankDeposit(ctx context.Context, in *BankDepositRequest, opts ...grpc.CallOption) (*BankDepositResponse, error) {
@@ -782,10 +592,6 @@ func (c *noNameClient) BankDeposit(ctx context.Context, in *BankDepositRequest, 
 	return out, nil
 }
 
-var noNameBankWithdrawStreamDesc = &grpc.StreamDesc{
-	StreamName: "BankWithdraw",
-}
-
 func (c *noNameClient) BankWithdraw(ctx context.Context, in *BankWithdrawRequest, opts ...grpc.CallOption) (*BankWithdrawResponse, error) {
 	out := new(BankWithdrawResponse)
 	err := c.cc.Invoke(ctx, "/NoName/BankWithdraw", in, out, opts...)
@@ -793,10 +599,6 @@ func (c *noNameClient) BankWithdraw(ctx context.Context, in *BankWithdrawRequest
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetPlanetByIDStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlanetByID",
 }
 
 func (c *noNameClient) GetPlanetByID(ctx context.Context, in *GetPlanetByIDRequest, opts ...grpc.CallOption) (*GetPlanetByIDResponse, error) {
@@ -808,10 +610,6 @@ func (c *noNameClient) GetPlanetByID(ctx context.Context, in *GetPlanetByIDReque
 	return out, nil
 }
 
-var noNameGetPlanetByNameStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlanetByName",
-}
-
 func (c *noNameClient) GetPlanetByName(ctx context.Context, in *GetPlanetByNameRequest, opts ...grpc.CallOption) (*GetPlanetByNameResponse, error) {
 	out := new(GetPlanetByNameResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlanetByName", in, out, opts...)
@@ -819,10 +617,6 @@ func (c *noNameClient) GetPlanetByName(ctx context.Context, in *GetPlanetByNameR
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetPlanetByCoordinateStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlanetByCoordinate",
 }
 
 func (c *noNameClient) GetPlanetByCoordinate(ctx context.Context, in *GetPlanetByCoordinateRequest, opts ...grpc.CallOption) (*GetPlanetByCoordinateResponse, error) {
@@ -834,10 +628,6 @@ func (c *noNameClient) GetPlanetByCoordinate(ctx context.Context, in *GetPlanetB
 	return out, nil
 }
 
-var noNameGetPlanetByMapIDStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlanetByMapID",
-}
-
 func (c *noNameClient) GetPlanetByMapID(ctx context.Context, in *GetPlanetByMapIDRequest, opts ...grpc.CallOption) (*GetPlanetByMapIDResponse, error) {
 	out := new(GetPlanetByMapIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlanetByMapID", in, out, opts...)
@@ -845,10 +635,6 @@ func (c *noNameClient) GetPlanetByMapID(ctx context.Context, in *GetPlanetByMapI
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetExpansionInfoStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetExpansionInfo",
 }
 
 func (c *noNameClient) GetExpansionInfo(ctx context.Context, in *GetExpansionInfoRequest, opts ...grpc.CallOption) (*GetExpansionInfoResponse, error) {
@@ -860,10 +646,6 @@ func (c *noNameClient) GetExpansionInfo(ctx context.Context, in *GetExpansionInf
 	return out, nil
 }
 
-var noNameGetSafePlanetsStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetSafePlanets",
-}
-
 func (c *noNameClient) GetSafePlanets(ctx context.Context, in *GetSafePlanetsRequest, opts ...grpc.CallOption) (*GetSafePlanetsResponse, error) {
 	out := new(GetSafePlanetsResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetSafePlanets", in, out, opts...)
@@ -871,10 +653,6 @@ func (c *noNameClient) GetSafePlanets(ctx context.Context, in *GetSafePlanetsReq
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetMapByIDStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetMapByID",
 }
 
 func (c *noNameClient) GetMapByID(ctx context.Context, in *GetMapByIDRequest, opts ...grpc.CallOption) (*GetMapByIDResponse, error) {
@@ -886,10 +664,6 @@ func (c *noNameClient) GetMapByID(ctx context.Context, in *GetMapByIDRequest, op
 	return out, nil
 }
 
-var noNameGetResourceByIDStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetResourceByID",
-}
-
 func (c *noNameClient) GetResourceByID(ctx context.Context, in *GetResourceByIDRequest, opts ...grpc.CallOption) (*GetResourceByIDResponse, error) {
 	out := new(GetResourceByIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetResourceByID", in, out, opts...)
@@ -897,10 +671,6 @@ func (c *noNameClient) GetResourceByID(ctx context.Context, in *GetResourceByIDR
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetResourceByNameStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetResourceByName",
 }
 
 func (c *noNameClient) GetResourceByName(ctx context.Context, in *GetResourceByNameRequest, opts ...grpc.CallOption) (*GetResourceByNameResponse, error) {
@@ -912,10 +682,6 @@ func (c *noNameClient) GetResourceByName(ctx context.Context, in *GetResourceByN
 	return out, nil
 }
 
-var noNameDropResourceStreamDesc = &grpc.StreamDesc{
-	StreamName: "DropResource",
-}
-
 func (c *noNameClient) DropResource(ctx context.Context, in *DropResourceRequest, opts ...grpc.CallOption) (*DropResourceResponse, error) {
 	out := new(DropResourceResponse)
 	err := c.cc.Invoke(ctx, "/NoName/DropResource", in, out, opts...)
@@ -923,10 +689,6 @@ func (c *noNameClient) DropResource(ctx context.Context, in *DropResourceRequest
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetAllItemsStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetAllItems",
 }
 
 func (c *noNameClient) GetAllItems(ctx context.Context, in *GetAllItemsRequest, opts ...grpc.CallOption) (*GetAllItemsResponse, error) {
@@ -938,10 +700,6 @@ func (c *noNameClient) GetAllItems(ctx context.Context, in *GetAllItemsRequest, 
 	return out, nil
 }
 
-var noNameGetItemsByCategoryIDStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetItemsByCategoryID",
-}
-
 func (c *noNameClient) GetItemsByCategoryID(ctx context.Context, in *GetItemsByCategoryIDRequest, opts ...grpc.CallOption) (*GetItemsByCategoryIDResponse, error) {
 	out := new(GetItemsByCategoryIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetItemsByCategoryID", in, out, opts...)
@@ -949,10 +707,6 @@ func (c *noNameClient) GetItemsByCategoryID(ctx context.Context, in *GetItemsByC
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameUseItemStreamDesc = &grpc.StreamDesc{
-	StreamName: "UseItem",
 }
 
 func (c *noNameClient) UseItem(ctx context.Context, in *UseItemRequest, opts ...grpc.CallOption) (*UseItemResponse, error) {
@@ -964,10 +718,6 @@ func (c *noNameClient) UseItem(ctx context.Context, in *UseItemRequest, opts ...
 	return out, nil
 }
 
-var noNameGetAllItemCategoriesStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetAllItemCategories",
-}
-
 func (c *noNameClient) GetAllItemCategories(ctx context.Context, in *GetAllItemCategoriesRequest, opts ...grpc.CallOption) (*GetAllItemCategoriesResponse, error) {
 	out := new(GetAllItemCategoriesResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAllItemCategories", in, out, opts...)
@@ -975,10 +725,6 @@ func (c *noNameClient) GetAllItemCategories(ctx context.Context, in *GetAllItemC
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetShipRepairInfoStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetShipRepairInfo",
 }
 
 func (c *noNameClient) GetShipRepairInfo(ctx context.Context, in *GetShipRepairInfoRequest, opts ...grpc.CallOption) (*GetShipRepairInfoResponse, error) {
@@ -990,10 +736,6 @@ func (c *noNameClient) GetShipRepairInfo(ctx context.Context, in *GetShipRepairI
 	return out, nil
 }
 
-var noNameStartShipRepairStreamDesc = &grpc.StreamDesc{
-	StreamName: "StartShipRepair",
-}
-
 func (c *noNameClient) StartShipRepair(ctx context.Context, in *StartShipRepairRequest, opts ...grpc.CallOption) (*StartShipRepairResponse, error) {
 	out := new(StartShipRepairResponse)
 	err := c.cc.Invoke(ctx, "/NoName/StartShipRepair", in, out, opts...)
@@ -1001,10 +743,6 @@ func (c *noNameClient) StartShipRepair(ctx context.Context, in *StartShipRepairR
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameEndShipRepairStreamDesc = &grpc.StreamDesc{
-	StreamName: "EndShipRepair",
 }
 
 func (c *noNameClient) EndShipRepair(ctx context.Context, in *EndShipRepairRequest, opts ...grpc.CallOption) (*EndShipRepairResponse, error) {
@@ -1016,10 +754,6 @@ func (c *noNameClient) EndShipRepair(ctx context.Context, in *EndShipRepairReque
 	return out, nil
 }
 
-var noNameGetShipTravelInfoStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetShipTravelInfo",
-}
-
 func (c *noNameClient) GetShipTravelInfo(ctx context.Context, in *GetShipTravelInfoRequest, opts ...grpc.CallOption) (*GetShipTravelInfoResponse, error) {
 	out := new(GetShipTravelInfoResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetShipTravelInfo", in, out, opts...)
@@ -1027,10 +761,6 @@ func (c *noNameClient) GetShipTravelInfo(ctx context.Context, in *GetShipTravelI
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameEndShipTravelStreamDesc = &grpc.StreamDesc{
-	StreamName: "EndShipTravel",
 }
 
 func (c *noNameClient) EndShipTravel(ctx context.Context, in *EndShipTravelRequest, opts ...grpc.CallOption) (*EndShipTravelResponse, error) {
@@ -1042,10 +772,6 @@ func (c *noNameClient) EndShipTravel(ctx context.Context, in *EndShipTravelReque
 	return out, nil
 }
 
-var noNameGetPlayerShipsStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerShips",
-}
-
 func (c *noNameClient) GetPlayerShips(ctx context.Context, in *GetPlayerShipsRequest, opts ...grpc.CallOption) (*GetPlayerShipsResponse, error) {
 	out := new(GetPlayerShipsResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerShips", in, out, opts...)
@@ -1053,10 +779,6 @@ func (c *noNameClient) GetPlayerShips(ctx context.Context, in *GetPlayerShipsReq
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetPlayerShipEquippedStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetPlayerShipEquipped",
 }
 
 func (c *noNameClient) GetPlayerShipEquipped(ctx context.Context, in *GetPlayerShipEquippedRequest, opts ...grpc.CallOption) (*GetPlayerShipEquippedResponse, error) {
@@ -1068,10 +790,6 @@ func (c *noNameClient) GetPlayerShipEquipped(ctx context.Context, in *GetPlayerS
 	return out, nil
 }
 
-var noNameCreateTransactionStreamDesc = &grpc.StreamDesc{
-	StreamName: "CreateTransaction",
-}
-
 func (c *noNameClient) CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error) {
 	out := new(CreateTransactionResponse)
 	err := c.cc.Invoke(ctx, "/NoName/CreateTransaction", in, out, opts...)
@@ -1079,10 +797,6 @@ func (c *noNameClient) CreateTransaction(ctx context.Context, in *CreateTransact
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameDropTresureStreamDesc = &grpc.StreamDesc{
-	StreamName: "DropTresure",
 }
 
 func (c *noNameClient) DropTresure(ctx context.Context, in *DropTresureRequest, opts ...grpc.CallOption) (*DropTresureResponse, error) {
@@ -1094,10 +808,6 @@ func (c *noNameClient) DropTresure(ctx context.Context, in *DropTresureRequest, 
 	return out, nil
 }
 
-var noNameGetMissionStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetMission",
-}
-
 func (c *noNameClient) GetMission(ctx context.Context, in *GetMissionRequest, opts ...grpc.CallOption) (*GetMissionResponse, error) {
 	out := new(GetMissionResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetMission", in, out, opts...)
@@ -1105,10 +815,6 @@ func (c *noNameClient) GetMission(ctx context.Context, in *GetMissionRequest, op
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameCheckMissionStreamDesc = &grpc.StreamDesc{
-	StreamName: "CheckMission",
 }
 
 func (c *noNameClient) CheckMission(ctx context.Context, in *CheckMissionRequest, opts ...grpc.CallOption) (*CheckMissionResponse, error) {
@@ -1120,10 +826,6 @@ func (c *noNameClient) CheckMission(ctx context.Context, in *CheckMissionRequest
 	return out, nil
 }
 
-var noNameGetMissionRewardStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetMissionReward",
-}
-
 func (c *noNameClient) GetMissionReward(ctx context.Context, in *GetMissionRewardRequest, opts ...grpc.CallOption) (*GetMissionRewardResponse, error) {
 	out := new(GetMissionRewardResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetMissionReward", in, out, opts...)
@@ -1131,10 +833,6 @@ func (c *noNameClient) GetMissionReward(ctx context.Context, in *GetMissionRewar
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetTeletrasportSafePlanetListStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetTeletrasportSafePlanetList",
 }
 
 func (c *noNameClient) GetTeletrasportSafePlanetList(ctx context.Context, in *GetTeletrasportSafePlanetListRequest, opts ...grpc.CallOption) (*GetTeletrasportSafePlanetListResponse, error) {
@@ -1146,10 +844,6 @@ func (c *noNameClient) GetTeletrasportSafePlanetList(ctx context.Context, in *Ge
 	return out, nil
 }
 
-var noNameEndTeletrasportSafePlanetStreamDesc = &grpc.StreamDesc{
-	StreamName: "EndTeletrasportSafePlanet",
-}
-
 func (c *noNameClient) EndTeletrasportSafePlanet(ctx context.Context, in *EndTeletrasportSafePlanetRequest, opts ...grpc.CallOption) (*EndTeletrasportSafePlanetResponse, error) {
 	out := new(EndTeletrasportSafePlanetResponse)
 	err := c.cc.Invoke(ctx, "/NoName/EndTeletrasportSafePlanet", in, out, opts...)
@@ -1157,10 +851,6 @@ func (c *noNameClient) EndTeletrasportSafePlanet(ctx context.Context, in *EndTel
 		return nil, err
 	}
 	return out, nil
-}
-
-var noNameGetAllExplorationCategoriesStreamDesc = &grpc.StreamDesc{
-	StreamName: "GetAllExplorationCategories",
 }
 
 func (c *noNameClient) GetAllExplorationCategories(ctx context.Context, in *GetAllExplorationCategoriesRequest, opts ...grpc.CallOption) (*GetAllExplorationCategoriesResponse, error) {
@@ -1172,2632 +862,13 @@ func (c *noNameClient) GetAllExplorationCategories(ctx context.Context, in *GetA
 	return out, nil
 }
 
-// NoNameService is the service API for NoName service.
-// Fields should be assigned to their respective handler implementations only before
-// RegisterNoNameService is called.  Any unassigned fields will result in the
-// handler for that method returning an Unimplemented error.
-type NoNameService struct {
-	// Armor
-	GetArmorByID                       func(context.Context, *GetArmorByIDRequest) (*GetArmorByIDResponse, error)
-	FindArmorByName                    func(context.Context, *FindArmorByNameRequest) (*FindArmorByNameResponse, error)
-	UpdateArmor                        func(context.Context, *UpdateArmorRequest) (*UpdateArmorResponse, error)
-	GetPlayerArmors                    func(context.Context, *GetPlayerArmorsRequest) (*GetPlayerArmorsResponse, error)
-	GetPlayerArmorsByCategoryID        func(context.Context, *GetPlayerArmorsByCategoryIDRequest) (*GetPlayerArmorsByCategoryIDResponse, error)
-	GetPlayerArmorsEquipped            func(context.Context, *GetPlayerArmorsEquippedRequest) (*GetPlayerArmorsEquippedResponse, error)
-	GetPlayerArmorEquippedByCategoryID func(context.Context, *GetPlayerArmorEquippedByCategoryIDRequest) (*GetPlayerArmorEquippedByCategoryIDResponse, error)
-	// ArmorCategory
-	GetAllArmorCategory    func(context.Context, *GetAllArmorCategoryRequest) (*GetAllArmorCategoryResponse, error)
-	GetArmorCategoryBySlug func(context.Context, *GetArmorCategoryBySlugRequest) (*GetArmorCategoryBySlugResponse, error)
-	// Weapon
-	GetWeaponByID           func(context.Context, *GetWeaponByIDRequest) (*GetWeaponByIDResponse, error)
-	FindWeaponByName        func(context.Context, *FindWeaponByNameRequest) (*FindWeaponByNameResponse, error)
-	UpdateWeapon            func(context.Context, *UpdateWeaponRequest) (*UpdateWeaponResponse, error)
-	GetPlayerWeapons        func(context.Context, *GetPlayerWeaponsRequest) (*GetPlayerWeaponsResponse, error)
-	GetPlayerWeaponEquipped func(context.Context, *GetPlayerWeaponEquippedRequest) (*GetPlayerWeaponEquippedResponse, error)
-	// Player
-	GetPlayerByID         func(context.Context, *GetPlayerByIDRequest) (*GetPlayerByIDResponse, error)
-	GetPlayerByUsername   func(context.Context, *GetPlayerByUsernameRequest) (*GetPlayerByUsernameResponse, error)
-	GetPlayerStats        func(context.Context, *GetPlayerStatsRequest) (*GetPlayerStatsResponse, error)
-	GetPlayerResources    func(context.Context, *GetPlayerResourcesRequest) (*GetPlayerResourcesResponse, error)
-	GetPlayerItems        func(context.Context, *GetPlayerItemsRequest) (*GetPlayerItemsResponse, error)
-	GetPlayerEconomy      func(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error)
-	ManagePlayerInventory func(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error)
-	PlayerEndTutorial     func(context.Context, *PlayerEndTutorialRequest) (*PlayerEndTutorialResponse, error)
-	// PlayerPosition
-	CreatePlayerPosition            func(context.Context, *CreatePlayerPositionRequest) (*CreatePlayerPositionResponse, error)
-	GetPlayerCurrentPlanet          func(context.Context, *GetPlayerCurrentPlanetRequest) (*GetPlayerCurrentPlanetResponse, error)
-	CountPlanetVisited              func(context.Context, *CountPlanetVisitedRequest) (*CountPlanetVisitedResponse, error)
-	CountSystemVisited              func(context.Context, *CountSystemVisitedRequest) (*CountSystemVisitedResponse, error)
-	CountPlayerVisitedCurrentPlanet func(context.Context, *CountPlayerVisitedCurrentPlanetRequest) (*CountPlayerVisitedCurrentPlanetResponse, error)
-	// Rests
-	GetRestsInfo  func(context.Context, *GetRestsInfoRequest) (*GetRestsInfoResponse, error)
-	EndPlayerRest func(context.Context, *EndPlayerRestRequest) (*EndPlayerRestResponse, error)
-	// SignIn
-	SignIn func(context.Context, *SignInRequest) (*SignInResponse, error)
-	// PlayerState
-	GetPlayerStateByID     func(context.Context, *GetPlayerStateByIDRequest) (*GetPlayerStateByIDResponse, error)
-	GetActivePlayerStates  func(context.Context, *GetActivePlayerStatesRequest) (*GetActivePlayerStatesResponse, error)
-	GetPlayerStateToNotify func(context.Context, *GetPlayerStateToNotifyRequest) (*GetPlayerStateToNotifyResponse, error)
-	CreatePlayerState      func(context.Context, *CreatePlayerStateRequest) (*CreatePlayerStateResponse, error)
-	UpdatePlayerState      func(context.Context, *UpdatePlayerStateRequest) (*UpdatePlayerStateResponse, error)
-	DeletePlayerState      func(context.Context, *DeletePlayerStateRequest) (*DeletePlayerStateResponse, error)
-	// Enemy
-	GetEnemyByID func(context.Context, *GetEnemyByIDRequest) (*GetEnemyByIDResponse, error)
-	HitEnemy     func(context.Context, *HitEnemyRequest) (*HitEnemyResponse, error)
-	// Titan
-	GetTitanByID       func(context.Context, *GetTitanByIDRequest) (*GetTitanByIDResponse, error)
-	GetTitanByName     func(context.Context, *GetTitanByNameRequest) (*GetTitanByNameResponse, error)
-	GetTitanByPlanetID func(context.Context, *GetTitanByPlanetIDRequest) (*GetTitanByPlanetIDResponse, error)
-	HitTitan           func(context.Context, *HitTitanRequest) (*HitTitanResponse, error)
-	TitanDiscovered    func(context.Context, *TitanDiscoveredRequest) (*TitanDiscoveredResponse, error)
-	// Language
-	FindLanguageBySlug func(context.Context, *FindLanguageBySlugRequest) (*FindLanguageBySlugResponse, error)
-	FindLanguageByName func(context.Context, *FindLanguageByNameRequest) (*FindLanguageByNameResponse, error)
-	GetAllLanguages    func(context.Context, *GetAllLanguagesRequest) (*GetAllLanguagesResponse, error)
-	// NPC
-	GetAllNPC func(context.Context, *GetAllNPCRequest) (*GetAllNPCResponse, error)
-	// NPC - Crafter
-	CraftArmor  func(context.Context, *CraftArmorRequest) (*CraftArmorResponse, error)
-	CraftWeapon func(context.Context, *CraftWeaponRequest) (*CraftWeaponResponse, error)
-	// NPC - Banck
-	BankDeposit  func(context.Context, *BankDepositRequest) (*BankDepositResponse, error)
-	BankWithdraw func(context.Context, *BankWithdrawRequest) (*BankWithdrawResponse, error)
-	// Planet
-	GetPlanetByID         func(context.Context, *GetPlanetByIDRequest) (*GetPlanetByIDResponse, error)
-	GetPlanetByName       func(context.Context, *GetPlanetByNameRequest) (*GetPlanetByNameResponse, error)
-	GetPlanetByCoordinate func(context.Context, *GetPlanetByCoordinateRequest) (*GetPlanetByCoordinateResponse, error)
-	GetPlanetByMapID      func(context.Context, *GetPlanetByMapIDRequest) (*GetPlanetByMapIDResponse, error)
-	GetExpansionInfo      func(context.Context, *GetExpansionInfoRequest) (*GetExpansionInfoResponse, error)
-	GetSafePlanets        func(context.Context, *GetSafePlanetsRequest) (*GetSafePlanetsResponse, error)
-	// Map
-	GetMapByID func(context.Context, *GetMapByIDRequest) (*GetMapByIDResponse, error)
-	// Resouce
-	GetResourceByID   func(context.Context, *GetResourceByIDRequest) (*GetResourceByIDResponse, error)
-	GetResourceByName func(context.Context, *GetResourceByNameRequest) (*GetResourceByNameResponse, error)
-	DropResource      func(context.Context, *DropResourceRequest) (*DropResourceResponse, error)
-	// Item
-	GetAllItems          func(context.Context, *GetAllItemsRequest) (*GetAllItemsResponse, error)
-	GetItemsByCategoryID func(context.Context, *GetItemsByCategoryIDRequest) (*GetItemsByCategoryIDResponse, error)
-	UseItem              func(context.Context, *UseItemRequest) (*UseItemResponse, error)
-	// ItemCateogory
-	GetAllItemCategories func(context.Context, *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error)
-	// Ship
-	GetShipRepairInfo     func(context.Context, *GetShipRepairInfoRequest) (*GetShipRepairInfoResponse, error)
-	StartShipRepair       func(context.Context, *StartShipRepairRequest) (*StartShipRepairResponse, error)
-	EndShipRepair         func(context.Context, *EndShipRepairRequest) (*EndShipRepairResponse, error)
-	GetShipTravelInfo     func(context.Context, *GetShipTravelInfoRequest) (*GetShipTravelInfoResponse, error)
-	EndShipTravel         func(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error)
-	GetPlayerShips        func(context.Context, *GetPlayerShipsRequest) (*GetPlayerShipsResponse, error)
-	GetPlayerShipEquipped func(context.Context, *GetPlayerShipEquippedRequest) (*GetPlayerShipEquippedResponse, error)
-	// Transaction
-	CreateTransaction func(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error)
-	// Tresure
-	DropTresure func(context.Context, *DropTresureRequest) (*DropTresureResponse, error)
-	// Mission
-	GetMission       func(context.Context, *GetMissionRequest) (*GetMissionResponse, error)
-	CheckMission     func(context.Context, *CheckMissionRequest) (*CheckMissionResponse, error)
-	GetMissionReward func(context.Context, *GetMissionRewardRequest) (*GetMissionRewardResponse, error)
-	// Expansion
-	GetTeletrasportSafePlanetList func(context.Context, *GetTeletrasportSafePlanetListRequest) (*GetTeletrasportSafePlanetListResponse, error)
-	EndTeletrasportSafePlanet     func(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error)
-	// Exploration Category
-	GetAllExplorationCategories func(context.Context, *GetAllExplorationCategoriesRequest) (*GetAllExplorationCategoriesResponse, error)
-}
-
-func (s *NoNameService) getArmorByID(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetArmorByIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetArmorByID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetArmorByID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetArmorByID(ctx, req.(*GetArmorByIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) findArmorByName(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FindArmorByNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.FindArmorByName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/FindArmorByName",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.FindArmorByName(ctx, req.(*FindArmorByNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) updateArmor(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateArmorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.UpdateArmor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/UpdateArmor",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.UpdateArmor(ctx, req.(*UpdateArmorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerArmors(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerArmorsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerArmors(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerArmors",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerArmors(ctx, req.(*GetPlayerArmorsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerArmorsByCategoryID(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerArmorsByCategoryIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerArmorsByCategoryID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerArmorsByCategoryID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerArmorsByCategoryID(ctx, req.(*GetPlayerArmorsByCategoryIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerArmorsEquipped(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerArmorsEquippedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerArmorsEquipped(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerArmorsEquipped",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerArmorsEquipped(ctx, req.(*GetPlayerArmorsEquippedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerArmorEquippedByCategoryID(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerArmorEquippedByCategoryIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerArmorEquippedByCategoryID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerArmorEquippedByCategoryID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerArmorEquippedByCategoryID(ctx, req.(*GetPlayerArmorEquippedByCategoryIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getAllArmorCategory(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllArmorCategoryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetAllArmorCategory(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetAllArmorCategory",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetAllArmorCategory(ctx, req.(*GetAllArmorCategoryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getArmorCategoryBySlug(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetArmorCategoryBySlugRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetArmorCategoryBySlug(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetArmorCategoryBySlug",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetArmorCategoryBySlug(ctx, req.(*GetArmorCategoryBySlugRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getWeaponByID(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWeaponByIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetWeaponByID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetWeaponByID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetWeaponByID(ctx, req.(*GetWeaponByIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) findWeaponByName(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FindWeaponByNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.FindWeaponByName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/FindWeaponByName",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.FindWeaponByName(ctx, req.(*FindWeaponByNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) updateWeapon(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateWeaponRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.UpdateWeapon(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/UpdateWeapon",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.UpdateWeapon(ctx, req.(*UpdateWeaponRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerWeapons(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerWeaponsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerWeapons(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerWeapons",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerWeapons(ctx, req.(*GetPlayerWeaponsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerWeaponEquipped(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerWeaponEquippedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerWeaponEquipped(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerWeaponEquipped",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerWeaponEquipped(ctx, req.(*GetPlayerWeaponEquippedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerByID(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerByIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerByID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerByID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerByID(ctx, req.(*GetPlayerByIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerByUsername(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerByUsernameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerByUsername(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerByUsername",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerByUsername(ctx, req.(*GetPlayerByUsernameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerStats(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerStatsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerStats(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerStats",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerStats(ctx, req.(*GetPlayerStatsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerResources(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerResourcesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerResources(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerResources",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerResources(ctx, req.(*GetPlayerResourcesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerItems(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerItemsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerItems(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerItems",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerItems(ctx, req.(*GetPlayerItemsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerEconomy(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerEconomyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerEconomy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerEconomy",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerEconomy(ctx, req.(*GetPlayerEconomyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) managePlayerInventory(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ManagePlayerInventoryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.ManagePlayerInventory(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/ManagePlayerInventory",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.ManagePlayerInventory(ctx, req.(*ManagePlayerInventoryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) playerEndTutorial(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PlayerEndTutorialRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.PlayerEndTutorial(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/PlayerEndTutorial",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.PlayerEndTutorial(ctx, req.(*PlayerEndTutorialRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) createPlayerPosition(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreatePlayerPositionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.CreatePlayerPosition(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/CreatePlayerPosition",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.CreatePlayerPosition(ctx, req.(*CreatePlayerPositionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerCurrentPlanet(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerCurrentPlanetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerCurrentPlanet(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerCurrentPlanet",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerCurrentPlanet(ctx, req.(*GetPlayerCurrentPlanetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) countPlanetVisited(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CountPlanetVisitedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.CountPlanetVisited(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/CountPlanetVisited",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.CountPlanetVisited(ctx, req.(*CountPlanetVisitedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) countSystemVisited(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CountSystemVisitedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.CountSystemVisited(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/CountSystemVisited",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.CountSystemVisited(ctx, req.(*CountSystemVisitedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) countPlayerVisitedCurrentPlanet(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CountPlayerVisitedCurrentPlanetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.CountPlayerVisitedCurrentPlanet(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/CountPlayerVisitedCurrentPlanet",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.CountPlayerVisitedCurrentPlanet(ctx, req.(*CountPlayerVisitedCurrentPlanetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getRestsInfo(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRestsInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetRestsInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetRestsInfo",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetRestsInfo(ctx, req.(*GetRestsInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) endPlayerRest(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EndPlayerRestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.EndPlayerRest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/EndPlayerRest",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.EndPlayerRest(ctx, req.(*EndPlayerRestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) signIn(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SignInRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.SignIn(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/SignIn",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.SignIn(ctx, req.(*SignInRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerStateByID(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerStateByIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerStateByID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerStateByID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerStateByID(ctx, req.(*GetPlayerStateByIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getActivePlayerStates(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivePlayerStatesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetActivePlayerStates(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetActivePlayerStates",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetActivePlayerStates(ctx, req.(*GetActivePlayerStatesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerStateToNotify(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerStateToNotifyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerStateToNotify(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerStateToNotify",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerStateToNotify(ctx, req.(*GetPlayerStateToNotifyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) createPlayerState(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreatePlayerStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.CreatePlayerState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/CreatePlayerState",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.CreatePlayerState(ctx, req.(*CreatePlayerStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) updatePlayerState(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdatePlayerStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.UpdatePlayerState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/UpdatePlayerState",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.UpdatePlayerState(ctx, req.(*UpdatePlayerStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) deletePlayerState(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeletePlayerStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.DeletePlayerState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/DeletePlayerState",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.DeletePlayerState(ctx, req.(*DeletePlayerStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getEnemyByID(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEnemyByIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetEnemyByID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetEnemyByID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetEnemyByID(ctx, req.(*GetEnemyByIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) hitEnemy(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HitEnemyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.HitEnemy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/HitEnemy",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.HitEnemy(ctx, req.(*HitEnemyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getTitanByID(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTitanByIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetTitanByID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetTitanByID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetTitanByID(ctx, req.(*GetTitanByIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getTitanByName(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTitanByNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetTitanByName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetTitanByName",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetTitanByName(ctx, req.(*GetTitanByNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getTitanByPlanetID(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTitanByPlanetIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetTitanByPlanetID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetTitanByPlanetID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetTitanByPlanetID(ctx, req.(*GetTitanByPlanetIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) hitTitan(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HitTitanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.HitTitan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/HitTitan",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.HitTitan(ctx, req.(*HitTitanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) titanDiscovered(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TitanDiscoveredRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.TitanDiscovered(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/TitanDiscovered",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.TitanDiscovered(ctx, req.(*TitanDiscoveredRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) findLanguageBySlug(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FindLanguageBySlugRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.FindLanguageBySlug(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/FindLanguageBySlug",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.FindLanguageBySlug(ctx, req.(*FindLanguageBySlugRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) findLanguageByName(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FindLanguageByNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.FindLanguageByName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/FindLanguageByName",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.FindLanguageByName(ctx, req.(*FindLanguageByNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getAllLanguages(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllLanguagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetAllLanguages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetAllLanguages",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetAllLanguages(ctx, req.(*GetAllLanguagesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getAllNPC(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllNPCRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetAllNPC(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetAllNPC",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetAllNPC(ctx, req.(*GetAllNPCRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) craftArmor(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CraftArmorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.CraftArmor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/CraftArmor",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.CraftArmor(ctx, req.(*CraftArmorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) craftWeapon(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CraftWeaponRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.CraftWeapon(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/CraftWeapon",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.CraftWeapon(ctx, req.(*CraftWeaponRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) bankDeposit(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BankDepositRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.BankDeposit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/BankDeposit",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.BankDeposit(ctx, req.(*BankDepositRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) bankWithdraw(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BankWithdrawRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.BankWithdraw(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/BankWithdraw",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.BankWithdraw(ctx, req.(*BankWithdrawRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlanetByID(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlanetByIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlanetByID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlanetByID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlanetByID(ctx, req.(*GetPlanetByIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlanetByName(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlanetByNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlanetByName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlanetByName",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlanetByName(ctx, req.(*GetPlanetByNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlanetByCoordinate(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlanetByCoordinateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlanetByCoordinate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlanetByCoordinate",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlanetByCoordinate(ctx, req.(*GetPlanetByCoordinateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlanetByMapID(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlanetByMapIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlanetByMapID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlanetByMapID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlanetByMapID(ctx, req.(*GetPlanetByMapIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getExpansionInfo(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetExpansionInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetExpansionInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetExpansionInfo",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetExpansionInfo(ctx, req.(*GetExpansionInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getSafePlanets(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSafePlanetsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetSafePlanets(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetSafePlanets",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetSafePlanets(ctx, req.(*GetSafePlanetsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getMapByID(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMapByIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetMapByID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetMapByID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetMapByID(ctx, req.(*GetMapByIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getResourceByID(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResourceByIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetResourceByID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetResourceByID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetResourceByID(ctx, req.(*GetResourceByIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getResourceByName(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResourceByNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetResourceByName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetResourceByName",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetResourceByName(ctx, req.(*GetResourceByNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) dropResource(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DropResourceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.DropResource(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/DropResource",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.DropResource(ctx, req.(*DropResourceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getAllItems(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllItemsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetAllItems(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetAllItems",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetAllItems(ctx, req.(*GetAllItemsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getItemsByCategoryID(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetItemsByCategoryIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetItemsByCategoryID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetItemsByCategoryID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetItemsByCategoryID(ctx, req.(*GetItemsByCategoryIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) useItem(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UseItemRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.UseItem(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/UseItem",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.UseItem(ctx, req.(*UseItemRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getAllItemCategories(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllItemCategoriesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetAllItemCategories(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetAllItemCategories",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetAllItemCategories(ctx, req.(*GetAllItemCategoriesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getShipRepairInfo(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShipRepairInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetShipRepairInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetShipRepairInfo",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetShipRepairInfo(ctx, req.(*GetShipRepairInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) startShipRepair(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartShipRepairRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.StartShipRepair(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/StartShipRepair",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.StartShipRepair(ctx, req.(*StartShipRepairRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) endShipRepair(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EndShipRepairRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.EndShipRepair(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/EndShipRepair",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.EndShipRepair(ctx, req.(*EndShipRepairRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getShipTravelInfo(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShipTravelInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetShipTravelInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetShipTravelInfo",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetShipTravelInfo(ctx, req.(*GetShipTravelInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) endShipTravel(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EndShipTravelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.EndShipTravel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/EndShipTravel",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.EndShipTravel(ctx, req.(*EndShipTravelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerShips(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerShipsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerShips(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerShips",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerShips(ctx, req.(*GetPlayerShipsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getPlayerShipEquipped(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerShipEquippedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetPlayerShipEquipped(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetPlayerShipEquipped",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetPlayerShipEquipped(ctx, req.(*GetPlayerShipEquippedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) createTransaction(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateTransactionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.CreateTransaction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/CreateTransaction",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.CreateTransaction(ctx, req.(*CreateTransactionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) dropTresure(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DropTresureRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.DropTresure(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/DropTresure",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.DropTresure(ctx, req.(*DropTresureRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getMission(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMissionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetMission(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetMission",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetMission(ctx, req.(*GetMissionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) checkMission(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CheckMissionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.CheckMission(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/CheckMission",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.CheckMission(ctx, req.(*CheckMissionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getMissionReward(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMissionRewardRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetMissionReward(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetMissionReward",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetMissionReward(ctx, req.(*GetMissionRewardRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getTeletrasportSafePlanetList(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTeletrasportSafePlanetListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetTeletrasportSafePlanetList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetTeletrasportSafePlanetList",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetTeletrasportSafePlanetList(ctx, req.(*GetTeletrasportSafePlanetListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) endTeletrasportSafePlanet(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EndTeletrasportSafePlanetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.EndTeletrasportSafePlanet(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/EndTeletrasportSafePlanet",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.EndTeletrasportSafePlanet(ctx, req.(*EndTeletrasportSafePlanetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-func (s *NoNameService) getAllExplorationCategories(_ interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllExplorationCategoriesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return s.GetAllExplorationCategories(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     s,
-		FullMethod: "/NoName/GetAllExplorationCategories",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return s.GetAllExplorationCategories(ctx, req.(*GetAllExplorationCategoriesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RegisterNoNameService registers a service implementation with a gRPC server.
-func RegisterNoNameService(s grpc.ServiceRegistrar, srv *NoNameService) {
-	srvCopy := *srv
-	if srvCopy.GetArmorByID == nil {
-		srvCopy.GetArmorByID = func(context.Context, *GetArmorByIDRequest) (*GetArmorByIDResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetArmorByID not implemented")
-		}
-	}
-	if srvCopy.FindArmorByName == nil {
-		srvCopy.FindArmorByName = func(context.Context, *FindArmorByNameRequest) (*FindArmorByNameResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method FindArmorByName not implemented")
-		}
-	}
-	if srvCopy.UpdateArmor == nil {
-		srvCopy.UpdateArmor = func(context.Context, *UpdateArmorRequest) (*UpdateArmorResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method UpdateArmor not implemented")
-		}
-	}
-	if srvCopy.GetPlayerArmors == nil {
-		srvCopy.GetPlayerArmors = func(context.Context, *GetPlayerArmorsRequest) (*GetPlayerArmorsResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerArmors not implemented")
-		}
-	}
-	if srvCopy.GetPlayerArmorsByCategoryID == nil {
-		srvCopy.GetPlayerArmorsByCategoryID = func(context.Context, *GetPlayerArmorsByCategoryIDRequest) (*GetPlayerArmorsByCategoryIDResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerArmorsByCategoryID not implemented")
-		}
-	}
-	if srvCopy.GetPlayerArmorsEquipped == nil {
-		srvCopy.GetPlayerArmorsEquipped = func(context.Context, *GetPlayerArmorsEquippedRequest) (*GetPlayerArmorsEquippedResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerArmorsEquipped not implemented")
-		}
-	}
-	if srvCopy.GetPlayerArmorEquippedByCategoryID == nil {
-		srvCopy.GetPlayerArmorEquippedByCategoryID = func(context.Context, *GetPlayerArmorEquippedByCategoryIDRequest) (*GetPlayerArmorEquippedByCategoryIDResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerArmorEquippedByCategoryID not implemented")
-		}
-	}
-	if srvCopy.GetAllArmorCategory == nil {
-		srvCopy.GetAllArmorCategory = func(context.Context, *GetAllArmorCategoryRequest) (*GetAllArmorCategoryResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetAllArmorCategory not implemented")
-		}
-	}
-	if srvCopy.GetArmorCategoryBySlug == nil {
-		srvCopy.GetArmorCategoryBySlug = func(context.Context, *GetArmorCategoryBySlugRequest) (*GetArmorCategoryBySlugResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetArmorCategoryBySlug not implemented")
-		}
-	}
-	if srvCopy.GetWeaponByID == nil {
-		srvCopy.GetWeaponByID = func(context.Context, *GetWeaponByIDRequest) (*GetWeaponByIDResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetWeaponByID not implemented")
-		}
-	}
-	if srvCopy.FindWeaponByName == nil {
-		srvCopy.FindWeaponByName = func(context.Context, *FindWeaponByNameRequest) (*FindWeaponByNameResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method FindWeaponByName not implemented")
-		}
-	}
-	if srvCopy.UpdateWeapon == nil {
-		srvCopy.UpdateWeapon = func(context.Context, *UpdateWeaponRequest) (*UpdateWeaponResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method UpdateWeapon not implemented")
-		}
-	}
-	if srvCopy.GetPlayerWeapons == nil {
-		srvCopy.GetPlayerWeapons = func(context.Context, *GetPlayerWeaponsRequest) (*GetPlayerWeaponsResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerWeapons not implemented")
-		}
-	}
-	if srvCopy.GetPlayerWeaponEquipped == nil {
-		srvCopy.GetPlayerWeaponEquipped = func(context.Context, *GetPlayerWeaponEquippedRequest) (*GetPlayerWeaponEquippedResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerWeaponEquipped not implemented")
-		}
-	}
-	if srvCopy.GetPlayerByID == nil {
-		srvCopy.GetPlayerByID = func(context.Context, *GetPlayerByIDRequest) (*GetPlayerByIDResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerByID not implemented")
-		}
-	}
-	if srvCopy.GetPlayerByUsername == nil {
-		srvCopy.GetPlayerByUsername = func(context.Context, *GetPlayerByUsernameRequest) (*GetPlayerByUsernameResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerByUsername not implemented")
-		}
-	}
-	if srvCopy.GetPlayerStats == nil {
-		srvCopy.GetPlayerStats = func(context.Context, *GetPlayerStatsRequest) (*GetPlayerStatsResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerStats not implemented")
-		}
-	}
-	if srvCopy.GetPlayerResources == nil {
-		srvCopy.GetPlayerResources = func(context.Context, *GetPlayerResourcesRequest) (*GetPlayerResourcesResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerResources not implemented")
-		}
-	}
-	if srvCopy.GetPlayerItems == nil {
-		srvCopy.GetPlayerItems = func(context.Context, *GetPlayerItemsRequest) (*GetPlayerItemsResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerItems not implemented")
-		}
-	}
-	if srvCopy.GetPlayerEconomy == nil {
-		srvCopy.GetPlayerEconomy = func(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerEconomy not implemented")
-		}
-	}
-	if srvCopy.ManagePlayerInventory == nil {
-		srvCopy.ManagePlayerInventory = func(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method ManagePlayerInventory not implemented")
-		}
-	}
-	if srvCopy.PlayerEndTutorial == nil {
-		srvCopy.PlayerEndTutorial = func(context.Context, *PlayerEndTutorialRequest) (*PlayerEndTutorialResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method PlayerEndTutorial not implemented")
-		}
-	}
-	if srvCopy.CreatePlayerPosition == nil {
-		srvCopy.CreatePlayerPosition = func(context.Context, *CreatePlayerPositionRequest) (*CreatePlayerPositionResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method CreatePlayerPosition not implemented")
-		}
-	}
-	if srvCopy.GetPlayerCurrentPlanet == nil {
-		srvCopy.GetPlayerCurrentPlanet = func(context.Context, *GetPlayerCurrentPlanetRequest) (*GetPlayerCurrentPlanetResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerCurrentPlanet not implemented")
-		}
-	}
-	if srvCopy.CountPlanetVisited == nil {
-		srvCopy.CountPlanetVisited = func(context.Context, *CountPlanetVisitedRequest) (*CountPlanetVisitedResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method CountPlanetVisited not implemented")
-		}
-	}
-	if srvCopy.CountSystemVisited == nil {
-		srvCopy.CountSystemVisited = func(context.Context, *CountSystemVisitedRequest) (*CountSystemVisitedResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method CountSystemVisited not implemented")
-		}
-	}
-	if srvCopy.CountPlayerVisitedCurrentPlanet == nil {
-		srvCopy.CountPlayerVisitedCurrentPlanet = func(context.Context, *CountPlayerVisitedCurrentPlanetRequest) (*CountPlayerVisitedCurrentPlanetResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method CountPlayerVisitedCurrentPlanet not implemented")
-		}
-	}
-	if srvCopy.GetRestsInfo == nil {
-		srvCopy.GetRestsInfo = func(context.Context, *GetRestsInfoRequest) (*GetRestsInfoResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetRestsInfo not implemented")
-		}
-	}
-	if srvCopy.EndPlayerRest == nil {
-		srvCopy.EndPlayerRest = func(context.Context, *EndPlayerRestRequest) (*EndPlayerRestResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method EndPlayerRest not implemented")
-		}
-	}
-	if srvCopy.SignIn == nil {
-		srvCopy.SignIn = func(context.Context, *SignInRequest) (*SignInResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method SignIn not implemented")
-		}
-	}
-	if srvCopy.GetPlayerStateByID == nil {
-		srvCopy.GetPlayerStateByID = func(context.Context, *GetPlayerStateByIDRequest) (*GetPlayerStateByIDResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerStateByID not implemented")
-		}
-	}
-	if srvCopy.GetActivePlayerStates == nil {
-		srvCopy.GetActivePlayerStates = func(context.Context, *GetActivePlayerStatesRequest) (*GetActivePlayerStatesResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetActivePlayerStates not implemented")
-		}
-	}
-	if srvCopy.GetPlayerStateToNotify == nil {
-		srvCopy.GetPlayerStateToNotify = func(context.Context, *GetPlayerStateToNotifyRequest) (*GetPlayerStateToNotifyResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerStateToNotify not implemented")
-		}
-	}
-	if srvCopy.CreatePlayerState == nil {
-		srvCopy.CreatePlayerState = func(context.Context, *CreatePlayerStateRequest) (*CreatePlayerStateResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method CreatePlayerState not implemented")
-		}
-	}
-	if srvCopy.UpdatePlayerState == nil {
-		srvCopy.UpdatePlayerState = func(context.Context, *UpdatePlayerStateRequest) (*UpdatePlayerStateResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method UpdatePlayerState not implemented")
-		}
-	}
-	if srvCopy.DeletePlayerState == nil {
-		srvCopy.DeletePlayerState = func(context.Context, *DeletePlayerStateRequest) (*DeletePlayerStateResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method DeletePlayerState not implemented")
-		}
-	}
-	if srvCopy.GetEnemyByID == nil {
-		srvCopy.GetEnemyByID = func(context.Context, *GetEnemyByIDRequest) (*GetEnemyByIDResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetEnemyByID not implemented")
-		}
-	}
-	if srvCopy.HitEnemy == nil {
-		srvCopy.HitEnemy = func(context.Context, *HitEnemyRequest) (*HitEnemyResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method HitEnemy not implemented")
-		}
-	}
-	if srvCopy.GetTitanByID == nil {
-		srvCopy.GetTitanByID = func(context.Context, *GetTitanByIDRequest) (*GetTitanByIDResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetTitanByID not implemented")
-		}
-	}
-	if srvCopy.GetTitanByName == nil {
-		srvCopy.GetTitanByName = func(context.Context, *GetTitanByNameRequest) (*GetTitanByNameResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetTitanByName not implemented")
-		}
-	}
-	if srvCopy.GetTitanByPlanetID == nil {
-		srvCopy.GetTitanByPlanetID = func(context.Context, *GetTitanByPlanetIDRequest) (*GetTitanByPlanetIDResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetTitanByPlanetID not implemented")
-		}
-	}
-	if srvCopy.HitTitan == nil {
-		srvCopy.HitTitan = func(context.Context, *HitTitanRequest) (*HitTitanResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method HitTitan not implemented")
-		}
-	}
-	if srvCopy.TitanDiscovered == nil {
-		srvCopy.TitanDiscovered = func(context.Context, *TitanDiscoveredRequest) (*TitanDiscoveredResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method TitanDiscovered not implemented")
-		}
-	}
-	if srvCopy.FindLanguageBySlug == nil {
-		srvCopy.FindLanguageBySlug = func(context.Context, *FindLanguageBySlugRequest) (*FindLanguageBySlugResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method FindLanguageBySlug not implemented")
-		}
-	}
-	if srvCopy.FindLanguageByName == nil {
-		srvCopy.FindLanguageByName = func(context.Context, *FindLanguageByNameRequest) (*FindLanguageByNameResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method FindLanguageByName not implemented")
-		}
-	}
-	if srvCopy.GetAllLanguages == nil {
-		srvCopy.GetAllLanguages = func(context.Context, *GetAllLanguagesRequest) (*GetAllLanguagesResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetAllLanguages not implemented")
-		}
-	}
-	if srvCopy.GetAllNPC == nil {
-		srvCopy.GetAllNPC = func(context.Context, *GetAllNPCRequest) (*GetAllNPCResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetAllNPC not implemented")
-		}
-	}
-	if srvCopy.CraftArmor == nil {
-		srvCopy.CraftArmor = func(context.Context, *CraftArmorRequest) (*CraftArmorResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method CraftArmor not implemented")
-		}
-	}
-	if srvCopy.CraftWeapon == nil {
-		srvCopy.CraftWeapon = func(context.Context, *CraftWeaponRequest) (*CraftWeaponResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method CraftWeapon not implemented")
-		}
-	}
-	if srvCopy.BankDeposit == nil {
-		srvCopy.BankDeposit = func(context.Context, *BankDepositRequest) (*BankDepositResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method BankDeposit not implemented")
-		}
-	}
-	if srvCopy.BankWithdraw == nil {
-		srvCopy.BankWithdraw = func(context.Context, *BankWithdrawRequest) (*BankWithdrawResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method BankWithdraw not implemented")
-		}
-	}
-	if srvCopy.GetPlanetByID == nil {
-		srvCopy.GetPlanetByID = func(context.Context, *GetPlanetByIDRequest) (*GetPlanetByIDResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlanetByID not implemented")
-		}
-	}
-	if srvCopy.GetPlanetByName == nil {
-		srvCopy.GetPlanetByName = func(context.Context, *GetPlanetByNameRequest) (*GetPlanetByNameResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlanetByName not implemented")
-		}
-	}
-	if srvCopy.GetPlanetByCoordinate == nil {
-		srvCopy.GetPlanetByCoordinate = func(context.Context, *GetPlanetByCoordinateRequest) (*GetPlanetByCoordinateResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlanetByCoordinate not implemented")
-		}
-	}
-	if srvCopy.GetPlanetByMapID == nil {
-		srvCopy.GetPlanetByMapID = func(context.Context, *GetPlanetByMapIDRequest) (*GetPlanetByMapIDResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlanetByMapID not implemented")
-		}
-	}
-	if srvCopy.GetExpansionInfo == nil {
-		srvCopy.GetExpansionInfo = func(context.Context, *GetExpansionInfoRequest) (*GetExpansionInfoResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetExpansionInfo not implemented")
-		}
-	}
-	if srvCopy.GetSafePlanets == nil {
-		srvCopy.GetSafePlanets = func(context.Context, *GetSafePlanetsRequest) (*GetSafePlanetsResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetSafePlanets not implemented")
-		}
-	}
-	if srvCopy.GetMapByID == nil {
-		srvCopy.GetMapByID = func(context.Context, *GetMapByIDRequest) (*GetMapByIDResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetMapByID not implemented")
-		}
-	}
-	if srvCopy.GetResourceByID == nil {
-		srvCopy.GetResourceByID = func(context.Context, *GetResourceByIDRequest) (*GetResourceByIDResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetResourceByID not implemented")
-		}
-	}
-	if srvCopy.GetResourceByName == nil {
-		srvCopy.GetResourceByName = func(context.Context, *GetResourceByNameRequest) (*GetResourceByNameResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetResourceByName not implemented")
-		}
-	}
-	if srvCopy.DropResource == nil {
-		srvCopy.DropResource = func(context.Context, *DropResourceRequest) (*DropResourceResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method DropResource not implemented")
-		}
-	}
-	if srvCopy.GetAllItems == nil {
-		srvCopy.GetAllItems = func(context.Context, *GetAllItemsRequest) (*GetAllItemsResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetAllItems not implemented")
-		}
-	}
-	if srvCopy.GetItemsByCategoryID == nil {
-		srvCopy.GetItemsByCategoryID = func(context.Context, *GetItemsByCategoryIDRequest) (*GetItemsByCategoryIDResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetItemsByCategoryID not implemented")
-		}
-	}
-	if srvCopy.UseItem == nil {
-		srvCopy.UseItem = func(context.Context, *UseItemRequest) (*UseItemResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method UseItem not implemented")
-		}
-	}
-	if srvCopy.GetAllItemCategories == nil {
-		srvCopy.GetAllItemCategories = func(context.Context, *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetAllItemCategories not implemented")
-		}
-	}
-	if srvCopy.GetShipRepairInfo == nil {
-		srvCopy.GetShipRepairInfo = func(context.Context, *GetShipRepairInfoRequest) (*GetShipRepairInfoResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetShipRepairInfo not implemented")
-		}
-	}
-	if srvCopy.StartShipRepair == nil {
-		srvCopy.StartShipRepair = func(context.Context, *StartShipRepairRequest) (*StartShipRepairResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method StartShipRepair not implemented")
-		}
-	}
-	if srvCopy.EndShipRepair == nil {
-		srvCopy.EndShipRepair = func(context.Context, *EndShipRepairRequest) (*EndShipRepairResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method EndShipRepair not implemented")
-		}
-	}
-	if srvCopy.GetShipTravelInfo == nil {
-		srvCopy.GetShipTravelInfo = func(context.Context, *GetShipTravelInfoRequest) (*GetShipTravelInfoResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetShipTravelInfo not implemented")
-		}
-	}
-	if srvCopy.EndShipTravel == nil {
-		srvCopy.EndShipTravel = func(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method EndShipTravel not implemented")
-		}
-	}
-	if srvCopy.GetPlayerShips == nil {
-		srvCopy.GetPlayerShips = func(context.Context, *GetPlayerShipsRequest) (*GetPlayerShipsResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerShips not implemented")
-		}
-	}
-	if srvCopy.GetPlayerShipEquipped == nil {
-		srvCopy.GetPlayerShipEquipped = func(context.Context, *GetPlayerShipEquippedRequest) (*GetPlayerShipEquippedResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetPlayerShipEquipped not implemented")
-		}
-	}
-	if srvCopy.CreateTransaction == nil {
-		srvCopy.CreateTransaction = func(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method CreateTransaction not implemented")
-		}
-	}
-	if srvCopy.DropTresure == nil {
-		srvCopy.DropTresure = func(context.Context, *DropTresureRequest) (*DropTresureResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method DropTresure not implemented")
-		}
-	}
-	if srvCopy.GetMission == nil {
-		srvCopy.GetMission = func(context.Context, *GetMissionRequest) (*GetMissionResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetMission not implemented")
-		}
-	}
-	if srvCopy.CheckMission == nil {
-		srvCopy.CheckMission = func(context.Context, *CheckMissionRequest) (*CheckMissionResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method CheckMission not implemented")
-		}
-	}
-	if srvCopy.GetMissionReward == nil {
-		srvCopy.GetMissionReward = func(context.Context, *GetMissionRewardRequest) (*GetMissionRewardResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetMissionReward not implemented")
-		}
-	}
-	if srvCopy.GetTeletrasportSafePlanetList == nil {
-		srvCopy.GetTeletrasportSafePlanetList = func(context.Context, *GetTeletrasportSafePlanetListRequest) (*GetTeletrasportSafePlanetListResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetTeletrasportSafePlanetList not implemented")
-		}
-	}
-	if srvCopy.EndTeletrasportSafePlanet == nil {
-		srvCopy.EndTeletrasportSafePlanet = func(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method EndTeletrasportSafePlanet not implemented")
-		}
-	}
-	if srvCopy.GetAllExplorationCategories == nil {
-		srvCopy.GetAllExplorationCategories = func(context.Context, *GetAllExplorationCategoriesRequest) (*GetAllExplorationCategoriesResponse, error) {
-			return nil, status.Errorf(codes.Unimplemented, "method GetAllExplorationCategories not implemented")
-		}
-	}
-	sd := grpc.ServiceDesc{
-		ServiceName: "NoName",
-		Methods: []grpc.MethodDesc{
-			{
-				MethodName: "GetArmorByID",
-				Handler:    srvCopy.getArmorByID,
-			},
-			{
-				MethodName: "FindArmorByName",
-				Handler:    srvCopy.findArmorByName,
-			},
-			{
-				MethodName: "UpdateArmor",
-				Handler:    srvCopy.updateArmor,
-			},
-			{
-				MethodName: "GetPlayerArmors",
-				Handler:    srvCopy.getPlayerArmors,
-			},
-			{
-				MethodName: "GetPlayerArmorsByCategoryID",
-				Handler:    srvCopy.getPlayerArmorsByCategoryID,
-			},
-			{
-				MethodName: "GetPlayerArmorsEquipped",
-				Handler:    srvCopy.getPlayerArmorsEquipped,
-			},
-			{
-				MethodName: "GetPlayerArmorEquippedByCategoryID",
-				Handler:    srvCopy.getPlayerArmorEquippedByCategoryID,
-			},
-			{
-				MethodName: "GetAllArmorCategory",
-				Handler:    srvCopy.getAllArmorCategory,
-			},
-			{
-				MethodName: "GetArmorCategoryBySlug",
-				Handler:    srvCopy.getArmorCategoryBySlug,
-			},
-			{
-				MethodName: "GetWeaponByID",
-				Handler:    srvCopy.getWeaponByID,
-			},
-			{
-				MethodName: "FindWeaponByName",
-				Handler:    srvCopy.findWeaponByName,
-			},
-			{
-				MethodName: "UpdateWeapon",
-				Handler:    srvCopy.updateWeapon,
-			},
-			{
-				MethodName: "GetPlayerWeapons",
-				Handler:    srvCopy.getPlayerWeapons,
-			},
-			{
-				MethodName: "GetPlayerWeaponEquipped",
-				Handler:    srvCopy.getPlayerWeaponEquipped,
-			},
-			{
-				MethodName: "GetPlayerByID",
-				Handler:    srvCopy.getPlayerByID,
-			},
-			{
-				MethodName: "GetPlayerByUsername",
-				Handler:    srvCopy.getPlayerByUsername,
-			},
-			{
-				MethodName: "GetPlayerStats",
-				Handler:    srvCopy.getPlayerStats,
-			},
-			{
-				MethodName: "GetPlayerResources",
-				Handler:    srvCopy.getPlayerResources,
-			},
-			{
-				MethodName: "GetPlayerItems",
-				Handler:    srvCopy.getPlayerItems,
-			},
-			{
-				MethodName: "GetPlayerEconomy",
-				Handler:    srvCopy.getPlayerEconomy,
-			},
-			{
-				MethodName: "ManagePlayerInventory",
-				Handler:    srvCopy.managePlayerInventory,
-			},
-			{
-				MethodName: "PlayerEndTutorial",
-				Handler:    srvCopy.playerEndTutorial,
-			},
-			{
-				MethodName: "CreatePlayerPosition",
-				Handler:    srvCopy.createPlayerPosition,
-			},
-			{
-				MethodName: "GetPlayerCurrentPlanet",
-				Handler:    srvCopy.getPlayerCurrentPlanet,
-			},
-			{
-				MethodName: "CountPlanetVisited",
-				Handler:    srvCopy.countPlanetVisited,
-			},
-			{
-				MethodName: "CountSystemVisited",
-				Handler:    srvCopy.countSystemVisited,
-			},
-			{
-				MethodName: "CountPlayerVisitedCurrentPlanet",
-				Handler:    srvCopy.countPlayerVisitedCurrentPlanet,
-			},
-			{
-				MethodName: "GetRestsInfo",
-				Handler:    srvCopy.getRestsInfo,
-			},
-			{
-				MethodName: "EndPlayerRest",
-				Handler:    srvCopy.endPlayerRest,
-			},
-			{
-				MethodName: "SignIn",
-				Handler:    srvCopy.signIn,
-			},
-			{
-				MethodName: "GetPlayerStateByID",
-				Handler:    srvCopy.getPlayerStateByID,
-			},
-			{
-				MethodName: "GetActivePlayerStates",
-				Handler:    srvCopy.getActivePlayerStates,
-			},
-			{
-				MethodName: "GetPlayerStateToNotify",
-				Handler:    srvCopy.getPlayerStateToNotify,
-			},
-			{
-				MethodName: "CreatePlayerState",
-				Handler:    srvCopy.createPlayerState,
-			},
-			{
-				MethodName: "UpdatePlayerState",
-				Handler:    srvCopy.updatePlayerState,
-			},
-			{
-				MethodName: "DeletePlayerState",
-				Handler:    srvCopy.deletePlayerState,
-			},
-			{
-				MethodName: "GetEnemyByID",
-				Handler:    srvCopy.getEnemyByID,
-			},
-			{
-				MethodName: "HitEnemy",
-				Handler:    srvCopy.hitEnemy,
-			},
-			{
-				MethodName: "GetTitanByID",
-				Handler:    srvCopy.getTitanByID,
-			},
-			{
-				MethodName: "GetTitanByName",
-				Handler:    srvCopy.getTitanByName,
-			},
-			{
-				MethodName: "GetTitanByPlanetID",
-				Handler:    srvCopy.getTitanByPlanetID,
-			},
-			{
-				MethodName: "HitTitan",
-				Handler:    srvCopy.hitTitan,
-			},
-			{
-				MethodName: "TitanDiscovered",
-				Handler:    srvCopy.titanDiscovered,
-			},
-			{
-				MethodName: "FindLanguageBySlug",
-				Handler:    srvCopy.findLanguageBySlug,
-			},
-			{
-				MethodName: "FindLanguageByName",
-				Handler:    srvCopy.findLanguageByName,
-			},
-			{
-				MethodName: "GetAllLanguages",
-				Handler:    srvCopy.getAllLanguages,
-			},
-			{
-				MethodName: "GetAllNPC",
-				Handler:    srvCopy.getAllNPC,
-			},
-			{
-				MethodName: "CraftArmor",
-				Handler:    srvCopy.craftArmor,
-			},
-			{
-				MethodName: "CraftWeapon",
-				Handler:    srvCopy.craftWeapon,
-			},
-			{
-				MethodName: "BankDeposit",
-				Handler:    srvCopy.bankDeposit,
-			},
-			{
-				MethodName: "BankWithdraw",
-				Handler:    srvCopy.bankWithdraw,
-			},
-			{
-				MethodName: "GetPlanetByID",
-				Handler:    srvCopy.getPlanetByID,
-			},
-			{
-				MethodName: "GetPlanetByName",
-				Handler:    srvCopy.getPlanetByName,
-			},
-			{
-				MethodName: "GetPlanetByCoordinate",
-				Handler:    srvCopy.getPlanetByCoordinate,
-			},
-			{
-				MethodName: "GetPlanetByMapID",
-				Handler:    srvCopy.getPlanetByMapID,
-			},
-			{
-				MethodName: "GetExpansionInfo",
-				Handler:    srvCopy.getExpansionInfo,
-			},
-			{
-				MethodName: "GetSafePlanets",
-				Handler:    srvCopy.getSafePlanets,
-			},
-			{
-				MethodName: "GetMapByID",
-				Handler:    srvCopy.getMapByID,
-			},
-			{
-				MethodName: "GetResourceByID",
-				Handler:    srvCopy.getResourceByID,
-			},
-			{
-				MethodName: "GetResourceByName",
-				Handler:    srvCopy.getResourceByName,
-			},
-			{
-				MethodName: "DropResource",
-				Handler:    srvCopy.dropResource,
-			},
-			{
-				MethodName: "GetAllItems",
-				Handler:    srvCopy.getAllItems,
-			},
-			{
-				MethodName: "GetItemsByCategoryID",
-				Handler:    srvCopy.getItemsByCategoryID,
-			},
-			{
-				MethodName: "UseItem",
-				Handler:    srvCopy.useItem,
-			},
-			{
-				MethodName: "GetAllItemCategories",
-				Handler:    srvCopy.getAllItemCategories,
-			},
-			{
-				MethodName: "GetShipRepairInfo",
-				Handler:    srvCopy.getShipRepairInfo,
-			},
-			{
-				MethodName: "StartShipRepair",
-				Handler:    srvCopy.startShipRepair,
-			},
-			{
-				MethodName: "EndShipRepair",
-				Handler:    srvCopy.endShipRepair,
-			},
-			{
-				MethodName: "GetShipTravelInfo",
-				Handler:    srvCopy.getShipTravelInfo,
-			},
-			{
-				MethodName: "EndShipTravel",
-				Handler:    srvCopy.endShipTravel,
-			},
-			{
-				MethodName: "GetPlayerShips",
-				Handler:    srvCopy.getPlayerShips,
-			},
-			{
-				MethodName: "GetPlayerShipEquipped",
-				Handler:    srvCopy.getPlayerShipEquipped,
-			},
-			{
-				MethodName: "CreateTransaction",
-				Handler:    srvCopy.createTransaction,
-			},
-			{
-				MethodName: "DropTresure",
-				Handler:    srvCopy.dropTresure,
-			},
-			{
-				MethodName: "GetMission",
-				Handler:    srvCopy.getMission,
-			},
-			{
-				MethodName: "CheckMission",
-				Handler:    srvCopy.checkMission,
-			},
-			{
-				MethodName: "GetMissionReward",
-				Handler:    srvCopy.getMissionReward,
-			},
-			{
-				MethodName: "GetTeletrasportSafePlanetList",
-				Handler:    srvCopy.getTeletrasportSafePlanetList,
-			},
-			{
-				MethodName: "EndTeletrasportSafePlanet",
-				Handler:    srvCopy.endTeletrasportSafePlanet,
-			},
-			{
-				MethodName: "GetAllExplorationCategories",
-				Handler:    srvCopy.getAllExplorationCategories,
-			},
-		},
-		Streams:  []grpc.StreamDesc{},
-		Metadata: "proto/noname.proto",
-	}
-
-	s.RegisterService(&sd, nil)
-}
-
-// NewNoNameService creates a new NoNameService containing the
-// implemented methods of the NoName service in s.  Any unimplemented
-// methods will result in the gRPC server returning an UNIMPLEMENTED status to the client.
-// This includes situations where the method handler is misspelled or has the wrong
-// signature.  For this reason, this function should be used with great care and
-// is not recommended to be used by most users.
-func NewNoNameService(s interface{}) *NoNameService {
-	ns := &NoNameService{}
-	if h, ok := s.(interface {
-		GetArmorByID(context.Context, *GetArmorByIDRequest) (*GetArmorByIDResponse, error)
-	}); ok {
-		ns.GetArmorByID = h.GetArmorByID
-	}
-	if h, ok := s.(interface {
-		FindArmorByName(context.Context, *FindArmorByNameRequest) (*FindArmorByNameResponse, error)
-	}); ok {
-		ns.FindArmorByName = h.FindArmorByName
-	}
-	if h, ok := s.(interface {
-		UpdateArmor(context.Context, *UpdateArmorRequest) (*UpdateArmorResponse, error)
-	}); ok {
-		ns.UpdateArmor = h.UpdateArmor
-	}
-	if h, ok := s.(interface {
-		GetPlayerArmors(context.Context, *GetPlayerArmorsRequest) (*GetPlayerArmorsResponse, error)
-	}); ok {
-		ns.GetPlayerArmors = h.GetPlayerArmors
-	}
-	if h, ok := s.(interface {
-		GetPlayerArmorsByCategoryID(context.Context, *GetPlayerArmorsByCategoryIDRequest) (*GetPlayerArmorsByCategoryIDResponse, error)
-	}); ok {
-		ns.GetPlayerArmorsByCategoryID = h.GetPlayerArmorsByCategoryID
-	}
-	if h, ok := s.(interface {
-		GetPlayerArmorsEquipped(context.Context, *GetPlayerArmorsEquippedRequest) (*GetPlayerArmorsEquippedResponse, error)
-	}); ok {
-		ns.GetPlayerArmorsEquipped = h.GetPlayerArmorsEquipped
-	}
-	if h, ok := s.(interface {
-		GetPlayerArmorEquippedByCategoryID(context.Context, *GetPlayerArmorEquippedByCategoryIDRequest) (*GetPlayerArmorEquippedByCategoryIDResponse, error)
-	}); ok {
-		ns.GetPlayerArmorEquippedByCategoryID = h.GetPlayerArmorEquippedByCategoryID
-	}
-	if h, ok := s.(interface {
-		GetAllArmorCategory(context.Context, *GetAllArmorCategoryRequest) (*GetAllArmorCategoryResponse, error)
-	}); ok {
-		ns.GetAllArmorCategory = h.GetAllArmorCategory
-	}
-	if h, ok := s.(interface {
-		GetArmorCategoryBySlug(context.Context, *GetArmorCategoryBySlugRequest) (*GetArmorCategoryBySlugResponse, error)
-	}); ok {
-		ns.GetArmorCategoryBySlug = h.GetArmorCategoryBySlug
-	}
-	if h, ok := s.(interface {
-		GetWeaponByID(context.Context, *GetWeaponByIDRequest) (*GetWeaponByIDResponse, error)
-	}); ok {
-		ns.GetWeaponByID = h.GetWeaponByID
-	}
-	if h, ok := s.(interface {
-		FindWeaponByName(context.Context, *FindWeaponByNameRequest) (*FindWeaponByNameResponse, error)
-	}); ok {
-		ns.FindWeaponByName = h.FindWeaponByName
-	}
-	if h, ok := s.(interface {
-		UpdateWeapon(context.Context, *UpdateWeaponRequest) (*UpdateWeaponResponse, error)
-	}); ok {
-		ns.UpdateWeapon = h.UpdateWeapon
-	}
-	if h, ok := s.(interface {
-		GetPlayerWeapons(context.Context, *GetPlayerWeaponsRequest) (*GetPlayerWeaponsResponse, error)
-	}); ok {
-		ns.GetPlayerWeapons = h.GetPlayerWeapons
-	}
-	if h, ok := s.(interface {
-		GetPlayerWeaponEquipped(context.Context, *GetPlayerWeaponEquippedRequest) (*GetPlayerWeaponEquippedResponse, error)
-	}); ok {
-		ns.GetPlayerWeaponEquipped = h.GetPlayerWeaponEquipped
-	}
-	if h, ok := s.(interface {
-		GetPlayerByID(context.Context, *GetPlayerByIDRequest) (*GetPlayerByIDResponse, error)
-	}); ok {
-		ns.GetPlayerByID = h.GetPlayerByID
-	}
-	if h, ok := s.(interface {
-		GetPlayerByUsername(context.Context, *GetPlayerByUsernameRequest) (*GetPlayerByUsernameResponse, error)
-	}); ok {
-		ns.GetPlayerByUsername = h.GetPlayerByUsername
-	}
-	if h, ok := s.(interface {
-		GetPlayerStats(context.Context, *GetPlayerStatsRequest) (*GetPlayerStatsResponse, error)
-	}); ok {
-		ns.GetPlayerStats = h.GetPlayerStats
-	}
-	if h, ok := s.(interface {
-		GetPlayerResources(context.Context, *GetPlayerResourcesRequest) (*GetPlayerResourcesResponse, error)
-	}); ok {
-		ns.GetPlayerResources = h.GetPlayerResources
-	}
-	if h, ok := s.(interface {
-		GetPlayerItems(context.Context, *GetPlayerItemsRequest) (*GetPlayerItemsResponse, error)
-	}); ok {
-		ns.GetPlayerItems = h.GetPlayerItems
-	}
-	if h, ok := s.(interface {
-		GetPlayerEconomy(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error)
-	}); ok {
-		ns.GetPlayerEconomy = h.GetPlayerEconomy
-	}
-	if h, ok := s.(interface {
-		ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error)
-	}); ok {
-		ns.ManagePlayerInventory = h.ManagePlayerInventory
-	}
-	if h, ok := s.(interface {
-		PlayerEndTutorial(context.Context, *PlayerEndTutorialRequest) (*PlayerEndTutorialResponse, error)
-	}); ok {
-		ns.PlayerEndTutorial = h.PlayerEndTutorial
-	}
-	if h, ok := s.(interface {
-		CreatePlayerPosition(context.Context, *CreatePlayerPositionRequest) (*CreatePlayerPositionResponse, error)
-	}); ok {
-		ns.CreatePlayerPosition = h.CreatePlayerPosition
-	}
-	if h, ok := s.(interface {
-		GetPlayerCurrentPlanet(context.Context, *GetPlayerCurrentPlanetRequest) (*GetPlayerCurrentPlanetResponse, error)
-	}); ok {
-		ns.GetPlayerCurrentPlanet = h.GetPlayerCurrentPlanet
-	}
-	if h, ok := s.(interface {
-		CountPlanetVisited(context.Context, *CountPlanetVisitedRequest) (*CountPlanetVisitedResponse, error)
-	}); ok {
-		ns.CountPlanetVisited = h.CountPlanetVisited
-	}
-	if h, ok := s.(interface {
-		CountSystemVisited(context.Context, *CountSystemVisitedRequest) (*CountSystemVisitedResponse, error)
-	}); ok {
-		ns.CountSystemVisited = h.CountSystemVisited
-	}
-	if h, ok := s.(interface {
-		CountPlayerVisitedCurrentPlanet(context.Context, *CountPlayerVisitedCurrentPlanetRequest) (*CountPlayerVisitedCurrentPlanetResponse, error)
-	}); ok {
-		ns.CountPlayerVisitedCurrentPlanet = h.CountPlayerVisitedCurrentPlanet
-	}
-	if h, ok := s.(interface {
-		GetRestsInfo(context.Context, *GetRestsInfoRequest) (*GetRestsInfoResponse, error)
-	}); ok {
-		ns.GetRestsInfo = h.GetRestsInfo
-	}
-	if h, ok := s.(interface {
-		EndPlayerRest(context.Context, *EndPlayerRestRequest) (*EndPlayerRestResponse, error)
-	}); ok {
-		ns.EndPlayerRest = h.EndPlayerRest
-	}
-	if h, ok := s.(interface {
-		SignIn(context.Context, *SignInRequest) (*SignInResponse, error)
-	}); ok {
-		ns.SignIn = h.SignIn
-	}
-	if h, ok := s.(interface {
-		GetPlayerStateByID(context.Context, *GetPlayerStateByIDRequest) (*GetPlayerStateByIDResponse, error)
-	}); ok {
-		ns.GetPlayerStateByID = h.GetPlayerStateByID
-	}
-	if h, ok := s.(interface {
-		GetActivePlayerStates(context.Context, *GetActivePlayerStatesRequest) (*GetActivePlayerStatesResponse, error)
-	}); ok {
-		ns.GetActivePlayerStates = h.GetActivePlayerStates
-	}
-	if h, ok := s.(interface {
-		GetPlayerStateToNotify(context.Context, *GetPlayerStateToNotifyRequest) (*GetPlayerStateToNotifyResponse, error)
-	}); ok {
-		ns.GetPlayerStateToNotify = h.GetPlayerStateToNotify
-	}
-	if h, ok := s.(interface {
-		CreatePlayerState(context.Context, *CreatePlayerStateRequest) (*CreatePlayerStateResponse, error)
-	}); ok {
-		ns.CreatePlayerState = h.CreatePlayerState
-	}
-	if h, ok := s.(interface {
-		UpdatePlayerState(context.Context, *UpdatePlayerStateRequest) (*UpdatePlayerStateResponse, error)
-	}); ok {
-		ns.UpdatePlayerState = h.UpdatePlayerState
-	}
-	if h, ok := s.(interface {
-		DeletePlayerState(context.Context, *DeletePlayerStateRequest) (*DeletePlayerStateResponse, error)
-	}); ok {
-		ns.DeletePlayerState = h.DeletePlayerState
-	}
-	if h, ok := s.(interface {
-		GetEnemyByID(context.Context, *GetEnemyByIDRequest) (*GetEnemyByIDResponse, error)
-	}); ok {
-		ns.GetEnemyByID = h.GetEnemyByID
-	}
-	if h, ok := s.(interface {
-		HitEnemy(context.Context, *HitEnemyRequest) (*HitEnemyResponse, error)
-	}); ok {
-		ns.HitEnemy = h.HitEnemy
-	}
-	if h, ok := s.(interface {
-		GetTitanByID(context.Context, *GetTitanByIDRequest) (*GetTitanByIDResponse, error)
-	}); ok {
-		ns.GetTitanByID = h.GetTitanByID
-	}
-	if h, ok := s.(interface {
-		GetTitanByName(context.Context, *GetTitanByNameRequest) (*GetTitanByNameResponse, error)
-	}); ok {
-		ns.GetTitanByName = h.GetTitanByName
-	}
-	if h, ok := s.(interface {
-		GetTitanByPlanetID(context.Context, *GetTitanByPlanetIDRequest) (*GetTitanByPlanetIDResponse, error)
-	}); ok {
-		ns.GetTitanByPlanetID = h.GetTitanByPlanetID
-	}
-	if h, ok := s.(interface {
-		HitTitan(context.Context, *HitTitanRequest) (*HitTitanResponse, error)
-	}); ok {
-		ns.HitTitan = h.HitTitan
-	}
-	if h, ok := s.(interface {
-		TitanDiscovered(context.Context, *TitanDiscoveredRequest) (*TitanDiscoveredResponse, error)
-	}); ok {
-		ns.TitanDiscovered = h.TitanDiscovered
-	}
-	if h, ok := s.(interface {
-		FindLanguageBySlug(context.Context, *FindLanguageBySlugRequest) (*FindLanguageBySlugResponse, error)
-	}); ok {
-		ns.FindLanguageBySlug = h.FindLanguageBySlug
-	}
-	if h, ok := s.(interface {
-		FindLanguageByName(context.Context, *FindLanguageByNameRequest) (*FindLanguageByNameResponse, error)
-	}); ok {
-		ns.FindLanguageByName = h.FindLanguageByName
-	}
-	if h, ok := s.(interface {
-		GetAllLanguages(context.Context, *GetAllLanguagesRequest) (*GetAllLanguagesResponse, error)
-	}); ok {
-		ns.GetAllLanguages = h.GetAllLanguages
-	}
-	if h, ok := s.(interface {
-		GetAllNPC(context.Context, *GetAllNPCRequest) (*GetAllNPCResponse, error)
-	}); ok {
-		ns.GetAllNPC = h.GetAllNPC
-	}
-	if h, ok := s.(interface {
-		CraftArmor(context.Context, *CraftArmorRequest) (*CraftArmorResponse, error)
-	}); ok {
-		ns.CraftArmor = h.CraftArmor
-	}
-	if h, ok := s.(interface {
-		CraftWeapon(context.Context, *CraftWeaponRequest) (*CraftWeaponResponse, error)
-	}); ok {
-		ns.CraftWeapon = h.CraftWeapon
-	}
-	if h, ok := s.(interface {
-		BankDeposit(context.Context, *BankDepositRequest) (*BankDepositResponse, error)
-	}); ok {
-		ns.BankDeposit = h.BankDeposit
-	}
-	if h, ok := s.(interface {
-		BankWithdraw(context.Context, *BankWithdrawRequest) (*BankWithdrawResponse, error)
-	}); ok {
-		ns.BankWithdraw = h.BankWithdraw
-	}
-	if h, ok := s.(interface {
-		GetPlanetByID(context.Context, *GetPlanetByIDRequest) (*GetPlanetByIDResponse, error)
-	}); ok {
-		ns.GetPlanetByID = h.GetPlanetByID
-	}
-	if h, ok := s.(interface {
-		GetPlanetByName(context.Context, *GetPlanetByNameRequest) (*GetPlanetByNameResponse, error)
-	}); ok {
-		ns.GetPlanetByName = h.GetPlanetByName
-	}
-	if h, ok := s.(interface {
-		GetPlanetByCoordinate(context.Context, *GetPlanetByCoordinateRequest) (*GetPlanetByCoordinateResponse, error)
-	}); ok {
-		ns.GetPlanetByCoordinate = h.GetPlanetByCoordinate
-	}
-	if h, ok := s.(interface {
-		GetPlanetByMapID(context.Context, *GetPlanetByMapIDRequest) (*GetPlanetByMapIDResponse, error)
-	}); ok {
-		ns.GetPlanetByMapID = h.GetPlanetByMapID
-	}
-	if h, ok := s.(interface {
-		GetExpansionInfo(context.Context, *GetExpansionInfoRequest) (*GetExpansionInfoResponse, error)
-	}); ok {
-		ns.GetExpansionInfo = h.GetExpansionInfo
-	}
-	if h, ok := s.(interface {
-		GetSafePlanets(context.Context, *GetSafePlanetsRequest) (*GetSafePlanetsResponse, error)
-	}); ok {
-		ns.GetSafePlanets = h.GetSafePlanets
-	}
-	if h, ok := s.(interface {
-		GetMapByID(context.Context, *GetMapByIDRequest) (*GetMapByIDResponse, error)
-	}); ok {
-		ns.GetMapByID = h.GetMapByID
-	}
-	if h, ok := s.(interface {
-		GetResourceByID(context.Context, *GetResourceByIDRequest) (*GetResourceByIDResponse, error)
-	}); ok {
-		ns.GetResourceByID = h.GetResourceByID
-	}
-	if h, ok := s.(interface {
-		GetResourceByName(context.Context, *GetResourceByNameRequest) (*GetResourceByNameResponse, error)
-	}); ok {
-		ns.GetResourceByName = h.GetResourceByName
-	}
-	if h, ok := s.(interface {
-		DropResource(context.Context, *DropResourceRequest) (*DropResourceResponse, error)
-	}); ok {
-		ns.DropResource = h.DropResource
-	}
-	if h, ok := s.(interface {
-		GetAllItems(context.Context, *GetAllItemsRequest) (*GetAllItemsResponse, error)
-	}); ok {
-		ns.GetAllItems = h.GetAllItems
-	}
-	if h, ok := s.(interface {
-		GetItemsByCategoryID(context.Context, *GetItemsByCategoryIDRequest) (*GetItemsByCategoryIDResponse, error)
-	}); ok {
-		ns.GetItemsByCategoryID = h.GetItemsByCategoryID
-	}
-	if h, ok := s.(interface {
-		UseItem(context.Context, *UseItemRequest) (*UseItemResponse, error)
-	}); ok {
-		ns.UseItem = h.UseItem
-	}
-	if h, ok := s.(interface {
-		GetAllItemCategories(context.Context, *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error)
-	}); ok {
-		ns.GetAllItemCategories = h.GetAllItemCategories
-	}
-	if h, ok := s.(interface {
-		GetShipRepairInfo(context.Context, *GetShipRepairInfoRequest) (*GetShipRepairInfoResponse, error)
-	}); ok {
-		ns.GetShipRepairInfo = h.GetShipRepairInfo
-	}
-	if h, ok := s.(interface {
-		StartShipRepair(context.Context, *StartShipRepairRequest) (*StartShipRepairResponse, error)
-	}); ok {
-		ns.StartShipRepair = h.StartShipRepair
-	}
-	if h, ok := s.(interface {
-		EndShipRepair(context.Context, *EndShipRepairRequest) (*EndShipRepairResponse, error)
-	}); ok {
-		ns.EndShipRepair = h.EndShipRepair
-	}
-	if h, ok := s.(interface {
-		GetShipTravelInfo(context.Context, *GetShipTravelInfoRequest) (*GetShipTravelInfoResponse, error)
-	}); ok {
-		ns.GetShipTravelInfo = h.GetShipTravelInfo
-	}
-	if h, ok := s.(interface {
-		EndShipTravel(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error)
-	}); ok {
-		ns.EndShipTravel = h.EndShipTravel
-	}
-	if h, ok := s.(interface {
-		GetPlayerShips(context.Context, *GetPlayerShipsRequest) (*GetPlayerShipsResponse, error)
-	}); ok {
-		ns.GetPlayerShips = h.GetPlayerShips
-	}
-	if h, ok := s.(interface {
-		GetPlayerShipEquipped(context.Context, *GetPlayerShipEquippedRequest) (*GetPlayerShipEquippedResponse, error)
-	}); ok {
-		ns.GetPlayerShipEquipped = h.GetPlayerShipEquipped
-	}
-	if h, ok := s.(interface {
-		CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error)
-	}); ok {
-		ns.CreateTransaction = h.CreateTransaction
-	}
-	if h, ok := s.(interface {
-		DropTresure(context.Context, *DropTresureRequest) (*DropTresureResponse, error)
-	}); ok {
-		ns.DropTresure = h.DropTresure
-	}
-	if h, ok := s.(interface {
-		GetMission(context.Context, *GetMissionRequest) (*GetMissionResponse, error)
-	}); ok {
-		ns.GetMission = h.GetMission
-	}
-	if h, ok := s.(interface {
-		CheckMission(context.Context, *CheckMissionRequest) (*CheckMissionResponse, error)
-	}); ok {
-		ns.CheckMission = h.CheckMission
-	}
-	if h, ok := s.(interface {
-		GetMissionReward(context.Context, *GetMissionRewardRequest) (*GetMissionRewardResponse, error)
-	}); ok {
-		ns.GetMissionReward = h.GetMissionReward
-	}
-	if h, ok := s.(interface {
-		GetTeletrasportSafePlanetList(context.Context, *GetTeletrasportSafePlanetListRequest) (*GetTeletrasportSafePlanetListResponse, error)
-	}); ok {
-		ns.GetTeletrasportSafePlanetList = h.GetTeletrasportSafePlanetList
-	}
-	if h, ok := s.(interface {
-		EndTeletrasportSafePlanet(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error)
-	}); ok {
-		ns.EndTeletrasportSafePlanet = h.EndTeletrasportSafePlanet
-	}
-	if h, ok := s.(interface {
-		GetAllExplorationCategories(context.Context, *GetAllExplorationCategoriesRequest) (*GetAllExplorationCategoriesResponse, error)
-	}); ok {
-		ns.GetAllExplorationCategories = h.GetAllExplorationCategories
-	}
-	return ns
-}
-
-// UnstableNoNameService is the service API for NoName service.
-// New methods may be added to this interface if they are added to the service
-// definition, which is not a backward-compatible change.  For this reason,
-// use of this type is not recommended.
-type UnstableNoNameService interface {
+// NoNameServer is the server API for NoName service.
+// All implementations must embed UnimplementedNoNameServer
+// for forward compatibility
+type NoNameServer interface {
 	// Armor
 	GetArmorByID(context.Context, *GetArmorByIDRequest) (*GetArmorByIDResponse, error)
-	FindArmorByName(context.Context, *FindArmorByNameRequest) (*FindArmorByNameResponse, error)
+	GetArmorByName(context.Context, *GetArmorByNameRequest) (*GetArmorByNameResponse, error)
 	UpdateArmor(context.Context, *UpdateArmorRequest) (*UpdateArmorResponse, error)
 	GetPlayerArmors(context.Context, *GetPlayerArmorsRequest) (*GetPlayerArmorsResponse, error)
 	GetPlayerArmorsByCategoryID(context.Context, *GetPlayerArmorsByCategoryIDRequest) (*GetPlayerArmorsByCategoryIDResponse, error)
@@ -3808,7 +879,7 @@ type UnstableNoNameService interface {
 	GetArmorCategoryBySlug(context.Context, *GetArmorCategoryBySlugRequest) (*GetArmorCategoryBySlugResponse, error)
 	// Weapon
 	GetWeaponByID(context.Context, *GetWeaponByIDRequest) (*GetWeaponByIDResponse, error)
-	FindWeaponByName(context.Context, *FindWeaponByNameRequest) (*FindWeaponByNameResponse, error)
+	GetWeaponByName(context.Context, *GetWeaponByNameRequest) (*GetWeaponByNameResponse, error)
 	UpdateWeapon(context.Context, *UpdateWeaponRequest) (*UpdateWeaponResponse, error)
 	GetPlayerWeapons(context.Context, *GetPlayerWeaponsRequest) (*GetPlayerWeaponsResponse, error)
 	GetPlayerWeaponEquipped(context.Context, *GetPlayerWeaponEquippedRequest) (*GetPlayerWeaponEquippedResponse, error)
@@ -3821,6 +892,7 @@ type UnstableNoNameService interface {
 	GetPlayerEconomy(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error)
 	ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error)
 	PlayerEndTutorial(context.Context, *PlayerEndTutorialRequest) (*PlayerEndTutorialResponse, error)
+	GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error)
 	// PlayerPosition
 	CreatePlayerPosition(context.Context, *CreatePlayerPositionRequest) (*CreatePlayerPositionResponse, error)
 	GetPlayerCurrentPlanet(context.Context, *GetPlayerCurrentPlanetRequest) (*GetPlayerCurrentPlanetResponse, error)
@@ -3849,8 +921,8 @@ type UnstableNoNameService interface {
 	HitTitan(context.Context, *HitTitanRequest) (*HitTitanResponse, error)
 	TitanDiscovered(context.Context, *TitanDiscoveredRequest) (*TitanDiscoveredResponse, error)
 	// Language
-	FindLanguageBySlug(context.Context, *FindLanguageBySlugRequest) (*FindLanguageBySlugResponse, error)
-	FindLanguageByName(context.Context, *FindLanguageByNameRequest) (*FindLanguageByNameResponse, error)
+	GetLanguageBySlug(context.Context, *GetLanguageBySlugRequest) (*GetLanguageBySlugResponse, error)
+	GetLanguageByName(context.Context, *GetLanguageByNameRequest) (*GetLanguageByNameResponse, error)
 	GetAllLanguages(context.Context, *GetAllLanguagesRequest) (*GetAllLanguagesResponse, error)
 	// NPC
 	GetAllNPC(context.Context, *GetAllNPCRequest) (*GetAllNPCResponse, error)
@@ -3900,4 +972,2049 @@ type UnstableNoNameService interface {
 	EndTeletrasportSafePlanet(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error)
 	// Exploration Category
 	GetAllExplorationCategories(context.Context, *GetAllExplorationCategoriesRequest) (*GetAllExplorationCategoriesResponse, error)
+	mustEmbedUnimplementedNoNameServer()
+}
+
+// UnimplementedNoNameServer must be embedded to have forward compatible implementations.
+type UnimplementedNoNameServer struct {
+}
+
+func (*UnimplementedNoNameServer) GetArmorByID(context.Context, *GetArmorByIDRequest) (*GetArmorByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetArmorByID not implemented")
+}
+func (*UnimplementedNoNameServer) GetArmorByName(context.Context, *GetArmorByNameRequest) (*GetArmorByNameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetArmorByName not implemented")
+}
+func (*UnimplementedNoNameServer) UpdateArmor(context.Context, *UpdateArmorRequest) (*UpdateArmorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateArmor not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerArmors(context.Context, *GetPlayerArmorsRequest) (*GetPlayerArmorsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerArmors not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerArmorsByCategoryID(context.Context, *GetPlayerArmorsByCategoryIDRequest) (*GetPlayerArmorsByCategoryIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerArmorsByCategoryID not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerArmorsEquipped(context.Context, *GetPlayerArmorsEquippedRequest) (*GetPlayerArmorsEquippedResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerArmorsEquipped not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerArmorEquippedByCategoryID(context.Context, *GetPlayerArmorEquippedByCategoryIDRequest) (*GetPlayerArmorEquippedByCategoryIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerArmorEquippedByCategoryID not implemented")
+}
+func (*UnimplementedNoNameServer) GetAllArmorCategory(context.Context, *GetAllArmorCategoryRequest) (*GetAllArmorCategoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllArmorCategory not implemented")
+}
+func (*UnimplementedNoNameServer) GetArmorCategoryBySlug(context.Context, *GetArmorCategoryBySlugRequest) (*GetArmorCategoryBySlugResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetArmorCategoryBySlug not implemented")
+}
+func (*UnimplementedNoNameServer) GetWeaponByID(context.Context, *GetWeaponByIDRequest) (*GetWeaponByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetWeaponByID not implemented")
+}
+func (*UnimplementedNoNameServer) GetWeaponByName(context.Context, *GetWeaponByNameRequest) (*GetWeaponByNameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetWeaponByName not implemented")
+}
+func (*UnimplementedNoNameServer) UpdateWeapon(context.Context, *UpdateWeaponRequest) (*UpdateWeaponResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateWeapon not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerWeapons(context.Context, *GetPlayerWeaponsRequest) (*GetPlayerWeaponsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerWeapons not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerWeaponEquipped(context.Context, *GetPlayerWeaponEquippedRequest) (*GetPlayerWeaponEquippedResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerWeaponEquipped not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerByID(context.Context, *GetPlayerByIDRequest) (*GetPlayerByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerByID not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerByUsername(context.Context, *GetPlayerByUsernameRequest) (*GetPlayerByUsernameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerByUsername not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerStats(context.Context, *GetPlayerStatsRequest) (*GetPlayerStatsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerStats not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerResources(context.Context, *GetPlayerResourcesRequest) (*GetPlayerResourcesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerResources not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerItems(context.Context, *GetPlayerItemsRequest) (*GetPlayerItemsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerItems not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerEconomy(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerEconomy not implemented")
+}
+func (*UnimplementedNoNameServer) ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ManagePlayerInventory not implemented")
+}
+func (*UnimplementedNoNameServer) PlayerEndTutorial(context.Context, *PlayerEndTutorialRequest) (*PlayerEndTutorialResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PlayerEndTutorial not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerExperience not implemented")
+}
+func (*UnimplementedNoNameServer) CreatePlayerPosition(context.Context, *CreatePlayerPositionRequest) (*CreatePlayerPositionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePlayerPosition not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerCurrentPlanet(context.Context, *GetPlayerCurrentPlanetRequest) (*GetPlayerCurrentPlanetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerCurrentPlanet not implemented")
+}
+func (*UnimplementedNoNameServer) CountPlanetVisited(context.Context, *CountPlanetVisitedRequest) (*CountPlanetVisitedResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CountPlanetVisited not implemented")
+}
+func (*UnimplementedNoNameServer) CountSystemVisited(context.Context, *CountSystemVisitedRequest) (*CountSystemVisitedResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CountSystemVisited not implemented")
+}
+func (*UnimplementedNoNameServer) CountPlayerVisitedCurrentPlanet(context.Context, *CountPlayerVisitedCurrentPlanetRequest) (*CountPlayerVisitedCurrentPlanetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CountPlayerVisitedCurrentPlanet not implemented")
+}
+func (*UnimplementedNoNameServer) GetRestsInfo(context.Context, *GetRestsInfoRequest) (*GetRestsInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRestsInfo not implemented")
+}
+func (*UnimplementedNoNameServer) EndPlayerRest(context.Context, *EndPlayerRestRequest) (*EndPlayerRestResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EndPlayerRest not implemented")
+}
+func (*UnimplementedNoNameServer) SignIn(context.Context, *SignInRequest) (*SignInResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SignIn not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerStateByID(context.Context, *GetPlayerStateByIDRequest) (*GetPlayerStateByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerStateByID not implemented")
+}
+func (*UnimplementedNoNameServer) GetActivePlayerStates(context.Context, *GetActivePlayerStatesRequest) (*GetActivePlayerStatesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetActivePlayerStates not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerStateToNotify(context.Context, *GetPlayerStateToNotifyRequest) (*GetPlayerStateToNotifyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerStateToNotify not implemented")
+}
+func (*UnimplementedNoNameServer) CreatePlayerState(context.Context, *CreatePlayerStateRequest) (*CreatePlayerStateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePlayerState not implemented")
+}
+func (*UnimplementedNoNameServer) UpdatePlayerState(context.Context, *UpdatePlayerStateRequest) (*UpdatePlayerStateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePlayerState not implemented")
+}
+func (*UnimplementedNoNameServer) DeletePlayerState(context.Context, *DeletePlayerStateRequest) (*DeletePlayerStateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeletePlayerState not implemented")
+}
+func (*UnimplementedNoNameServer) GetEnemyByID(context.Context, *GetEnemyByIDRequest) (*GetEnemyByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEnemyByID not implemented")
+}
+func (*UnimplementedNoNameServer) HitEnemy(context.Context, *HitEnemyRequest) (*HitEnemyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method HitEnemy not implemented")
+}
+func (*UnimplementedNoNameServer) GetTitanByID(context.Context, *GetTitanByIDRequest) (*GetTitanByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTitanByID not implemented")
+}
+func (*UnimplementedNoNameServer) GetTitanByName(context.Context, *GetTitanByNameRequest) (*GetTitanByNameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTitanByName not implemented")
+}
+func (*UnimplementedNoNameServer) GetTitanByPlanetID(context.Context, *GetTitanByPlanetIDRequest) (*GetTitanByPlanetIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTitanByPlanetID not implemented")
+}
+func (*UnimplementedNoNameServer) HitTitan(context.Context, *HitTitanRequest) (*HitTitanResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method HitTitan not implemented")
+}
+func (*UnimplementedNoNameServer) TitanDiscovered(context.Context, *TitanDiscoveredRequest) (*TitanDiscoveredResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TitanDiscovered not implemented")
+}
+func (*UnimplementedNoNameServer) GetLanguageBySlug(context.Context, *GetLanguageBySlugRequest) (*GetLanguageBySlugResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetLanguageBySlug not implemented")
+}
+func (*UnimplementedNoNameServer) GetLanguageByName(context.Context, *GetLanguageByNameRequest) (*GetLanguageByNameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetLanguageByName not implemented")
+}
+func (*UnimplementedNoNameServer) GetAllLanguages(context.Context, *GetAllLanguagesRequest) (*GetAllLanguagesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllLanguages not implemented")
+}
+func (*UnimplementedNoNameServer) GetAllNPC(context.Context, *GetAllNPCRequest) (*GetAllNPCResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllNPC not implemented")
+}
+func (*UnimplementedNoNameServer) CraftArmor(context.Context, *CraftArmorRequest) (*CraftArmorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CraftArmor not implemented")
+}
+func (*UnimplementedNoNameServer) CraftWeapon(context.Context, *CraftWeaponRequest) (*CraftWeaponResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CraftWeapon not implemented")
+}
+func (*UnimplementedNoNameServer) BankDeposit(context.Context, *BankDepositRequest) (*BankDepositResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BankDeposit not implemented")
+}
+func (*UnimplementedNoNameServer) BankWithdraw(context.Context, *BankWithdrawRequest) (*BankWithdrawResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BankWithdraw not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlanetByID(context.Context, *GetPlanetByIDRequest) (*GetPlanetByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlanetByID not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlanetByName(context.Context, *GetPlanetByNameRequest) (*GetPlanetByNameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlanetByName not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlanetByCoordinate(context.Context, *GetPlanetByCoordinateRequest) (*GetPlanetByCoordinateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlanetByCoordinate not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlanetByMapID(context.Context, *GetPlanetByMapIDRequest) (*GetPlanetByMapIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlanetByMapID not implemented")
+}
+func (*UnimplementedNoNameServer) GetExpansionInfo(context.Context, *GetExpansionInfoRequest) (*GetExpansionInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetExpansionInfo not implemented")
+}
+func (*UnimplementedNoNameServer) GetSafePlanets(context.Context, *GetSafePlanetsRequest) (*GetSafePlanetsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetSafePlanets not implemented")
+}
+func (*UnimplementedNoNameServer) GetMapByID(context.Context, *GetMapByIDRequest) (*GetMapByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMapByID not implemented")
+}
+func (*UnimplementedNoNameServer) GetResourceByID(context.Context, *GetResourceByIDRequest) (*GetResourceByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetResourceByID not implemented")
+}
+func (*UnimplementedNoNameServer) GetResourceByName(context.Context, *GetResourceByNameRequest) (*GetResourceByNameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetResourceByName not implemented")
+}
+func (*UnimplementedNoNameServer) DropResource(context.Context, *DropResourceRequest) (*DropResourceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DropResource not implemented")
+}
+func (*UnimplementedNoNameServer) GetAllItems(context.Context, *GetAllItemsRequest) (*GetAllItemsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllItems not implemented")
+}
+func (*UnimplementedNoNameServer) GetItemsByCategoryID(context.Context, *GetItemsByCategoryIDRequest) (*GetItemsByCategoryIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetItemsByCategoryID not implemented")
+}
+func (*UnimplementedNoNameServer) UseItem(context.Context, *UseItemRequest) (*UseItemResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UseItem not implemented")
+}
+func (*UnimplementedNoNameServer) GetAllItemCategories(context.Context, *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllItemCategories not implemented")
+}
+func (*UnimplementedNoNameServer) GetShipRepairInfo(context.Context, *GetShipRepairInfoRequest) (*GetShipRepairInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetShipRepairInfo not implemented")
+}
+func (*UnimplementedNoNameServer) StartShipRepair(context.Context, *StartShipRepairRequest) (*StartShipRepairResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StartShipRepair not implemented")
+}
+func (*UnimplementedNoNameServer) EndShipRepair(context.Context, *EndShipRepairRequest) (*EndShipRepairResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EndShipRepair not implemented")
+}
+func (*UnimplementedNoNameServer) GetShipTravelInfo(context.Context, *GetShipTravelInfoRequest) (*GetShipTravelInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetShipTravelInfo not implemented")
+}
+func (*UnimplementedNoNameServer) EndShipTravel(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EndShipTravel not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerShips(context.Context, *GetPlayerShipsRequest) (*GetPlayerShipsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerShips not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerShipEquipped(context.Context, *GetPlayerShipEquippedRequest) (*GetPlayerShipEquippedResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerShipEquipped not implemented")
+}
+func (*UnimplementedNoNameServer) CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateTransaction not implemented")
+}
+func (*UnimplementedNoNameServer) DropTresure(context.Context, *DropTresureRequest) (*DropTresureResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DropTresure not implemented")
+}
+func (*UnimplementedNoNameServer) GetMission(context.Context, *GetMissionRequest) (*GetMissionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMission not implemented")
+}
+func (*UnimplementedNoNameServer) CheckMission(context.Context, *CheckMissionRequest) (*CheckMissionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckMission not implemented")
+}
+func (*UnimplementedNoNameServer) GetMissionReward(context.Context, *GetMissionRewardRequest) (*GetMissionRewardResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMissionReward not implemented")
+}
+func (*UnimplementedNoNameServer) GetTeletrasportSafePlanetList(context.Context, *GetTeletrasportSafePlanetListRequest) (*GetTeletrasportSafePlanetListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTeletrasportSafePlanetList not implemented")
+}
+func (*UnimplementedNoNameServer) EndTeletrasportSafePlanet(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EndTeletrasportSafePlanet not implemented")
+}
+func (*UnimplementedNoNameServer) GetAllExplorationCategories(context.Context, *GetAllExplorationCategoriesRequest) (*GetAllExplorationCategoriesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllExplorationCategories not implemented")
+}
+func (*UnimplementedNoNameServer) mustEmbedUnimplementedNoNameServer() {}
+
+func RegisterNoNameServer(s *grpc.Server, srv NoNameServer) {
+	s.RegisterService(&_NoName_serviceDesc, srv)
+}
+
+func _NoName_GetArmorByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetArmorByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetArmorByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetArmorByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetArmorByID(ctx, req.(*GetArmorByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetArmorByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetArmorByNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetArmorByName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetArmorByName",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetArmorByName(ctx, req.(*GetArmorByNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_UpdateArmor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateArmorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).UpdateArmor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/UpdateArmor",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).UpdateArmor(ctx, req.(*UpdateArmorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerArmors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerArmorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerArmors(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerArmors",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerArmors(ctx, req.(*GetPlayerArmorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerArmorsByCategoryID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerArmorsByCategoryIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerArmorsByCategoryID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerArmorsByCategoryID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerArmorsByCategoryID(ctx, req.(*GetPlayerArmorsByCategoryIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerArmorsEquipped_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerArmorsEquippedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerArmorsEquipped(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerArmorsEquipped",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerArmorsEquipped(ctx, req.(*GetPlayerArmorsEquippedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerArmorEquippedByCategoryID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerArmorEquippedByCategoryIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerArmorEquippedByCategoryID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerArmorEquippedByCategoryID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerArmorEquippedByCategoryID(ctx, req.(*GetPlayerArmorEquippedByCategoryIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetAllArmorCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllArmorCategoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllArmorCategory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllArmorCategory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllArmorCategory(ctx, req.(*GetAllArmorCategoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetArmorCategoryBySlug_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetArmorCategoryBySlugRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetArmorCategoryBySlug(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetArmorCategoryBySlug",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetArmorCategoryBySlug(ctx, req.(*GetArmorCategoryBySlugRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetWeaponByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWeaponByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetWeaponByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetWeaponByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetWeaponByID(ctx, req.(*GetWeaponByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetWeaponByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWeaponByNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetWeaponByName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetWeaponByName",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetWeaponByName(ctx, req.(*GetWeaponByNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_UpdateWeapon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateWeaponRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).UpdateWeapon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/UpdateWeapon",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).UpdateWeapon(ctx, req.(*UpdateWeaponRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerWeapons_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerWeaponsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerWeapons(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerWeapons",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerWeapons(ctx, req.(*GetPlayerWeaponsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerWeaponEquipped_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerWeaponEquippedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerWeaponEquipped(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerWeaponEquipped",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerWeaponEquipped(ctx, req.(*GetPlayerWeaponEquippedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerByID(ctx, req.(*GetPlayerByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerByUsername_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerByUsernameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerByUsername(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerByUsername",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerByUsername(ctx, req.(*GetPlayerByUsernameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerStatsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerStats(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerStats",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerStats(ctx, req.(*GetPlayerStatsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerResources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerResourcesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerResources(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerResources",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerResources(ctx, req.(*GetPlayerResourcesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerItems_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerItemsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerItems(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerItems",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerItems(ctx, req.(*GetPlayerItemsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerEconomy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerEconomyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerEconomy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerEconomy",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerEconomy(ctx, req.(*GetPlayerEconomyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_ManagePlayerInventory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ManagePlayerInventoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).ManagePlayerInventory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/ManagePlayerInventory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).ManagePlayerInventory(ctx, req.(*ManagePlayerInventoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_PlayerEndTutorial_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlayerEndTutorialRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).PlayerEndTutorial(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/PlayerEndTutorial",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).PlayerEndTutorial(ctx, req.(*PlayerEndTutorialRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerExperience_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerExperienceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerExperience(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerExperience",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerExperience(ctx, req.(*GetPlayerExperienceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_CreatePlayerPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePlayerPositionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CreatePlayerPosition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CreatePlayerPosition",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CreatePlayerPosition(ctx, req.(*CreatePlayerPositionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerCurrentPlanet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerCurrentPlanetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerCurrentPlanet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerCurrentPlanet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerCurrentPlanet(ctx, req.(*GetPlayerCurrentPlanetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_CountPlanetVisited_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CountPlanetVisitedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CountPlanetVisited(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CountPlanetVisited",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CountPlanetVisited(ctx, req.(*CountPlanetVisitedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_CountSystemVisited_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CountSystemVisitedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CountSystemVisited(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CountSystemVisited",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CountSystemVisited(ctx, req.(*CountSystemVisitedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_CountPlayerVisitedCurrentPlanet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CountPlayerVisitedCurrentPlanetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CountPlayerVisitedCurrentPlanet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CountPlayerVisitedCurrentPlanet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CountPlayerVisitedCurrentPlanet(ctx, req.(*CountPlayerVisitedCurrentPlanetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetRestsInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRestsInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetRestsInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetRestsInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetRestsInfo(ctx, req.(*GetRestsInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_EndPlayerRest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EndPlayerRestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).EndPlayerRest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/EndPlayerRest",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).EndPlayerRest(ctx, req.(*EndPlayerRestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_SignIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SignInRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).SignIn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/SignIn",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).SignIn(ctx, req.(*SignInRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerStateByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerStateByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerStateByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerStateByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerStateByID(ctx, req.(*GetPlayerStateByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetActivePlayerStates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActivePlayerStatesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetActivePlayerStates(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetActivePlayerStates",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetActivePlayerStates(ctx, req.(*GetActivePlayerStatesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerStateToNotify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerStateToNotifyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerStateToNotify(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerStateToNotify",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerStateToNotify(ctx, req.(*GetPlayerStateToNotifyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_CreatePlayerState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePlayerStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CreatePlayerState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CreatePlayerState",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CreatePlayerState(ctx, req.(*CreatePlayerStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_UpdatePlayerState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdatePlayerStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).UpdatePlayerState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/UpdatePlayerState",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).UpdatePlayerState(ctx, req.(*UpdatePlayerStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_DeletePlayerState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeletePlayerStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).DeletePlayerState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/DeletePlayerState",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).DeletePlayerState(ctx, req.(*DeletePlayerStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetEnemyByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEnemyByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetEnemyByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetEnemyByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetEnemyByID(ctx, req.(*GetEnemyByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_HitEnemy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HitEnemyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).HitEnemy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/HitEnemy",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).HitEnemy(ctx, req.(*HitEnemyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetTitanByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTitanByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetTitanByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetTitanByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetTitanByID(ctx, req.(*GetTitanByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetTitanByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTitanByNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetTitanByName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetTitanByName",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetTitanByName(ctx, req.(*GetTitanByNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetTitanByPlanetID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTitanByPlanetIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetTitanByPlanetID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetTitanByPlanetID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetTitanByPlanetID(ctx, req.(*GetTitanByPlanetIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_HitTitan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HitTitanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).HitTitan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/HitTitan",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).HitTitan(ctx, req.(*HitTitanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_TitanDiscovered_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TitanDiscoveredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).TitanDiscovered(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/TitanDiscovered",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).TitanDiscovered(ctx, req.(*TitanDiscoveredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetLanguageBySlug_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLanguageBySlugRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetLanguageBySlug(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetLanguageBySlug",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetLanguageBySlug(ctx, req.(*GetLanguageBySlugRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetLanguageByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLanguageByNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetLanguageByName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetLanguageByName",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetLanguageByName(ctx, req.(*GetLanguageByNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetAllLanguages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllLanguagesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllLanguages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllLanguages",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllLanguages(ctx, req.(*GetAllLanguagesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetAllNPC_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllNPCRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllNPC(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllNPC",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllNPC(ctx, req.(*GetAllNPCRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_CraftArmor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CraftArmorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CraftArmor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CraftArmor",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CraftArmor(ctx, req.(*CraftArmorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_CraftWeapon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CraftWeaponRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CraftWeapon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CraftWeapon",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CraftWeapon(ctx, req.(*CraftWeaponRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_BankDeposit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BankDepositRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).BankDeposit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/BankDeposit",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).BankDeposit(ctx, req.(*BankDepositRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_BankWithdraw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BankWithdrawRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).BankWithdraw(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/BankWithdraw",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).BankWithdraw(ctx, req.(*BankWithdrawRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlanetByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlanetByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlanetByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlanetByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlanetByID(ctx, req.(*GetPlanetByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlanetByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlanetByNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlanetByName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlanetByName",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlanetByName(ctx, req.(*GetPlanetByNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlanetByCoordinate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlanetByCoordinateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlanetByCoordinate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlanetByCoordinate",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlanetByCoordinate(ctx, req.(*GetPlanetByCoordinateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlanetByMapID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlanetByMapIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlanetByMapID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlanetByMapID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlanetByMapID(ctx, req.(*GetPlanetByMapIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetExpansionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExpansionInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetExpansionInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetExpansionInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetExpansionInfo(ctx, req.(*GetExpansionInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetSafePlanets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSafePlanetsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetSafePlanets(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetSafePlanets",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetSafePlanets(ctx, req.(*GetSafePlanetsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetMapByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMapByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetMapByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetMapByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetMapByID(ctx, req.(*GetMapByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetResourceByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResourceByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetResourceByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetResourceByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetResourceByID(ctx, req.(*GetResourceByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetResourceByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResourceByNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetResourceByName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetResourceByName",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetResourceByName(ctx, req.(*GetResourceByNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_DropResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DropResourceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).DropResource(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/DropResource",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).DropResource(ctx, req.(*DropResourceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetAllItems_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllItemsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllItems(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllItems",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllItems(ctx, req.(*GetAllItemsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetItemsByCategoryID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetItemsByCategoryIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetItemsByCategoryID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetItemsByCategoryID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetItemsByCategoryID(ctx, req.(*GetItemsByCategoryIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_UseItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UseItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).UseItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/UseItem",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).UseItem(ctx, req.(*UseItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetAllItemCategories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllItemCategoriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllItemCategories(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllItemCategories",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllItemCategories(ctx, req.(*GetAllItemCategoriesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetShipRepairInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShipRepairInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetShipRepairInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetShipRepairInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetShipRepairInfo(ctx, req.(*GetShipRepairInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_StartShipRepair_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartShipRepairRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).StartShipRepair(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/StartShipRepair",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).StartShipRepair(ctx, req.(*StartShipRepairRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_EndShipRepair_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EndShipRepairRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).EndShipRepair(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/EndShipRepair",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).EndShipRepair(ctx, req.(*EndShipRepairRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetShipTravelInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShipTravelInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetShipTravelInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetShipTravelInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetShipTravelInfo(ctx, req.(*GetShipTravelInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_EndShipTravel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EndShipTravelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).EndShipTravel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/EndShipTravel",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).EndShipTravel(ctx, req.(*EndShipTravelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerShips_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerShipsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerShips(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerShips",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerShips(ctx, req.(*GetPlayerShipsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerShipEquipped_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerShipEquippedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerShipEquipped(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerShipEquipped",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerShipEquipped(ctx, req.(*GetPlayerShipEquippedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_CreateTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateTransactionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CreateTransaction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CreateTransaction",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CreateTransaction(ctx, req.(*CreateTransactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_DropTresure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DropTresureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).DropTresure(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/DropTresure",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).DropTresure(ctx, req.(*DropTresureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetMission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMissionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetMission(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetMission",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetMission(ctx, req.(*GetMissionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_CheckMission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckMissionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CheckMission(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CheckMission",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CheckMission(ctx, req.(*CheckMissionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetMissionReward_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMissionRewardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetMissionReward(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetMissionReward",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetMissionReward(ctx, req.(*GetMissionRewardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetTeletrasportSafePlanetList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTeletrasportSafePlanetListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetTeletrasportSafePlanetList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetTeletrasportSafePlanetList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetTeletrasportSafePlanetList(ctx, req.(*GetTeletrasportSafePlanetListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_EndTeletrasportSafePlanet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EndTeletrasportSafePlanetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).EndTeletrasportSafePlanet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/EndTeletrasportSafePlanet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).EndTeletrasportSafePlanet(ctx, req.(*EndTeletrasportSafePlanetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetAllExplorationCategories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllExplorationCategoriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllExplorationCategories(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllExplorationCategories",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllExplorationCategories(ctx, req.(*GetAllExplorationCategoriesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _NoName_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "NoName",
+	HandlerType: (*NoNameServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetArmorByID",
+			Handler:    _NoName_GetArmorByID_Handler,
+		},
+		{
+			MethodName: "GetArmorByName",
+			Handler:    _NoName_GetArmorByName_Handler,
+		},
+		{
+			MethodName: "UpdateArmor",
+			Handler:    _NoName_UpdateArmor_Handler,
+		},
+		{
+			MethodName: "GetPlayerArmors",
+			Handler:    _NoName_GetPlayerArmors_Handler,
+		},
+		{
+			MethodName: "GetPlayerArmorsByCategoryID",
+			Handler:    _NoName_GetPlayerArmorsByCategoryID_Handler,
+		},
+		{
+			MethodName: "GetPlayerArmorsEquipped",
+			Handler:    _NoName_GetPlayerArmorsEquipped_Handler,
+		},
+		{
+			MethodName: "GetPlayerArmorEquippedByCategoryID",
+			Handler:    _NoName_GetPlayerArmorEquippedByCategoryID_Handler,
+		},
+		{
+			MethodName: "GetAllArmorCategory",
+			Handler:    _NoName_GetAllArmorCategory_Handler,
+		},
+		{
+			MethodName: "GetArmorCategoryBySlug",
+			Handler:    _NoName_GetArmorCategoryBySlug_Handler,
+		},
+		{
+			MethodName: "GetWeaponByID",
+			Handler:    _NoName_GetWeaponByID_Handler,
+		},
+		{
+			MethodName: "GetWeaponByName",
+			Handler:    _NoName_GetWeaponByName_Handler,
+		},
+		{
+			MethodName: "UpdateWeapon",
+			Handler:    _NoName_UpdateWeapon_Handler,
+		},
+		{
+			MethodName: "GetPlayerWeapons",
+			Handler:    _NoName_GetPlayerWeapons_Handler,
+		},
+		{
+			MethodName: "GetPlayerWeaponEquipped",
+			Handler:    _NoName_GetPlayerWeaponEquipped_Handler,
+		},
+		{
+			MethodName: "GetPlayerByID",
+			Handler:    _NoName_GetPlayerByID_Handler,
+		},
+		{
+			MethodName: "GetPlayerByUsername",
+			Handler:    _NoName_GetPlayerByUsername_Handler,
+		},
+		{
+			MethodName: "GetPlayerStats",
+			Handler:    _NoName_GetPlayerStats_Handler,
+		},
+		{
+			MethodName: "GetPlayerResources",
+			Handler:    _NoName_GetPlayerResources_Handler,
+		},
+		{
+			MethodName: "GetPlayerItems",
+			Handler:    _NoName_GetPlayerItems_Handler,
+		},
+		{
+			MethodName: "GetPlayerEconomy",
+			Handler:    _NoName_GetPlayerEconomy_Handler,
+		},
+		{
+			MethodName: "ManagePlayerInventory",
+			Handler:    _NoName_ManagePlayerInventory_Handler,
+		},
+		{
+			MethodName: "PlayerEndTutorial",
+			Handler:    _NoName_PlayerEndTutorial_Handler,
+		},
+		{
+			MethodName: "GetPlayerExperience",
+			Handler:    _NoName_GetPlayerExperience_Handler,
+		},
+		{
+			MethodName: "CreatePlayerPosition",
+			Handler:    _NoName_CreatePlayerPosition_Handler,
+		},
+		{
+			MethodName: "GetPlayerCurrentPlanet",
+			Handler:    _NoName_GetPlayerCurrentPlanet_Handler,
+		},
+		{
+			MethodName: "CountPlanetVisited",
+			Handler:    _NoName_CountPlanetVisited_Handler,
+		},
+		{
+			MethodName: "CountSystemVisited",
+			Handler:    _NoName_CountSystemVisited_Handler,
+		},
+		{
+			MethodName: "CountPlayerVisitedCurrentPlanet",
+			Handler:    _NoName_CountPlayerVisitedCurrentPlanet_Handler,
+		},
+		{
+			MethodName: "GetRestsInfo",
+			Handler:    _NoName_GetRestsInfo_Handler,
+		},
+		{
+			MethodName: "EndPlayerRest",
+			Handler:    _NoName_EndPlayerRest_Handler,
+		},
+		{
+			MethodName: "SignIn",
+			Handler:    _NoName_SignIn_Handler,
+		},
+		{
+			MethodName: "GetPlayerStateByID",
+			Handler:    _NoName_GetPlayerStateByID_Handler,
+		},
+		{
+			MethodName: "GetActivePlayerStates",
+			Handler:    _NoName_GetActivePlayerStates_Handler,
+		},
+		{
+			MethodName: "GetPlayerStateToNotify",
+			Handler:    _NoName_GetPlayerStateToNotify_Handler,
+		},
+		{
+			MethodName: "CreatePlayerState",
+			Handler:    _NoName_CreatePlayerState_Handler,
+		},
+		{
+			MethodName: "UpdatePlayerState",
+			Handler:    _NoName_UpdatePlayerState_Handler,
+		},
+		{
+			MethodName: "DeletePlayerState",
+			Handler:    _NoName_DeletePlayerState_Handler,
+		},
+		{
+			MethodName: "GetEnemyByID",
+			Handler:    _NoName_GetEnemyByID_Handler,
+		},
+		{
+			MethodName: "HitEnemy",
+			Handler:    _NoName_HitEnemy_Handler,
+		},
+		{
+			MethodName: "GetTitanByID",
+			Handler:    _NoName_GetTitanByID_Handler,
+		},
+		{
+			MethodName: "GetTitanByName",
+			Handler:    _NoName_GetTitanByName_Handler,
+		},
+		{
+			MethodName: "GetTitanByPlanetID",
+			Handler:    _NoName_GetTitanByPlanetID_Handler,
+		},
+		{
+			MethodName: "HitTitan",
+			Handler:    _NoName_HitTitan_Handler,
+		},
+		{
+			MethodName: "TitanDiscovered",
+			Handler:    _NoName_TitanDiscovered_Handler,
+		},
+		{
+			MethodName: "GetLanguageBySlug",
+			Handler:    _NoName_GetLanguageBySlug_Handler,
+		},
+		{
+			MethodName: "GetLanguageByName",
+			Handler:    _NoName_GetLanguageByName_Handler,
+		},
+		{
+			MethodName: "GetAllLanguages",
+			Handler:    _NoName_GetAllLanguages_Handler,
+		},
+		{
+			MethodName: "GetAllNPC",
+			Handler:    _NoName_GetAllNPC_Handler,
+		},
+		{
+			MethodName: "CraftArmor",
+			Handler:    _NoName_CraftArmor_Handler,
+		},
+		{
+			MethodName: "CraftWeapon",
+			Handler:    _NoName_CraftWeapon_Handler,
+		},
+		{
+			MethodName: "BankDeposit",
+			Handler:    _NoName_BankDeposit_Handler,
+		},
+		{
+			MethodName: "BankWithdraw",
+			Handler:    _NoName_BankWithdraw_Handler,
+		},
+		{
+			MethodName: "GetPlanetByID",
+			Handler:    _NoName_GetPlanetByID_Handler,
+		},
+		{
+			MethodName: "GetPlanetByName",
+			Handler:    _NoName_GetPlanetByName_Handler,
+		},
+		{
+			MethodName: "GetPlanetByCoordinate",
+			Handler:    _NoName_GetPlanetByCoordinate_Handler,
+		},
+		{
+			MethodName: "GetPlanetByMapID",
+			Handler:    _NoName_GetPlanetByMapID_Handler,
+		},
+		{
+			MethodName: "GetExpansionInfo",
+			Handler:    _NoName_GetExpansionInfo_Handler,
+		},
+		{
+			MethodName: "GetSafePlanets",
+			Handler:    _NoName_GetSafePlanets_Handler,
+		},
+		{
+			MethodName: "GetMapByID",
+			Handler:    _NoName_GetMapByID_Handler,
+		},
+		{
+			MethodName: "GetResourceByID",
+			Handler:    _NoName_GetResourceByID_Handler,
+		},
+		{
+			MethodName: "GetResourceByName",
+			Handler:    _NoName_GetResourceByName_Handler,
+		},
+		{
+			MethodName: "DropResource",
+			Handler:    _NoName_DropResource_Handler,
+		},
+		{
+			MethodName: "GetAllItems",
+			Handler:    _NoName_GetAllItems_Handler,
+		},
+		{
+			MethodName: "GetItemsByCategoryID",
+			Handler:    _NoName_GetItemsByCategoryID_Handler,
+		},
+		{
+			MethodName: "UseItem",
+			Handler:    _NoName_UseItem_Handler,
+		},
+		{
+			MethodName: "GetAllItemCategories",
+			Handler:    _NoName_GetAllItemCategories_Handler,
+		},
+		{
+			MethodName: "GetShipRepairInfo",
+			Handler:    _NoName_GetShipRepairInfo_Handler,
+		},
+		{
+			MethodName: "StartShipRepair",
+			Handler:    _NoName_StartShipRepair_Handler,
+		},
+		{
+			MethodName: "EndShipRepair",
+			Handler:    _NoName_EndShipRepair_Handler,
+		},
+		{
+			MethodName: "GetShipTravelInfo",
+			Handler:    _NoName_GetShipTravelInfo_Handler,
+		},
+		{
+			MethodName: "EndShipTravel",
+			Handler:    _NoName_EndShipTravel_Handler,
+		},
+		{
+			MethodName: "GetPlayerShips",
+			Handler:    _NoName_GetPlayerShips_Handler,
+		},
+		{
+			MethodName: "GetPlayerShipEquipped",
+			Handler:    _NoName_GetPlayerShipEquipped_Handler,
+		},
+		{
+			MethodName: "CreateTransaction",
+			Handler:    _NoName_CreateTransaction_Handler,
+		},
+		{
+			MethodName: "DropTresure",
+			Handler:    _NoName_DropTresure_Handler,
+		},
+		{
+			MethodName: "GetMission",
+			Handler:    _NoName_GetMission_Handler,
+		},
+		{
+			MethodName: "CheckMission",
+			Handler:    _NoName_CheckMission_Handler,
+		},
+		{
+			MethodName: "GetMissionReward",
+			Handler:    _NoName_GetMissionReward_Handler,
+		},
+		{
+			MethodName: "GetTeletrasportSafePlanetList",
+			Handler:    _NoName_GetTeletrasportSafePlanetList_Handler,
+		},
+		{
+			MethodName: "EndTeletrasportSafePlanet",
+			Handler:    _NoName_EndTeletrasportSafePlanet_Handler,
+		},
+		{
+			MethodName: "GetAllExplorationCategories",
+			Handler:    _NoName_GetAllExplorationCategories_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/noname.proto",
 }

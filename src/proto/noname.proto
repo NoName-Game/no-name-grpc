@@ -28,7 +28,7 @@ option go_package = "proto";
 service NoName {
     // Armor
     rpc GetArmorByID (armor.GetArmorByIDRequest) returns (armor.GetArmorByIDResponse) {}
-    rpc FindArmorByName (armor.FindArmorByNameRequest) returns (armor.FindArmorByNameResponse) {}
+    rpc GetArmorByName (armor.GetArmorByNameRequest) returns (armor.GetArmorByNameResponse) {}
     rpc UpdateArmor (armor.UpdateArmorRequest) returns (armor.UpdateArmorResponse) {}
     rpc GetPlayerArmors (armor.GetPlayerArmorsRequest) returns (armor.GetPlayerArmorsResponse) {}
     rpc GetPlayerArmorsByCategoryID (armor.GetPlayerArmorsByCategoryIDRequest) returns (armor.GetPlayerArmorsByCategoryIDResponse) {}
@@ -41,7 +41,7 @@ service NoName {
 
     // Weapon
     rpc GetWeaponByID (weapon.GetWeaponByIDRequest) returns (weapon.GetWeaponByIDResponse) {}
-    rpc FindWeaponByName (weapon.FindWeaponByNameRequest) returns (weapon.FindWeaponByNameResponse) {}
+    rpc GetWeaponByName (weapon.GetWeaponByNameRequest) returns (weapon.GetWeaponByNameResponse) {}
     rpc UpdateWeapon (weapon.UpdateWeaponRequest) returns (weapon.UpdateWeaponResponse) {}
     rpc GetPlayerWeapons (weapon.GetPlayerWeaponsRequest) returns (weapon.GetPlayerWeaponsResponse) {}
     rpc GetPlayerWeaponEquipped (weapon.GetPlayerWeaponEquippedRequest) returns (weapon.GetPlayerWeaponEquippedResponse) {}
@@ -55,6 +55,7 @@ service NoName {
     rpc GetPlayerEconomy (player.GetPlayerEconomyRequest) returns (player.GetPlayerEconomyResponse) {}
     rpc ManagePlayerInventory (player.ManagePlayerInventoryRequest) returns (player.ManagePlayerInventoryResponse) {}
     rpc PlayerEndTutorial (player.PlayerEndTutorialRequest) returns (player.PlayerEndTutorialResponse) {}
+    rpc GetPlayerExperience (player.GetPlayerExperienceRequest) returns (player.GetPlayerExperienceResponse) {}
 
     // PlayerPosition
     rpc CreatePlayerPosition (player_position.CreatePlayerPositionRequest) returns (player_position.CreatePlayerPositionResponse) {}
@@ -90,8 +91,8 @@ service NoName {
     rpc TitanDiscovered (titan.TitanDiscoveredRequest) returns (titan.TitanDiscoveredResponse) {}
 
     // Language
-    rpc FindLanguageBySlug (language.FindLanguageBySlugRequest) returns (language.FindLanguageBySlugResponse) {}
-    rpc FindLanguageByName (language.FindLanguageByNameRequest) returns (language.FindLanguageByNameResponse) {}
+    rpc GetLanguageBySlug (language.GetLanguageBySlugRequest) returns (language.GetLanguageBySlugResponse) {}
+    rpc GetLanguageByName (language.GetLanguageByNameRequest) returns (language.GetLanguageByNameResponse) {}
     rpc GetAllLanguages (language.GetAllLanguagesRequest) returns (language.GetAllLanguagesResponse) {}
 
     // NPC
