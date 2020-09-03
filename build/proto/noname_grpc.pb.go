@@ -19,7 +19,7 @@ const _ = grpc.SupportPackageIsVersion6
 type NoNameClient interface {
 	// Armor
 	GetArmorByID(ctx context.Context, in *GetArmorByIDRequest, opts ...grpc.CallOption) (*GetArmorByIDResponse, error)
-	FindArmorByName(ctx context.Context, in *FindArmorByNameRequest, opts ...grpc.CallOption) (*FindArmorByNameResponse, error)
+	GetArmorByName(ctx context.Context, in *GetArmorByNameRequest, opts ...grpc.CallOption) (*GetArmorByNameResponse, error)
 	UpdateArmor(ctx context.Context, in *UpdateArmorRequest, opts ...grpc.CallOption) (*UpdateArmorResponse, error)
 	GetPlayerArmors(ctx context.Context, in *GetPlayerArmorsRequest, opts ...grpc.CallOption) (*GetPlayerArmorsResponse, error)
 	GetPlayerArmorsByCategoryID(ctx context.Context, in *GetPlayerArmorsByCategoryIDRequest, opts ...grpc.CallOption) (*GetPlayerArmorsByCategoryIDResponse, error)
@@ -30,7 +30,7 @@ type NoNameClient interface {
 	GetArmorCategoryBySlug(ctx context.Context, in *GetArmorCategoryBySlugRequest, opts ...grpc.CallOption) (*GetArmorCategoryBySlugResponse, error)
 	// Weapon
 	GetWeaponByID(ctx context.Context, in *GetWeaponByIDRequest, opts ...grpc.CallOption) (*GetWeaponByIDResponse, error)
-	FindWeaponByName(ctx context.Context, in *FindWeaponByNameRequest, opts ...grpc.CallOption) (*FindWeaponByNameResponse, error)
+	GetWeaponByName(ctx context.Context, in *GetWeaponByNameRequest, opts ...grpc.CallOption) (*GetWeaponByNameResponse, error)
 	UpdateWeapon(ctx context.Context, in *UpdateWeaponRequest, opts ...grpc.CallOption) (*UpdateWeaponResponse, error)
 	GetPlayerWeapons(ctx context.Context, in *GetPlayerWeaponsRequest, opts ...grpc.CallOption) (*GetPlayerWeaponsResponse, error)
 	GetPlayerWeaponEquipped(ctx context.Context, in *GetPlayerWeaponEquippedRequest, opts ...grpc.CallOption) (*GetPlayerWeaponEquippedResponse, error)
@@ -72,8 +72,8 @@ type NoNameClient interface {
 	HitTitan(ctx context.Context, in *HitTitanRequest, opts ...grpc.CallOption) (*HitTitanResponse, error)
 	TitanDiscovered(ctx context.Context, in *TitanDiscoveredRequest, opts ...grpc.CallOption) (*TitanDiscoveredResponse, error)
 	// Language
-	FindLanguageBySlug(ctx context.Context, in *FindLanguageBySlugRequest, opts ...grpc.CallOption) (*FindLanguageBySlugResponse, error)
-	FindLanguageByName(ctx context.Context, in *FindLanguageByNameRequest, opts ...grpc.CallOption) (*FindLanguageByNameResponse, error)
+	GetLanguageBySlug(ctx context.Context, in *GetLanguageBySlugRequest, opts ...grpc.CallOption) (*GetLanguageBySlugResponse, error)
+	GetLanguageByName(ctx context.Context, in *GetLanguageByNameRequest, opts ...grpc.CallOption) (*GetLanguageByNameResponse, error)
 	GetAllLanguages(ctx context.Context, in *GetAllLanguagesRequest, opts ...grpc.CallOption) (*GetAllLanguagesResponse, error)
 	// NPC
 	GetAllNPC(ctx context.Context, in *GetAllNPCRequest, opts ...grpc.CallOption) (*GetAllNPCResponse, error)
@@ -142,9 +142,9 @@ func (c *noNameClient) GetArmorByID(ctx context.Context, in *GetArmorByIDRequest
 	return out, nil
 }
 
-func (c *noNameClient) FindArmorByName(ctx context.Context, in *FindArmorByNameRequest, opts ...grpc.CallOption) (*FindArmorByNameResponse, error) {
-	out := new(FindArmorByNameResponse)
-	err := c.cc.Invoke(ctx, "/NoName/FindArmorByName", in, out, opts...)
+func (c *noNameClient) GetArmorByName(ctx context.Context, in *GetArmorByNameRequest, opts ...grpc.CallOption) (*GetArmorByNameResponse, error) {
+	out := new(GetArmorByNameResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetArmorByName", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -223,9 +223,9 @@ func (c *noNameClient) GetWeaponByID(ctx context.Context, in *GetWeaponByIDReque
 	return out, nil
 }
 
-func (c *noNameClient) FindWeaponByName(ctx context.Context, in *FindWeaponByNameRequest, opts ...grpc.CallOption) (*FindWeaponByNameResponse, error) {
-	out := new(FindWeaponByNameResponse)
-	err := c.cc.Invoke(ctx, "/NoName/FindWeaponByName", in, out, opts...)
+func (c *noNameClient) GetWeaponByName(ctx context.Context, in *GetWeaponByNameRequest, opts ...grpc.CallOption) (*GetWeaponByNameResponse, error) {
+	out := new(GetWeaponByNameResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetWeaponByName", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -529,18 +529,18 @@ func (c *noNameClient) TitanDiscovered(ctx context.Context, in *TitanDiscoveredR
 	return out, nil
 }
 
-func (c *noNameClient) FindLanguageBySlug(ctx context.Context, in *FindLanguageBySlugRequest, opts ...grpc.CallOption) (*FindLanguageBySlugResponse, error) {
-	out := new(FindLanguageBySlugResponse)
-	err := c.cc.Invoke(ctx, "/NoName/FindLanguageBySlug", in, out, opts...)
+func (c *noNameClient) GetLanguageBySlug(ctx context.Context, in *GetLanguageBySlugRequest, opts ...grpc.CallOption) (*GetLanguageBySlugResponse, error) {
+	out := new(GetLanguageBySlugResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetLanguageBySlug", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *noNameClient) FindLanguageByName(ctx context.Context, in *FindLanguageByNameRequest, opts ...grpc.CallOption) (*FindLanguageByNameResponse, error) {
-	out := new(FindLanguageByNameResponse)
-	err := c.cc.Invoke(ctx, "/NoName/FindLanguageByName", in, out, opts...)
+func (c *noNameClient) GetLanguageByName(ctx context.Context, in *GetLanguageByNameRequest, opts ...grpc.CallOption) (*GetLanguageByNameResponse, error) {
+	out := new(GetLanguageByNameResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetLanguageByName", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -868,7 +868,7 @@ func (c *noNameClient) GetAllExplorationCategories(ctx context.Context, in *GetA
 type NoNameServer interface {
 	// Armor
 	GetArmorByID(context.Context, *GetArmorByIDRequest) (*GetArmorByIDResponse, error)
-	FindArmorByName(context.Context, *FindArmorByNameRequest) (*FindArmorByNameResponse, error)
+	GetArmorByName(context.Context, *GetArmorByNameRequest) (*GetArmorByNameResponse, error)
 	UpdateArmor(context.Context, *UpdateArmorRequest) (*UpdateArmorResponse, error)
 	GetPlayerArmors(context.Context, *GetPlayerArmorsRequest) (*GetPlayerArmorsResponse, error)
 	GetPlayerArmorsByCategoryID(context.Context, *GetPlayerArmorsByCategoryIDRequest) (*GetPlayerArmorsByCategoryIDResponse, error)
@@ -879,7 +879,7 @@ type NoNameServer interface {
 	GetArmorCategoryBySlug(context.Context, *GetArmorCategoryBySlugRequest) (*GetArmorCategoryBySlugResponse, error)
 	// Weapon
 	GetWeaponByID(context.Context, *GetWeaponByIDRequest) (*GetWeaponByIDResponse, error)
-	FindWeaponByName(context.Context, *FindWeaponByNameRequest) (*FindWeaponByNameResponse, error)
+	GetWeaponByName(context.Context, *GetWeaponByNameRequest) (*GetWeaponByNameResponse, error)
 	UpdateWeapon(context.Context, *UpdateWeaponRequest) (*UpdateWeaponResponse, error)
 	GetPlayerWeapons(context.Context, *GetPlayerWeaponsRequest) (*GetPlayerWeaponsResponse, error)
 	GetPlayerWeaponEquipped(context.Context, *GetPlayerWeaponEquippedRequest) (*GetPlayerWeaponEquippedResponse, error)
@@ -921,8 +921,8 @@ type NoNameServer interface {
 	HitTitan(context.Context, *HitTitanRequest) (*HitTitanResponse, error)
 	TitanDiscovered(context.Context, *TitanDiscoveredRequest) (*TitanDiscoveredResponse, error)
 	// Language
-	FindLanguageBySlug(context.Context, *FindLanguageBySlugRequest) (*FindLanguageBySlugResponse, error)
-	FindLanguageByName(context.Context, *FindLanguageByNameRequest) (*FindLanguageByNameResponse, error)
+	GetLanguageBySlug(context.Context, *GetLanguageBySlugRequest) (*GetLanguageBySlugResponse, error)
+	GetLanguageByName(context.Context, *GetLanguageByNameRequest) (*GetLanguageByNameResponse, error)
 	GetAllLanguages(context.Context, *GetAllLanguagesRequest) (*GetAllLanguagesResponse, error)
 	// NPC
 	GetAllNPC(context.Context, *GetAllNPCRequest) (*GetAllNPCResponse, error)
@@ -982,8 +982,8 @@ type UnimplementedNoNameServer struct {
 func (*UnimplementedNoNameServer) GetArmorByID(context.Context, *GetArmorByIDRequest) (*GetArmorByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetArmorByID not implemented")
 }
-func (*UnimplementedNoNameServer) FindArmorByName(context.Context, *FindArmorByNameRequest) (*FindArmorByNameResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FindArmorByName not implemented")
+func (*UnimplementedNoNameServer) GetArmorByName(context.Context, *GetArmorByNameRequest) (*GetArmorByNameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetArmorByName not implemented")
 }
 func (*UnimplementedNoNameServer) UpdateArmor(context.Context, *UpdateArmorRequest) (*UpdateArmorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateArmor not implemented")
@@ -1009,8 +1009,8 @@ func (*UnimplementedNoNameServer) GetArmorCategoryBySlug(context.Context, *GetAr
 func (*UnimplementedNoNameServer) GetWeaponByID(context.Context, *GetWeaponByIDRequest) (*GetWeaponByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetWeaponByID not implemented")
 }
-func (*UnimplementedNoNameServer) FindWeaponByName(context.Context, *FindWeaponByNameRequest) (*FindWeaponByNameResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FindWeaponByName not implemented")
+func (*UnimplementedNoNameServer) GetWeaponByName(context.Context, *GetWeaponByNameRequest) (*GetWeaponByNameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetWeaponByName not implemented")
 }
 func (*UnimplementedNoNameServer) UpdateWeapon(context.Context, *UpdateWeaponRequest) (*UpdateWeaponResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateWeapon not implemented")
@@ -1111,11 +1111,11 @@ func (*UnimplementedNoNameServer) HitTitan(context.Context, *HitTitanRequest) (*
 func (*UnimplementedNoNameServer) TitanDiscovered(context.Context, *TitanDiscoveredRequest) (*TitanDiscoveredResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TitanDiscovered not implemented")
 }
-func (*UnimplementedNoNameServer) FindLanguageBySlug(context.Context, *FindLanguageBySlugRequest) (*FindLanguageBySlugResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FindLanguageBySlug not implemented")
+func (*UnimplementedNoNameServer) GetLanguageBySlug(context.Context, *GetLanguageBySlugRequest) (*GetLanguageBySlugResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetLanguageBySlug not implemented")
 }
-func (*UnimplementedNoNameServer) FindLanguageByName(context.Context, *FindLanguageByNameRequest) (*FindLanguageByNameResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FindLanguageByName not implemented")
+func (*UnimplementedNoNameServer) GetLanguageByName(context.Context, *GetLanguageByNameRequest) (*GetLanguageByNameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetLanguageByName not implemented")
 }
 func (*UnimplementedNoNameServer) GetAllLanguages(context.Context, *GetAllLanguagesRequest) (*GetAllLanguagesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllLanguages not implemented")
@@ -1246,20 +1246,20 @@ func _NoName_GetArmorByID_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_FindArmorByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FindArmorByNameRequest)
+func _NoName_GetArmorByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetArmorByNameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).FindArmorByName(ctx, in)
+		return srv.(NoNameServer).GetArmorByName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/FindArmorByName",
+		FullMethod: "/NoName/GetArmorByName",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).FindArmorByName(ctx, req.(*FindArmorByNameRequest))
+		return srv.(NoNameServer).GetArmorByName(ctx, req.(*GetArmorByNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1408,20 +1408,20 @@ func _NoName_GetWeaponByID_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_FindWeaponByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FindWeaponByNameRequest)
+func _NoName_GetWeaponByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWeaponByNameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).FindWeaponByName(ctx, in)
+		return srv.(NoNameServer).GetWeaponByName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/FindWeaponByName",
+		FullMethod: "/NoName/GetWeaponByName",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).FindWeaponByName(ctx, req.(*FindWeaponByNameRequest))
+		return srv.(NoNameServer).GetWeaponByName(ctx, req.(*GetWeaponByNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2020,38 +2020,38 @@ func _NoName_TitanDiscovered_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_FindLanguageBySlug_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FindLanguageBySlugRequest)
+func _NoName_GetLanguageBySlug_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLanguageBySlugRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).FindLanguageBySlug(ctx, in)
+		return srv.(NoNameServer).GetLanguageBySlug(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/FindLanguageBySlug",
+		FullMethod: "/NoName/GetLanguageBySlug",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).FindLanguageBySlug(ctx, req.(*FindLanguageBySlugRequest))
+		return srv.(NoNameServer).GetLanguageBySlug(ctx, req.(*GetLanguageBySlugRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_FindLanguageByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FindLanguageByNameRequest)
+func _NoName_GetLanguageByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLanguageByNameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).FindLanguageByName(ctx, in)
+		return srv.(NoNameServer).GetLanguageByName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/FindLanguageByName",
+		FullMethod: "/NoName/GetLanguageByName",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).FindLanguageByName(ctx, req.(*FindLanguageByNameRequest))
+		return srv.(NoNameServer).GetLanguageByName(ctx, req.(*GetLanguageByNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2695,8 +2695,8 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetArmorByID_Handler,
 		},
 		{
-			MethodName: "FindArmorByName",
-			Handler:    _NoName_FindArmorByName_Handler,
+			MethodName: "GetArmorByName",
+			Handler:    _NoName_GetArmorByName_Handler,
 		},
 		{
 			MethodName: "UpdateArmor",
@@ -2731,8 +2731,8 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetWeaponByID_Handler,
 		},
 		{
-			MethodName: "FindWeaponByName",
-			Handler:    _NoName_FindWeaponByName_Handler,
+			MethodName: "GetWeaponByName",
+			Handler:    _NoName_GetWeaponByName_Handler,
 		},
 		{
 			MethodName: "UpdateWeapon",
@@ -2867,12 +2867,12 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_TitanDiscovered_Handler,
 		},
 		{
-			MethodName: "FindLanguageBySlug",
-			Handler:    _NoName_FindLanguageBySlug_Handler,
+			MethodName: "GetLanguageBySlug",
+			Handler:    _NoName_GetLanguageBySlug_Handler,
 		},
 		{
-			MethodName: "FindLanguageByName",
-			Handler:    _NoName_FindLanguageByName_Handler,
+			MethodName: "GetLanguageByName",
+			Handler:    _NoName_GetLanguageByName_Handler,
 		},
 		{
 			MethodName: "GetAllLanguages",

@@ -4,14 +4,14 @@ option go_package = "proto";
 package expansion;
 
 // GetTeletrasportSafePlanetList
-message TeletrasportSafePlanetList {
-    planet.Planet Planet = 1;
-    uint32 Price = 2;
-}
 message GetTeletrasportSafePlanetListRequest {
     uint32 PlanetID = 1;
 }
 message GetTeletrasportSafePlanetListResponse {
+    message TeletrasportSafePlanetList {
+        planet.Planet Planet = 1;
+        uint32 Price = 2;
+    }
     repeated TeletrasportSafePlanetList SafePlanets = 1;
 }
 

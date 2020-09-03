@@ -88,8 +88,8 @@ func (x *Language) GetSlug() string {
 	return ""
 }
 
-// FindLanguageBySlug
-type FindLanguageBySlugRequest struct {
+// GetLanguageBySlug
+type GetLanguageBySlugRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -97,8 +97,8 @@ type FindLanguageBySlugRequest struct {
 	Slug string `protobuf:"bytes,1,opt,name=Slug,proto3" json:"Slug,omitempty"`
 }
 
-func (x *FindLanguageBySlugRequest) Reset() {
-	*x = FindLanguageBySlugRequest{}
+func (x *GetLanguageBySlugRequest) Reset() {
+	*x = GetLanguageBySlugRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_proto_language_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -106,13 +106,13 @@ func (x *FindLanguageBySlugRequest) Reset() {
 	}
 }
 
-func (x *FindLanguageBySlugRequest) String() string {
+func (x *GetLanguageBySlugRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*FindLanguageBySlugRequest) ProtoMessage() {}
+func (*GetLanguageBySlugRequest) ProtoMessage() {}
 
-func (x *FindLanguageBySlugRequest) ProtoReflect() protoreflect.Message {
+func (x *GetLanguageBySlugRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_language_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -124,19 +124,19 @@ func (x *FindLanguageBySlugRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use FindLanguageBySlugRequest.ProtoReflect.Descriptor instead.
-func (*FindLanguageBySlugRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetLanguageBySlugRequest.ProtoReflect.Descriptor instead.
+func (*GetLanguageBySlugRequest) Descriptor() ([]byte, []int) {
 	return file_proto_language_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *FindLanguageBySlugRequest) GetSlug() string {
+func (x *GetLanguageBySlugRequest) GetSlug() string {
 	if x != nil {
 		return x.Slug
 	}
 	return ""
 }
 
-type FindLanguageBySlugResponse struct {
+type GetLanguageBySlugResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -144,8 +144,8 @@ type FindLanguageBySlugResponse struct {
 	Language *Language `protobuf:"bytes,1,opt,name=Language,proto3" json:"Language,omitempty"`
 }
 
-func (x *FindLanguageBySlugResponse) Reset() {
-	*x = FindLanguageBySlugResponse{}
+func (x *GetLanguageBySlugResponse) Reset() {
+	*x = GetLanguageBySlugResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_proto_language_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -153,13 +153,13 @@ func (x *FindLanguageBySlugResponse) Reset() {
 	}
 }
 
-func (x *FindLanguageBySlugResponse) String() string {
+func (x *GetLanguageBySlugResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*FindLanguageBySlugResponse) ProtoMessage() {}
+func (*GetLanguageBySlugResponse) ProtoMessage() {}
 
-func (x *FindLanguageBySlugResponse) ProtoReflect() protoreflect.Message {
+func (x *GetLanguageBySlugResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_language_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -171,20 +171,20 @@ func (x *FindLanguageBySlugResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use FindLanguageBySlugResponse.ProtoReflect.Descriptor instead.
-func (*FindLanguageBySlugResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetLanguageBySlugResponse.ProtoReflect.Descriptor instead.
+func (*GetLanguageBySlugResponse) Descriptor() ([]byte, []int) {
 	return file_proto_language_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *FindLanguageBySlugResponse) GetLanguage() *Language {
+func (x *GetLanguageBySlugResponse) GetLanguage() *Language {
 	if x != nil {
 		return x.Language
 	}
 	return nil
 }
 
-// FindLanguageBySlug
-type FindLanguageByNameRequest struct {
+// GetLanguageBySlug
+type GetLanguageByNameRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -192,8 +192,8 @@ type FindLanguageByNameRequest struct {
 	Name string `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
 }
 
-func (x *FindLanguageByNameRequest) Reset() {
-	*x = FindLanguageByNameRequest{}
+func (x *GetLanguageByNameRequest) Reset() {
+	*x = GetLanguageByNameRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_proto_language_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -201,13 +201,13 @@ func (x *FindLanguageByNameRequest) Reset() {
 	}
 }
 
-func (x *FindLanguageByNameRequest) String() string {
+func (x *GetLanguageByNameRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*FindLanguageByNameRequest) ProtoMessage() {}
+func (*GetLanguageByNameRequest) ProtoMessage() {}
 
-func (x *FindLanguageByNameRequest) ProtoReflect() protoreflect.Message {
+func (x *GetLanguageByNameRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_language_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -219,19 +219,19 @@ func (x *FindLanguageByNameRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use FindLanguageByNameRequest.ProtoReflect.Descriptor instead.
-func (*FindLanguageByNameRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetLanguageByNameRequest.ProtoReflect.Descriptor instead.
+func (*GetLanguageByNameRequest) Descriptor() ([]byte, []int) {
 	return file_proto_language_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *FindLanguageByNameRequest) GetName() string {
+func (x *GetLanguageByNameRequest) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-type FindLanguageByNameResponse struct {
+type GetLanguageByNameResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -239,8 +239,8 @@ type FindLanguageByNameResponse struct {
 	Language *Language `protobuf:"bytes,1,opt,name=Language,proto3" json:"Language,omitempty"`
 }
 
-func (x *FindLanguageByNameResponse) Reset() {
-	*x = FindLanguageByNameResponse{}
+func (x *GetLanguageByNameResponse) Reset() {
+	*x = GetLanguageByNameResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_proto_language_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -248,13 +248,13 @@ func (x *FindLanguageByNameResponse) Reset() {
 	}
 }
 
-func (x *FindLanguageByNameResponse) String() string {
+func (x *GetLanguageByNameResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*FindLanguageByNameResponse) ProtoMessage() {}
+func (*GetLanguageByNameResponse) ProtoMessage() {}
 
-func (x *FindLanguageByNameResponse) ProtoReflect() protoreflect.Message {
+func (x *GetLanguageByNameResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_language_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -266,12 +266,12 @@ func (x *FindLanguageByNameResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use FindLanguageByNameResponse.ProtoReflect.Descriptor instead.
-func (*FindLanguageByNameResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetLanguageByNameResponse.ProtoReflect.Descriptor instead.
+func (*GetLanguageByNameResponse) Descriptor() ([]byte, []int) {
 	return file_proto_language_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *FindLanguageByNameResponse) GetLanguage() *Language {
+func (x *GetLanguageByNameResponse) GetLanguage() *Language {
 	if x != nil {
 		return x.Language
 	}
@@ -373,30 +373,30 @@ var file_proto_language_proto_rawDesc = []byte{
 	0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x02, 0x49, 0x44, 0x12, 0x12, 0x0a, 0x04,
 	0x4e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x4e, 0x61, 0x6d, 0x65,
 	0x12, 0x12, 0x0a, 0x04, 0x53, 0x6c, 0x75, 0x67, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
-	0x53, 0x6c, 0x75, 0x67, 0x22, 0x2f, 0x0a, 0x19, 0x46, 0x69, 0x6e, 0x64, 0x4c, 0x61, 0x6e, 0x67,
-	0x75, 0x61, 0x67, 0x65, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x12, 0x12, 0x0a, 0x04, 0x53, 0x6c, 0x75, 0x67, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x04, 0x53, 0x6c, 0x75, 0x67, 0x22, 0x4c, 0x0a, 0x1a, 0x46, 0x69, 0x6e, 0x64, 0x4c, 0x61, 0x6e,
-	0x67, 0x75, 0x61, 0x67, 0x65, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x12, 0x2e, 0x0a, 0x08, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x6c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65,
-	0x2e, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x52, 0x08, 0x4c, 0x61, 0x6e, 0x67, 0x75,
-	0x61, 0x67, 0x65, 0x22, 0x2f, 0x0a, 0x19, 0x46, 0x69, 0x6e, 0x64, 0x4c, 0x61, 0x6e, 0x67, 0x75,
-	0x61, 0x67, 0x65, 0x42, 0x79, 0x4e, 0x61, 0x6d, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x12, 0x12, 0x0a, 0x04, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
-	0x4e, 0x61, 0x6d, 0x65, 0x22, 0x4c, 0x0a, 0x1a, 0x46, 0x69, 0x6e, 0x64, 0x4c, 0x61, 0x6e, 0x67,
-	0x75, 0x61, 0x67, 0x65, 0x42, 0x79, 0x4e, 0x61, 0x6d, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x12, 0x2e, 0x0a, 0x08, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x6c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x2e,
-	0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x52, 0x08, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61,
-	0x67, 0x65, 0x22, 0x18, 0x0a, 0x16, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x4c, 0x61, 0x6e, 0x67,
-	0x75, 0x61, 0x67, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x4b, 0x0a, 0x17,
-	0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x73, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x09, 0x4c, 0x61, 0x6e, 0x67, 0x75,
-	0x61, 0x67, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x6c, 0x61, 0x6e,
-	0x67, 0x75, 0x61, 0x67, 0x65, 0x2e, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x52, 0x09,
-	0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x73, 0x42, 0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x53, 0x6c, 0x75, 0x67, 0x22, 0x2e, 0x0a, 0x18, 0x47, 0x65, 0x74, 0x4c, 0x61, 0x6e, 0x67, 0x75,
+	0x61, 0x67, 0x65, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x12, 0x0a, 0x04, 0x53, 0x6c, 0x75, 0x67, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
+	0x53, 0x6c, 0x75, 0x67, 0x22, 0x4b, 0x0a, 0x19, 0x47, 0x65, 0x74, 0x4c, 0x61, 0x6e, 0x67, 0x75,
+	0x61, 0x67, 0x65, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x2e, 0x0a, 0x08, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x6c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x2e, 0x4c,
+	0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x52, 0x08, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67,
+	0x65, 0x22, 0x2e, 0x0a, 0x18, 0x47, 0x65, 0x74, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65,
+	0x42, 0x79, 0x4e, 0x61, 0x6d, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a,
+	0x04, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x4e, 0x61, 0x6d,
+	0x65, 0x22, 0x4b, 0x0a, 0x19, 0x47, 0x65, 0x74, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65,
+	0x42, 0x79, 0x4e, 0x61, 0x6d, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2e,
+	0x0a, 0x08, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x12, 0x2e, 0x6c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x2e, 0x4c, 0x61, 0x6e, 0x67,
+	0x75, 0x61, 0x67, 0x65, 0x52, 0x08, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x22, 0x18,
+	0x0a, 0x16, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65,
+	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x4b, 0x0a, 0x17, 0x47, 0x65, 0x74, 0x41,
+	0x6c, 0x6c, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x09, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x73,
+	0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x6c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67,
+	0x65, 0x2e, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x52, 0x09, 0x4c, 0x61, 0x6e, 0x67,
+	0x75, 0x61, 0x67, 0x65, 0x73, 0x42, 0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -413,17 +413,17 @@ func file_proto_language_proto_rawDescGZIP() []byte {
 
 var file_proto_language_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_proto_language_proto_goTypes = []interface{}{
-	(*Language)(nil),                   // 0: language.Language
-	(*FindLanguageBySlugRequest)(nil),  // 1: language.FindLanguageBySlugRequest
-	(*FindLanguageBySlugResponse)(nil), // 2: language.FindLanguageBySlugResponse
-	(*FindLanguageByNameRequest)(nil),  // 3: language.FindLanguageByNameRequest
-	(*FindLanguageByNameResponse)(nil), // 4: language.FindLanguageByNameResponse
-	(*GetAllLanguagesRequest)(nil),     // 5: language.GetAllLanguagesRequest
-	(*GetAllLanguagesResponse)(nil),    // 6: language.GetAllLanguagesResponse
+	(*Language)(nil),                  // 0: language.Language
+	(*GetLanguageBySlugRequest)(nil),  // 1: language.GetLanguageBySlugRequest
+	(*GetLanguageBySlugResponse)(nil), // 2: language.GetLanguageBySlugResponse
+	(*GetLanguageByNameRequest)(nil),  // 3: language.GetLanguageByNameRequest
+	(*GetLanguageByNameResponse)(nil), // 4: language.GetLanguageByNameResponse
+	(*GetAllLanguagesRequest)(nil),    // 5: language.GetAllLanguagesRequest
+	(*GetAllLanguagesResponse)(nil),   // 6: language.GetAllLanguagesResponse
 }
 var file_proto_language_proto_depIdxs = []int32{
-	0, // 0: language.FindLanguageBySlugResponse.Language:type_name -> language.Language
-	0, // 1: language.FindLanguageByNameResponse.Language:type_name -> language.Language
+	0, // 0: language.GetLanguageBySlugResponse.Language:type_name -> language.Language
+	0, // 1: language.GetLanguageByNameResponse.Language:type_name -> language.Language
 	0, // 2: language.GetAllLanguagesResponse.Languages:type_name -> language.Language
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
@@ -451,7 +451,7 @@ func file_proto_language_proto_init() {
 			}
 		}
 		file_proto_language_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FindLanguageBySlugRequest); i {
+			switch v := v.(*GetLanguageBySlugRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -463,7 +463,7 @@ func file_proto_language_proto_init() {
 			}
 		}
 		file_proto_language_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FindLanguageBySlugResponse); i {
+			switch v := v.(*GetLanguageBySlugResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -475,7 +475,7 @@ func file_proto_language_proto_init() {
 			}
 		}
 		file_proto_language_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FindLanguageByNameRequest); i {
+			switch v := v.(*GetLanguageByNameRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -487,7 +487,7 @@ func file_proto_language_proto_init() {
 			}
 		}
 		file_proto_language_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FindLanguageByNameResponse); i {
+			switch v := v.(*GetLanguageByNameResponse); i {
 			case 0:
 				return &v.state
 			case 1:

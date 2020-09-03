@@ -13,9 +13,9 @@ message NPC {
     bool Enabled = 6;
 }
 
-// GetMapByID
+// GetAllNPC
 message GetAllNPCRequest {
-    int32 ID = 1;
+    // Empty
 }
 message GetAllNPCResponse {
     repeated NPC NPCs = 1;

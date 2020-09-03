@@ -8,19 +8,19 @@ message Language {
     string Slug = 3;
 }
 
-// FindLanguageBySlug
-message FindLanguageBySlugRequest {
+// GetLanguageBySlug
+message GetLanguageBySlugRequest {
     string Slug = 1;
 }
-message FindLanguageBySlugResponse {
+message GetLanguageBySlugResponse {
     Language Language = 1;
 }
 
-// FindLanguageBySlug
-message FindLanguageByNameRequest {
+// GetLanguageBySlug
+message GetLanguageByNameRequest {
     string Name = 1;
 }
-message FindLanguageByNameResponse {
+message GetLanguageByNameResponse {
     Language Language = 1;
 }
 
