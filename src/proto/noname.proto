@@ -21,6 +21,8 @@ import "proto/mission.proto";
 import "proto/titan.proto";
 import "proto/expansion.proto";
 import "proto/exploration_category.proto";
+import "proto/titan_event.proto";
+import "proto/titan_damage.proto";
 
 option go_package = "proto";
 
@@ -89,6 +91,14 @@ service NoName {
     rpc GetTitanByPlanetID (titan.GetTitanByPlanetIDRequest) returns (titan.GetTitanByPlanetIDResponse) {}
     rpc HitTitan (titan.HitTitanRequest) returns (titan.HitTitanResponse) {}
     rpc TitanDiscovered (titan.TitanDiscoveredRequest) returns (titan.TitanDiscoveredResponse) {}
+
+    // Titan Event
+    rpc GetEventByID(titan_event.GetTitanEventByIDRequest) returns (titan_event.GetTitanEventByIDResponse) {}
+    rpc GetEventChoiceByID(titan_event.GetEventChoiceByIDRequest) returns (titan_event.GetEventChoiceByIDResponse) {}
+   
+    // Titan Damage
+
+    rpc GetTitanDamageByTitanID(titan_damage.GetTitanDamageByTitanIDRequest) returns (titan_damage.GetTitanDamageByTitanIDResponse) {}
 
     // Language
     rpc GetLanguageBySlug (language.GetLanguageBySlugRequest) returns (language.GetLanguageBySlugResponse) {}

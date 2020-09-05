@@ -303,7 +303,7 @@ func (x *GetEventChoiceByIDRequest) GetID() uint32 {
 	return 0
 }
 
-type GetEventChoicetByIDResponse struct {
+type GetEventChoiceByIDResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -311,8 +311,8 @@ type GetEventChoicetByIDResponse struct {
 	Choice *EventChoice `protobuf:"bytes,1,opt,name=Choice,proto3" json:"Choice,omitempty"`
 }
 
-func (x *GetEventChoicetByIDResponse) Reset() {
-	*x = GetEventChoicetByIDResponse{}
+func (x *GetEventChoiceByIDResponse) Reset() {
+	*x = GetEventChoiceByIDResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_proto_titan_event_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -320,13 +320,13 @@ func (x *GetEventChoicetByIDResponse) Reset() {
 	}
 }
 
-func (x *GetEventChoicetByIDResponse) String() string {
+func (x *GetEventChoiceByIDResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetEventChoicetByIDResponse) ProtoMessage() {}
+func (*GetEventChoiceByIDResponse) ProtoMessage() {}
 
-func (x *GetEventChoicetByIDResponse) ProtoReflect() protoreflect.Message {
+func (x *GetEventChoiceByIDResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_titan_event_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -338,12 +338,12 @@ func (x *GetEventChoicetByIDResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetEventChoicetByIDResponse.ProtoReflect.Descriptor instead.
-func (*GetEventChoicetByIDResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetEventChoiceByIDResponse.ProtoReflect.Descriptor instead.
+func (*GetEventChoiceByIDResponse) Descriptor() ([]byte, []int) {
 	return file_proto_titan_event_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *GetEventChoicetByIDResponse) GetChoice() *EventChoice {
+func (x *GetEventChoiceByIDResponse) GetChoice() *EventChoice {
 	if x != nil {
 		return x.Choice
 	}
@@ -380,13 +380,13 @@ var file_proto_titan_event_proto_rawDesc = []byte{
 	0x65, 0x6e, 0x74, 0x49, 0x44, 0x22, 0x2b, 0x0a, 0x19, 0x47, 0x65, 0x74, 0x45, 0x76, 0x65, 0x6e,
 	0x74, 0x43, 0x68, 0x6f, 0x69, 0x63, 0x65, 0x42, 0x79, 0x49, 0x44, 0x52, 0x65, 0x71, 0x75, 0x65,
 	0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x02,
-	0x49, 0x44, 0x22, 0x4f, 0x0a, 0x1b, 0x47, 0x65, 0x74, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x43, 0x68,
-	0x6f, 0x69, 0x63, 0x65, 0x74, 0x42, 0x79, 0x49, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x30, 0x0a, 0x06, 0x43, 0x68, 0x6f, 0x69, 0x63, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x18, 0x2e, 0x74, 0x69, 0x74, 0x61, 0x6e, 0x5f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2e,
-	0x45, 0x76, 0x65, 0x6e, 0x74, 0x43, 0x68, 0x6f, 0x69, 0x63, 0x65, 0x52, 0x06, 0x43, 0x68, 0x6f,
-	0x69, 0x63, 0x65, 0x42, 0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x49, 0x44, 0x22, 0x4e, 0x0a, 0x1a, 0x47, 0x65, 0x74, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x43, 0x68,
+	0x6f, 0x69, 0x63, 0x65, 0x42, 0x79, 0x49, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x30, 0x0a, 0x06, 0x43, 0x68, 0x6f, 0x69, 0x63, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x18, 0x2e, 0x74, 0x69, 0x74, 0x61, 0x6e, 0x5f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2e, 0x45,
+	0x76, 0x65, 0x6e, 0x74, 0x43, 0x68, 0x6f, 0x69, 0x63, 0x65, 0x52, 0x06, 0x43, 0x68, 0x6f, 0x69,
+	0x63, 0x65, 0x42, 0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -403,17 +403,17 @@ func file_proto_titan_event_proto_rawDescGZIP() []byte {
 
 var file_proto_titan_event_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_proto_titan_event_proto_goTypes = []interface{}{
-	(*TitanEvent)(nil),                  // 0: titan_event.TitanEvent
-	(*GetTitanEventByIDRequest)(nil),    // 1: titan_event.GetTitanEventByIDRequest
-	(*GetTitanEventByIDResponse)(nil),   // 2: titan_event.GetTitanEventByIDResponse
-	(*EventChoice)(nil),                 // 3: titan_event.EventChoice
-	(*GetEventChoiceByIDRequest)(nil),   // 4: titan_event.GetEventChoiceByIDRequest
-	(*GetEventChoicetByIDResponse)(nil), // 5: titan_event.GetEventChoicetByIDResponse
+	(*TitanEvent)(nil),                 // 0: titan_event.TitanEvent
+	(*GetTitanEventByIDRequest)(nil),   // 1: titan_event.GetTitanEventByIDRequest
+	(*GetTitanEventByIDResponse)(nil),  // 2: titan_event.GetTitanEventByIDResponse
+	(*EventChoice)(nil),                // 3: titan_event.EventChoice
+	(*GetEventChoiceByIDRequest)(nil),  // 4: titan_event.GetEventChoiceByIDRequest
+	(*GetEventChoiceByIDResponse)(nil), // 5: titan_event.GetEventChoiceByIDResponse
 }
 var file_proto_titan_event_proto_depIdxs = []int32{
 	3, // 0: titan_event.TitanEvent.Choices:type_name -> titan_event.EventChoice
 	0, // 1: titan_event.GetTitanEventByIDResponse.Event:type_name -> titan_event.TitanEvent
-	3, // 2: titan_event.GetEventChoicetByIDResponse.Choice:type_name -> titan_event.EventChoice
+	3, // 2: titan_event.GetEventChoiceByIDResponse.Choice:type_name -> titan_event.EventChoice
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -488,7 +488,7 @@ func file_proto_titan_event_proto_init() {
 			}
 		}
 		file_proto_titan_event_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetEventChoicetByIDResponse); i {
+			switch v := v.(*GetEventChoiceByIDResponse); i {
 			case 0:
 				return &v.state
 			case 1:

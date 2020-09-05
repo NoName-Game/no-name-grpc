@@ -30,6 +30,6 @@ message GetEventChoiceByIDRequest {
     uint32 ID = 1;
 }
 
-message GetEventChoicetByIDResponse {
+message GetEventChoiceByIDResponse {
     EventChoice Choice = 1;
 }
