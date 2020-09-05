@@ -1,0 +1,18 @@
+syntax = "proto3";
+import "proto/player.proto";
+option go_package = "proto";
+package conqueror;
+
+// GetConquerorsByPlanetID
+message GetConquerorsByPlanetIDRequest {
+    uint32 PlanetID = 1;
+}
+message GetConquerorsByPlanetIDResponse {
+    message ConquerorList {
+        player.Player Player = 1;
+        int64 Kill = 2;
+    }
+    repeated ConquerorList Conquerors = 1;
+}
+
+

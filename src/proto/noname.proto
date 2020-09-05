@@ -21,7 +21,7 @@ import "proto/mission.proto";
 import "proto/titan.proto";
 import "proto/expansion.proto";
 import "proto/exploration_category.proto";
-
+import "proto/conqueror.proto";
 option go_package = "proto";
 
 // The greeting service definition.
@@ -157,5 +157,6 @@ service NoName {
     // Exploration Category
     rpc GetAllExplorationCategories (exploration_category.GetAllExplorationCategoriesRequest) returns (exploration_category.GetAllExplorationCategoriesResponse) {}
 
-
+    // Conquerors
+    rpc GetConquerorsByPlanetID (conqueror.GetConquerorsByPlanetIDRequest) returns (conqueror.GetConquerorsByPlanetIDResponse) {}
 }
