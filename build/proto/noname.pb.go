@@ -58,7 +58,7 @@ var file_proto_noname_proto_rawDesc = []byte{
 	0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x20, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x65, 0x78, 0x70, 0x6c,
 	0x6f, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79,
 	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x15, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x63, 0x6f,
-	0x6e, 0x71, 0x75, 0x65, 0x72, 0x6f, 0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x32, 0x95, 0x3b,
+	0x6e, 0x71, 0x75, 0x65, 0x72, 0x6f, 0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x32, 0x9c, 0x3c,
 	0x0a, 0x06, 0x4e, 0x6f, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x49, 0x0a, 0x0c, 0x47, 0x65, 0x74, 0x41,
 	0x72, 0x6d, 0x6f, 0x72, 0x42, 0x79, 0x49, 0x44, 0x12, 0x1a, 0x2e, 0x61, 0x72, 0x6d, 0x6f, 0x72,
 	0x2e, 0x47, 0x65, 0x74, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x42, 0x79, 0x49, 0x44, 0x52, 0x65, 0x71,
@@ -532,8 +532,16 @@ var file_proto_noname_proto_rawDesc = []byte{
 	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2a, 0x2e, 0x63, 0x6f, 0x6e, 0x71, 0x75, 0x65,
 	0x72, 0x6f, 0x72, 0x2e, 0x47, 0x65, 0x74, 0x43, 0x6f, 0x6e, 0x71, 0x75, 0x65, 0x72, 0x6f, 0x72,
 	0x73, 0x42, 0x79, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x49, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x84, 0x01, 0x0a, 0x1d, 0x47, 0x65, 0x74, 0x43, 0x75, 0x72,
+	0x72, 0x65, 0x6e, 0x74, 0x43, 0x6f, 0x6e, 0x71, 0x75, 0x65, 0x72, 0x6f, 0x72, 0x42, 0x79, 0x50,
+	0x6c, 0x61, 0x6e, 0x65, 0x74, 0x49, 0x44, 0x12, 0x2f, 0x2e, 0x63, 0x6f, 0x6e, 0x71, 0x75, 0x65,
+	0x72, 0x6f, 0x72, 0x2e, 0x47, 0x65, 0x74, 0x43, 0x75, 0x72, 0x72, 0x65, 0x6e, 0x74, 0x43, 0x6f,
+	0x6e, 0x71, 0x75, 0x65, 0x72, 0x6f, 0x72, 0x42, 0x79, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x49,
+	0x44, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x30, 0x2e, 0x63, 0x6f, 0x6e, 0x71, 0x75,
+	0x65, 0x72, 0x6f, 0x72, 0x2e, 0x47, 0x65, 0x74, 0x43, 0x75, 0x72, 0x72, 0x65, 0x6e, 0x74, 0x43,
+	0x6f, 0x6e, 0x71, 0x75, 0x65, 0x72, 0x6f, 0x72, 0x42, 0x79, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74,
+	0x49, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x07, 0x5a, 0x05,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var file_proto_noname_proto_goTypes = []interface{}{
@@ -619,88 +627,90 @@ var file_proto_noname_proto_goTypes = []interface{}{
 	(*EndTeletrasportSafePlanetRequest)(nil),           // 79: expansion.EndTeletrasportSafePlanetRequest
 	(*GetAllExplorationCategoriesRequest)(nil),         // 80: exploration_category.GetAllExplorationCategoriesRequest
 	(*GetConquerorsByPlanetIDRequest)(nil),             // 81: conqueror.GetConquerorsByPlanetIDRequest
-	(*GetArmorByIDResponse)(nil),                       // 82: armor.GetArmorByIDResponse
-	(*GetArmorByNameResponse)(nil),                     // 83: armor.GetArmorByNameResponse
-	(*UpdateArmorResponse)(nil),                        // 84: armor.UpdateArmorResponse
-	(*GetPlayerArmorsResponse)(nil),                    // 85: armor.GetPlayerArmorsResponse
-	(*GetPlayerArmorsByCategoryIDResponse)(nil),        // 86: armor.GetPlayerArmorsByCategoryIDResponse
-	(*GetPlayerArmorsEquippedResponse)(nil),            // 87: armor.GetPlayerArmorsEquippedResponse
-	(*GetPlayerArmorEquippedByCategoryIDResponse)(nil), // 88: armor.GetPlayerArmorEquippedByCategoryIDResponse
-	(*GetAllArmorCategoryResponse)(nil),                // 89: armor_category.GetAllArmorCategoryResponse
-	(*GetArmorCategoryBySlugResponse)(nil),             // 90: armor_category.GetArmorCategoryBySlugResponse
-	(*GetWeaponByIDResponse)(nil),                      // 91: weapon.GetWeaponByIDResponse
-	(*GetWeaponByNameResponse)(nil),                    // 92: weapon.GetWeaponByNameResponse
-	(*UpdateWeaponResponse)(nil),                       // 93: weapon.UpdateWeaponResponse
-	(*GetPlayerWeaponsResponse)(nil),                   // 94: weapon.GetPlayerWeaponsResponse
-	(*GetPlayerWeaponEquippedResponse)(nil),            // 95: weapon.GetPlayerWeaponEquippedResponse
-	(*GetPlayerByIDResponse)(nil),                      // 96: player.GetPlayerByIDResponse
-	(*GetPlayerByUsernameResponse)(nil),                // 97: player.GetPlayerByUsernameResponse
-	(*GetPlayerStatsResponse)(nil),                     // 98: player.GetPlayerStatsResponse
-	(*GetPlayerResourcesResponse)(nil),                 // 99: player.GetPlayerResourcesResponse
-	(*GetPlayerItemsResponse)(nil),                     // 100: player.GetPlayerItemsResponse
-	(*GetPlayerEconomyResponse)(nil),                   // 101: player.GetPlayerEconomyResponse
-	(*ManagePlayerInventoryResponse)(nil),              // 102: player.ManagePlayerInventoryResponse
-	(*PlayerEndTutorialResponse)(nil),                  // 103: player.PlayerEndTutorialResponse
-	(*GetPlayerExperienceResponse)(nil),                // 104: player.GetPlayerExperienceResponse
-	(*CreatePlayerPositionResponse)(nil),               // 105: player_position.CreatePlayerPositionResponse
-	(*GetPlayerCurrentPlanetResponse)(nil),             // 106: player_position.GetPlayerCurrentPlanetResponse
-	(*CountPlanetVisitedResponse)(nil),                 // 107: player_position.CountPlanetVisitedResponse
-	(*CountSystemVisitedResponse)(nil),                 // 108: player_position.CountSystemVisitedResponse
-	(*CountPlayerVisitedCurrentPlanetResponse)(nil),    // 109: player_position.CountPlayerVisitedCurrentPlanetResponse
-	(*GetRestsInfoResponse)(nil),                       // 110: player.GetRestsInfoResponse
-	(*EndPlayerRestResponse)(nil),                      // 111: player.EndPlayerRestResponse
-	(*SignInResponse)(nil),                             // 112: player.SignInResponse
-	(*GetPlayerStateByIDResponse)(nil),                 // 113: player_state.GetPlayerStateByIDResponse
-	(*GetActivePlayerStatesResponse)(nil),              // 114: player_state.GetActivePlayerStatesResponse
-	(*GetPlayerStateToNotifyResponse)(nil),             // 115: player_state.GetPlayerStateToNotifyResponse
-	(*CreatePlayerStateResponse)(nil),                  // 116: player_state.CreatePlayerStateResponse
-	(*UpdatePlayerStateResponse)(nil),                  // 117: player_state.UpdatePlayerStateResponse
-	(*DeletePlayerStateResponse)(nil),                  // 118: player_state.DeletePlayerStateResponse
-	(*GetEnemyByIDResponse)(nil),                       // 119: enemy.GetEnemyByIDResponse
-	(*HitEnemyResponse)(nil),                           // 120: enemy.HitEnemyResponse
-	(*GetTitanByIDResponse)(nil),                       // 121: titan.GetTitanByIDResponse
-	(*GetTitanByNameResponse)(nil),                     // 122: titan.GetTitanByNameResponse
-	(*GetTitanByPlanetIDResponse)(nil),                 // 123: titan.GetTitanByPlanetIDResponse
-	(*HitTitanResponse)(nil),                           // 124: titan.HitTitanResponse
-	(*TitanDiscoveredResponse)(nil),                    // 125: titan.TitanDiscoveredResponse
-	(*GetLanguageBySlugResponse)(nil),                  // 126: language.GetLanguageBySlugResponse
-	(*GetLanguageByNameResponse)(nil),                  // 127: language.GetLanguageByNameResponse
-	(*GetAllLanguagesResponse)(nil),                    // 128: language.GetAllLanguagesResponse
-	(*GetAllNPCResponse)(nil),                          // 129: npc.GetAllNPCResponse
-	(*CraftArmorResponse)(nil),                         // 130: npc.CraftArmorResponse
-	(*CraftWeaponResponse)(nil),                        // 131: npc.CraftWeaponResponse
-	(*BankDepositResponse)(nil),                        // 132: npc.BankDepositResponse
-	(*BankWithdrawResponse)(nil),                       // 133: npc.BankWithdrawResponse
-	(*GetPlanetByIDResponse)(nil),                      // 134: planet.GetPlanetByIDResponse
-	(*GetPlanetByNameResponse)(nil),                    // 135: planet.GetPlanetByNameResponse
-	(*GetPlanetByCoordinateResponse)(nil),              // 136: planet.GetPlanetByCoordinateResponse
-	(*GetPlanetByMapIDResponse)(nil),                   // 137: planet.GetPlanetByMapIDResponse
-	(*GetExpansionInfoResponse)(nil),                   // 138: planet.GetExpansionInfoResponse
-	(*GetSafePlanetsResponse)(nil),                     // 139: planet.GetSafePlanetsResponse
-	(*GetMapByIDResponse)(nil),                         // 140: maps.GetMapByIDResponse
-	(*GetResourceByIDResponse)(nil),                    // 141: resource.GetResourceByIDResponse
-	(*GetResourceByNameResponse)(nil),                  // 142: resource.GetResourceByNameResponse
-	(*DropResourceResponse)(nil),                       // 143: resource.DropResourceResponse
-	(*GetAllItemsResponse)(nil),                        // 144: item.GetAllItemsResponse
-	(*GetItemsByCategoryIDResponse)(nil),               // 145: item.GetItemsByCategoryIDResponse
-	(*UseItemResponse)(nil),                            // 146: item.UseItemResponse
-	(*GetAllItemCategoriesResponse)(nil),               // 147: item_category.GetAllItemCategoriesResponse
-	(*GetShipRepairInfoResponse)(nil),                  // 148: ship.GetShipRepairInfoResponse
-	(*StartShipRepairResponse)(nil),                    // 149: ship.StartShipRepairResponse
-	(*EndShipRepairResponse)(nil),                      // 150: ship.EndShipRepairResponse
-	(*GetShipTravelInfoResponse)(nil),                  // 151: ship.GetShipTravelInfoResponse
-	(*EndShipTravelResponse)(nil),                      // 152: ship.EndShipTravelResponse
-	(*GetPlayerShipsResponse)(nil),                     // 153: ship.GetPlayerShipsResponse
-	(*GetPlayerShipEquippedResponse)(nil),              // 154: ship.GetPlayerShipEquippedResponse
-	(*CreateTransactionResponse)(nil),                  // 155: transaction.CreateTransactionResponse
-	(*DropTresureResponse)(nil),                        // 156: tresure.DropTresureResponse
-	(*GetMissionResponse)(nil),                         // 157: mission.GetMissionResponse
-	(*CheckMissionResponse)(nil),                       // 158: mission.CheckMissionResponse
-	(*GetMissionRewardResponse)(nil),                   // 159: mission.GetMissionRewardResponse
-	(*GetTeletrasportSafePlanetListResponse)(nil),      // 160: expansion.GetTeletrasportSafePlanetListResponse
-	(*EndTeletrasportSafePlanetResponse)(nil),          // 161: expansion.EndTeletrasportSafePlanetResponse
-	(*GetAllExplorationCategoriesResponse)(nil),        // 162: exploration_category.GetAllExplorationCategoriesResponse
-	(*GetConquerorsByPlanetIDResponse)(nil),            // 163: conqueror.GetConquerorsByPlanetIDResponse
+	(*GetCurrentConquerorByPlanetIDRequest)(nil),       // 82: conqueror.GetCurrentConquerorByPlanetIDRequest
+	(*GetArmorByIDResponse)(nil),                       // 83: armor.GetArmorByIDResponse
+	(*GetArmorByNameResponse)(nil),                     // 84: armor.GetArmorByNameResponse
+	(*UpdateArmorResponse)(nil),                        // 85: armor.UpdateArmorResponse
+	(*GetPlayerArmorsResponse)(nil),                    // 86: armor.GetPlayerArmorsResponse
+	(*GetPlayerArmorsByCategoryIDResponse)(nil),        // 87: armor.GetPlayerArmorsByCategoryIDResponse
+	(*GetPlayerArmorsEquippedResponse)(nil),            // 88: armor.GetPlayerArmorsEquippedResponse
+	(*GetPlayerArmorEquippedByCategoryIDResponse)(nil), // 89: armor.GetPlayerArmorEquippedByCategoryIDResponse
+	(*GetAllArmorCategoryResponse)(nil),                // 90: armor_category.GetAllArmorCategoryResponse
+	(*GetArmorCategoryBySlugResponse)(nil),             // 91: armor_category.GetArmorCategoryBySlugResponse
+	(*GetWeaponByIDResponse)(nil),                      // 92: weapon.GetWeaponByIDResponse
+	(*GetWeaponByNameResponse)(nil),                    // 93: weapon.GetWeaponByNameResponse
+	(*UpdateWeaponResponse)(nil),                       // 94: weapon.UpdateWeaponResponse
+	(*GetPlayerWeaponsResponse)(nil),                   // 95: weapon.GetPlayerWeaponsResponse
+	(*GetPlayerWeaponEquippedResponse)(nil),            // 96: weapon.GetPlayerWeaponEquippedResponse
+	(*GetPlayerByIDResponse)(nil),                      // 97: player.GetPlayerByIDResponse
+	(*GetPlayerByUsernameResponse)(nil),                // 98: player.GetPlayerByUsernameResponse
+	(*GetPlayerStatsResponse)(nil),                     // 99: player.GetPlayerStatsResponse
+	(*GetPlayerResourcesResponse)(nil),                 // 100: player.GetPlayerResourcesResponse
+	(*GetPlayerItemsResponse)(nil),                     // 101: player.GetPlayerItemsResponse
+	(*GetPlayerEconomyResponse)(nil),                   // 102: player.GetPlayerEconomyResponse
+	(*ManagePlayerInventoryResponse)(nil),              // 103: player.ManagePlayerInventoryResponse
+	(*PlayerEndTutorialResponse)(nil),                  // 104: player.PlayerEndTutorialResponse
+	(*GetPlayerExperienceResponse)(nil),                // 105: player.GetPlayerExperienceResponse
+	(*CreatePlayerPositionResponse)(nil),               // 106: player_position.CreatePlayerPositionResponse
+	(*GetPlayerCurrentPlanetResponse)(nil),             // 107: player_position.GetPlayerCurrentPlanetResponse
+	(*CountPlanetVisitedResponse)(nil),                 // 108: player_position.CountPlanetVisitedResponse
+	(*CountSystemVisitedResponse)(nil),                 // 109: player_position.CountSystemVisitedResponse
+	(*CountPlayerVisitedCurrentPlanetResponse)(nil),    // 110: player_position.CountPlayerVisitedCurrentPlanetResponse
+	(*GetRestsInfoResponse)(nil),                       // 111: player.GetRestsInfoResponse
+	(*EndPlayerRestResponse)(nil),                      // 112: player.EndPlayerRestResponse
+	(*SignInResponse)(nil),                             // 113: player.SignInResponse
+	(*GetPlayerStateByIDResponse)(nil),                 // 114: player_state.GetPlayerStateByIDResponse
+	(*GetActivePlayerStatesResponse)(nil),              // 115: player_state.GetActivePlayerStatesResponse
+	(*GetPlayerStateToNotifyResponse)(nil),             // 116: player_state.GetPlayerStateToNotifyResponse
+	(*CreatePlayerStateResponse)(nil),                  // 117: player_state.CreatePlayerStateResponse
+	(*UpdatePlayerStateResponse)(nil),                  // 118: player_state.UpdatePlayerStateResponse
+	(*DeletePlayerStateResponse)(nil),                  // 119: player_state.DeletePlayerStateResponse
+	(*GetEnemyByIDResponse)(nil),                       // 120: enemy.GetEnemyByIDResponse
+	(*HitEnemyResponse)(nil),                           // 121: enemy.HitEnemyResponse
+	(*GetTitanByIDResponse)(nil),                       // 122: titan.GetTitanByIDResponse
+	(*GetTitanByNameResponse)(nil),                     // 123: titan.GetTitanByNameResponse
+	(*GetTitanByPlanetIDResponse)(nil),                 // 124: titan.GetTitanByPlanetIDResponse
+	(*HitTitanResponse)(nil),                           // 125: titan.HitTitanResponse
+	(*TitanDiscoveredResponse)(nil),                    // 126: titan.TitanDiscoveredResponse
+	(*GetLanguageBySlugResponse)(nil),                  // 127: language.GetLanguageBySlugResponse
+	(*GetLanguageByNameResponse)(nil),                  // 128: language.GetLanguageByNameResponse
+	(*GetAllLanguagesResponse)(nil),                    // 129: language.GetAllLanguagesResponse
+	(*GetAllNPCResponse)(nil),                          // 130: npc.GetAllNPCResponse
+	(*CraftArmorResponse)(nil),                         // 131: npc.CraftArmorResponse
+	(*CraftWeaponResponse)(nil),                        // 132: npc.CraftWeaponResponse
+	(*BankDepositResponse)(nil),                        // 133: npc.BankDepositResponse
+	(*BankWithdrawResponse)(nil),                       // 134: npc.BankWithdrawResponse
+	(*GetPlanetByIDResponse)(nil),                      // 135: planet.GetPlanetByIDResponse
+	(*GetPlanetByNameResponse)(nil),                    // 136: planet.GetPlanetByNameResponse
+	(*GetPlanetByCoordinateResponse)(nil),              // 137: planet.GetPlanetByCoordinateResponse
+	(*GetPlanetByMapIDResponse)(nil),                   // 138: planet.GetPlanetByMapIDResponse
+	(*GetExpansionInfoResponse)(nil),                   // 139: planet.GetExpansionInfoResponse
+	(*GetSafePlanetsResponse)(nil),                     // 140: planet.GetSafePlanetsResponse
+	(*GetMapByIDResponse)(nil),                         // 141: maps.GetMapByIDResponse
+	(*GetResourceByIDResponse)(nil),                    // 142: resource.GetResourceByIDResponse
+	(*GetResourceByNameResponse)(nil),                  // 143: resource.GetResourceByNameResponse
+	(*DropResourceResponse)(nil),                       // 144: resource.DropResourceResponse
+	(*GetAllItemsResponse)(nil),                        // 145: item.GetAllItemsResponse
+	(*GetItemsByCategoryIDResponse)(nil),               // 146: item.GetItemsByCategoryIDResponse
+	(*UseItemResponse)(nil),                            // 147: item.UseItemResponse
+	(*GetAllItemCategoriesResponse)(nil),               // 148: item_category.GetAllItemCategoriesResponse
+	(*GetShipRepairInfoResponse)(nil),                  // 149: ship.GetShipRepairInfoResponse
+	(*StartShipRepairResponse)(nil),                    // 150: ship.StartShipRepairResponse
+	(*EndShipRepairResponse)(nil),                      // 151: ship.EndShipRepairResponse
+	(*GetShipTravelInfoResponse)(nil),                  // 152: ship.GetShipTravelInfoResponse
+	(*EndShipTravelResponse)(nil),                      // 153: ship.EndShipTravelResponse
+	(*GetPlayerShipsResponse)(nil),                     // 154: ship.GetPlayerShipsResponse
+	(*GetPlayerShipEquippedResponse)(nil),              // 155: ship.GetPlayerShipEquippedResponse
+	(*CreateTransactionResponse)(nil),                  // 156: transaction.CreateTransactionResponse
+	(*DropTresureResponse)(nil),                        // 157: tresure.DropTresureResponse
+	(*GetMissionResponse)(nil),                         // 158: mission.GetMissionResponse
+	(*CheckMissionResponse)(nil),                       // 159: mission.CheckMissionResponse
+	(*GetMissionRewardResponse)(nil),                   // 160: mission.GetMissionRewardResponse
+	(*GetTeletrasportSafePlanetListResponse)(nil),      // 161: expansion.GetTeletrasportSafePlanetListResponse
+	(*EndTeletrasportSafePlanetResponse)(nil),          // 162: expansion.EndTeletrasportSafePlanetResponse
+	(*GetAllExplorationCategoriesResponse)(nil),        // 163: exploration_category.GetAllExplorationCategoriesResponse
+	(*GetConquerorsByPlanetIDResponse)(nil),            // 164: conqueror.GetConquerorsByPlanetIDResponse
+	(*GetCurrentConquerorByPlanetIDResponse)(nil),      // 165: conqueror.GetCurrentConquerorByPlanetIDResponse
 }
 var file_proto_noname_proto_depIdxs = []int32{
 	0,   // 0: NoName.GetArmorByID:input_type -> armor.GetArmorByIDRequest
@@ -785,90 +795,92 @@ var file_proto_noname_proto_depIdxs = []int32{
 	79,  // 79: NoName.EndTeletrasportSafePlanet:input_type -> expansion.EndTeletrasportSafePlanetRequest
 	80,  // 80: NoName.GetAllExplorationCategories:input_type -> exploration_category.GetAllExplorationCategoriesRequest
 	81,  // 81: NoName.GetConquerorsByPlanetID:input_type -> conqueror.GetConquerorsByPlanetIDRequest
-	82,  // 82: NoName.GetArmorByID:output_type -> armor.GetArmorByIDResponse
-	83,  // 83: NoName.GetArmorByName:output_type -> armor.GetArmorByNameResponse
-	84,  // 84: NoName.UpdateArmor:output_type -> armor.UpdateArmorResponse
-	85,  // 85: NoName.GetPlayerArmors:output_type -> armor.GetPlayerArmorsResponse
-	86,  // 86: NoName.GetPlayerArmorsByCategoryID:output_type -> armor.GetPlayerArmorsByCategoryIDResponse
-	87,  // 87: NoName.GetPlayerArmorsEquipped:output_type -> armor.GetPlayerArmorsEquippedResponse
-	88,  // 88: NoName.GetPlayerArmorEquippedByCategoryID:output_type -> armor.GetPlayerArmorEquippedByCategoryIDResponse
-	89,  // 89: NoName.GetAllArmorCategory:output_type -> armor_category.GetAllArmorCategoryResponse
-	90,  // 90: NoName.GetArmorCategoryBySlug:output_type -> armor_category.GetArmorCategoryBySlugResponse
-	91,  // 91: NoName.GetWeaponByID:output_type -> weapon.GetWeaponByIDResponse
-	92,  // 92: NoName.GetWeaponByName:output_type -> weapon.GetWeaponByNameResponse
-	93,  // 93: NoName.UpdateWeapon:output_type -> weapon.UpdateWeaponResponse
-	94,  // 94: NoName.GetPlayerWeapons:output_type -> weapon.GetPlayerWeaponsResponse
-	95,  // 95: NoName.GetPlayerWeaponEquipped:output_type -> weapon.GetPlayerWeaponEquippedResponse
-	96,  // 96: NoName.GetPlayerByID:output_type -> player.GetPlayerByIDResponse
-	97,  // 97: NoName.GetPlayerByUsername:output_type -> player.GetPlayerByUsernameResponse
-	98,  // 98: NoName.GetPlayerStats:output_type -> player.GetPlayerStatsResponse
-	99,  // 99: NoName.GetPlayerResources:output_type -> player.GetPlayerResourcesResponse
-	100, // 100: NoName.GetPlayerItems:output_type -> player.GetPlayerItemsResponse
-	101, // 101: NoName.GetPlayerEconomy:output_type -> player.GetPlayerEconomyResponse
-	102, // 102: NoName.ManagePlayerInventory:output_type -> player.ManagePlayerInventoryResponse
-	103, // 103: NoName.PlayerEndTutorial:output_type -> player.PlayerEndTutorialResponse
-	104, // 104: NoName.GetPlayerExperience:output_type -> player.GetPlayerExperienceResponse
-	105, // 105: NoName.CreatePlayerPosition:output_type -> player_position.CreatePlayerPositionResponse
-	106, // 106: NoName.GetPlayerCurrentPlanet:output_type -> player_position.GetPlayerCurrentPlanetResponse
-	107, // 107: NoName.CountPlanetVisited:output_type -> player_position.CountPlanetVisitedResponse
-	108, // 108: NoName.CountSystemVisited:output_type -> player_position.CountSystemVisitedResponse
-	109, // 109: NoName.CountPlayerVisitedCurrentPlanet:output_type -> player_position.CountPlayerVisitedCurrentPlanetResponse
-	110, // 110: NoName.GetRestsInfo:output_type -> player.GetRestsInfoResponse
-	111, // 111: NoName.EndPlayerRest:output_type -> player.EndPlayerRestResponse
-	112, // 112: NoName.SignIn:output_type -> player.SignInResponse
-	113, // 113: NoName.GetPlayerStateByID:output_type -> player_state.GetPlayerStateByIDResponse
-	114, // 114: NoName.GetActivePlayerStates:output_type -> player_state.GetActivePlayerStatesResponse
-	115, // 115: NoName.GetPlayerStateToNotify:output_type -> player_state.GetPlayerStateToNotifyResponse
-	116, // 116: NoName.CreatePlayerState:output_type -> player_state.CreatePlayerStateResponse
-	117, // 117: NoName.UpdatePlayerState:output_type -> player_state.UpdatePlayerStateResponse
-	118, // 118: NoName.DeletePlayerState:output_type -> player_state.DeletePlayerStateResponse
-	119, // 119: NoName.GetEnemyByID:output_type -> enemy.GetEnemyByIDResponse
-	120, // 120: NoName.HitEnemy:output_type -> enemy.HitEnemyResponse
-	121, // 121: NoName.GetTitanByID:output_type -> titan.GetTitanByIDResponse
-	122, // 122: NoName.GetTitanByName:output_type -> titan.GetTitanByNameResponse
-	123, // 123: NoName.GetTitanByPlanetID:output_type -> titan.GetTitanByPlanetIDResponse
-	124, // 124: NoName.HitTitan:output_type -> titan.HitTitanResponse
-	125, // 125: NoName.TitanDiscovered:output_type -> titan.TitanDiscoveredResponse
-	126, // 126: NoName.GetLanguageBySlug:output_type -> language.GetLanguageBySlugResponse
-	127, // 127: NoName.GetLanguageByName:output_type -> language.GetLanguageByNameResponse
-	128, // 128: NoName.GetAllLanguages:output_type -> language.GetAllLanguagesResponse
-	129, // 129: NoName.GetAllNPC:output_type -> npc.GetAllNPCResponse
-	130, // 130: NoName.CraftArmor:output_type -> npc.CraftArmorResponse
-	131, // 131: NoName.CraftWeapon:output_type -> npc.CraftWeaponResponse
-	132, // 132: NoName.BankDeposit:output_type -> npc.BankDepositResponse
-	133, // 133: NoName.BankWithdraw:output_type -> npc.BankWithdrawResponse
-	134, // 134: NoName.GetPlanetByID:output_type -> planet.GetPlanetByIDResponse
-	135, // 135: NoName.GetPlanetByName:output_type -> planet.GetPlanetByNameResponse
-	136, // 136: NoName.GetPlanetByCoordinate:output_type -> planet.GetPlanetByCoordinateResponse
-	137, // 137: NoName.GetPlanetByMapID:output_type -> planet.GetPlanetByMapIDResponse
-	138, // 138: NoName.GetExpansionInfo:output_type -> planet.GetExpansionInfoResponse
-	139, // 139: NoName.GetSafePlanets:output_type -> planet.GetSafePlanetsResponse
-	140, // 140: NoName.GetMapByID:output_type -> maps.GetMapByIDResponse
-	141, // 141: NoName.GetResourceByID:output_type -> resource.GetResourceByIDResponse
-	142, // 142: NoName.GetResourceByName:output_type -> resource.GetResourceByNameResponse
-	143, // 143: NoName.DropResource:output_type -> resource.DropResourceResponse
-	144, // 144: NoName.GetAllItems:output_type -> item.GetAllItemsResponse
-	145, // 145: NoName.GetItemsByCategoryID:output_type -> item.GetItemsByCategoryIDResponse
-	146, // 146: NoName.UseItem:output_type -> item.UseItemResponse
-	147, // 147: NoName.GetAllItemCategories:output_type -> item_category.GetAllItemCategoriesResponse
-	148, // 148: NoName.GetShipRepairInfo:output_type -> ship.GetShipRepairInfoResponse
-	149, // 149: NoName.StartShipRepair:output_type -> ship.StartShipRepairResponse
-	150, // 150: NoName.EndShipRepair:output_type -> ship.EndShipRepairResponse
-	151, // 151: NoName.GetShipTravelInfo:output_type -> ship.GetShipTravelInfoResponse
-	152, // 152: NoName.EndShipTravel:output_type -> ship.EndShipTravelResponse
-	153, // 153: NoName.GetPlayerShips:output_type -> ship.GetPlayerShipsResponse
-	154, // 154: NoName.GetPlayerShipEquipped:output_type -> ship.GetPlayerShipEquippedResponse
-	155, // 155: NoName.CreateTransaction:output_type -> transaction.CreateTransactionResponse
-	156, // 156: NoName.DropTresure:output_type -> tresure.DropTresureResponse
-	157, // 157: NoName.GetMission:output_type -> mission.GetMissionResponse
-	158, // 158: NoName.CheckMission:output_type -> mission.CheckMissionResponse
-	159, // 159: NoName.GetMissionReward:output_type -> mission.GetMissionRewardResponse
-	160, // 160: NoName.GetTeletrasportSafePlanetList:output_type -> expansion.GetTeletrasportSafePlanetListResponse
-	161, // 161: NoName.EndTeletrasportSafePlanet:output_type -> expansion.EndTeletrasportSafePlanetResponse
-	162, // 162: NoName.GetAllExplorationCategories:output_type -> exploration_category.GetAllExplorationCategoriesResponse
-	163, // 163: NoName.GetConquerorsByPlanetID:output_type -> conqueror.GetConquerorsByPlanetIDResponse
-	82,  // [82:164] is the sub-list for method output_type
-	0,   // [0:82] is the sub-list for method input_type
+	82,  // 82: NoName.GetCurrentConquerorByPlanetID:input_type -> conqueror.GetCurrentConquerorByPlanetIDRequest
+	83,  // 83: NoName.GetArmorByID:output_type -> armor.GetArmorByIDResponse
+	84,  // 84: NoName.GetArmorByName:output_type -> armor.GetArmorByNameResponse
+	85,  // 85: NoName.UpdateArmor:output_type -> armor.UpdateArmorResponse
+	86,  // 86: NoName.GetPlayerArmors:output_type -> armor.GetPlayerArmorsResponse
+	87,  // 87: NoName.GetPlayerArmorsByCategoryID:output_type -> armor.GetPlayerArmorsByCategoryIDResponse
+	88,  // 88: NoName.GetPlayerArmorsEquipped:output_type -> armor.GetPlayerArmorsEquippedResponse
+	89,  // 89: NoName.GetPlayerArmorEquippedByCategoryID:output_type -> armor.GetPlayerArmorEquippedByCategoryIDResponse
+	90,  // 90: NoName.GetAllArmorCategory:output_type -> armor_category.GetAllArmorCategoryResponse
+	91,  // 91: NoName.GetArmorCategoryBySlug:output_type -> armor_category.GetArmorCategoryBySlugResponse
+	92,  // 92: NoName.GetWeaponByID:output_type -> weapon.GetWeaponByIDResponse
+	93,  // 93: NoName.GetWeaponByName:output_type -> weapon.GetWeaponByNameResponse
+	94,  // 94: NoName.UpdateWeapon:output_type -> weapon.UpdateWeaponResponse
+	95,  // 95: NoName.GetPlayerWeapons:output_type -> weapon.GetPlayerWeaponsResponse
+	96,  // 96: NoName.GetPlayerWeaponEquipped:output_type -> weapon.GetPlayerWeaponEquippedResponse
+	97,  // 97: NoName.GetPlayerByID:output_type -> player.GetPlayerByIDResponse
+	98,  // 98: NoName.GetPlayerByUsername:output_type -> player.GetPlayerByUsernameResponse
+	99,  // 99: NoName.GetPlayerStats:output_type -> player.GetPlayerStatsResponse
+	100, // 100: NoName.GetPlayerResources:output_type -> player.GetPlayerResourcesResponse
+	101, // 101: NoName.GetPlayerItems:output_type -> player.GetPlayerItemsResponse
+	102, // 102: NoName.GetPlayerEconomy:output_type -> player.GetPlayerEconomyResponse
+	103, // 103: NoName.ManagePlayerInventory:output_type -> player.ManagePlayerInventoryResponse
+	104, // 104: NoName.PlayerEndTutorial:output_type -> player.PlayerEndTutorialResponse
+	105, // 105: NoName.GetPlayerExperience:output_type -> player.GetPlayerExperienceResponse
+	106, // 106: NoName.CreatePlayerPosition:output_type -> player_position.CreatePlayerPositionResponse
+	107, // 107: NoName.GetPlayerCurrentPlanet:output_type -> player_position.GetPlayerCurrentPlanetResponse
+	108, // 108: NoName.CountPlanetVisited:output_type -> player_position.CountPlanetVisitedResponse
+	109, // 109: NoName.CountSystemVisited:output_type -> player_position.CountSystemVisitedResponse
+	110, // 110: NoName.CountPlayerVisitedCurrentPlanet:output_type -> player_position.CountPlayerVisitedCurrentPlanetResponse
+	111, // 111: NoName.GetRestsInfo:output_type -> player.GetRestsInfoResponse
+	112, // 112: NoName.EndPlayerRest:output_type -> player.EndPlayerRestResponse
+	113, // 113: NoName.SignIn:output_type -> player.SignInResponse
+	114, // 114: NoName.GetPlayerStateByID:output_type -> player_state.GetPlayerStateByIDResponse
+	115, // 115: NoName.GetActivePlayerStates:output_type -> player_state.GetActivePlayerStatesResponse
+	116, // 116: NoName.GetPlayerStateToNotify:output_type -> player_state.GetPlayerStateToNotifyResponse
+	117, // 117: NoName.CreatePlayerState:output_type -> player_state.CreatePlayerStateResponse
+	118, // 118: NoName.UpdatePlayerState:output_type -> player_state.UpdatePlayerStateResponse
+	119, // 119: NoName.DeletePlayerState:output_type -> player_state.DeletePlayerStateResponse
+	120, // 120: NoName.GetEnemyByID:output_type -> enemy.GetEnemyByIDResponse
+	121, // 121: NoName.HitEnemy:output_type -> enemy.HitEnemyResponse
+	122, // 122: NoName.GetTitanByID:output_type -> titan.GetTitanByIDResponse
+	123, // 123: NoName.GetTitanByName:output_type -> titan.GetTitanByNameResponse
+	124, // 124: NoName.GetTitanByPlanetID:output_type -> titan.GetTitanByPlanetIDResponse
+	125, // 125: NoName.HitTitan:output_type -> titan.HitTitanResponse
+	126, // 126: NoName.TitanDiscovered:output_type -> titan.TitanDiscoveredResponse
+	127, // 127: NoName.GetLanguageBySlug:output_type -> language.GetLanguageBySlugResponse
+	128, // 128: NoName.GetLanguageByName:output_type -> language.GetLanguageByNameResponse
+	129, // 129: NoName.GetAllLanguages:output_type -> language.GetAllLanguagesResponse
+	130, // 130: NoName.GetAllNPC:output_type -> npc.GetAllNPCResponse
+	131, // 131: NoName.CraftArmor:output_type -> npc.CraftArmorResponse
+	132, // 132: NoName.CraftWeapon:output_type -> npc.CraftWeaponResponse
+	133, // 133: NoName.BankDeposit:output_type -> npc.BankDepositResponse
+	134, // 134: NoName.BankWithdraw:output_type -> npc.BankWithdrawResponse
+	135, // 135: NoName.GetPlanetByID:output_type -> planet.GetPlanetByIDResponse
+	136, // 136: NoName.GetPlanetByName:output_type -> planet.GetPlanetByNameResponse
+	137, // 137: NoName.GetPlanetByCoordinate:output_type -> planet.GetPlanetByCoordinateResponse
+	138, // 138: NoName.GetPlanetByMapID:output_type -> planet.GetPlanetByMapIDResponse
+	139, // 139: NoName.GetExpansionInfo:output_type -> planet.GetExpansionInfoResponse
+	140, // 140: NoName.GetSafePlanets:output_type -> planet.GetSafePlanetsResponse
+	141, // 141: NoName.GetMapByID:output_type -> maps.GetMapByIDResponse
+	142, // 142: NoName.GetResourceByID:output_type -> resource.GetResourceByIDResponse
+	143, // 143: NoName.GetResourceByName:output_type -> resource.GetResourceByNameResponse
+	144, // 144: NoName.DropResource:output_type -> resource.DropResourceResponse
+	145, // 145: NoName.GetAllItems:output_type -> item.GetAllItemsResponse
+	146, // 146: NoName.GetItemsByCategoryID:output_type -> item.GetItemsByCategoryIDResponse
+	147, // 147: NoName.UseItem:output_type -> item.UseItemResponse
+	148, // 148: NoName.GetAllItemCategories:output_type -> item_category.GetAllItemCategoriesResponse
+	149, // 149: NoName.GetShipRepairInfo:output_type -> ship.GetShipRepairInfoResponse
+	150, // 150: NoName.StartShipRepair:output_type -> ship.StartShipRepairResponse
+	151, // 151: NoName.EndShipRepair:output_type -> ship.EndShipRepairResponse
+	152, // 152: NoName.GetShipTravelInfo:output_type -> ship.GetShipTravelInfoResponse
+	153, // 153: NoName.EndShipTravel:output_type -> ship.EndShipTravelResponse
+	154, // 154: NoName.GetPlayerShips:output_type -> ship.GetPlayerShipsResponse
+	155, // 155: NoName.GetPlayerShipEquipped:output_type -> ship.GetPlayerShipEquippedResponse
+	156, // 156: NoName.CreateTransaction:output_type -> transaction.CreateTransactionResponse
+	157, // 157: NoName.DropTresure:output_type -> tresure.DropTresureResponse
+	158, // 158: NoName.GetMission:output_type -> mission.GetMissionResponse
+	159, // 159: NoName.CheckMission:output_type -> mission.CheckMissionResponse
+	160, // 160: NoName.GetMissionReward:output_type -> mission.GetMissionRewardResponse
+	161, // 161: NoName.GetTeletrasportSafePlanetList:output_type -> expansion.GetTeletrasportSafePlanetListResponse
+	162, // 162: NoName.EndTeletrasportSafePlanet:output_type -> expansion.EndTeletrasportSafePlanetResponse
+	163, // 163: NoName.GetAllExplorationCategories:output_type -> exploration_category.GetAllExplorationCategoriesResponse
+	164, // 164: NoName.GetConquerorsByPlanetID:output_type -> conqueror.GetConquerorsByPlanetIDResponse
+	165, // 165: NoName.GetCurrentConquerorByPlanetID:output_type -> conqueror.GetCurrentConquerorByPlanetIDResponse
+	83,  // [83:166] is the sub-list for method output_type
+	0,   // [0:83] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name

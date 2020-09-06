@@ -159,4 +159,5 @@ service NoName {
 
     // Conquerors
     rpc GetConquerorsByPlanetID (conqueror.GetConquerorsByPlanetIDRequest) returns (conqueror.GetConquerorsByPlanetIDResponse) {}
+    rpc GetCurrentConquerorByPlanetID (conqueror.GetCurrentConquerorByPlanetIDRequest) returns (conqueror.GetCurrentConquerorByPlanetIDResponse) {}
 }

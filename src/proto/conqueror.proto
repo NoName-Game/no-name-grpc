@@ -10,9 +10,17 @@ message GetConquerorsByPlanetIDRequest {
 message GetConquerorsByPlanetIDResponse {
     message ConquerorList {
         player.Player Player = 1;
-        int64 Kill = 2;
+        int64 NKills = 2;
     }
     repeated ConquerorList Conquerors = 1;
 }
 
+// GetCurrentConquerorByPlanetIDRequest
+message GetCurrentConquerorByPlanetIDRequest {
+    uint32 PlanetID = 1;
+}
+message GetCurrentConquerorByPlanetIDResponse {
+    player.Player Player = 1;
+    int64 NKills = 2;
+}
 

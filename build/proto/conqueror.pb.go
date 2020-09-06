@@ -120,19 +120,122 @@ func (x *GetConquerorsByPlanetIDResponse) GetConquerors() []*GetConquerorsByPlan
 	return nil
 }
 
+// GetCurrentConquerorByPlanetIDRequest
+type GetCurrentConquerorByPlanetIDRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	PlanetID uint32 `protobuf:"varint,1,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
+}
+
+func (x *GetCurrentConquerorByPlanetIDRequest) Reset() {
+	*x = GetCurrentConquerorByPlanetIDRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_conqueror_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetCurrentConquerorByPlanetIDRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentConquerorByPlanetIDRequest) ProtoMessage() {}
+
+func (x *GetCurrentConquerorByPlanetIDRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_conqueror_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentConquerorByPlanetIDRequest.ProtoReflect.Descriptor instead.
+func (*GetCurrentConquerorByPlanetIDRequest) Descriptor() ([]byte, []int) {
+	return file_proto_conqueror_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetCurrentConquerorByPlanetIDRequest) GetPlanetID() uint32 {
+	if x != nil {
+		return x.PlanetID
+	}
+	return 0
+}
+
+type GetCurrentConquerorByPlanetIDResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Player *Player `protobuf:"bytes,1,opt,name=Player,proto3" json:"Player,omitempty"`
+	NKills int64   `protobuf:"varint,2,opt,name=NKills,proto3" json:"NKills,omitempty"`
+}
+
+func (x *GetCurrentConquerorByPlanetIDResponse) Reset() {
+	*x = GetCurrentConquerorByPlanetIDResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_conqueror_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetCurrentConquerorByPlanetIDResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentConquerorByPlanetIDResponse) ProtoMessage() {}
+
+func (x *GetCurrentConquerorByPlanetIDResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_conqueror_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentConquerorByPlanetIDResponse.ProtoReflect.Descriptor instead.
+func (*GetCurrentConquerorByPlanetIDResponse) Descriptor() ([]byte, []int) {
+	return file_proto_conqueror_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetCurrentConquerorByPlanetIDResponse) GetPlayer() *Player {
+	if x != nil {
+		return x.Player
+	}
+	return nil
+}
+
+func (x *GetCurrentConquerorByPlanetIDResponse) GetNKills() int64 {
+	if x != nil {
+		return x.NKills
+	}
+	return 0
+}
+
 type GetConquerorsByPlanetIDResponse_ConquerorList struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	Player *Player `protobuf:"bytes,1,opt,name=Player,proto3" json:"Player,omitempty"`
-	Kill   int64   `protobuf:"varint,2,opt,name=Kill,proto3" json:"Kill,omitempty"`
+	NKills int64   `protobuf:"varint,2,opt,name=NKills,proto3" json:"NKills,omitempty"`
 }
 
 func (x *GetConquerorsByPlanetIDResponse_ConquerorList) Reset() {
 	*x = GetConquerorsByPlanetIDResponse_ConquerorList{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_conqueror_proto_msgTypes[2]
+		mi := &file_proto_conqueror_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -145,7 +248,7 @@ func (x *GetConquerorsByPlanetIDResponse_ConquerorList) String() string {
 func (*GetConquerorsByPlanetIDResponse_ConquerorList) ProtoMessage() {}
 
 func (x *GetConquerorsByPlanetIDResponse_ConquerorList) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_conqueror_proto_msgTypes[2]
+	mi := &file_proto_conqueror_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -168,9 +271,9 @@ func (x *GetConquerorsByPlanetIDResponse_ConquerorList) GetPlayer() *Player {
 	return nil
 }
 
-func (x *GetConquerorsByPlanetIDResponse_ConquerorList) GetKill() int64 {
+func (x *GetConquerorsByPlanetIDResponse_ConquerorList) GetNKills() int64 {
 	if x != nil {
-		return x.Kill
+		return x.NKills
 	}
 	return 0
 }
@@ -185,7 +288,7 @@ var file_proto_conqueror_proto_rawDesc = []byte{
 	0x71, 0x75, 0x65, 0x72, 0x6f, 0x72, 0x73, 0x42, 0x79, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x49,
 	0x44, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x6e,
 	0x65, 0x74, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x6e,
-	0x65, 0x74, 0x49, 0x44, 0x22, 0xc8, 0x01, 0x0a, 0x1f, 0x47, 0x65, 0x74, 0x43, 0x6f, 0x6e, 0x71,
+	0x65, 0x74, 0x49, 0x44, 0x22, 0xcc, 0x01, 0x0a, 0x1f, 0x47, 0x65, 0x74, 0x43, 0x6f, 0x6e, 0x71,
 	0x75, 0x65, 0x72, 0x6f, 0x72, 0x73, 0x42, 0x79, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x49, 0x44,
 	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x58, 0x0a, 0x0a, 0x43, 0x6f, 0x6e, 0x71,
 	0x75, 0x65, 0x72, 0x6f, 0x72, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x38, 0x2e, 0x63,
@@ -193,12 +296,24 @@ var file_proto_conqueror_proto_rawDesc = []byte{
 	0x75, 0x65, 0x72, 0x6f, 0x72, 0x73, 0x42, 0x79, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x49, 0x44,
 	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x43, 0x6f, 0x6e, 0x71, 0x75, 0x65, 0x72,
 	0x6f, 0x72, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x0a, 0x43, 0x6f, 0x6e, 0x71, 0x75, 0x65, 0x72, 0x6f,
-	0x72, 0x73, 0x1a, 0x4b, 0x0a, 0x0d, 0x43, 0x6f, 0x6e, 0x71, 0x75, 0x65, 0x72, 0x6f, 0x72, 0x4c,
+	0x72, 0x73, 0x1a, 0x4f, 0x0a, 0x0d, 0x43, 0x6f, 0x6e, 0x71, 0x75, 0x65, 0x72, 0x6f, 0x72, 0x4c,
 	0x69, 0x73, 0x74, 0x12, 0x26, 0x0a, 0x06, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x18, 0x01, 0x20,
 	0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x70, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x50, 0x6c, 0x61,
-	0x79, 0x65, 0x72, 0x52, 0x06, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x4b,
-	0x69, 0x6c, 0x6c, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x04, 0x4b, 0x69, 0x6c, 0x6c, 0x42,
-	0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x79, 0x65, 0x72, 0x52, 0x06, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x12, 0x16, 0x0a, 0x06, 0x4e,
+	0x4b, 0x69, 0x6c, 0x6c, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x4e, 0x4b, 0x69,
+	0x6c, 0x6c, 0x73, 0x22, 0x42, 0x0a, 0x24, 0x47, 0x65, 0x74, 0x43, 0x75, 0x72, 0x72, 0x65, 0x6e,
+	0x74, 0x43, 0x6f, 0x6e, 0x71, 0x75, 0x65, 0x72, 0x6f, 0x72, 0x42, 0x79, 0x50, 0x6c, 0x61, 0x6e,
+	0x65, 0x74, 0x49, 0x44, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50,
+	0x6c, 0x61, 0x6e, 0x65, 0x74, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50,
+	0x6c, 0x61, 0x6e, 0x65, 0x74, 0x49, 0x44, 0x22, 0x67, 0x0a, 0x25, 0x47, 0x65, 0x74, 0x43, 0x75,
+	0x72, 0x72, 0x65, 0x6e, 0x74, 0x43, 0x6f, 0x6e, 0x71, 0x75, 0x65, 0x72, 0x6f, 0x72, 0x42, 0x79,
+	0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x49, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x26, 0x0a, 0x06, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x0e, 0x2e, 0x70, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72,
+	0x52, 0x06, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x12, 0x16, 0x0a, 0x06, 0x4e, 0x4b, 0x69, 0x6c,
+	0x6c, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x4e, 0x4b, 0x69, 0x6c, 0x6c, 0x73,
+	0x42, 0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x33,
 }
 
 var (
@@ -213,21 +328,24 @@ func file_proto_conqueror_proto_rawDescGZIP() []byte {
 	return file_proto_conqueror_proto_rawDescData
 }
 
-var file_proto_conqueror_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_proto_conqueror_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_proto_conqueror_proto_goTypes = []interface{}{
 	(*GetConquerorsByPlanetIDRequest)(nil),                // 0: conqueror.GetConquerorsByPlanetIDRequest
 	(*GetConquerorsByPlanetIDResponse)(nil),               // 1: conqueror.GetConquerorsByPlanetIDResponse
-	(*GetConquerorsByPlanetIDResponse_ConquerorList)(nil), // 2: conqueror.GetConquerorsByPlanetIDResponse.ConquerorList
-	(*Player)(nil), // 3: player.Player
+	(*GetCurrentConquerorByPlanetIDRequest)(nil),          // 2: conqueror.GetCurrentConquerorByPlanetIDRequest
+	(*GetCurrentConquerorByPlanetIDResponse)(nil),         // 3: conqueror.GetCurrentConquerorByPlanetIDResponse
+	(*GetConquerorsByPlanetIDResponse_ConquerorList)(nil), // 4: conqueror.GetConquerorsByPlanetIDResponse.ConquerorList
+	(*Player)(nil), // 5: player.Player
 }
 var file_proto_conqueror_proto_depIdxs = []int32{
-	2, // 0: conqueror.GetConquerorsByPlanetIDResponse.Conquerors:type_name -> conqueror.GetConquerorsByPlanetIDResponse.ConquerorList
-	3, // 1: conqueror.GetConquerorsByPlanetIDResponse.ConquerorList.Player:type_name -> player.Player
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	4, // 0: conqueror.GetConquerorsByPlanetIDResponse.Conquerors:type_name -> conqueror.GetConquerorsByPlanetIDResponse.ConquerorList
+	5, // 1: conqueror.GetCurrentConquerorByPlanetIDResponse.Player:type_name -> player.Player
+	5, // 2: conqueror.GetConquerorsByPlanetIDResponse.ConquerorList.Player:type_name -> player.Player
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_proto_conqueror_proto_init() }
@@ -262,6 +380,30 @@ func file_proto_conqueror_proto_init() {
 			}
 		}
 		file_proto_conqueror_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetCurrentConquerorByPlanetIDRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_conqueror_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetCurrentConquerorByPlanetIDResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_conqueror_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetConquerorsByPlanetIDResponse_ConquerorList); i {
 			case 0:
 				return &v.state
@@ -280,7 +422,7 @@ func file_proto_conqueror_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_conqueror_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
