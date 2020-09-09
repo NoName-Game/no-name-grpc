@@ -9,6 +9,23 @@ message TitanEvent {
     repeated EventChoice Choices = 3;
 }
 
+message GetRandomEventRequest {
+    // empty
+}
+
+message GetRandomEventResponse {
+    TitanEvent event = 1;
+}
+
+// GetAll
+message GetAllEventRequest{
+    // empty
+}
+
+message GetAllEventResponse {
+    repeated TitanEvent events = 1;
+}
+
 // GetTitanEventByID
 message GetTitanEventByIDRequest {
     uint32 ID = 1;
