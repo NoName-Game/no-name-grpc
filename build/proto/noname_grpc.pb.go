@@ -123,6 +123,9 @@ type NoNameClient interface {
 	EndTeletrasportSafePlanet(ctx context.Context, in *EndTeletrasportSafePlanetRequest, opts ...grpc.CallOption) (*EndTeletrasportSafePlanetResponse, error)
 	// Exploration Category
 	GetAllExplorationCategories(ctx context.Context, in *GetAllExplorationCategoriesRequest, opts ...grpc.CallOption) (*GetAllExplorationCategoriesResponse, error)
+	// Conquerors
+	GetConquerorsByPlanetID(ctx context.Context, in *GetConquerorsByPlanetIDRequest, opts ...grpc.CallOption) (*GetConquerorsByPlanetIDResponse, error)
+	GetCurrentConquerorByPlanetID(ctx context.Context, in *GetCurrentConquerorByPlanetIDRequest, opts ...grpc.CallOption) (*GetCurrentConquerorByPlanetIDResponse, error)
 }
 
 type noNameClient struct {
@@ -862,6 +865,24 @@ func (c *noNameClient) GetAllExplorationCategories(ctx context.Context, in *GetA
 	return out, nil
 }
 
+func (c *noNameClient) GetConquerorsByPlanetID(ctx context.Context, in *GetConquerorsByPlanetIDRequest, opts ...grpc.CallOption) (*GetConquerorsByPlanetIDResponse, error) {
+	out := new(GetConquerorsByPlanetIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetConquerorsByPlanetID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetCurrentConquerorByPlanetID(ctx context.Context, in *GetCurrentConquerorByPlanetIDRequest, opts ...grpc.CallOption) (*GetCurrentConquerorByPlanetIDResponse, error) {
+	out := new(GetCurrentConquerorByPlanetIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetCurrentConquerorByPlanetID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // NoNameServer is the server API for NoName service.
 // All implementations must embed UnimplementedNoNameServer
 // for forward compatibility
@@ -972,6 +993,9 @@ type NoNameServer interface {
 	EndTeletrasportSafePlanet(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error)
 	// Exploration Category
 	GetAllExplorationCategories(context.Context, *GetAllExplorationCategoriesRequest) (*GetAllExplorationCategoriesResponse, error)
+	// Conquerors
+	GetConquerorsByPlanetID(context.Context, *GetConquerorsByPlanetIDRequest) (*GetConquerorsByPlanetIDResponse, error)
+	GetCurrentConquerorByPlanetID(context.Context, *GetCurrentConquerorByPlanetIDRequest) (*GetCurrentConquerorByPlanetIDResponse, error)
 	mustEmbedUnimplementedNoNameServer()
 }
 
@@ -1221,6 +1245,12 @@ func (*UnimplementedNoNameServer) EndTeletrasportSafePlanet(context.Context, *En
 }
 func (*UnimplementedNoNameServer) GetAllExplorationCategories(context.Context, *GetAllExplorationCategoriesRequest) (*GetAllExplorationCategoriesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllExplorationCategories not implemented")
+}
+func (*UnimplementedNoNameServer) GetConquerorsByPlanetID(context.Context, *GetConquerorsByPlanetIDRequest) (*GetConquerorsByPlanetIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetConquerorsByPlanetID not implemented")
+}
+func (*UnimplementedNoNameServer) GetCurrentConquerorByPlanetID(context.Context, *GetCurrentConquerorByPlanetIDRequest) (*GetCurrentConquerorByPlanetIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCurrentConquerorByPlanetID not implemented")
 }
 func (*UnimplementedNoNameServer) mustEmbedUnimplementedNoNameServer() {}
 
@@ -2686,6 +2716,42 @@ func _NoName_GetAllExplorationCategories_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetConquerorsByPlanetID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetConquerorsByPlanetIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetConquerorsByPlanetID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetConquerorsByPlanetID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetConquerorsByPlanetID(ctx, req.(*GetConquerorsByPlanetIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetCurrentConquerorByPlanetID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentConquerorByPlanetIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetCurrentConquerorByPlanetID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetCurrentConquerorByPlanetID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetCurrentConquerorByPlanetID(ctx, req.(*GetCurrentConquerorByPlanetIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _NoName_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "NoName",
 	HandlerType: (*NoNameServer)(nil),
@@ -3013,6 +3079,14 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAllExplorationCategories",
 			Handler:    _NoName_GetAllExplorationCategories_Handler,
+		},
+		{
+			MethodName: "GetConquerorsByPlanetID",
+			Handler:    _NoName_GetConquerorsByPlanetID_Handler,
+		},
+		{
+			MethodName: "GetCurrentConquerorByPlanetID",
+			Handler:    _NoName_GetCurrentConquerorByPlanetID_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
