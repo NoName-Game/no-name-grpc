@@ -1,0 +1,29 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+import "proto/resource.proto";
+option go_package = "proto";
+package exploration;
+
+// ExplorationStart
+message ExplorationStartRequest {
+    uint32 PlayerID = 1;
+    string ExplorationCategorySlug = 2;
+}
+message ExplorationStartResponse {
+    google.protobuf.Timestamp FinishAt = 9;
+}
+
+// ExplorationCheck
+message ExplorationCheckRequest {
+    uint32 PlayerID = 1;
+}
+message ExplorationCheckResponse {
+    message ExplorationDropResourcesResult {
+        resource.Resource Resource = 1;
+        int32 Quantity = 2;
+    }
+    bool InExploration = 1;
+    bool FinishExploration = 2;
+    google.protobuf.Timestamp ExplorationEndTime = 3;
+    ExplorationDropResourcesResult DropResult = 4;
+}

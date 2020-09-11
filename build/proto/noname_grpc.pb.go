@@ -95,7 +95,6 @@ type NoNameClient interface {
 	// Resouce
 	GetResourceByID(ctx context.Context, in *GetResourceByIDRequest, opts ...grpc.CallOption) (*GetResourceByIDResponse, error)
 	GetResourceByName(ctx context.Context, in *GetResourceByNameRequest, opts ...grpc.CallOption) (*GetResourceByNameResponse, error)
-	DropResource(ctx context.Context, in *DropResourceRequest, opts ...grpc.CallOption) (*DropResourceResponse, error)
 	// Item
 	GetAllItems(ctx context.Context, in *GetAllItemsRequest, opts ...grpc.CallOption) (*GetAllItemsResponse, error)
 	GetItemsByCategoryID(ctx context.Context, in *GetItemsByCategoryIDRequest, opts ...grpc.CallOption) (*GetItemsByCategoryIDResponse, error)
@@ -121,6 +120,9 @@ type NoNameClient interface {
 	// Expansion
 	GetTeletrasportSafePlanetList(ctx context.Context, in *GetTeletrasportSafePlanetListRequest, opts ...grpc.CallOption) (*GetTeletrasportSafePlanetListResponse, error)
 	EndTeletrasportSafePlanet(ctx context.Context, in *EndTeletrasportSafePlanetRequest, opts ...grpc.CallOption) (*EndTeletrasportSafePlanetResponse, error)
+	// Exploration
+	ExplorationStart(ctx context.Context, in *ExplorationStartRequest, opts ...grpc.CallOption) (*ExplorationStartResponse, error)
+	ExplorationCheck(ctx context.Context, in *ExplorationCheckRequest, opts ...grpc.CallOption) (*ExplorationCheckResponse, error)
 	// Exploration Category
 	GetAllExplorationCategories(ctx context.Context, in *GetAllExplorationCategoriesRequest, opts ...grpc.CallOption) (*GetAllExplorationCategoriesResponse, error)
 	// Conquerors
@@ -685,15 +687,6 @@ func (c *noNameClient) GetResourceByName(ctx context.Context, in *GetResourceByN
 	return out, nil
 }
 
-func (c *noNameClient) DropResource(ctx context.Context, in *DropResourceRequest, opts ...grpc.CallOption) (*DropResourceResponse, error) {
-	out := new(DropResourceResponse)
-	err := c.cc.Invoke(ctx, "/NoName/DropResource", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *noNameClient) GetAllItems(ctx context.Context, in *GetAllItemsRequest, opts ...grpc.CallOption) (*GetAllItemsResponse, error) {
 	out := new(GetAllItemsResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAllItems", in, out, opts...)
@@ -856,6 +849,24 @@ func (c *noNameClient) EndTeletrasportSafePlanet(ctx context.Context, in *EndTel
 	return out, nil
 }
 
+func (c *noNameClient) ExplorationStart(ctx context.Context, in *ExplorationStartRequest, opts ...grpc.CallOption) (*ExplorationStartResponse, error) {
+	out := new(ExplorationStartResponse)
+	err := c.cc.Invoke(ctx, "/NoName/ExplorationStart", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) ExplorationCheck(ctx context.Context, in *ExplorationCheckRequest, opts ...grpc.CallOption) (*ExplorationCheckResponse, error) {
+	out := new(ExplorationCheckResponse)
+	err := c.cc.Invoke(ctx, "/NoName/ExplorationCheck", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetAllExplorationCategories(ctx context.Context, in *GetAllExplorationCategoriesRequest, opts ...grpc.CallOption) (*GetAllExplorationCategoriesResponse, error) {
 	out := new(GetAllExplorationCategoriesResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAllExplorationCategories", in, out, opts...)
@@ -965,7 +976,6 @@ type NoNameServer interface {
 	// Resouce
 	GetResourceByID(context.Context, *GetResourceByIDRequest) (*GetResourceByIDResponse, error)
 	GetResourceByName(context.Context, *GetResourceByNameRequest) (*GetResourceByNameResponse, error)
-	DropResource(context.Context, *DropResourceRequest) (*DropResourceResponse, error)
 	// Item
 	GetAllItems(context.Context, *GetAllItemsRequest) (*GetAllItemsResponse, error)
 	GetItemsByCategoryID(context.Context, *GetItemsByCategoryIDRequest) (*GetItemsByCategoryIDResponse, error)
@@ -991,6 +1001,9 @@ type NoNameServer interface {
 	// Expansion
 	GetTeletrasportSafePlanetList(context.Context, *GetTeletrasportSafePlanetListRequest) (*GetTeletrasportSafePlanetListResponse, error)
 	EndTeletrasportSafePlanet(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error)
+	// Exploration
+	ExplorationStart(context.Context, *ExplorationStartRequest) (*ExplorationStartResponse, error)
+	ExplorationCheck(context.Context, *ExplorationCheckRequest) (*ExplorationCheckResponse, error)
 	// Exploration Category
 	GetAllExplorationCategories(context.Context, *GetAllExplorationCategoriesRequest) (*GetAllExplorationCategoriesResponse, error)
 	// Conquerors
@@ -1186,9 +1199,6 @@ func (*UnimplementedNoNameServer) GetResourceByID(context.Context, *GetResourceB
 func (*UnimplementedNoNameServer) GetResourceByName(context.Context, *GetResourceByNameRequest) (*GetResourceByNameResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetResourceByName not implemented")
 }
-func (*UnimplementedNoNameServer) DropResource(context.Context, *DropResourceRequest) (*DropResourceResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DropResource not implemented")
-}
 func (*UnimplementedNoNameServer) GetAllItems(context.Context, *GetAllItemsRequest) (*GetAllItemsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllItems not implemented")
 }
@@ -1242,6 +1252,12 @@ func (*UnimplementedNoNameServer) GetTeletrasportSafePlanetList(context.Context,
 }
 func (*UnimplementedNoNameServer) EndTeletrasportSafePlanet(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EndTeletrasportSafePlanet not implemented")
+}
+func (*UnimplementedNoNameServer) ExplorationStart(context.Context, *ExplorationStartRequest) (*ExplorationStartResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ExplorationStart not implemented")
+}
+func (*UnimplementedNoNameServer) ExplorationCheck(context.Context, *ExplorationCheckRequest) (*ExplorationCheckResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ExplorationCheck not implemented")
 }
 func (*UnimplementedNoNameServer) GetAllExplorationCategories(context.Context, *GetAllExplorationCategoriesRequest) (*GetAllExplorationCategoriesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllExplorationCategories not implemented")
@@ -2356,24 +2372,6 @@ func _NoName_GetResourceByName_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_DropResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DropResourceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).DropResource(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/DropResource",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).DropResource(ctx, req.(*DropResourceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _NoName_GetAllItems_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAllItemsRequest)
 	if err := dec(in); err != nil {
@@ -2698,6 +2696,42 @@ func _NoName_EndTeletrasportSafePlanet_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_ExplorationStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExplorationStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).ExplorationStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/ExplorationStart",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).ExplorationStart(ctx, req.(*ExplorationStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_ExplorationCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExplorationCheckRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).ExplorationCheck(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/ExplorationCheck",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).ExplorationCheck(ctx, req.(*ExplorationCheckRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetAllExplorationCategories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAllExplorationCategoriesRequest)
 	if err := dec(in); err != nil {
@@ -3001,10 +3035,6 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetResourceByName_Handler,
 		},
 		{
-			MethodName: "DropResource",
-			Handler:    _NoName_DropResource_Handler,
-		},
-		{
 			MethodName: "GetAllItems",
 			Handler:    _NoName_GetAllItems_Handler,
 		},
@@ -3075,6 +3105,14 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "EndTeletrasportSafePlanet",
 			Handler:    _NoName_EndTeletrasportSafePlanet_Handler,
+		},
+		{
+			MethodName: "ExplorationStart",
+			Handler:    _NoName_ExplorationStart_Handler,
+		},
+		{
+			MethodName: "ExplorationCheck",
+			Handler:    _NoName_ExplorationCheck_Handler,
 		},
 		{
 			MethodName: "GetAllExplorationCategories",
