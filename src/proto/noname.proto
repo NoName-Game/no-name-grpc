@@ -21,6 +21,7 @@ import "proto/mission.proto";
 import "proto/titan.proto";
 import "proto/expansion.proto";
 import "proto/exploration_category.proto";
+import "proto/conqueror.proto";
 import "proto/titan_event.proto";
 import "proto/titan_damage.proto";
 
@@ -169,5 +170,7 @@ service NoName {
     // Exploration Category
     rpc GetAllExplorationCategories (exploration_category.GetAllExplorationCategoriesRequest) returns (exploration_category.GetAllExplorationCategoriesResponse) {}
 
-
+    // Conquerors
+    rpc GetConquerorsByPlanetID (conqueror.GetConquerorsByPlanetIDRequest) returns (conqueror.GetConquerorsByPlanetIDResponse) {}
+    rpc GetCurrentConquerorByPlanetID (conqueror.GetCurrentConquerorByPlanetIDRequest) returns (conqueror.GetCurrentConquerorByPlanetIDResponse) {}
 }
