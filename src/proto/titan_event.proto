@@ -1,5 +1,6 @@
 syntax = "proto3";
 option go_package = "proto";
+import "proto/titan.proto";
 package titan_event;
 
 // TitanEvent
@@ -7,6 +8,17 @@ message TitanEvent {
     uint32 ID = 1;
     string TextCode = 2;
     repeated EventChoice Choices = 3;
+}
+
+message SubmitAnswerRequest {
+    uint32 titanID = 1;
+    uint32 choiceID = 2;
+    uint32 playerID = 3;
+}
+
+message SubmitAnswerResponse {
+    bool isMalus = 1;
+    titan.HitTitanResponse hit = 2;
 }
 
 message GetRandomEventRequest {

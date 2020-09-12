@@ -76,6 +76,7 @@ type NoNameClient interface {
 	GetEventByID(ctx context.Context, in *GetTitanEventByIDRequest, opts ...grpc.CallOption) (*GetTitanEventByIDResponse, error)
 	GetEventChoiceByID(ctx context.Context, in *GetEventChoiceByIDRequest, opts ...grpc.CallOption) (*GetEventChoiceByIDResponse, error)
 	GetRandomEvent(ctx context.Context, in *GetRandomEventRequest, opts ...grpc.CallOption) (*GetRandomEventResponse, error)
+	SubmitAnswer(ctx context.Context, in *SubmitAnswerRequest, opts ...grpc.CallOption) (*SubmitAnswerResponse, error)
 	GetTitanDamageByTitanID(ctx context.Context, in *GetTitanDamageByTitanIDRequest, opts ...grpc.CallOption) (*GetTitanDamageByTitanIDResponse, error)
 	// Language
 	GetLanguageBySlug(ctx context.Context, in *GetLanguageBySlugRequest, opts ...grpc.CallOption) (*GetLanguageBySlugResponse, error)
@@ -571,6 +572,15 @@ func (c *noNameClient) GetRandomEvent(ctx context.Context, in *GetRandomEventReq
 	return out, nil
 }
 
+func (c *noNameClient) SubmitAnswer(ctx context.Context, in *SubmitAnswerRequest, opts ...grpc.CallOption) (*SubmitAnswerResponse, error) {
+	out := new(SubmitAnswerResponse)
+	err := c.cc.Invoke(ctx, "/NoName/SubmitAnswer", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetTitanDamageByTitanID(ctx context.Context, in *GetTitanDamageByTitanIDRequest, opts ...grpc.CallOption) (*GetTitanDamageByTitanIDResponse, error) {
 	out := new(GetTitanDamageByTitanIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetTitanDamageByTitanID", in, out, opts...)
@@ -976,6 +986,7 @@ type NoNameServer interface {
 	GetEventByID(context.Context, *GetTitanEventByIDRequest) (*GetTitanEventByIDResponse, error)
 	GetEventChoiceByID(context.Context, *GetEventChoiceByIDRequest) (*GetEventChoiceByIDResponse, error)
 	GetRandomEvent(context.Context, *GetRandomEventRequest) (*GetRandomEventResponse, error)
+	SubmitAnswer(context.Context, *SubmitAnswerRequest) (*SubmitAnswerResponse, error)
 	GetTitanDamageByTitanID(context.Context, *GetTitanDamageByTitanIDRequest) (*GetTitanDamageByTitanIDResponse, error)
 	// Language
 	GetLanguageBySlug(context.Context, *GetLanguageBySlugRequest) (*GetLanguageBySlugResponse, error)
@@ -1179,6 +1190,9 @@ func (*UnimplementedNoNameServer) GetEventChoiceByID(context.Context, *GetEventC
 }
 func (*UnimplementedNoNameServer) GetRandomEvent(context.Context, *GetRandomEventRequest) (*GetRandomEventResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRandomEvent not implemented")
+}
+func (*UnimplementedNoNameServer) SubmitAnswer(context.Context, *SubmitAnswerRequest) (*SubmitAnswerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SubmitAnswer not implemented")
 }
 func (*UnimplementedNoNameServer) GetTitanDamageByTitanID(context.Context, *GetTitanDamageByTitanIDRequest) (*GetTitanDamageByTitanIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTitanDamageByTitanID not implemented")
@@ -2164,6 +2178,24 @@ func _NoName_GetRandomEvent_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_SubmitAnswer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SubmitAnswerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).SubmitAnswer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/SubmitAnswer",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).SubmitAnswer(ctx, req.(*SubmitAnswerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetTitanDamageByTitanID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTitanDamageByTitanIDRequest)
 	if err := dec(in); err != nil {
@@ -3043,6 +3075,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetRandomEvent",
 			Handler:    _NoName_GetRandomEvent_Handler,
+		},
+		{
+			MethodName: "SubmitAnswer",
+			Handler:    _NoName_SubmitAnswer_Handler,
 		},
 		{
 			MethodName: "GetTitanDamageByTitanID",
