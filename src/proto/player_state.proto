@@ -63,3 +63,13 @@ message DeletePlayerStateRequest {
 message DeletePlayerStateResponse {
     // Empty
 }
+
+// DeletePlayerStateByController
+message DeletePlayerStateByControllerRequest {
+    uint32 PlayerID = 1;
+    string Controller = 2;
+    bool Force = 3;
+}
+message DeletePlayerStateByControllerResponse {
+    // Empty
+}

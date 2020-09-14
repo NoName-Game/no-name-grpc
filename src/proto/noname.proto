@@ -79,6 +79,7 @@ service NoName {
     rpc CreatePlayerState (player_state.CreatePlayerStateRequest) returns (player_state.CreatePlayerStateResponse) {}
     rpc UpdatePlayerState (player_state.UpdatePlayerStateRequest) returns (player_state.UpdatePlayerStateResponse) {}
     rpc DeletePlayerState (player_state.DeletePlayerStateRequest) returns (player_state.DeletePlayerStateResponse) {}
+    rpc DeletePlayerStateByController (player_state.DeletePlayerStateByControllerRequest) returns (player_state.DeletePlayerStateByControllerResponse) {}
 
     // Enemy
     rpc GetEnemyByID (enemy.GetEnemyByIDRequest) returns (enemy.GetEnemyByIDResponse) {}
@@ -157,6 +158,8 @@ service NoName {
 
     // Exploration
     rpc ExplorationStart (exploration.ExplorationStartRequest) returns (exploration.ExplorationStartResponse) {}
+    rpc ExplorationContinue (exploration.ExplorationContinueRequest) returns (exploration.ExplorationContinueResponse) {}
+    rpc ExplorationEnd (exploration.ExplorationEndRequest) returns (exploration.ExplorationEndResponse) {}
     rpc ExplorationCheck (exploration.ExplorationCheckRequest) returns (exploration.ExplorationCheckResponse) {}
 
     // Exploration Category

@@ -62,6 +62,7 @@ type NoNameClient interface {
 	CreatePlayerState(ctx context.Context, in *CreatePlayerStateRequest, opts ...grpc.CallOption) (*CreatePlayerStateResponse, error)
 	UpdatePlayerState(ctx context.Context, in *UpdatePlayerStateRequest, opts ...grpc.CallOption) (*UpdatePlayerStateResponse, error)
 	DeletePlayerState(ctx context.Context, in *DeletePlayerStateRequest, opts ...grpc.CallOption) (*DeletePlayerStateResponse, error)
+	DeletePlayerStateByController(ctx context.Context, in *DeletePlayerStateByControllerRequest, opts ...grpc.CallOption) (*DeletePlayerStateByControllerResponse, error)
 	// Enemy
 	GetEnemyByID(ctx context.Context, in *GetEnemyByIDRequest, opts ...grpc.CallOption) (*GetEnemyByIDResponse, error)
 	HitEnemy(ctx context.Context, in *HitEnemyRequest, opts ...grpc.CallOption) (*HitEnemyResponse, error)
@@ -122,6 +123,8 @@ type NoNameClient interface {
 	EndTeletrasportSafePlanet(ctx context.Context, in *EndTeletrasportSafePlanetRequest, opts ...grpc.CallOption) (*EndTeletrasportSafePlanetResponse, error)
 	// Exploration
 	ExplorationStart(ctx context.Context, in *ExplorationStartRequest, opts ...grpc.CallOption) (*ExplorationStartResponse, error)
+	ExplorationContinue(ctx context.Context, in *ExplorationContinueRequest, opts ...grpc.CallOption) (*ExplorationContinueResponse, error)
+	ExplorationEnd(ctx context.Context, in *ExplorationEndRequest, opts ...grpc.CallOption) (*ExplorationEndResponse, error)
 	ExplorationCheck(ctx context.Context, in *ExplorationCheckRequest, opts ...grpc.CallOption) (*ExplorationCheckResponse, error)
 	// Exploration Category
 	GetAllExplorationCategories(ctx context.Context, in *GetAllExplorationCategoriesRequest, opts ...grpc.CallOption) (*GetAllExplorationCategoriesResponse, error)
@@ -465,6 +468,15 @@ func (c *noNameClient) UpdatePlayerState(ctx context.Context, in *UpdatePlayerSt
 func (c *noNameClient) DeletePlayerState(ctx context.Context, in *DeletePlayerStateRequest, opts ...grpc.CallOption) (*DeletePlayerStateResponse, error) {
 	out := new(DeletePlayerStateResponse)
 	err := c.cc.Invoke(ctx, "/NoName/DeletePlayerState", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) DeletePlayerStateByController(ctx context.Context, in *DeletePlayerStateByControllerRequest, opts ...grpc.CallOption) (*DeletePlayerStateByControllerResponse, error) {
+	out := new(DeletePlayerStateByControllerResponse)
+	err := c.cc.Invoke(ctx, "/NoName/DeletePlayerStateByController", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -858,6 +870,24 @@ func (c *noNameClient) ExplorationStart(ctx context.Context, in *ExplorationStar
 	return out, nil
 }
 
+func (c *noNameClient) ExplorationContinue(ctx context.Context, in *ExplorationContinueRequest, opts ...grpc.CallOption) (*ExplorationContinueResponse, error) {
+	out := new(ExplorationContinueResponse)
+	err := c.cc.Invoke(ctx, "/NoName/ExplorationContinue", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) ExplorationEnd(ctx context.Context, in *ExplorationEndRequest, opts ...grpc.CallOption) (*ExplorationEndResponse, error) {
+	out := new(ExplorationEndResponse)
+	err := c.cc.Invoke(ctx, "/NoName/ExplorationEnd", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) ExplorationCheck(ctx context.Context, in *ExplorationCheckRequest, opts ...grpc.CallOption) (*ExplorationCheckResponse, error) {
 	out := new(ExplorationCheckResponse)
 	err := c.cc.Invoke(ctx, "/NoName/ExplorationCheck", in, out, opts...)
@@ -943,6 +973,7 @@ type NoNameServer interface {
 	CreatePlayerState(context.Context, *CreatePlayerStateRequest) (*CreatePlayerStateResponse, error)
 	UpdatePlayerState(context.Context, *UpdatePlayerStateRequest) (*UpdatePlayerStateResponse, error)
 	DeletePlayerState(context.Context, *DeletePlayerStateRequest) (*DeletePlayerStateResponse, error)
+	DeletePlayerStateByController(context.Context, *DeletePlayerStateByControllerRequest) (*DeletePlayerStateByControllerResponse, error)
 	// Enemy
 	GetEnemyByID(context.Context, *GetEnemyByIDRequest) (*GetEnemyByIDResponse, error)
 	HitEnemy(context.Context, *HitEnemyRequest) (*HitEnemyResponse, error)
@@ -1003,6 +1034,8 @@ type NoNameServer interface {
 	EndTeletrasportSafePlanet(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error)
 	// Exploration
 	ExplorationStart(context.Context, *ExplorationStartRequest) (*ExplorationStartResponse, error)
+	ExplorationContinue(context.Context, *ExplorationContinueRequest) (*ExplorationContinueResponse, error)
+	ExplorationEnd(context.Context, *ExplorationEndRequest) (*ExplorationEndResponse, error)
 	ExplorationCheck(context.Context, *ExplorationCheckRequest) (*ExplorationCheckResponse, error)
 	// Exploration Category
 	GetAllExplorationCategories(context.Context, *GetAllExplorationCategoriesRequest) (*GetAllExplorationCategoriesResponse, error)
@@ -1126,6 +1159,9 @@ func (*UnimplementedNoNameServer) UpdatePlayerState(context.Context, *UpdatePlay
 }
 func (*UnimplementedNoNameServer) DeletePlayerState(context.Context, *DeletePlayerStateRequest) (*DeletePlayerStateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeletePlayerState not implemented")
+}
+func (*UnimplementedNoNameServer) DeletePlayerStateByController(context.Context, *DeletePlayerStateByControllerRequest) (*DeletePlayerStateByControllerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeletePlayerStateByController not implemented")
 }
 func (*UnimplementedNoNameServer) GetEnemyByID(context.Context, *GetEnemyByIDRequest) (*GetEnemyByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEnemyByID not implemented")
@@ -1255,6 +1291,12 @@ func (*UnimplementedNoNameServer) EndTeletrasportSafePlanet(context.Context, *En
 }
 func (*UnimplementedNoNameServer) ExplorationStart(context.Context, *ExplorationStartRequest) (*ExplorationStartResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ExplorationStart not implemented")
+}
+func (*UnimplementedNoNameServer) ExplorationContinue(context.Context, *ExplorationContinueRequest) (*ExplorationContinueResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ExplorationContinue not implemented")
+}
+func (*UnimplementedNoNameServer) ExplorationEnd(context.Context, *ExplorationEndRequest) (*ExplorationEndResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ExplorationEnd not implemented")
 }
 func (*UnimplementedNoNameServer) ExplorationCheck(context.Context, *ExplorationCheckRequest) (*ExplorationCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ExplorationCheck not implemented")
@@ -1936,6 +1978,24 @@ func _NoName_DeletePlayerState_Handler(srv interface{}, ctx context.Context, dec
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).DeletePlayerState(ctx, req.(*DeletePlayerStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_DeletePlayerStateByController_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeletePlayerStateByControllerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).DeletePlayerStateByController(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/DeletePlayerStateByController",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).DeletePlayerStateByController(ctx, req.(*DeletePlayerStateByControllerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2714,6 +2774,42 @@ func _NoName_ExplorationStart_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_ExplorationContinue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExplorationContinueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).ExplorationContinue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/ExplorationContinue",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).ExplorationContinue(ctx, req.(*ExplorationContinueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_ExplorationEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExplorationEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).ExplorationEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/ExplorationEnd",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).ExplorationEnd(ctx, req.(*ExplorationEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_ExplorationCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ExplorationCheckRequest)
 	if err := dec(in); err != nil {
@@ -2939,6 +3035,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_DeletePlayerState_Handler,
 		},
 		{
+			MethodName: "DeletePlayerStateByController",
+			Handler:    _NoName_DeletePlayerStateByController_Handler,
+		},
+		{
 			MethodName: "GetEnemyByID",
 			Handler:    _NoName_GetEnemyByID_Handler,
 		},
@@ -3109,6 +3209,14 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ExplorationStart",
 			Handler:    _NoName_ExplorationStart_Handler,
+		},
+		{
+			MethodName: "ExplorationContinue",
+			Handler:    _NoName_ExplorationContinue_Handler,
+		},
+		{
+			MethodName: "ExplorationEnd",
+			Handler:    _NoName_ExplorationEnd_Handler,
 		},
 		{
 			MethodName: "ExplorationCheck",
