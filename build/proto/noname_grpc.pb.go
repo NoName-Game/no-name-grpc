@@ -72,6 +72,13 @@ type NoNameClient interface {
 	GetTitanByPlanetID(ctx context.Context, in *GetTitanByPlanetIDRequest, opts ...grpc.CallOption) (*GetTitanByPlanetIDResponse, error)
 	HitTitan(ctx context.Context, in *HitTitanRequest, opts ...grpc.CallOption) (*HitTitanResponse, error)
 	TitanDiscovered(ctx context.Context, in *TitanDiscoveredRequest, opts ...grpc.CallOption) (*TitanDiscoveredResponse, error)
+	// Titan Event
+	GetAllEvent(ctx context.Context, in *GetAllEventRequest, opts ...grpc.CallOption) (*GetAllEventResponse, error)
+	GetEventByID(ctx context.Context, in *GetTitanEventByIDRequest, opts ...grpc.CallOption) (*GetTitanEventByIDResponse, error)
+	GetEventChoiceByID(ctx context.Context, in *GetEventChoiceByIDRequest, opts ...grpc.CallOption) (*GetEventChoiceByIDResponse, error)
+	GetRandomEvent(ctx context.Context, in *GetRandomEventRequest, opts ...grpc.CallOption) (*GetRandomEventResponse, error)
+	SubmitAnswer(ctx context.Context, in *SubmitAnswerRequest, opts ...grpc.CallOption) (*SubmitAnswerResponse, error)
+	GetTitanDamageByTitanID(ctx context.Context, in *GetTitanDamageByTitanIDRequest, opts ...grpc.CallOption) (*GetTitanDamageByTitanIDResponse, error)
 	// Language
 	GetLanguageBySlug(ctx context.Context, in *GetLanguageBySlugRequest, opts ...grpc.CallOption) (*GetLanguageBySlugResponse, error)
 	GetLanguageByName(ctx context.Context, in *GetLanguageByNameRequest, opts ...grpc.CallOption) (*GetLanguageByNameResponse, error)
@@ -546,6 +553,60 @@ func (c *noNameClient) TitanDiscovered(ctx context.Context, in *TitanDiscoveredR
 	return out, nil
 }
 
+func (c *noNameClient) GetAllEvent(ctx context.Context, in *GetAllEventRequest, opts ...grpc.CallOption) (*GetAllEventResponse, error) {
+	out := new(GetAllEventResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAllEvent", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetEventByID(ctx context.Context, in *GetTitanEventByIDRequest, opts ...grpc.CallOption) (*GetTitanEventByIDResponse, error) {
+	out := new(GetTitanEventByIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetEventByID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetEventChoiceByID(ctx context.Context, in *GetEventChoiceByIDRequest, opts ...grpc.CallOption) (*GetEventChoiceByIDResponse, error) {
+	out := new(GetEventChoiceByIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetEventChoiceByID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetRandomEvent(ctx context.Context, in *GetRandomEventRequest, opts ...grpc.CallOption) (*GetRandomEventResponse, error) {
+	out := new(GetRandomEventResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetRandomEvent", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) SubmitAnswer(ctx context.Context, in *SubmitAnswerRequest, opts ...grpc.CallOption) (*SubmitAnswerResponse, error) {
+	out := new(SubmitAnswerResponse)
+	err := c.cc.Invoke(ctx, "/NoName/SubmitAnswer", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetTitanDamageByTitanID(ctx context.Context, in *GetTitanDamageByTitanIDRequest, opts ...grpc.CallOption) (*GetTitanDamageByTitanIDResponse, error) {
+	out := new(GetTitanDamageByTitanIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetTitanDamageByTitanID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetLanguageBySlug(ctx context.Context, in *GetLanguageBySlugRequest, opts ...grpc.CallOption) (*GetLanguageBySlugResponse, error) {
 	out := new(GetLanguageBySlugResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetLanguageBySlug", in, out, opts...)
@@ -983,6 +1044,13 @@ type NoNameServer interface {
 	GetTitanByPlanetID(context.Context, *GetTitanByPlanetIDRequest) (*GetTitanByPlanetIDResponse, error)
 	HitTitan(context.Context, *HitTitanRequest) (*HitTitanResponse, error)
 	TitanDiscovered(context.Context, *TitanDiscoveredRequest) (*TitanDiscoveredResponse, error)
+	// Titan Event
+	GetAllEvent(context.Context, *GetAllEventRequest) (*GetAllEventResponse, error)
+	GetEventByID(context.Context, *GetTitanEventByIDRequest) (*GetTitanEventByIDResponse, error)
+	GetEventChoiceByID(context.Context, *GetEventChoiceByIDRequest) (*GetEventChoiceByIDResponse, error)
+	GetRandomEvent(context.Context, *GetRandomEventRequest) (*GetRandomEventResponse, error)
+	SubmitAnswer(context.Context, *SubmitAnswerRequest) (*SubmitAnswerResponse, error)
+	GetTitanDamageByTitanID(context.Context, *GetTitanDamageByTitanIDRequest) (*GetTitanDamageByTitanIDResponse, error)
 	// Language
 	GetLanguageBySlug(context.Context, *GetLanguageBySlugRequest) (*GetLanguageBySlugResponse, error)
 	GetLanguageByName(context.Context, *GetLanguageByNameRequest) (*GetLanguageByNameResponse, error)
@@ -1183,6 +1251,24 @@ func (*UnimplementedNoNameServer) HitTitan(context.Context, *HitTitanRequest) (*
 }
 func (*UnimplementedNoNameServer) TitanDiscovered(context.Context, *TitanDiscoveredRequest) (*TitanDiscoveredResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TitanDiscovered not implemented")
+}
+func (*UnimplementedNoNameServer) GetAllEvent(context.Context, *GetAllEventRequest) (*GetAllEventResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllEvent not implemented")
+}
+func (*UnimplementedNoNameServer) GetEventByID(context.Context, *GetTitanEventByIDRequest) (*GetTitanEventByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEventByID not implemented")
+}
+func (*UnimplementedNoNameServer) GetEventChoiceByID(context.Context, *GetEventChoiceByIDRequest) (*GetEventChoiceByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEventChoiceByID not implemented")
+}
+func (*UnimplementedNoNameServer) GetRandomEvent(context.Context, *GetRandomEventRequest) (*GetRandomEventResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRandomEvent not implemented")
+}
+func (*UnimplementedNoNameServer) SubmitAnswer(context.Context, *SubmitAnswerRequest) (*SubmitAnswerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SubmitAnswer not implemented")
+}
+func (*UnimplementedNoNameServer) GetTitanDamageByTitanID(context.Context, *GetTitanDamageByTitanIDRequest) (*GetTitanDamageByTitanIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTitanDamageByTitanID not implemented")
 }
 func (*UnimplementedNoNameServer) GetLanguageBySlug(context.Context, *GetLanguageBySlugRequest) (*GetLanguageBySlugResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetLanguageBySlug not implemented")
@@ -2126,6 +2212,114 @@ func _NoName_TitanDiscovered_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetAllEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllEvent",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllEvent(ctx, req.(*GetAllEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetEventByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTitanEventByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetEventByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetEventByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetEventByID(ctx, req.(*GetTitanEventByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetEventChoiceByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventChoiceByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetEventChoiceByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetEventChoiceByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetEventChoiceByID(ctx, req.(*GetEventChoiceByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetRandomEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRandomEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetRandomEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetRandomEvent",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetRandomEvent(ctx, req.(*GetRandomEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_SubmitAnswer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SubmitAnswerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).SubmitAnswer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/SubmitAnswer",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).SubmitAnswer(ctx, req.(*SubmitAnswerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetTitanDamageByTitanID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTitanDamageByTitanIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetTitanDamageByTitanID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetTitanDamageByTitanID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetTitanDamageByTitanID(ctx, req.(*GetTitanDamageByTitanIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetLanguageBySlug_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetLanguageBySlugRequest)
 	if err := dec(in); err != nil {
@@ -3065,6 +3259,30 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "TitanDiscovered",
 			Handler:    _NoName_TitanDiscovered_Handler,
+		},
+		{
+			MethodName: "GetAllEvent",
+			Handler:    _NoName_GetAllEvent_Handler,
+		},
+		{
+			MethodName: "GetEventByID",
+			Handler:    _NoName_GetEventByID_Handler,
+		},
+		{
+			MethodName: "GetEventChoiceByID",
+			Handler:    _NoName_GetEventChoiceByID_Handler,
+		},
+		{
+			MethodName: "GetRandomEvent",
+			Handler:    _NoName_GetRandomEvent_Handler,
+		},
+		{
+			MethodName: "SubmitAnswer",
+			Handler:    _NoName_SubmitAnswer_Handler,
+		},
+		{
+			MethodName: "GetTitanDamageByTitanID",
+			Handler:    _NoName_GetTitanDamageByTitanID_Handler,
 		},
 		{
 			MethodName: "GetLanguageBySlug",

@@ -23,6 +23,9 @@ import "proto/expansion.proto";
 import "proto/exploration.proto";
 import "proto/exploration_category.proto";
 import "proto/conqueror.proto";
+import "proto/titan_event.proto";
+import "proto/titan_damage.proto";
+
 option go_package = "proto";
 
 // The greeting service definition.
@@ -91,6 +94,16 @@ service NoName {
     rpc GetTitanByPlanetID (titan.GetTitanByPlanetIDRequest) returns (titan.GetTitanByPlanetIDResponse) {}
     rpc HitTitan (titan.HitTitanRequest) returns (titan.HitTitanResponse) {}
     rpc TitanDiscovered (titan.TitanDiscoveredRequest) returns (titan.TitanDiscoveredResponse) {}
+
+    // Titan Event
+    rpc GetAllEvent(titan_event.GetAllEventRequest) returns (titan_event.GetAllEventResponse) {}
+    rpc GetEventByID(titan_event.GetTitanEventByIDRequest) returns (titan_event.GetTitanEventByIDResponse) {}
+    rpc GetEventChoiceByID(titan_event.GetEventChoiceByIDRequest) returns (titan_event.GetEventChoiceByIDResponse) {}
+    rpc GetRandomEvent(titan_event.GetRandomEventRequest) returns (titan_event.GetRandomEventResponse) {}
+    rpc SubmitAnswer(titan_event.SubmitAnswerRequest) returns (titan_event.SubmitAnswerResponse) {}
+    // Titan Damage
+
+    rpc GetTitanDamageByTitanID(titan_damage.GetTitanDamageByTitanIDRequest) returns (titan_damage.GetTitanDamageByTitanIDResponse) {}
 
     // Language
     rpc GetLanguageBySlug (language.GetLanguageBySlugRequest) returns (language.GetLanguageBySlugResponse) {}
