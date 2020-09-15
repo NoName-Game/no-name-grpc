@@ -1,0 +1,18 @@
+syntax = "proto3";
+option go_package = "proto";
+package titan_damage;
+
+message TitanDamage {
+    uint32 ID = 1;
+    uint32 PlayerID = 2;
+    uint32 TitanID = 3;
+    int32 DamageInflicted = 4;
+}
+
+// GetTitanDamageByTitanID
+message GetTitanDamageByTitanIDRequest {
+    uint32 TitanID = 1;
+}
+message GetTitanDamageByTitanIDResponse {
+    repeated TitanDamage damages = 1;
+}
