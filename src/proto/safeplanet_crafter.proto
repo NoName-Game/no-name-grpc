@@ -1,0 +1,26 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+option go_package = "proto";
+package safeplanet_crafter;
+
+// CrafterStart
+message CrafterStartRequest {
+    uint32 PlayerID = 1;
+    map<uint32, int32> Resources = 2;
+    int32 Price = 3;
+    string ItemType = 4;
+    string ItemCategory = 5;
+}
+message CrafterStartResponse {
+    google.protobuf.Timestamp CraftingEndTime = 3;
+}
+
+// CrafterCheck
+message CrafterCheckRequest {
+    uint32 PlayerID = 1;
+}
+message CrafterCheckResponse {
+    bool CraftInProgress = 1;
+    bool FinishCrafting = 2;
+    google.protobuf.Timestamp CraftingEndTime = 3;
+}

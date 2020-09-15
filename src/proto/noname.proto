@@ -25,6 +25,7 @@ import "proto/exploration_category.proto";
 import "proto/conqueror.proto";
 import "proto/titan_event.proto";
 import "proto/titan_damage.proto";
+import "proto/safeplanet_crafter.proto";
 
 option go_package = "proto";
 
@@ -101,8 +102,8 @@ service NoName {
     rpc GetEventChoiceByID(titan_event.GetEventChoiceByIDRequest) returns (titan_event.GetEventChoiceByIDResponse) {}
     rpc GetRandomEvent(titan_event.GetRandomEventRequest) returns (titan_event.GetRandomEventResponse) {}
     rpc SubmitAnswer(titan_event.SubmitAnswerRequest) returns (titan_event.SubmitAnswerResponse) {}
-    // Titan Damage
 
+    // Titan Damage
     rpc GetTitanDamageByTitanID(titan_damage.GetTitanDamageByTitanIDRequest) returns (titan_damage.GetTitanDamageByTitanIDResponse) {}
 
     // Language
@@ -181,4 +182,8 @@ service NoName {
     // Conquerors
     rpc GetConquerorsByPlanetID (conqueror.GetConquerorsByPlanetIDRequest) returns (conqueror.GetConquerorsByPlanetIDResponse) {}
     rpc GetCurrentConquerorByPlanetID (conqueror.GetCurrentConquerorByPlanetIDRequest) returns (conqueror.GetCurrentConquerorByPlanetIDResponse) {}
+
+    // Safeplanet - Crafter
+    rpc CrafterStart (safeplanet_crafter.CrafterStartRequest) returns (safeplanet_crafter.CrafterStartResponse) {}
+    rpc CrafterCheck (safeplanet_crafter.CrafterCheckRequest) returns (safeplanet_crafter.CrafterCheckResponse) {}
 }

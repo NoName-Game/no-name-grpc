@@ -78,6 +78,7 @@ type NoNameClient interface {
 	GetEventChoiceByID(ctx context.Context, in *GetEventChoiceByIDRequest, opts ...grpc.CallOption) (*GetEventChoiceByIDResponse, error)
 	GetRandomEvent(ctx context.Context, in *GetRandomEventRequest, opts ...grpc.CallOption) (*GetRandomEventResponse, error)
 	SubmitAnswer(ctx context.Context, in *SubmitAnswerRequest, opts ...grpc.CallOption) (*SubmitAnswerResponse, error)
+	// Titan Damage
 	GetTitanDamageByTitanID(ctx context.Context, in *GetTitanDamageByTitanIDRequest, opts ...grpc.CallOption) (*GetTitanDamageByTitanIDResponse, error)
 	// Language
 	GetLanguageBySlug(ctx context.Context, in *GetLanguageBySlugRequest, opts ...grpc.CallOption) (*GetLanguageBySlugResponse, error)
@@ -138,6 +139,9 @@ type NoNameClient interface {
 	// Conquerors
 	GetConquerorsByPlanetID(ctx context.Context, in *GetConquerorsByPlanetIDRequest, opts ...grpc.CallOption) (*GetConquerorsByPlanetIDResponse, error)
 	GetCurrentConquerorByPlanetID(ctx context.Context, in *GetCurrentConquerorByPlanetIDRequest, opts ...grpc.CallOption) (*GetCurrentConquerorByPlanetIDResponse, error)
+	// Safeplanet - Crafter
+	CrafterStart(ctx context.Context, in *CrafterStartRequest, opts ...grpc.CallOption) (*CrafterStartResponse, error)
+	CrafterCheck(ctx context.Context, in *CrafterCheckRequest, opts ...grpc.CallOption) (*CrafterCheckResponse, error)
 }
 
 type noNameClient struct {
@@ -985,6 +989,24 @@ func (c *noNameClient) GetCurrentConquerorByPlanetID(ctx context.Context, in *Ge
 	return out, nil
 }
 
+func (c *noNameClient) CrafterStart(ctx context.Context, in *CrafterStartRequest, opts ...grpc.CallOption) (*CrafterStartResponse, error) {
+	out := new(CrafterStartResponse)
+	err := c.cc.Invoke(ctx, "/NoName/CrafterStart", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) CrafterCheck(ctx context.Context, in *CrafterCheckRequest, opts ...grpc.CallOption) (*CrafterCheckResponse, error) {
+	out := new(CrafterCheckResponse)
+	err := c.cc.Invoke(ctx, "/NoName/CrafterCheck", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // NoNameServer is the server API for NoName service.
 // All implementations must embed UnimplementedNoNameServer
 // for forward compatibility
@@ -1050,6 +1072,7 @@ type NoNameServer interface {
 	GetEventChoiceByID(context.Context, *GetEventChoiceByIDRequest) (*GetEventChoiceByIDResponse, error)
 	GetRandomEvent(context.Context, *GetRandomEventRequest) (*GetRandomEventResponse, error)
 	SubmitAnswer(context.Context, *SubmitAnswerRequest) (*SubmitAnswerResponse, error)
+	// Titan Damage
 	GetTitanDamageByTitanID(context.Context, *GetTitanDamageByTitanIDRequest) (*GetTitanDamageByTitanIDResponse, error)
 	// Language
 	GetLanguageBySlug(context.Context, *GetLanguageBySlugRequest) (*GetLanguageBySlugResponse, error)
@@ -1110,6 +1133,9 @@ type NoNameServer interface {
 	// Conquerors
 	GetConquerorsByPlanetID(context.Context, *GetConquerorsByPlanetIDRequest) (*GetConquerorsByPlanetIDResponse, error)
 	GetCurrentConquerorByPlanetID(context.Context, *GetCurrentConquerorByPlanetIDRequest) (*GetCurrentConquerorByPlanetIDResponse, error)
+	// Safeplanet - Crafter
+	CrafterStart(context.Context, *CrafterStartRequest) (*CrafterStartResponse, error)
+	CrafterCheck(context.Context, *CrafterCheckRequest) (*CrafterCheckResponse, error)
 	mustEmbedUnimplementedNoNameServer()
 }
 
@@ -1395,6 +1421,12 @@ func (*UnimplementedNoNameServer) GetConquerorsByPlanetID(context.Context, *GetC
 }
 func (*UnimplementedNoNameServer) GetCurrentConquerorByPlanetID(context.Context, *GetCurrentConquerorByPlanetIDRequest) (*GetCurrentConquerorByPlanetIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCurrentConquerorByPlanetID not implemented")
+}
+func (*UnimplementedNoNameServer) CrafterStart(context.Context, *CrafterStartRequest) (*CrafterStartResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CrafterStart not implemented")
+}
+func (*UnimplementedNoNameServer) CrafterCheck(context.Context, *CrafterCheckRequest) (*CrafterCheckResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CrafterCheck not implemented")
 }
 func (*UnimplementedNoNameServer) mustEmbedUnimplementedNoNameServer() {}
 
@@ -3076,6 +3108,42 @@ func _NoName_GetCurrentConquerorByPlanetID_Handler(srv interface{}, ctx context.
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_CrafterStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CrafterStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CrafterStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CrafterStart",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CrafterStart(ctx, req.(*CrafterStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_CrafterCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CrafterCheckRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CrafterCheck(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CrafterCheck",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CrafterCheck(ctx, req.(*CrafterCheckRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _NoName_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "NoName",
 	HandlerType: (*NoNameServer)(nil),
@@ -3451,6 +3519,14 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetCurrentConquerorByPlanetID",
 			Handler:    _NoName_GetCurrentConquerorByPlanetID_Handler,
+		},
+		{
+			MethodName: "CrafterStart",
+			Handler:    _NoName_CrafterStart_Handler,
+		},
+		{
+			MethodName: "CrafterCheck",
+			Handler:    _NoName_CrafterCheck_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
