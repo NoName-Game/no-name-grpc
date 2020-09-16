@@ -114,10 +114,6 @@ service NoName {
     // NPC
     rpc GetAllNPC (npc.GetAllNPCRequest) returns (npc.GetAllNPCResponse) {}
 
-    // NPC - Crafter
-    rpc CraftArmor (npc.CraftArmorRequest) returns (npc.CraftArmorResponse) {}
-    rpc CraftWeapon (npc.CraftWeaponRequest) returns (npc.CraftWeaponResponse) {}
-
     // NPC - Banck
     rpc BankDeposit (npc.BankDepositRequest) returns (npc.BankDepositResponse) {}
     rpc BankWithdraw (npc.BankWithdrawRequest) returns (npc.BankWithdrawResponse) {}
@@ -185,5 +181,6 @@ service NoName {
 
     // Safeplanet - Crafter
     rpc CrafterStart (safeplanet_crafter.CrafterStartRequest) returns (safeplanet_crafter.CrafterStartResponse) {}
+    rpc CrafterEnd (safeplanet_crafter.CrafterEndRequest) returns (safeplanet_crafter.CrafterEndResponse) {}
     rpc CrafterCheck (safeplanet_crafter.CrafterCheckRequest) returns (safeplanet_crafter.CrafterCheckResponse) {}
 }

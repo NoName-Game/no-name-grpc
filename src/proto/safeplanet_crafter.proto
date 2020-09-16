@@ -1,5 +1,7 @@
 syntax = "proto3";
 import "google/protobuf/timestamp.proto";
+import "proto/armor.proto";
+import "proto/weapon.proto";
 option go_package = "proto";
 package safeplanet_crafter;
 
@@ -13,6 +15,15 @@ message CrafterStartRequest {
 }
 message CrafterStartResponse {
     google.protobuf.Timestamp CraftingEndTime = 3;
+}
+
+// CrafterEnd
+message CrafterEndRequest {
+    uint32 PlayerID = 1;
+}
+message CrafterEndResponse {
+    weapon.Weapon Weapon = 1;
+    armor.Armor Armor = 2;
 }
 
 // CrafterCheck

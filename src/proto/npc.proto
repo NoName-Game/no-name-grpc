@@ -38,22 +38,3 @@ message BankWithdrawRequest {
 message BankWithdrawResponse {
     int32 Value = 1;
 }
-
-// Craft Armor
-message CraftArmorRequest {
-    string Category = 1;
-    string Items = 2;
-    uint32 PlayerID = 3;
-}
-message CraftArmorResponse {
-    armor.Armor Armor = 1;
-}
-
-// Craft Weapon
-message CraftWeaponRequest {
-    string Items = 1;
-    uint32 PlayerID = 2;
-}
-message CraftWeaponResponse {
-    weapon.Weapon Weapon = 1;
-}

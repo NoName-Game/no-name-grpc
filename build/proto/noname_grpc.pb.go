@@ -86,9 +86,6 @@ type NoNameClient interface {
 	GetAllLanguages(ctx context.Context, in *GetAllLanguagesRequest, opts ...grpc.CallOption) (*GetAllLanguagesResponse, error)
 	// NPC
 	GetAllNPC(ctx context.Context, in *GetAllNPCRequest, opts ...grpc.CallOption) (*GetAllNPCResponse, error)
-	// NPC - Crafter
-	CraftArmor(ctx context.Context, in *CraftArmorRequest, opts ...grpc.CallOption) (*CraftArmorResponse, error)
-	CraftWeapon(ctx context.Context, in *CraftWeaponRequest, opts ...grpc.CallOption) (*CraftWeaponResponse, error)
 	// NPC - Banck
 	BankDeposit(ctx context.Context, in *BankDepositRequest, opts ...grpc.CallOption) (*BankDepositResponse, error)
 	BankWithdraw(ctx context.Context, in *BankWithdrawRequest, opts ...grpc.CallOption) (*BankWithdrawResponse, error)
@@ -141,6 +138,7 @@ type NoNameClient interface {
 	GetCurrentConquerorByPlanetID(ctx context.Context, in *GetCurrentConquerorByPlanetIDRequest, opts ...grpc.CallOption) (*GetCurrentConquerorByPlanetIDResponse, error)
 	// Safeplanet - Crafter
 	CrafterStart(ctx context.Context, in *CrafterStartRequest, opts ...grpc.CallOption) (*CrafterStartResponse, error)
+	CrafterEnd(ctx context.Context, in *CrafterEndRequest, opts ...grpc.CallOption) (*CrafterEndResponse, error)
 	CrafterCheck(ctx context.Context, in *CrafterCheckRequest, opts ...grpc.CallOption) (*CrafterCheckResponse, error)
 }
 
@@ -647,24 +645,6 @@ func (c *noNameClient) GetAllNPC(ctx context.Context, in *GetAllNPCRequest, opts
 	return out, nil
 }
 
-func (c *noNameClient) CraftArmor(ctx context.Context, in *CraftArmorRequest, opts ...grpc.CallOption) (*CraftArmorResponse, error) {
-	out := new(CraftArmorResponse)
-	err := c.cc.Invoke(ctx, "/NoName/CraftArmor", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) CraftWeapon(ctx context.Context, in *CraftWeaponRequest, opts ...grpc.CallOption) (*CraftWeaponResponse, error) {
-	out := new(CraftWeaponResponse)
-	err := c.cc.Invoke(ctx, "/NoName/CraftWeapon", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *noNameClient) BankDeposit(ctx context.Context, in *BankDepositRequest, opts ...grpc.CallOption) (*BankDepositResponse, error) {
 	out := new(BankDepositResponse)
 	err := c.cc.Invoke(ctx, "/NoName/BankDeposit", in, out, opts...)
@@ -998,6 +978,15 @@ func (c *noNameClient) CrafterStart(ctx context.Context, in *CrafterStartRequest
 	return out, nil
 }
 
+func (c *noNameClient) CrafterEnd(ctx context.Context, in *CrafterEndRequest, opts ...grpc.CallOption) (*CrafterEndResponse, error) {
+	out := new(CrafterEndResponse)
+	err := c.cc.Invoke(ctx, "/NoName/CrafterEnd", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) CrafterCheck(ctx context.Context, in *CrafterCheckRequest, opts ...grpc.CallOption) (*CrafterCheckResponse, error) {
 	out := new(CrafterCheckResponse)
 	err := c.cc.Invoke(ctx, "/NoName/CrafterCheck", in, out, opts...)
@@ -1080,9 +1069,6 @@ type NoNameServer interface {
 	GetAllLanguages(context.Context, *GetAllLanguagesRequest) (*GetAllLanguagesResponse, error)
 	// NPC
 	GetAllNPC(context.Context, *GetAllNPCRequest) (*GetAllNPCResponse, error)
-	// NPC - Crafter
-	CraftArmor(context.Context, *CraftArmorRequest) (*CraftArmorResponse, error)
-	CraftWeapon(context.Context, *CraftWeaponRequest) (*CraftWeaponResponse, error)
 	// NPC - Banck
 	BankDeposit(context.Context, *BankDepositRequest) (*BankDepositResponse, error)
 	BankWithdraw(context.Context, *BankWithdrawRequest) (*BankWithdrawResponse, error)
@@ -1135,6 +1121,7 @@ type NoNameServer interface {
 	GetCurrentConquerorByPlanetID(context.Context, *GetCurrentConquerorByPlanetIDRequest) (*GetCurrentConquerorByPlanetIDResponse, error)
 	// Safeplanet - Crafter
 	CrafterStart(context.Context, *CrafterStartRequest) (*CrafterStartResponse, error)
+	CrafterEnd(context.Context, *CrafterEndRequest) (*CrafterEndResponse, error)
 	CrafterCheck(context.Context, *CrafterCheckRequest) (*CrafterCheckResponse, error)
 	mustEmbedUnimplementedNoNameServer()
 }
@@ -1308,12 +1295,6 @@ func (*UnimplementedNoNameServer) GetAllLanguages(context.Context, *GetAllLangua
 func (*UnimplementedNoNameServer) GetAllNPC(context.Context, *GetAllNPCRequest) (*GetAllNPCResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllNPC not implemented")
 }
-func (*UnimplementedNoNameServer) CraftArmor(context.Context, *CraftArmorRequest) (*CraftArmorResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CraftArmor not implemented")
-}
-func (*UnimplementedNoNameServer) CraftWeapon(context.Context, *CraftWeaponRequest) (*CraftWeaponResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CraftWeapon not implemented")
-}
 func (*UnimplementedNoNameServer) BankDeposit(context.Context, *BankDepositRequest) (*BankDepositResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method BankDeposit not implemented")
 }
@@ -1424,6 +1405,9 @@ func (*UnimplementedNoNameServer) GetCurrentConquerorByPlanetID(context.Context,
 }
 func (*UnimplementedNoNameServer) CrafterStart(context.Context, *CrafterStartRequest) (*CrafterStartResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CrafterStart not implemented")
+}
+func (*UnimplementedNoNameServer) CrafterEnd(context.Context, *CrafterEndRequest) (*CrafterEndResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CrafterEnd not implemented")
 }
 func (*UnimplementedNoNameServer) CrafterCheck(context.Context, *CrafterCheckRequest) (*CrafterCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CrafterCheck not implemented")
@@ -2424,42 +2408,6 @@ func _NoName_GetAllNPC_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_CraftArmor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CraftArmorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).CraftArmor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/CraftArmor",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).CraftArmor(ctx, req.(*CraftArmorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_CraftWeapon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CraftWeaponRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).CraftWeapon(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/CraftWeapon",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).CraftWeapon(ctx, req.(*CraftWeaponRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _NoName_BankDeposit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BankDepositRequest)
 	if err := dec(in); err != nil {
@@ -3126,6 +3074,24 @@ func _NoName_CrafterStart_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_CrafterEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CrafterEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CrafterEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CrafterEnd",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CrafterEnd(ctx, req.(*CrafterEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_CrafterCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CrafterCheckRequest)
 	if err := dec(in); err != nil {
@@ -3369,14 +3335,6 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetAllNPC_Handler,
 		},
 		{
-			MethodName: "CraftArmor",
-			Handler:    _NoName_CraftArmor_Handler,
-		},
-		{
-			MethodName: "CraftWeapon",
-			Handler:    _NoName_CraftWeapon_Handler,
-		},
-		{
 			MethodName: "BankDeposit",
 			Handler:    _NoName_BankDeposit_Handler,
 		},
@@ -3523,6 +3481,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CrafterStart",
 			Handler:    _NoName_CrafterStart_Handler,
+		},
+		{
+			MethodName: "CrafterEnd",
+			Handler:    _NoName_CrafterEnd_Handler,
 		},
 		{
 			MethodName: "CrafterCheck",
