@@ -26,6 +26,7 @@ import "proto/conqueror.proto";
 import "proto/titan_event.proto";
 import "proto/titan_damage.proto";
 import "proto/safeplanet_crafter.proto";
+import "proto/ship_laboratory.proto";
 
 option go_package = "proto";
 
@@ -150,6 +151,12 @@ service NoName {
     rpc EndShipTravel (ship.EndShipTravelRequest) returns (ship.EndShipTravelResponse) {}
     rpc GetPlayerShips (ship.GetPlayerShipsRequest) returns (ship.GetPlayerShipsResponse) {}
     rpc GetPlayerShipEquipped (ship.GetPlayerShipEquippedRequest) returns (ship.GetPlayerShipEquippedResponse) {}
+
+    // Ship - Laboratory
+    rpc LaboratoryStartCrafting(ship_laboratory.LaboratoryStartCraftingRequest) returns (ship_laboratory.LaboratoryStartCraftingResponse) {}
+    rpc LaboratoryCheckHaveResourceForCrafting(ship_laboratory.LaboratoryCheckHaveResourceForCraftingRequest) returns (ship_laboratory.LaboratoryCheckHaveResourceForCraftingResponse) {}
+    rpc LaboratoryCheckCrafting(ship_laboratory.LaboratoryCheckCraftingRequest) returns (ship_laboratory.LaboratoryCheckCraftingResponse) {}
+    rpc LaboratoryEndCrafting(ship_laboratory.LaboratoryEndCraftingRequest) returns (ship_laboratory.LaboratoryEndCraftingResponse) {}
 
     // Transaction
     rpc CreateTransaction (transaction.CreateTransactionRequest) returns (transaction.CreateTransactionResponse) {}

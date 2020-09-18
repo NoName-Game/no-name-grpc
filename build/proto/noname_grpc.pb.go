@@ -115,6 +115,11 @@ type NoNameClient interface {
 	EndShipTravel(ctx context.Context, in *EndShipTravelRequest, opts ...grpc.CallOption) (*EndShipTravelResponse, error)
 	GetPlayerShips(ctx context.Context, in *GetPlayerShipsRequest, opts ...grpc.CallOption) (*GetPlayerShipsResponse, error)
 	GetPlayerShipEquipped(ctx context.Context, in *GetPlayerShipEquippedRequest, opts ...grpc.CallOption) (*GetPlayerShipEquippedResponse, error)
+	// Ship - Laboratory
+	LaboratoryStartCrafting(ctx context.Context, in *LaboratoryStartCraftingRequest, opts ...grpc.CallOption) (*LaboratoryStartCraftingResponse, error)
+	LaboratoryCheckHaveResourceForCrafting(ctx context.Context, in *LaboratoryCheckHaveResourceForCraftingRequest, opts ...grpc.CallOption) (*LaboratoryCheckHaveResourceForCraftingResponse, error)
+	LaboratoryCheckCrafting(ctx context.Context, in *LaboratoryCheckCraftingRequest, opts ...grpc.CallOption) (*LaboratoryCheckCraftingResponse, error)
+	LaboratoryEndCrafting(ctx context.Context, in *LaboratoryEndCraftingRequest, opts ...grpc.CallOption) (*LaboratoryEndCraftingResponse, error)
 	// Transaction
 	CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error)
 	// Tresure
@@ -843,6 +848,42 @@ func (c *noNameClient) GetPlayerShipEquipped(ctx context.Context, in *GetPlayerS
 	return out, nil
 }
 
+func (c *noNameClient) LaboratoryStartCrafting(ctx context.Context, in *LaboratoryStartCraftingRequest, opts ...grpc.CallOption) (*LaboratoryStartCraftingResponse, error) {
+	out := new(LaboratoryStartCraftingResponse)
+	err := c.cc.Invoke(ctx, "/NoName/LaboratoryStartCrafting", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) LaboratoryCheckHaveResourceForCrafting(ctx context.Context, in *LaboratoryCheckHaveResourceForCraftingRequest, opts ...grpc.CallOption) (*LaboratoryCheckHaveResourceForCraftingResponse, error) {
+	out := new(LaboratoryCheckHaveResourceForCraftingResponse)
+	err := c.cc.Invoke(ctx, "/NoName/LaboratoryCheckHaveResourceForCrafting", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) LaboratoryCheckCrafting(ctx context.Context, in *LaboratoryCheckCraftingRequest, opts ...grpc.CallOption) (*LaboratoryCheckCraftingResponse, error) {
+	out := new(LaboratoryCheckCraftingResponse)
+	err := c.cc.Invoke(ctx, "/NoName/LaboratoryCheckCrafting", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) LaboratoryEndCrafting(ctx context.Context, in *LaboratoryEndCraftingRequest, opts ...grpc.CallOption) (*LaboratoryEndCraftingResponse, error) {
+	out := new(LaboratoryEndCraftingResponse)
+	err := c.cc.Invoke(ctx, "/NoName/LaboratoryEndCrafting", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error) {
 	out := new(CreateTransactionResponse)
 	err := c.cc.Invoke(ctx, "/NoName/CreateTransaction", in, out, opts...)
@@ -1098,6 +1139,11 @@ type NoNameServer interface {
 	EndShipTravel(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error)
 	GetPlayerShips(context.Context, *GetPlayerShipsRequest) (*GetPlayerShipsResponse, error)
 	GetPlayerShipEquipped(context.Context, *GetPlayerShipEquippedRequest) (*GetPlayerShipEquippedResponse, error)
+	// Ship - Laboratory
+	LaboratoryStartCrafting(context.Context, *LaboratoryStartCraftingRequest) (*LaboratoryStartCraftingResponse, error)
+	LaboratoryCheckHaveResourceForCrafting(context.Context, *LaboratoryCheckHaveResourceForCraftingRequest) (*LaboratoryCheckHaveResourceForCraftingResponse, error)
+	LaboratoryCheckCrafting(context.Context, *LaboratoryCheckCraftingRequest) (*LaboratoryCheckCraftingResponse, error)
+	LaboratoryEndCrafting(context.Context, *LaboratoryEndCraftingRequest) (*LaboratoryEndCraftingResponse, error)
 	// Transaction
 	CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error)
 	// Tresure
@@ -1360,6 +1406,18 @@ func (*UnimplementedNoNameServer) GetPlayerShips(context.Context, *GetPlayerShip
 }
 func (*UnimplementedNoNameServer) GetPlayerShipEquipped(context.Context, *GetPlayerShipEquippedRequest) (*GetPlayerShipEquippedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerShipEquipped not implemented")
+}
+func (*UnimplementedNoNameServer) LaboratoryStartCrafting(context.Context, *LaboratoryStartCraftingRequest) (*LaboratoryStartCraftingResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LaboratoryStartCrafting not implemented")
+}
+func (*UnimplementedNoNameServer) LaboratoryCheckHaveResourceForCrafting(context.Context, *LaboratoryCheckHaveResourceForCraftingRequest) (*LaboratoryCheckHaveResourceForCraftingResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LaboratoryCheckHaveResourceForCrafting not implemented")
+}
+func (*UnimplementedNoNameServer) LaboratoryCheckCrafting(context.Context, *LaboratoryCheckCraftingRequest) (*LaboratoryCheckCraftingResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LaboratoryCheckCrafting not implemented")
+}
+func (*UnimplementedNoNameServer) LaboratoryEndCrafting(context.Context, *LaboratoryEndCraftingRequest) (*LaboratoryEndCraftingResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LaboratoryEndCrafting not implemented")
 }
 func (*UnimplementedNoNameServer) CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTransaction not implemented")
@@ -2804,6 +2862,78 @@ func _NoName_GetPlayerShipEquipped_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_LaboratoryStartCrafting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LaboratoryStartCraftingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).LaboratoryStartCrafting(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/LaboratoryStartCrafting",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).LaboratoryStartCrafting(ctx, req.(*LaboratoryStartCraftingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_LaboratoryCheckHaveResourceForCrafting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LaboratoryCheckHaveResourceForCraftingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).LaboratoryCheckHaveResourceForCrafting(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/LaboratoryCheckHaveResourceForCrafting",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).LaboratoryCheckHaveResourceForCrafting(ctx, req.(*LaboratoryCheckHaveResourceForCraftingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_LaboratoryCheckCrafting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LaboratoryCheckCraftingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).LaboratoryCheckCrafting(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/LaboratoryCheckCrafting",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).LaboratoryCheckCrafting(ctx, req.(*LaboratoryCheckCraftingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_LaboratoryEndCrafting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LaboratoryEndCraftingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).LaboratoryEndCrafting(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/LaboratoryEndCrafting",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).LaboratoryEndCrafting(ctx, req.(*LaboratoryEndCraftingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_CreateTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateTransactionRequest)
 	if err := dec(in); err != nil {
@@ -3421,6 +3551,22 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPlayerShipEquipped",
 			Handler:    _NoName_GetPlayerShipEquipped_Handler,
+		},
+		{
+			MethodName: "LaboratoryStartCrafting",
+			Handler:    _NoName_LaboratoryStartCrafting_Handler,
+		},
+		{
+			MethodName: "LaboratoryCheckHaveResourceForCrafting",
+			Handler:    _NoName_LaboratoryCheckHaveResourceForCrafting_Handler,
+		},
+		{
+			MethodName: "LaboratoryCheckCrafting",
+			Handler:    _NoName_LaboratoryCheckCrafting_Handler,
+		},
+		{
+			MethodName: "LaboratoryEndCrafting",
+			Handler:    _NoName_LaboratoryEndCrafting_Handler,
 		},
 		{
 			MethodName: "CreateTransaction",

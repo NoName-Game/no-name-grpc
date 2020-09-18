@@ -1,0 +1,41 @@
+syntax = "proto3";
+option go_package = "proto";
+import "google/protobuf/timestamp.proto";
+import "proto/item.proto";
+package ship_laboratory;
+
+// LaboratoryStartCrafting
+message LaboratoryStartCraftingRequest {
+    uint32 PlayerID = 1;
+    uint32 ItemID = 2;
+}
+message LaboratoryStartCraftingResponse {
+    google.protobuf.Timestamp CraftingEndTime = 1;
+}
+
+// LaboratoryCheckHaveResourceForCrafting
+message LaboratoryCheckHaveResourceForCraftingRequest {
+    uint32 PlayerID = 1;
+    uint32 ItemID = 2;
+}
+message LaboratoryCheckHaveResourceForCraftingResponse {
+    bool HaveResources = 1;
+}
+
+// LaboratoryCheckCrafting
+message LaboratoryCheckCraftingRequest {
+    uint32 PlayerID = 1;
+}
+message LaboratoryCheckCraftingResponse {
+    bool CraftInProgress = 1;
+    bool FinishCrafting = 2;
+    google.protobuf.Timestamp CraftingEndTime = 3;
+}
+
+// LaboratoryEndCrafting
+message LaboratoryEndCraftingRequest {
+    uint32 PlayerID = 1;
+}
+message LaboratoryEndCraftingResponse {
+    item.Item Item = 1;
+}
