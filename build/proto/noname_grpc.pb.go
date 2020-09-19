@@ -105,8 +105,6 @@ type NoNameClient interface {
 	// ItemCateogory
 	GetAllItemCategories(ctx context.Context, in *GetAllItemCategoriesRequest, opts ...grpc.CallOption) (*GetAllItemCategoriesResponse, error)
 	// Ship
-	GetShipTravelInfo(ctx context.Context, in *GetShipTravelInfoRequest, opts ...grpc.CallOption) (*GetShipTravelInfoResponse, error)
-	EndShipTravel(ctx context.Context, in *EndShipTravelRequest, opts ...grpc.CallOption) (*EndShipTravelResponse, error)
 	GetPlayerShips(ctx context.Context, in *GetPlayerShipsRequest, opts ...grpc.CallOption) (*GetPlayerShipsResponse, error)
 	GetPlayerShipEquipped(ctx context.Context, in *GetPlayerShipEquippedRequest, opts ...grpc.CallOption) (*GetPlayerShipEquippedResponse, error)
 	// Ship - Laboratory
@@ -123,6 +121,11 @@ type NoNameClient interface {
 	GetRestsInfo(ctx context.Context, in *GetRestsInfoRequest, opts ...grpc.CallOption) (*GetRestsInfoResponse, error)
 	StartPlayerRest(ctx context.Context, in *StartPlayerRestRequest, opts ...grpc.CallOption) (*StartPlayerRestResponse, error)
 	EndPlayerRest(ctx context.Context, in *EndPlayerRestRequest, opts ...grpc.CallOption) (*EndPlayerRestResponse, error)
+	// Ship - Travel
+	GetShipTravelInfo(ctx context.Context, in *GetShipTravelInfoRequest, opts ...grpc.CallOption) (*GetShipTravelInfoResponse, error)
+	StartShipTravel(ctx context.Context, in *StartShipTravelRequest, opts ...grpc.CallOption) (*StartShipTravelResponse, error)
+	CheckShipTravel(ctx context.Context, in *CheckShipTravelRequest, opts ...grpc.CallOption) (*CheckShipTravelResponse, error)
+	EndShipTravel(ctx context.Context, in *EndShipTravelRequest, opts ...grpc.CallOption) (*EndShipTravelResponse, error)
 	// Transaction
 	CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error)
 	// Tresure
@@ -770,24 +773,6 @@ func (c *noNameClient) GetAllItemCategories(ctx context.Context, in *GetAllItemC
 	return out, nil
 }
 
-func (c *noNameClient) GetShipTravelInfo(ctx context.Context, in *GetShipTravelInfoRequest, opts ...grpc.CallOption) (*GetShipTravelInfoResponse, error) {
-	out := new(GetShipTravelInfoResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetShipTravelInfo", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) EndShipTravel(ctx context.Context, in *EndShipTravelRequest, opts ...grpc.CallOption) (*EndShipTravelResponse, error) {
-	out := new(EndShipTravelResponse)
-	err := c.cc.Invoke(ctx, "/NoName/EndShipTravel", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *noNameClient) GetPlayerShips(ctx context.Context, in *GetPlayerShipsRequest, opts ...grpc.CallOption) (*GetPlayerShipsResponse, error) {
 	out := new(GetPlayerShipsResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerShips", in, out, opts...)
@@ -899,6 +884,42 @@ func (c *noNameClient) StartPlayerRest(ctx context.Context, in *StartPlayerRestR
 func (c *noNameClient) EndPlayerRest(ctx context.Context, in *EndPlayerRestRequest, opts ...grpc.CallOption) (*EndPlayerRestResponse, error) {
 	out := new(EndPlayerRestResponse)
 	err := c.cc.Invoke(ctx, "/NoName/EndPlayerRest", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetShipTravelInfo(ctx context.Context, in *GetShipTravelInfoRequest, opts ...grpc.CallOption) (*GetShipTravelInfoResponse, error) {
+	out := new(GetShipTravelInfoResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetShipTravelInfo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) StartShipTravel(ctx context.Context, in *StartShipTravelRequest, opts ...grpc.CallOption) (*StartShipTravelResponse, error) {
+	out := new(StartShipTravelResponse)
+	err := c.cc.Invoke(ctx, "/NoName/StartShipTravel", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) CheckShipTravel(ctx context.Context, in *CheckShipTravelRequest, opts ...grpc.CallOption) (*CheckShipTravelResponse, error) {
+	out := new(CheckShipTravelResponse)
+	err := c.cc.Invoke(ctx, "/NoName/CheckShipTravel", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) EndShipTravel(ctx context.Context, in *EndShipTravelRequest, opts ...grpc.CallOption) (*EndShipTravelResponse, error) {
+	out := new(EndShipTravelResponse)
+	err := c.cc.Invoke(ctx, "/NoName/EndShipTravel", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1150,8 +1171,6 @@ type NoNameServer interface {
 	// ItemCateogory
 	GetAllItemCategories(context.Context, *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error)
 	// Ship
-	GetShipTravelInfo(context.Context, *GetShipTravelInfoRequest) (*GetShipTravelInfoResponse, error)
-	EndShipTravel(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error)
 	GetPlayerShips(context.Context, *GetPlayerShipsRequest) (*GetPlayerShipsResponse, error)
 	GetPlayerShipEquipped(context.Context, *GetPlayerShipEquippedRequest) (*GetPlayerShipEquippedResponse, error)
 	// Ship - Laboratory
@@ -1168,6 +1187,11 @@ type NoNameServer interface {
 	GetRestsInfo(context.Context, *GetRestsInfoRequest) (*GetRestsInfoResponse, error)
 	StartPlayerRest(context.Context, *StartPlayerRestRequest) (*StartPlayerRestResponse, error)
 	EndPlayerRest(context.Context, *EndPlayerRestRequest) (*EndPlayerRestResponse, error)
+	// Ship - Travel
+	GetShipTravelInfo(context.Context, *GetShipTravelInfoRequest) (*GetShipTravelInfoResponse, error)
+	StartShipTravel(context.Context, *StartShipTravelRequest) (*StartShipTravelResponse, error)
+	CheckShipTravel(context.Context, *CheckShipTravelRequest) (*CheckShipTravelResponse, error)
+	EndShipTravel(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error)
 	// Transaction
 	CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error)
 	// Tresure
@@ -1404,12 +1428,6 @@ func (*UnimplementedNoNameServer) UseItem(context.Context, *UseItemRequest) (*Us
 func (*UnimplementedNoNameServer) GetAllItemCategories(context.Context, *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllItemCategories not implemented")
 }
-func (*UnimplementedNoNameServer) GetShipTravelInfo(context.Context, *GetShipTravelInfoRequest) (*GetShipTravelInfoResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetShipTravelInfo not implemented")
-}
-func (*UnimplementedNoNameServer) EndShipTravel(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method EndShipTravel not implemented")
-}
 func (*UnimplementedNoNameServer) GetPlayerShips(context.Context, *GetPlayerShipsRequest) (*GetPlayerShipsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerShips not implemented")
 }
@@ -1448,6 +1466,18 @@ func (*UnimplementedNoNameServer) StartPlayerRest(context.Context, *StartPlayerR
 }
 func (*UnimplementedNoNameServer) EndPlayerRest(context.Context, *EndPlayerRestRequest) (*EndPlayerRestResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EndPlayerRest not implemented")
+}
+func (*UnimplementedNoNameServer) GetShipTravelInfo(context.Context, *GetShipTravelInfoRequest) (*GetShipTravelInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetShipTravelInfo not implemented")
+}
+func (*UnimplementedNoNameServer) StartShipTravel(context.Context, *StartShipTravelRequest) (*StartShipTravelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StartShipTravel not implemented")
+}
+func (*UnimplementedNoNameServer) CheckShipTravel(context.Context, *CheckShipTravelRequest) (*CheckShipTravelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckShipTravel not implemented")
+}
+func (*UnimplementedNoNameServer) EndShipTravel(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EndShipTravel not implemented")
 }
 func (*UnimplementedNoNameServer) CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTransaction not implemented")
@@ -2730,42 +2760,6 @@ func _NoName_GetAllItemCategories_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_GetShipTravelInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShipTravelInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).GetShipTravelInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/GetShipTravelInfo",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetShipTravelInfo(ctx, req.(*GetShipTravelInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_EndShipTravel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EndShipTravelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).EndShipTravel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/EndShipTravel",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).EndShipTravel(ctx, req.(*EndShipTravelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _NoName_GetPlayerShips_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPlayerShipsRequest)
 	if err := dec(in); err != nil {
@@ -2996,6 +2990,78 @@ func _NoName_EndPlayerRest_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).EndPlayerRest(ctx, req.(*EndPlayerRestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetShipTravelInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShipTravelInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetShipTravelInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetShipTravelInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetShipTravelInfo(ctx, req.(*GetShipTravelInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_StartShipTravel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartShipTravelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).StartShipTravel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/StartShipTravel",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).StartShipTravel(ctx, req.(*StartShipTravelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_CheckShipTravel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckShipTravelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CheckShipTravel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CheckShipTravel",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CheckShipTravel(ctx, req.(*CheckShipTravelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_EndShipTravel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EndShipTravelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).EndShipTravel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/EndShipTravel",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).EndShipTravel(ctx, req.(*EndShipTravelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3583,14 +3649,6 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetAllItemCategories_Handler,
 		},
 		{
-			MethodName: "GetShipTravelInfo",
-			Handler:    _NoName_GetShipTravelInfo_Handler,
-		},
-		{
-			MethodName: "EndShipTravel",
-			Handler:    _NoName_EndShipTravel_Handler,
-		},
-		{
 			MethodName: "GetPlayerShips",
 			Handler:    _NoName_GetPlayerShips_Handler,
 		},
@@ -3641,6 +3699,22 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "EndPlayerRest",
 			Handler:    _NoName_EndPlayerRest_Handler,
+		},
+		{
+			MethodName: "GetShipTravelInfo",
+			Handler:    _NoName_GetShipTravelInfo_Handler,
+		},
+		{
+			MethodName: "StartShipTravel",
+			Handler:    _NoName_StartShipTravel_Handler,
+		},
+		{
+			MethodName: "CheckShipTravel",
+			Handler:    _NoName_CheckShipTravel_Handler,
+		},
+		{
+			MethodName: "EndShipTravel",
+			Handler:    _NoName_EndShipTravel_Handler,
 		},
 		{
 			MethodName: "CreateTransaction",

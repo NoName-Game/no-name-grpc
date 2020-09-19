@@ -1,0 +1,47 @@
+syntax = "proto3";
+option go_package = "proto";
+import "proto/planet.proto";
+import "google/protobuf/timestamp.proto";
+package ship_travel;
+
+// GetShipTravelInfo
+message GetShipTravelInfoRequest {
+    uint32 PlayerID = 1;
+}
+message GetShipTravelInfoResponse {
+    message GetShipTravelInfo {
+        planet.Planet  Planet = 1;
+        double Distance = 2;
+        int32 Time = 3;
+        double Fuel = 4;
+        uint32 Integrity = 5;
+    }
+    repeated GetShipTravelInfo Info = 1;
+}
+
+// StartShipTravel
+message StartShipTravelRequest {
+    uint32 PlayerID = 1;
+    string PlanetName = 2;
+}
+message StartShipTravelResponse {
+    google.protobuf.Timestamp TravelingEndTime = 1;
+}
+
+// CheckShipTravel
+message CheckShipTravelRequest {
+    uint32 PlayerID = 1;
+}
+message CheckShipTravelResponse {
+    bool TravelInProgress = 1;
+    bool FinishTraveling = 2;
+    google.protobuf.Timestamp TravelingEndTime = 3;
+}
+
+// EndShipTravel
+message EndShipTravelRequest {
+    uint32 PlayerID = 1;
+}
+message EndShipTravelResponse {
+    // Empty
+}
