@@ -19,47 +19,6 @@ message Ship {
     bool Equipped = 11;
 }
 
-// GetShipRepairInfo
-message GetShipRepairInfoRequest {
-    uint32 ShipID = 1;
-}
-message GetShipRepairInfoResponse {
-    message ShipRepairInfo {
-        int32 RepairTime = 1;
-        int32 QuantityResources = 2;
-        uint32 Integrity = 3;
-    }
-    bool NeedRepairs = 1;
-    ShipRepairInfo Partial = 2;
-    ShipRepairInfo Full = 3;
-}
-
-// StartShipRepair
-message StartShipRepairRequest {
-    enum RapairTypeEnum {
-        PARTIAL = 0;
-        FULL = 1;
-    }
-    uint32 ShipID = 1;
-    RapairTypeEnum RapairType = 2;
-}
-message StartShipRepairResponse {
-    message RepairResources {
-        uint32 ResourceID = 1;
-        int32 Quantity = 2;
-    }
-     repeated RepairResources StartShipRepair = 1;
-}
-
-// EndShipRepair
-message EndShipRepairRequest {
-    uint32 ShipID = 1;
-    StartShipRepairRequest.RapairTypeEnum RapairType = 2;
-}
-message EndShipRepairResponse {
-    // Empty
-}
-
 // GetShipTravelInfo
 message GetShipTravelInfoRequest {
     Ship Ship = 1;

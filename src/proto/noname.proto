@@ -27,6 +27,7 @@ import "proto/titan_event.proto";
 import "proto/titan_damage.proto";
 import "proto/safeplanet_crafter.proto";
 import "proto/ship_laboratory.proto";
+import "proto/ship_repair.proto";
 
 option go_package = "proto";
 
@@ -144,9 +145,6 @@ service NoName {
     rpc GetAllItemCategories (item_category.GetAllItemCategoriesRequest) returns (item_category.GetAllItemCategoriesResponse) {}
 
     // Ship
-    rpc GetShipRepairInfo (ship.GetShipRepairInfoRequest) returns (ship.GetShipRepairInfoResponse) {}
-    rpc StartShipRepair (ship.StartShipRepairRequest) returns (ship.StartShipRepairResponse) {}
-    rpc EndShipRepair (ship.EndShipRepairRequest) returns (ship.EndShipRepairResponse) {}
     rpc GetShipTravelInfo (ship.GetShipTravelInfoRequest) returns (ship.GetShipTravelInfoResponse) {}
     rpc EndShipTravel (ship.EndShipTravelRequest) returns (ship.EndShipTravelResponse) {}
     rpc GetPlayerShips (ship.GetPlayerShipsRequest) returns (ship.GetPlayerShipsResponse) {}
@@ -157,6 +155,12 @@ service NoName {
     rpc LaboratoryCheckHaveResourceForCrafting(ship_laboratory.LaboratoryCheckHaveResourceForCraftingRequest) returns (ship_laboratory.LaboratoryCheckHaveResourceForCraftingResponse) {}
     rpc LaboratoryCheckCrafting(ship_laboratory.LaboratoryCheckCraftingRequest) returns (ship_laboratory.LaboratoryCheckCraftingResponse) {}
     rpc LaboratoryEndCrafting(ship_laboratory.LaboratoryEndCraftingRequest) returns (ship_laboratory.LaboratoryEndCraftingResponse) {}
+
+    // Ship - Repair
+    rpc GetShipRepairInfo (ship_repair.GetShipRepairInfoRequest) returns (ship_repair.GetShipRepairInfoResponse) {}
+    rpc StartShipRepair (ship_repair.StartShipRepairRequest) returns (ship_repair.StartShipRepairResponse) {}
+    rpc EndShipRepair (ship_repair.EndShipRepairRequest) returns (ship_repair.EndShipRepairResponse) {}
+    rpc CheckShipRepair (ship_repair.CheckShipRepairRequest) returns (ship_repair.CheckShipRepairResponse) {}
 
     // Transaction
     rpc CreateTransaction (transaction.CreateTransactionRequest) returns (transaction.CreateTransactionResponse) {}
