@@ -1,0 +1,32 @@
+syntax = "proto3";
+option go_package = "proto";
+import "google/protobuf/timestamp.proto";
+package ship_rest;
+
+// GetRestsInfo
+message GetRestsInfoRequest {
+    uint32 PlayerID = 1;
+}
+message GetRestsInfoResponse {
+    bool NeedRests = 1;
+    uint32 RestsTime = 2;
+}
+
+// StartPlayerRest
+message StartPlayerRestRequest {
+    uint32 PlayerID = 1;
+}
+message StartPlayerRestResponse {
+    google.protobuf.Timestamp RestEndTime = 1;
+}
+
+// EndPlayerRest
+message EndPlayerRestRequest {
+    uint32 PlayerID = 1;
+}
+message EndPlayerRestResponse {
+    int32 LifeRecovered = 1;
+}
+
+
+

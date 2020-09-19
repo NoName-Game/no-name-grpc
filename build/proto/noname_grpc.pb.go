@@ -50,9 +50,6 @@ type NoNameClient interface {
 	CountPlanetVisited(ctx context.Context, in *CountPlanetVisitedRequest, opts ...grpc.CallOption) (*CountPlanetVisitedResponse, error)
 	CountSystemVisited(ctx context.Context, in *CountSystemVisitedRequest, opts ...grpc.CallOption) (*CountSystemVisitedResponse, error)
 	CountPlayerVisitedCurrentPlanet(ctx context.Context, in *CountPlayerVisitedCurrentPlanetRequest, opts ...grpc.CallOption) (*CountPlayerVisitedCurrentPlanetResponse, error)
-	// Rests
-	GetRestsInfo(ctx context.Context, in *GetRestsInfoRequest, opts ...grpc.CallOption) (*GetRestsInfoResponse, error)
-	EndPlayerRest(ctx context.Context, in *EndPlayerRestRequest, opts ...grpc.CallOption) (*EndPlayerRestResponse, error)
 	// SignIn
 	SignIn(ctx context.Context, in *SignInRequest, opts ...grpc.CallOption) (*SignInResponse, error)
 	// PlayerState
@@ -122,6 +119,10 @@ type NoNameClient interface {
 	StartShipRepair(ctx context.Context, in *StartShipRepairRequest, opts ...grpc.CallOption) (*StartShipRepairResponse, error)
 	EndShipRepair(ctx context.Context, in *EndShipRepairRequest, opts ...grpc.CallOption) (*EndShipRepairResponse, error)
 	CheckShipRepair(ctx context.Context, in *CheckShipRepairRequest, opts ...grpc.CallOption) (*CheckShipRepairResponse, error)
+	// Ship - Rests
+	GetRestsInfo(ctx context.Context, in *GetRestsInfoRequest, opts ...grpc.CallOption) (*GetRestsInfoResponse, error)
+	StartPlayerRest(ctx context.Context, in *StartPlayerRestRequest, opts ...grpc.CallOption) (*StartPlayerRestResponse, error)
+	EndPlayerRest(ctx context.Context, in *EndPlayerRestRequest, opts ...grpc.CallOption) (*EndPlayerRestResponse, error)
 	// Transaction
 	CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error)
 	// Tresure
@@ -403,24 +404,6 @@ func (c *noNameClient) CountSystemVisited(ctx context.Context, in *CountSystemVi
 func (c *noNameClient) CountPlayerVisitedCurrentPlanet(ctx context.Context, in *CountPlayerVisitedCurrentPlanetRequest, opts ...grpc.CallOption) (*CountPlayerVisitedCurrentPlanetResponse, error) {
 	out := new(CountPlayerVisitedCurrentPlanetResponse)
 	err := c.cc.Invoke(ctx, "/NoName/CountPlayerVisitedCurrentPlanet", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) GetRestsInfo(ctx context.Context, in *GetRestsInfoRequest, opts ...grpc.CallOption) (*GetRestsInfoResponse, error) {
-	out := new(GetRestsInfoResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetRestsInfo", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) EndPlayerRest(ctx context.Context, in *EndPlayerRestRequest, opts ...grpc.CallOption) (*EndPlayerRestResponse, error) {
-	out := new(EndPlayerRestResponse)
-	err := c.cc.Invoke(ctx, "/NoName/EndPlayerRest", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -895,6 +878,33 @@ func (c *noNameClient) CheckShipRepair(ctx context.Context, in *CheckShipRepairR
 	return out, nil
 }
 
+func (c *noNameClient) GetRestsInfo(ctx context.Context, in *GetRestsInfoRequest, opts ...grpc.CallOption) (*GetRestsInfoResponse, error) {
+	out := new(GetRestsInfoResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetRestsInfo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) StartPlayerRest(ctx context.Context, in *StartPlayerRestRequest, opts ...grpc.CallOption) (*StartPlayerRestResponse, error) {
+	out := new(StartPlayerRestResponse)
+	err := c.cc.Invoke(ctx, "/NoName/StartPlayerRest", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) EndPlayerRest(ctx context.Context, in *EndPlayerRestRequest, opts ...grpc.CallOption) (*EndPlayerRestResponse, error) {
+	out := new(EndPlayerRestResponse)
+	err := c.cc.Invoke(ctx, "/NoName/EndPlayerRest", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error) {
 	out := new(CreateTransactionResponse)
 	err := c.cc.Invoke(ctx, "/NoName/CreateTransaction", in, out, opts...)
@@ -1085,9 +1095,6 @@ type NoNameServer interface {
 	CountPlanetVisited(context.Context, *CountPlanetVisitedRequest) (*CountPlanetVisitedResponse, error)
 	CountSystemVisited(context.Context, *CountSystemVisitedRequest) (*CountSystemVisitedResponse, error)
 	CountPlayerVisitedCurrentPlanet(context.Context, *CountPlayerVisitedCurrentPlanetRequest) (*CountPlayerVisitedCurrentPlanetResponse, error)
-	// Rests
-	GetRestsInfo(context.Context, *GetRestsInfoRequest) (*GetRestsInfoResponse, error)
-	EndPlayerRest(context.Context, *EndPlayerRestRequest) (*EndPlayerRestResponse, error)
 	// SignIn
 	SignIn(context.Context, *SignInRequest) (*SignInResponse, error)
 	// PlayerState
@@ -1157,6 +1164,10 @@ type NoNameServer interface {
 	StartShipRepair(context.Context, *StartShipRepairRequest) (*StartShipRepairResponse, error)
 	EndShipRepair(context.Context, *EndShipRepairRequest) (*EndShipRepairResponse, error)
 	CheckShipRepair(context.Context, *CheckShipRepairRequest) (*CheckShipRepairResponse, error)
+	// Ship - Rests
+	GetRestsInfo(context.Context, *GetRestsInfoRequest) (*GetRestsInfoResponse, error)
+	StartPlayerRest(context.Context, *StartPlayerRestRequest) (*StartPlayerRestResponse, error)
+	EndPlayerRest(context.Context, *EndPlayerRestRequest) (*EndPlayerRestResponse, error)
 	// Transaction
 	CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error)
 	// Tresure
@@ -1272,12 +1283,6 @@ func (*UnimplementedNoNameServer) CountSystemVisited(context.Context, *CountSyst
 }
 func (*UnimplementedNoNameServer) CountPlayerVisitedCurrentPlanet(context.Context, *CountPlayerVisitedCurrentPlanetRequest) (*CountPlayerVisitedCurrentPlanetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CountPlayerVisitedCurrentPlanet not implemented")
-}
-func (*UnimplementedNoNameServer) GetRestsInfo(context.Context, *GetRestsInfoRequest) (*GetRestsInfoResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetRestsInfo not implemented")
-}
-func (*UnimplementedNoNameServer) EndPlayerRest(context.Context, *EndPlayerRestRequest) (*EndPlayerRestResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method EndPlayerRest not implemented")
 }
 func (*UnimplementedNoNameServer) SignIn(context.Context, *SignInRequest) (*SignInResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SignIn not implemented")
@@ -1434,6 +1439,15 @@ func (*UnimplementedNoNameServer) EndShipRepair(context.Context, *EndShipRepairR
 }
 func (*UnimplementedNoNameServer) CheckShipRepair(context.Context, *CheckShipRepairRequest) (*CheckShipRepairResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckShipRepair not implemented")
+}
+func (*UnimplementedNoNameServer) GetRestsInfo(context.Context, *GetRestsInfoRequest) (*GetRestsInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRestsInfo not implemented")
+}
+func (*UnimplementedNoNameServer) StartPlayerRest(context.Context, *StartPlayerRestRequest) (*StartPlayerRestResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StartPlayerRest not implemented")
+}
+func (*UnimplementedNoNameServer) EndPlayerRest(context.Context, *EndPlayerRestRequest) (*EndPlayerRestResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EndPlayerRest not implemented")
 }
 func (*UnimplementedNoNameServer) CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTransaction not implemented")
@@ -1992,42 +2006,6 @@ func _NoName_CountPlayerVisitedCurrentPlanet_Handler(srv interface{}, ctx contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).CountPlayerVisitedCurrentPlanet(ctx, req.(*CountPlayerVisitedCurrentPlanetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_GetRestsInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRestsInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).GetRestsInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/GetRestsInfo",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetRestsInfo(ctx, req.(*GetRestsInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_EndPlayerRest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EndPlayerRestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).EndPlayerRest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/EndPlayerRest",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).EndPlayerRest(ctx, req.(*EndPlayerRestRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2968,6 +2946,60 @@ func _NoName_CheckShipRepair_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetRestsInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRestsInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetRestsInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetRestsInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetRestsInfo(ctx, req.(*GetRestsInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_StartPlayerRest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartPlayerRestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).StartPlayerRest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/StartPlayerRest",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).StartPlayerRest(ctx, req.(*StartPlayerRestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_EndPlayerRest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EndPlayerRestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).EndPlayerRest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/EndPlayerRest",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).EndPlayerRest(ctx, req.(*EndPlayerRestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_CreateTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateTransactionRequest)
 	if err := dec(in); err != nil {
@@ -3391,14 +3423,6 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_CountPlayerVisitedCurrentPlanet_Handler,
 		},
 		{
-			MethodName: "GetRestsInfo",
-			Handler:    _NoName_GetRestsInfo_Handler,
-		},
-		{
-			MethodName: "EndPlayerRest",
-			Handler:    _NoName_EndPlayerRest_Handler,
-		},
-		{
 			MethodName: "SignIn",
 			Handler:    _NoName_SignIn_Handler,
 		},
@@ -3605,6 +3629,18 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CheckShipRepair",
 			Handler:    _NoName_CheckShipRepair_Handler,
+		},
+		{
+			MethodName: "GetRestsInfo",
+			Handler:    _NoName_GetRestsInfo_Handler,
+		},
+		{
+			MethodName: "StartPlayerRest",
+			Handler:    _NoName_StartPlayerRest_Handler,
+		},
+		{
+			MethodName: "EndPlayerRest",
+			Handler:    _NoName_EndPlayerRest_Handler,
 		},
 		{
 			MethodName: "CreateTransaction",

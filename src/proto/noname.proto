@@ -28,6 +28,7 @@ import "proto/titan_damage.proto";
 import "proto/safeplanet_crafter.proto";
 import "proto/ship_laboratory.proto";
 import "proto/ship_repair.proto";
+import "proto/ship_rest.proto";
 
 option go_package = "proto";
 
@@ -70,10 +71,6 @@ service NoName {
     rpc CountPlanetVisited (player_position.CountPlanetVisitedRequest) returns (player_position.CountPlanetVisitedResponse) {}
     rpc CountSystemVisited (player_position.CountSystemVisitedRequest) returns (player_position.CountSystemVisitedResponse) {}
     rpc CountPlayerVisitedCurrentPlanet (player_position.CountPlayerVisitedCurrentPlanetRequest) returns (player_position.CountPlayerVisitedCurrentPlanetResponse) {}
-
-    // Rests
-    rpc GetRestsInfo (player.GetRestsInfoRequest) returns (player.GetRestsInfoResponse) {}
-    rpc EndPlayerRest (player.EndPlayerRestRequest) returns (player.EndPlayerRestResponse) {}
 
     // SignIn
     rpc SignIn (player.SignInRequest) returns (player.SignInResponse) {}
@@ -161,6 +158,11 @@ service NoName {
     rpc StartShipRepair (ship_repair.StartShipRepairRequest) returns (ship_repair.StartShipRepairResponse) {}
     rpc EndShipRepair (ship_repair.EndShipRepairRequest) returns (ship_repair.EndShipRepairResponse) {}
     rpc CheckShipRepair (ship_repair.CheckShipRepairRequest) returns (ship_repair.CheckShipRepairResponse) {}
+
+    // Ship - Rests
+    rpc GetRestsInfo (ship_rest.GetRestsInfoRequest) returns (ship_rest.GetRestsInfoResponse) {}
+    rpc StartPlayerRest (ship_rest.StartPlayerRestRequest) returns (ship_rest.StartPlayerRestResponse) {}
+    rpc EndPlayerRest (ship_rest.EndPlayerRestRequest) returns (ship_rest.EndPlayerRestResponse) {}
 
     // Transaction
     rpc CreateTransaction (transaction.CreateTransactionRequest) returns (transaction.CreateTransactionResponse) {}

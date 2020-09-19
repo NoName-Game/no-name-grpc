@@ -95,24 +95,6 @@ message PlayerEndTutorialResponse {
     uint32 Exp = 2;
 }
 
-// GetRestsInfo
-message GetRestsInfoRequest {
-    uint32 PlayerID = 1;
-}
-message GetRestsInfoResponse {
-    bool NeedRests = 1;
-    uint32 RestsTime = 2;
-}
-
-// EndPlayerRest
-message EndPlayerRestRequest {
-    uint32 PlayerID = 1;
-    uint32 RestsTime = 2;
-}
-message EndPlayerRestResponse {
-    // Empty
-}
-
 // GetPlayerExperience
 message GetPlayerExperienceRequest {
     uint32 PlayerID = 1;
