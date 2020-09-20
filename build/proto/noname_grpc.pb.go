@@ -17,6 +17,10 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type NoNameClient interface {
+	// Tutorial
+	PlayerStartTutorial(ctx context.Context, in *PlayerStartTutorialRequest, opts ...grpc.CallOption) (*PlayerStartTutorialResponse, error)
+	PlayerEndTutorial(ctx context.Context, in *PlayerEndTutorialRequest, opts ...grpc.CallOption) (*PlayerEndTutorialResponse, error)
+	StartTravelTutorial(ctx context.Context, in *StartTravelTutorialRequest, opts ...grpc.CallOption) (*StartTravelTutorialResponse, error)
 	// Armor
 	GetArmorByID(ctx context.Context, in *GetArmorByIDRequest, opts ...grpc.CallOption) (*GetArmorByIDResponse, error)
 	GetArmorByName(ctx context.Context, in *GetArmorByNameRequest, opts ...grpc.CallOption) (*GetArmorByNameResponse, error)
@@ -42,7 +46,6 @@ type NoNameClient interface {
 	GetPlayerItems(ctx context.Context, in *GetPlayerItemsRequest, opts ...grpc.CallOption) (*GetPlayerItemsResponse, error)
 	GetPlayerEconomy(ctx context.Context, in *GetPlayerEconomyRequest, opts ...grpc.CallOption) (*GetPlayerEconomyResponse, error)
 	ManagePlayerInventory(ctx context.Context, in *ManagePlayerInventoryRequest, opts ...grpc.CallOption) (*ManagePlayerInventoryResponse, error)
-	PlayerEndTutorial(ctx context.Context, in *PlayerEndTutorialRequest, opts ...grpc.CallOption) (*PlayerEndTutorialResponse, error)
 	GetPlayerExperience(ctx context.Context, in *GetPlayerExperienceRequest, opts ...grpc.CallOption) (*GetPlayerExperienceResponse, error)
 	// PlayerPosition
 	CreatePlayerPosition(ctx context.Context, in *CreatePlayerPositionRequest, opts ...grpc.CallOption) (*CreatePlayerPositionResponse, error)
@@ -159,6 +162,33 @@ type noNameClient struct {
 
 func NewNoNameClient(cc grpc.ClientConnInterface) NoNameClient {
 	return &noNameClient{cc}
+}
+
+func (c *noNameClient) PlayerStartTutorial(ctx context.Context, in *PlayerStartTutorialRequest, opts ...grpc.CallOption) (*PlayerStartTutorialResponse, error) {
+	out := new(PlayerStartTutorialResponse)
+	err := c.cc.Invoke(ctx, "/NoName/PlayerStartTutorial", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) PlayerEndTutorial(ctx context.Context, in *PlayerEndTutorialRequest, opts ...grpc.CallOption) (*PlayerEndTutorialResponse, error) {
+	out := new(PlayerEndTutorialResponse)
+	err := c.cc.Invoke(ctx, "/NoName/PlayerEndTutorial", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) StartTravelTutorial(ctx context.Context, in *StartTravelTutorialRequest, opts ...grpc.CallOption) (*StartTravelTutorialResponse, error) {
+	out := new(StartTravelTutorialResponse)
+	err := c.cc.Invoke(ctx, "/NoName/StartTravelTutorial", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *noNameClient) GetArmorByID(ctx context.Context, in *GetArmorByIDRequest, opts ...grpc.CallOption) (*GetArmorByIDResponse, error) {
@@ -344,15 +374,6 @@ func (c *noNameClient) GetPlayerEconomy(ctx context.Context, in *GetPlayerEconom
 func (c *noNameClient) ManagePlayerInventory(ctx context.Context, in *ManagePlayerInventoryRequest, opts ...grpc.CallOption) (*ManagePlayerInventoryResponse, error) {
 	out := new(ManagePlayerInventoryResponse)
 	err := c.cc.Invoke(ctx, "/NoName/ManagePlayerInventory", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) PlayerEndTutorial(ctx context.Context, in *PlayerEndTutorialRequest, opts ...grpc.CallOption) (*PlayerEndTutorialResponse, error) {
-	out := new(PlayerEndTutorialResponse)
-	err := c.cc.Invoke(ctx, "/NoName/PlayerEndTutorial", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1083,6 +1104,10 @@ func (c *noNameClient) CrafterCheck(ctx context.Context, in *CrafterCheckRequest
 // All implementations must embed UnimplementedNoNameServer
 // for forward compatibility
 type NoNameServer interface {
+	// Tutorial
+	PlayerStartTutorial(context.Context, *PlayerStartTutorialRequest) (*PlayerStartTutorialResponse, error)
+	PlayerEndTutorial(context.Context, *PlayerEndTutorialRequest) (*PlayerEndTutorialResponse, error)
+	StartTravelTutorial(context.Context, *StartTravelTutorialRequest) (*StartTravelTutorialResponse, error)
 	// Armor
 	GetArmorByID(context.Context, *GetArmorByIDRequest) (*GetArmorByIDResponse, error)
 	GetArmorByName(context.Context, *GetArmorByNameRequest) (*GetArmorByNameResponse, error)
@@ -1108,7 +1133,6 @@ type NoNameServer interface {
 	GetPlayerItems(context.Context, *GetPlayerItemsRequest) (*GetPlayerItemsResponse, error)
 	GetPlayerEconomy(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error)
 	ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error)
-	PlayerEndTutorial(context.Context, *PlayerEndTutorialRequest) (*PlayerEndTutorialResponse, error)
 	GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error)
 	// PlayerPosition
 	CreatePlayerPosition(context.Context, *CreatePlayerPositionRequest) (*CreatePlayerPositionResponse, error)
@@ -1224,6 +1248,15 @@ type NoNameServer interface {
 type UnimplementedNoNameServer struct {
 }
 
+func (*UnimplementedNoNameServer) PlayerStartTutorial(context.Context, *PlayerStartTutorialRequest) (*PlayerStartTutorialResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PlayerStartTutorial not implemented")
+}
+func (*UnimplementedNoNameServer) PlayerEndTutorial(context.Context, *PlayerEndTutorialRequest) (*PlayerEndTutorialResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PlayerEndTutorial not implemented")
+}
+func (*UnimplementedNoNameServer) StartTravelTutorial(context.Context, *StartTravelTutorialRequest) (*StartTravelTutorialResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StartTravelTutorial not implemented")
+}
 func (*UnimplementedNoNameServer) GetArmorByID(context.Context, *GetArmorByIDRequest) (*GetArmorByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetArmorByID not implemented")
 }
@@ -1286,9 +1319,6 @@ func (*UnimplementedNoNameServer) GetPlayerEconomy(context.Context, *GetPlayerEc
 }
 func (*UnimplementedNoNameServer) ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ManagePlayerInventory not implemented")
-}
-func (*UnimplementedNoNameServer) PlayerEndTutorial(context.Context, *PlayerEndTutorialRequest) (*PlayerEndTutorialResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method PlayerEndTutorial not implemented")
 }
 func (*UnimplementedNoNameServer) GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerExperience not implemented")
@@ -1534,6 +1564,60 @@ func (*UnimplementedNoNameServer) mustEmbedUnimplementedNoNameServer() {}
 
 func RegisterNoNameServer(s *grpc.Server, srv NoNameServer) {
 	s.RegisterService(&_NoName_serviceDesc, srv)
+}
+
+func _NoName_PlayerStartTutorial_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlayerStartTutorialRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).PlayerStartTutorial(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/PlayerStartTutorial",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).PlayerStartTutorial(ctx, req.(*PlayerStartTutorialRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_PlayerEndTutorial_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlayerEndTutorialRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).PlayerEndTutorial(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/PlayerEndTutorial",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).PlayerEndTutorial(ctx, req.(*PlayerEndTutorialRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_StartTravelTutorial_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartTravelTutorialRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).StartTravelTutorial(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/StartTravelTutorial",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).StartTravelTutorial(ctx, req.(*StartTravelTutorialRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _NoName_GetArmorByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -1910,24 +1994,6 @@ func _NoName_ManagePlayerInventory_Handler(srv interface{}, ctx context.Context,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).ManagePlayerInventory(ctx, req.(*ManagePlayerInventoryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_PlayerEndTutorial_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PlayerEndTutorialRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).PlayerEndTutorial(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/PlayerEndTutorial",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).PlayerEndTutorial(ctx, req.(*PlayerEndTutorialRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3377,6 +3443,18 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*NoNameServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "PlayerStartTutorial",
+			Handler:    _NoName_PlayerStartTutorial_Handler,
+		},
+		{
+			MethodName: "PlayerEndTutorial",
+			Handler:    _NoName_PlayerEndTutorial_Handler,
+		},
+		{
+			MethodName: "StartTravelTutorial",
+			Handler:    _NoName_StartTravelTutorial_Handler,
+		},
+		{
 			MethodName: "GetArmorByID",
 			Handler:    _NoName_GetArmorByID_Handler,
 		},
@@ -3459,10 +3537,6 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ManagePlayerInventory",
 			Handler:    _NoName_ManagePlayerInventory_Handler,
-		},
-		{
-			MethodName: "PlayerEndTutorial",
-			Handler:    _NoName_PlayerEndTutorial_Handler,
 		},
 		{
 			MethodName: "GetPlayerExperience",

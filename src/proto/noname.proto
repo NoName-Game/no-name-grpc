@@ -30,11 +30,17 @@ import "proto/ship_laboratory.proto";
 import "proto/ship_repair.proto";
 import "proto/ship_rest.proto";
 import "proto/ship_travel.proto";
+import "proto/tutorial.proto";
 
 option go_package = "proto";
 
 // The greeting service definition.
 service NoName {
+    // Tutorial
+    rpc PlayerStartTutorial (tutorial.PlayerStartTutorialRequest) returns (tutorial.PlayerStartTutorialResponse) {}
+    rpc PlayerEndTutorial (tutorial.PlayerEndTutorialRequest) returns (tutorial.PlayerEndTutorialResponse) {}
+    rpc StartTravelTutorial (tutorial.StartTravelTutorialRequest) returns (tutorial.StartTravelTutorialResponse) {}
+
     // Armor
     rpc GetArmorByID (armor.GetArmorByIDRequest) returns (armor.GetArmorByIDResponse) {}
     rpc GetArmorByName (armor.GetArmorByNameRequest) returns (armor.GetArmorByNameResponse) {}
@@ -63,7 +69,6 @@ service NoName {
     rpc GetPlayerItems (player.GetPlayerItemsRequest) returns (player.GetPlayerItemsResponse) {}
     rpc GetPlayerEconomy (player.GetPlayerEconomyRequest) returns (player.GetPlayerEconomyResponse) {}
     rpc ManagePlayerInventory (player.ManagePlayerInventoryRequest) returns (player.ManagePlayerInventoryResponse) {}
-    rpc PlayerEndTutorial (player.PlayerEndTutorialRequest) returns (player.PlayerEndTutorialResponse) {}
     rpc GetPlayerExperience (player.GetPlayerExperienceRequest) returns (player.GetPlayerExperienceResponse) {}
 
     // PlayerPosition

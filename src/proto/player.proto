@@ -85,16 +85,6 @@ message GetPlayerEconomyResponse {
     int32 Value = 1;
 }
 
-// PlayerEndTutorial
-message PlayerEndTutorialRequest {
-    uint32 PlayerID = 1;
-    bool End = 3;
-}
-message PlayerEndTutorialResponse {
-    uint32 Money = 1;
-    uint32 Exp = 2;
-}
-
 // GetPlayerExperience
 message GetPlayerExperienceRequest {
     uint32 PlayerID = 1;

@@ -1,0 +1,29 @@
+syntax = "proto3";
+option go_package = "proto";
+import "google/protobuf/timestamp.proto";
+package tutorial;
+
+// PlayerStartTutorial
+message PlayerStartTutorialRequest {
+    uint32 PlayerID = 1;
+}
+message PlayerStartTutorialResponse {
+    // Empty
+}
+
+// PlayerEndTutorial
+message PlayerEndTutorialRequest {
+    uint32 PlayerID = 1;
+}
+message PlayerEndTutorialResponse {
+    uint32 Money = 1;
+    uint32 Exp = 2;
+}
+
+// StartTravelTutorial
+message StartTravelTutorialRequest {
+    uint32 PlayerID = 1;
+}
+message StartTravelTutorialResponse {
+    google.protobuf.Timestamp TravelingEndTime = 1;
+}
