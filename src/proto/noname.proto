@@ -4,7 +4,7 @@ import "proto/armor.proto";
 import "proto/armor_category.proto";
 import "proto/weapon.proto";
 import "proto/player.proto";
-import "proto/player_state.proto";
+import "proto/player_activity.proto";
 import "proto/player_position.proto";
 import "proto/enemy.proto";
 import "proto/item.proto";
@@ -71,24 +71,24 @@ service NoName {
     rpc ManagePlayerInventory (player.ManagePlayerInventoryRequest) returns (player.ManagePlayerInventoryResponse) {}
     rpc GetPlayerExperience (player.GetPlayerExperienceRequest) returns (player.GetPlayerExperienceResponse) {}
 
-    // PlayerPosition
+    // Player - Position
     rpc CreatePlayerPosition (player_position.CreatePlayerPositionRequest) returns (player_position.CreatePlayerPositionResponse) {}
     rpc GetPlayerCurrentPlanet (player_position.GetPlayerCurrentPlanetRequest) returns (player_position.GetPlayerCurrentPlanetResponse) {}
     rpc CountPlanetVisited (player_position.CountPlanetVisitedRequest) returns (player_position.CountPlanetVisitedResponse) {}
     rpc CountSystemVisited (player_position.CountSystemVisitedRequest) returns (player_position.CountSystemVisitedResponse) {}
     rpc CountPlayerVisitedCurrentPlanet (player_position.CountPlayerVisitedCurrentPlanetRequest) returns (player_position.CountPlayerVisitedCurrentPlanetResponse) {}
 
-    // SignIn
+    // Player - SignIn
     rpc SignIn (player.SignInRequest) returns (player.SignInResponse) {}
 
-    // PlayerState
-    rpc GetPlayerStateByID (player_state.GetPlayerStateByIDRequest) returns (player_state.GetPlayerStateByIDResponse) {}
-    rpc GetActivePlayerStates (player_state.GetActivePlayerStatesRequest) returns (player_state.GetActivePlayerStatesResponse) {}
-    rpc GetPlayerStateToNotify (player_state.GetPlayerStateToNotifyRequest) returns (player_state.GetPlayerStateToNotifyResponse) {}
-    rpc CreatePlayerState (player_state.CreatePlayerStateRequest) returns (player_state.CreatePlayerStateResponse) {}
-    rpc UpdatePlayerState (player_state.UpdatePlayerStateRequest) returns (player_state.UpdatePlayerStateResponse) {}
-    rpc DeletePlayerState (player_state.DeletePlayerStateRequest) returns (player_state.DeletePlayerStateResponse) {}
-    rpc DeletePlayerStateByController (player_state.DeletePlayerStateByControllerRequest) returns (player_state.DeletePlayerStateByControllerResponse) {}
+    // Player - Activity
+    rpc GetPlayerStateByID (player_activity.GetPlayerActivityByIDRequest) returns (player_activity.GetPlayerActivityByIDResponse) {}
+    rpc GetActivePlayerActivities (player_activity.GetActivePlayerActivitiesRequest) returns (player_activity.GetActivePlayerActivitiesResponse) {}
+    rpc GetPlayerActivityToNotify (player_activity.GetPlayerActivityToNotifyRequest) returns (player_activity.GetPlayerActivityToNotifyResponse) {}
+    rpc CreatePlayerActivity (player_activity.CreatePlayerActivityRequest) returns (player_activity.CreatePlayerActivityResponse) {}
+    rpc UpdatePlayerActivity (player_activity.UpdatePlayerActivityRequest) returns (player_activity.UpdatePlayerActivityResponse) {}
+    rpc DeletePlayerActivity (player_activity.DeletePlayerActivityRequest) returns (player_activity.DeletePlayerActivityResponse) {}
+    rpc DeletePlayerActivityByController (player_activity.DeletePlayerActivityByControllerRequest) returns (player_activity.DeletePlayerActivityByControllerResponse) {}
 
     // Enemy
     rpc GetEnemyByID (enemy.GetEnemyByIDRequest) returns (enemy.GetEnemyByIDResponse) {}

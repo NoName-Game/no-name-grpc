@@ -47,22 +47,22 @@ type NoNameClient interface {
 	GetPlayerEconomy(ctx context.Context, in *GetPlayerEconomyRequest, opts ...grpc.CallOption) (*GetPlayerEconomyResponse, error)
 	ManagePlayerInventory(ctx context.Context, in *ManagePlayerInventoryRequest, opts ...grpc.CallOption) (*ManagePlayerInventoryResponse, error)
 	GetPlayerExperience(ctx context.Context, in *GetPlayerExperienceRequest, opts ...grpc.CallOption) (*GetPlayerExperienceResponse, error)
-	// PlayerPosition
+	// Player - Position
 	CreatePlayerPosition(ctx context.Context, in *CreatePlayerPositionRequest, opts ...grpc.CallOption) (*CreatePlayerPositionResponse, error)
 	GetPlayerCurrentPlanet(ctx context.Context, in *GetPlayerCurrentPlanetRequest, opts ...grpc.CallOption) (*GetPlayerCurrentPlanetResponse, error)
 	CountPlanetVisited(ctx context.Context, in *CountPlanetVisitedRequest, opts ...grpc.CallOption) (*CountPlanetVisitedResponse, error)
 	CountSystemVisited(ctx context.Context, in *CountSystemVisitedRequest, opts ...grpc.CallOption) (*CountSystemVisitedResponse, error)
 	CountPlayerVisitedCurrentPlanet(ctx context.Context, in *CountPlayerVisitedCurrentPlanetRequest, opts ...grpc.CallOption) (*CountPlayerVisitedCurrentPlanetResponse, error)
-	// SignIn
+	// Player - SignIn
 	SignIn(ctx context.Context, in *SignInRequest, opts ...grpc.CallOption) (*SignInResponse, error)
-	// PlayerState
-	GetPlayerStateByID(ctx context.Context, in *GetPlayerStateByIDRequest, opts ...grpc.CallOption) (*GetPlayerStateByIDResponse, error)
-	GetActivePlayerStates(ctx context.Context, in *GetActivePlayerStatesRequest, opts ...grpc.CallOption) (*GetActivePlayerStatesResponse, error)
-	GetPlayerStateToNotify(ctx context.Context, in *GetPlayerStateToNotifyRequest, opts ...grpc.CallOption) (*GetPlayerStateToNotifyResponse, error)
-	CreatePlayerState(ctx context.Context, in *CreatePlayerStateRequest, opts ...grpc.CallOption) (*CreatePlayerStateResponse, error)
-	UpdatePlayerState(ctx context.Context, in *UpdatePlayerStateRequest, opts ...grpc.CallOption) (*UpdatePlayerStateResponse, error)
-	DeletePlayerState(ctx context.Context, in *DeletePlayerStateRequest, opts ...grpc.CallOption) (*DeletePlayerStateResponse, error)
-	DeletePlayerStateByController(ctx context.Context, in *DeletePlayerStateByControllerRequest, opts ...grpc.CallOption) (*DeletePlayerStateByControllerResponse, error)
+	// Player - Activity
+	GetPlayerStateByID(ctx context.Context, in *GetPlayerActivityByIDRequest, opts ...grpc.CallOption) (*GetPlayerActivityByIDResponse, error)
+	GetActivePlayerActivities(ctx context.Context, in *GetActivePlayerActivitiesRequest, opts ...grpc.CallOption) (*GetActivePlayerActivitiesResponse, error)
+	GetPlayerActivityToNotify(ctx context.Context, in *GetPlayerActivityToNotifyRequest, opts ...grpc.CallOption) (*GetPlayerActivityToNotifyResponse, error)
+	CreatePlayerActivity(ctx context.Context, in *CreatePlayerActivityRequest, opts ...grpc.CallOption) (*CreatePlayerActivityResponse, error)
+	UpdatePlayerActivity(ctx context.Context, in *UpdatePlayerActivityRequest, opts ...grpc.CallOption) (*UpdatePlayerActivityResponse, error)
+	DeletePlayerActivity(ctx context.Context, in *DeletePlayerActivityRequest, opts ...grpc.CallOption) (*DeletePlayerActivityResponse, error)
+	DeletePlayerActivityByController(ctx context.Context, in *DeletePlayerActivityByControllerRequest, opts ...grpc.CallOption) (*DeletePlayerActivityByControllerResponse, error)
 	// Enemy
 	GetEnemyByID(ctx context.Context, in *GetEnemyByIDRequest, opts ...grpc.CallOption) (*GetEnemyByIDResponse, error)
 	HitEnemy(ctx context.Context, in *HitEnemyRequest, opts ...grpc.CallOption) (*HitEnemyResponse, error)
@@ -443,8 +443,8 @@ func (c *noNameClient) SignIn(ctx context.Context, in *SignInRequest, opts ...gr
 	return out, nil
 }
 
-func (c *noNameClient) GetPlayerStateByID(ctx context.Context, in *GetPlayerStateByIDRequest, opts ...grpc.CallOption) (*GetPlayerStateByIDResponse, error) {
-	out := new(GetPlayerStateByIDResponse)
+func (c *noNameClient) GetPlayerStateByID(ctx context.Context, in *GetPlayerActivityByIDRequest, opts ...grpc.CallOption) (*GetPlayerActivityByIDResponse, error) {
+	out := new(GetPlayerActivityByIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerStateByID", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -452,54 +452,54 @@ func (c *noNameClient) GetPlayerStateByID(ctx context.Context, in *GetPlayerStat
 	return out, nil
 }
 
-func (c *noNameClient) GetActivePlayerStates(ctx context.Context, in *GetActivePlayerStatesRequest, opts ...grpc.CallOption) (*GetActivePlayerStatesResponse, error) {
-	out := new(GetActivePlayerStatesResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetActivePlayerStates", in, out, opts...)
+func (c *noNameClient) GetActivePlayerActivities(ctx context.Context, in *GetActivePlayerActivitiesRequest, opts ...grpc.CallOption) (*GetActivePlayerActivitiesResponse, error) {
+	out := new(GetActivePlayerActivitiesResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetActivePlayerActivities", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *noNameClient) GetPlayerStateToNotify(ctx context.Context, in *GetPlayerStateToNotifyRequest, opts ...grpc.CallOption) (*GetPlayerStateToNotifyResponse, error) {
-	out := new(GetPlayerStateToNotifyResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetPlayerStateToNotify", in, out, opts...)
+func (c *noNameClient) GetPlayerActivityToNotify(ctx context.Context, in *GetPlayerActivityToNotifyRequest, opts ...grpc.CallOption) (*GetPlayerActivityToNotifyResponse, error) {
+	out := new(GetPlayerActivityToNotifyResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerActivityToNotify", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *noNameClient) CreatePlayerState(ctx context.Context, in *CreatePlayerStateRequest, opts ...grpc.CallOption) (*CreatePlayerStateResponse, error) {
-	out := new(CreatePlayerStateResponse)
-	err := c.cc.Invoke(ctx, "/NoName/CreatePlayerState", in, out, opts...)
+func (c *noNameClient) CreatePlayerActivity(ctx context.Context, in *CreatePlayerActivityRequest, opts ...grpc.CallOption) (*CreatePlayerActivityResponse, error) {
+	out := new(CreatePlayerActivityResponse)
+	err := c.cc.Invoke(ctx, "/NoName/CreatePlayerActivity", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *noNameClient) UpdatePlayerState(ctx context.Context, in *UpdatePlayerStateRequest, opts ...grpc.CallOption) (*UpdatePlayerStateResponse, error) {
-	out := new(UpdatePlayerStateResponse)
-	err := c.cc.Invoke(ctx, "/NoName/UpdatePlayerState", in, out, opts...)
+func (c *noNameClient) UpdatePlayerActivity(ctx context.Context, in *UpdatePlayerActivityRequest, opts ...grpc.CallOption) (*UpdatePlayerActivityResponse, error) {
+	out := new(UpdatePlayerActivityResponse)
+	err := c.cc.Invoke(ctx, "/NoName/UpdatePlayerActivity", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *noNameClient) DeletePlayerState(ctx context.Context, in *DeletePlayerStateRequest, opts ...grpc.CallOption) (*DeletePlayerStateResponse, error) {
-	out := new(DeletePlayerStateResponse)
-	err := c.cc.Invoke(ctx, "/NoName/DeletePlayerState", in, out, opts...)
+func (c *noNameClient) DeletePlayerActivity(ctx context.Context, in *DeletePlayerActivityRequest, opts ...grpc.CallOption) (*DeletePlayerActivityResponse, error) {
+	out := new(DeletePlayerActivityResponse)
+	err := c.cc.Invoke(ctx, "/NoName/DeletePlayerActivity", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *noNameClient) DeletePlayerStateByController(ctx context.Context, in *DeletePlayerStateByControllerRequest, opts ...grpc.CallOption) (*DeletePlayerStateByControllerResponse, error) {
-	out := new(DeletePlayerStateByControllerResponse)
-	err := c.cc.Invoke(ctx, "/NoName/DeletePlayerStateByController", in, out, opts...)
+func (c *noNameClient) DeletePlayerActivityByController(ctx context.Context, in *DeletePlayerActivityByControllerRequest, opts ...grpc.CallOption) (*DeletePlayerActivityByControllerResponse, error) {
+	out := new(DeletePlayerActivityByControllerResponse)
+	err := c.cc.Invoke(ctx, "/NoName/DeletePlayerActivityByController", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1134,22 +1134,22 @@ type NoNameServer interface {
 	GetPlayerEconomy(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error)
 	ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error)
 	GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error)
-	// PlayerPosition
+	// Player - Position
 	CreatePlayerPosition(context.Context, *CreatePlayerPositionRequest) (*CreatePlayerPositionResponse, error)
 	GetPlayerCurrentPlanet(context.Context, *GetPlayerCurrentPlanetRequest) (*GetPlayerCurrentPlanetResponse, error)
 	CountPlanetVisited(context.Context, *CountPlanetVisitedRequest) (*CountPlanetVisitedResponse, error)
 	CountSystemVisited(context.Context, *CountSystemVisitedRequest) (*CountSystemVisitedResponse, error)
 	CountPlayerVisitedCurrentPlanet(context.Context, *CountPlayerVisitedCurrentPlanetRequest) (*CountPlayerVisitedCurrentPlanetResponse, error)
-	// SignIn
+	// Player - SignIn
 	SignIn(context.Context, *SignInRequest) (*SignInResponse, error)
-	// PlayerState
-	GetPlayerStateByID(context.Context, *GetPlayerStateByIDRequest) (*GetPlayerStateByIDResponse, error)
-	GetActivePlayerStates(context.Context, *GetActivePlayerStatesRequest) (*GetActivePlayerStatesResponse, error)
-	GetPlayerStateToNotify(context.Context, *GetPlayerStateToNotifyRequest) (*GetPlayerStateToNotifyResponse, error)
-	CreatePlayerState(context.Context, *CreatePlayerStateRequest) (*CreatePlayerStateResponse, error)
-	UpdatePlayerState(context.Context, *UpdatePlayerStateRequest) (*UpdatePlayerStateResponse, error)
-	DeletePlayerState(context.Context, *DeletePlayerStateRequest) (*DeletePlayerStateResponse, error)
-	DeletePlayerStateByController(context.Context, *DeletePlayerStateByControllerRequest) (*DeletePlayerStateByControllerResponse, error)
+	// Player - Activity
+	GetPlayerStateByID(context.Context, *GetPlayerActivityByIDRequest) (*GetPlayerActivityByIDResponse, error)
+	GetActivePlayerActivities(context.Context, *GetActivePlayerActivitiesRequest) (*GetActivePlayerActivitiesResponse, error)
+	GetPlayerActivityToNotify(context.Context, *GetPlayerActivityToNotifyRequest) (*GetPlayerActivityToNotifyResponse, error)
+	CreatePlayerActivity(context.Context, *CreatePlayerActivityRequest) (*CreatePlayerActivityResponse, error)
+	UpdatePlayerActivity(context.Context, *UpdatePlayerActivityRequest) (*UpdatePlayerActivityResponse, error)
+	DeletePlayerActivity(context.Context, *DeletePlayerActivityRequest) (*DeletePlayerActivityResponse, error)
+	DeletePlayerActivityByController(context.Context, *DeletePlayerActivityByControllerRequest) (*DeletePlayerActivityByControllerResponse, error)
 	// Enemy
 	GetEnemyByID(context.Context, *GetEnemyByIDRequest) (*GetEnemyByIDResponse, error)
 	HitEnemy(context.Context, *HitEnemyRequest) (*HitEnemyResponse, error)
@@ -1341,26 +1341,26 @@ func (*UnimplementedNoNameServer) CountPlayerVisitedCurrentPlanet(context.Contex
 func (*UnimplementedNoNameServer) SignIn(context.Context, *SignInRequest) (*SignInResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SignIn not implemented")
 }
-func (*UnimplementedNoNameServer) GetPlayerStateByID(context.Context, *GetPlayerStateByIDRequest) (*GetPlayerStateByIDResponse, error) {
+func (*UnimplementedNoNameServer) GetPlayerStateByID(context.Context, *GetPlayerActivityByIDRequest) (*GetPlayerActivityByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerStateByID not implemented")
 }
-func (*UnimplementedNoNameServer) GetActivePlayerStates(context.Context, *GetActivePlayerStatesRequest) (*GetActivePlayerStatesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetActivePlayerStates not implemented")
+func (*UnimplementedNoNameServer) GetActivePlayerActivities(context.Context, *GetActivePlayerActivitiesRequest) (*GetActivePlayerActivitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetActivePlayerActivities not implemented")
 }
-func (*UnimplementedNoNameServer) GetPlayerStateToNotify(context.Context, *GetPlayerStateToNotifyRequest) (*GetPlayerStateToNotifyResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerStateToNotify not implemented")
+func (*UnimplementedNoNameServer) GetPlayerActivityToNotify(context.Context, *GetPlayerActivityToNotifyRequest) (*GetPlayerActivityToNotifyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerActivityToNotify not implemented")
 }
-func (*UnimplementedNoNameServer) CreatePlayerState(context.Context, *CreatePlayerStateRequest) (*CreatePlayerStateResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreatePlayerState not implemented")
+func (*UnimplementedNoNameServer) CreatePlayerActivity(context.Context, *CreatePlayerActivityRequest) (*CreatePlayerActivityResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePlayerActivity not implemented")
 }
-func (*UnimplementedNoNameServer) UpdatePlayerState(context.Context, *UpdatePlayerStateRequest) (*UpdatePlayerStateResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdatePlayerState not implemented")
+func (*UnimplementedNoNameServer) UpdatePlayerActivity(context.Context, *UpdatePlayerActivityRequest) (*UpdatePlayerActivityResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePlayerActivity not implemented")
 }
-func (*UnimplementedNoNameServer) DeletePlayerState(context.Context, *DeletePlayerStateRequest) (*DeletePlayerStateResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeletePlayerState not implemented")
+func (*UnimplementedNoNameServer) DeletePlayerActivity(context.Context, *DeletePlayerActivityRequest) (*DeletePlayerActivityResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeletePlayerActivity not implemented")
 }
-func (*UnimplementedNoNameServer) DeletePlayerStateByController(context.Context, *DeletePlayerStateByControllerRequest) (*DeletePlayerStateByControllerResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeletePlayerStateByController not implemented")
+func (*UnimplementedNoNameServer) DeletePlayerActivityByController(context.Context, *DeletePlayerActivityByControllerRequest) (*DeletePlayerActivityByControllerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeletePlayerActivityByController not implemented")
 }
 func (*UnimplementedNoNameServer) GetEnemyByID(context.Context, *GetEnemyByIDRequest) (*GetEnemyByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEnemyByID not implemented")
@@ -2125,7 +2125,7 @@ func _NoName_SignIn_Handler(srv interface{}, ctx context.Context, dec func(inter
 }
 
 func _NoName_GetPlayerStateByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerStateByIDRequest)
+	in := new(GetPlayerActivityByIDRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2137,115 +2137,115 @@ func _NoName_GetPlayerStateByID_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: "/NoName/GetPlayerStateByID",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetPlayerStateByID(ctx, req.(*GetPlayerStateByIDRequest))
+		return srv.(NoNameServer).GetPlayerStateByID(ctx, req.(*GetPlayerActivityByIDRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_GetActivePlayerStates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivePlayerStatesRequest)
+func _NoName_GetActivePlayerActivities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActivePlayerActivitiesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).GetActivePlayerStates(ctx, in)
+		return srv.(NoNameServer).GetActivePlayerActivities(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/GetActivePlayerStates",
+		FullMethod: "/NoName/GetActivePlayerActivities",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetActivePlayerStates(ctx, req.(*GetActivePlayerStatesRequest))
+		return srv.(NoNameServer).GetActivePlayerActivities(ctx, req.(*GetActivePlayerActivitiesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_GetPlayerStateToNotify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerStateToNotifyRequest)
+func _NoName_GetPlayerActivityToNotify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerActivityToNotifyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).GetPlayerStateToNotify(ctx, in)
+		return srv.(NoNameServer).GetPlayerActivityToNotify(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/GetPlayerStateToNotify",
+		FullMethod: "/NoName/GetPlayerActivityToNotify",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetPlayerStateToNotify(ctx, req.(*GetPlayerStateToNotifyRequest))
+		return srv.(NoNameServer).GetPlayerActivityToNotify(ctx, req.(*GetPlayerActivityToNotifyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_CreatePlayerState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreatePlayerStateRequest)
+func _NoName_CreatePlayerActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePlayerActivityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).CreatePlayerState(ctx, in)
+		return srv.(NoNameServer).CreatePlayerActivity(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/CreatePlayerState",
+		FullMethod: "/NoName/CreatePlayerActivity",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).CreatePlayerState(ctx, req.(*CreatePlayerStateRequest))
+		return srv.(NoNameServer).CreatePlayerActivity(ctx, req.(*CreatePlayerActivityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_UpdatePlayerState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdatePlayerStateRequest)
+func _NoName_UpdatePlayerActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdatePlayerActivityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).UpdatePlayerState(ctx, in)
+		return srv.(NoNameServer).UpdatePlayerActivity(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/UpdatePlayerState",
+		FullMethod: "/NoName/UpdatePlayerActivity",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).UpdatePlayerState(ctx, req.(*UpdatePlayerStateRequest))
+		return srv.(NoNameServer).UpdatePlayerActivity(ctx, req.(*UpdatePlayerActivityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_DeletePlayerState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeletePlayerStateRequest)
+func _NoName_DeletePlayerActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeletePlayerActivityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).DeletePlayerState(ctx, in)
+		return srv.(NoNameServer).DeletePlayerActivity(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/DeletePlayerState",
+		FullMethod: "/NoName/DeletePlayerActivity",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).DeletePlayerState(ctx, req.(*DeletePlayerStateRequest))
+		return srv.(NoNameServer).DeletePlayerActivity(ctx, req.(*DeletePlayerActivityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_DeletePlayerStateByController_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeletePlayerStateByControllerRequest)
+func _NoName_DeletePlayerActivityByController_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeletePlayerActivityByControllerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).DeletePlayerStateByController(ctx, in)
+		return srv.(NoNameServer).DeletePlayerActivityByController(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/DeletePlayerStateByController",
+		FullMethod: "/NoName/DeletePlayerActivityByController",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).DeletePlayerStateByController(ctx, req.(*DeletePlayerStateByControllerRequest))
+		return srv.(NoNameServer).DeletePlayerActivityByController(ctx, req.(*DeletePlayerActivityByControllerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3571,28 +3571,28 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetPlayerStateByID_Handler,
 		},
 		{
-			MethodName: "GetActivePlayerStates",
-			Handler:    _NoName_GetActivePlayerStates_Handler,
+			MethodName: "GetActivePlayerActivities",
+			Handler:    _NoName_GetActivePlayerActivities_Handler,
 		},
 		{
-			MethodName: "GetPlayerStateToNotify",
-			Handler:    _NoName_GetPlayerStateToNotify_Handler,
+			MethodName: "GetPlayerActivityToNotify",
+			Handler:    _NoName_GetPlayerActivityToNotify_Handler,
 		},
 		{
-			MethodName: "CreatePlayerState",
-			Handler:    _NoName_CreatePlayerState_Handler,
+			MethodName: "CreatePlayerActivity",
+			Handler:    _NoName_CreatePlayerActivity_Handler,
 		},
 		{
-			MethodName: "UpdatePlayerState",
-			Handler:    _NoName_UpdatePlayerState_Handler,
+			MethodName: "UpdatePlayerActivity",
+			Handler:    _NoName_UpdatePlayerActivity_Handler,
 		},
 		{
-			MethodName: "DeletePlayerState",
-			Handler:    _NoName_DeletePlayerState_Handler,
+			MethodName: "DeletePlayerActivity",
+			Handler:    _NoName_DeletePlayerActivity_Handler,
 		},
 		{
-			MethodName: "DeletePlayerStateByController",
-			Handler:    _NoName_DeletePlayerStateByController_Handler,
+			MethodName: "DeletePlayerActivityByController",
+			Handler:    _NoName_DeletePlayerActivityByController_Handler,
 		},
 		{
 			MethodName: "GetEnemyByID",
