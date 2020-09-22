@@ -36,14 +36,6 @@ message GetArmorByNameResponse {
     Armor Armor = 1;
 }
 
-// UpdateArmor
-message UpdateArmorRequest {
-    Armor Armor = 1;
-}
-message UpdateArmorResponse {
-    // Empty
-}
-
 // GetPlayerArmors
 message GetPlayerArmorsRequest {
     uint32 PlayerID = 1;
@@ -76,4 +68,14 @@ message GetPlayerArmorEquippedByCategoryIDRequest {
 }
 message GetPlayerArmorEquippedByCategoryIDResponse {
     Armor Armor = 1;
+}
+
+// EquipArmor
+message EquipArmorRequest {
+    uint32 PlayerID = 1;
+    uint32 ArmorID = 2;
+    bool Equip = 3;
+}
+message EquipArmorResponse {
+    // Empty
 }

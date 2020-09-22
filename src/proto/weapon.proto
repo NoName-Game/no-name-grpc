@@ -32,14 +32,6 @@ message GetWeaponByNameResponse {
     Weapon Weapon = 1;
 }
 
-// UpdateWeapon
-message UpdateWeaponRequest {
-    Weapon Weapon = 1;
-}
-message UpdateWeaponResponse {
-    // Empty
-}
-
 // GetPlayerWeapons
 message GetPlayerWeaponsRequest {
     uint32 PlayerID = 1;
@@ -54,4 +46,15 @@ message GetPlayerWeaponEquippedRequest {
 }
 message GetPlayerWeaponEquippedResponse {
     weapon.Weapon Weapon = 1;
+}
+
+
+// EquipWeapon
+message EquipWeaponRequest {
+    uint32 PlayerID = 1;
+    uint32 WeaponID = 2;
+    bool Equip = 3;
+}
+message EquipWeaponResponse {
+    // Empty
 }

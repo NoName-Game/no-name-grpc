@@ -352,92 +352,6 @@ func (x *GetArmorByNameResponse) GetArmor() *Armor {
 	return nil
 }
 
-// UpdateArmor
-type UpdateArmorRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Armor *Armor `protobuf:"bytes,1,opt,name=Armor,proto3" json:"Armor,omitempty"`
-}
-
-func (x *UpdateArmorRequest) Reset() {
-	*x = UpdateArmorRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_armor_proto_msgTypes[5]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateArmorRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateArmorRequest) ProtoMessage() {}
-
-func (x *UpdateArmorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_armor_proto_msgTypes[5]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateArmorRequest.ProtoReflect.Descriptor instead.
-func (*UpdateArmorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_armor_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *UpdateArmorRequest) GetArmor() *Armor {
-	if x != nil {
-		return x.Armor
-	}
-	return nil
-}
-
-type UpdateArmorResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-}
-
-func (x *UpdateArmorResponse) Reset() {
-	*x = UpdateArmorResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_armor_proto_msgTypes[6]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateArmorResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateArmorResponse) ProtoMessage() {}
-
-func (x *UpdateArmorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_armor_proto_msgTypes[6]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateArmorResponse.ProtoReflect.Descriptor instead.
-func (*UpdateArmorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_armor_proto_rawDescGZIP(), []int{6}
-}
-
 // GetPlayerArmors
 type GetPlayerArmorsRequest struct {
 	state         protoimpl.MessageState
@@ -450,7 +364,7 @@ type GetPlayerArmorsRequest struct {
 func (x *GetPlayerArmorsRequest) Reset() {
 	*x = GetPlayerArmorsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_armor_proto_msgTypes[7]
+		mi := &file_proto_armor_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -463,7 +377,7 @@ func (x *GetPlayerArmorsRequest) String() string {
 func (*GetPlayerArmorsRequest) ProtoMessage() {}
 
 func (x *GetPlayerArmorsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_armor_proto_msgTypes[7]
+	mi := &file_proto_armor_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -476,7 +390,7 @@ func (x *GetPlayerArmorsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerArmorsRequest.ProtoReflect.Descriptor instead.
 func (*GetPlayerArmorsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_armor_proto_rawDescGZIP(), []int{7}
+	return file_proto_armor_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetPlayerArmorsRequest) GetPlayerID() uint32 {
@@ -497,7 +411,7 @@ type GetPlayerArmorsResponse struct {
 func (x *GetPlayerArmorsResponse) Reset() {
 	*x = GetPlayerArmorsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_armor_proto_msgTypes[8]
+		mi := &file_proto_armor_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -510,7 +424,7 @@ func (x *GetPlayerArmorsResponse) String() string {
 func (*GetPlayerArmorsResponse) ProtoMessage() {}
 
 func (x *GetPlayerArmorsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_armor_proto_msgTypes[8]
+	mi := &file_proto_armor_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -523,7 +437,7 @@ func (x *GetPlayerArmorsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerArmorsResponse.ProtoReflect.Descriptor instead.
 func (*GetPlayerArmorsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_armor_proto_rawDescGZIP(), []int{8}
+	return file_proto_armor_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetPlayerArmorsResponse) GetArmors() []*Armor {
@@ -546,7 +460,7 @@ type GetPlayerArmorsByCategoryIDRequest struct {
 func (x *GetPlayerArmorsByCategoryIDRequest) Reset() {
 	*x = GetPlayerArmorsByCategoryIDRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_armor_proto_msgTypes[9]
+		mi := &file_proto_armor_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -559,7 +473,7 @@ func (x *GetPlayerArmorsByCategoryIDRequest) String() string {
 func (*GetPlayerArmorsByCategoryIDRequest) ProtoMessage() {}
 
 func (x *GetPlayerArmorsByCategoryIDRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_armor_proto_msgTypes[9]
+	mi := &file_proto_armor_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -572,7 +486,7 @@ func (x *GetPlayerArmorsByCategoryIDRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetPlayerArmorsByCategoryIDRequest.ProtoReflect.Descriptor instead.
 func (*GetPlayerArmorsByCategoryIDRequest) Descriptor() ([]byte, []int) {
-	return file_proto_armor_proto_rawDescGZIP(), []int{9}
+	return file_proto_armor_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetPlayerArmorsByCategoryIDRequest) GetPlayerID() uint32 {
@@ -600,7 +514,7 @@ type GetPlayerArmorsByCategoryIDResponse struct {
 func (x *GetPlayerArmorsByCategoryIDResponse) Reset() {
 	*x = GetPlayerArmorsByCategoryIDResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_armor_proto_msgTypes[10]
+		mi := &file_proto_armor_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -613,7 +527,7 @@ func (x *GetPlayerArmorsByCategoryIDResponse) String() string {
 func (*GetPlayerArmorsByCategoryIDResponse) ProtoMessage() {}
 
 func (x *GetPlayerArmorsByCategoryIDResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_armor_proto_msgTypes[10]
+	mi := &file_proto_armor_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -626,7 +540,7 @@ func (x *GetPlayerArmorsByCategoryIDResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetPlayerArmorsByCategoryIDResponse.ProtoReflect.Descriptor instead.
 func (*GetPlayerArmorsByCategoryIDResponse) Descriptor() ([]byte, []int) {
-	return file_proto_armor_proto_rawDescGZIP(), []int{10}
+	return file_proto_armor_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetPlayerArmorsByCategoryIDResponse) GetArmors() []*Armor {
@@ -648,7 +562,7 @@ type GetPlayerArmorsEquippedRequest struct {
 func (x *GetPlayerArmorsEquippedRequest) Reset() {
 	*x = GetPlayerArmorsEquippedRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_armor_proto_msgTypes[11]
+		mi := &file_proto_armor_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -661,7 +575,7 @@ func (x *GetPlayerArmorsEquippedRequest) String() string {
 func (*GetPlayerArmorsEquippedRequest) ProtoMessage() {}
 
 func (x *GetPlayerArmorsEquippedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_armor_proto_msgTypes[11]
+	mi := &file_proto_armor_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -674,7 +588,7 @@ func (x *GetPlayerArmorsEquippedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerArmorsEquippedRequest.ProtoReflect.Descriptor instead.
 func (*GetPlayerArmorsEquippedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_armor_proto_rawDescGZIP(), []int{11}
+	return file_proto_armor_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetPlayerArmorsEquippedRequest) GetPlayerID() uint32 {
@@ -695,7 +609,7 @@ type GetPlayerArmorsEquippedResponse struct {
 func (x *GetPlayerArmorsEquippedResponse) Reset() {
 	*x = GetPlayerArmorsEquippedResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_armor_proto_msgTypes[12]
+		mi := &file_proto_armor_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -708,7 +622,7 @@ func (x *GetPlayerArmorsEquippedResponse) String() string {
 func (*GetPlayerArmorsEquippedResponse) ProtoMessage() {}
 
 func (x *GetPlayerArmorsEquippedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_armor_proto_msgTypes[12]
+	mi := &file_proto_armor_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -721,7 +635,7 @@ func (x *GetPlayerArmorsEquippedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerArmorsEquippedResponse.ProtoReflect.Descriptor instead.
 func (*GetPlayerArmorsEquippedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_armor_proto_rawDescGZIP(), []int{12}
+	return file_proto_armor_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetPlayerArmorsEquippedResponse) GetArmors() []*Armor {
@@ -744,7 +658,7 @@ type GetPlayerArmorEquippedByCategoryIDRequest struct {
 func (x *GetPlayerArmorEquippedByCategoryIDRequest) Reset() {
 	*x = GetPlayerArmorEquippedByCategoryIDRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_armor_proto_msgTypes[13]
+		mi := &file_proto_armor_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -757,7 +671,7 @@ func (x *GetPlayerArmorEquippedByCategoryIDRequest) String() string {
 func (*GetPlayerArmorEquippedByCategoryIDRequest) ProtoMessage() {}
 
 func (x *GetPlayerArmorEquippedByCategoryIDRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_armor_proto_msgTypes[13]
+	mi := &file_proto_armor_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -770,7 +684,7 @@ func (x *GetPlayerArmorEquippedByCategoryIDRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use GetPlayerArmorEquippedByCategoryIDRequest.ProtoReflect.Descriptor instead.
 func (*GetPlayerArmorEquippedByCategoryIDRequest) Descriptor() ([]byte, []int) {
-	return file_proto_armor_proto_rawDescGZIP(), []int{13}
+	return file_proto_armor_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetPlayerArmorEquippedByCategoryIDRequest) GetPlayerID() uint32 {
@@ -798,7 +712,7 @@ type GetPlayerArmorEquippedByCategoryIDResponse struct {
 func (x *GetPlayerArmorEquippedByCategoryIDResponse) Reset() {
 	*x = GetPlayerArmorEquippedByCategoryIDResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_armor_proto_msgTypes[14]
+		mi := &file_proto_armor_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -811,7 +725,7 @@ func (x *GetPlayerArmorEquippedByCategoryIDResponse) String() string {
 func (*GetPlayerArmorEquippedByCategoryIDResponse) ProtoMessage() {}
 
 func (x *GetPlayerArmorEquippedByCategoryIDResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_armor_proto_msgTypes[14]
+	mi := &file_proto_armor_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -824,7 +738,7 @@ func (x *GetPlayerArmorEquippedByCategoryIDResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use GetPlayerArmorEquippedByCategoryIDResponse.ProtoReflect.Descriptor instead.
 func (*GetPlayerArmorEquippedByCategoryIDResponse) Descriptor() ([]byte, []int) {
-	return file_proto_armor_proto_rawDescGZIP(), []int{14}
+	return file_proto_armor_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetPlayerArmorEquippedByCategoryIDResponse) GetArmor() *Armor {
@@ -832,6 +746,108 @@ func (x *GetPlayerArmorEquippedByCategoryIDResponse) GetArmor() *Armor {
 		return x.Armor
 	}
 	return nil
+}
+
+// EquipArmor
+type EquipArmorRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	ArmorID  uint32 `protobuf:"varint,2,opt,name=ArmorID,proto3" json:"ArmorID,omitempty"`
+	Equip    bool   `protobuf:"varint,3,opt,name=Equip,proto3" json:"Equip,omitempty"`
+}
+
+func (x *EquipArmorRequest) Reset() {
+	*x = EquipArmorRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_armor_proto_msgTypes[13]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *EquipArmorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EquipArmorRequest) ProtoMessage() {}
+
+func (x *EquipArmorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_armor_proto_msgTypes[13]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EquipArmorRequest.ProtoReflect.Descriptor instead.
+func (*EquipArmorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_armor_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *EquipArmorRequest) GetPlayerID() uint32 {
+	if x != nil {
+		return x.PlayerID
+	}
+	return 0
+}
+
+func (x *EquipArmorRequest) GetArmorID() uint32 {
+	if x != nil {
+		return x.ArmorID
+	}
+	return 0
+}
+
+func (x *EquipArmorRequest) GetEquip() bool {
+	if x != nil {
+		return x.Equip
+	}
+	return false
+}
+
+type EquipArmorResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *EquipArmorResponse) Reset() {
+	*x = EquipArmorResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_armor_proto_msgTypes[14]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *EquipArmorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EquipArmorResponse) ProtoMessage() {}
+
+func (x *EquipArmorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_armor_proto_msgTypes[14]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EquipArmorResponse.ProtoReflect.Descriptor instead.
+func (*EquipArmorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_armor_proto_rawDescGZIP(), []int{14}
 }
 
 var File_proto_armor_proto protoreflect.FileDescriptor
@@ -879,52 +895,54 @@ var file_proto_armor_proto_rawDesc = []byte{
 	0x41, 0x72, 0x6d, 0x6f, 0x72, 0x42, 0x79, 0x4e, 0x61, 0x6d, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
 	0x6e, 0x73, 0x65, 0x12, 0x22, 0x0a, 0x05, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01,
 	0x28, 0x0b, 0x32, 0x0c, 0x2e, 0x61, 0x72, 0x6d, 0x6f, 0x72, 0x2e, 0x41, 0x72, 0x6d, 0x6f, 0x72,
-	0x52, 0x05, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x22, 0x38, 0x0a, 0x12, 0x55, 0x70, 0x64, 0x61, 0x74,
-	0x65, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x22, 0x0a,
-	0x05, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0c, 0x2e, 0x61,
-	0x72, 0x6d, 0x6f, 0x72, 0x2e, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x52, 0x05, 0x41, 0x72, 0x6d, 0x6f,
-	0x72, 0x22, 0x15, 0x0a, 0x13, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x72, 0x6d, 0x6f, 0x72,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x34, 0x0a, 0x16, 0x47, 0x65, 0x74, 0x50,
-	0x6c, 0x61, 0x79, 0x65, 0x72, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x22, 0x3f,
-	0x0a, 0x17, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x41, 0x72, 0x6d, 0x6f, 0x72,
-	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x24, 0x0a, 0x06, 0x41, 0x72, 0x6d,
-	0x6f, 0x72, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0c, 0x2e, 0x61, 0x72, 0x6d, 0x6f,
-	0x72, 0x2e, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x52, 0x06, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x73, 0x22,
-	0x60, 0x0a, 0x22, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x41, 0x72, 0x6d, 0x6f,
-	0x72, 0x73, 0x42, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49,
-	0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49,
-	0x44, 0x12, 0x1e, 0x0a, 0x0a, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0a, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49,
-	0x44, 0x22, 0x4b, 0x0a, 0x23, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x41, 0x72,
-	0x6d, 0x6f, 0x72, 0x73, 0x42, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44,
+	0x52, 0x05, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x22, 0x34, 0x0a, 0x16, 0x47, 0x65, 0x74, 0x50, 0x6c,
+	0x61, 0x79, 0x65, 0x72, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x22, 0x3f, 0x0a,
+	0x17, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x73,
 	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x24, 0x0a, 0x06, 0x41, 0x72, 0x6d, 0x6f,
 	0x72, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0c, 0x2e, 0x61, 0x72, 0x6d, 0x6f, 0x72,
-	0x2e, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x52, 0x06, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x73, 0x22, 0x3c,
-	0x0a, 0x1e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x41, 0x72, 0x6d, 0x6f, 0x72,
-	0x73, 0x45, 0x71, 0x75, 0x69, 0x70, 0x70, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x22, 0x47, 0x0a, 0x1f,
-	0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x73, 0x45,
-	0x71, 0x75, 0x69, 0x70, 0x70, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x24, 0x0a, 0x06, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32,
-	0x0c, 0x2e, 0x61, 0x72, 0x6d, 0x6f, 0x72, 0x2e, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x52, 0x06, 0x41,
-	0x72, 0x6d, 0x6f, 0x72, 0x73, 0x22, 0x67, 0x0a, 0x29, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79,
-	0x65, 0x72, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x45, 0x71, 0x75, 0x69, 0x70, 0x70, 0x65, 0x64, 0x42,
-	0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x12, 0x1e,
-	0x0a, 0x0a, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x0d, 0x52, 0x0a, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44, 0x22, 0x50,
-	0x0a, 0x2a, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x41, 0x72, 0x6d, 0x6f, 0x72,
-	0x45, 0x71, 0x75, 0x69, 0x70, 0x70, 0x65, 0x64, 0x42, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f,
-	0x72, 0x79, 0x49, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x22, 0x0a, 0x05,
-	0x41, 0x72, 0x6d, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0c, 0x2e, 0x61, 0x72,
-	0x6d, 0x6f, 0x72, 0x2e, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x52, 0x05, 0x41, 0x72, 0x6d, 0x6f, 0x72,
-	0x42, 0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x2e, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x52, 0x06, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x73, 0x22, 0x60,
+	0x0a, 0x22, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x41, 0x72, 0x6d, 0x6f, 0x72,
+	0x73, 0x42, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44,
+	0x12, 0x1e, 0x0a, 0x0a, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x0d, 0x52, 0x0a, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44,
+	0x22, 0x4b, 0x0a, 0x23, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x41, 0x72, 0x6d,
+	0x6f, 0x72, 0x73, 0x42, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x24, 0x0a, 0x06, 0x41, 0x72, 0x6d, 0x6f, 0x72,
+	0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0c, 0x2e, 0x61, 0x72, 0x6d, 0x6f, 0x72, 0x2e,
+	0x41, 0x72, 0x6d, 0x6f, 0x72, 0x52, 0x06, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x73, 0x22, 0x3c, 0x0a,
+	0x1e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x73,
+	0x45, 0x71, 0x75, 0x69, 0x70, 0x70, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x22, 0x47, 0x0a, 0x1f, 0x47,
+	0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x73, 0x45, 0x71,
+	0x75, 0x69, 0x70, 0x70, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x24,
+	0x0a, 0x06, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0c,
+	0x2e, 0x61, 0x72, 0x6d, 0x6f, 0x72, 0x2e, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x52, 0x06, 0x41, 0x72,
+	0x6d, 0x6f, 0x72, 0x73, 0x22, 0x67, 0x0a, 0x29, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65,
+	0x72, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x45, 0x71, 0x75, 0x69, 0x70, 0x70, 0x65, 0x64, 0x42, 0x79,
+	0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x12, 0x1e, 0x0a,
+	0x0a, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x0d, 0x52, 0x0a, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44, 0x22, 0x50, 0x0a,
+	0x2a, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x45,
+	0x71, 0x75, 0x69, 0x70, 0x70, 0x65, 0x64, 0x42, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72,
+	0x79, 0x49, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x22, 0x0a, 0x05, 0x41,
+	0x72, 0x6d, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0c, 0x2e, 0x61, 0x72, 0x6d,
+	0x6f, 0x72, 0x2e, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x52, 0x05, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x22,
+	0x5f, 0x0a, 0x11, 0x45, 0x71, 0x75, 0x69, 0x70, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44,
+	0x12, 0x18, 0x0a, 0x07, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x49, 0x44, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x0d, 0x52, 0x07, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x49, 0x44, 0x12, 0x14, 0x0a, 0x05, 0x45, 0x71,
+	0x75, 0x69, 0x70, 0x18, 0x03, 0x20, 0x01, 0x28, 0x08, 0x52, 0x05, 0x45, 0x71, 0x75, 0x69, 0x70,
+	0x22, 0x14, 0x0a, 0x12, 0x45, 0x71, 0x75, 0x69, 0x70, 0x41, 0x72, 0x6d, 0x6f, 0x72, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -946,16 +964,16 @@ var file_proto_armor_proto_goTypes = []interface{}{
 	(*GetArmorByIDResponse)(nil),                       // 2: armor.GetArmorByIDResponse
 	(*GetArmorByNameRequest)(nil),                      // 3: armor.GetArmorByNameRequest
 	(*GetArmorByNameResponse)(nil),                     // 4: armor.GetArmorByNameResponse
-	(*UpdateArmorRequest)(nil),                         // 5: armor.UpdateArmorRequest
-	(*UpdateArmorResponse)(nil),                        // 6: armor.UpdateArmorResponse
-	(*GetPlayerArmorsRequest)(nil),                     // 7: armor.GetPlayerArmorsRequest
-	(*GetPlayerArmorsResponse)(nil),                    // 8: armor.GetPlayerArmorsResponse
-	(*GetPlayerArmorsByCategoryIDRequest)(nil),         // 9: armor.GetPlayerArmorsByCategoryIDRequest
-	(*GetPlayerArmorsByCategoryIDResponse)(nil),        // 10: armor.GetPlayerArmorsByCategoryIDResponse
-	(*GetPlayerArmorsEquippedRequest)(nil),             // 11: armor.GetPlayerArmorsEquippedRequest
-	(*GetPlayerArmorsEquippedResponse)(nil),            // 12: armor.GetPlayerArmorsEquippedResponse
-	(*GetPlayerArmorEquippedByCategoryIDRequest)(nil),  // 13: armor.GetPlayerArmorEquippedByCategoryIDRequest
-	(*GetPlayerArmorEquippedByCategoryIDResponse)(nil), // 14: armor.GetPlayerArmorEquippedByCategoryIDResponse
+	(*GetPlayerArmorsRequest)(nil),                     // 5: armor.GetPlayerArmorsRequest
+	(*GetPlayerArmorsResponse)(nil),                    // 6: armor.GetPlayerArmorsResponse
+	(*GetPlayerArmorsByCategoryIDRequest)(nil),         // 7: armor.GetPlayerArmorsByCategoryIDRequest
+	(*GetPlayerArmorsByCategoryIDResponse)(nil),        // 8: armor.GetPlayerArmorsByCategoryIDResponse
+	(*GetPlayerArmorsEquippedRequest)(nil),             // 9: armor.GetPlayerArmorsEquippedRequest
+	(*GetPlayerArmorsEquippedResponse)(nil),            // 10: armor.GetPlayerArmorsEquippedResponse
+	(*GetPlayerArmorEquippedByCategoryIDRequest)(nil),  // 11: armor.GetPlayerArmorEquippedByCategoryIDRequest
+	(*GetPlayerArmorEquippedByCategoryIDResponse)(nil), // 12: armor.GetPlayerArmorEquippedByCategoryIDResponse
+	(*EquipArmorRequest)(nil),                          // 13: armor.EquipArmorRequest
+	(*EquipArmorResponse)(nil),                         // 14: armor.EquipArmorResponse
 	(*Rarity)(nil),                                     // 15: rarity.Rarity
 	(*ArmorCategory)(nil),                              // 16: armor_category.ArmorCategory
 }
@@ -964,16 +982,15 @@ var file_proto_armor_proto_depIdxs = []int32{
 	16, // 1: armor.Armor.ArmorCategory:type_name -> armor_category.ArmorCategory
 	0,  // 2: armor.GetArmorByIDResponse.Armor:type_name -> armor.Armor
 	0,  // 3: armor.GetArmorByNameResponse.Armor:type_name -> armor.Armor
-	0,  // 4: armor.UpdateArmorRequest.Armor:type_name -> armor.Armor
-	0,  // 5: armor.GetPlayerArmorsResponse.Armors:type_name -> armor.Armor
-	0,  // 6: armor.GetPlayerArmorsByCategoryIDResponse.Armors:type_name -> armor.Armor
-	0,  // 7: armor.GetPlayerArmorsEquippedResponse.Armors:type_name -> armor.Armor
-	0,  // 8: armor.GetPlayerArmorEquippedByCategoryIDResponse.Armor:type_name -> armor.Armor
-	9,  // [9:9] is the sub-list for method output_type
-	9,  // [9:9] is the sub-list for method input_type
-	9,  // [9:9] is the sub-list for extension type_name
-	9,  // [9:9] is the sub-list for extension extendee
-	0,  // [0:9] is the sub-list for field type_name
+	0,  // 4: armor.GetPlayerArmorsResponse.Armors:type_name -> armor.Armor
+	0,  // 5: armor.GetPlayerArmorsByCategoryIDResponse.Armors:type_name -> armor.Armor
+	0,  // 6: armor.GetPlayerArmorsEquippedResponse.Armors:type_name -> armor.Armor
+	0,  // 7: armor.GetPlayerArmorEquippedByCategoryIDResponse.Armor:type_name -> armor.Armor
+	8,  // [8:8] is the sub-list for method output_type
+	8,  // [8:8] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_proto_armor_proto_init() }
@@ -1045,30 +1062,6 @@ func file_proto_armor_proto_init() {
 			}
 		}
 		file_proto_armor_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateArmorRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_proto_armor_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateArmorResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_proto_armor_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerArmorsRequest); i {
 			case 0:
 				return &v.state
@@ -1080,7 +1073,7 @@ func file_proto_armor_proto_init() {
 				return nil
 			}
 		}
-		file_proto_armor_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_armor_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerArmorsResponse); i {
 			case 0:
 				return &v.state
@@ -1092,7 +1085,7 @@ func file_proto_armor_proto_init() {
 				return nil
 			}
 		}
-		file_proto_armor_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_armor_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerArmorsByCategoryIDRequest); i {
 			case 0:
 				return &v.state
@@ -1104,7 +1097,7 @@ func file_proto_armor_proto_init() {
 				return nil
 			}
 		}
-		file_proto_armor_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_armor_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerArmorsByCategoryIDResponse); i {
 			case 0:
 				return &v.state
@@ -1116,7 +1109,7 @@ func file_proto_armor_proto_init() {
 				return nil
 			}
 		}
-		file_proto_armor_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_armor_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerArmorsEquippedRequest); i {
 			case 0:
 				return &v.state
@@ -1128,7 +1121,7 @@ func file_proto_armor_proto_init() {
 				return nil
 			}
 		}
-		file_proto_armor_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_armor_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerArmorsEquippedResponse); i {
 			case 0:
 				return &v.state
@@ -1140,7 +1133,7 @@ func file_proto_armor_proto_init() {
 				return nil
 			}
 		}
-		file_proto_armor_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_armor_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerArmorEquippedByCategoryIDRequest); i {
 			case 0:
 				return &v.state
@@ -1152,8 +1145,32 @@ func file_proto_armor_proto_init() {
 				return nil
 			}
 		}
-		file_proto_armor_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_armor_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerArmorEquippedByCategoryIDResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_armor_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*EquipArmorRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_armor_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*EquipArmorResponse); i {
 			case 0:
 				return &v.state
 			case 1:

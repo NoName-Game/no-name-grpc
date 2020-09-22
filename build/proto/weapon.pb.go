@@ -334,92 +334,6 @@ func (x *GetWeaponByNameResponse) GetWeapon() *Weapon {
 	return nil
 }
 
-// UpdateWeapon
-type UpdateWeaponRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Weapon *Weapon `protobuf:"bytes,1,opt,name=Weapon,proto3" json:"Weapon,omitempty"`
-}
-
-func (x *UpdateWeaponRequest) Reset() {
-	*x = UpdateWeaponRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_weapon_proto_msgTypes[5]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateWeaponRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateWeaponRequest) ProtoMessage() {}
-
-func (x *UpdateWeaponRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_weapon_proto_msgTypes[5]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateWeaponRequest.ProtoReflect.Descriptor instead.
-func (*UpdateWeaponRequest) Descriptor() ([]byte, []int) {
-	return file_proto_weapon_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *UpdateWeaponRequest) GetWeapon() *Weapon {
-	if x != nil {
-		return x.Weapon
-	}
-	return nil
-}
-
-type UpdateWeaponResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-}
-
-func (x *UpdateWeaponResponse) Reset() {
-	*x = UpdateWeaponResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_weapon_proto_msgTypes[6]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateWeaponResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateWeaponResponse) ProtoMessage() {}
-
-func (x *UpdateWeaponResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_weapon_proto_msgTypes[6]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateWeaponResponse.ProtoReflect.Descriptor instead.
-func (*UpdateWeaponResponse) Descriptor() ([]byte, []int) {
-	return file_proto_weapon_proto_rawDescGZIP(), []int{6}
-}
-
 // GetPlayerWeapons
 type GetPlayerWeaponsRequest struct {
 	state         protoimpl.MessageState
@@ -432,7 +346,7 @@ type GetPlayerWeaponsRequest struct {
 func (x *GetPlayerWeaponsRequest) Reset() {
 	*x = GetPlayerWeaponsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_weapon_proto_msgTypes[7]
+		mi := &file_proto_weapon_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -445,7 +359,7 @@ func (x *GetPlayerWeaponsRequest) String() string {
 func (*GetPlayerWeaponsRequest) ProtoMessage() {}
 
 func (x *GetPlayerWeaponsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_weapon_proto_msgTypes[7]
+	mi := &file_proto_weapon_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -458,7 +372,7 @@ func (x *GetPlayerWeaponsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerWeaponsRequest.ProtoReflect.Descriptor instead.
 func (*GetPlayerWeaponsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_weapon_proto_rawDescGZIP(), []int{7}
+	return file_proto_weapon_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetPlayerWeaponsRequest) GetPlayerID() uint32 {
@@ -479,7 +393,7 @@ type GetPlayerWeaponsResponse struct {
 func (x *GetPlayerWeaponsResponse) Reset() {
 	*x = GetPlayerWeaponsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_weapon_proto_msgTypes[8]
+		mi := &file_proto_weapon_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -492,7 +406,7 @@ func (x *GetPlayerWeaponsResponse) String() string {
 func (*GetPlayerWeaponsResponse) ProtoMessage() {}
 
 func (x *GetPlayerWeaponsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_weapon_proto_msgTypes[8]
+	mi := &file_proto_weapon_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -505,7 +419,7 @@ func (x *GetPlayerWeaponsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerWeaponsResponse.ProtoReflect.Descriptor instead.
 func (*GetPlayerWeaponsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_weapon_proto_rawDescGZIP(), []int{8}
+	return file_proto_weapon_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetPlayerWeaponsResponse) GetWeapons() []*Weapon {
@@ -527,7 +441,7 @@ type GetPlayerWeaponEquippedRequest struct {
 func (x *GetPlayerWeaponEquippedRequest) Reset() {
 	*x = GetPlayerWeaponEquippedRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_weapon_proto_msgTypes[9]
+		mi := &file_proto_weapon_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -540,7 +454,7 @@ func (x *GetPlayerWeaponEquippedRequest) String() string {
 func (*GetPlayerWeaponEquippedRequest) ProtoMessage() {}
 
 func (x *GetPlayerWeaponEquippedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_weapon_proto_msgTypes[9]
+	mi := &file_proto_weapon_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -553,7 +467,7 @@ func (x *GetPlayerWeaponEquippedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerWeaponEquippedRequest.ProtoReflect.Descriptor instead.
 func (*GetPlayerWeaponEquippedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_weapon_proto_rawDescGZIP(), []int{9}
+	return file_proto_weapon_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetPlayerWeaponEquippedRequest) GetPlayerID() uint32 {
@@ -574,7 +488,7 @@ type GetPlayerWeaponEquippedResponse struct {
 func (x *GetPlayerWeaponEquippedResponse) Reset() {
 	*x = GetPlayerWeaponEquippedResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_weapon_proto_msgTypes[10]
+		mi := &file_proto_weapon_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -587,7 +501,7 @@ func (x *GetPlayerWeaponEquippedResponse) String() string {
 func (*GetPlayerWeaponEquippedResponse) ProtoMessage() {}
 
 func (x *GetPlayerWeaponEquippedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_weapon_proto_msgTypes[10]
+	mi := &file_proto_weapon_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -600,7 +514,7 @@ func (x *GetPlayerWeaponEquippedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerWeaponEquippedResponse.ProtoReflect.Descriptor instead.
 func (*GetPlayerWeaponEquippedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_weapon_proto_rawDescGZIP(), []int{10}
+	return file_proto_weapon_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetPlayerWeaponEquippedResponse) GetWeapon() *Weapon {
@@ -608,6 +522,108 @@ func (x *GetPlayerWeaponEquippedResponse) GetWeapon() *Weapon {
 		return x.Weapon
 	}
 	return nil
+}
+
+// EquipWeapon
+type EquipWeaponRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	WeaponID uint32 `protobuf:"varint,2,opt,name=WeaponID,proto3" json:"WeaponID,omitempty"`
+	Equip    bool   `protobuf:"varint,3,opt,name=Equip,proto3" json:"Equip,omitempty"`
+}
+
+func (x *EquipWeaponRequest) Reset() {
+	*x = EquipWeaponRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_weapon_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *EquipWeaponRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EquipWeaponRequest) ProtoMessage() {}
+
+func (x *EquipWeaponRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_weapon_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EquipWeaponRequest.ProtoReflect.Descriptor instead.
+func (*EquipWeaponRequest) Descriptor() ([]byte, []int) {
+	return file_proto_weapon_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *EquipWeaponRequest) GetPlayerID() uint32 {
+	if x != nil {
+		return x.PlayerID
+	}
+	return 0
+}
+
+func (x *EquipWeaponRequest) GetWeaponID() uint32 {
+	if x != nil {
+		return x.WeaponID
+	}
+	return 0
+}
+
+func (x *EquipWeaponRequest) GetEquip() bool {
+	if x != nil {
+		return x.Equip
+	}
+	return false
+}
+
+type EquipWeaponResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *EquipWeaponResponse) Reset() {
+	*x = EquipWeaponResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_weapon_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *EquipWeaponResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EquipWeaponResponse) ProtoMessage() {}
+
+func (x *EquipWeaponResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_weapon_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EquipWeaponResponse.ProtoReflect.Descriptor instead.
+func (*EquipWeaponResponse) Descriptor() ([]byte, []int) {
+	return file_proto_weapon_proto_rawDescGZIP(), []int{10}
 }
 
 var File_proto_weapon_proto protoreflect.FileDescriptor
@@ -648,29 +664,32 @@ var file_proto_weapon_proto_rawDesc = []byte{
 	0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x26, 0x0a, 0x06, 0x57, 0x65, 0x61,
 	0x70, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x77, 0x65, 0x61, 0x70,
 	0x6f, 0x6e, 0x2e, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x52, 0x06, 0x57, 0x65, 0x61, 0x70, 0x6f,
-	0x6e, 0x22, 0x3d, 0x0a, 0x13, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x57, 0x65, 0x61, 0x70, 0x6f,
-	0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x26, 0x0a, 0x06, 0x57, 0x65, 0x61, 0x70,
-	0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x77, 0x65, 0x61, 0x70, 0x6f,
-	0x6e, 0x2e, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x52, 0x06, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e,
-	0x22, 0x16, 0x0a, 0x14, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x35, 0x0a, 0x17, 0x47, 0x65, 0x74, 0x50,
-	0x6c, 0x61, 0x79, 0x65, 0x72, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x73, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x22,
-	0x44, 0x0a, 0x18, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x57, 0x65, 0x61, 0x70,
-	0x6f, 0x6e, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x28, 0x0a, 0x07, 0x57,
-	0x65, 0x61, 0x70, 0x6f, 0x6e, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x77,
-	0x65, 0x61, 0x70, 0x6f, 0x6e, 0x2e, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x52, 0x07, 0x57, 0x65,
-	0x61, 0x70, 0x6f, 0x6e, 0x73, 0x22, 0x3c, 0x0a, 0x1e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79,
-	0x65, 0x72, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x45, 0x71, 0x75, 0x69, 0x70, 0x70, 0x65, 0x64,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65,
-	0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65,
-	0x72, 0x49, 0x44, 0x22, 0x49, 0x0a, 0x1f, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72,
-	0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x45, 0x71, 0x75, 0x69, 0x70, 0x70, 0x65, 0x64, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x26, 0x0a, 0x06, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x77, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x2e,
-	0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x52, 0x06, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x42, 0x07,
-	0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6e, 0x22, 0x35, 0x0a, 0x17, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x57, 0x65,
+	0x61, 0x70, 0x6f, 0x6e, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08,
+	0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08,
+	0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x22, 0x44, 0x0a, 0x18, 0x47, 0x65, 0x74, 0x50,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x73, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x28, 0x0a, 0x07, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x73, 0x18,
+	0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x77, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x2e, 0x57,
+	0x65, 0x61, 0x70, 0x6f, 0x6e, 0x52, 0x07, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x73, 0x22, 0x3c,
+	0x0a, 0x1e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x57, 0x65, 0x61, 0x70, 0x6f,
+	0x6e, 0x45, 0x71, 0x75, 0x69, 0x70, 0x70, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x22, 0x49, 0x0a, 0x1f,
+	0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x45,
+	0x71, 0x75, 0x69, 0x70, 0x70, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x26, 0x0a, 0x06, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
+	0x0e, 0x2e, 0x77, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x2e, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x52,
+	0x06, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x22, 0x62, 0x0a, 0x12, 0x45, 0x71, 0x75, 0x69, 0x70,
+	0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a,
+	0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52,
+	0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x12, 0x1a, 0x0a, 0x08, 0x57, 0x65, 0x61,
+	0x70, 0x6f, 0x6e, 0x49, 0x44, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x57, 0x65, 0x61,
+	0x70, 0x6f, 0x6e, 0x49, 0x44, 0x12, 0x14, 0x0a, 0x05, 0x45, 0x71, 0x75, 0x69, 0x70, 0x18, 0x03,
+	0x20, 0x01, 0x28, 0x08, 0x52, 0x05, 0x45, 0x71, 0x75, 0x69, 0x70, 0x22, 0x15, 0x0a, 0x13, 0x45,
+	0x71, 0x75, 0x69, 0x70, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x42, 0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -692,26 +711,25 @@ var file_proto_weapon_proto_goTypes = []interface{}{
 	(*GetWeaponByIDResponse)(nil),           // 2: weapon.GetWeaponByIDResponse
 	(*GetWeaponByNameRequest)(nil),          // 3: weapon.GetWeaponByNameRequest
 	(*GetWeaponByNameResponse)(nil),         // 4: weapon.GetWeaponByNameResponse
-	(*UpdateWeaponRequest)(nil),             // 5: weapon.UpdateWeaponRequest
-	(*UpdateWeaponResponse)(nil),            // 6: weapon.UpdateWeaponResponse
-	(*GetPlayerWeaponsRequest)(nil),         // 7: weapon.GetPlayerWeaponsRequest
-	(*GetPlayerWeaponsResponse)(nil),        // 8: weapon.GetPlayerWeaponsResponse
-	(*GetPlayerWeaponEquippedRequest)(nil),  // 9: weapon.GetPlayerWeaponEquippedRequest
-	(*GetPlayerWeaponEquippedResponse)(nil), // 10: weapon.GetPlayerWeaponEquippedResponse
+	(*GetPlayerWeaponsRequest)(nil),         // 5: weapon.GetPlayerWeaponsRequest
+	(*GetPlayerWeaponsResponse)(nil),        // 6: weapon.GetPlayerWeaponsResponse
+	(*GetPlayerWeaponEquippedRequest)(nil),  // 7: weapon.GetPlayerWeaponEquippedRequest
+	(*GetPlayerWeaponEquippedResponse)(nil), // 8: weapon.GetPlayerWeaponEquippedResponse
+	(*EquipWeaponRequest)(nil),              // 9: weapon.EquipWeaponRequest
+	(*EquipWeaponResponse)(nil),             // 10: weapon.EquipWeaponResponse
 	(*Rarity)(nil),                          // 11: rarity.Rarity
 }
 var file_proto_weapon_proto_depIdxs = []int32{
 	11, // 0: weapon.Weapon.Rarity:type_name -> rarity.Rarity
 	0,  // 1: weapon.GetWeaponByIDResponse.Weapon:type_name -> weapon.Weapon
 	0,  // 2: weapon.GetWeaponByNameResponse.Weapon:type_name -> weapon.Weapon
-	0,  // 3: weapon.UpdateWeaponRequest.Weapon:type_name -> weapon.Weapon
-	0,  // 4: weapon.GetPlayerWeaponsResponse.Weapons:type_name -> weapon.Weapon
-	0,  // 5: weapon.GetPlayerWeaponEquippedResponse.Weapon:type_name -> weapon.Weapon
-	6,  // [6:6] is the sub-list for method output_type
-	6,  // [6:6] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+	0,  // 3: weapon.GetPlayerWeaponsResponse.Weapons:type_name -> weapon.Weapon
+	0,  // 4: weapon.GetPlayerWeaponEquippedResponse.Weapon:type_name -> weapon.Weapon
+	5,  // [5:5] is the sub-list for method output_type
+	5,  // [5:5] is the sub-list for method input_type
+	5,  // [5:5] is the sub-list for extension type_name
+	5,  // [5:5] is the sub-list for extension extendee
+	0,  // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_proto_weapon_proto_init() }
@@ -782,30 +800,6 @@ func file_proto_weapon_proto_init() {
 			}
 		}
 		file_proto_weapon_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateWeaponRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_proto_weapon_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateWeaponResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_proto_weapon_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerWeaponsRequest); i {
 			case 0:
 				return &v.state
@@ -817,7 +811,7 @@ func file_proto_weapon_proto_init() {
 				return nil
 			}
 		}
-		file_proto_weapon_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_weapon_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerWeaponsResponse); i {
 			case 0:
 				return &v.state
@@ -829,7 +823,7 @@ func file_proto_weapon_proto_init() {
 				return nil
 			}
 		}
-		file_proto_weapon_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_weapon_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerWeaponEquippedRequest); i {
 			case 0:
 				return &v.state
@@ -841,8 +835,32 @@ func file_proto_weapon_proto_init() {
 				return nil
 			}
 		}
-		file_proto_weapon_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_weapon_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerWeaponEquippedResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_weapon_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*EquipWeaponRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_weapon_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*EquipWeaponResponse); i {
 			case 0:
 				return &v.state
 			case 1:

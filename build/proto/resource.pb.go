@@ -302,133 +302,6 @@ func (x *GetResourceByNameResponse) GetResource() *Resource {
 	return nil
 }
 
-// DropResource
-type DropResourceRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	TypeExploration string `protobuf:"bytes,1,opt,name=TypeExploration,proto3" json:"TypeExploration,omitempty"`
-	QtyExploration  int32  `protobuf:"varint,2,opt,name=QtyExploration,proto3" json:"QtyExploration,omitempty"`
-	PlayerID        uint32 `protobuf:"varint,3,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	PlanetID        uint32 `protobuf:"varint,4,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
-}
-
-func (x *DropResourceRequest) Reset() {
-	*x = DropResourceRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_resource_proto_msgTypes[5]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *DropResourceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DropResourceRequest) ProtoMessage() {}
-
-func (x *DropResourceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resource_proto_msgTypes[5]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DropResourceRequest.ProtoReflect.Descriptor instead.
-func (*DropResourceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_resource_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *DropResourceRequest) GetTypeExploration() string {
-	if x != nil {
-		return x.TypeExploration
-	}
-	return ""
-}
-
-func (x *DropResourceRequest) GetQtyExploration() int32 {
-	if x != nil {
-		return x.QtyExploration
-	}
-	return 0
-}
-
-func (x *DropResourceRequest) GetPlayerID() uint32 {
-	if x != nil {
-		return x.PlayerID
-	}
-	return 0
-}
-
-func (x *DropResourceRequest) GetPlanetID() uint32 {
-	if x != nil {
-		return x.PlanetID
-	}
-	return 0
-}
-
-type DropResourceResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Resource *Resource `protobuf:"bytes,1,opt,name=Resource,proto3" json:"Resource,omitempty"`
-	Quantity int32     `protobuf:"varint,2,opt,name=Quantity,proto3" json:"Quantity,omitempty"`
-}
-
-func (x *DropResourceResponse) Reset() {
-	*x = DropResourceResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_resource_proto_msgTypes[6]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *DropResourceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DropResourceResponse) ProtoMessage() {}
-
-func (x *DropResourceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_resource_proto_msgTypes[6]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DropResourceResponse.ProtoReflect.Descriptor instead.
-func (*DropResourceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_resource_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *DropResourceResponse) GetResource() *Resource {
-	if x != nil {
-		return x.Resource
-	}
-	return nil
-}
-
-func (x *DropResourceResponse) GetQuantity() int32 {
-	if x != nil {
-		return x.Quantity
-	}
-	return 0
-}
-
 var File_proto_resource_proto protoreflect.FileDescriptor
 
 var file_proto_resource_proto_rawDesc = []byte{
@@ -467,25 +340,8 @@ var file_proto_resource_proto_rawDesc = []byte{
 	0x61, 0x6d, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2e, 0x0a, 0x08, 0x52,
 	0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x12, 0x2e,
 	0x72, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63,
-	0x65, 0x52, 0x08, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x22, 0x9f, 0x01, 0x0a, 0x13,
-	0x44, 0x72, 0x6f, 0x70, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x12, 0x28, 0x0a, 0x0f, 0x54, 0x79, 0x70, 0x65, 0x45, 0x78, 0x70, 0x6c, 0x6f,
-	0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0f, 0x54, 0x79,
-	0x70, 0x65, 0x45, 0x78, 0x70, 0x6c, 0x6f, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x26, 0x0a,
-	0x0e, 0x51, 0x74, 0x79, 0x45, 0x78, 0x70, 0x6c, 0x6f, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x0e, 0x51, 0x74, 0x79, 0x45, 0x78, 0x70, 0x6c, 0x6f, 0x72,
-	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49,
-	0x44, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49,
-	0x44, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x49, 0x44, 0x18, 0x04, 0x20,
-	0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x49, 0x44, 0x22, 0x62, 0x0a,
-	0x14, 0x44, 0x72, 0x6f, 0x70, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2e, 0x0a, 0x08, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x72, 0x65, 0x73, 0x6f, 0x75, 0x72,
-	0x63, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x52, 0x08, 0x52, 0x65, 0x73,
-	0x6f, 0x75, 0x72, 0x63, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x51, 0x75, 0x61, 0x6e, 0x74, 0x69, 0x74,
-	0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x08, 0x51, 0x75, 0x61, 0x6e, 0x74, 0x69, 0x74,
-	0x79, 0x42, 0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x33,
+	0x65, 0x52, 0x08, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x42, 0x07, 0x5a, 0x05, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -500,29 +356,26 @@ func file_proto_resource_proto_rawDescGZIP() []byte {
 	return file_proto_resource_proto_rawDescData
 }
 
-var file_proto_resource_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_proto_resource_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_proto_resource_proto_goTypes = []interface{}{
 	(*Resource)(nil),                  // 0: resource.Resource
 	(*GetResourceByIDRequest)(nil),    // 1: resource.GetResourceByIDRequest
 	(*GetResourceByIDResponse)(nil),   // 2: resource.GetResourceByIDResponse
 	(*GetResourceByNameRequest)(nil),  // 3: resource.GetResourceByNameRequest
 	(*GetResourceByNameResponse)(nil), // 4: resource.GetResourceByNameResponse
-	(*DropResourceRequest)(nil),       // 5: resource.DropResourceRequest
-	(*DropResourceResponse)(nil),      // 6: resource.DropResourceResponse
-	(*Rarity)(nil),                    // 7: rarity.Rarity
-	(*ResourceCategory)(nil),          // 8: resource_category.ResourceCategory
+	(*Rarity)(nil),                    // 5: rarity.Rarity
+	(*ResourceCategory)(nil),          // 6: resource_category.ResourceCategory
 }
 var file_proto_resource_proto_depIdxs = []int32{
-	7, // 0: resource.Resource.Rarity:type_name -> rarity.Rarity
-	8, // 1: resource.Resource.ResourceCategory:type_name -> resource_category.ResourceCategory
+	5, // 0: resource.Resource.Rarity:type_name -> rarity.Rarity
+	6, // 1: resource.Resource.ResourceCategory:type_name -> resource_category.ResourceCategory
 	0, // 2: resource.GetResourceByIDResponse.Resource:type_name -> resource.Resource
 	0, // 3: resource.GetResourceByNameResponse.Resource:type_name -> resource.Resource
-	0, // 4: resource.DropResourceResponse.Resource:type_name -> resource.Resource
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_proto_resource_proto_init() }
@@ -593,30 +446,6 @@ func file_proto_resource_proto_init() {
 				return nil
 			}
 		}
-		file_proto_resource_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DropResourceRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_proto_resource_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DropResourceResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -624,7 +453,7 @@ func file_proto_resource_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_resource_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

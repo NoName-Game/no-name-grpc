@@ -28,15 +28,3 @@ message GetResourceByNameRequest {
 message GetResourceByNameResponse {
     Resource Resource = 1;
 }
-
-// DropResource
-message DropResourceRequest {
-    string TypeExploration = 1;
-    int32 QtyExploration = 2;
-    uint32 PlayerID = 3;
-    uint32 PlanetID = 4;
-}
-message DropResourceResponse {
-    Resource Resource = 1;
-    int32 Quantity = 2;
-}

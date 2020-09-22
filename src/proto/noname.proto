@@ -31,6 +31,7 @@ import "proto/ship_repair.proto";
 import "proto/ship_rest.proto";
 import "proto/ship_travel.proto";
 import "proto/tutorial.proto";
+import "proto/player_inventory.proto";
 
 option go_package = "proto";
 
@@ -44,11 +45,11 @@ service NoName {
     // Armor
     rpc GetArmorByID (armor.GetArmorByIDRequest) returns (armor.GetArmorByIDResponse) {}
     rpc GetArmorByName (armor.GetArmorByNameRequest) returns (armor.GetArmorByNameResponse) {}
-    rpc UpdateArmor (armor.UpdateArmorRequest) returns (armor.UpdateArmorResponse) {}
     rpc GetPlayerArmors (armor.GetPlayerArmorsRequest) returns (armor.GetPlayerArmorsResponse) {}
     rpc GetPlayerArmorsByCategoryID (armor.GetPlayerArmorsByCategoryIDRequest) returns (armor.GetPlayerArmorsByCategoryIDResponse) {}
     rpc GetPlayerArmorsEquipped (armor.GetPlayerArmorsEquippedRequest) returns (armor.GetPlayerArmorsEquippedResponse) {}
     rpc GetPlayerArmorEquippedByCategoryID (armor.GetPlayerArmorEquippedByCategoryIDRequest) returns (armor.GetPlayerArmorEquippedByCategoryIDResponse) {}
+    rpc EquipArmor (armor.EquipArmorRequest) returns (armor.EquipArmorResponse) {}
 
     // ArmorCategory
     rpc GetAllArmorCategory (armor_category.GetAllArmorCategoryRequest) returns (armor_category.GetAllArmorCategoryResponse) {}
@@ -57,19 +58,20 @@ service NoName {
     // Weapon
     rpc GetWeaponByID (weapon.GetWeaponByIDRequest) returns (weapon.GetWeaponByIDResponse) {}
     rpc GetWeaponByName (weapon.GetWeaponByNameRequest) returns (weapon.GetWeaponByNameResponse) {}
-    rpc UpdateWeapon (weapon.UpdateWeaponRequest) returns (weapon.UpdateWeaponResponse) {}
     rpc GetPlayerWeapons (weapon.GetPlayerWeaponsRequest) returns (weapon.GetPlayerWeaponsResponse) {}
     rpc GetPlayerWeaponEquipped (weapon.GetPlayerWeaponEquippedRequest) returns (weapon.GetPlayerWeaponEquippedResponse) {}
+    rpc EquipWeapon (weapon.EquipWeaponRequest) returns (weapon.EquipWeaponResponse) {}
 
     // Player
     rpc GetPlayerByID (player.GetPlayerByIDRequest) returns (player.GetPlayerByIDResponse) {}
     rpc GetPlayerByUsername (player.GetPlayerByUsernameRequest) returns (player.GetPlayerByUsernameResponse) {}
     rpc GetPlayerStats (player.GetPlayerStatsRequest) returns (player.GetPlayerStatsResponse) {}
-    rpc GetPlayerResources (player.GetPlayerResourcesRequest) returns (player.GetPlayerResourcesResponse) {}
-    rpc GetPlayerItems (player.GetPlayerItemsRequest) returns (player.GetPlayerItemsResponse) {}
-    rpc GetPlayerEconomy (player.GetPlayerEconomyRequest) returns (player.GetPlayerEconomyResponse) {}
-    rpc ManagePlayerInventory (player.ManagePlayerInventoryRequest) returns (player.ManagePlayerInventoryResponse) {}
     rpc GetPlayerExperience (player.GetPlayerExperienceRequest) returns (player.GetPlayerExperienceResponse) {}
+
+    // Player - Inventory
+    rpc ManagePlayerInventory (player_inventory.ManagePlayerInventoryRequest) returns (player_inventory.ManagePlayerInventoryResponse) {}
+    rpc GetPlayerResources (player_inventory.GetPlayerResourcesRequest) returns (player_inventory.GetPlayerResourcesResponse) {}
+    rpc GetPlayerItems (player_inventory.GetPlayerItemsRequest) returns (player_inventory.GetPlayerItemsResponse) {}
 
     // Player - Position
     rpc CreatePlayerPosition (player_position.CreatePlayerPositionRequest) returns (player_position.CreatePlayerPositionResponse) {}
@@ -78,7 +80,7 @@ service NoName {
     rpc CountSystemVisited (player_position.CountSystemVisitedRequest) returns (player_position.CountSystemVisitedResponse) {}
     rpc CountPlayerVisitedCurrentPlanet (player_position.CountPlayerVisitedCurrentPlanetRequest) returns (player_position.CountPlayerVisitedCurrentPlanetResponse) {}
 
-    // Player - SignIn
+    // Player - Signin
     rpc SignIn (player.SignInRequest) returns (player.SignInResponse) {}
 
     // Player - Activity
@@ -134,10 +136,9 @@ service NoName {
     // Map
     rpc GetMapByID (maps.GetMapByIDRequest) returns (maps.GetMapByIDResponse) {}
 
-    // Resouce
+    // Resource
     rpc GetResourceByID (resource.GetResourceByIDRequest) returns (resource.GetResourceByIDResponse) {}
     rpc GetResourceByName (resource.GetResourceByNameRequest) returns (resource.GetResourceByNameResponse) {}
-//    rpc DropResource (resource.DropResourceRequest) returns (resource.DropResourceResponse) {}
 
     // Item
     rpc GetAllItems (item.GetAllItemsRequest) returns (item.GetAllItemsResponse) {}
@@ -176,6 +177,7 @@ service NoName {
 
     // Transaction
     rpc CreateTransaction (transaction.CreateTransactionRequest) returns (transaction.CreateTransactionResponse) {}
+    rpc GetPlayerEconomy (transaction.GetPlayerEconomyRequest) returns (transaction.GetPlayerEconomyResponse) {}
 
     // Tresure
     rpc DropTresure (tresure.DropTresureRequest) returns (tresure.DropTresureResponse) {}

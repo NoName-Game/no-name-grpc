@@ -24,3 +24,17 @@ message CreateTransactionRequest {
 message CreateTransactionResponse {
     Transaction Transaction = 1;
 }
+
+// GetPlayerEconomy
+message GetPlayerEconomyRequest {
+    enum EconomyTypeEnum {
+        MONEY = 0;
+        DIAMOND = 1;
+        BANK = 2;
+    }
+    uint32 PlayerID = 1;
+    EconomyTypeEnum EconomyType = 2;
+}
+message GetPlayerEconomyResponse {
+    int32 Value = 1;
+}

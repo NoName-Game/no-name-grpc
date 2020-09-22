@@ -24,36 +24,36 @@ type NoNameClient interface {
 	// Armor
 	GetArmorByID(ctx context.Context, in *GetArmorByIDRequest, opts ...grpc.CallOption) (*GetArmorByIDResponse, error)
 	GetArmorByName(ctx context.Context, in *GetArmorByNameRequest, opts ...grpc.CallOption) (*GetArmorByNameResponse, error)
-	UpdateArmor(ctx context.Context, in *UpdateArmorRequest, opts ...grpc.CallOption) (*UpdateArmorResponse, error)
 	GetPlayerArmors(ctx context.Context, in *GetPlayerArmorsRequest, opts ...grpc.CallOption) (*GetPlayerArmorsResponse, error)
 	GetPlayerArmorsByCategoryID(ctx context.Context, in *GetPlayerArmorsByCategoryIDRequest, opts ...grpc.CallOption) (*GetPlayerArmorsByCategoryIDResponse, error)
 	GetPlayerArmorsEquipped(ctx context.Context, in *GetPlayerArmorsEquippedRequest, opts ...grpc.CallOption) (*GetPlayerArmorsEquippedResponse, error)
 	GetPlayerArmorEquippedByCategoryID(ctx context.Context, in *GetPlayerArmorEquippedByCategoryIDRequest, opts ...grpc.CallOption) (*GetPlayerArmorEquippedByCategoryIDResponse, error)
+	EquipArmor(ctx context.Context, in *EquipArmorRequest, opts ...grpc.CallOption) (*EquipArmorResponse, error)
 	// ArmorCategory
 	GetAllArmorCategory(ctx context.Context, in *GetAllArmorCategoryRequest, opts ...grpc.CallOption) (*GetAllArmorCategoryResponse, error)
 	GetArmorCategoryBySlug(ctx context.Context, in *GetArmorCategoryBySlugRequest, opts ...grpc.CallOption) (*GetArmorCategoryBySlugResponse, error)
 	// Weapon
 	GetWeaponByID(ctx context.Context, in *GetWeaponByIDRequest, opts ...grpc.CallOption) (*GetWeaponByIDResponse, error)
 	GetWeaponByName(ctx context.Context, in *GetWeaponByNameRequest, opts ...grpc.CallOption) (*GetWeaponByNameResponse, error)
-	UpdateWeapon(ctx context.Context, in *UpdateWeaponRequest, opts ...grpc.CallOption) (*UpdateWeaponResponse, error)
 	GetPlayerWeapons(ctx context.Context, in *GetPlayerWeaponsRequest, opts ...grpc.CallOption) (*GetPlayerWeaponsResponse, error)
 	GetPlayerWeaponEquipped(ctx context.Context, in *GetPlayerWeaponEquippedRequest, opts ...grpc.CallOption) (*GetPlayerWeaponEquippedResponse, error)
+	EquipWeapon(ctx context.Context, in *EquipWeaponRequest, opts ...grpc.CallOption) (*EquipWeaponResponse, error)
 	// Player
 	GetPlayerByID(ctx context.Context, in *GetPlayerByIDRequest, opts ...grpc.CallOption) (*GetPlayerByIDResponse, error)
 	GetPlayerByUsername(ctx context.Context, in *GetPlayerByUsernameRequest, opts ...grpc.CallOption) (*GetPlayerByUsernameResponse, error)
 	GetPlayerStats(ctx context.Context, in *GetPlayerStatsRequest, opts ...grpc.CallOption) (*GetPlayerStatsResponse, error)
+	GetPlayerExperience(ctx context.Context, in *GetPlayerExperienceRequest, opts ...grpc.CallOption) (*GetPlayerExperienceResponse, error)
+	// Player - Inventory
+	ManagePlayerInventory(ctx context.Context, in *ManagePlayerInventoryRequest, opts ...grpc.CallOption) (*ManagePlayerInventoryResponse, error)
 	GetPlayerResources(ctx context.Context, in *GetPlayerResourcesRequest, opts ...grpc.CallOption) (*GetPlayerResourcesResponse, error)
 	GetPlayerItems(ctx context.Context, in *GetPlayerItemsRequest, opts ...grpc.CallOption) (*GetPlayerItemsResponse, error)
-	GetPlayerEconomy(ctx context.Context, in *GetPlayerEconomyRequest, opts ...grpc.CallOption) (*GetPlayerEconomyResponse, error)
-	ManagePlayerInventory(ctx context.Context, in *ManagePlayerInventoryRequest, opts ...grpc.CallOption) (*ManagePlayerInventoryResponse, error)
-	GetPlayerExperience(ctx context.Context, in *GetPlayerExperienceRequest, opts ...grpc.CallOption) (*GetPlayerExperienceResponse, error)
 	// Player - Position
 	CreatePlayerPosition(ctx context.Context, in *CreatePlayerPositionRequest, opts ...grpc.CallOption) (*CreatePlayerPositionResponse, error)
 	GetPlayerCurrentPlanet(ctx context.Context, in *GetPlayerCurrentPlanetRequest, opts ...grpc.CallOption) (*GetPlayerCurrentPlanetResponse, error)
 	CountPlanetVisited(ctx context.Context, in *CountPlanetVisitedRequest, opts ...grpc.CallOption) (*CountPlanetVisitedResponse, error)
 	CountSystemVisited(ctx context.Context, in *CountSystemVisitedRequest, opts ...grpc.CallOption) (*CountSystemVisitedResponse, error)
 	CountPlayerVisitedCurrentPlanet(ctx context.Context, in *CountPlayerVisitedCurrentPlanetRequest, opts ...grpc.CallOption) (*CountPlayerVisitedCurrentPlanetResponse, error)
-	// Player - SignIn
+	// Player - Signin
 	SignIn(ctx context.Context, in *SignInRequest, opts ...grpc.CallOption) (*SignInResponse, error)
 	// Player - Activity
 	GetPlayerStateByID(ctx context.Context, in *GetPlayerActivityByIDRequest, opts ...grpc.CallOption) (*GetPlayerActivityByIDResponse, error)
@@ -98,7 +98,7 @@ type NoNameClient interface {
 	GetSafePlanets(ctx context.Context, in *GetSafePlanetsRequest, opts ...grpc.CallOption) (*GetSafePlanetsResponse, error)
 	// Map
 	GetMapByID(ctx context.Context, in *GetMapByIDRequest, opts ...grpc.CallOption) (*GetMapByIDResponse, error)
-	// Resouce
+	// Resource
 	GetResourceByID(ctx context.Context, in *GetResourceByIDRequest, opts ...grpc.CallOption) (*GetResourceByIDResponse, error)
 	GetResourceByName(ctx context.Context, in *GetResourceByNameRequest, opts ...grpc.CallOption) (*GetResourceByNameResponse, error)
 	// Item
@@ -131,6 +131,7 @@ type NoNameClient interface {
 	EndShipTravel(ctx context.Context, in *EndShipTravelRequest, opts ...grpc.CallOption) (*EndShipTravelResponse, error)
 	// Transaction
 	CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error)
+	GetPlayerEconomy(ctx context.Context, in *GetPlayerEconomyRequest, opts ...grpc.CallOption) (*GetPlayerEconomyResponse, error)
 	// Tresure
 	DropTresure(ctx context.Context, in *DropTresureRequest, opts ...grpc.CallOption) (*DropTresureResponse, error)
 	// Mission
@@ -209,15 +210,6 @@ func (c *noNameClient) GetArmorByName(ctx context.Context, in *GetArmorByNameReq
 	return out, nil
 }
 
-func (c *noNameClient) UpdateArmor(ctx context.Context, in *UpdateArmorRequest, opts ...grpc.CallOption) (*UpdateArmorResponse, error) {
-	out := new(UpdateArmorResponse)
-	err := c.cc.Invoke(ctx, "/NoName/UpdateArmor", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *noNameClient) GetPlayerArmors(ctx context.Context, in *GetPlayerArmorsRequest, opts ...grpc.CallOption) (*GetPlayerArmorsResponse, error) {
 	out := new(GetPlayerArmorsResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerArmors", in, out, opts...)
@@ -248,6 +240,15 @@ func (c *noNameClient) GetPlayerArmorsEquipped(ctx context.Context, in *GetPlaye
 func (c *noNameClient) GetPlayerArmorEquippedByCategoryID(ctx context.Context, in *GetPlayerArmorEquippedByCategoryIDRequest, opts ...grpc.CallOption) (*GetPlayerArmorEquippedByCategoryIDResponse, error) {
 	out := new(GetPlayerArmorEquippedByCategoryIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerArmorEquippedByCategoryID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) EquipArmor(ctx context.Context, in *EquipArmorRequest, opts ...grpc.CallOption) (*EquipArmorResponse, error) {
+	out := new(EquipArmorResponse)
+	err := c.cc.Invoke(ctx, "/NoName/EquipArmor", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -290,15 +291,6 @@ func (c *noNameClient) GetWeaponByName(ctx context.Context, in *GetWeaponByNameR
 	return out, nil
 }
 
-func (c *noNameClient) UpdateWeapon(ctx context.Context, in *UpdateWeaponRequest, opts ...grpc.CallOption) (*UpdateWeaponResponse, error) {
-	out := new(UpdateWeaponResponse)
-	err := c.cc.Invoke(ctx, "/NoName/UpdateWeapon", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *noNameClient) GetPlayerWeapons(ctx context.Context, in *GetPlayerWeaponsRequest, opts ...grpc.CallOption) (*GetPlayerWeaponsResponse, error) {
 	out := new(GetPlayerWeaponsResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerWeapons", in, out, opts...)
@@ -311,6 +303,15 @@ func (c *noNameClient) GetPlayerWeapons(ctx context.Context, in *GetPlayerWeapon
 func (c *noNameClient) GetPlayerWeaponEquipped(ctx context.Context, in *GetPlayerWeaponEquippedRequest, opts ...grpc.CallOption) (*GetPlayerWeaponEquippedResponse, error) {
 	out := new(GetPlayerWeaponEquippedResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerWeaponEquipped", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) EquipWeapon(ctx context.Context, in *EquipWeaponRequest, opts ...grpc.CallOption) (*EquipWeaponResponse, error) {
+	out := new(EquipWeaponResponse)
+	err := c.cc.Invoke(ctx, "/NoName/EquipWeapon", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -344,27 +345,9 @@ func (c *noNameClient) GetPlayerStats(ctx context.Context, in *GetPlayerStatsReq
 	return out, nil
 }
 
-func (c *noNameClient) GetPlayerResources(ctx context.Context, in *GetPlayerResourcesRequest, opts ...grpc.CallOption) (*GetPlayerResourcesResponse, error) {
-	out := new(GetPlayerResourcesResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetPlayerResources", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) GetPlayerItems(ctx context.Context, in *GetPlayerItemsRequest, opts ...grpc.CallOption) (*GetPlayerItemsResponse, error) {
-	out := new(GetPlayerItemsResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetPlayerItems", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) GetPlayerEconomy(ctx context.Context, in *GetPlayerEconomyRequest, opts ...grpc.CallOption) (*GetPlayerEconomyResponse, error) {
-	out := new(GetPlayerEconomyResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetPlayerEconomy", in, out, opts...)
+func (c *noNameClient) GetPlayerExperience(ctx context.Context, in *GetPlayerExperienceRequest, opts ...grpc.CallOption) (*GetPlayerExperienceResponse, error) {
+	out := new(GetPlayerExperienceResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerExperience", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -380,9 +363,18 @@ func (c *noNameClient) ManagePlayerInventory(ctx context.Context, in *ManagePlay
 	return out, nil
 }
 
-func (c *noNameClient) GetPlayerExperience(ctx context.Context, in *GetPlayerExperienceRequest, opts ...grpc.CallOption) (*GetPlayerExperienceResponse, error) {
-	out := new(GetPlayerExperienceResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetPlayerExperience", in, out, opts...)
+func (c *noNameClient) GetPlayerResources(ctx context.Context, in *GetPlayerResourcesRequest, opts ...grpc.CallOption) (*GetPlayerResourcesResponse, error) {
+	out := new(GetPlayerResourcesResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerResources", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetPlayerItems(ctx context.Context, in *GetPlayerItemsRequest, opts ...grpc.CallOption) (*GetPlayerItemsResponse, error) {
+	out := new(GetPlayerItemsResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerItems", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -956,6 +948,15 @@ func (c *noNameClient) CreateTransaction(ctx context.Context, in *CreateTransact
 	return out, nil
 }
 
+func (c *noNameClient) GetPlayerEconomy(ctx context.Context, in *GetPlayerEconomyRequest, opts ...grpc.CallOption) (*GetPlayerEconomyResponse, error) {
+	out := new(GetPlayerEconomyResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerEconomy", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) DropTresure(ctx context.Context, in *DropTresureRequest, opts ...grpc.CallOption) (*DropTresureResponse, error) {
 	out := new(DropTresureResponse)
 	err := c.cc.Invoke(ctx, "/NoName/DropTresure", in, out, opts...)
@@ -1111,36 +1112,36 @@ type NoNameServer interface {
 	// Armor
 	GetArmorByID(context.Context, *GetArmorByIDRequest) (*GetArmorByIDResponse, error)
 	GetArmorByName(context.Context, *GetArmorByNameRequest) (*GetArmorByNameResponse, error)
-	UpdateArmor(context.Context, *UpdateArmorRequest) (*UpdateArmorResponse, error)
 	GetPlayerArmors(context.Context, *GetPlayerArmorsRequest) (*GetPlayerArmorsResponse, error)
 	GetPlayerArmorsByCategoryID(context.Context, *GetPlayerArmorsByCategoryIDRequest) (*GetPlayerArmorsByCategoryIDResponse, error)
 	GetPlayerArmorsEquipped(context.Context, *GetPlayerArmorsEquippedRequest) (*GetPlayerArmorsEquippedResponse, error)
 	GetPlayerArmorEquippedByCategoryID(context.Context, *GetPlayerArmorEquippedByCategoryIDRequest) (*GetPlayerArmorEquippedByCategoryIDResponse, error)
+	EquipArmor(context.Context, *EquipArmorRequest) (*EquipArmorResponse, error)
 	// ArmorCategory
 	GetAllArmorCategory(context.Context, *GetAllArmorCategoryRequest) (*GetAllArmorCategoryResponse, error)
 	GetArmorCategoryBySlug(context.Context, *GetArmorCategoryBySlugRequest) (*GetArmorCategoryBySlugResponse, error)
 	// Weapon
 	GetWeaponByID(context.Context, *GetWeaponByIDRequest) (*GetWeaponByIDResponse, error)
 	GetWeaponByName(context.Context, *GetWeaponByNameRequest) (*GetWeaponByNameResponse, error)
-	UpdateWeapon(context.Context, *UpdateWeaponRequest) (*UpdateWeaponResponse, error)
 	GetPlayerWeapons(context.Context, *GetPlayerWeaponsRequest) (*GetPlayerWeaponsResponse, error)
 	GetPlayerWeaponEquipped(context.Context, *GetPlayerWeaponEquippedRequest) (*GetPlayerWeaponEquippedResponse, error)
+	EquipWeapon(context.Context, *EquipWeaponRequest) (*EquipWeaponResponse, error)
 	// Player
 	GetPlayerByID(context.Context, *GetPlayerByIDRequest) (*GetPlayerByIDResponse, error)
 	GetPlayerByUsername(context.Context, *GetPlayerByUsernameRequest) (*GetPlayerByUsernameResponse, error)
 	GetPlayerStats(context.Context, *GetPlayerStatsRequest) (*GetPlayerStatsResponse, error)
+	GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error)
+	// Player - Inventory
+	ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error)
 	GetPlayerResources(context.Context, *GetPlayerResourcesRequest) (*GetPlayerResourcesResponse, error)
 	GetPlayerItems(context.Context, *GetPlayerItemsRequest) (*GetPlayerItemsResponse, error)
-	GetPlayerEconomy(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error)
-	ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error)
-	GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error)
 	// Player - Position
 	CreatePlayerPosition(context.Context, *CreatePlayerPositionRequest) (*CreatePlayerPositionResponse, error)
 	GetPlayerCurrentPlanet(context.Context, *GetPlayerCurrentPlanetRequest) (*GetPlayerCurrentPlanetResponse, error)
 	CountPlanetVisited(context.Context, *CountPlanetVisitedRequest) (*CountPlanetVisitedResponse, error)
 	CountSystemVisited(context.Context, *CountSystemVisitedRequest) (*CountSystemVisitedResponse, error)
 	CountPlayerVisitedCurrentPlanet(context.Context, *CountPlayerVisitedCurrentPlanetRequest) (*CountPlayerVisitedCurrentPlanetResponse, error)
-	// Player - SignIn
+	// Player - Signin
 	SignIn(context.Context, *SignInRequest) (*SignInResponse, error)
 	// Player - Activity
 	GetPlayerStateByID(context.Context, *GetPlayerActivityByIDRequest) (*GetPlayerActivityByIDResponse, error)
@@ -1185,7 +1186,7 @@ type NoNameServer interface {
 	GetSafePlanets(context.Context, *GetSafePlanetsRequest) (*GetSafePlanetsResponse, error)
 	// Map
 	GetMapByID(context.Context, *GetMapByIDRequest) (*GetMapByIDResponse, error)
-	// Resouce
+	// Resource
 	GetResourceByID(context.Context, *GetResourceByIDRequest) (*GetResourceByIDResponse, error)
 	GetResourceByName(context.Context, *GetResourceByNameRequest) (*GetResourceByNameResponse, error)
 	// Item
@@ -1218,6 +1219,7 @@ type NoNameServer interface {
 	EndShipTravel(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error)
 	// Transaction
 	CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error)
+	GetPlayerEconomy(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error)
 	// Tresure
 	DropTresure(context.Context, *DropTresureRequest) (*DropTresureResponse, error)
 	// Mission
@@ -1263,9 +1265,6 @@ func (*UnimplementedNoNameServer) GetArmorByID(context.Context, *GetArmorByIDReq
 func (*UnimplementedNoNameServer) GetArmorByName(context.Context, *GetArmorByNameRequest) (*GetArmorByNameResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetArmorByName not implemented")
 }
-func (*UnimplementedNoNameServer) UpdateArmor(context.Context, *UpdateArmorRequest) (*UpdateArmorResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateArmor not implemented")
-}
 func (*UnimplementedNoNameServer) GetPlayerArmors(context.Context, *GetPlayerArmorsRequest) (*GetPlayerArmorsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerArmors not implemented")
 }
@@ -1277,6 +1276,9 @@ func (*UnimplementedNoNameServer) GetPlayerArmorsEquipped(context.Context, *GetP
 }
 func (*UnimplementedNoNameServer) GetPlayerArmorEquippedByCategoryID(context.Context, *GetPlayerArmorEquippedByCategoryIDRequest) (*GetPlayerArmorEquippedByCategoryIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerArmorEquippedByCategoryID not implemented")
+}
+func (*UnimplementedNoNameServer) EquipArmor(context.Context, *EquipArmorRequest) (*EquipArmorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EquipArmor not implemented")
 }
 func (*UnimplementedNoNameServer) GetAllArmorCategory(context.Context, *GetAllArmorCategoryRequest) (*GetAllArmorCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllArmorCategory not implemented")
@@ -1290,14 +1292,14 @@ func (*UnimplementedNoNameServer) GetWeaponByID(context.Context, *GetWeaponByIDR
 func (*UnimplementedNoNameServer) GetWeaponByName(context.Context, *GetWeaponByNameRequest) (*GetWeaponByNameResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetWeaponByName not implemented")
 }
-func (*UnimplementedNoNameServer) UpdateWeapon(context.Context, *UpdateWeaponRequest) (*UpdateWeaponResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateWeapon not implemented")
-}
 func (*UnimplementedNoNameServer) GetPlayerWeapons(context.Context, *GetPlayerWeaponsRequest) (*GetPlayerWeaponsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerWeapons not implemented")
 }
 func (*UnimplementedNoNameServer) GetPlayerWeaponEquipped(context.Context, *GetPlayerWeaponEquippedRequest) (*GetPlayerWeaponEquippedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerWeaponEquipped not implemented")
+}
+func (*UnimplementedNoNameServer) EquipWeapon(context.Context, *EquipWeaponRequest) (*EquipWeaponResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EquipWeapon not implemented")
 }
 func (*UnimplementedNoNameServer) GetPlayerByID(context.Context, *GetPlayerByIDRequest) (*GetPlayerByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerByID not implemented")
@@ -1308,20 +1310,17 @@ func (*UnimplementedNoNameServer) GetPlayerByUsername(context.Context, *GetPlaye
 func (*UnimplementedNoNameServer) GetPlayerStats(context.Context, *GetPlayerStatsRequest) (*GetPlayerStatsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerStats not implemented")
 }
+func (*UnimplementedNoNameServer) GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerExperience not implemented")
+}
+func (*UnimplementedNoNameServer) ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ManagePlayerInventory not implemented")
+}
 func (*UnimplementedNoNameServer) GetPlayerResources(context.Context, *GetPlayerResourcesRequest) (*GetPlayerResourcesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerResources not implemented")
 }
 func (*UnimplementedNoNameServer) GetPlayerItems(context.Context, *GetPlayerItemsRequest) (*GetPlayerItemsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerItems not implemented")
-}
-func (*UnimplementedNoNameServer) GetPlayerEconomy(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerEconomy not implemented")
-}
-func (*UnimplementedNoNameServer) ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ManagePlayerInventory not implemented")
-}
-func (*UnimplementedNoNameServer) GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerExperience not implemented")
 }
 func (*UnimplementedNoNameServer) CreatePlayerPosition(context.Context, *CreatePlayerPositionRequest) (*CreatePlayerPositionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatePlayerPosition not implemented")
@@ -1512,6 +1511,9 @@ func (*UnimplementedNoNameServer) EndShipTravel(context.Context, *EndShipTravelR
 func (*UnimplementedNoNameServer) CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTransaction not implemented")
 }
+func (*UnimplementedNoNameServer) GetPlayerEconomy(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerEconomy not implemented")
+}
 func (*UnimplementedNoNameServer) DropTresure(context.Context, *DropTresureRequest) (*DropTresureResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DropTresure not implemented")
 }
@@ -1656,24 +1658,6 @@ func _NoName_GetArmorByName_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_UpdateArmor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateArmorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).UpdateArmor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/UpdateArmor",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).UpdateArmor(ctx, req.(*UpdateArmorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _NoName_GetPlayerArmors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPlayerArmorsRequest)
 	if err := dec(in); err != nil {
@@ -1742,6 +1726,24 @@ func _NoName_GetPlayerArmorEquippedByCategoryID_Handler(srv interface{}, ctx con
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetPlayerArmorEquippedByCategoryID(ctx, req.(*GetPlayerArmorEquippedByCategoryIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_EquipArmor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EquipArmorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).EquipArmor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/EquipArmor",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).EquipArmor(ctx, req.(*EquipArmorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1818,24 +1820,6 @@ func _NoName_GetWeaponByName_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_UpdateWeapon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateWeaponRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).UpdateWeapon(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/UpdateWeapon",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).UpdateWeapon(ctx, req.(*UpdateWeaponRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _NoName_GetPlayerWeapons_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPlayerWeaponsRequest)
 	if err := dec(in); err != nil {
@@ -1868,6 +1852,24 @@ func _NoName_GetPlayerWeaponEquipped_Handler(srv interface{}, ctx context.Contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetPlayerWeaponEquipped(ctx, req.(*GetPlayerWeaponEquippedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_EquipWeapon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EquipWeaponRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).EquipWeapon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/EquipWeapon",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).EquipWeapon(ctx, req.(*EquipWeaponRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1926,6 +1928,42 @@ func _NoName_GetPlayerStats_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetPlayerExperience_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerExperienceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerExperience(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerExperience",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerExperience(ctx, req.(*GetPlayerExperienceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_ManagePlayerInventory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ManagePlayerInventoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).ManagePlayerInventory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/ManagePlayerInventory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).ManagePlayerInventory(ctx, req.(*ManagePlayerInventoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetPlayerResources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPlayerResourcesRequest)
 	if err := dec(in); err != nil {
@@ -1958,60 +1996,6 @@ func _NoName_GetPlayerItems_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetPlayerItems(ctx, req.(*GetPlayerItemsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_GetPlayerEconomy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerEconomyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).GetPlayerEconomy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/GetPlayerEconomy",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetPlayerEconomy(ctx, req.(*GetPlayerEconomyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_ManagePlayerInventory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ManagePlayerInventoryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).ManagePlayerInventory(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/ManagePlayerInventory",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).ManagePlayerInventory(ctx, req.(*ManagePlayerInventoryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_GetPlayerExperience_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerExperienceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).GetPlayerExperience(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/GetPlayerExperience",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetPlayerExperience(ctx, req.(*GetPlayerExperienceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3150,6 +3134,24 @@ func _NoName_CreateTransaction_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetPlayerEconomy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerEconomyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerEconomy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerEconomy",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerEconomy(ctx, req.(*GetPlayerEconomyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_DropTresure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DropTresureRequest)
 	if err := dec(in); err != nil {
@@ -3463,10 +3465,6 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetArmorByName_Handler,
 		},
 		{
-			MethodName: "UpdateArmor",
-			Handler:    _NoName_UpdateArmor_Handler,
-		},
-		{
 			MethodName: "GetPlayerArmors",
 			Handler:    _NoName_GetPlayerArmors_Handler,
 		},
@@ -3481,6 +3479,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPlayerArmorEquippedByCategoryID",
 			Handler:    _NoName_GetPlayerArmorEquippedByCategoryID_Handler,
+		},
+		{
+			MethodName: "EquipArmor",
+			Handler:    _NoName_EquipArmor_Handler,
 		},
 		{
 			MethodName: "GetAllArmorCategory",
@@ -3499,16 +3501,16 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetWeaponByName_Handler,
 		},
 		{
-			MethodName: "UpdateWeapon",
-			Handler:    _NoName_UpdateWeapon_Handler,
-		},
-		{
 			MethodName: "GetPlayerWeapons",
 			Handler:    _NoName_GetPlayerWeapons_Handler,
 		},
 		{
 			MethodName: "GetPlayerWeaponEquipped",
 			Handler:    _NoName_GetPlayerWeaponEquipped_Handler,
+		},
+		{
+			MethodName: "EquipWeapon",
+			Handler:    _NoName_EquipWeapon_Handler,
 		},
 		{
 			MethodName: "GetPlayerByID",
@@ -3523,24 +3525,20 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetPlayerStats_Handler,
 		},
 		{
-			MethodName: "GetPlayerResources",
-			Handler:    _NoName_GetPlayerResources_Handler,
-		},
-		{
-			MethodName: "GetPlayerItems",
-			Handler:    _NoName_GetPlayerItems_Handler,
-		},
-		{
-			MethodName: "GetPlayerEconomy",
-			Handler:    _NoName_GetPlayerEconomy_Handler,
+			MethodName: "GetPlayerExperience",
+			Handler:    _NoName_GetPlayerExperience_Handler,
 		},
 		{
 			MethodName: "ManagePlayerInventory",
 			Handler:    _NoName_ManagePlayerInventory_Handler,
 		},
 		{
-			MethodName: "GetPlayerExperience",
-			Handler:    _NoName_GetPlayerExperience_Handler,
+			MethodName: "GetPlayerResources",
+			Handler:    _NoName_GetPlayerResources_Handler,
+		},
+		{
+			MethodName: "GetPlayerItems",
+			Handler:    _NoName_GetPlayerItems_Handler,
 		},
 		{
 			MethodName: "CreatePlayerPosition",
@@ -3793,6 +3791,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateTransaction",
 			Handler:    _NoName_CreateTransaction_Handler,
+		},
+		{
+			MethodName: "GetPlayerEconomy",
+			Handler:    _NoName_GetPlayerEconomy_Handler,
 		},
 		{
 			MethodName: "DropTresure",

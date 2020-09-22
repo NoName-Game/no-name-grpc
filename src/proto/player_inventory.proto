@@ -13,3 +13,30 @@ message PlayerInventory {
     resource.Resource Resource = 6;
     item.Item Item = 7;
 }
+
+// ManagePlayerInventory
+message ManagePlayerInventoryRequest {
+    uint32 PlayerID = 1;
+    uint32 ItemID = 2;
+    string ItemType = 3;
+    int32 Quantity = 4;
+}
+message ManagePlayerInventoryResponse {
+    // Empty
+}
+
+// GetPlayerResources
+message GetPlayerResourcesRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerResourcesResponse {
+    repeated PlayerInventory PlayerInventory = 1;
+}
+
+// GetPlayerItems
+message GetPlayerItemsRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerItemsResponse {
+    repeated PlayerInventory PlayerInventory = 1;
+}
