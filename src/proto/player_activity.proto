@@ -36,6 +36,14 @@ message GetPlayerActivityToNotifyResponse {
     repeated PlayerActivity PlayerActivities = 1;
 }
 
+// SetPlayerActivityNotified
+message SetPlayerActivityNotifiedRequest {
+    uint32 ActivityID = 1;
+}
+message SetPlayerActivityNotifiedResponse {
+    // Empty
+}
+
 // CreatePlayerActivity
 message CreatePlayerActivityRequest {
     PlayerActivity PlayerActivity = 1;

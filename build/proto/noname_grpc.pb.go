@@ -58,11 +58,13 @@ type NoNameClient interface {
 	// Player - Activity
 	GetPlayerStateByID(ctx context.Context, in *GetPlayerActivityByIDRequest, opts ...grpc.CallOption) (*GetPlayerActivityByIDResponse, error)
 	GetActivePlayerActivities(ctx context.Context, in *GetActivePlayerActivitiesRequest, opts ...grpc.CallOption) (*GetActivePlayerActivitiesResponse, error)
-	GetPlayerActivityToNotify(ctx context.Context, in *GetPlayerActivityToNotifyRequest, opts ...grpc.CallOption) (*GetPlayerActivityToNotifyResponse, error)
 	CreatePlayerActivity(ctx context.Context, in *CreatePlayerActivityRequest, opts ...grpc.CallOption) (*CreatePlayerActivityResponse, error)
 	UpdatePlayerActivity(ctx context.Context, in *UpdatePlayerActivityRequest, opts ...grpc.CallOption) (*UpdatePlayerActivityResponse, error)
 	DeletePlayerActivity(ctx context.Context, in *DeletePlayerActivityRequest, opts ...grpc.CallOption) (*DeletePlayerActivityResponse, error)
 	DeletePlayerActivityByController(ctx context.Context, in *DeletePlayerActivityByControllerRequest, opts ...grpc.CallOption) (*DeletePlayerActivityByControllerResponse, error)
+	// Player - Activity - Notify
+	GetPlayerActivityToNotify(ctx context.Context, in *GetPlayerActivityToNotifyRequest, opts ...grpc.CallOption) (*GetPlayerActivityToNotifyResponse, error)
+	SetPlayerActivityNotified(ctx context.Context, in *SetPlayerActivityNotifiedRequest, opts ...grpc.CallOption) (*SetPlayerActivityNotifiedResponse, error)
 	// Enemy
 	GetEnemyByID(ctx context.Context, in *GetEnemyByIDRequest, opts ...grpc.CallOption) (*GetEnemyByIDResponse, error)
 	HitEnemy(ctx context.Context, in *HitEnemyRequest, opts ...grpc.CallOption) (*HitEnemyResponse, error)
@@ -453,15 +455,6 @@ func (c *noNameClient) GetActivePlayerActivities(ctx context.Context, in *GetAct
 	return out, nil
 }
 
-func (c *noNameClient) GetPlayerActivityToNotify(ctx context.Context, in *GetPlayerActivityToNotifyRequest, opts ...grpc.CallOption) (*GetPlayerActivityToNotifyResponse, error) {
-	out := new(GetPlayerActivityToNotifyResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetPlayerActivityToNotify", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *noNameClient) CreatePlayerActivity(ctx context.Context, in *CreatePlayerActivityRequest, opts ...grpc.CallOption) (*CreatePlayerActivityResponse, error) {
 	out := new(CreatePlayerActivityResponse)
 	err := c.cc.Invoke(ctx, "/NoName/CreatePlayerActivity", in, out, opts...)
@@ -492,6 +485,24 @@ func (c *noNameClient) DeletePlayerActivity(ctx context.Context, in *DeletePlaye
 func (c *noNameClient) DeletePlayerActivityByController(ctx context.Context, in *DeletePlayerActivityByControllerRequest, opts ...grpc.CallOption) (*DeletePlayerActivityByControllerResponse, error) {
 	out := new(DeletePlayerActivityByControllerResponse)
 	err := c.cc.Invoke(ctx, "/NoName/DeletePlayerActivityByController", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetPlayerActivityToNotify(ctx context.Context, in *GetPlayerActivityToNotifyRequest, opts ...grpc.CallOption) (*GetPlayerActivityToNotifyResponse, error) {
+	out := new(GetPlayerActivityToNotifyResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerActivityToNotify", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) SetPlayerActivityNotified(ctx context.Context, in *SetPlayerActivityNotifiedRequest, opts ...grpc.CallOption) (*SetPlayerActivityNotifiedResponse, error) {
+	out := new(SetPlayerActivityNotifiedResponse)
+	err := c.cc.Invoke(ctx, "/NoName/SetPlayerActivityNotified", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1146,11 +1157,13 @@ type NoNameServer interface {
 	// Player - Activity
 	GetPlayerStateByID(context.Context, *GetPlayerActivityByIDRequest) (*GetPlayerActivityByIDResponse, error)
 	GetActivePlayerActivities(context.Context, *GetActivePlayerActivitiesRequest) (*GetActivePlayerActivitiesResponse, error)
-	GetPlayerActivityToNotify(context.Context, *GetPlayerActivityToNotifyRequest) (*GetPlayerActivityToNotifyResponse, error)
 	CreatePlayerActivity(context.Context, *CreatePlayerActivityRequest) (*CreatePlayerActivityResponse, error)
 	UpdatePlayerActivity(context.Context, *UpdatePlayerActivityRequest) (*UpdatePlayerActivityResponse, error)
 	DeletePlayerActivity(context.Context, *DeletePlayerActivityRequest) (*DeletePlayerActivityResponse, error)
 	DeletePlayerActivityByController(context.Context, *DeletePlayerActivityByControllerRequest) (*DeletePlayerActivityByControllerResponse, error)
+	// Player - Activity - Notify
+	GetPlayerActivityToNotify(context.Context, *GetPlayerActivityToNotifyRequest) (*GetPlayerActivityToNotifyResponse, error)
+	SetPlayerActivityNotified(context.Context, *SetPlayerActivityNotifiedRequest) (*SetPlayerActivityNotifiedResponse, error)
 	// Enemy
 	GetEnemyByID(context.Context, *GetEnemyByIDRequest) (*GetEnemyByIDResponse, error)
 	HitEnemy(context.Context, *HitEnemyRequest) (*HitEnemyResponse, error)
@@ -1346,9 +1359,6 @@ func (*UnimplementedNoNameServer) GetPlayerStateByID(context.Context, *GetPlayer
 func (*UnimplementedNoNameServer) GetActivePlayerActivities(context.Context, *GetActivePlayerActivitiesRequest) (*GetActivePlayerActivitiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetActivePlayerActivities not implemented")
 }
-func (*UnimplementedNoNameServer) GetPlayerActivityToNotify(context.Context, *GetPlayerActivityToNotifyRequest) (*GetPlayerActivityToNotifyResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerActivityToNotify not implemented")
-}
 func (*UnimplementedNoNameServer) CreatePlayerActivity(context.Context, *CreatePlayerActivityRequest) (*CreatePlayerActivityResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatePlayerActivity not implemented")
 }
@@ -1360,6 +1370,12 @@ func (*UnimplementedNoNameServer) DeletePlayerActivity(context.Context, *DeleteP
 }
 func (*UnimplementedNoNameServer) DeletePlayerActivityByController(context.Context, *DeletePlayerActivityByControllerRequest) (*DeletePlayerActivityByControllerResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeletePlayerActivityByController not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerActivityToNotify(context.Context, *GetPlayerActivityToNotifyRequest) (*GetPlayerActivityToNotifyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerActivityToNotify not implemented")
+}
+func (*UnimplementedNoNameServer) SetPlayerActivityNotified(context.Context, *SetPlayerActivityNotifiedRequest) (*SetPlayerActivityNotifiedResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetPlayerActivityNotified not implemented")
 }
 func (*UnimplementedNoNameServer) GetEnemyByID(context.Context, *GetEnemyByIDRequest) (*GetEnemyByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEnemyByID not implemented")
@@ -2144,24 +2160,6 @@ func _NoName_GetActivePlayerActivities_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_GetPlayerActivityToNotify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerActivityToNotifyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).GetPlayerActivityToNotify(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/GetPlayerActivityToNotify",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetPlayerActivityToNotify(ctx, req.(*GetPlayerActivityToNotifyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _NoName_CreatePlayerActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreatePlayerActivityRequest)
 	if err := dec(in); err != nil {
@@ -2230,6 +2228,42 @@ func _NoName_DeletePlayerActivityByController_Handler(srv interface{}, ctx conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).DeletePlayerActivityByController(ctx, req.(*DeletePlayerActivityByControllerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerActivityToNotify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerActivityToNotifyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerActivityToNotify(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerActivityToNotify",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerActivityToNotify(ctx, req.(*GetPlayerActivityToNotifyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_SetPlayerActivityNotified_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPlayerActivityNotifiedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).SetPlayerActivityNotified(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/SetPlayerActivityNotified",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).SetPlayerActivityNotified(ctx, req.(*SetPlayerActivityNotifiedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3573,10 +3607,6 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetActivePlayerActivities_Handler,
 		},
 		{
-			MethodName: "GetPlayerActivityToNotify",
-			Handler:    _NoName_GetPlayerActivityToNotify_Handler,
-		},
-		{
 			MethodName: "CreatePlayerActivity",
 			Handler:    _NoName_CreatePlayerActivity_Handler,
 		},
@@ -3591,6 +3621,14 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeletePlayerActivityByController",
 			Handler:    _NoName_DeletePlayerActivityByController_Handler,
+		},
+		{
+			MethodName: "GetPlayerActivityToNotify",
+			Handler:    _NoName_GetPlayerActivityToNotify_Handler,
+		},
+		{
+			MethodName: "SetPlayerActivityNotified",
+			Handler:    _NoName_SetPlayerActivityNotified_Handler,
 		},
 		{
 			MethodName: "GetEnemyByID",
