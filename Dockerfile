@@ -17,10 +17,9 @@ RUN git clone -b v1.31.0 https://github.com/grpc/grpc-go \
     && cd grpc-go/cmd/protoc-gen-go-grpc \
     && go install .
 
+#No Root
 RUN adduser -D -u 1000 noname -h  /home/noname
 USER noname
 
 RUN mkdir import
 RUN mkdir export
-
-#ENTRYPOINT ["builder.sh"]
