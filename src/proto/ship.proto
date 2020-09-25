@@ -2,8 +2,7 @@ syntax = "proto3";
 import "proto/rarity.proto";
 import "proto/ship_category.proto";
 import "proto/ship_stats.proto";
-import "proto/planet.proto";
-option go_package = "proto";
+option go_package = ".;proto";
 package ship;
 
 message Ship {

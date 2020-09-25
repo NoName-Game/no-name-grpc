@@ -4,7 +4,7 @@ import "proto/item.proto";
 import "proto/resource.proto";
 import "proto/transaction.proto";
 import "proto/trap.proto";
-option go_package = "proto";
+option go_package = ".;proto";
 package tresure;
 
 message Tresure {

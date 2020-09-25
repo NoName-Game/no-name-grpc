@@ -1,7 +1,7 @@
 syntax = "proto3";
 import "proto/rarity.proto";
 import "proto/armor_category.proto";
-option go_package = "proto";
+option go_package = ".;proto";
 package armor;
 
 message Armor {

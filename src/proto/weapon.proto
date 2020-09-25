@@ -1,6 +1,6 @@
 syntax = "proto3";
 import "proto/rarity.proto";
-option go_package = "proto";
+option go_package = ".;proto";
 package weapon;
 
 message Weapon {

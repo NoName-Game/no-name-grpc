@@ -33,7 +33,7 @@ import "proto/ship_travel.proto";
 import "proto/tutorial.proto";
 import "proto/player_inventory.proto";
 
-option go_package = "proto";
+option go_package = "proto;proto";
 
 // The greeting service definition.
 service NoName {
