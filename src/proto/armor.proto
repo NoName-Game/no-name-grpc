@@ -2,7 +2,6 @@ syntax = "proto3";
 import "proto/rarity.proto";
 import "proto/armor_category.proto";
 option go_package = "proto";
-//option go_package = "bitbucket.org/no-name-game/nn-grpc/build/pb/armor";
 package armor;
 
 message Armor {
