@@ -5,5 +5,5 @@ build:
 	@running=$$(docker-compose ps $(SERVICE_NAME) | grep -c "Up"); \
 	if [ "$$running" -eq 0 ]; then \
 		echo "Container not running, restarting..."; \
-		docker-compose up -d; \
+		docker-compose up; \
 	fi;
