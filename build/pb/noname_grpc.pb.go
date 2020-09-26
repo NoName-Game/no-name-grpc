@@ -43,6 +43,9 @@ type NoNameClient interface {
 	GetPlayerByUsername(ctx context.Context, in *GetPlayerByUsernameRequest, opts ...grpc.CallOption) (*GetPlayerByUsernameResponse, error)
 	GetPlayerStats(ctx context.Context, in *GetPlayerStatsRequest, opts ...grpc.CallOption) (*GetPlayerStatsResponse, error)
 	GetPlayerExperience(ctx context.Context, in *GetPlayerExperienceRequest, opts ...grpc.CallOption) (*GetPlayerExperienceResponse, error)
+	// Player - Configuration
+	PlayerSetLanguage(ctx context.Context, in *PlayerSetLanguageRequest, opts ...grpc.CallOption) (*PlayerSetLanguageResponse, error)
+	PlayerSetTimezone(ctx context.Context, in *PlayerSetTimezoneRequest, opts ...grpc.CallOption) (*PlayerSetTimezoneResponse, error)
 	// Player - Inventory
 	ManagePlayerInventory(ctx context.Context, in *ManagePlayerInventoryRequest, opts ...grpc.CallOption) (*ManagePlayerInventoryResponse, error)
 	GetPlayerResources(ctx context.Context, in *GetPlayerResourcesRequest, opts ...grpc.CallOption) (*GetPlayerResourcesResponse, error)
@@ -86,6 +89,10 @@ type NoNameClient interface {
 	GetLanguageBySlug(ctx context.Context, in *GetLanguageBySlugRequest, opts ...grpc.CallOption) (*GetLanguageBySlugResponse, error)
 	GetLanguageByName(ctx context.Context, in *GetLanguageByNameRequest, opts ...grpc.CallOption) (*GetLanguageByNameResponse, error)
 	GetAllLanguages(ctx context.Context, in *GetAllLanguagesRequest, opts ...grpc.CallOption) (*GetAllLanguagesResponse, error)
+	// Timezone
+	GetTimezoneBySlug(ctx context.Context, in *GetTimezoneBySlugRequest, opts ...grpc.CallOption) (*GetTimezoneBySlugResponse, error)
+	GetTimezoneByName(ctx context.Context, in *GetTimezoneByNameRequest, opts ...grpc.CallOption) (*GetTimezoneByNameResponse, error)
+	GetAllTimezones(ctx context.Context, in *GetAllTimezonesRequest, opts ...grpc.CallOption) (*GetAllTimezonesResponse, error)
 	// NPC
 	GetAllNPC(ctx context.Context, in *GetAllNPCRequest, opts ...grpc.CallOption) (*GetAllNPCResponse, error)
 	// NPC - Banck
@@ -350,6 +357,24 @@ func (c *noNameClient) GetPlayerStats(ctx context.Context, in *GetPlayerStatsReq
 func (c *noNameClient) GetPlayerExperience(ctx context.Context, in *GetPlayerExperienceRequest, opts ...grpc.CallOption) (*GetPlayerExperienceResponse, error) {
 	out := new(GetPlayerExperienceResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerExperience", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) PlayerSetLanguage(ctx context.Context, in *PlayerSetLanguageRequest, opts ...grpc.CallOption) (*PlayerSetLanguageResponse, error) {
+	out := new(PlayerSetLanguageResponse)
+	err := c.cc.Invoke(ctx, "/NoName/PlayerSetLanguage", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) PlayerSetTimezone(ctx context.Context, in *PlayerSetTimezoneRequest, opts ...grpc.CallOption) (*PlayerSetTimezoneResponse, error) {
+	out := new(PlayerSetTimezoneResponse)
+	err := c.cc.Invoke(ctx, "/NoName/PlayerSetTimezone", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -647,6 +672,33 @@ func (c *noNameClient) GetLanguageByName(ctx context.Context, in *GetLanguageByN
 func (c *noNameClient) GetAllLanguages(ctx context.Context, in *GetAllLanguagesRequest, opts ...grpc.CallOption) (*GetAllLanguagesResponse, error) {
 	out := new(GetAllLanguagesResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAllLanguages", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetTimezoneBySlug(ctx context.Context, in *GetTimezoneBySlugRequest, opts ...grpc.CallOption) (*GetTimezoneBySlugResponse, error) {
+	out := new(GetTimezoneBySlugResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetTimezoneBySlug", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetTimezoneByName(ctx context.Context, in *GetTimezoneByNameRequest, opts ...grpc.CallOption) (*GetTimezoneByNameResponse, error) {
+	out := new(GetTimezoneByNameResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetTimezoneByName", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetAllTimezones(ctx context.Context, in *GetAllTimezonesRequest, opts ...grpc.CallOption) (*GetAllTimezonesResponse, error) {
+	out := new(GetAllTimezonesResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAllTimezones", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1142,6 +1194,9 @@ type NoNameServer interface {
 	GetPlayerByUsername(context.Context, *GetPlayerByUsernameRequest) (*GetPlayerByUsernameResponse, error)
 	GetPlayerStats(context.Context, *GetPlayerStatsRequest) (*GetPlayerStatsResponse, error)
 	GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error)
+	// Player - Configuration
+	PlayerSetLanguage(context.Context, *PlayerSetLanguageRequest) (*PlayerSetLanguageResponse, error)
+	PlayerSetTimezone(context.Context, *PlayerSetTimezoneRequest) (*PlayerSetTimezoneResponse, error)
 	// Player - Inventory
 	ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error)
 	GetPlayerResources(context.Context, *GetPlayerResourcesRequest) (*GetPlayerResourcesResponse, error)
@@ -1185,6 +1240,10 @@ type NoNameServer interface {
 	GetLanguageBySlug(context.Context, *GetLanguageBySlugRequest) (*GetLanguageBySlugResponse, error)
 	GetLanguageByName(context.Context, *GetLanguageByNameRequest) (*GetLanguageByNameResponse, error)
 	GetAllLanguages(context.Context, *GetAllLanguagesRequest) (*GetAllLanguagesResponse, error)
+	// Timezone
+	GetTimezoneBySlug(context.Context, *GetTimezoneBySlugRequest) (*GetTimezoneBySlugResponse, error)
+	GetTimezoneByName(context.Context, *GetTimezoneByNameRequest) (*GetTimezoneByNameResponse, error)
+	GetAllTimezones(context.Context, *GetAllTimezonesRequest) (*GetAllTimezonesResponse, error)
 	// NPC
 	GetAllNPC(context.Context, *GetAllNPCRequest) (*GetAllNPCResponse, error)
 	// NPC - Banck
@@ -1326,6 +1385,12 @@ func (*UnimplementedNoNameServer) GetPlayerStats(context.Context, *GetPlayerStat
 func (*UnimplementedNoNameServer) GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerExperience not implemented")
 }
+func (*UnimplementedNoNameServer) PlayerSetLanguage(context.Context, *PlayerSetLanguageRequest) (*PlayerSetLanguageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PlayerSetLanguage not implemented")
+}
+func (*UnimplementedNoNameServer) PlayerSetTimezone(context.Context, *PlayerSetTimezoneRequest) (*PlayerSetTimezoneResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PlayerSetTimezone not implemented")
+}
 func (*UnimplementedNoNameServer) ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ManagePlayerInventory not implemented")
 }
@@ -1424,6 +1489,15 @@ func (*UnimplementedNoNameServer) GetLanguageByName(context.Context, *GetLanguag
 }
 func (*UnimplementedNoNameServer) GetAllLanguages(context.Context, *GetAllLanguagesRequest) (*GetAllLanguagesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllLanguages not implemented")
+}
+func (*UnimplementedNoNameServer) GetTimezoneBySlug(context.Context, *GetTimezoneBySlugRequest) (*GetTimezoneBySlugResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTimezoneBySlug not implemented")
+}
+func (*UnimplementedNoNameServer) GetTimezoneByName(context.Context, *GetTimezoneByNameRequest) (*GetTimezoneByNameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTimezoneByName not implemented")
+}
+func (*UnimplementedNoNameServer) GetAllTimezones(context.Context, *GetAllTimezonesRequest) (*GetAllTimezonesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllTimezones not implemented")
 }
 func (*UnimplementedNoNameServer) GetAllNPC(context.Context, *GetAllNPCRequest) (*GetAllNPCResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllNPC not implemented")
@@ -1958,6 +2032,42 @@ func _NoName_GetPlayerExperience_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetPlayerExperience(ctx, req.(*GetPlayerExperienceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_PlayerSetLanguage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlayerSetLanguageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).PlayerSetLanguage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/PlayerSetLanguage",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).PlayerSetLanguage(ctx, req.(*PlayerSetLanguageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_PlayerSetTimezone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlayerSetTimezoneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).PlayerSetTimezone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/PlayerSetTimezone",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).PlayerSetTimezone(ctx, req.(*PlayerSetTimezoneRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2552,6 +2662,60 @@ func _NoName_GetAllLanguages_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetAllLanguages(ctx, req.(*GetAllLanguagesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetTimezoneBySlug_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimezoneBySlugRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetTimezoneBySlug(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetTimezoneBySlug",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetTimezoneBySlug(ctx, req.(*GetTimezoneBySlugRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetTimezoneByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimezoneByNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetTimezoneByName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetTimezoneByName",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetTimezoneByName(ctx, req.(*GetTimezoneByNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetAllTimezones_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllTimezonesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllTimezones(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllTimezones",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllTimezones(ctx, req.(*GetAllTimezonesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3563,6 +3727,14 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetPlayerExperience_Handler,
 		},
 		{
+			MethodName: "PlayerSetLanguage",
+			Handler:    _NoName_PlayerSetLanguage_Handler,
+		},
+		{
+			MethodName: "PlayerSetTimezone",
+			Handler:    _NoName_PlayerSetTimezone_Handler,
+		},
+		{
 			MethodName: "ManagePlayerInventory",
 			Handler:    _NoName_ManagePlayerInventory_Handler,
 		},
@@ -3693,6 +3865,18 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAllLanguages",
 			Handler:    _NoName_GetAllLanguages_Handler,
+		},
+		{
+			MethodName: "GetTimezoneBySlug",
+			Handler:    _NoName_GetTimezoneBySlug_Handler,
+		},
+		{
+			MethodName: "GetTimezoneByName",
+			Handler:    _NoName_GetTimezoneByName_Handler,
+		},
+		{
+			MethodName: "GetAllTimezones",
+			Handler:    _NoName_GetAllTimezones_Handler,
 		},
 		{
 			MethodName: "GetAllNPC",
