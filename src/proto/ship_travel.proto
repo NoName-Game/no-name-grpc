@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = ".;proto";
+option go_package = ".;pb";
 import "proto/planet.proto";
 import "google/protobuf/timestamp.proto";
 package ship_travel;

@@ -2,7 +2,7 @@ syntax = "proto3";
 import "proto/rarity.proto";
 import "proto/ship_category.proto";
 import "proto/ship_stats.proto";
-option go_package = ".;proto";
+option go_package = ".;pb";
 package ship;
 
 message Ship {

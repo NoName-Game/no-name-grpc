@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = ".;proto";
+option go_package = ".;pb";
 import "proto/item.proto";
 import "proto/resource.proto";
 package player_inventory;
