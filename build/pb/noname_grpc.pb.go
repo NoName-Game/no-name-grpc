@@ -138,6 +138,7 @@ type NoNameClient interface {
 	StartShipTravel(ctx context.Context, in *StartShipTravelRequest, opts ...grpc.CallOption) (*StartShipTravelResponse, error)
 	CheckShipTravel(ctx context.Context, in *CheckShipTravelRequest, opts ...grpc.CallOption) (*CheckShipTravelResponse, error)
 	EndShipTravel(ctx context.Context, in *EndShipTravelRequest, opts ...grpc.CallOption) (*EndShipTravelResponse, error)
+	EndShipTravelDiamond(ctx context.Context, in *EndShipTravelRequest, opts ...grpc.CallOption) (*EndShipTravelResponse, error)
 	// Transaction
 	CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error)
 	GetPlayerEconomy(ctx context.Context, in *GetPlayerEconomyRequest, opts ...grpc.CallOption) (*GetPlayerEconomyResponse, error)
@@ -1002,6 +1003,15 @@ func (c *noNameClient) EndShipTravel(ctx context.Context, in *EndShipTravelReque
 	return out, nil
 }
 
+func (c *noNameClient) EndShipTravelDiamond(ctx context.Context, in *EndShipTravelRequest, opts ...grpc.CallOption) (*EndShipTravelResponse, error) {
+	out := new(EndShipTravelResponse)
+	err := c.cc.Invoke(ctx, "/NoName/EndShipTravelDiamond", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error) {
 	out := new(CreateTransactionResponse)
 	err := c.cc.Invoke(ctx, "/NoName/CreateTransaction", in, out, opts...)
@@ -1289,6 +1299,7 @@ type NoNameServer interface {
 	StartShipTravel(context.Context, *StartShipTravelRequest) (*StartShipTravelResponse, error)
 	CheckShipTravel(context.Context, *CheckShipTravelRequest) (*CheckShipTravelResponse, error)
 	EndShipTravel(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error)
+	EndShipTravelDiamond(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error)
 	// Transaction
 	CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error)
 	GetPlayerEconomy(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error)
@@ -1597,6 +1608,9 @@ func (*UnimplementedNoNameServer) CheckShipTravel(context.Context, *CheckShipTra
 }
 func (*UnimplementedNoNameServer) EndShipTravel(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EndShipTravel not implemented")
+}
+func (*UnimplementedNoNameServer) EndShipTravelDiamond(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EndShipTravelDiamond not implemented")
 }
 func (*UnimplementedNoNameServer) CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTransaction not implemented")
@@ -3314,6 +3328,24 @@ func _NoName_EndShipTravel_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_EndShipTravelDiamond_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EndShipTravelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).EndShipTravelDiamond(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/EndShipTravelDiamond",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).EndShipTravelDiamond(ctx, req.(*EndShipTravelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_CreateTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateTransactionRequest)
 	if err := dec(in); err != nil {
@@ -4009,6 +4041,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "EndShipTravel",
 			Handler:    _NoName_EndShipTravel_Handler,
+		},
+		{
+			MethodName: "EndShipTravelDiamond",
+			Handler:    _NoName_EndShipTravelDiamond_Handler,
 		},
 		{
 			MethodName: "CreateTransaction",

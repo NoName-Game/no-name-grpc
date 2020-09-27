@@ -188,6 +188,7 @@ service NoName {
     rpc StartShipTravel (ship_travel.StartShipTravelRequest) returns (ship_travel.StartShipTravelResponse) {}
     rpc CheckShipTravel (ship_travel.CheckShipTravelRequest) returns (ship_travel.CheckShipTravelResponse) {}
     rpc EndShipTravel (ship_travel.EndShipTravelRequest) returns (ship_travel.EndShipTravelResponse) {}
+    rpc EndShipTravelDiamond (ship_travel.EndShipTravelRequest) returns (ship_travel.EndShipTravelResponse) {}
 
     // Transaction
     rpc CreateTransaction (transaction.CreateTransactionRequest) returns (transaction.CreateTransactionResponse) {}
