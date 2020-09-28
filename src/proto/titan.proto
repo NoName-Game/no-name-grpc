@@ -6,6 +6,8 @@ message Titan {
     uint32 ID = 1;
     string Name = 2;
     uint32 PlanetID = 3;
+    uint32 PlanetSystemID = 4;
+    uint32 DeadCounter = 5;
     uint32 LifeMax = 8;
     int32 LifePoint = 9;
 }
@@ -23,6 +25,14 @@ message GetTitanByPlanetIDRequest {
     uint32 PlanetID = 1;
 }
 message GetTitanByPlanetIDResponse {
+    Titan Titan = 1;
+}
+
+// GetTitanByPlanetSystemID
+message GetTitanByPlanetSystemIDRequest {
+    uint32 PlanetSystemID = 1;
+}
+message GetTitanByPlanetSystemIDResponse {
     Titan Titan = 1;
 }
 

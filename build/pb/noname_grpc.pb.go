@@ -75,6 +75,7 @@ type NoNameClient interface {
 	GetTitanByID(ctx context.Context, in *GetTitanByIDRequest, opts ...grpc.CallOption) (*GetTitanByIDResponse, error)
 	GetTitanByName(ctx context.Context, in *GetTitanByNameRequest, opts ...grpc.CallOption) (*GetTitanByNameResponse, error)
 	GetTitanByPlanetID(ctx context.Context, in *GetTitanByPlanetIDRequest, opts ...grpc.CallOption) (*GetTitanByPlanetIDResponse, error)
+	GetTitanByPlanetSystemID(ctx context.Context, in *GetTitanByPlanetSystemIDRequest, opts ...grpc.CallOption) (*GetTitanByPlanetSystemIDResponse, error)
 	HitTitan(ctx context.Context, in *HitTitanRequest, opts ...grpc.CallOption) (*HitTitanResponse, error)
 	TitanDiscovered(ctx context.Context, in *TitanDiscoveredRequest, opts ...grpc.CallOption) (*TitanDiscoveredResponse, error)
 	// Titan Event
@@ -574,6 +575,15 @@ func (c *noNameClient) GetTitanByName(ctx context.Context, in *GetTitanByNameReq
 func (c *noNameClient) GetTitanByPlanetID(ctx context.Context, in *GetTitanByPlanetIDRequest, opts ...grpc.CallOption) (*GetTitanByPlanetIDResponse, error) {
 	out := new(GetTitanByPlanetIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetTitanByPlanetID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetTitanByPlanetSystemID(ctx context.Context, in *GetTitanByPlanetSystemIDRequest, opts ...grpc.CallOption) (*GetTitanByPlanetSystemIDResponse, error) {
+	out := new(GetTitanByPlanetSystemIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetTitanByPlanetSystemID", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1236,6 +1246,7 @@ type NoNameServer interface {
 	GetTitanByID(context.Context, *GetTitanByIDRequest) (*GetTitanByIDResponse, error)
 	GetTitanByName(context.Context, *GetTitanByNameRequest) (*GetTitanByNameResponse, error)
 	GetTitanByPlanetID(context.Context, *GetTitanByPlanetIDRequest) (*GetTitanByPlanetIDResponse, error)
+	GetTitanByPlanetSystemID(context.Context, *GetTitanByPlanetSystemIDRequest) (*GetTitanByPlanetSystemIDResponse, error)
 	HitTitan(context.Context, *HitTitanRequest) (*HitTitanResponse, error)
 	TitanDiscovered(context.Context, *TitanDiscoveredRequest) (*TitanDiscoveredResponse, error)
 	// Titan Event
@@ -1467,6 +1478,9 @@ func (*UnimplementedNoNameServer) GetTitanByName(context.Context, *GetTitanByNam
 }
 func (*UnimplementedNoNameServer) GetTitanByPlanetID(context.Context, *GetTitanByPlanetIDRequest) (*GetTitanByPlanetIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTitanByPlanetID not implemented")
+}
+func (*UnimplementedNoNameServer) GetTitanByPlanetSystemID(context.Context, *GetTitanByPlanetSystemIDRequest) (*GetTitanByPlanetSystemIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTitanByPlanetSystemID not implemented")
 }
 func (*UnimplementedNoNameServer) HitTitan(context.Context, *HitTitanRequest) (*HitTitanResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HitTitan not implemented")
@@ -2478,6 +2492,24 @@ func _NoName_GetTitanByPlanetID_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetTitanByPlanetID(ctx, req.(*GetTitanByPlanetIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetTitanByPlanetSystemID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTitanByPlanetSystemIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetTitanByPlanetSystemID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetTitanByPlanetSystemID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetTitanByPlanetSystemID(ctx, req.(*GetTitanByPlanetSystemIDRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3853,6 +3885,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetTitanByPlanetID",
 			Handler:    _NoName_GetTitanByPlanetID_Handler,
+		},
+		{
+			MethodName: "GetTitanByPlanetSystemID",
+			Handler:    _NoName_GetTitanByPlanetSystemID_Handler,
 		},
 		{
 			MethodName: "HitTitan",
