@@ -23,3 +23,13 @@ message GetRecapActiveResearchResponse {
     int32 MissingResourcesCounter = 2;
     int32 DonatedResourcesCounter = 3;
 }
+
+// ResearchDonation
+message ResearchDonationRequest {
+    uint32 PlayerID = 1;
+    uint32 ResourceID = 2;
+    int32 Quantity = 3;
+}
+message ResearchDonationResponse {
+    // Empty
+}

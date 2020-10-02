@@ -210,6 +210,7 @@ service NoName {
 
     // Research
     rpc GetRecapActiveResearch (safeplanet_research.GetRecapActiveResearchRequest) returns (safeplanet_research.GetRecapActiveResearchResponse) {}
+    rpc ResearchDonation (safeplanet_research.ResearchDonationRequest) returns (safeplanet_research.ResearchDonationResponse) {}
 
     // Exploration
     rpc ExplorationStart (exploration.ExplorationStartRequest) returns (exploration.ExplorationStartResponse) {}

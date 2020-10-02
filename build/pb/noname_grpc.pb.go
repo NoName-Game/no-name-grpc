@@ -154,6 +154,7 @@ type NoNameClient interface {
 	EndTeletrasportSafePlanet(ctx context.Context, in *EndTeletrasportSafePlanetRequest, opts ...grpc.CallOption) (*EndTeletrasportSafePlanetResponse, error)
 	// Research
 	GetRecapActiveResearch(ctx context.Context, in *GetRecapActiveResearchRequest, opts ...grpc.CallOption) (*GetRecapActiveResearchResponse, error)
+	ResearchDonation(ctx context.Context, in *ResearchDonationRequest, opts ...grpc.CallOption) (*ResearchDonationResponse, error)
 	// Exploration
 	ExplorationStart(ctx context.Context, in *ExplorationStartRequest, opts ...grpc.CallOption) (*ExplorationStartResponse, error)
 	ExplorationContinue(ctx context.Context, in *ExplorationContinueRequest, opts ...grpc.CallOption) (*ExplorationContinueResponse, error)
@@ -1105,6 +1106,15 @@ func (c *noNameClient) GetRecapActiveResearch(ctx context.Context, in *GetRecapA
 	return out, nil
 }
 
+func (c *noNameClient) ResearchDonation(ctx context.Context, in *ResearchDonationRequest, opts ...grpc.CallOption) (*ResearchDonationResponse, error) {
+	out := new(ResearchDonationResponse)
+	err := c.cc.Invoke(ctx, "/NoName/ResearchDonation", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) ExplorationStart(ctx context.Context, in *ExplorationStartRequest, opts ...grpc.CallOption) (*ExplorationStartResponse, error) {
 	out := new(ExplorationStartResponse)
 	err := c.cc.Invoke(ctx, "/NoName/ExplorationStart", in, out, opts...)
@@ -1336,6 +1346,7 @@ type NoNameServer interface {
 	EndTeletrasportSafePlanet(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error)
 	// Research
 	GetRecapActiveResearch(context.Context, *GetRecapActiveResearchRequest) (*GetRecapActiveResearchResponse, error)
+	ResearchDonation(context.Context, *ResearchDonationRequest) (*ResearchDonationResponse, error)
 	// Exploration
 	ExplorationStart(context.Context, *ExplorationStartRequest) (*ExplorationStartResponse, error)
 	ExplorationContinue(context.Context, *ExplorationContinueRequest) (*ExplorationContinueResponse, error)
@@ -1665,6 +1676,9 @@ func (*UnimplementedNoNameServer) EndTeletrasportSafePlanet(context.Context, *En
 }
 func (*UnimplementedNoNameServer) GetRecapActiveResearch(context.Context, *GetRecapActiveResearchRequest) (*GetRecapActiveResearchResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRecapActiveResearch not implemented")
+}
+func (*UnimplementedNoNameServer) ResearchDonation(context.Context, *ResearchDonationRequest) (*ResearchDonationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ResearchDonation not implemented")
 }
 func (*UnimplementedNoNameServer) ExplorationStart(context.Context, *ExplorationStartRequest) (*ExplorationStartResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ExplorationStart not implemented")
@@ -3556,6 +3570,24 @@ func _NoName_GetRecapActiveResearch_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_ResearchDonation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResearchDonationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).ResearchDonation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/ResearchDonation",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).ResearchDonation(ctx, req.(*ResearchDonationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_ExplorationStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ExplorationStartRequest)
 	if err := dec(in); err != nil {
@@ -4151,6 +4183,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetRecapActiveResearch",
 			Handler:    _NoName_GetRecapActiveResearch_Handler,
+		},
+		{
+			MethodName: "ResearchDonation",
+			Handler:    _NoName_ResearchDonation_Handler,
 		},
 		{
 			MethodName: "ExplorationStart",
