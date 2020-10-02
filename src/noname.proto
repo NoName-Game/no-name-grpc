@@ -76,7 +76,6 @@ service NoName {
     rpc PlayerSetTimezone (player_configuration.PlayerSetTimezoneRequest) returns (player_configuration.PlayerSetTimezoneResponse) {}
 
     // Player - Inventory
-    rpc ManagePlayerInventory (player_inventory.ManagePlayerInventoryRequest) returns (player_inventory.ManagePlayerInventoryResponse) {}
     rpc GetPlayerResources (player_inventory.GetPlayerResourcesRequest) returns (player_inventory.GetPlayerResourcesResponse) {}
     rpc GetPlayerItems (player_inventory.GetPlayerItemsRequest) returns (player_inventory.GetPlayerItemsResponse) {}
 

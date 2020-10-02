@@ -8,21 +8,10 @@ message PlayerInventory {
     uint32 ID = 1;
     uint32 PlayerID = 2;
     int32 Quantity = 3;
-    uint32 ItemID = 4;
-    string ItemType = 5;
+    uint32 EntityID = 4;
+    uint32 TransactionTypeID = 5;
     resource.Resource Resource = 6;
     item.Item Item = 7;
-}
-
-// ManagePlayerInventory
-message ManagePlayerInventoryRequest {
-    uint32 PlayerID = 1;
-    uint32 ItemID = 2;
-    string ItemType = 3;
-    int32 Quantity = 4;
-}
-message ManagePlayerInventoryResponse {
-    // Empty
 }
 
 // GetPlayerResources
