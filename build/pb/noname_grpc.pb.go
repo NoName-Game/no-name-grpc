@@ -152,6 +152,8 @@ type NoNameClient interface {
 	// Expansion
 	GetTeletrasportSafePlanetList(ctx context.Context, in *GetTeletrasportSafePlanetListRequest, opts ...grpc.CallOption) (*GetTeletrasportSafePlanetListResponse, error)
 	EndTeletrasportSafePlanet(ctx context.Context, in *EndTeletrasportSafePlanetRequest, opts ...grpc.CallOption) (*EndTeletrasportSafePlanetResponse, error)
+	// Research
+	GetRecapActiveResearch(ctx context.Context, in *GetRecapActiveResearchRequest, opts ...grpc.CallOption) (*GetRecapActiveResearchResponse, error)
 	// Exploration
 	ExplorationStart(ctx context.Context, in *ExplorationStartRequest, opts ...grpc.CallOption) (*ExplorationStartResponse, error)
 	ExplorationContinue(ctx context.Context, in *ExplorationContinueRequest, opts ...grpc.CallOption) (*ExplorationContinueResponse, error)
@@ -1094,6 +1096,15 @@ func (c *noNameClient) EndTeletrasportSafePlanet(ctx context.Context, in *EndTel
 	return out, nil
 }
 
+func (c *noNameClient) GetRecapActiveResearch(ctx context.Context, in *GetRecapActiveResearchRequest, opts ...grpc.CallOption) (*GetRecapActiveResearchResponse, error) {
+	out := new(GetRecapActiveResearchResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetRecapActiveResearch", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) ExplorationStart(ctx context.Context, in *ExplorationStartRequest, opts ...grpc.CallOption) (*ExplorationStartResponse, error) {
 	out := new(ExplorationStartResponse)
 	err := c.cc.Invoke(ctx, "/NoName/ExplorationStart", in, out, opts...)
@@ -1323,6 +1334,8 @@ type NoNameServer interface {
 	// Expansion
 	GetTeletrasportSafePlanetList(context.Context, *GetTeletrasportSafePlanetListRequest) (*GetTeletrasportSafePlanetListResponse, error)
 	EndTeletrasportSafePlanet(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error)
+	// Research
+	GetRecapActiveResearch(context.Context, *GetRecapActiveResearchRequest) (*GetRecapActiveResearchResponse, error)
 	// Exploration
 	ExplorationStart(context.Context, *ExplorationStartRequest) (*ExplorationStartResponse, error)
 	ExplorationContinue(context.Context, *ExplorationContinueRequest) (*ExplorationContinueResponse, error)
@@ -1649,6 +1662,9 @@ func (*UnimplementedNoNameServer) GetTeletrasportSafePlanetList(context.Context,
 }
 func (*UnimplementedNoNameServer) EndTeletrasportSafePlanet(context.Context, *EndTeletrasportSafePlanetRequest) (*EndTeletrasportSafePlanetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EndTeletrasportSafePlanet not implemented")
+}
+func (*UnimplementedNoNameServer) GetRecapActiveResearch(context.Context, *GetRecapActiveResearchRequest) (*GetRecapActiveResearchResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRecapActiveResearch not implemented")
 }
 func (*UnimplementedNoNameServer) ExplorationStart(context.Context, *ExplorationStartRequest) (*ExplorationStartResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ExplorationStart not implemented")
@@ -3522,6 +3538,24 @@ func _NoName_EndTeletrasportSafePlanet_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetRecapActiveResearch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecapActiveResearchRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetRecapActiveResearch(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetRecapActiveResearch",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetRecapActiveResearch(ctx, req.(*GetRecapActiveResearchRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_ExplorationStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ExplorationStartRequest)
 	if err := dec(in); err != nil {
@@ -4113,6 +4147,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "EndTeletrasportSafePlanet",
 			Handler:    _NoName_EndTeletrasportSafePlanet_Handler,
+		},
+		{
+			MethodName: "GetRecapActiveResearch",
+			Handler:    _NoName_GetRecapActiveResearch_Handler,
 		},
 		{
 			MethodName: "ExplorationStart",

@@ -34,6 +34,7 @@ import "proto/ship_travel.proto";
 import "proto/tutorial.proto";
 import "proto/player_inventory.proto";
 import "proto/player_configuration.proto";
+import "proto/safeplanet_research.proto";
 
 option go_package = ".;pb";
 
@@ -206,6 +207,9 @@ service NoName {
     // Expansion
     rpc GetTeletrasportSafePlanetList (expansion.GetTeletrasportSafePlanetListRequest) returns (expansion.GetTeletrasportSafePlanetListResponse) {}
     rpc EndTeletrasportSafePlanet (expansion.EndTeletrasportSafePlanetRequest) returns (expansion.EndTeletrasportSafePlanetResponse) {}
+
+    // Research
+    rpc GetRecapActiveResearch (safeplanet_research.GetRecapActiveResearchRequest) returns (safeplanet_research.GetRecapActiveResearchResponse) {}
 
     // Exploration
     rpc ExplorationStart (exploration.ExplorationStartRequest) returns (exploration.ExplorationStartResponse) {}
