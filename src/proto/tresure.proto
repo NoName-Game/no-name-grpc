@@ -9,7 +9,7 @@ package tresure;
 
 message Tresure {
     uint32 ID = 1;
-    uint32 MapID = 3;
+    uint32 PlanetMapID = 3;
     int32 PositionX = 4;
     int32 PositionY = 5;
     uint32 RarityID = 6;

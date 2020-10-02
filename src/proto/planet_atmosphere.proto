@@ -1,8 +1,8 @@
 syntax = "proto3";
 option go_package = ".;pb";
-package atmosphere;
+package planet_atmosphere;
 
-message Atmosphere {
+message PlanetAtmosphere {
     uint32 ID = 1;
     string Name = 2;
     string Slug = 3;

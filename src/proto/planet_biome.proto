@@ -1,9 +1,12 @@
 syntax = "proto3";
 option go_package = ".;pb";
-package biome;
+package planet_biome;
 
-message Biome {
+message PlanetBiome {
     uint32 ID = 1;
     string Name = 2;
     string Slug = 3;
+    double Solid = 4;
+    double Liquid = 5;
+    double Gas = 6;
 }

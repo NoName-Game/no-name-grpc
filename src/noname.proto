@@ -11,7 +11,7 @@ import "proto/item.proto";
 import "proto/item_category.proto";
 import "proto/language.proto";
 import "proto/timezone.proto";
-import "proto/maps.proto";
+import "proto/planet_map.proto";
 import "proto/npc.proto";
 import "proto/planet.proto";
 import "proto/resource.proto";
@@ -149,7 +149,7 @@ service NoName {
     rpc GetSafePlanets (planet.GetSafePlanetsRequest) returns (planet.GetSafePlanetsResponse) {}
 
     // Map
-    rpc GetMapByID (maps.GetMapByIDRequest) returns (maps.GetMapByIDResponse) {}
+    rpc GetPlanetMapByID (planet_map.GetPlanetMapByIDRequest) returns (planet_map.GetPlanetMapByIDResponse) {}
 
     // Resource
     rpc GetResourceByID (resource.GetResourceByIDRequest) returns (resource.GetResourceByIDResponse) {}

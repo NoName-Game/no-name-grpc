@@ -2,9 +2,9 @@ syntax = "proto3";
 import "proto/enemy.proto";
 import "proto/tresure.proto";
 option go_package = ".;pb";
-package maps;
+package planet_map;
 
-message Maps {
+message PlanetMap {
     uint32 ID = 1;
     string CellGrid = 2;
     int32 StartPositionX = 3;
@@ -14,9 +14,9 @@ message Maps {
 }
 
 // GetMapByID
-message GetMapByIDRequest {
-    uint32 MapID = 1;
+message GetPlanetMapByIDRequest {
+    uint32 PlanetMapID = 1;
 }
-message GetMapByIDResponse {
-    Maps Maps = 1;
+message GetPlanetMapByIDResponse {
+    PlanetMap PlanetMap = 1;
 }

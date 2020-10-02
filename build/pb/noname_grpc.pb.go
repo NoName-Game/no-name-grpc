@@ -107,7 +107,7 @@ type NoNameClient interface {
 	GetExpansionInfo(ctx context.Context, in *GetExpansionInfoRequest, opts ...grpc.CallOption) (*GetExpansionInfoResponse, error)
 	GetSafePlanets(ctx context.Context, in *GetSafePlanetsRequest, opts ...grpc.CallOption) (*GetSafePlanetsResponse, error)
 	// Map
-	GetMapByID(ctx context.Context, in *GetMapByIDRequest, opts ...grpc.CallOption) (*GetMapByIDResponse, error)
+	GetPlanetMapByID(ctx context.Context, in *GetPlanetMapByIDRequest, opts ...grpc.CallOption) (*GetPlanetMapByIDResponse, error)
 	// Resource
 	GetResourceByID(ctx context.Context, in *GetResourceByIDRequest, opts ...grpc.CallOption) (*GetResourceByIDResponse, error)
 	GetResourceByName(ctx context.Context, in *GetResourceByNameRequest, opts ...grpc.CallOption) (*GetResourceByNameResponse, error)
@@ -797,9 +797,9 @@ func (c *noNameClient) GetSafePlanets(ctx context.Context, in *GetSafePlanetsReq
 	return out, nil
 }
 
-func (c *noNameClient) GetMapByID(ctx context.Context, in *GetMapByIDRequest, opts ...grpc.CallOption) (*GetMapByIDResponse, error) {
-	out := new(GetMapByIDResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetMapByID", in, out, opts...)
+func (c *noNameClient) GetPlanetMapByID(ctx context.Context, in *GetPlanetMapByIDRequest, opts ...grpc.CallOption) (*GetPlanetMapByIDResponse, error) {
+	out := new(GetPlanetMapByIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlanetMapByID", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1278,7 +1278,7 @@ type NoNameServer interface {
 	GetExpansionInfo(context.Context, *GetExpansionInfoRequest) (*GetExpansionInfoResponse, error)
 	GetSafePlanets(context.Context, *GetSafePlanetsRequest) (*GetSafePlanetsResponse, error)
 	// Map
-	GetMapByID(context.Context, *GetMapByIDRequest) (*GetMapByIDResponse, error)
+	GetPlanetMapByID(context.Context, *GetPlanetMapByIDRequest) (*GetPlanetMapByIDResponse, error)
 	// Resource
 	GetResourceByID(context.Context, *GetResourceByIDRequest) (*GetResourceByIDResponse, error)
 	GetResourceByName(context.Context, *GetResourceByNameRequest) (*GetResourceByNameResponse, error)
@@ -1551,8 +1551,8 @@ func (*UnimplementedNoNameServer) GetExpansionInfo(context.Context, *GetExpansio
 func (*UnimplementedNoNameServer) GetSafePlanets(context.Context, *GetSafePlanetsRequest) (*GetSafePlanetsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSafePlanets not implemented")
 }
-func (*UnimplementedNoNameServer) GetMapByID(context.Context, *GetMapByIDRequest) (*GetMapByIDResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetMapByID not implemented")
+func (*UnimplementedNoNameServer) GetPlanetMapByID(context.Context, *GetPlanetMapByIDRequest) (*GetPlanetMapByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlanetMapByID not implemented")
 }
 func (*UnimplementedNoNameServer) GetResourceByID(context.Context, *GetResourceByIDRequest) (*GetResourceByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetResourceByID not implemented")
@@ -2928,20 +2928,20 @@ func _NoName_GetSafePlanets_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_GetMapByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMapByIDRequest)
+func _NoName_GetPlanetMapByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlanetMapByIDRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).GetMapByID(ctx, in)
+		return srv.(NoNameServer).GetPlanetMapByID(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/GetMapByID",
+		FullMethod: "/NoName/GetPlanetMapByID",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetMapByID(ctx, req.(*GetMapByIDRequest))
+		return srv.(NoNameServer).GetPlanetMapByID(ctx, req.(*GetPlanetMapByIDRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3983,8 +3983,8 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetSafePlanets_Handler,
 		},
 		{
-			MethodName: "GetMapByID",
-			Handler:    _NoName_GetMapByID_Handler,
+			MethodName: "GetPlanetMapByID",
+			Handler:    _NoName_GetPlanetMapByID_Handler,
 		},
 		{
 			MethodName: "GetResourceByID",
