@@ -1,5 +1,4 @@
 syntax = "proto3";
-import "google/protobuf/timestamp.proto";
 import "proto/rarity.proto";
 option go_package = ".;pb";
 package safeplanet_research;

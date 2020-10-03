@@ -47,7 +47,6 @@ type NoNameClient interface {
 	PlayerSetLanguage(ctx context.Context, in *PlayerSetLanguageRequest, opts ...grpc.CallOption) (*PlayerSetLanguageResponse, error)
 	PlayerSetTimezone(ctx context.Context, in *PlayerSetTimezoneRequest, opts ...grpc.CallOption) (*PlayerSetTimezoneResponse, error)
 	// Player - Inventory
-	ManagePlayerInventory(ctx context.Context, in *ManagePlayerInventoryRequest, opts ...grpc.CallOption) (*ManagePlayerInventoryResponse, error)
 	GetPlayerResources(ctx context.Context, in *GetPlayerResourcesRequest, opts ...grpc.CallOption) (*GetPlayerResourcesResponse, error)
 	GetPlayerItems(ctx context.Context, in *GetPlayerItemsRequest, opts ...grpc.CallOption) (*GetPlayerItemsResponse, error)
 	// Player - Position
@@ -141,7 +140,6 @@ type NoNameClient interface {
 	EndShipTravel(ctx context.Context, in *EndShipTravelRequest, opts ...grpc.CallOption) (*EndShipTravelResponse, error)
 	EndShipTravelDiamond(ctx context.Context, in *EndShipTravelRequest, opts ...grpc.CallOption) (*EndShipTravelResponse, error)
 	// Transaction
-	CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error)
 	GetPlayerEconomy(ctx context.Context, in *GetPlayerEconomyRequest, opts ...grpc.CallOption) (*GetPlayerEconomyResponse, error)
 	// Tresure
 	DropTresure(ctx context.Context, in *DropTresureRequest, opts ...grpc.CallOption) (*DropTresureResponse, error)
@@ -380,15 +378,6 @@ func (c *noNameClient) PlayerSetLanguage(ctx context.Context, in *PlayerSetLangu
 func (c *noNameClient) PlayerSetTimezone(ctx context.Context, in *PlayerSetTimezoneRequest, opts ...grpc.CallOption) (*PlayerSetTimezoneResponse, error) {
 	out := new(PlayerSetTimezoneResponse)
 	err := c.cc.Invoke(ctx, "/NoName/PlayerSetTimezone", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) ManagePlayerInventory(ctx context.Context, in *ManagePlayerInventoryRequest, opts ...grpc.CallOption) (*ManagePlayerInventoryResponse, error) {
-	out := new(ManagePlayerInventoryResponse)
-	err := c.cc.Invoke(ctx, "/NoName/ManagePlayerInventory", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1025,15 +1014,6 @@ func (c *noNameClient) EndShipTravelDiamond(ctx context.Context, in *EndShipTrav
 	return out, nil
 }
 
-func (c *noNameClient) CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error) {
-	out := new(CreateTransactionResponse)
-	err := c.cc.Invoke(ctx, "/NoName/CreateTransaction", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *noNameClient) GetPlayerEconomy(ctx context.Context, in *GetPlayerEconomyRequest, opts ...grpc.CallOption) (*GetPlayerEconomyResponse, error) {
 	out := new(GetPlayerEconomyResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerEconomy", in, out, opts...)
@@ -1239,7 +1219,6 @@ type NoNameServer interface {
 	PlayerSetLanguage(context.Context, *PlayerSetLanguageRequest) (*PlayerSetLanguageResponse, error)
 	PlayerSetTimezone(context.Context, *PlayerSetTimezoneRequest) (*PlayerSetTimezoneResponse, error)
 	// Player - Inventory
-	ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error)
 	GetPlayerResources(context.Context, *GetPlayerResourcesRequest) (*GetPlayerResourcesResponse, error)
 	GetPlayerItems(context.Context, *GetPlayerItemsRequest) (*GetPlayerItemsResponse, error)
 	// Player - Position
@@ -1333,7 +1312,6 @@ type NoNameServer interface {
 	EndShipTravel(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error)
 	EndShipTravelDiamond(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error)
 	// Transaction
-	CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error)
 	GetPlayerEconomy(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error)
 	// Tresure
 	DropTresure(context.Context, *DropTresureRequest) (*DropTresureResponse, error)
@@ -1436,9 +1414,6 @@ func (*UnimplementedNoNameServer) PlayerSetLanguage(context.Context, *PlayerSetL
 }
 func (*UnimplementedNoNameServer) PlayerSetTimezone(context.Context, *PlayerSetTimezoneRequest) (*PlayerSetTimezoneResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PlayerSetTimezone not implemented")
-}
-func (*UnimplementedNoNameServer) ManagePlayerInventory(context.Context, *ManagePlayerInventoryRequest) (*ManagePlayerInventoryResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ManagePlayerInventory not implemented")
 }
 func (*UnimplementedNoNameServer) GetPlayerResources(context.Context, *GetPlayerResourcesRequest) (*GetPlayerResourcesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerResources not implemented")
@@ -1649,9 +1624,6 @@ func (*UnimplementedNoNameServer) EndShipTravel(context.Context, *EndShipTravelR
 }
 func (*UnimplementedNoNameServer) EndShipTravelDiamond(context.Context, *EndShipTravelRequest) (*EndShipTravelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EndShipTravelDiamond not implemented")
-}
-func (*UnimplementedNoNameServer) CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateTransaction not implemented")
 }
 func (*UnimplementedNoNameServer) GetPlayerEconomy(context.Context, *GetPlayerEconomyRequest) (*GetPlayerEconomyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerEconomy not implemented")
@@ -2126,24 +2098,6 @@ func _NoName_PlayerSetTimezone_Handler(srv interface{}, ctx context.Context, dec
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).PlayerSetTimezone(ctx, req.(*PlayerSetTimezoneRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_ManagePlayerInventory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ManagePlayerInventoryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).ManagePlayerInventory(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/ManagePlayerInventory",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).ManagePlayerInventory(ctx, req.(*ManagePlayerInventoryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3408,24 +3362,6 @@ func _NoName_EndShipTravelDiamond_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_CreateTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateTransactionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).CreateTransaction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/CreateTransaction",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).CreateTransaction(ctx, req.(*CreateTransactionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _NoName_GetPlayerEconomy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPlayerEconomyRequest)
 	if err := dec(in); err != nil {
@@ -3865,10 +3801,6 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_PlayerSetTimezone_Handler,
 		},
 		{
-			MethodName: "ManagePlayerInventory",
-			Handler:    _NoName_ManagePlayerInventory_Handler,
-		},
-		{
 			MethodName: "GetPlayerResources",
 			Handler:    _NoName_GetPlayerResources_Handler,
 		},
@@ -4147,10 +4079,6 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "EndShipTravelDiamond",
 			Handler:    _NoName_EndShipTravelDiamond_Handler,
-		},
-		{
-			MethodName: "CreateTransaction",
-			Handler:    _NoName_CreateTransaction_Handler,
 		},
 		{
 			MethodName: "GetPlayerEconomy",

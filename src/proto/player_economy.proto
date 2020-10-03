@@ -2,9 +2,9 @@ syntax = "proto3";
 option go_package = ".;pb";
 import "proto/transaction_type.proto";
 import "proto/transaction_category.proto";
-package transaction;
+package player_economy;
 
-message Transaction {
+message PlayerEconomy {
     uint32 ID = 1;
     int32 Value = 2;
     uint32 TransactionTypeID = 3;
@@ -12,17 +12,6 @@ message Transaction {
     uint32 TransactionCategoryID = 5;
     transaction_category.TransactionCategory TransactionCategory = 6;
     uint32 PlayerID = 7;
-}
-
-// CreateTransaction
-message CreateTransactionRequest {
-    int32 Value = 1;
-    uint32 TransactionTypeID = 2;
-    uint32 TransactionCategoryID = 3;
-    uint32 PlayerID = 4;
-}
-message CreateTransactionResponse {
-    Transaction Transaction = 1;
 }
 
 // GetPlayerEconomy

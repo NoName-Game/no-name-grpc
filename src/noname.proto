@@ -16,7 +16,7 @@ import "proto/npc.proto";
 import "proto/planet.proto";
 import "proto/resource.proto";
 import "proto/ship.proto";
-import "proto/transaction.proto";
+import "proto/player_economy.proto";
 import "proto/tresure.proto";
 import "proto/mission.proto";
 import "proto/titan.proto";
@@ -192,8 +192,7 @@ service NoName {
     rpc EndShipTravelDiamond (ship_travel.EndShipTravelRequest) returns (ship_travel.EndShipTravelResponse) {}
 
     // Transaction
-    rpc CreateTransaction (transaction.CreateTransactionRequest) returns (transaction.CreateTransactionResponse) {}
-    rpc GetPlayerEconomy (transaction.GetPlayerEconomyRequest) returns (transaction.GetPlayerEconomyResponse) {}
+    rpc GetPlayerEconomy (player_economy.GetPlayerEconomyRequest) returns (player_economy.GetPlayerEconomyResponse) {}
 
     // Tresure
     rpc DropTresure (tresure.DropTresureRequest) returns (tresure.DropTresureResponse) {}

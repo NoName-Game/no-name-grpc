@@ -120,116 +120,6 @@ func (x *PlayerInventory) GetItem() *Item {
 	return nil
 }
 
-// ManagePlayerInventory
-type ManagePlayerInventoryRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	PlayerID          uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	EntityID          uint32 `protobuf:"varint,2,opt,name=EntityID,proto3" json:"EntityID,omitempty"`
-	TransactionTypeID uint32 `protobuf:"varint,3,opt,name=TransactionTypeID,proto3" json:"TransactionTypeID,omitempty"`
-	Quantity          int32  `protobuf:"varint,4,opt,name=Quantity,proto3" json:"Quantity,omitempty"`
-}
-
-func (x *ManagePlayerInventoryRequest) Reset() {
-	*x = ManagePlayerInventoryRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_player_inventory_proto_msgTypes[1]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ManagePlayerInventoryRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ManagePlayerInventoryRequest) ProtoMessage() {}
-
-func (x *ManagePlayerInventoryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_inventory_proto_msgTypes[1]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ManagePlayerInventoryRequest.ProtoReflect.Descriptor instead.
-func (*ManagePlayerInventoryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_inventory_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *ManagePlayerInventoryRequest) GetPlayerID() uint32 {
-	if x != nil {
-		return x.PlayerID
-	}
-	return 0
-}
-
-func (x *ManagePlayerInventoryRequest) GetEntityID() uint32 {
-	if x != nil {
-		return x.EntityID
-	}
-	return 0
-}
-
-func (x *ManagePlayerInventoryRequest) GetTransactionTypeID() uint32 {
-	if x != nil {
-		return x.TransactionTypeID
-	}
-	return 0
-}
-
-func (x *ManagePlayerInventoryRequest) GetQuantity() int32 {
-	if x != nil {
-		return x.Quantity
-	}
-	return 0
-}
-
-type ManagePlayerInventoryResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-}
-
-func (x *ManagePlayerInventoryResponse) Reset() {
-	*x = ManagePlayerInventoryResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_player_inventory_proto_msgTypes[2]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ManagePlayerInventoryResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ManagePlayerInventoryResponse) ProtoMessage() {}
-
-func (x *ManagePlayerInventoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_inventory_proto_msgTypes[2]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ManagePlayerInventoryResponse.ProtoReflect.Descriptor instead.
-func (*ManagePlayerInventoryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_inventory_proto_rawDescGZIP(), []int{2}
-}
-
 // GetPlayerResources
 type GetPlayerResourcesRequest struct {
 	state         protoimpl.MessageState
@@ -242,7 +132,7 @@ type GetPlayerResourcesRequest struct {
 func (x *GetPlayerResourcesRequest) Reset() {
 	*x = GetPlayerResourcesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_player_inventory_proto_msgTypes[3]
+		mi := &file_proto_player_inventory_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -255,7 +145,7 @@ func (x *GetPlayerResourcesRequest) String() string {
 func (*GetPlayerResourcesRequest) ProtoMessage() {}
 
 func (x *GetPlayerResourcesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_inventory_proto_msgTypes[3]
+	mi := &file_proto_player_inventory_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -268,7 +158,7 @@ func (x *GetPlayerResourcesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerResourcesRequest.ProtoReflect.Descriptor instead.
 func (*GetPlayerResourcesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_inventory_proto_rawDescGZIP(), []int{3}
+	return file_proto_player_inventory_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *GetPlayerResourcesRequest) GetPlayerID() uint32 {
@@ -289,7 +179,7 @@ type GetPlayerResourcesResponse struct {
 func (x *GetPlayerResourcesResponse) Reset() {
 	*x = GetPlayerResourcesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_player_inventory_proto_msgTypes[4]
+		mi := &file_proto_player_inventory_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -302,7 +192,7 @@ func (x *GetPlayerResourcesResponse) String() string {
 func (*GetPlayerResourcesResponse) ProtoMessage() {}
 
 func (x *GetPlayerResourcesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_inventory_proto_msgTypes[4]
+	mi := &file_proto_player_inventory_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -315,7 +205,7 @@ func (x *GetPlayerResourcesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerResourcesResponse.ProtoReflect.Descriptor instead.
 func (*GetPlayerResourcesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_inventory_proto_rawDescGZIP(), []int{4}
+	return file_proto_player_inventory_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GetPlayerResourcesResponse) GetPlayerInventory() []*PlayerInventory {
@@ -337,7 +227,7 @@ type GetPlayerItemsRequest struct {
 func (x *GetPlayerItemsRequest) Reset() {
 	*x = GetPlayerItemsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_player_inventory_proto_msgTypes[5]
+		mi := &file_proto_player_inventory_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -350,7 +240,7 @@ func (x *GetPlayerItemsRequest) String() string {
 func (*GetPlayerItemsRequest) ProtoMessage() {}
 
 func (x *GetPlayerItemsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_inventory_proto_msgTypes[5]
+	mi := &file_proto_player_inventory_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -363,7 +253,7 @@ func (x *GetPlayerItemsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerItemsRequest.ProtoReflect.Descriptor instead.
 func (*GetPlayerItemsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_player_inventory_proto_rawDescGZIP(), []int{5}
+	return file_proto_player_inventory_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetPlayerItemsRequest) GetPlayerID() uint32 {
@@ -384,7 +274,7 @@ type GetPlayerItemsResponse struct {
 func (x *GetPlayerItemsResponse) Reset() {
 	*x = GetPlayerItemsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_player_inventory_proto_msgTypes[6]
+		mi := &file_proto_player_inventory_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -397,7 +287,7 @@ func (x *GetPlayerItemsResponse) String() string {
 func (*GetPlayerItemsResponse) ProtoMessage() {}
 
 func (x *GetPlayerItemsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_player_inventory_proto_msgTypes[6]
+	mi := &file_proto_player_inventory_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -410,7 +300,7 @@ func (x *GetPlayerItemsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerItemsResponse.ProtoReflect.Descriptor instead.
 func (*GetPlayerItemsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_player_inventory_proto_rawDescGZIP(), []int{6}
+	return file_proto_player_inventory_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetPlayerItemsResponse) GetPlayerInventory() []*PlayerInventory {
@@ -443,41 +333,28 @@ var file_proto_player_inventory_proto_rawDesc = []byte{
 	0x32, 0x12, 0x2e, 0x72, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x6f,
 	0x75, 0x72, 0x63, 0x65, 0x52, 0x08, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x12, 0x1e,
 	0x0a, 0x04, 0x49, 0x74, 0x65, 0x6d, 0x18, 0x07, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0a, 0x2e, 0x69,
-	0x74, 0x65, 0x6d, 0x2e, 0x49, 0x74, 0x65, 0x6d, 0x52, 0x04, 0x49, 0x74, 0x65, 0x6d, 0x22, 0xa0,
-	0x01, 0x0a, 0x1c, 0x4d, 0x61, 0x6e, 0x61, 0x67, 0x65, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49,
-	0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
-	0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x12, 0x1a, 0x0a, 0x08, 0x45,
-	0x6e, 0x74, 0x69, 0x74, 0x79, 0x49, 0x44, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x45,
-	0x6e, 0x74, 0x69, 0x74, 0x79, 0x49, 0x44, 0x12, 0x2c, 0x0a, 0x11, 0x54, 0x72, 0x61, 0x6e, 0x73,
-	0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x49, 0x44, 0x18, 0x03, 0x20, 0x01,
-	0x28, 0x0d, 0x52, 0x11, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x54,
-	0x79, 0x70, 0x65, 0x49, 0x44, 0x12, 0x1a, 0x0a, 0x08, 0x51, 0x75, 0x61, 0x6e, 0x74, 0x69, 0x74,
-	0x79, 0x18, 0x04, 0x20, 0x01, 0x28, 0x05, 0x52, 0x08, 0x51, 0x75, 0x61, 0x6e, 0x74, 0x69, 0x74,
-	0x79, 0x22, 0x1f, 0x0a, 0x1d, 0x4d, 0x61, 0x6e, 0x61, 0x67, 0x65, 0x50, 0x6c, 0x61, 0x79, 0x65,
-	0x72, 0x49, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x22, 0x37, 0x0a, 0x19, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x52,
-	0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
-	0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x22, 0x69, 0x0a, 0x1a, 0x47,
-	0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
-	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4b, 0x0a, 0x0f, 0x50, 0x6c, 0x61,
-	0x79, 0x65, 0x72, 0x49, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x18, 0x01, 0x20, 0x03,
-	0x28, 0x0b, 0x32, 0x21, 0x2e, 0x70, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x5f, 0x69, 0x6e, 0x76, 0x65,
-	0x6e, 0x74, 0x6f, 0x72, 0x79, 0x2e, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x6e, 0x76, 0x65,
-	0x6e, 0x74, 0x6f, 0x72, 0x79, 0x52, 0x0f, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x6e, 0x76,
-	0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x22, 0x33, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61,
-	0x79, 0x65, 0x72, 0x49, 0x74, 0x65, 0x6d, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
-	0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x22, 0x65, 0x0a, 0x16, 0x47,
-	0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x74, 0x65, 0x6d, 0x73, 0x52, 0x65, 0x73,
+	0x74, 0x65, 0x6d, 0x2e, 0x49, 0x74, 0x65, 0x6d, 0x52, 0x04, 0x49, 0x74, 0x65, 0x6d, 0x22, 0x37,
+	0x0a, 0x19, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x52, 0x65, 0x73, 0x6f, 0x75,
+	0x72, 0x63, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x22, 0x69, 0x0a, 0x1a, 0x47, 0x65, 0x74, 0x50, 0x6c,
+	0x61, 0x79, 0x65, 0x72, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x52, 0x65, 0x73,
 	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4b, 0x0a, 0x0f, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49,
 	0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x21,
 	0x2e, 0x70, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x5f, 0x69, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72,
 	0x79, 0x2e, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72,
 	0x79, 0x52, 0x0f, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f,
-	0x72, 0x79, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x3b, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x33,
+	0x72, 0x79, 0x22, 0x33, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49,
+	0x74, 0x65, 0x6d, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x22, 0x65, 0x0a, 0x16, 0x47, 0x65, 0x74, 0x50, 0x6c,
+	0x61, 0x79, 0x65, 0x72, 0x49, 0x74, 0x65, 0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x4b, 0x0a, 0x0f, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x6e, 0x76, 0x65, 0x6e,
+	0x74, 0x6f, 0x72, 0x79, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x70, 0x6c, 0x61,
+	0x79, 0x65, 0x72, 0x5f, 0x69, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x2e, 0x50, 0x6c,
+	0x61, 0x79, 0x65, 0x72, 0x49, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x52, 0x0f, 0x50,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x06,
+	0x5a, 0x04, 0x2e, 0x3b, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -492,21 +369,19 @@ func file_proto_player_inventory_proto_rawDescGZIP() []byte {
 	return file_proto_player_inventory_proto_rawDescData
 }
 
-var file_proto_player_inventory_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_proto_player_inventory_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_proto_player_inventory_proto_goTypes = []interface{}{
-	(*PlayerInventory)(nil),               // 0: player_inventory.PlayerInventory
-	(*ManagePlayerInventoryRequest)(nil),  // 1: player_inventory.ManagePlayerInventoryRequest
-	(*ManagePlayerInventoryResponse)(nil), // 2: player_inventory.ManagePlayerInventoryResponse
-	(*GetPlayerResourcesRequest)(nil),     // 3: player_inventory.GetPlayerResourcesRequest
-	(*GetPlayerResourcesResponse)(nil),    // 4: player_inventory.GetPlayerResourcesResponse
-	(*GetPlayerItemsRequest)(nil),         // 5: player_inventory.GetPlayerItemsRequest
-	(*GetPlayerItemsResponse)(nil),        // 6: player_inventory.GetPlayerItemsResponse
-	(*Resource)(nil),                      // 7: resource.Resource
-	(*Item)(nil),                          // 8: item.Item
+	(*PlayerInventory)(nil),            // 0: player_inventory.PlayerInventory
+	(*GetPlayerResourcesRequest)(nil),  // 1: player_inventory.GetPlayerResourcesRequest
+	(*GetPlayerResourcesResponse)(nil), // 2: player_inventory.GetPlayerResourcesResponse
+	(*GetPlayerItemsRequest)(nil),      // 3: player_inventory.GetPlayerItemsRequest
+	(*GetPlayerItemsResponse)(nil),     // 4: player_inventory.GetPlayerItemsResponse
+	(*Resource)(nil),                   // 5: resource.Resource
+	(*Item)(nil),                       // 6: item.Item
 }
 var file_proto_player_inventory_proto_depIdxs = []int32{
-	7, // 0: player_inventory.PlayerInventory.Resource:type_name -> resource.Resource
-	8, // 1: player_inventory.PlayerInventory.Item:type_name -> item.Item
+	5, // 0: player_inventory.PlayerInventory.Resource:type_name -> resource.Resource
+	6, // 1: player_inventory.PlayerInventory.Item:type_name -> item.Item
 	0, // 2: player_inventory.GetPlayerResourcesResponse.PlayerInventory:type_name -> player_inventory.PlayerInventory
 	0, // 3: player_inventory.GetPlayerItemsResponse.PlayerInventory:type_name -> player_inventory.PlayerInventory
 	4, // [4:4] is the sub-list for method output_type
@@ -537,30 +412,6 @@ func file_proto_player_inventory_proto_init() {
 			}
 		}
 		file_proto_player_inventory_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ManagePlayerInventoryRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_proto_player_inventory_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ManagePlayerInventoryResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_proto_player_inventory_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerResourcesRequest); i {
 			case 0:
 				return &v.state
@@ -572,7 +423,7 @@ func file_proto_player_inventory_proto_init() {
 				return nil
 			}
 		}
-		file_proto_player_inventory_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_player_inventory_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerResourcesResponse); i {
 			case 0:
 				return &v.state
@@ -584,7 +435,7 @@ func file_proto_player_inventory_proto_init() {
 				return nil
 			}
 		}
-		file_proto_player_inventory_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_player_inventory_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerItemsRequest); i {
 			case 0:
 				return &v.state
@@ -596,7 +447,7 @@ func file_proto_player_inventory_proto_init() {
 				return nil
 			}
 		}
-		file_proto_player_inventory_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_player_inventory_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPlayerItemsResponse); i {
 			case 0:
 				return &v.state
@@ -615,7 +466,7 @@ func file_proto_player_inventory_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_player_inventory_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
