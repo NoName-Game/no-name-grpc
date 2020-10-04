@@ -105,7 +105,7 @@ type NoNameClient interface {
 	GetPlanetByMapID(ctx context.Context, in *GetPlanetByMapIDRequest, opts ...grpc.CallOption) (*GetPlanetByMapIDResponse, error)
 	GetExpansionInfo(ctx context.Context, in *GetExpansionInfoRequest, opts ...grpc.CallOption) (*GetExpansionInfoResponse, error)
 	GetSafePlanets(ctx context.Context, in *GetSafePlanetsRequest, opts ...grpc.CallOption) (*GetSafePlanetsResponse, error)
-	// Map
+	// PlanetMap
 	GetPlanetMapByID(ctx context.Context, in *GetPlanetMapByIDRequest, opts ...grpc.CallOption) (*GetPlanetMapByIDResponse, error)
 	// Resource
 	GetResourceByID(ctx context.Context, in *GetResourceByIDRequest, opts ...grpc.CallOption) (*GetResourceByIDResponse, error)
@@ -167,6 +167,11 @@ type NoNameClient interface {
 	CrafterStart(ctx context.Context, in *CrafterStartRequest, opts ...grpc.CallOption) (*CrafterStartResponse, error)
 	CrafterEnd(ctx context.Context, in *CrafterEndRequest, opts ...grpc.CallOption) (*CrafterEndResponse, error)
 	CrafterCheck(ctx context.Context, in *CrafterCheckRequest, opts ...grpc.CallOption) (*CrafterCheckResponse, error)
+	// Ability
+	GetAbilityForPlayerByCategory(ctx context.Context, in *GetAbilityForPlayerByCategoryRequest, opts ...grpc.CallOption) (*GetAbilityForPlayerByCategoryResponse, error)
+	// AbilityCategory
+	GetAllAbilityCategory(ctx context.Context, in *GetAllAbilityCategoryRequest, opts ...grpc.CallOption) (*GetAllAbilityCategoryResponse, error)
+	GetAbilityCategoryBySlug(ctx context.Context, in *GetAbilityCategoryBySlugRequest, opts ...grpc.CallOption) (*GetAbilityCategoryBySlugResponse, error)
 }
 
 type noNameClient struct {
@@ -1185,6 +1190,33 @@ func (c *noNameClient) CrafterCheck(ctx context.Context, in *CrafterCheckRequest
 	return out, nil
 }
 
+func (c *noNameClient) GetAbilityForPlayerByCategory(ctx context.Context, in *GetAbilityForPlayerByCategoryRequest, opts ...grpc.CallOption) (*GetAbilityForPlayerByCategoryResponse, error) {
+	out := new(GetAbilityForPlayerByCategoryResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAbilityForPlayerByCategory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetAllAbilityCategory(ctx context.Context, in *GetAllAbilityCategoryRequest, opts ...grpc.CallOption) (*GetAllAbilityCategoryResponse, error) {
+	out := new(GetAllAbilityCategoryResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAllAbilityCategory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetAbilityCategoryBySlug(ctx context.Context, in *GetAbilityCategoryBySlugRequest, opts ...grpc.CallOption) (*GetAbilityCategoryBySlugResponse, error) {
+	out := new(GetAbilityCategoryBySlugResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAbilityCategoryBySlug", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // NoNameServer is the server API for NoName service.
 // All implementations must embed UnimplementedNoNameServer
 // for forward compatibility
@@ -1277,7 +1309,7 @@ type NoNameServer interface {
 	GetPlanetByMapID(context.Context, *GetPlanetByMapIDRequest) (*GetPlanetByMapIDResponse, error)
 	GetExpansionInfo(context.Context, *GetExpansionInfoRequest) (*GetExpansionInfoResponse, error)
 	GetSafePlanets(context.Context, *GetSafePlanetsRequest) (*GetSafePlanetsResponse, error)
-	// Map
+	// PlanetMap
 	GetPlanetMapByID(context.Context, *GetPlanetMapByIDRequest) (*GetPlanetMapByIDResponse, error)
 	// Resource
 	GetResourceByID(context.Context, *GetResourceByIDRequest) (*GetResourceByIDResponse, error)
@@ -1339,6 +1371,11 @@ type NoNameServer interface {
 	CrafterStart(context.Context, *CrafterStartRequest) (*CrafterStartResponse, error)
 	CrafterEnd(context.Context, *CrafterEndRequest) (*CrafterEndResponse, error)
 	CrafterCheck(context.Context, *CrafterCheckRequest) (*CrafterCheckResponse, error)
+	// Ability
+	GetAbilityForPlayerByCategory(context.Context, *GetAbilityForPlayerByCategoryRequest) (*GetAbilityForPlayerByCategoryResponse, error)
+	// AbilityCategory
+	GetAllAbilityCategory(context.Context, *GetAllAbilityCategoryRequest) (*GetAllAbilityCategoryResponse, error)
+	GetAbilityCategoryBySlug(context.Context, *GetAbilityCategoryBySlugRequest) (*GetAbilityCategoryBySlugResponse, error)
 	mustEmbedUnimplementedNoNameServer()
 }
 
@@ -1681,6 +1718,15 @@ func (*UnimplementedNoNameServer) CrafterEnd(context.Context, *CrafterEndRequest
 }
 func (*UnimplementedNoNameServer) CrafterCheck(context.Context, *CrafterCheckRequest) (*CrafterCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CrafterCheck not implemented")
+}
+func (*UnimplementedNoNameServer) GetAbilityForPlayerByCategory(context.Context, *GetAbilityForPlayerByCategoryRequest) (*GetAbilityForPlayerByCategoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAbilityForPlayerByCategory not implemented")
+}
+func (*UnimplementedNoNameServer) GetAllAbilityCategory(context.Context, *GetAllAbilityCategoryRequest) (*GetAllAbilityCategoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllAbilityCategory not implemented")
+}
+func (*UnimplementedNoNameServer) GetAbilityCategoryBySlug(context.Context, *GetAbilityCategoryBySlugRequest) (*GetAbilityCategoryBySlugResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAbilityCategoryBySlug not implemented")
 }
 func (*UnimplementedNoNameServer) mustEmbedUnimplementedNoNameServer() {}
 
@@ -3704,6 +3750,60 @@ func _NoName_CrafterCheck_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetAbilityForPlayerByCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAbilityForPlayerByCategoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAbilityForPlayerByCategory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAbilityForPlayerByCategory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAbilityForPlayerByCategory(ctx, req.(*GetAbilityForPlayerByCategoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetAllAbilityCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllAbilityCategoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllAbilityCategory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllAbilityCategory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllAbilityCategory(ctx, req.(*GetAllAbilityCategoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetAbilityCategoryBySlug_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAbilityCategoryBySlugRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAbilityCategoryBySlug(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAbilityCategoryBySlug",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAbilityCategoryBySlug(ctx, req.(*GetAbilityCategoryBySlugRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _NoName_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "NoName",
 	HandlerType: (*NoNameServer)(nil),
@@ -4155,6 +4255,18 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CrafterCheck",
 			Handler:    _NoName_CrafterCheck_Handler,
+		},
+		{
+			MethodName: "GetAbilityForPlayerByCategory",
+			Handler:    _NoName_GetAbilityForPlayerByCategory_Handler,
+		},
+		{
+			MethodName: "GetAllAbilityCategory",
+			Handler:    _NoName_GetAllAbilityCategory_Handler,
+		},
+		{
+			MethodName: "GetAbilityCategoryBySlug",
+			Handler:    _NoName_GetAbilityCategoryBySlug_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

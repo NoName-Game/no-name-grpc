@@ -35,6 +35,8 @@ import "proto/tutorial.proto";
 import "proto/player_inventory.proto";
 import "proto/player_configuration.proto";
 import "proto/safeplanet_research.proto";
+import "proto/ability.proto";
+import "proto/ability_category.proto";
 
 option go_package = ".;pb";
 
@@ -148,7 +150,7 @@ service NoName {
     rpc GetExpansionInfo (planet.GetExpansionInfoRequest) returns (planet.GetExpansionInfoResponse) {}
     rpc GetSafePlanets (planet.GetSafePlanetsRequest) returns (planet.GetSafePlanetsResponse) {}
 
-    // Map
+    // PlanetMap
     rpc GetPlanetMapByID (planet_map.GetPlanetMapByIDRequest) returns (planet_map.GetPlanetMapByIDResponse) {}
 
     // Resource
@@ -227,4 +229,11 @@ service NoName {
     rpc CrafterStart (safeplanet_crafter.CrafterStartRequest) returns (safeplanet_crafter.CrafterStartResponse) {}
     rpc CrafterEnd (safeplanet_crafter.CrafterEndRequest) returns (safeplanet_crafter.CrafterEndResponse) {}
     rpc CrafterCheck (safeplanet_crafter.CrafterCheckRequest) returns (safeplanet_crafter.CrafterCheckResponse) {}
+
+    // Ability
+    rpc GetAbilityForPlayerByCategory (ability.GetAbilityForPlayerByCategoryRequest) returns (ability.GetAbilityForPlayerByCategoryResponse) {}
+
+    // AbilityCategory
+    rpc GetAllAbilityCategory (ability_category.GetAllAbilityCategoryRequest) returns (ability_category.GetAllAbilityCategoryResponse) {}
+    rpc GetAbilityCategoryBySlug (ability_category.GetAbilityCategoryBySlugRequest) returns (ability_category.GetAbilityCategoryBySlugResponse) {}
 }

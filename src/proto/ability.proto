@@ -1,0 +1,23 @@
+syntax = "proto3";
+import "proto/ability_category.proto";
+option go_package = ".;pb";
+package ability;
+
+message Ability {
+    uint32 ID = 1;
+    string Name = 2;
+    string Slug = 3;
+    uint32 MinPlayerLevel = 4;
+    uint32 AbilityCategoryID = 5;
+    ability_category.AbilityCategory AbilityCategory = 6;
+    int32 AbilityType = 7;
+}
+
+// GetAbilityForPlayerByCategory
+message GetAbilityForPlayerByCategoryRequest {
+    uint32 PlayerID = 1;
+    uint32 AbilityCategoryID = 2;
+}
+message GetAbilityForPlayerByCategoryResponse {
+    Ability Ability = 1;
+}
