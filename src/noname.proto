@@ -37,6 +37,7 @@ import "proto/player_configuration.proto";
 import "proto/safeplanet_research.proto";
 import "proto/ability.proto";
 import "proto/ability_category.proto";
+import "proto/guild.proto";
 
 option go_package = ".;pb";
 
@@ -238,4 +239,10 @@ service NoName {
     // AbilityCategory
     rpc GetAllAbilityCategory (ability_category.GetAllAbilityCategoryRequest) returns (ability_category.GetAllAbilityCategoryResponse) {}
     rpc GetAbilityCategoryBySlug (ability_category.GetAbilityCategoryBySlugRequest) returns (ability_category.GetAbilityCategoryBySlugResponse) {}
+
+    // Guild
+    rpc CheckGuildName (guild.CheckGuildNameRequest) returns (guild.CheckGuildNameResponse) {}
+    rpc CreateGuild (guild.CreateGuildRequest) returns (guild.CreateGuildResponse) {}
+    rpc JoinGuild (guild.JoinGuildRequest) returns (guild.JoinGuildResponse) {}
+    rpc GetJoinGuildsList (guild.GetJoinGuildsListRequest) returns (guild.GetJoinGuildsListResponse) {}
 }

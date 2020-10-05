@@ -174,6 +174,11 @@ type NoNameClient interface {
 	// AbilityCategory
 	GetAllAbilityCategory(ctx context.Context, in *GetAllAbilityCategoryRequest, opts ...grpc.CallOption) (*GetAllAbilityCategoryResponse, error)
 	GetAbilityCategoryBySlug(ctx context.Context, in *GetAbilityCategoryBySlugRequest, opts ...grpc.CallOption) (*GetAbilityCategoryBySlugResponse, error)
+	// Guild
+	CheckGuildName(ctx context.Context, in *CheckGuildNameRequest, opts ...grpc.CallOption) (*CheckGuildNameResponse, error)
+	CreateGuild(ctx context.Context, in *CreateGuildRequest, opts ...grpc.CallOption) (*CreateGuildResponse, error)
+	JoinGuild(ctx context.Context, in *JoinGuildRequest, opts ...grpc.CallOption) (*JoinGuildResponse, error)
+	GetJoinGuildsList(ctx context.Context, in *GetJoinGuildsListRequest, opts ...grpc.CallOption) (*GetJoinGuildsListResponse, error)
 }
 
 type noNameClient struct {
@@ -1237,6 +1242,42 @@ func (c *noNameClient) GetAbilityCategoryBySlug(ctx context.Context, in *GetAbil
 	return out, nil
 }
 
+func (c *noNameClient) CheckGuildName(ctx context.Context, in *CheckGuildNameRequest, opts ...grpc.CallOption) (*CheckGuildNameResponse, error) {
+	out := new(CheckGuildNameResponse)
+	err := c.cc.Invoke(ctx, "/NoName/CheckGuildName", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) CreateGuild(ctx context.Context, in *CreateGuildRequest, opts ...grpc.CallOption) (*CreateGuildResponse, error) {
+	out := new(CreateGuildResponse)
+	err := c.cc.Invoke(ctx, "/NoName/CreateGuild", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) JoinGuild(ctx context.Context, in *JoinGuildRequest, opts ...grpc.CallOption) (*JoinGuildResponse, error) {
+	out := new(JoinGuildResponse)
+	err := c.cc.Invoke(ctx, "/NoName/JoinGuild", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetJoinGuildsList(ctx context.Context, in *GetJoinGuildsListRequest, opts ...grpc.CallOption) (*GetJoinGuildsListResponse, error) {
+	out := new(GetJoinGuildsListResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetJoinGuildsList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // NoNameServer is the server API for NoName service.
 // All implementations must embed UnimplementedNoNameServer
 // for forward compatibility
@@ -1398,6 +1439,11 @@ type NoNameServer interface {
 	// AbilityCategory
 	GetAllAbilityCategory(context.Context, *GetAllAbilityCategoryRequest) (*GetAllAbilityCategoryResponse, error)
 	GetAbilityCategoryBySlug(context.Context, *GetAbilityCategoryBySlugRequest) (*GetAbilityCategoryBySlugResponse, error)
+	// Guild
+	CheckGuildName(context.Context, *CheckGuildNameRequest) (*CheckGuildNameResponse, error)
+	CreateGuild(context.Context, *CreateGuildRequest) (*CreateGuildResponse, error)
+	JoinGuild(context.Context, *JoinGuildRequest) (*JoinGuildResponse, error)
+	GetJoinGuildsList(context.Context, *GetJoinGuildsListRequest) (*GetJoinGuildsListResponse, error)
 	mustEmbedUnimplementedNoNameServer()
 }
 
@@ -1755,6 +1801,18 @@ func (*UnimplementedNoNameServer) GetAllAbilityCategory(context.Context, *GetAll
 }
 func (*UnimplementedNoNameServer) GetAbilityCategoryBySlug(context.Context, *GetAbilityCategoryBySlugRequest) (*GetAbilityCategoryBySlugResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAbilityCategoryBySlug not implemented")
+}
+func (*UnimplementedNoNameServer) CheckGuildName(context.Context, *CheckGuildNameRequest) (*CheckGuildNameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckGuildName not implemented")
+}
+func (*UnimplementedNoNameServer) CreateGuild(context.Context, *CreateGuildRequest) (*CreateGuildResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateGuild not implemented")
+}
+func (*UnimplementedNoNameServer) JoinGuild(context.Context, *JoinGuildRequest) (*JoinGuildResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method JoinGuild not implemented")
+}
+func (*UnimplementedNoNameServer) GetJoinGuildsList(context.Context, *GetJoinGuildsListRequest) (*GetJoinGuildsListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetJoinGuildsList not implemented")
 }
 func (*UnimplementedNoNameServer) mustEmbedUnimplementedNoNameServer() {}
 
@@ -3868,6 +3926,78 @@ func _NoName_GetAbilityCategoryBySlug_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_CheckGuildName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckGuildNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CheckGuildName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CheckGuildName",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CheckGuildName(ctx, req.(*CheckGuildNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_CreateGuild_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateGuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CreateGuild(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CreateGuild",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CreateGuild(ctx, req.(*CreateGuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_JoinGuild_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(JoinGuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).JoinGuild(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/JoinGuild",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).JoinGuild(ctx, req.(*JoinGuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetJoinGuildsList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetJoinGuildsListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetJoinGuildsList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetJoinGuildsList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetJoinGuildsList(ctx, req.(*GetJoinGuildsListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _NoName_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "NoName",
 	HandlerType: (*NoNameServer)(nil),
@@ -4339,6 +4469,22 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAbilityCategoryBySlug",
 			Handler:    _NoName_GetAbilityCategoryBySlug_Handler,
+		},
+		{
+			MethodName: "CheckGuildName",
+			Handler:    _NoName_CheckGuildName_Handler,
+		},
+		{
+			MethodName: "CreateGuild",
+			Handler:    _NoName_CreateGuild_Handler,
+		},
+		{
+			MethodName: "JoinGuild",
+			Handler:    _NoName_JoinGuild_Handler,
+		},
+		{
+			MethodName: "GetJoinGuildsList",
+			Handler:    _NoName_GetJoinGuildsList_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

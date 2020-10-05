@@ -1,0 +1,45 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package guild;
+
+message Guild {
+    uint32 ID = 1;
+    string Name = 2;
+    bool GuildType = 9;
+    uint32 OwnerID = 13;
+}
+
+// CheckGuildName
+message CheckGuildNameRequest {
+    string Name = 1;
+}
+message CheckGuildNameResponse {
+    bool GuildNameFree = 1;
+}
+
+// CreateGuild
+message CreateGuildRequest {
+    string GuildName = 1;
+    uint32 OwnerID = 2;
+    bool GuildType = 3;
+}
+message CreateGuildResponse {
+    // Empty
+}
+
+// JoinGuild
+message JoinGuildRequest {
+    uint32 PlayerID = 1;
+    string GuildName = 2;
+}
+message JoinGuildResponse {
+    // Empty
+}
+
+// GetJoinGuildsList
+message GetJoinGuildsListRequest {
+    // Empty
+}
+message GetJoinGuildsListResponse {
+    repeated Guild GuildsList = 1;
+}
