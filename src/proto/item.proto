@@ -16,7 +16,6 @@ message Item {
     uint32 ItemCategoryID = 8;
     item_category.ItemCategory ItemCategory = 9;
     int32 Value = 10;
-    uint32 MinIntellectLvl = 11;
     uint32 Price = 12;
 }
 
