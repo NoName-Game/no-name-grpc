@@ -310,6 +310,101 @@ func (x *GetPlayerItemsResponse) GetPlayerInventory() []*PlayerInventory {
 	return nil
 }
 
+// GetPlayerAmulets
+type GetPlayerAmuletsRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+}
+
+func (x *GetPlayerAmuletsRequest) Reset() {
+	*x = GetPlayerAmuletsRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_player_inventory_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetPlayerAmuletsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPlayerAmuletsRequest) ProtoMessage() {}
+
+func (x *GetPlayerAmuletsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_inventory_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPlayerAmuletsRequest.ProtoReflect.Descriptor instead.
+func (*GetPlayerAmuletsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_inventory_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetPlayerAmuletsRequest) GetPlayerID() uint32 {
+	if x != nil {
+		return x.PlayerID
+	}
+	return 0
+}
+
+type GetPlayerAmuletsResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	PlayerInventory *PlayerInventory `protobuf:"bytes,1,opt,name=PlayerInventory,proto3" json:"PlayerInventory,omitempty"`
+}
+
+func (x *GetPlayerAmuletsResponse) Reset() {
+	*x = GetPlayerAmuletsResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_player_inventory_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetPlayerAmuletsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPlayerAmuletsResponse) ProtoMessage() {}
+
+func (x *GetPlayerAmuletsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_inventory_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPlayerAmuletsResponse.ProtoReflect.Descriptor instead.
+func (*GetPlayerAmuletsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_inventory_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetPlayerAmuletsResponse) GetPlayerInventory() *PlayerInventory {
+	if x != nil {
+		return x.PlayerInventory
+	}
+	return nil
+}
+
 var File_proto_player_inventory_proto protoreflect.FileDescriptor
 
 var file_proto_player_inventory_proto_rawDesc = []byte{
@@ -353,6 +448,16 @@ var file_proto_player_inventory_proto_rawDesc = []byte{
 	0x74, 0x6f, 0x72, 0x79, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x70, 0x6c, 0x61,
 	0x79, 0x65, 0x72, 0x5f, 0x69, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x2e, 0x50, 0x6c,
 	0x61, 0x79, 0x65, 0x72, 0x49, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x52, 0x0f, 0x50,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x22, 0x35,
+	0x0a, 0x17, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x41, 0x6d, 0x75, 0x6c, 0x65,
+	0x74, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61,
+	0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61,
+	0x79, 0x65, 0x72, 0x49, 0x44, 0x22, 0x67, 0x0a, 0x18, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79,
+	0x65, 0x72, 0x41, 0x6d, 0x75, 0x6c, 0x65, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x4b, 0x0a, 0x0f, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x6e, 0x76, 0x65, 0x6e,
+	0x74, 0x6f, 0x72, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x70, 0x6c, 0x61,
+	0x79, 0x65, 0x72, 0x5f, 0x69, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x2e, 0x50, 0x6c,
+	0x61, 0x79, 0x65, 0x72, 0x49, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x52, 0x0f, 0x50,
 	0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x06,
 	0x5a, 0x04, 0x2e, 0x3b, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
@@ -369,26 +474,29 @@ func file_proto_player_inventory_proto_rawDescGZIP() []byte {
 	return file_proto_player_inventory_proto_rawDescData
 }
 
-var file_proto_player_inventory_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_proto_player_inventory_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_proto_player_inventory_proto_goTypes = []interface{}{
 	(*PlayerInventory)(nil),            // 0: player_inventory.PlayerInventory
 	(*GetPlayerResourcesRequest)(nil),  // 1: player_inventory.GetPlayerResourcesRequest
 	(*GetPlayerResourcesResponse)(nil), // 2: player_inventory.GetPlayerResourcesResponse
 	(*GetPlayerItemsRequest)(nil),      // 3: player_inventory.GetPlayerItemsRequest
 	(*GetPlayerItemsResponse)(nil),     // 4: player_inventory.GetPlayerItemsResponse
-	(*Resource)(nil),                   // 5: resource.Resource
-	(*Item)(nil),                       // 6: item.Item
+	(*GetPlayerAmuletsRequest)(nil),    // 5: player_inventory.GetPlayerAmuletsRequest
+	(*GetPlayerAmuletsResponse)(nil),   // 6: player_inventory.GetPlayerAmuletsResponse
+	(*Resource)(nil),                   // 7: resource.Resource
+	(*Item)(nil),                       // 8: item.Item
 }
 var file_proto_player_inventory_proto_depIdxs = []int32{
-	5, // 0: player_inventory.PlayerInventory.Resource:type_name -> resource.Resource
-	6, // 1: player_inventory.PlayerInventory.Item:type_name -> item.Item
+	7, // 0: player_inventory.PlayerInventory.Resource:type_name -> resource.Resource
+	8, // 1: player_inventory.PlayerInventory.Item:type_name -> item.Item
 	0, // 2: player_inventory.GetPlayerResourcesResponse.PlayerInventory:type_name -> player_inventory.PlayerInventory
 	0, // 3: player_inventory.GetPlayerItemsResponse.PlayerInventory:type_name -> player_inventory.PlayerInventory
-	4, // [4:4] is the sub-list for method output_type
-	4, // [4:4] is the sub-list for method input_type
-	4, // [4:4] is the sub-list for extension type_name
-	4, // [4:4] is the sub-list for extension extendee
-	0, // [0:4] is the sub-list for field type_name
+	0, // 4: player_inventory.GetPlayerAmuletsResponse.PlayerInventory:type_name -> player_inventory.PlayerInventory
+	5, // [5:5] is the sub-list for method output_type
+	5, // [5:5] is the sub-list for method input_type
+	5, // [5:5] is the sub-list for extension type_name
+	5, // [5:5] is the sub-list for extension extendee
+	0, // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_proto_player_inventory_proto_init() }
@@ -459,6 +567,30 @@ func file_proto_player_inventory_proto_init() {
 				return nil
 			}
 		}
+		file_proto_player_inventory_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetPlayerAmuletsRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_player_inventory_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetPlayerAmuletsResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -466,7 +598,7 @@ func file_proto_player_inventory_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_player_inventory_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

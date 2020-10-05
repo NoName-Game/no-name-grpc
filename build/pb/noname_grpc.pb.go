@@ -49,6 +49,7 @@ type NoNameClient interface {
 	// Player - Inventory
 	GetPlayerResources(ctx context.Context, in *GetPlayerResourcesRequest, opts ...grpc.CallOption) (*GetPlayerResourcesResponse, error)
 	GetPlayerItems(ctx context.Context, in *GetPlayerItemsRequest, opts ...grpc.CallOption) (*GetPlayerItemsResponse, error)
+	GetPlayerAmulets(ctx context.Context, in *GetPlayerAmuletsRequest, opts ...grpc.CallOption) (*GetPlayerAmuletsResponse, error)
 	// Player - Position
 	CreatePlayerPosition(ctx context.Context, in *CreatePlayerPositionRequest, opts ...grpc.CallOption) (*CreatePlayerPositionResponse, error)
 	GetPlayerCurrentPlanet(ctx context.Context, in *GetPlayerCurrentPlanetRequest, opts ...grpc.CallOption) (*GetPlayerCurrentPlanetResponse, error)
@@ -169,6 +170,7 @@ type NoNameClient interface {
 	CrafterCheck(ctx context.Context, in *CrafterCheckRequest, opts ...grpc.CallOption) (*CrafterCheckResponse, error)
 	// Ability
 	GetAbilityForPlayerByCategory(ctx context.Context, in *GetAbilityForPlayerByCategoryRequest, opts ...grpc.CallOption) (*GetAbilityForPlayerByCategoryResponse, error)
+	LearnAbility(ctx context.Context, in *LearnAbilityRequest, opts ...grpc.CallOption) (*LearnAbilityResponse, error)
 	// AbilityCategory
 	GetAllAbilityCategory(ctx context.Context, in *GetAllAbilityCategoryRequest, opts ...grpc.CallOption) (*GetAllAbilityCategoryResponse, error)
 	GetAbilityCategoryBySlug(ctx context.Context, in *GetAbilityCategoryBySlugRequest, opts ...grpc.CallOption) (*GetAbilityCategoryBySlugResponse, error)
@@ -401,6 +403,15 @@ func (c *noNameClient) GetPlayerResources(ctx context.Context, in *GetPlayerReso
 func (c *noNameClient) GetPlayerItems(ctx context.Context, in *GetPlayerItemsRequest, opts ...grpc.CallOption) (*GetPlayerItemsResponse, error) {
 	out := new(GetPlayerItemsResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerItems", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetPlayerAmulets(ctx context.Context, in *GetPlayerAmuletsRequest, opts ...grpc.CallOption) (*GetPlayerAmuletsResponse, error) {
+	out := new(GetPlayerAmuletsResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerAmulets", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1199,6 +1210,15 @@ func (c *noNameClient) GetAbilityForPlayerByCategory(ctx context.Context, in *Ge
 	return out, nil
 }
 
+func (c *noNameClient) LearnAbility(ctx context.Context, in *LearnAbilityRequest, opts ...grpc.CallOption) (*LearnAbilityResponse, error) {
+	out := new(LearnAbilityResponse)
+	err := c.cc.Invoke(ctx, "/NoName/LearnAbility", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetAllAbilityCategory(ctx context.Context, in *GetAllAbilityCategoryRequest, opts ...grpc.CallOption) (*GetAllAbilityCategoryResponse, error) {
 	out := new(GetAllAbilityCategoryResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAllAbilityCategory", in, out, opts...)
@@ -1253,6 +1273,7 @@ type NoNameServer interface {
 	// Player - Inventory
 	GetPlayerResources(context.Context, *GetPlayerResourcesRequest) (*GetPlayerResourcesResponse, error)
 	GetPlayerItems(context.Context, *GetPlayerItemsRequest) (*GetPlayerItemsResponse, error)
+	GetPlayerAmulets(context.Context, *GetPlayerAmuletsRequest) (*GetPlayerAmuletsResponse, error)
 	// Player - Position
 	CreatePlayerPosition(context.Context, *CreatePlayerPositionRequest) (*CreatePlayerPositionResponse, error)
 	GetPlayerCurrentPlanet(context.Context, *GetPlayerCurrentPlanetRequest) (*GetPlayerCurrentPlanetResponse, error)
@@ -1373,6 +1394,7 @@ type NoNameServer interface {
 	CrafterCheck(context.Context, *CrafterCheckRequest) (*CrafterCheckResponse, error)
 	// Ability
 	GetAbilityForPlayerByCategory(context.Context, *GetAbilityForPlayerByCategoryRequest) (*GetAbilityForPlayerByCategoryResponse, error)
+	LearnAbility(context.Context, *LearnAbilityRequest) (*LearnAbilityResponse, error)
 	// AbilityCategory
 	GetAllAbilityCategory(context.Context, *GetAllAbilityCategoryRequest) (*GetAllAbilityCategoryResponse, error)
 	GetAbilityCategoryBySlug(context.Context, *GetAbilityCategoryBySlugRequest) (*GetAbilityCategoryBySlugResponse, error)
@@ -1457,6 +1479,9 @@ func (*UnimplementedNoNameServer) GetPlayerResources(context.Context, *GetPlayer
 }
 func (*UnimplementedNoNameServer) GetPlayerItems(context.Context, *GetPlayerItemsRequest) (*GetPlayerItemsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerItems not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerAmulets(context.Context, *GetPlayerAmuletsRequest) (*GetPlayerAmuletsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerAmulets not implemented")
 }
 func (*UnimplementedNoNameServer) CreatePlayerPosition(context.Context, *CreatePlayerPositionRequest) (*CreatePlayerPositionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatePlayerPosition not implemented")
@@ -1721,6 +1746,9 @@ func (*UnimplementedNoNameServer) CrafterCheck(context.Context, *CrafterCheckReq
 }
 func (*UnimplementedNoNameServer) GetAbilityForPlayerByCategory(context.Context, *GetAbilityForPlayerByCategoryRequest) (*GetAbilityForPlayerByCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAbilityForPlayerByCategory not implemented")
+}
+func (*UnimplementedNoNameServer) LearnAbility(context.Context, *LearnAbilityRequest) (*LearnAbilityResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LearnAbility not implemented")
 }
 func (*UnimplementedNoNameServer) GetAllAbilityCategory(context.Context, *GetAllAbilityCategoryRequest) (*GetAllAbilityCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllAbilityCategory not implemented")
@@ -2180,6 +2208,24 @@ func _NoName_GetPlayerItems_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetPlayerItems(ctx, req.(*GetPlayerItemsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerAmulets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerAmuletsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerAmulets(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerAmulets",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerAmulets(ctx, req.(*GetPlayerAmuletsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3768,6 +3814,24 @@ func _NoName_GetAbilityForPlayerByCategory_Handler(srv interface{}, ctx context.
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_LearnAbility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LearnAbilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).LearnAbility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/LearnAbility",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).LearnAbility(ctx, req.(*LearnAbilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetAllAbilityCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAllAbilityCategoryRequest)
 	if err := dec(in); err != nil {
@@ -3907,6 +3971,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPlayerItems",
 			Handler:    _NoName_GetPlayerItems_Handler,
+		},
+		{
+			MethodName: "GetPlayerAmulets",
+			Handler:    _NoName_GetPlayerAmulets_Handler,
 		},
 		{
 			MethodName: "CreatePlayerPosition",
@@ -4259,6 +4327,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAbilityForPlayerByCategory",
 			Handler:    _NoName_GetAbilityForPlayerByCategory_Handler,
+		},
+		{
+			MethodName: "LearnAbility",
+			Handler:    _NoName_LearnAbility_Handler,
 		},
 		{
 			MethodName: "GetAllAbilityCategory",

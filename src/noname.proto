@@ -80,6 +80,7 @@ service NoName {
     // Player - Inventory
     rpc GetPlayerResources (player_inventory.GetPlayerResourcesRequest) returns (player_inventory.GetPlayerResourcesResponse) {}
     rpc GetPlayerItems (player_inventory.GetPlayerItemsRequest) returns (player_inventory.GetPlayerItemsResponse) {}
+    rpc GetPlayerAmulets (player_inventory.GetPlayerAmuletsRequest) returns (player_inventory.GetPlayerAmuletsResponse) {}
 
     // Player - Position
     rpc CreatePlayerPosition (player_position.CreatePlayerPositionRequest) returns (player_position.CreatePlayerPositionResponse) {}
@@ -232,6 +233,7 @@ service NoName {
 
     // Ability
     rpc GetAbilityForPlayerByCategory (ability.GetAbilityForPlayerByCategoryRequest) returns (ability.GetAbilityForPlayerByCategoryResponse) {}
+    rpc LearnAbility (ability.LearnAbilityRequest) returns (ability.LearnAbilityResponse) {}
 
     // AbilityCategory
     rpc GetAllAbilityCategory (ability_category.GetAllAbilityCategoryRequest) returns (ability_category.GetAllAbilityCategoryResponse) {}

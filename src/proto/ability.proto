@@ -7,10 +7,11 @@ message Ability {
     uint32 ID = 1;
     string Name = 2;
     string Slug = 3;
-    uint32 MinPlayerLevel = 4;
+    uint32 Level = 4;
     uint32 AbilityCategoryID = 5;
     ability_category.AbilityCategory AbilityCategory = 6;
     int32 AbilityType = 7;
+    uint32 Amulets = 8;
 }
 
 // GetAbilityForPlayerByCategory
@@ -20,4 +21,13 @@ message GetAbilityForPlayerByCategoryRequest {
 }
 message GetAbilityForPlayerByCategoryResponse {
     Ability Ability = 1;
+}
+
+// LearnAbility
+message LearnAbilityRequest {
+    uint32 PlayerID = 1;
+    uint32 AbilityCategoryID = 2;
+}
+message LearnAbilityResponse {
+    // Empty
 }

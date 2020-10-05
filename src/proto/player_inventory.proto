@@ -29,3 +29,11 @@ message GetPlayerItemsRequest {
 message GetPlayerItemsResponse {
     repeated PlayerInventory PlayerInventory = 1;
 }
+
+// GetPlayerAmulets
+message GetPlayerAmuletsRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerAmuletsResponse {
+    PlayerInventory PlayerInventory = 1;
+}
