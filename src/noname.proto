@@ -247,4 +247,5 @@ service NoName {
     rpc GetJoinGuildsList (guild.GetJoinGuildsListRequest) returns (guild.GetJoinGuildsListResponse) {}
     rpc GetPlayerGuild (guild.GetPlayerGuildRequest) returns (guild.GetPlayerGuildResponse) {}
     rpc LeaveGuild (guild.LeaveGuildRequest) returns (guild.LeaveGuildResponse) {}
+    rpc GetPlayersGuild (guild.GetPlayersGuildRequest) returns (guild.GetPlayersGuildResponse) {}
 }
