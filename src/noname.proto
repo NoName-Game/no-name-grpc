@@ -245,4 +245,6 @@ service NoName {
     rpc CreateGuild (guild.CreateGuildRequest) returns (guild.CreateGuildResponse) {}
     rpc JoinGuild (guild.JoinGuildRequest) returns (guild.JoinGuildResponse) {}
     rpc GetJoinGuildsList (guild.GetJoinGuildsListRequest) returns (guild.GetJoinGuildsListResponse) {}
+    rpc GetPlayerGuild (guild.GetPlayerGuildRequest) returns (guild.GetPlayerGuildResponse) {}
+    rpc LeaveGuild (guild.LeaveGuildRequest) returns (guild.LeaveGuildResponse) {}
 }

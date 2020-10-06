@@ -179,6 +179,8 @@ type NoNameClient interface {
 	CreateGuild(ctx context.Context, in *CreateGuildRequest, opts ...grpc.CallOption) (*CreateGuildResponse, error)
 	JoinGuild(ctx context.Context, in *JoinGuildRequest, opts ...grpc.CallOption) (*JoinGuildResponse, error)
 	GetJoinGuildsList(ctx context.Context, in *GetJoinGuildsListRequest, opts ...grpc.CallOption) (*GetJoinGuildsListResponse, error)
+	GetPlayerGuild(ctx context.Context, in *GetPlayerGuildRequest, opts ...grpc.CallOption) (*GetPlayerGuildResponse, error)
+	LeaveGuild(ctx context.Context, in *LeaveGuildRequest, opts ...grpc.CallOption) (*LeaveGuildResponse, error)
 }
 
 type noNameClient struct {
@@ -1278,6 +1280,24 @@ func (c *noNameClient) GetJoinGuildsList(ctx context.Context, in *GetJoinGuildsL
 	return out, nil
 }
 
+func (c *noNameClient) GetPlayerGuild(ctx context.Context, in *GetPlayerGuildRequest, opts ...grpc.CallOption) (*GetPlayerGuildResponse, error) {
+	out := new(GetPlayerGuildResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerGuild", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) LeaveGuild(ctx context.Context, in *LeaveGuildRequest, opts ...grpc.CallOption) (*LeaveGuildResponse, error) {
+	out := new(LeaveGuildResponse)
+	err := c.cc.Invoke(ctx, "/NoName/LeaveGuild", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // NoNameServer is the server API for NoName service.
 // All implementations must embed UnimplementedNoNameServer
 // for forward compatibility
@@ -1444,6 +1464,8 @@ type NoNameServer interface {
 	CreateGuild(context.Context, *CreateGuildRequest) (*CreateGuildResponse, error)
 	JoinGuild(context.Context, *JoinGuildRequest) (*JoinGuildResponse, error)
 	GetJoinGuildsList(context.Context, *GetJoinGuildsListRequest) (*GetJoinGuildsListResponse, error)
+	GetPlayerGuild(context.Context, *GetPlayerGuildRequest) (*GetPlayerGuildResponse, error)
+	LeaveGuild(context.Context, *LeaveGuildRequest) (*LeaveGuildResponse, error)
 	mustEmbedUnimplementedNoNameServer()
 }
 
@@ -1813,6 +1835,12 @@ func (*UnimplementedNoNameServer) JoinGuild(context.Context, *JoinGuildRequest) 
 }
 func (*UnimplementedNoNameServer) GetJoinGuildsList(context.Context, *GetJoinGuildsListRequest) (*GetJoinGuildsListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetJoinGuildsList not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerGuild(context.Context, *GetPlayerGuildRequest) (*GetPlayerGuildResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerGuild not implemented")
+}
+func (*UnimplementedNoNameServer) LeaveGuild(context.Context, *LeaveGuildRequest) (*LeaveGuildResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LeaveGuild not implemented")
 }
 func (*UnimplementedNoNameServer) mustEmbedUnimplementedNoNameServer() {}
 
@@ -3998,6 +4026,42 @@ func _NoName_GetJoinGuildsList_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetPlayerGuild_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerGuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerGuild(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerGuild",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerGuild(ctx, req.(*GetPlayerGuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_LeaveGuild_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LeaveGuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).LeaveGuild(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/LeaveGuild",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).LeaveGuild(ctx, req.(*LeaveGuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _NoName_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "NoName",
 	HandlerType: (*NoNameServer)(nil),
@@ -4485,6 +4549,14 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetJoinGuildsList",
 			Handler:    _NoName_GetJoinGuildsList_Handler,
+		},
+		{
+			MethodName: "GetPlayerGuild",
+			Handler:    _NoName_GetPlayerGuild_Handler,
+		},
+		{
+			MethodName: "LeaveGuild",
+			Handler:    _NoName_LeaveGuild_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

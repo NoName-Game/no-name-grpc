@@ -43,3 +43,20 @@ message GetJoinGuildsListRequest {
 message GetJoinGuildsListResponse {
     repeated Guild GuildsList = 1;
 }
+
+// GetPlayerGuild
+message GetPlayerGuildRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerGuildResponse {
+    bool InGuild = 1;
+    Guild Guild = 2;
+}
+
+// LeaveGuild
+message LeaveGuildRequest {
+    uint32 PlayerID = 1;
+}
+message LeaveGuildResponse {
+    // Empty
+}
