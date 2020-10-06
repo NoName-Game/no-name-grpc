@@ -182,6 +182,9 @@ type NoNameClient interface {
 	GetPlayerGuild(ctx context.Context, in *GetPlayerGuildRequest, opts ...grpc.CallOption) (*GetPlayerGuildResponse, error)
 	LeaveGuild(ctx context.Context, in *LeaveGuildRequest, opts ...grpc.CallOption) (*LeaveGuildResponse, error)
 	GetPlayersGuild(ctx context.Context, in *GetPlayersGuildRequest, opts ...grpc.CallOption) (*GetPlayersGuildResponse, error)
+	// Guild - Points
+	GetGuildPoints(ctx context.Context, in *GetGuildPointsRequest, opts ...grpc.CallOption) (*GetGuildPointsResponse, error)
+	GetPlayerGuildPoints(ctx context.Context, in *GetPlayerGuildPointsRequest, opts ...grpc.CallOption) (*GetPlayerGuildPointsResponse, error)
 }
 
 type noNameClient struct {
@@ -1308,6 +1311,24 @@ func (c *noNameClient) GetPlayersGuild(ctx context.Context, in *GetPlayersGuildR
 	return out, nil
 }
 
+func (c *noNameClient) GetGuildPoints(ctx context.Context, in *GetGuildPointsRequest, opts ...grpc.CallOption) (*GetGuildPointsResponse, error) {
+	out := new(GetGuildPointsResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetGuildPoints", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetPlayerGuildPoints(ctx context.Context, in *GetPlayerGuildPointsRequest, opts ...grpc.CallOption) (*GetPlayerGuildPointsResponse, error) {
+	out := new(GetPlayerGuildPointsResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerGuildPoints", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // NoNameServer is the server API for NoName service.
 // All implementations must embed UnimplementedNoNameServer
 // for forward compatibility
@@ -1477,6 +1498,9 @@ type NoNameServer interface {
 	GetPlayerGuild(context.Context, *GetPlayerGuildRequest) (*GetPlayerGuildResponse, error)
 	LeaveGuild(context.Context, *LeaveGuildRequest) (*LeaveGuildResponse, error)
 	GetPlayersGuild(context.Context, *GetPlayersGuildRequest) (*GetPlayersGuildResponse, error)
+	// Guild - Points
+	GetGuildPoints(context.Context, *GetGuildPointsRequest) (*GetGuildPointsResponse, error)
+	GetPlayerGuildPoints(context.Context, *GetPlayerGuildPointsRequest) (*GetPlayerGuildPointsResponse, error)
 	mustEmbedUnimplementedNoNameServer()
 }
 
@@ -1855,6 +1879,12 @@ func (*UnimplementedNoNameServer) LeaveGuild(context.Context, *LeaveGuildRequest
 }
 func (*UnimplementedNoNameServer) GetPlayersGuild(context.Context, *GetPlayersGuildRequest) (*GetPlayersGuildResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayersGuild not implemented")
+}
+func (*UnimplementedNoNameServer) GetGuildPoints(context.Context, *GetGuildPointsRequest) (*GetGuildPointsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetGuildPoints not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerGuildPoints(context.Context, *GetPlayerGuildPointsRequest) (*GetPlayerGuildPointsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerGuildPoints not implemented")
 }
 func (*UnimplementedNoNameServer) mustEmbedUnimplementedNoNameServer() {}
 
@@ -4094,6 +4124,42 @@ func _NoName_GetPlayersGuild_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetGuildPoints_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGuildPointsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetGuildPoints(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetGuildPoints",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetGuildPoints(ctx, req.(*GetGuildPointsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerGuildPoints_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerGuildPointsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerGuildPoints(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerGuildPoints",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerGuildPoints(ctx, req.(*GetPlayerGuildPointsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _NoName_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "NoName",
 	HandlerType: (*NoNameServer)(nil),
@@ -4593,6 +4659,14 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPlayersGuild",
 			Handler:    _NoName_GetPlayersGuild_Handler,
+		},
+		{
+			MethodName: "GetGuildPoints",
+			Handler:    _NoName_GetGuildPoints_Handler,
+		},
+		{
+			MethodName: "GetPlayerGuildPoints",
+			Handler:    _NoName_GetPlayerGuildPoints_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

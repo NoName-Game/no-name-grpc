@@ -38,6 +38,7 @@ import "proto/safeplanet_research.proto";
 import "proto/ability.proto";
 import "proto/ability_category.proto";
 import "proto/guild.proto";
+import "proto/guild_point.proto";
 
 option go_package = ".;pb";
 
@@ -248,4 +249,8 @@ service NoName {
     rpc GetPlayerGuild (guild.GetPlayerGuildRequest) returns (guild.GetPlayerGuildResponse) {}
     rpc LeaveGuild (guild.LeaveGuildRequest) returns (guild.LeaveGuildResponse) {}
     rpc GetPlayersGuild (guild.GetPlayersGuildRequest) returns (guild.GetPlayersGuildResponse) {}
+
+    // Guild - Points
+    rpc GetGuildPoints (guild_point.GetGuildPointsRequest) returns (guild_point.GetGuildPointsResponse) {}
+    rpc GetPlayerGuildPoints (guild_point.GetPlayerGuildPointsRequest) returns (guild_point.GetPlayerGuildPointsResponse) {}
 }
