@@ -41,7 +41,6 @@ type NoNameClient interface {
 	// Player
 	GetPlayerByID(ctx context.Context, in *GetPlayerByIDRequest, opts ...grpc.CallOption) (*GetPlayerByIDResponse, error)
 	GetPlayerByUsername(ctx context.Context, in *GetPlayerByUsernameRequest, opts ...grpc.CallOption) (*GetPlayerByUsernameResponse, error)
-	GetPlayerStats(ctx context.Context, in *GetPlayerStatsRequest, opts ...grpc.CallOption) (*GetPlayerStatsResponse, error)
 	GetPlayerExperience(ctx context.Context, in *GetPlayerExperienceRequest, opts ...grpc.CallOption) (*GetPlayerExperienceResponse, error)
 	// Player - Configuration
 	PlayerSetLanguage(ctx context.Context, in *PlayerSetLanguageRequest, opts ...grpc.CallOption) (*PlayerSetLanguageResponse, error)
@@ -360,15 +359,6 @@ func (c *noNameClient) GetPlayerByID(ctx context.Context, in *GetPlayerByIDReque
 func (c *noNameClient) GetPlayerByUsername(ctx context.Context, in *GetPlayerByUsernameRequest, opts ...grpc.CallOption) (*GetPlayerByUsernameResponse, error) {
 	out := new(GetPlayerByUsernameResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerByUsername", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) GetPlayerStats(ctx context.Context, in *GetPlayerStatsRequest, opts ...grpc.CallOption) (*GetPlayerStatsResponse, error) {
-	out := new(GetPlayerStatsResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetPlayerStats", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1357,7 +1347,6 @@ type NoNameServer interface {
 	// Player
 	GetPlayerByID(context.Context, *GetPlayerByIDRequest) (*GetPlayerByIDResponse, error)
 	GetPlayerByUsername(context.Context, *GetPlayerByUsernameRequest) (*GetPlayerByUsernameResponse, error)
-	GetPlayerStats(context.Context, *GetPlayerStatsRequest) (*GetPlayerStatsResponse, error)
 	GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error)
 	// Player - Configuration
 	PlayerSetLanguage(context.Context, *PlayerSetLanguageRequest) (*PlayerSetLanguageResponse, error)
@@ -1564,9 +1553,6 @@ func (*UnimplementedNoNameServer) GetPlayerByID(context.Context, *GetPlayerByIDR
 }
 func (*UnimplementedNoNameServer) GetPlayerByUsername(context.Context, *GetPlayerByUsernameRequest) (*GetPlayerByUsernameResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerByUsername not implemented")
-}
-func (*UnimplementedNoNameServer) GetPlayerStats(context.Context, *GetPlayerStatsRequest) (*GetPlayerStatsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerStats not implemented")
 }
 func (*UnimplementedNoNameServer) GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerExperience not implemented")
@@ -2230,24 +2216,6 @@ func _NoName_GetPlayerByUsername_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetPlayerByUsername(ctx, req.(*GetPlayerByUsernameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_GetPlayerStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerStatsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).GetPlayerStats(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/GetPlayerStats",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetPlayerStats(ctx, req.(*GetPlayerStatsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4239,10 +4207,6 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPlayerByUsername",
 			Handler:    _NoName_GetPlayerByUsername_Handler,
-		},
-		{
-			MethodName: "GetPlayerStats",
-			Handler:    _NoName_GetPlayerStats_Handler,
 		},
 		{
 			MethodName: "GetPlayerExperience",
