@@ -23,6 +23,16 @@ message GetAbilityForPlayerByCategoryResponse {
     Ability Ability = 1;
 }
 
+// CheckIfPlayerHaveAbility
+message CheckIfPlayerHaveAbilityRequest {
+    uint32 PlayerID = 1;
+    uint32 AbilityID = 2;
+}
+message CheckIfPlayerHaveAbilityResponse {
+    bool haveAbility = 1;
+    Ability Ability = 2;
+}
+
 // LearnAbility
 message LearnAbilityRequest {
     uint32 PlayerID = 1;

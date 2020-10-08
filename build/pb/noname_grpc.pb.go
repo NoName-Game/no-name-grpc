@@ -170,6 +170,7 @@ type NoNameClient interface {
 	// Ability
 	GetAbilityForPlayerByCategory(ctx context.Context, in *GetAbilityForPlayerByCategoryRequest, opts ...grpc.CallOption) (*GetAbilityForPlayerByCategoryResponse, error)
 	LearnAbility(ctx context.Context, in *LearnAbilityRequest, opts ...grpc.CallOption) (*LearnAbilityResponse, error)
+	CheckIfPlayerHaveAbility(ctx context.Context, in *CheckIfPlayerHaveAbilityRequest, opts ...grpc.CallOption) (*CheckIfPlayerHaveAbilityResponse, error)
 	// AbilityCategory
 	GetAllAbilityCategory(ctx context.Context, in *GetAllAbilityCategoryRequest, opts ...grpc.CallOption) (*GetAllAbilityCategoryResponse, error)
 	GetAbilityCategoryBySlug(ctx context.Context, in *GetAbilityCategoryBySlugRequest, opts ...grpc.CallOption) (*GetAbilityCategoryBySlugResponse, error)
@@ -1220,6 +1221,15 @@ func (c *noNameClient) LearnAbility(ctx context.Context, in *LearnAbilityRequest
 	return out, nil
 }
 
+func (c *noNameClient) CheckIfPlayerHaveAbility(ctx context.Context, in *CheckIfPlayerHaveAbilityRequest, opts ...grpc.CallOption) (*CheckIfPlayerHaveAbilityResponse, error) {
+	out := new(CheckIfPlayerHaveAbilityResponse)
+	err := c.cc.Invoke(ctx, "/NoName/CheckIfPlayerHaveAbility", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetAllAbilityCategory(ctx context.Context, in *GetAllAbilityCategoryRequest, opts ...grpc.CallOption) (*GetAllAbilityCategoryResponse, error) {
 	out := new(GetAllAbilityCategoryResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAllAbilityCategory", in, out, opts...)
@@ -1476,6 +1486,7 @@ type NoNameServer interface {
 	// Ability
 	GetAbilityForPlayerByCategory(context.Context, *GetAbilityForPlayerByCategoryRequest) (*GetAbilityForPlayerByCategoryResponse, error)
 	LearnAbility(context.Context, *LearnAbilityRequest) (*LearnAbilityResponse, error)
+	CheckIfPlayerHaveAbility(context.Context, *CheckIfPlayerHaveAbilityRequest) (*CheckIfPlayerHaveAbilityResponse, error)
 	// AbilityCategory
 	GetAllAbilityCategory(context.Context, *GetAllAbilityCategoryRequest) (*GetAllAbilityCategoryResponse, error)
 	GetAbilityCategoryBySlug(context.Context, *GetAbilityCategoryBySlugRequest) (*GetAbilityCategoryBySlugResponse, error)
@@ -1838,6 +1849,9 @@ func (*UnimplementedNoNameServer) GetAbilityForPlayerByCategory(context.Context,
 }
 func (*UnimplementedNoNameServer) LearnAbility(context.Context, *LearnAbilityRequest) (*LearnAbilityResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LearnAbility not implemented")
+}
+func (*UnimplementedNoNameServer) CheckIfPlayerHaveAbility(context.Context, *CheckIfPlayerHaveAbilityRequest) (*CheckIfPlayerHaveAbilityResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckIfPlayerHaveAbility not implemented")
 }
 func (*UnimplementedNoNameServer) GetAllAbilityCategory(context.Context, *GetAllAbilityCategoryRequest) (*GetAllAbilityCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllAbilityCategory not implemented")
@@ -3930,6 +3944,24 @@ func _NoName_LearnAbility_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_CheckIfPlayerHaveAbility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckIfPlayerHaveAbilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CheckIfPlayerHaveAbility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CheckIfPlayerHaveAbility",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CheckIfPlayerHaveAbility(ctx, req.(*CheckIfPlayerHaveAbilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetAllAbilityCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAllAbilityCategoryRequest)
 	if err := dec(in); err != nil {
@@ -4587,6 +4619,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "LearnAbility",
 			Handler:    _NoName_LearnAbility_Handler,
+		},
+		{
+			MethodName: "CheckIfPlayerHaveAbility",
+			Handler:    _NoName_CheckIfPlayerHaveAbility_Handler,
 		},
 		{
 			MethodName: "GetAllAbilityCategory",

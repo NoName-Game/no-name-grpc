@@ -235,6 +235,7 @@ service NoName {
     // Ability
     rpc GetAbilityForPlayerByCategory (ability.GetAbilityForPlayerByCategoryRequest) returns (ability.GetAbilityForPlayerByCategoryResponse) {}
     rpc LearnAbility (ability.LearnAbilityRequest) returns (ability.LearnAbilityResponse) {}
+    rpc CheckIfPlayerHaveAbility (ability.CheckIfPlayerHaveAbilityRequest) returns (ability.CheckIfPlayerHaveAbilityResponse) {}
 
     // AbilityCategory
     rpc GetAllAbilityCategory (ability_category.GetAllAbilityCategoryRequest) returns (ability_category.GetAllAbilityCategoryResponse) {}
