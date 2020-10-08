@@ -5,14 +5,14 @@ package timezone;
 message Timezone {
     uint32 ID = 1;
     string Name = 2;
-    string Slug = 3;
+    string Description = 3;
 }
 
-// GetTimezoneBySlug
-message GetTimezoneBySlugRequest {
-    string Slug = 1;
+// GetTimezoneByDescription
+message GetTimezoneByDescriptionRequest {
+    string Description = 1;
 }
-message GetTimezoneBySlugResponse {
+message GetTimezoneByDescriptionResponse {
     Timezone Timezone = 1;
 }
 

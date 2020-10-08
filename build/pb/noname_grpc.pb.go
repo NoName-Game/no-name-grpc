@@ -90,7 +90,7 @@ type NoNameClient interface {
 	GetLanguageByName(ctx context.Context, in *GetLanguageByNameRequest, opts ...grpc.CallOption) (*GetLanguageByNameResponse, error)
 	GetAllLanguages(ctx context.Context, in *GetAllLanguagesRequest, opts ...grpc.CallOption) (*GetAllLanguagesResponse, error)
 	// Timezone
-	GetTimezoneBySlug(ctx context.Context, in *GetTimezoneBySlugRequest, opts ...grpc.CallOption) (*GetTimezoneBySlugResponse, error)
+	GetTimezoneByDescription(ctx context.Context, in *GetTimezoneByDescriptionRequest, opts ...grpc.CallOption) (*GetTimezoneByDescriptionResponse, error)
 	GetTimezoneByName(ctx context.Context, in *GetTimezoneByNameRequest, opts ...grpc.CallOption) (*GetTimezoneByNameResponse, error)
 	GetAllTimezones(ctx context.Context, in *GetAllTimezonesRequest, opts ...grpc.CallOption) (*GetAllTimezonesResponse, error)
 	// NPC
@@ -699,9 +699,9 @@ func (c *noNameClient) GetAllLanguages(ctx context.Context, in *GetAllLanguagesR
 	return out, nil
 }
 
-func (c *noNameClient) GetTimezoneBySlug(ctx context.Context, in *GetTimezoneBySlugRequest, opts ...grpc.CallOption) (*GetTimezoneBySlugResponse, error) {
-	out := new(GetTimezoneBySlugResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetTimezoneBySlug", in, out, opts...)
+func (c *noNameClient) GetTimezoneByDescription(ctx context.Context, in *GetTimezoneByDescriptionRequest, opts ...grpc.CallOption) (*GetTimezoneByDescriptionResponse, error) {
+	out := new(GetTimezoneByDescriptionResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetTimezoneByDescription", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1406,7 +1406,7 @@ type NoNameServer interface {
 	GetLanguageByName(context.Context, *GetLanguageByNameRequest) (*GetLanguageByNameResponse, error)
 	GetAllLanguages(context.Context, *GetAllLanguagesRequest) (*GetAllLanguagesResponse, error)
 	// Timezone
-	GetTimezoneBySlug(context.Context, *GetTimezoneBySlugRequest) (*GetTimezoneBySlugResponse, error)
+	GetTimezoneByDescription(context.Context, *GetTimezoneByDescriptionRequest) (*GetTimezoneByDescriptionResponse, error)
 	GetTimezoneByName(context.Context, *GetTimezoneByNameRequest) (*GetTimezoneByNameResponse, error)
 	GetAllTimezones(context.Context, *GetAllTimezonesRequest) (*GetAllTimezonesResponse, error)
 	// NPC
@@ -1676,8 +1676,8 @@ func (*UnimplementedNoNameServer) GetLanguageByName(context.Context, *GetLanguag
 func (*UnimplementedNoNameServer) GetAllLanguages(context.Context, *GetAllLanguagesRequest) (*GetAllLanguagesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllLanguages not implemented")
 }
-func (*UnimplementedNoNameServer) GetTimezoneBySlug(context.Context, *GetTimezoneBySlugRequest) (*GetTimezoneBySlugResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetTimezoneBySlug not implemented")
+func (*UnimplementedNoNameServer) GetTimezoneByDescription(context.Context, *GetTimezoneByDescriptionRequest) (*GetTimezoneByDescriptionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTimezoneByDescription not implemented")
 }
 func (*UnimplementedNoNameServer) GetTimezoneByName(context.Context, *GetTimezoneByNameRequest) (*GetTimezoneByNameResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTimezoneByName not implemented")
@@ -2900,20 +2900,20 @@ func _NoName_GetAllLanguages_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoName_GetTimezoneBySlug_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTimezoneBySlugRequest)
+func _NoName_GetTimezoneByDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimezoneByDescriptionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoNameServer).GetTimezoneBySlug(ctx, in)
+		return srv.(NoNameServer).GetTimezoneByDescription(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/NoName/GetTimezoneBySlug",
+		FullMethod: "/NoName/GetTimezoneByDescription",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetTimezoneBySlug(ctx, req.(*GetTimezoneBySlugRequest))
+		return srv.(NoNameServer).GetTimezoneByDescription(ctx, req.(*GetTimezoneByDescriptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4389,8 +4389,8 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetAllLanguages_Handler,
 		},
 		{
-			MethodName: "GetTimezoneBySlug",
-			Handler:    _NoName_GetTimezoneBySlug_Handler,
+			MethodName: "GetTimezoneByDescription",
+			Handler:    _NoName_GetTimezoneByDescription_Handler,
 		},
 		{
 			MethodName: "GetTimezoneByName",

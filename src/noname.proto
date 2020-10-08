@@ -133,7 +133,7 @@ service NoName {
     rpc GetAllLanguages (language.GetAllLanguagesRequest) returns (language.GetAllLanguagesResponse) {}
 
     // Timezone
-    rpc GetTimezoneBySlug (timezone.GetTimezoneBySlugRequest) returns (timezone.GetTimezoneBySlugResponse) {}
+    rpc GetTimezoneByDescription (timezone.GetTimezoneByDescriptionRequest) returns (timezone.GetTimezoneByDescriptionResponse) {}
     rpc GetTimezoneByName (timezone.GetTimezoneByNameRequest) returns (timezone.GetTimezoneByNameResponse) {}
     rpc GetAllTimezones (timezone.GetAllTimezonesRequest) returns (timezone.GetAllTimezonesResponse) {}
 
