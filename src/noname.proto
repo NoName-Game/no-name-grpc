@@ -219,6 +219,7 @@ service NoName {
     rpc ExplorationContinue (exploration.ExplorationContinueRequest) returns (exploration.ExplorationContinueResponse) {}
     rpc ExplorationEnd (exploration.ExplorationEndRequest) returns (exploration.ExplorationEndResponse) {}
     rpc ExplorationCheck (exploration.ExplorationCheckRequest) returns (exploration.ExplorationCheckResponse) {}
+    rpc ExplorationDropResources (exploration.ExplorationDropResourcesRequest) returns (exploration.ExplorationDropResourcesResponse) {}
 
     // Exploration Category
     rpc GetAllExplorationCategories (exploration_category.GetAllExplorationCategoriesRequest) returns (exploration_category.GetAllExplorationCategoriesResponse) {}

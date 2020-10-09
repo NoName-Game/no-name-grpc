@@ -37,12 +37,22 @@ message ExplorationCheckRequest {
     uint32 PlayerID = 1;
 }
 message ExplorationCheckResponse {
+    bool InExploration = 1;
+    bool FinishExploration = 2;
+    google.protobuf.Timestamp ExplorationEndTime = 3;
+}
+
+// ExplorationDropResources
+message ExplorationDropResourcesRequest {
+    uint32 PlayerID = 1;
+}
+message ExplorationDropResourcesResponse {
     message ExplorationDropResourcesResult {
         uint32 ResourceID = 1;
         int32 Quantity = 2;
     }
-    bool InExploration = 1;
-    bool FinishExploration = 2;
-    google.protobuf.Timestamp ExplorationEndTime = 3;
-    repeated ExplorationDropResourcesResult DropResults = 4;
+    repeated ExplorationDropResourcesResult DropResults = 1;
 }
+
+
+

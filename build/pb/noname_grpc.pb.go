@@ -158,6 +158,7 @@ type NoNameClient interface {
 	ExplorationContinue(ctx context.Context, in *ExplorationContinueRequest, opts ...grpc.CallOption) (*ExplorationContinueResponse, error)
 	ExplorationEnd(ctx context.Context, in *ExplorationEndRequest, opts ...grpc.CallOption) (*ExplorationEndResponse, error)
 	ExplorationCheck(ctx context.Context, in *ExplorationCheckRequest, opts ...grpc.CallOption) (*ExplorationCheckResponse, error)
+	ExplorationDropResources(ctx context.Context, in *ExplorationDropResourcesRequest, opts ...grpc.CallOption) (*ExplorationDropResourcesResponse, error)
 	// Exploration Category
 	GetAllExplorationCategories(ctx context.Context, in *GetAllExplorationCategoriesRequest, opts ...grpc.CallOption) (*GetAllExplorationCategoriesResponse, error)
 	// Conquerors
@@ -1149,6 +1150,15 @@ func (c *noNameClient) ExplorationCheck(ctx context.Context, in *ExplorationChec
 	return out, nil
 }
 
+func (c *noNameClient) ExplorationDropResources(ctx context.Context, in *ExplorationDropResourcesRequest, opts ...grpc.CallOption) (*ExplorationDropResourcesResponse, error) {
+	out := new(ExplorationDropResourcesResponse)
+	err := c.cc.Invoke(ctx, "/NoName/ExplorationDropResources", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetAllExplorationCategories(ctx context.Context, in *GetAllExplorationCategoriesRequest, opts ...grpc.CallOption) (*GetAllExplorationCategoriesResponse, error) {
 	out := new(GetAllExplorationCategoriesResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAllExplorationCategories", in, out, opts...)
@@ -1474,6 +1484,7 @@ type NoNameServer interface {
 	ExplorationContinue(context.Context, *ExplorationContinueRequest) (*ExplorationContinueResponse, error)
 	ExplorationEnd(context.Context, *ExplorationEndRequest) (*ExplorationEndResponse, error)
 	ExplorationCheck(context.Context, *ExplorationCheckRequest) (*ExplorationCheckResponse, error)
+	ExplorationDropResources(context.Context, *ExplorationDropResourcesRequest) (*ExplorationDropResourcesResponse, error)
 	// Exploration Category
 	GetAllExplorationCategories(context.Context, *GetAllExplorationCategoriesRequest) (*GetAllExplorationCategoriesResponse, error)
 	// Conquerors
@@ -1825,6 +1836,9 @@ func (*UnimplementedNoNameServer) ExplorationEnd(context.Context, *ExplorationEn
 }
 func (*UnimplementedNoNameServer) ExplorationCheck(context.Context, *ExplorationCheckRequest) (*ExplorationCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ExplorationCheck not implemented")
+}
+func (*UnimplementedNoNameServer) ExplorationDropResources(context.Context, *ExplorationDropResourcesRequest) (*ExplorationDropResourcesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ExplorationDropResources not implemented")
 }
 func (*UnimplementedNoNameServer) GetAllExplorationCategories(context.Context, *GetAllExplorationCategoriesRequest) (*GetAllExplorationCategoriesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllExplorationCategories not implemented")
@@ -3800,6 +3814,24 @@ func _NoName_ExplorationCheck_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_ExplorationDropResources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExplorationDropResourcesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).ExplorationDropResources(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/ExplorationDropResources",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).ExplorationDropResources(ctx, req.(*ExplorationDropResourcesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetAllExplorationCategories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAllExplorationCategoriesRequest)
 	if err := dec(in); err != nil {
@@ -4587,6 +4619,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ExplorationCheck",
 			Handler:    _NoName_ExplorationCheck_Handler,
+		},
+		{
+			MethodName: "ExplorationDropResources",
+			Handler:    _NoName_ExplorationDropResources_Handler,
 		},
 		{
 			MethodName: "GetAllExplorationCategories",

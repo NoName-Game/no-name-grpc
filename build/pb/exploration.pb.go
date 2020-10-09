@@ -372,10 +372,9 @@ type ExplorationCheckResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	InExploration      bool                                                       `protobuf:"varint,1,opt,name=InExploration,proto3" json:"InExploration,omitempty"`
-	FinishExploration  bool                                                       `protobuf:"varint,2,opt,name=FinishExploration,proto3" json:"FinishExploration,omitempty"`
-	ExplorationEndTime *timestamp.Timestamp                                       `protobuf:"bytes,3,opt,name=ExplorationEndTime,proto3" json:"ExplorationEndTime,omitempty"`
-	DropResults        []*ExplorationCheckResponse_ExplorationDropResourcesResult `protobuf:"bytes,4,rep,name=DropResults,proto3" json:"DropResults,omitempty"`
+	InExploration      bool                 `protobuf:"varint,1,opt,name=InExploration,proto3" json:"InExploration,omitempty"`
+	FinishExploration  bool                 `protobuf:"varint,2,opt,name=FinishExploration,proto3" json:"FinishExploration,omitempty"`
+	ExplorationEndTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=ExplorationEndTime,proto3" json:"ExplorationEndTime,omitempty"`
 }
 
 func (x *ExplorationCheckResponse) Reset() {
@@ -431,7 +430,95 @@ func (x *ExplorationCheckResponse) GetExplorationEndTime() *timestamp.Timestamp 
 	return nil
 }
 
-func (x *ExplorationCheckResponse) GetDropResults() []*ExplorationCheckResponse_ExplorationDropResourcesResult {
+// ExplorationDropResources
+type ExplorationDropResourcesRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+}
+
+func (x *ExplorationDropResourcesRequest) Reset() {
+	*x = ExplorationDropResourcesRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_exploration_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ExplorationDropResourcesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExplorationDropResourcesRequest) ProtoMessage() {}
+
+func (x *ExplorationDropResourcesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_exploration_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExplorationDropResourcesRequest.ProtoReflect.Descriptor instead.
+func (*ExplorationDropResourcesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_exploration_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *ExplorationDropResourcesRequest) GetPlayerID() uint32 {
+	if x != nil {
+		return x.PlayerID
+	}
+	return 0
+}
+
+type ExplorationDropResourcesResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	DropResults []*ExplorationDropResourcesResponse_ExplorationDropResourcesResult `protobuf:"bytes,1,rep,name=DropResults,proto3" json:"DropResults,omitempty"`
+}
+
+func (x *ExplorationDropResourcesResponse) Reset() {
+	*x = ExplorationDropResourcesResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_exploration_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ExplorationDropResourcesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExplorationDropResourcesResponse) ProtoMessage() {}
+
+func (x *ExplorationDropResourcesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_exploration_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExplorationDropResourcesResponse.ProtoReflect.Descriptor instead.
+func (*ExplorationDropResourcesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_exploration_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *ExplorationDropResourcesResponse) GetDropResults() []*ExplorationDropResourcesResponse_ExplorationDropResourcesResult {
 	if x != nil {
 		return x.DropResults
 	}
@@ -450,7 +537,7 @@ type ExplorationEndResponse_ExplorationDropResourcesResult struct {
 func (x *ExplorationEndResponse_ExplorationDropResourcesResult) Reset() {
 	*x = ExplorationEndResponse_ExplorationDropResourcesResult{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_exploration_proto_msgTypes[8]
+		mi := &file_proto_exploration_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -463,7 +550,7 @@ func (x *ExplorationEndResponse_ExplorationDropResourcesResult) String() string 
 func (*ExplorationEndResponse_ExplorationDropResourcesResult) ProtoMessage() {}
 
 func (x *ExplorationEndResponse_ExplorationDropResourcesResult) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exploration_proto_msgTypes[8]
+	mi := &file_proto_exploration_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -493,7 +580,7 @@ func (x *ExplorationEndResponse_ExplorationDropResourcesResult) GetQuantity() in
 	return 0
 }
 
-type ExplorationCheckResponse_ExplorationDropResourcesResult struct {
+type ExplorationDropResourcesResponse_ExplorationDropResourcesResult struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -502,23 +589,23 @@ type ExplorationCheckResponse_ExplorationDropResourcesResult struct {
 	Quantity   int32  `protobuf:"varint,2,opt,name=Quantity,proto3" json:"Quantity,omitempty"`
 }
 
-func (x *ExplorationCheckResponse_ExplorationDropResourcesResult) Reset() {
-	*x = ExplorationCheckResponse_ExplorationDropResourcesResult{}
+func (x *ExplorationDropResourcesResponse_ExplorationDropResourcesResult) Reset() {
+	*x = ExplorationDropResourcesResponse_ExplorationDropResourcesResult{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_exploration_proto_msgTypes[9]
+		mi := &file_proto_exploration_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *ExplorationCheckResponse_ExplorationDropResourcesResult) String() string {
+func (x *ExplorationDropResourcesResponse_ExplorationDropResourcesResult) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ExplorationCheckResponse_ExplorationDropResourcesResult) ProtoMessage() {}
+func (*ExplorationDropResourcesResponse_ExplorationDropResourcesResult) ProtoMessage() {}
 
-func (x *ExplorationCheckResponse_ExplorationDropResourcesResult) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_exploration_proto_msgTypes[9]
+func (x *ExplorationDropResourcesResponse_ExplorationDropResourcesResult) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_exploration_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -529,19 +616,19 @@ func (x *ExplorationCheckResponse_ExplorationDropResourcesResult) ProtoReflect()
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ExplorationCheckResponse_ExplorationDropResourcesResult.ProtoReflect.Descriptor instead.
-func (*ExplorationCheckResponse_ExplorationDropResourcesResult) Descriptor() ([]byte, []int) {
-	return file_proto_exploration_proto_rawDescGZIP(), []int{7, 0}
+// Deprecated: Use ExplorationDropResourcesResponse_ExplorationDropResourcesResult.ProtoReflect.Descriptor instead.
+func (*ExplorationDropResourcesResponse_ExplorationDropResourcesResult) Descriptor() ([]byte, []int) {
+	return file_proto_exploration_proto_rawDescGZIP(), []int{9, 0}
 }
 
-func (x *ExplorationCheckResponse_ExplorationDropResourcesResult) GetResourceID() uint32 {
+func (x *ExplorationDropResourcesResponse_ExplorationDropResourcesResult) GetResourceID() uint32 {
 	if x != nil {
 		return x.ResourceID
 	}
 	return 0
 }
 
-func (x *ExplorationCheckResponse_ExplorationDropResourcesResult) GetQuantity() int32 {
+func (x *ExplorationDropResourcesResponse_ExplorationDropResourcesResult) GetQuantity() int32 {
 	if x != nil {
 		return x.Quantity
 	}
@@ -597,7 +684,7 @@ var file_proto_exploration_proto_rawDesc = []byte{
 	0x79, 0x22, 0x35, 0x0a, 0x17, 0x45, 0x78, 0x70, 0x6c, 0x6f, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e,
 	0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08,
 	0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08,
-	0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x22, 0x80, 0x03, 0x0a, 0x18, 0x45, 0x78, 0x70,
+	0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x22, 0xba, 0x01, 0x0a, 0x18, 0x45, 0x78, 0x70,
 	0x6c, 0x6f, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x65, 0x73,
 	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x24, 0x0a, 0x0d, 0x49, 0x6e, 0x45, 0x78, 0x70, 0x6c, 0x6f,
 	0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x0d, 0x49, 0x6e,
@@ -609,20 +696,27 @@ var file_proto_exploration_proto_rawDesc = []byte{
 	0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70,
 	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d,
 	0x70, 0x52, 0x12, 0x45, 0x78, 0x70, 0x6c, 0x6f, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x45, 0x6e,
-	0x64, 0x54, 0x69, 0x6d, 0x65, 0x12, 0x66, 0x0a, 0x0b, 0x44, 0x72, 0x6f, 0x70, 0x52, 0x65, 0x73,
-	0x75, 0x6c, 0x74, 0x73, 0x18, 0x04, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x44, 0x2e, 0x65, 0x78, 0x70,
-	0x6c, 0x6f, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x45, 0x78, 0x70, 0x6c, 0x6f, 0x72, 0x61,
-	0x74, 0x69, 0x6f, 0x6e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x2e, 0x45, 0x78, 0x70, 0x6c, 0x6f, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x44, 0x72, 0x6f,
-	0x70, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74,
-	0x52, 0x0b, 0x44, 0x72, 0x6f, 0x70, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x73, 0x1a, 0x5c, 0x0a,
-	0x1e, 0x45, 0x78, 0x70, 0x6c, 0x6f, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x44, 0x72, 0x6f, 0x70,
-	0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x12,
-	0x1e, 0x0a, 0x0a, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x49, 0x44, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x0d, 0x52, 0x0a, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x49, 0x44, 0x12,
-	0x1a, 0x0a, 0x08, 0x51, 0x75, 0x61, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28,
-	0x05, 0x52, 0x08, 0x51, 0x75, 0x61, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x42, 0x06, 0x5a, 0x04, 0x2e,
-	0x3b, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x64, 0x54, 0x69, 0x6d, 0x65, 0x22, 0x3d, 0x0a, 0x1f, 0x45, 0x78, 0x70, 0x6c, 0x6f, 0x72, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x44, 0x72, 0x6f, 0x70, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
+	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79,
+	0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79,
+	0x65, 0x72, 0x49, 0x44, 0x22, 0xf0, 0x01, 0x0a, 0x20, 0x45, 0x78, 0x70, 0x6c, 0x6f, 0x72, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x44, 0x72, 0x6f, 0x70, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
+	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x6e, 0x0a, 0x0b, 0x44, 0x72, 0x6f,
+	0x70, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x4c,
+	0x2e, 0x65, 0x78, 0x70, 0x6c, 0x6f, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x45, 0x78, 0x70,
+	0x6c, 0x6f, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x44, 0x72, 0x6f, 0x70, 0x52, 0x65, 0x73, 0x6f,
+	0x75, 0x72, 0x63, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x45, 0x78,
+	0x70, 0x6c, 0x6f, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x44, 0x72, 0x6f, 0x70, 0x52, 0x65, 0x73,
+	0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x0b, 0x44, 0x72,
+	0x6f, 0x70, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x73, 0x1a, 0x5c, 0x0a, 0x1e, 0x45, 0x78, 0x70,
+	0x6c, 0x6f, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x44, 0x72, 0x6f, 0x70, 0x52, 0x65, 0x73, 0x6f,
+	0x75, 0x72, 0x63, 0x65, 0x73, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x12, 0x1e, 0x0a, 0x0a, 0x52,
+	0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52,
+	0x0a, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x49, 0x44, 0x12, 0x1a, 0x0a, 0x08, 0x51,
+	0x75, 0x61, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x08, 0x51,
+	0x75, 0x61, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x3b, 0x70, 0x62, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -637,26 +731,28 @@ func file_proto_exploration_proto_rawDescGZIP() []byte {
 	return file_proto_exploration_proto_rawDescData
 }
 
-var file_proto_exploration_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_proto_exploration_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
 var file_proto_exploration_proto_goTypes = []interface{}{
-	(*ExplorationStartRequest)(nil),                                 // 0: exploration.ExplorationStartRequest
-	(*ExplorationStartResponse)(nil),                                // 1: exploration.ExplorationStartResponse
-	(*ExplorationContinueRequest)(nil),                              // 2: exploration.ExplorationContinueRequest
-	(*ExplorationContinueResponse)(nil),                             // 3: exploration.ExplorationContinueResponse
-	(*ExplorationEndRequest)(nil),                                   // 4: exploration.ExplorationEndRequest
-	(*ExplorationEndResponse)(nil),                                  // 5: exploration.ExplorationEndResponse
-	(*ExplorationCheckRequest)(nil),                                 // 6: exploration.ExplorationCheckRequest
-	(*ExplorationCheckResponse)(nil),                                // 7: exploration.ExplorationCheckResponse
-	(*ExplorationEndResponse_ExplorationDropResourcesResult)(nil),   // 8: exploration.ExplorationEndResponse.ExplorationDropResourcesResult
-	(*ExplorationCheckResponse_ExplorationDropResourcesResult)(nil), // 9: exploration.ExplorationCheckResponse.ExplorationDropResourcesResult
-	(*timestamp.Timestamp)(nil),                                     // 10: google.protobuf.Timestamp
+	(*ExplorationStartRequest)(nil),                                         // 0: exploration.ExplorationStartRequest
+	(*ExplorationStartResponse)(nil),                                        // 1: exploration.ExplorationStartResponse
+	(*ExplorationContinueRequest)(nil),                                      // 2: exploration.ExplorationContinueRequest
+	(*ExplorationContinueResponse)(nil),                                     // 3: exploration.ExplorationContinueResponse
+	(*ExplorationEndRequest)(nil),                                           // 4: exploration.ExplorationEndRequest
+	(*ExplorationEndResponse)(nil),                                          // 5: exploration.ExplorationEndResponse
+	(*ExplorationCheckRequest)(nil),                                         // 6: exploration.ExplorationCheckRequest
+	(*ExplorationCheckResponse)(nil),                                        // 7: exploration.ExplorationCheckResponse
+	(*ExplorationDropResourcesRequest)(nil),                                 // 8: exploration.ExplorationDropResourcesRequest
+	(*ExplorationDropResourcesResponse)(nil),                                // 9: exploration.ExplorationDropResourcesResponse
+	(*ExplorationEndResponse_ExplorationDropResourcesResult)(nil),           // 10: exploration.ExplorationEndResponse.ExplorationDropResourcesResult
+	(*ExplorationDropResourcesResponse_ExplorationDropResourcesResult)(nil), // 11: exploration.ExplorationDropResourcesResponse.ExplorationDropResourcesResult
+	(*timestamp.Timestamp)(nil),                                             // 12: google.protobuf.Timestamp
 }
 var file_proto_exploration_proto_depIdxs = []int32{
-	10, // 0: exploration.ExplorationStartResponse.FinishAt:type_name -> google.protobuf.Timestamp
-	10, // 1: exploration.ExplorationContinueResponse.FinishAt:type_name -> google.protobuf.Timestamp
-	8,  // 2: exploration.ExplorationEndResponse.DropResults:type_name -> exploration.ExplorationEndResponse.ExplorationDropResourcesResult
-	10, // 3: exploration.ExplorationCheckResponse.ExplorationEndTime:type_name -> google.protobuf.Timestamp
-	9,  // 4: exploration.ExplorationCheckResponse.DropResults:type_name -> exploration.ExplorationCheckResponse.ExplorationDropResourcesResult
+	12, // 0: exploration.ExplorationStartResponse.FinishAt:type_name -> google.protobuf.Timestamp
+	12, // 1: exploration.ExplorationContinueResponse.FinishAt:type_name -> google.protobuf.Timestamp
+	10, // 2: exploration.ExplorationEndResponse.DropResults:type_name -> exploration.ExplorationEndResponse.ExplorationDropResourcesResult
+	12, // 3: exploration.ExplorationCheckResponse.ExplorationEndTime:type_name -> google.protobuf.Timestamp
+	11, // 4: exploration.ExplorationDropResourcesResponse.DropResults:type_name -> exploration.ExplorationDropResourcesResponse.ExplorationDropResourcesResult
 	5,  // [5:5] is the sub-list for method output_type
 	5,  // [5:5] is the sub-list for method input_type
 	5,  // [5:5] is the sub-list for extension type_name
@@ -767,7 +863,7 @@ func file_proto_exploration_proto_init() {
 			}
 		}
 		file_proto_exploration_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ExplorationEndResponse_ExplorationDropResourcesResult); i {
+			switch v := v.(*ExplorationDropResourcesRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -779,7 +875,31 @@ func file_proto_exploration_proto_init() {
 			}
 		}
 		file_proto_exploration_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ExplorationCheckResponse_ExplorationDropResourcesResult); i {
+			switch v := v.(*ExplorationDropResourcesResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_exploration_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ExplorationEndResponse_ExplorationDropResourcesResult); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_exploration_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ExplorationDropResourcesResponse_ExplorationDropResourcesResult); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -797,7 +917,7 @@ func file_proto_exploration_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_exploration_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   12,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
