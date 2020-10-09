@@ -13,9 +13,9 @@ message Armor {
     armor_category.ArmorCategory ArmorCategory = 6;
     uint32 PlayerID = 7;
     bool Equipped = 9;
-    float Defense = 10;
-    float Evasion = 11;
-    float Halving = 12;
+    double Defense = 10;
+    double Evasion = 11;
+    double Halving = 12;
     uint32 Potential = 13;
 }
 
