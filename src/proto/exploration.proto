@@ -44,5 +44,5 @@ message ExplorationCheckResponse {
     bool InExploration = 1;
     bool FinishExploration = 2;
     google.protobuf.Timestamp ExplorationEndTime = 3;
-    ExplorationDropResourcesResult DropResult = 4;
+    repeated ExplorationDropResourcesResult DropResults = 4;
 }
