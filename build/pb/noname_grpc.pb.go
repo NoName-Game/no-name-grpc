@@ -117,6 +117,7 @@ type NoNameClient interface {
 	GetItemsByCategoryID(ctx context.Context, in *GetItemsByCategoryIDRequest, opts ...grpc.CallOption) (*GetItemsByCategoryIDResponse, error)
 	GetCraftableItemsByCategoryID(ctx context.Context, in *GetCraftableItemsByCategoryIDRequest, opts ...grpc.CallOption) (*GetCraftableItemsByCategoryIDResponse, error)
 	UseItem(ctx context.Context, in *UseItemRequest, opts ...grpc.CallOption) (*UseItemResponse, error)
+	GetItemByID(ctx context.Context, in *GetItemByIDRequest, opts ...grpc.CallOption) (*GetItemByIDResponse, error)
 	// ItemCateogory
 	GetAllItemCategories(ctx context.Context, in *GetAllItemCategoriesRequest, opts ...grpc.CallOption) (*GetAllItemCategoriesResponse, error)
 	// Ship
@@ -892,6 +893,15 @@ func (c *noNameClient) UseItem(ctx context.Context, in *UseItemRequest, opts ...
 	return out, nil
 }
 
+func (c *noNameClient) GetItemByID(ctx context.Context, in *GetItemByIDRequest, opts ...grpc.CallOption) (*GetItemByIDResponse, error) {
+	out := new(GetItemByIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetItemByID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetAllItemCategories(ctx context.Context, in *GetAllItemCategoriesRequest, opts ...grpc.CallOption) (*GetAllItemCategoriesResponse, error) {
 	out := new(GetAllItemCategoriesResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAllItemCategories", in, out, opts...)
@@ -1473,6 +1483,7 @@ type NoNameServer interface {
 	GetItemsByCategoryID(context.Context, *GetItemsByCategoryIDRequest) (*GetItemsByCategoryIDResponse, error)
 	GetCraftableItemsByCategoryID(context.Context, *GetCraftableItemsByCategoryIDRequest) (*GetCraftableItemsByCategoryIDResponse, error)
 	UseItem(context.Context, *UseItemRequest) (*UseItemResponse, error)
+	GetItemByID(context.Context, *GetItemByIDRequest) (*GetItemByIDResponse, error)
 	// ItemCateogory
 	GetAllItemCategories(context.Context, *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error)
 	// Ship
@@ -1782,6 +1793,9 @@ func (*UnimplementedNoNameServer) GetCraftableItemsByCategoryID(context.Context,
 }
 func (*UnimplementedNoNameServer) UseItem(context.Context, *UseItemRequest) (*UseItemResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UseItem not implemented")
+}
+func (*UnimplementedNoNameServer) GetItemByID(context.Context, *GetItemByIDRequest) (*GetItemByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetItemByID not implemented")
 }
 func (*UnimplementedNoNameServer) GetAllItemCategories(context.Context, *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllItemCategories not implemented")
@@ -3334,6 +3348,24 @@ func _NoName_UseItem_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetItemByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetItemByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetItemByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetItemByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetItemByID(ctx, req.(*GetItemByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetAllItemCategories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAllItemCategoriesRequest)
 	if err := dec(in); err != nil {
@@ -4599,6 +4631,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UseItem",
 			Handler:    _NoName_UseItem_Handler,
+		},
+		{
+			MethodName: "GetItemByID",
+			Handler:    _NoName_GetItemByID_Handler,
 		},
 		{
 			MethodName: "GetAllItemCategories",

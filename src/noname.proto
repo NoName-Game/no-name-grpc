@@ -166,6 +166,7 @@ service NoName {
     rpc GetItemsByCategoryID (item.GetItemsByCategoryIDRequest) returns (item.GetItemsByCategoryIDResponse) {}
     rpc GetCraftableItemsByCategoryID (item.GetCraftableItemsByCategoryIDRequest) returns (item.GetCraftableItemsByCategoryIDResponse) {}
     rpc UseItem (item.UseItemRequest) returns (item.UseItemResponse) {}
+    rpc GetItemByID (item.GetItemByIDRequest) returns (item.GetItemByIDResponse) {}
 
     // ItemCateogory
     rpc GetAllItemCategories (item_category.GetAllItemCategoriesRequest) returns (item_category.GetAllItemCategoriesResponse) {}

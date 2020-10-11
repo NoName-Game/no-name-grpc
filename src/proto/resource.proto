@@ -7,10 +7,13 @@ package resource;
 message Resource {
     uint32 ID = 1;
     string Name = 2;
-    uint32 RarityID = 3;
-    rarity.Rarity Rarity = 4;
-    uint32 ResourceCategoryID = 5;
-    resource_category.ResourceCategory ResourceCategory = 6;
+    bool Base = 3;
+    uint32 RarityID = 4;
+    rarity.Rarity Rarity = 5;
+    uint32 ResourceCategoryID = 6;
+    resource_category.ResourceCategory ResourceCategory = 7;
+    uint32 PlanetSystemID = 8;
+    bool Enabled = 9;
 }
 
 // GetResourceByID
