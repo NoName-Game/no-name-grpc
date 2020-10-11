@@ -49,6 +49,8 @@ type NoNameClient interface {
 	GetPlayerResources(ctx context.Context, in *GetPlayerResourcesRequest, opts ...grpc.CallOption) (*GetPlayerResourcesResponse, error)
 	GetPlayerItems(ctx context.Context, in *GetPlayerItemsRequest, opts ...grpc.CallOption) (*GetPlayerItemsResponse, error)
 	GetPlayerAmulets(ctx context.Context, in *GetPlayerAmuletsRequest, opts ...grpc.CallOption) (*GetPlayerAmuletsResponse, error)
+	GetPlayerItemByID(ctx context.Context, in *GetPlayerItemByIDRequest, opts ...grpc.CallOption) (*GetPlayerItemByIDResponse, error)
+	GetPlayerResourceByID(ctx context.Context, in *GetPlayerResourceByIDRequest, opts ...grpc.CallOption) (*GetPlayerResourceByIDResponse, error)
 	// Player - Position
 	CreatePlayerPosition(ctx context.Context, in *CreatePlayerPositionRequest, opts ...grpc.CallOption) (*CreatePlayerPositionResponse, error)
 	GetPlayerCurrentPlanet(ctx context.Context, in *GetPlayerCurrentPlanetRequest, opts ...grpc.CallOption) (*GetPlayerCurrentPlanetResponse, error)
@@ -113,6 +115,7 @@ type NoNameClient interface {
 	// Item
 	GetAllItems(ctx context.Context, in *GetAllItemsRequest, opts ...grpc.CallOption) (*GetAllItemsResponse, error)
 	GetItemsByCategoryID(ctx context.Context, in *GetItemsByCategoryIDRequest, opts ...grpc.CallOption) (*GetItemsByCategoryIDResponse, error)
+	GetCraftableItemsByCategoryID(ctx context.Context, in *GetCraftableItemsByCategoryIDRequest, opts ...grpc.CallOption) (*GetCraftableItemsByCategoryIDResponse, error)
 	UseItem(ctx context.Context, in *UseItemRequest, opts ...grpc.CallOption) (*UseItemResponse, error)
 	// ItemCateogory
 	GetAllItemCategories(ctx context.Context, in *GetAllItemCategoriesRequest, opts ...grpc.CallOption) (*GetAllItemCategoriesResponse, error)
@@ -415,6 +418,24 @@ func (c *noNameClient) GetPlayerItems(ctx context.Context, in *GetPlayerItemsReq
 func (c *noNameClient) GetPlayerAmulets(ctx context.Context, in *GetPlayerAmuletsRequest, opts ...grpc.CallOption) (*GetPlayerAmuletsResponse, error) {
 	out := new(GetPlayerAmuletsResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerAmulets", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetPlayerItemByID(ctx context.Context, in *GetPlayerItemByIDRequest, opts ...grpc.CallOption) (*GetPlayerItemByIDResponse, error) {
+	out := new(GetPlayerItemByIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerItemByID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetPlayerResourceByID(ctx context.Context, in *GetPlayerResourceByIDRequest, opts ...grpc.CallOption) (*GetPlayerResourceByIDResponse, error) {
+	out := new(GetPlayerResourceByIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerResourceByID", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -847,6 +868,15 @@ func (c *noNameClient) GetAllItems(ctx context.Context, in *GetAllItemsRequest, 
 func (c *noNameClient) GetItemsByCategoryID(ctx context.Context, in *GetItemsByCategoryIDRequest, opts ...grpc.CallOption) (*GetItemsByCategoryIDResponse, error) {
 	out := new(GetItemsByCategoryIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetItemsByCategoryID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetCraftableItemsByCategoryID(ctx context.Context, in *GetCraftableItemsByCategoryIDRequest, opts ...grpc.CallOption) (*GetCraftableItemsByCategoryIDResponse, error) {
+	out := new(GetCraftableItemsByCategoryIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetCraftableItemsByCategoryID", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1375,6 +1405,8 @@ type NoNameServer interface {
 	GetPlayerResources(context.Context, *GetPlayerResourcesRequest) (*GetPlayerResourcesResponse, error)
 	GetPlayerItems(context.Context, *GetPlayerItemsRequest) (*GetPlayerItemsResponse, error)
 	GetPlayerAmulets(context.Context, *GetPlayerAmuletsRequest) (*GetPlayerAmuletsResponse, error)
+	GetPlayerItemByID(context.Context, *GetPlayerItemByIDRequest) (*GetPlayerItemByIDResponse, error)
+	GetPlayerResourceByID(context.Context, *GetPlayerResourceByIDRequest) (*GetPlayerResourceByIDResponse, error)
 	// Player - Position
 	CreatePlayerPosition(context.Context, *CreatePlayerPositionRequest) (*CreatePlayerPositionResponse, error)
 	GetPlayerCurrentPlanet(context.Context, *GetPlayerCurrentPlanetRequest) (*GetPlayerCurrentPlanetResponse, error)
@@ -1439,6 +1471,7 @@ type NoNameServer interface {
 	// Item
 	GetAllItems(context.Context, *GetAllItemsRequest) (*GetAllItemsResponse, error)
 	GetItemsByCategoryID(context.Context, *GetItemsByCategoryIDRequest) (*GetItemsByCategoryIDResponse, error)
+	GetCraftableItemsByCategoryID(context.Context, *GetCraftableItemsByCategoryIDRequest) (*GetCraftableItemsByCategoryIDResponse, error)
 	UseItem(context.Context, *UseItemRequest) (*UseItemResponse, error)
 	// ItemCateogory
 	GetAllItemCategories(context.Context, *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error)
@@ -1594,6 +1627,12 @@ func (*UnimplementedNoNameServer) GetPlayerItems(context.Context, *GetPlayerItem
 func (*UnimplementedNoNameServer) GetPlayerAmulets(context.Context, *GetPlayerAmuletsRequest) (*GetPlayerAmuletsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerAmulets not implemented")
 }
+func (*UnimplementedNoNameServer) GetPlayerItemByID(context.Context, *GetPlayerItemByIDRequest) (*GetPlayerItemByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerItemByID not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerResourceByID(context.Context, *GetPlayerResourceByIDRequest) (*GetPlayerResourceByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerResourceByID not implemented")
+}
 func (*UnimplementedNoNameServer) CreatePlayerPosition(context.Context, *CreatePlayerPositionRequest) (*CreatePlayerPositionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatePlayerPosition not implemented")
 }
@@ -1737,6 +1776,9 @@ func (*UnimplementedNoNameServer) GetAllItems(context.Context, *GetAllItemsReque
 }
 func (*UnimplementedNoNameServer) GetItemsByCategoryID(context.Context, *GetItemsByCategoryIDRequest) (*GetItemsByCategoryIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetItemsByCategoryID not implemented")
+}
+func (*UnimplementedNoNameServer) GetCraftableItemsByCategoryID(context.Context, *GetCraftableItemsByCategoryIDRequest) (*GetCraftableItemsByCategoryIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCraftableItemsByCategoryID not implemented")
 }
 func (*UnimplementedNoNameServer) UseItem(context.Context, *UseItemRequest) (*UseItemResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UseItem not implemented")
@@ -2352,6 +2394,42 @@ func _NoName_GetPlayerAmulets_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetPlayerAmulets(ctx, req.(*GetPlayerAmuletsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerItemByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerItemByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerItemByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerItemByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerItemByID(ctx, req.(*GetPlayerItemByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerResourceByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerResourceByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerResourceByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerResourceByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerResourceByID(ctx, req.(*GetPlayerResourceByIDRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3216,6 +3294,24 @@ func _NoName_GetItemsByCategoryID_Handler(srv interface{}, ctx context.Context, 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetItemsByCategoryID(ctx, req.(*GetItemsByCategoryIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetCraftableItemsByCategoryID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCraftableItemsByCategoryIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetCraftableItemsByCategoryID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetCraftableItemsByCategoryID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetCraftableItemsByCategoryID(ctx, req.(*GetCraftableItemsByCategoryIDRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4297,6 +4393,14 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetPlayerAmulets_Handler,
 		},
 		{
+			MethodName: "GetPlayerItemByID",
+			Handler:    _NoName_GetPlayerItemByID_Handler,
+		},
+		{
+			MethodName: "GetPlayerResourceByID",
+			Handler:    _NoName_GetPlayerResourceByID_Handler,
+		},
+		{
 			MethodName: "CreatePlayerPosition",
 			Handler:    _NoName_CreatePlayerPosition_Handler,
 		},
@@ -4487,6 +4591,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetItemsByCategoryID",
 			Handler:    _NoName_GetItemsByCategoryID_Handler,
+		},
+		{
+			MethodName: "GetCraftableItemsByCategoryID",
+			Handler:    _NoName_GetCraftableItemsByCategoryID_Handler,
 		},
 		{
 			MethodName: "UseItem",

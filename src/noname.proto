@@ -82,6 +82,8 @@ service NoName {
     rpc GetPlayerResources (player_inventory.GetPlayerResourcesRequest) returns (player_inventory.GetPlayerResourcesResponse) {}
     rpc GetPlayerItems (player_inventory.GetPlayerItemsRequest) returns (player_inventory.GetPlayerItemsResponse) {}
     rpc GetPlayerAmulets (player_inventory.GetPlayerAmuletsRequest) returns (player_inventory.GetPlayerAmuletsResponse) {}
+    rpc GetPlayerItemByID (player_inventory.GetPlayerItemByIDRequest) returns (player_inventory.GetPlayerItemByIDResponse) {}
+    rpc GetPlayerResourceByID (player_inventory.GetPlayerResourceByIDRequest) returns (player_inventory.GetPlayerResourceByIDResponse) {}
 
     // Player - Position
     rpc CreatePlayerPosition (player_position.CreatePlayerPositionRequest) returns (player_position.CreatePlayerPositionResponse) {}
@@ -162,6 +164,7 @@ service NoName {
     // Item
     rpc GetAllItems (item.GetAllItemsRequest) returns (item.GetAllItemsResponse) {}
     rpc GetItemsByCategoryID (item.GetItemsByCategoryIDRequest) returns (item.GetItemsByCategoryIDResponse) {}
+    rpc GetCraftableItemsByCategoryID (item.GetCraftableItemsByCategoryIDRequest) returns (item.GetCraftableItemsByCategoryIDResponse) {}
     rpc UseItem (item.UseItemRequest) returns (item.UseItemResponse) {}
 
     // ItemCateogory

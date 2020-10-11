@@ -37,3 +37,21 @@ message GetPlayerAmuletsRequest {
 message GetPlayerAmuletsResponse {
     PlayerInventory PlayerInventory = 1;
 }
+
+// GetPlayerItemByID
+message GetPlayerItemByIDRequest {
+    uint32 PlayerID = 1;
+    uint32 ItemID = 2;
+}
+message GetPlayerItemByIDResponse {
+    PlayerInventory PlayerInventory = 1;
+}
+
+// GetPlayerResourceByID
+message GetPlayerResourceByIDRequest {
+    uint32 PlayerID = 1;
+    uint32 ResourceID = 2;
+}
+message GetPlayerResourceByIDResponse {
+    PlayerInventory PlayerInventory = 1;
+}

@@ -238,7 +238,7 @@ func (x *GetAllItemsResponse) GetItems() []*Item {
 	return nil
 }
 
-// GetItemByCategoryID
+// GetItemsByCategoryID
 type GetItemsByCategoryIDRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -333,6 +333,101 @@ func (x *GetItemsByCategoryIDResponse) GetItems() []*Item {
 	return nil
 }
 
+// GetCraftableItemsByCategoryID
+type GetCraftableItemsByCategoryIDRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	CategoryID uint32 `protobuf:"varint,1,opt,name=categoryID,proto3" json:"categoryID,omitempty"`
+}
+
+func (x *GetCraftableItemsByCategoryIDRequest) Reset() {
+	*x = GetCraftableItemsByCategoryIDRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_item_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetCraftableItemsByCategoryIDRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCraftableItemsByCategoryIDRequest) ProtoMessage() {}
+
+func (x *GetCraftableItemsByCategoryIDRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_item_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCraftableItemsByCategoryIDRequest.ProtoReflect.Descriptor instead.
+func (*GetCraftableItemsByCategoryIDRequest) Descriptor() ([]byte, []int) {
+	return file_proto_item_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetCraftableItemsByCategoryIDRequest) GetCategoryID() uint32 {
+	if x != nil {
+		return x.CategoryID
+	}
+	return 0
+}
+
+type GetCraftableItemsByCategoryIDResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Items []*Item `protobuf:"bytes,1,rep,name=Items,proto3" json:"Items,omitempty"`
+}
+
+func (x *GetCraftableItemsByCategoryIDResponse) Reset() {
+	*x = GetCraftableItemsByCategoryIDResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_item_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetCraftableItemsByCategoryIDResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCraftableItemsByCategoryIDResponse) ProtoMessage() {}
+
+func (x *GetCraftableItemsByCategoryIDResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_item_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCraftableItemsByCategoryIDResponse.ProtoReflect.Descriptor instead.
+func (*GetCraftableItemsByCategoryIDResponse) Descriptor() ([]byte, []int) {
+	return file_proto_item_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetCraftableItemsByCategoryIDResponse) GetItems() []*Item {
+	if x != nil {
+		return x.Items
+	}
+	return nil
+}
+
 // UseItem
 type UseItemRequest struct {
 	state         protoimpl.MessageState
@@ -346,7 +441,7 @@ type UseItemRequest struct {
 func (x *UseItemRequest) Reset() {
 	*x = UseItemRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_item_proto_msgTypes[5]
+		mi := &file_proto_item_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -359,7 +454,7 @@ func (x *UseItemRequest) String() string {
 func (*UseItemRequest) ProtoMessage() {}
 
 func (x *UseItemRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_item_proto_msgTypes[5]
+	mi := &file_proto_item_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -372,7 +467,7 @@ func (x *UseItemRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UseItemRequest.ProtoReflect.Descriptor instead.
 func (*UseItemRequest) Descriptor() ([]byte, []int) {
-	return file_proto_item_proto_rawDescGZIP(), []int{5}
+	return file_proto_item_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *UseItemRequest) GetPlayerID() uint32 {
@@ -398,7 +493,7 @@ type UseItemResponse struct {
 func (x *UseItemResponse) Reset() {
 	*x = UseItemResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_item_proto_msgTypes[6]
+		mi := &file_proto_item_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -411,7 +506,7 @@ func (x *UseItemResponse) String() string {
 func (*UseItemResponse) ProtoMessage() {}
 
 func (x *UseItemResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_item_proto_msgTypes[6]
+	mi := &file_proto_item_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -424,7 +519,7 @@ func (x *UseItemResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UseItemResponse.ProtoReflect.Descriptor instead.
 func (*UseItemResponse) Descriptor() ([]byte, []int) {
-	return file_proto_item_proto_rawDescGZIP(), []int{6}
+	return file_proto_item_proto_rawDescGZIP(), []int{8}
 }
 
 var File_proto_item_proto protoreflect.FileDescriptor
@@ -470,14 +565,23 @@ var file_proto_item_proto_rawDesc = []byte{
 	0x65, 0x6d, 0x73, 0x42, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44, 0x52,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x20, 0x0a, 0x05, 0x49, 0x74, 0x65, 0x6d, 0x73,
 	0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0a, 0x2e, 0x69, 0x74, 0x65, 0x6d, 0x2e, 0x49, 0x74,
-	0x65, 0x6d, 0x52, 0x05, 0x49, 0x74, 0x65, 0x6d, 0x73, 0x22, 0x44, 0x0a, 0x0e, 0x55, 0x73, 0x65,
-	0x49, 0x74, 0x65, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50,
-	0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50,
-	0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x12, 0x16, 0x0a, 0x06, 0x49, 0x74, 0x65, 0x6d, 0x49,
-	0x44, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x49, 0x74, 0x65, 0x6d, 0x49, 0x44, 0x22,
-	0x11, 0x0a, 0x0f, 0x55, 0x73, 0x65, 0x49, 0x74, 0x65, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x3b, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x33,
+	0x65, 0x6d, 0x52, 0x05, 0x49, 0x74, 0x65, 0x6d, 0x73, 0x22, 0x46, 0x0a, 0x24, 0x47, 0x65, 0x74,
+	0x43, 0x72, 0x61, 0x66, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x49, 0x74, 0x65, 0x6d, 0x73, 0x42, 0x79,
+	0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x1e, 0x0a, 0x0a, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x44, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0a, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49,
+	0x44, 0x22, 0x49, 0x0a, 0x25, 0x47, 0x65, 0x74, 0x43, 0x72, 0x61, 0x66, 0x74, 0x61, 0x62, 0x6c,
+	0x65, 0x49, 0x74, 0x65, 0x6d, 0x73, 0x42, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79,
+	0x49, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x20, 0x0a, 0x05, 0x49, 0x74,
+	0x65, 0x6d, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0a, 0x2e, 0x69, 0x74, 0x65, 0x6d,
+	0x2e, 0x49, 0x74, 0x65, 0x6d, 0x52, 0x05, 0x49, 0x74, 0x65, 0x6d, 0x73, 0x22, 0x44, 0x0a, 0x0e,
+	0x55, 0x73, 0x65, 0x49, 0x74, 0x65, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a,
+	0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d,
+	0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x12, 0x16, 0x0a, 0x06, 0x49, 0x74,
+	0x65, 0x6d, 0x49, 0x44, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x49, 0x74, 0x65, 0x6d,
+	0x49, 0x44, 0x22, 0x11, 0x0a, 0x0f, 0x55, 0x73, 0x65, 0x49, 0x74, 0x65, 0x6d, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x3b, 0x70, 0x62, 0x62, 0x06, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -492,30 +596,33 @@ func file_proto_item_proto_rawDescGZIP() []byte {
 	return file_proto_item_proto_rawDescData
 }
 
-var file_proto_item_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_proto_item_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_proto_item_proto_goTypes = []interface{}{
-	(*Item)(nil),                         // 0: item.Item
-	(*GetAllItemsRequest)(nil),           // 1: item.GetAllItemsRequest
-	(*GetAllItemsResponse)(nil),          // 2: item.GetAllItemsResponse
-	(*GetItemsByCategoryIDRequest)(nil),  // 3: item.GetItemsByCategoryIDRequest
-	(*GetItemsByCategoryIDResponse)(nil), // 4: item.GetItemsByCategoryIDResponse
-	(*UseItemRequest)(nil),               // 5: item.UseItemRequest
-	(*UseItemResponse)(nil),              // 6: item.UseItemResponse
-	(*Recipe)(nil),                       // 7: recipe.Recipe
-	(*Rarity)(nil),                       // 8: rarity.Rarity
-	(*ItemCategory)(nil),                 // 9: item_category.ItemCategory
+	(*Item)(nil),                                  // 0: item.Item
+	(*GetAllItemsRequest)(nil),                    // 1: item.GetAllItemsRequest
+	(*GetAllItemsResponse)(nil),                   // 2: item.GetAllItemsResponse
+	(*GetItemsByCategoryIDRequest)(nil),           // 3: item.GetItemsByCategoryIDRequest
+	(*GetItemsByCategoryIDResponse)(nil),          // 4: item.GetItemsByCategoryIDResponse
+	(*GetCraftableItemsByCategoryIDRequest)(nil),  // 5: item.GetCraftableItemsByCategoryIDRequest
+	(*GetCraftableItemsByCategoryIDResponse)(nil), // 6: item.GetCraftableItemsByCategoryIDResponse
+	(*UseItemRequest)(nil),                        // 7: item.UseItemRequest
+	(*UseItemResponse)(nil),                       // 8: item.UseItemResponse
+	(*Recipe)(nil),                                // 9: recipe.Recipe
+	(*Rarity)(nil),                                // 10: rarity.Rarity
+	(*ItemCategory)(nil),                          // 11: item_category.ItemCategory
 }
 var file_proto_item_proto_depIdxs = []int32{
-	7, // 0: item.Item.Recipe:type_name -> recipe.Recipe
-	8, // 1: item.Item.Rarity:type_name -> rarity.Rarity
-	9, // 2: item.Item.ItemCategory:type_name -> item_category.ItemCategory
-	0, // 3: item.GetAllItemsResponse.Items:type_name -> item.Item
-	0, // 4: item.GetItemsByCategoryIDResponse.Items:type_name -> item.Item
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	9,  // 0: item.Item.Recipe:type_name -> recipe.Recipe
+	10, // 1: item.Item.Rarity:type_name -> rarity.Rarity
+	11, // 2: item.Item.ItemCategory:type_name -> item_category.ItemCategory
+	0,  // 3: item.GetAllItemsResponse.Items:type_name -> item.Item
+	0,  // 4: item.GetItemsByCategoryIDResponse.Items:type_name -> item.Item
+	0,  // 5: item.GetCraftableItemsByCategoryIDResponse.Items:type_name -> item.Item
+	6,  // [6:6] is the sub-list for method output_type
+	6,  // [6:6] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_proto_item_proto_init() }
@@ -588,7 +695,7 @@ func file_proto_item_proto_init() {
 			}
 		}
 		file_proto_item_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UseItemRequest); i {
+			switch v := v.(*GetCraftableItemsByCategoryIDRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -600,6 +707,30 @@ func file_proto_item_proto_init() {
 			}
 		}
 		file_proto_item_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetCraftableItemsByCategoryIDResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_item_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UseItemRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_item_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UseItemResponse); i {
 			case 0:
 				return &v.state
@@ -618,7 +749,7 @@ func file_proto_item_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_item_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

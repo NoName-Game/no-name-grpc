@@ -27,11 +27,19 @@ message GetAllItemsResponse {
     repeated Item Items = 1;
 }
 
-// GetItemByCategoryID
+// GetItemsByCategoryID
 message GetItemsByCategoryIDRequest {
     uint32 categoryID = 1;
 }
 message GetItemsByCategoryIDResponse {
+    repeated Item Items = 1;
+}
+
+// GetCraftableItemsByCategoryID
+message GetCraftableItemsByCategoryIDRequest {
+    uint32 categoryID = 1;
+}
+message GetCraftableItemsByCategoryIDResponse {
     repeated Item Items = 1;
 }
 
