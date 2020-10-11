@@ -187,6 +187,8 @@ type NoNameClient interface {
 	GetPlayerGuild(ctx context.Context, in *GetPlayerGuildRequest, opts ...grpc.CallOption) (*GetPlayerGuildResponse, error)
 	LeaveGuild(ctx context.Context, in *LeaveGuildRequest, opts ...grpc.CallOption) (*LeaveGuildResponse, error)
 	GetPlayersGuild(ctx context.Context, in *GetPlayersGuildRequest, opts ...grpc.CallOption) (*GetPlayersGuildResponse, error)
+	AddPlayerToGuild(ctx context.Context, in *AddPlayerToGuildRequest, opts ...grpc.CallOption) (*AddPlayerToGuildResponse, error)
+	RemovePlayerToGuild(ctx context.Context, in *RemovePlayerToGuildRequest, opts ...grpc.CallOption) (*RemovePlayerToGuildResponse, error)
 	// Guild - Points
 	GetGuildPoints(ctx context.Context, in *GetGuildPointsRequest, opts ...grpc.CallOption) (*GetGuildPointsResponse, error)
 	GetPlayerGuildPoints(ctx context.Context, in *GetPlayerGuildPointsRequest, opts ...grpc.CallOption) (*GetPlayerGuildPointsResponse, error)
@@ -1361,6 +1363,24 @@ func (c *noNameClient) GetPlayersGuild(ctx context.Context, in *GetPlayersGuildR
 	return out, nil
 }
 
+func (c *noNameClient) AddPlayerToGuild(ctx context.Context, in *AddPlayerToGuildRequest, opts ...grpc.CallOption) (*AddPlayerToGuildResponse, error) {
+	out := new(AddPlayerToGuildResponse)
+	err := c.cc.Invoke(ctx, "/NoName/AddPlayerToGuild", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) RemovePlayerToGuild(ctx context.Context, in *RemovePlayerToGuildRequest, opts ...grpc.CallOption) (*RemovePlayerToGuildResponse, error) {
+	out := new(RemovePlayerToGuildResponse)
+	err := c.cc.Invoke(ctx, "/NoName/RemovePlayerToGuild", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetGuildPoints(ctx context.Context, in *GetGuildPointsRequest, opts ...grpc.CallOption) (*GetGuildPointsResponse, error) {
 	out := new(GetGuildPointsResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetGuildPoints", in, out, opts...)
@@ -1553,6 +1573,8 @@ type NoNameServer interface {
 	GetPlayerGuild(context.Context, *GetPlayerGuildRequest) (*GetPlayerGuildResponse, error)
 	LeaveGuild(context.Context, *LeaveGuildRequest) (*LeaveGuildResponse, error)
 	GetPlayersGuild(context.Context, *GetPlayersGuildRequest) (*GetPlayersGuildResponse, error)
+	AddPlayerToGuild(context.Context, *AddPlayerToGuildRequest) (*AddPlayerToGuildResponse, error)
+	RemovePlayerToGuild(context.Context, *RemovePlayerToGuildRequest) (*RemovePlayerToGuildResponse, error)
 	// Guild - Points
 	GetGuildPoints(context.Context, *GetGuildPointsRequest) (*GetGuildPointsResponse, error)
 	GetPlayerGuildPoints(context.Context, *GetPlayerGuildPointsRequest) (*GetPlayerGuildPointsResponse, error)
@@ -1949,6 +1971,12 @@ func (*UnimplementedNoNameServer) LeaveGuild(context.Context, *LeaveGuildRequest
 }
 func (*UnimplementedNoNameServer) GetPlayersGuild(context.Context, *GetPlayersGuildRequest) (*GetPlayersGuildResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayersGuild not implemented")
+}
+func (*UnimplementedNoNameServer) AddPlayerToGuild(context.Context, *AddPlayerToGuildRequest) (*AddPlayerToGuildResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddPlayerToGuild not implemented")
+}
+func (*UnimplementedNoNameServer) RemovePlayerToGuild(context.Context, *RemovePlayerToGuildRequest) (*RemovePlayerToGuildResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemovePlayerToGuild not implemented")
 }
 func (*UnimplementedNoNameServer) GetGuildPoints(context.Context, *GetGuildPointsRequest) (*GetGuildPointsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetGuildPoints not implemented")
@@ -4284,6 +4312,42 @@ func _NoName_GetPlayersGuild_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_AddPlayerToGuild_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddPlayerToGuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).AddPlayerToGuild(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/AddPlayerToGuild",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).AddPlayerToGuild(ctx, req.(*AddPlayerToGuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_RemovePlayerToGuild_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemovePlayerToGuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).RemovePlayerToGuild(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/RemovePlayerToGuild",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).RemovePlayerToGuild(ctx, req.(*RemovePlayerToGuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetGuildPoints_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetGuildPointsRequest)
 	if err := dec(in); err != nil {
@@ -4839,6 +4903,14 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPlayersGuild",
 			Handler:    _NoName_GetPlayersGuild_Handler,
+		},
+		{
+			MethodName: "AddPlayerToGuild",
+			Handler:    _NoName_AddPlayerToGuild_Handler,
+		},
+		{
+			MethodName: "RemovePlayerToGuild",
+			Handler:    _NoName_RemovePlayerToGuild_Handler,
 		},
 		{
 			MethodName: "GetGuildPoints",

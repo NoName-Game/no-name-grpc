@@ -254,6 +254,8 @@ service NoName {
     rpc GetPlayerGuild (guild.GetPlayerGuildRequest) returns (guild.GetPlayerGuildResponse) {}
     rpc LeaveGuild (guild.LeaveGuildRequest) returns (guild.LeaveGuildResponse) {}
     rpc GetPlayersGuild (guild.GetPlayersGuildRequest) returns (guild.GetPlayersGuildResponse) {}
+    rpc AddPlayerToGuild (guild.AddPlayerToGuildRequest) returns (guild.AddPlayerToGuildResponse) {}
+    rpc RemovePlayerToGuild (guild.RemovePlayerToGuildRequest) returns (guild.RemovePlayerToGuildResponse) {}
 
     // Guild - Points
     rpc GetGuildPoints (guild_point.GetGuildPointsRequest) returns (guild_point.GetGuildPointsResponse) {}

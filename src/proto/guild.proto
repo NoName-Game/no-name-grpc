@@ -69,3 +69,21 @@ message GetPlayersGuildRequest {
 message GetPlayersGuildResponse {
     repeated player.Player Players= 1;
 }
+
+// AddPlayerToGuild
+message AddPlayerToGuildRequest {
+    string PlayerUsername = 1;
+    uint32 GuildID = 2;
+}
+message AddPlayerToGuildResponse {
+    // Empty
+}
+
+// RemovePlayerToGuild
+message RemovePlayerToGuildRequest {
+    string PlayerUsername = 1;
+    uint32 GuildID = 2;
+}
+message RemovePlayerToGuildResponse {
+    // Empty
+}

@@ -757,6 +757,194 @@ func (x *GetPlayersGuildResponse) GetPlayers() []*Player {
 	return nil
 }
 
+// AddPlayerToGuild
+type AddPlayerToGuildRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	PlayerUsername string `protobuf:"bytes,1,opt,name=PlayerUsername,proto3" json:"PlayerUsername,omitempty"`
+	GuildID        uint32 `protobuf:"varint,2,opt,name=GuildID,proto3" json:"GuildID,omitempty"`
+}
+
+func (x *AddPlayerToGuildRequest) Reset() {
+	*x = AddPlayerToGuildRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_guild_proto_msgTypes[15]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AddPlayerToGuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddPlayerToGuildRequest) ProtoMessage() {}
+
+func (x *AddPlayerToGuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_guild_proto_msgTypes[15]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddPlayerToGuildRequest.ProtoReflect.Descriptor instead.
+func (*AddPlayerToGuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_guild_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *AddPlayerToGuildRequest) GetPlayerUsername() string {
+	if x != nil {
+		return x.PlayerUsername
+	}
+	return ""
+}
+
+func (x *AddPlayerToGuildRequest) GetGuildID() uint32 {
+	if x != nil {
+		return x.GuildID
+	}
+	return 0
+}
+
+type AddPlayerToGuildResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *AddPlayerToGuildResponse) Reset() {
+	*x = AddPlayerToGuildResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_guild_proto_msgTypes[16]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AddPlayerToGuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddPlayerToGuildResponse) ProtoMessage() {}
+
+func (x *AddPlayerToGuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_guild_proto_msgTypes[16]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddPlayerToGuildResponse.ProtoReflect.Descriptor instead.
+func (*AddPlayerToGuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_guild_proto_rawDescGZIP(), []int{16}
+}
+
+// RemovePlayerToGuild
+type RemovePlayerToGuildRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	PlayerUsername string `protobuf:"bytes,1,opt,name=PlayerUsername,proto3" json:"PlayerUsername,omitempty"`
+	GuildID        uint32 `protobuf:"varint,2,opt,name=GuildID,proto3" json:"GuildID,omitempty"`
+}
+
+func (x *RemovePlayerToGuildRequest) Reset() {
+	*x = RemovePlayerToGuildRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_guild_proto_msgTypes[17]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RemovePlayerToGuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemovePlayerToGuildRequest) ProtoMessage() {}
+
+func (x *RemovePlayerToGuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_guild_proto_msgTypes[17]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemovePlayerToGuildRequest.ProtoReflect.Descriptor instead.
+func (*RemovePlayerToGuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_guild_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *RemovePlayerToGuildRequest) GetPlayerUsername() string {
+	if x != nil {
+		return x.PlayerUsername
+	}
+	return ""
+}
+
+func (x *RemovePlayerToGuildRequest) GetGuildID() uint32 {
+	if x != nil {
+		return x.GuildID
+	}
+	return 0
+}
+
+type RemovePlayerToGuildResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *RemovePlayerToGuildResponse) Reset() {
+	*x = RemovePlayerToGuildResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_guild_proto_msgTypes[18]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RemovePlayerToGuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemovePlayerToGuildResponse) ProtoMessage() {}
+
+func (x *RemovePlayerToGuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_guild_proto_msgTypes[18]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemovePlayerToGuildResponse.ProtoReflect.Descriptor instead.
+func (*RemovePlayerToGuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_guild_proto_rawDescGZIP(), []int{18}
+}
+
 var File_proto_guild_proto protoreflect.FileDescriptor
 
 var file_proto_guild_proto_rawDesc = []byte{
@@ -817,8 +1005,24 @@ var file_proto_guild_proto_rawDesc = []byte{
 	0x65, 0x72, 0x73, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
 	0x12, 0x28, 0x0a, 0x07, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28,
 	0x0b, 0x32, 0x0e, 0x2e, 0x70, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x50, 0x6c, 0x61, 0x79, 0x65,
-	0x72, 0x52, 0x07, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x73, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x3b,
-	0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x72, 0x52, 0x07, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x73, 0x22, 0x5b, 0x0a, 0x17, 0x41, 0x64,
+	0x64, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x54, 0x6f, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x26, 0x0a, 0x0e, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x55,
+	0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0e, 0x50,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x55, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x18, 0x0a,
+	0x07, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x49, 0x44, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x07,
+	0x47, 0x75, 0x69, 0x6c, 0x64, 0x49, 0x44, 0x22, 0x1a, 0x0a, 0x18, 0x41, 0x64, 0x64, 0x50, 0x6c,
+	0x61, 0x79, 0x65, 0x72, 0x54, 0x6f, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x5e, 0x0a, 0x1a, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x50, 0x6c, 0x61,
+	0x79, 0x65, 0x72, 0x54, 0x6f, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x26, 0x0a, 0x0e, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x55, 0x73, 0x65, 0x72, 0x6e,
+	0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0e, 0x50, 0x6c, 0x61, 0x79, 0x65,
+	0x72, 0x55, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x47, 0x75, 0x69,
+	0x6c, 0x64, 0x49, 0x44, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x07, 0x47, 0x75, 0x69, 0x6c,
+	0x64, 0x49, 0x44, 0x22, 0x1d, 0x0a, 0x1b, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x50, 0x6c, 0x61,
+	0x79, 0x65, 0x72, 0x54, 0x6f, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x3b, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
@@ -833,29 +1037,33 @@ func file_proto_guild_proto_rawDescGZIP() []byte {
 	return file_proto_guild_proto_rawDescData
 }
 
-var file_proto_guild_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
+var file_proto_guild_proto_msgTypes = make([]protoimpl.MessageInfo, 19)
 var file_proto_guild_proto_goTypes = []interface{}{
-	(*Guild)(nil),                     // 0: guild.Guild
-	(*CheckGuildNameRequest)(nil),     // 1: guild.CheckGuildNameRequest
-	(*CheckGuildNameResponse)(nil),    // 2: guild.CheckGuildNameResponse
-	(*CreateGuildRequest)(nil),        // 3: guild.CreateGuildRequest
-	(*CreateGuildResponse)(nil),       // 4: guild.CreateGuildResponse
-	(*JoinGuildRequest)(nil),          // 5: guild.JoinGuildRequest
-	(*JoinGuildResponse)(nil),         // 6: guild.JoinGuildResponse
-	(*GetJoinGuildsListRequest)(nil),  // 7: guild.GetJoinGuildsListRequest
-	(*GetJoinGuildsListResponse)(nil), // 8: guild.GetJoinGuildsListResponse
-	(*GetPlayerGuildRequest)(nil),     // 9: guild.GetPlayerGuildRequest
-	(*GetPlayerGuildResponse)(nil),    // 10: guild.GetPlayerGuildResponse
-	(*LeaveGuildRequest)(nil),         // 11: guild.LeaveGuildRequest
-	(*LeaveGuildResponse)(nil),        // 12: guild.LeaveGuildResponse
-	(*GetPlayersGuildRequest)(nil),    // 13: guild.GetPlayersGuildRequest
-	(*GetPlayersGuildResponse)(nil),   // 14: guild.GetPlayersGuildResponse
-	(*Player)(nil),                    // 15: player.Player
+	(*Guild)(nil),                       // 0: guild.Guild
+	(*CheckGuildNameRequest)(nil),       // 1: guild.CheckGuildNameRequest
+	(*CheckGuildNameResponse)(nil),      // 2: guild.CheckGuildNameResponse
+	(*CreateGuildRequest)(nil),          // 3: guild.CreateGuildRequest
+	(*CreateGuildResponse)(nil),         // 4: guild.CreateGuildResponse
+	(*JoinGuildRequest)(nil),            // 5: guild.JoinGuildRequest
+	(*JoinGuildResponse)(nil),           // 6: guild.JoinGuildResponse
+	(*GetJoinGuildsListRequest)(nil),    // 7: guild.GetJoinGuildsListRequest
+	(*GetJoinGuildsListResponse)(nil),   // 8: guild.GetJoinGuildsListResponse
+	(*GetPlayerGuildRequest)(nil),       // 9: guild.GetPlayerGuildRequest
+	(*GetPlayerGuildResponse)(nil),      // 10: guild.GetPlayerGuildResponse
+	(*LeaveGuildRequest)(nil),           // 11: guild.LeaveGuildRequest
+	(*LeaveGuildResponse)(nil),          // 12: guild.LeaveGuildResponse
+	(*GetPlayersGuildRequest)(nil),      // 13: guild.GetPlayersGuildRequest
+	(*GetPlayersGuildResponse)(nil),     // 14: guild.GetPlayersGuildResponse
+	(*AddPlayerToGuildRequest)(nil),     // 15: guild.AddPlayerToGuildRequest
+	(*AddPlayerToGuildResponse)(nil),    // 16: guild.AddPlayerToGuildResponse
+	(*RemovePlayerToGuildRequest)(nil),  // 17: guild.RemovePlayerToGuildRequest
+	(*RemovePlayerToGuildResponse)(nil), // 18: guild.RemovePlayerToGuildResponse
+	(*Player)(nil),                      // 19: player.Player
 }
 var file_proto_guild_proto_depIdxs = []int32{
 	0,  // 0: guild.GetJoinGuildsListResponse.GuildsList:type_name -> guild.Guild
 	0,  // 1: guild.GetPlayerGuildResponse.Guild:type_name -> guild.Guild
-	15, // 2: guild.GetPlayersGuildResponse.Players:type_name -> player.Player
+	19, // 2: guild.GetPlayersGuildResponse.Players:type_name -> player.Player
 	3,  // [3:3] is the sub-list for method output_type
 	3,  // [3:3] is the sub-list for method input_type
 	3,  // [3:3] is the sub-list for extension type_name
@@ -1050,6 +1258,54 @@ func file_proto_guild_proto_init() {
 				return nil
 			}
 		}
+		file_proto_guild_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AddPlayerToGuildRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_guild_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AddPlayerToGuildResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_guild_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RemovePlayerToGuildRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_guild_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RemovePlayerToGuildResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -1057,7 +1313,7 @@ func file_proto_guild_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_guild_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   15,
+			NumMessages:   19,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
