@@ -114,9 +114,11 @@ type NoNameClient interface {
 	GetResourceByName(ctx context.Context, in *GetResourceByNameRequest, opts ...grpc.CallOption) (*GetResourceByNameResponse, error)
 	// Item
 	GetAllItems(ctx context.Context, in *GetAllItemsRequest, opts ...grpc.CallOption) (*GetAllItemsResponse, error)
+	GetShoppableItems(ctx context.Context, in *GetShoppableItemsRequest, opts ...grpc.CallOption) (*GetShoppableItemsResponse, error)
 	GetItemsByCategoryID(ctx context.Context, in *GetItemsByCategoryIDRequest, opts ...grpc.CallOption) (*GetItemsByCategoryIDResponse, error)
 	GetCraftableItemsByCategoryID(ctx context.Context, in *GetCraftableItemsByCategoryIDRequest, opts ...grpc.CallOption) (*GetCraftableItemsByCategoryIDResponse, error)
 	UseItem(ctx context.Context, in *UseItemRequest, opts ...grpc.CallOption) (*UseItemResponse, error)
+	BuyItem(ctx context.Context, in *BuyItemRequest, opts ...grpc.CallOption) (*BuyItemResponse, error)
 	GetItemByID(ctx context.Context, in *GetItemByIDRequest, opts ...grpc.CallOption) (*GetItemByIDResponse, error)
 	// ItemCateogory
 	GetAllItemCategories(ctx context.Context, in *GetAllItemCategoriesRequest, opts ...grpc.CallOption) (*GetAllItemCategoriesResponse, error)
@@ -868,6 +870,15 @@ func (c *noNameClient) GetAllItems(ctx context.Context, in *GetAllItemsRequest, 
 	return out, nil
 }
 
+func (c *noNameClient) GetShoppableItems(ctx context.Context, in *GetShoppableItemsRequest, opts ...grpc.CallOption) (*GetShoppableItemsResponse, error) {
+	out := new(GetShoppableItemsResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetShoppableItems", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetItemsByCategoryID(ctx context.Context, in *GetItemsByCategoryIDRequest, opts ...grpc.CallOption) (*GetItemsByCategoryIDResponse, error) {
 	out := new(GetItemsByCategoryIDResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetItemsByCategoryID", in, out, opts...)
@@ -889,6 +900,15 @@ func (c *noNameClient) GetCraftableItemsByCategoryID(ctx context.Context, in *Ge
 func (c *noNameClient) UseItem(ctx context.Context, in *UseItemRequest, opts ...grpc.CallOption) (*UseItemResponse, error) {
 	out := new(UseItemResponse)
 	err := c.cc.Invoke(ctx, "/NoName/UseItem", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) BuyItem(ctx context.Context, in *BuyItemRequest, opts ...grpc.CallOption) (*BuyItemResponse, error) {
+	out := new(BuyItemResponse)
+	err := c.cc.Invoke(ctx, "/NoName/BuyItem", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1500,9 +1520,11 @@ type NoNameServer interface {
 	GetResourceByName(context.Context, *GetResourceByNameRequest) (*GetResourceByNameResponse, error)
 	// Item
 	GetAllItems(context.Context, *GetAllItemsRequest) (*GetAllItemsResponse, error)
+	GetShoppableItems(context.Context, *GetShoppableItemsRequest) (*GetShoppableItemsResponse, error)
 	GetItemsByCategoryID(context.Context, *GetItemsByCategoryIDRequest) (*GetItemsByCategoryIDResponse, error)
 	GetCraftableItemsByCategoryID(context.Context, *GetCraftableItemsByCategoryIDRequest) (*GetCraftableItemsByCategoryIDResponse, error)
 	UseItem(context.Context, *UseItemRequest) (*UseItemResponse, error)
+	BuyItem(context.Context, *BuyItemRequest) (*BuyItemResponse, error)
 	GetItemByID(context.Context, *GetItemByIDRequest) (*GetItemByIDResponse, error)
 	// ItemCateogory
 	GetAllItemCategories(context.Context, *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error)
@@ -1807,6 +1829,9 @@ func (*UnimplementedNoNameServer) GetResourceByName(context.Context, *GetResourc
 func (*UnimplementedNoNameServer) GetAllItems(context.Context, *GetAllItemsRequest) (*GetAllItemsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllItems not implemented")
 }
+func (*UnimplementedNoNameServer) GetShoppableItems(context.Context, *GetShoppableItemsRequest) (*GetShoppableItemsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetShoppableItems not implemented")
+}
 func (*UnimplementedNoNameServer) GetItemsByCategoryID(context.Context, *GetItemsByCategoryIDRequest) (*GetItemsByCategoryIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetItemsByCategoryID not implemented")
 }
@@ -1815,6 +1840,9 @@ func (*UnimplementedNoNameServer) GetCraftableItemsByCategoryID(context.Context,
 }
 func (*UnimplementedNoNameServer) UseItem(context.Context, *UseItemRequest) (*UseItemResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UseItem not implemented")
+}
+func (*UnimplementedNoNameServer) BuyItem(context.Context, *BuyItemRequest) (*BuyItemResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BuyItem not implemented")
 }
 func (*UnimplementedNoNameServer) GetItemByID(context.Context, *GetItemByIDRequest) (*GetItemByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetItemByID not implemented")
@@ -3322,6 +3350,24 @@ func _NoName_GetAllItems_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetShoppableItems_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShoppableItemsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetShoppableItems(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetShoppableItems",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetShoppableItems(ctx, req.(*GetShoppableItemsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetItemsByCategoryID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetItemsByCategoryIDRequest)
 	if err := dec(in); err != nil {
@@ -3372,6 +3418,24 @@ func _NoName_UseItem_Handler(srv interface{}, ctx context.Context, dec func(inte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).UseItem(ctx, req.(*UseItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_BuyItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuyItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).BuyItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/BuyItem",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).BuyItem(ctx, req.(*BuyItemRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4685,6 +4749,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetAllItems_Handler,
 		},
 		{
+			MethodName: "GetShoppableItems",
+			Handler:    _NoName_GetShoppableItems_Handler,
+		},
+		{
 			MethodName: "GetItemsByCategoryID",
 			Handler:    _NoName_GetItemsByCategoryID_Handler,
 		},
@@ -4695,6 +4763,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UseItem",
 			Handler:    _NoName_UseItem_Handler,
+		},
+		{
+			MethodName: "BuyItem",
+			Handler:    _NoName_BuyItem_Handler,
 		},
 		{
 			MethodName: "GetItemByID",

@@ -163,9 +163,11 @@ service NoName {
 
     // Item
     rpc GetAllItems (item.GetAllItemsRequest) returns (item.GetAllItemsResponse) {}
+    rpc GetShoppableItems (item.GetShoppableItemsRequest) returns (item.GetShoppableItemsResponse) {}
     rpc GetItemsByCategoryID (item.GetItemsByCategoryIDRequest) returns (item.GetItemsByCategoryIDResponse) {}
     rpc GetCraftableItemsByCategoryID (item.GetCraftableItemsByCategoryIDRequest) returns (item.GetCraftableItemsByCategoryIDResponse) {}
     rpc UseItem (item.UseItemRequest) returns (item.UseItemResponse) {}
+    rpc BuyItem (item.BuyItemRequest) returns (item.BuyItemResponse) {}
     rpc GetItemByID (item.GetItemByIDRequest) returns (item.GetItemByIDResponse) {}
 
     // ItemCateogory

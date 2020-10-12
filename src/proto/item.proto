@@ -17,7 +17,7 @@ message Item {
     uint32 ItemCategoryID = 9;
     item_category.ItemCategory ItemCategory = 10;
     int32 Value = 11;
-    uint32 Price = 13;
+    int32 Price = 13;
 }
 
 // GetAllItems
@@ -25,6 +25,14 @@ message GetAllItemsRequest {
     // Empty
 }
 message GetAllItemsResponse {
+    repeated Item Items = 1;
+}
+
+// GetShoppableItems
+message GetShoppableItemsRequest {
+    // Empty
+}
+message GetShoppableItemsResponse {
     repeated Item Items = 1;
 }
 
@@ -58,5 +66,15 @@ message UseItemRequest {
     uint32 ItemID = 2;
 }
 message UseItemResponse {
+    // Empty
+}
+
+// BuyItem
+message BuyItemRequest {
+    uint32 PlayerID = 1;
+    uint32 ItemID = 2;
+    int32 Quantity = 3;
+}
+message BuyItemResponse {
     // Empty
 }
