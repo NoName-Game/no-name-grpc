@@ -87,7 +87,7 @@ var file_noname_proto_rawDesc = []byte{
 	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x11, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x75, 0x69,
 	0x6c, 0x64, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x17, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f,
 	0x67, 0x75, 0x69, 0x6c, 0x64, 0x5f, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x32, 0xb7, 0x69, 0x0a, 0x06, 0x4e, 0x6f, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x64, 0x0a, 0x13,
+	0x6f, 0x32, 0xc1, 0x6b, 0x0a, 0x06, 0x4e, 0x6f, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x64, 0x0a, 0x13,
 	0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x53, 0x74, 0x61, 0x72, 0x74, 0x54, 0x75, 0x74, 0x6f, 0x72,
 	0x69, 0x61, 0x6c, 0x12, 0x24, 0x2e, 0x74, 0x75, 0x74, 0x6f, 0x72, 0x69, 0x61, 0x6c, 0x2e, 0x50,
 	0x6c, 0x61, 0x79, 0x65, 0x72, 0x53, 0x74, 0x61, 0x72, 0x74, 0x54, 0x75, 0x74, 0x6f, 0x72, 0x69,
@@ -836,102 +836,119 @@ var file_noname_proto_rawDesc = []byte{
 	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x28, 0x2e, 0x73, 0x61, 0x66, 0x65, 0x70, 0x6c, 0x61,
 	0x6e, 0x65, 0x74, 0x5f, 0x63, 0x72, 0x61, 0x66, 0x74, 0x65, 0x72, 0x2e, 0x43, 0x72, 0x61, 0x66,
 	0x74, 0x65, 0x72, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x22, 0x00, 0x12, 0x80, 0x01, 0x0a, 0x1d, 0x47, 0x65, 0x74, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74,
-	0x79, 0x46, 0x6f, 0x72, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x42, 0x79, 0x43, 0x61, 0x74, 0x65,
-	0x67, 0x6f, 0x72, 0x79, 0x12, 0x2d, 0x2e, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x2e, 0x47,
-	0x65, 0x74, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x46, 0x6f, 0x72, 0x50, 0x6c, 0x61, 0x79,
-	0x65, 0x72, 0x42, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x2e, 0x2e, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x2e, 0x47, 0x65,
-	0x74, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x46, 0x6f, 0x72, 0x50, 0x6c, 0x61, 0x79, 0x65,
-	0x72, 0x42, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x4d, 0x0a, 0x0c, 0x4c, 0x65, 0x61, 0x72, 0x6e, 0x41, 0x62,
-	0x69, 0x6c, 0x69, 0x74, 0x79, 0x12, 0x1c, 0x2e, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x2e,
-	0x4c, 0x65, 0x61, 0x72, 0x6e, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x2e, 0x4c, 0x65,
-	0x61, 0x72, 0x6e, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x22, 0x00, 0x12, 0x71, 0x0a, 0x18, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x49, 0x66, 0x50,
-	0x6c, 0x61, 0x79, 0x65, 0x72, 0x48, 0x61, 0x76, 0x65, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79,
-	0x12, 0x28, 0x2e, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x2e, 0x43, 0x68, 0x65, 0x63, 0x6b,
-	0x49, 0x66, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x48, 0x61, 0x76, 0x65, 0x41, 0x62, 0x69, 0x6c,
-	0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x29, 0x2e, 0x61, 0x62, 0x69,
+	0x22, 0x00, 0x12, 0x8d, 0x01, 0x0a, 0x1a, 0x43, 0x72, 0x61, 0x66, 0x74, 0x65, 0x72, 0x47, 0x65,
+	0x74, 0x52, 0x65, 0x70, 0x61, 0x69, 0x72, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x49, 0x6e, 0x66,
+	0x6f, 0x12, 0x35, 0x2e, 0x73, 0x61, 0x66, 0x65, 0x70, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x5f, 0x63,
+	0x72, 0x61, 0x66, 0x74, 0x65, 0x72, 0x2e, 0x43, 0x72, 0x61, 0x66, 0x74, 0x65, 0x72, 0x47, 0x65,
+	0x74, 0x52, 0x65, 0x70, 0x61, 0x69, 0x72, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x49, 0x6e, 0x66,
+	0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x36, 0x2e, 0x73, 0x61, 0x66, 0x65, 0x70,
+	0x6c, 0x61, 0x6e, 0x65, 0x74, 0x5f, 0x63, 0x72, 0x61, 0x66, 0x74, 0x65, 0x72, 0x2e, 0x43, 0x72,
+	0x61, 0x66, 0x74, 0x65, 0x72, 0x47, 0x65, 0x74, 0x52, 0x65, 0x70, 0x61, 0x69, 0x72, 0x57, 0x65,
+	0x61, 0x70, 0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x00, 0x12, 0x78, 0x0a, 0x13, 0x43, 0x72, 0x61, 0x66, 0x74, 0x65, 0x72, 0x52, 0x65, 0x70,
+	0x61, 0x69, 0x72, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x12, 0x2e, 0x2e, 0x73, 0x61, 0x66, 0x65,
+	0x70, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x5f, 0x63, 0x72, 0x61, 0x66, 0x74, 0x65, 0x72, 0x2e, 0x43,
+	0x72, 0x61, 0x66, 0x74, 0x65, 0x72, 0x52, 0x65, 0x70, 0x61, 0x69, 0x72, 0x57, 0x65, 0x61, 0x70,
+	0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2f, 0x2e, 0x73, 0x61, 0x66, 0x65,
+	0x70, 0x6c, 0x61, 0x6e, 0x65, 0x74, 0x5f, 0x63, 0x72, 0x61, 0x66, 0x74, 0x65, 0x72, 0x2e, 0x43,
+	0x72, 0x61, 0x66, 0x74, 0x65, 0x72, 0x52, 0x65, 0x70, 0x61, 0x69, 0x72, 0x57, 0x65, 0x61, 0x70,
+	0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x80, 0x01, 0x0a,
+	0x1d, 0x47, 0x65, 0x74, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x46, 0x6f, 0x72, 0x50, 0x6c,
+	0x61, 0x79, 0x65, 0x72, 0x42, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x12, 0x2d,
+	0x2e, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x2e, 0x47, 0x65, 0x74, 0x41, 0x62, 0x69, 0x6c,
+	0x69, 0x74, 0x79, 0x46, 0x6f, 0x72, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x42, 0x79, 0x43, 0x61,
+	0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2e, 0x2e,
+	0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x2e, 0x47, 0x65, 0x74, 0x41, 0x62, 0x69, 0x6c, 0x69,
+	0x74, 0x79, 0x46, 0x6f, 0x72, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x42, 0x79, 0x43, 0x61, 0x74,
+	0x65, 0x67, 0x6f, 0x72, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12,
+	0x4d, 0x0a, 0x0c, 0x4c, 0x65, 0x61, 0x72, 0x6e, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x12,
+	0x1c, 0x2e, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x2e, 0x4c, 0x65, 0x61, 0x72, 0x6e, 0x41,
+	0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e,
+	0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x2e, 0x4c, 0x65, 0x61, 0x72, 0x6e, 0x41, 0x62, 0x69,
+	0x6c, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x71,
+	0x0a, 0x18, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x49, 0x66, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x48,
+	0x61, 0x76, 0x65, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x12, 0x28, 0x2e, 0x61, 0x62, 0x69,
 	0x6c, 0x69, 0x74, 0x79, 0x2e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x49, 0x66, 0x50, 0x6c, 0x61, 0x79,
-	0x65, 0x72, 0x48, 0x61, 0x76, 0x65, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x7a, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x41, 0x6c,
-	0x6c, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79,
-	0x12, 0x2e, 0x2e, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x5f, 0x63, 0x61, 0x74, 0x65, 0x67,
-	0x6f, 0x72, 0x79, 0x2e, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74,
-	0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x1a, 0x2f, 0x2e, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x5f, 0x63, 0x61, 0x74, 0x65, 0x67,
-	0x6f, 0x72, 0x79, 0x2e, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74,
-	0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x22, 0x00, 0x12, 0x83, 0x01, 0x0a, 0x18, 0x47, 0x65, 0x74, 0x41, 0x62, 0x69, 0x6c, 0x69,
-	0x74, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67,
-	0x12, 0x31, 0x2e, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x5f, 0x63, 0x61, 0x74, 0x65, 0x67,
-	0x6f, 0x72, 0x79, 0x2e, 0x47, 0x65, 0x74, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x43, 0x61,
-	0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x32, 0x2e, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x5f, 0x63, 0x61,
-	0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x2e, 0x47, 0x65, 0x74, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74,
-	0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x4f, 0x0a, 0x0e, 0x43, 0x68, 0x65,
-	0x63, 0x6b, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x1c, 0x2e, 0x67, 0x75,
-	0x69, 0x6c, 0x64, 0x2e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x4e, 0x61,
-	0x6d, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x67, 0x75, 0x69, 0x6c,
-	0x64, 0x2e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x4e, 0x61, 0x6d, 0x65,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x46, 0x0a, 0x0b, 0x43, 0x72,
-	0x65, 0x61, 0x74, 0x65, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x12, 0x19, 0x2e, 0x67, 0x75, 0x69, 0x6c,
-	0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x43, 0x72, 0x65,
-	0x61, 0x74, 0x65, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x22, 0x00, 0x12, 0x40, 0x0a, 0x09, 0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x12,
-	0x17, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x75, 0x69, 0x6c,
-	0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64,
-	0x2e, 0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x22, 0x00, 0x12, 0x58, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x4a, 0x6f, 0x69, 0x6e, 0x47,
-	0x75, 0x69, 0x6c, 0x64, 0x73, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x1f, 0x2e, 0x67, 0x75, 0x69, 0x6c,
-	0x64, 0x2e, 0x47, 0x65, 0x74, 0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x73, 0x4c,
-	0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x20, 0x2e, 0x67, 0x75, 0x69,
-	0x6c, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x73,
-	0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x4f,
-	0x0a, 0x0e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x47, 0x75, 0x69, 0x6c, 0x64,
-	0x12, 0x1c, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79,
-	0x65, 0x72, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1d,
-	0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72,
-	0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12,
-	0x43, 0x0a, 0x0a, 0x4c, 0x65, 0x61, 0x76, 0x65, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x12, 0x18, 0x2e,
-	0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x4c, 0x65, 0x61, 0x76, 0x65, 0x47, 0x75, 0x69, 0x6c, 0x64,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e,
-	0x4c, 0x65, 0x61, 0x76, 0x65, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x22, 0x00, 0x12, 0x52, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65,
-	0x72, 0x73, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x12, 0x1d, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e,
-	0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x73, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1e, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x47,
-	0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x73, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x55, 0x0a, 0x10, 0x41, 0x64, 0x64, 0x50,
-	0x6c, 0x61, 0x79, 0x65, 0x72, 0x54, 0x6f, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x12, 0x1e, 0x2e, 0x67,
-	0x75, 0x69, 0x6c, 0x64, 0x2e, 0x41, 0x64, 0x64, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x54, 0x6f,
-	0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1f, 0x2e, 0x67,
-	0x75, 0x69, 0x6c, 0x64, 0x2e, 0x41, 0x64, 0x64, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x54, 0x6f,
-	0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12,
-	0x5e, 0x0a, 0x13, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x54,
-	0x6f, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x12, 0x21, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x52,
-	0x65, 0x6d, 0x6f, 0x76, 0x65, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x54, 0x6f, 0x47, 0x75, 0x69,
-	0x6c, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e, 0x67, 0x75, 0x69, 0x6c,
-	0x64, 0x2e, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x54, 0x6f,
-	0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12,
-	0x5b, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x50, 0x6f, 0x69, 0x6e, 0x74,
-	0x73, 0x12, 0x22, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x5f, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x2e,
-	0x47, 0x65, 0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x23, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x5f, 0x70, 0x6f,
-	0x69, 0x6e, 0x74, 0x2e, 0x47, 0x65, 0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x50, 0x6f, 0x69, 0x6e,
-	0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x6d, 0x0a, 0x14,
-	0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x50, 0x6f,
-	0x69, 0x6e, 0x74, 0x73, 0x12, 0x28, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x5f, 0x70, 0x6f, 0x69,
-	0x6e, 0x74, 0x2e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x47, 0x75, 0x69, 0x6c,
-	0x64, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x29,
+	0x65, 0x72, 0x48, 0x61, 0x76, 0x65, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x29, 0x2e, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x2e, 0x43,
+	0x68, 0x65, 0x63, 0x6b, 0x49, 0x66, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x48, 0x61, 0x76, 0x65,
+	0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0x00, 0x12, 0x7a, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x41, 0x62, 0x69, 0x6c, 0x69,
+	0x74, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x12, 0x2e, 0x2e, 0x61, 0x62, 0x69,
+	0x6c, 0x69, 0x74, 0x79, 0x5f, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x2e, 0x47, 0x65,
+	0x74, 0x41, 0x6c, 0x6c, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67,
+	0x6f, 0x72, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2f, 0x2e, 0x61, 0x62, 0x69,
+	0x6c, 0x69, 0x74, 0x79, 0x5f, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x2e, 0x47, 0x65,
+	0x74, 0x41, 0x6c, 0x6c, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67,
+	0x6f, 0x72, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x83, 0x01,
+	0x0a, 0x18, 0x47, 0x65, 0x74, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x43, 0x61, 0x74, 0x65,
+	0x67, 0x6f, 0x72, 0x79, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x12, 0x31, 0x2e, 0x61, 0x62, 0x69,
+	0x6c, 0x69, 0x74, 0x79, 0x5f, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x2e, 0x47, 0x65,
+	0x74, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79,
+	0x42, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x32, 0x2e,
+	0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x5f, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79,
+	0x2e, 0x47, 0x65, 0x74, 0x41, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x43, 0x61, 0x74, 0x65, 0x67,
+	0x6f, 0x72, 0x79, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x22, 0x00, 0x12, 0x4f, 0x0a, 0x0e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x47, 0x75, 0x69, 0x6c,
+	0x64, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x1c, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x43, 0x68,
+	0x65, 0x63, 0x6b, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x4e, 0x61, 0x6d, 0x65, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x43, 0x68, 0x65, 0x63,
+	0x6b, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x4e, 0x61, 0x6d, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x22, 0x00, 0x12, 0x46, 0x0a, 0x0b, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x47, 0x75,
+	0x69, 0x6c, 0x64, 0x12, 0x19, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61,
+	0x74, 0x65, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a,
+	0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x47, 0x75, 0x69,
+	0x6c, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x40, 0x0a, 0x09,
+	0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x12, 0x17, 0x2e, 0x67, 0x75, 0x69, 0x6c,
+	0x64, 0x2e, 0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x18, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x4a, 0x6f, 0x69, 0x6e, 0x47,
+	0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x58,
+	0x0a, 0x11, 0x47, 0x65, 0x74, 0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x73, 0x4c,
+	0x69, 0x73, 0x74, 0x12, 0x1f, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x4a,
+	0x6f, 0x69, 0x6e, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x73, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x20, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x47, 0x65, 0x74,
+	0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x73, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x4f, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x50,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x12, 0x1c, 0x2e, 0x67, 0x75, 0x69,
+	0x6c, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x47, 0x75, 0x69, 0x6c,
+	0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64,
+	0x2e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x43, 0x0a, 0x0a, 0x4c, 0x65, 0x61,
+	0x76, 0x65, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x12, 0x18, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e,
+	0x4c, 0x65, 0x61, 0x76, 0x65, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x19, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x4c, 0x65, 0x61, 0x76, 0x65, 0x47,
+	0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x52,
+	0x0a, 0x0f, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x73, 0x47, 0x75, 0x69, 0x6c,
+	0x64, 0x12, 0x1d, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61,
+	0x79, 0x65, 0x72, 0x73, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x1e, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79,
+	0x65, 0x72, 0x73, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x00, 0x12, 0x55, 0x0a, 0x10, 0x41, 0x64, 0x64, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x54,
+	0x6f, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x12, 0x1e, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x41,
+	0x64, 0x64, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x54, 0x6f, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1f, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x41,
+	0x64, 0x64, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x54, 0x6f, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x5e, 0x0a, 0x13, 0x52, 0x65, 0x6d,
+	0x6f, 0x76, 0x65, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x54, 0x6f, 0x47, 0x75, 0x69, 0x6c, 0x64,
+	0x12, 0x21, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x50,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x54, 0x6f, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x2e, 0x52, 0x65, 0x6d, 0x6f,
+	0x76, 0x65, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x54, 0x6f, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x5b, 0x0a, 0x0e, 0x47, 0x65, 0x74,
+	0x47, 0x75, 0x69, 0x6c, 0x64, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x12, 0x22, 0x2e, 0x67, 0x75,
+	0x69, 0x6c, 0x64, 0x5f, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x2e, 0x47, 0x65, 0x74, 0x47, 0x75, 0x69,
+	0x6c, 0x64, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x23, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x5f, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x2e, 0x47, 0x65,
+	0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x6d, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61,
+	0x79, 0x65, 0x72, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x12, 0x28,
 	0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x5f, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x2e, 0x47, 0x65, 0x74,
 	0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x50, 0x6f, 0x69, 0x6e, 0x74,
-	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x06, 0x5a, 0x04, 0x2e,
-	0x3b, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x29, 0x2e, 0x67, 0x75, 0x69, 0x6c, 0x64,
+	0x5f, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x2e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72,
+	0x47, 0x75, 0x69, 0x6c, 0x64, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x3b, 0x70, 0x62, 0x62, 0x06, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var file_noname_proto_goTypes = []interface{}{
@@ -1053,156 +1070,160 @@ var file_noname_proto_goTypes = []interface{}{
 	(*CrafterStartRequest)(nil),                            // 115: safeplanet_crafter.CrafterStartRequest
 	(*CrafterEndRequest)(nil),                              // 116: safeplanet_crafter.CrafterEndRequest
 	(*CrafterCheckRequest)(nil),                            // 117: safeplanet_crafter.CrafterCheckRequest
-	(*GetAbilityForPlayerByCategoryRequest)(nil),           // 118: ability.GetAbilityForPlayerByCategoryRequest
-	(*LearnAbilityRequest)(nil),                            // 119: ability.LearnAbilityRequest
-	(*CheckIfPlayerHaveAbilityRequest)(nil),                // 120: ability.CheckIfPlayerHaveAbilityRequest
-	(*GetAllAbilityCategoryRequest)(nil),                   // 121: ability_category.GetAllAbilityCategoryRequest
-	(*GetAbilityCategoryBySlugRequest)(nil),                // 122: ability_category.GetAbilityCategoryBySlugRequest
-	(*CheckGuildNameRequest)(nil),                          // 123: guild.CheckGuildNameRequest
-	(*CreateGuildRequest)(nil),                             // 124: guild.CreateGuildRequest
-	(*JoinGuildRequest)(nil),                               // 125: guild.JoinGuildRequest
-	(*GetJoinGuildsListRequest)(nil),                       // 126: guild.GetJoinGuildsListRequest
-	(*GetPlayerGuildRequest)(nil),                          // 127: guild.GetPlayerGuildRequest
-	(*LeaveGuildRequest)(nil),                              // 128: guild.LeaveGuildRequest
-	(*GetPlayersGuildRequest)(nil),                         // 129: guild.GetPlayersGuildRequest
-	(*AddPlayerToGuildRequest)(nil),                        // 130: guild.AddPlayerToGuildRequest
-	(*RemovePlayerToGuildRequest)(nil),                     // 131: guild.RemovePlayerToGuildRequest
-	(*GetGuildPointsRequest)(nil),                          // 132: guild_point.GetGuildPointsRequest
-	(*GetPlayerGuildPointsRequest)(nil),                    // 133: guild_point.GetPlayerGuildPointsRequest
-	(*PlayerStartTutorialResponse)(nil),                    // 134: tutorial.PlayerStartTutorialResponse
-	(*PlayerEndTutorialResponse)(nil),                      // 135: tutorial.PlayerEndTutorialResponse
-	(*StartTravelTutorialResponse)(nil),                    // 136: tutorial.StartTravelTutorialResponse
-	(*GetArmorByIDResponse)(nil),                           // 137: armor.GetArmorByIDResponse
-	(*GetArmorByNameResponse)(nil),                         // 138: armor.GetArmorByNameResponse
-	(*GetPlayerArmorsResponse)(nil),                        // 139: armor.GetPlayerArmorsResponse
-	(*GetPlayerArmorsByCategoryIDResponse)(nil),            // 140: armor.GetPlayerArmorsByCategoryIDResponse
-	(*GetPlayerArmorsEquippedResponse)(nil),                // 141: armor.GetPlayerArmorsEquippedResponse
-	(*GetPlayerArmorEquippedByCategoryIDResponse)(nil),     // 142: armor.GetPlayerArmorEquippedByCategoryIDResponse
-	(*EquipArmorResponse)(nil),                             // 143: armor.EquipArmorResponse
-	(*GetAllArmorCategoryResponse)(nil),                    // 144: armor_category.GetAllArmorCategoryResponse
-	(*GetArmorCategoryBySlugResponse)(nil),                 // 145: armor_category.GetArmorCategoryBySlugResponse
-	(*GetWeaponByIDResponse)(nil),                          // 146: weapon.GetWeaponByIDResponse
-	(*GetWeaponByNameResponse)(nil),                        // 147: weapon.GetWeaponByNameResponse
-	(*GetPlayerWeaponsResponse)(nil),                       // 148: weapon.GetPlayerWeaponsResponse
-	(*GetPlayerWeaponEquippedResponse)(nil),                // 149: weapon.GetPlayerWeaponEquippedResponse
-	(*EquipWeaponResponse)(nil),                            // 150: weapon.EquipWeaponResponse
-	(*GetPlayerByIDResponse)(nil),                          // 151: player.GetPlayerByIDResponse
-	(*GetPlayerByUsernameResponse)(nil),                    // 152: player.GetPlayerByUsernameResponse
-	(*GetPlayerExperienceResponse)(nil),                    // 153: player.GetPlayerExperienceResponse
-	(*PlayerSetLanguageResponse)(nil),                      // 154: player_configuration.PlayerSetLanguageResponse
-	(*PlayerSetTimezoneResponse)(nil),                      // 155: player_configuration.PlayerSetTimezoneResponse
-	(*GetPlayerResourcesResponse)(nil),                     // 156: player_inventory.GetPlayerResourcesResponse
-	(*GetPlayerItemsResponse)(nil),                         // 157: player_inventory.GetPlayerItemsResponse
-	(*GetPlayerAmuletsResponse)(nil),                       // 158: player_inventory.GetPlayerAmuletsResponse
-	(*GetPlayerItemByIDResponse)(nil),                      // 159: player_inventory.GetPlayerItemByIDResponse
-	(*GetPlayerResourceByIDResponse)(nil),                  // 160: player_inventory.GetPlayerResourceByIDResponse
-	(*CreatePlayerPositionResponse)(nil),                   // 161: player_position.CreatePlayerPositionResponse
-	(*GetPlayerCurrentPlanetResponse)(nil),                 // 162: player_position.GetPlayerCurrentPlanetResponse
-	(*CountPlanetVisitedResponse)(nil),                     // 163: player_position.CountPlanetVisitedResponse
-	(*CountSystemVisitedResponse)(nil),                     // 164: player_position.CountSystemVisitedResponse
-	(*CountPlayerVisitedCurrentPlanetResponse)(nil),        // 165: player_position.CountPlayerVisitedCurrentPlanetResponse
-	(*SignInResponse)(nil),                                 // 166: player.SignInResponse
-	(*GetPlayerActivityByIDResponse)(nil),                  // 167: player_activity.GetPlayerActivityByIDResponse
-	(*GetActivePlayerActivitiesResponse)(nil),              // 168: player_activity.GetActivePlayerActivitiesResponse
-	(*CreatePlayerActivityResponse)(nil),                   // 169: player_activity.CreatePlayerActivityResponse
-	(*UpdatePlayerActivityResponse)(nil),                   // 170: player_activity.UpdatePlayerActivityResponse
-	(*DeletePlayerActivityResponse)(nil),                   // 171: player_activity.DeletePlayerActivityResponse
-	(*DeletePlayerActivityByControllerResponse)(nil),       // 172: player_activity.DeletePlayerActivityByControllerResponse
-	(*GetPlayerActivityToNotifyResponse)(nil),              // 173: player_activity.GetPlayerActivityToNotifyResponse
-	(*SetPlayerActivityNotifiedResponse)(nil),              // 174: player_activity.SetPlayerActivityNotifiedResponse
-	(*GetEnemyByIDResponse)(nil),                           // 175: enemy.GetEnemyByIDResponse
-	(*HitEnemyResponse)(nil),                               // 176: enemy.HitEnemyResponse
-	(*GetTitanByIDResponse)(nil),                           // 177: titan.GetTitanByIDResponse
-	(*GetTitanByNameResponse)(nil),                         // 178: titan.GetTitanByNameResponse
-	(*GetTitanByPlanetIDResponse)(nil),                     // 179: titan.GetTitanByPlanetIDResponse
-	(*GetTitanByPlanetSystemIDResponse)(nil),               // 180: titan.GetTitanByPlanetSystemIDResponse
-	(*HitTitanResponse)(nil),                               // 181: titan.HitTitanResponse
-	(*TitanDiscoveredResponse)(nil),                        // 182: titan.TitanDiscoveredResponse
-	(*GetAllEventResponse)(nil),                            // 183: titan_event.GetAllEventResponse
-	(*GetTitanEventByIDResponse)(nil),                      // 184: titan_event.GetTitanEventByIDResponse
-	(*GetEventChoiceByIDResponse)(nil),                     // 185: titan_event.GetEventChoiceByIDResponse
-	(*GetRandomEventResponse)(nil),                         // 186: titan_event.GetRandomEventResponse
-	(*SubmitAnswerResponse)(nil),                           // 187: titan_event.SubmitAnswerResponse
-	(*GetTitanDamageByTitanIDResponse)(nil),                // 188: titan_damage.GetTitanDamageByTitanIDResponse
-	(*GetLanguageBySlugResponse)(nil),                      // 189: language.GetLanguageBySlugResponse
-	(*GetLanguageByNameResponse)(nil),                      // 190: language.GetLanguageByNameResponse
-	(*GetAllLanguagesResponse)(nil),                        // 191: language.GetAllLanguagesResponse
-	(*GetTimezoneByDescriptionResponse)(nil),               // 192: timezone.GetTimezoneByDescriptionResponse
-	(*GetTimezoneByNameResponse)(nil),                      // 193: timezone.GetTimezoneByNameResponse
-	(*GetAllTimezonesResponse)(nil),                        // 194: timezone.GetAllTimezonesResponse
-	(*GetAllNPCResponse)(nil),                              // 195: npc.GetAllNPCResponse
-	(*BankDepositResponse)(nil),                            // 196: npc.BankDepositResponse
-	(*BankWithdrawResponse)(nil),                           // 197: npc.BankWithdrawResponse
-	(*GetPlanetByIDResponse)(nil),                          // 198: planet.GetPlanetByIDResponse
-	(*GetPlanetByNameResponse)(nil),                        // 199: planet.GetPlanetByNameResponse
-	(*GetPlanetByCoordinateResponse)(nil),                  // 200: planet.GetPlanetByCoordinateResponse
-	(*GetPlanetByMapIDResponse)(nil),                       // 201: planet.GetPlanetByMapIDResponse
-	(*GetExpansionInfoResponse)(nil),                       // 202: planet.GetExpansionInfoResponse
-	(*GetSafePlanetsResponse)(nil),                         // 203: planet.GetSafePlanetsResponse
-	(*GetPlanetMapByIDResponse)(nil),                       // 204: planet_map.GetPlanetMapByIDResponse
-	(*GetResourceByIDResponse)(nil),                        // 205: resource.GetResourceByIDResponse
-	(*GetResourceByNameResponse)(nil),                      // 206: resource.GetResourceByNameResponse
-	(*GetAllItemsResponse)(nil),                            // 207: item.GetAllItemsResponse
-	(*GetShoppableItemsResponse)(nil),                      // 208: item.GetShoppableItemsResponse
-	(*GetItemsByCategoryIDResponse)(nil),                   // 209: item.GetItemsByCategoryIDResponse
-	(*GetCraftableItemsByCategoryIDResponse)(nil),          // 210: item.GetCraftableItemsByCategoryIDResponse
-	(*UseItemResponse)(nil),                                // 211: item.UseItemResponse
-	(*BuyItemResponse)(nil),                                // 212: item.BuyItemResponse
-	(*GetItemByIDResponse)(nil),                            // 213: item.GetItemByIDResponse
-	(*GetAllItemCategoriesResponse)(nil),                   // 214: item_category.GetAllItemCategoriesResponse
-	(*GetPlayerShipsResponse)(nil),                         // 215: ship.GetPlayerShipsResponse
-	(*GetPlayerShipEquippedResponse)(nil),                  // 216: ship.GetPlayerShipEquippedResponse
-	(*LaboratoryStartCraftingResponse)(nil),                // 217: ship_laboratory.LaboratoryStartCraftingResponse
-	(*LaboratoryCheckHaveResourceForCraftingResponse)(nil), // 218: ship_laboratory.LaboratoryCheckHaveResourceForCraftingResponse
-	(*LaboratoryCheckCraftingResponse)(nil),                // 219: ship_laboratory.LaboratoryCheckCraftingResponse
-	(*LaboratoryEndCraftingResponse)(nil),                  // 220: ship_laboratory.LaboratoryEndCraftingResponse
-	(*GetShipRepairInfoResponse)(nil),                      // 221: ship_repair.GetShipRepairInfoResponse
-	(*StartShipRepairResponse)(nil),                        // 222: ship_repair.StartShipRepairResponse
-	(*EndShipRepairResponse)(nil),                          // 223: ship_repair.EndShipRepairResponse
-	(*CheckShipRepairResponse)(nil),                        // 224: ship_repair.CheckShipRepairResponse
-	(*GetRestsInfoResponse)(nil),                           // 225: ship_rest.GetRestsInfoResponse
-	(*StartPlayerRestResponse)(nil),                        // 226: ship_rest.StartPlayerRestResponse
-	(*EndPlayerRestResponse)(nil),                          // 227: ship_rest.EndPlayerRestResponse
-	(*GetShipTravelInfoResponse)(nil),                      // 228: ship_travel.GetShipTravelInfoResponse
-	(*StartShipTravelResponse)(nil),                        // 229: ship_travel.StartShipTravelResponse
-	(*CheckShipTravelResponse)(nil),                        // 230: ship_travel.CheckShipTravelResponse
-	(*EndShipTravelResponse)(nil),                          // 231: ship_travel.EndShipTravelResponse
-	(*GetPlayerEconomyResponse)(nil),                       // 232: player_economy.GetPlayerEconomyResponse
-	(*DropTresureResponse)(nil),                            // 233: tresure.DropTresureResponse
-	(*GetMissionResponse)(nil),                             // 234: mission.GetMissionResponse
-	(*CheckMissionResponse)(nil),                           // 235: mission.CheckMissionResponse
-	(*GetMissionRewardResponse)(nil),                       // 236: mission.GetMissionRewardResponse
-	(*GetTeletrasportSafePlanetListResponse)(nil),          // 237: expansion.GetTeletrasportSafePlanetListResponse
-	(*EndTeletrasportSafePlanetResponse)(nil),              // 238: expansion.EndTeletrasportSafePlanetResponse
-	(*GetRecapActiveResearchResponse)(nil),                 // 239: safeplanet_research.GetRecapActiveResearchResponse
-	(*ResearchDonationResponse)(nil),                       // 240: safeplanet_research.ResearchDonationResponse
-	(*ExplorationStartResponse)(nil),                       // 241: exploration.ExplorationStartResponse
-	(*ExplorationContinueResponse)(nil),                    // 242: exploration.ExplorationContinueResponse
-	(*ExplorationEndResponse)(nil),                         // 243: exploration.ExplorationEndResponse
-	(*ExplorationCheckResponse)(nil),                       // 244: exploration.ExplorationCheckResponse
-	(*ExplorationDropResourcesResponse)(nil),               // 245: exploration.ExplorationDropResourcesResponse
-	(*GetAllExplorationCategoriesResponse)(nil),            // 246: exploration_category.GetAllExplorationCategoriesResponse
-	(*GetConquerorsByPlanetIDResponse)(nil),                // 247: conqueror.GetConquerorsByPlanetIDResponse
-	(*GetCurrentConquerorByPlanetIDResponse)(nil),          // 248: conqueror.GetCurrentConquerorByPlanetIDResponse
-	(*CrafterStartResponse)(nil),                           // 249: safeplanet_crafter.CrafterStartResponse
-	(*CrafterEndResponse)(nil),                             // 250: safeplanet_crafter.CrafterEndResponse
-	(*CrafterCheckResponse)(nil),                           // 251: safeplanet_crafter.CrafterCheckResponse
-	(*GetAbilityForPlayerByCategoryResponse)(nil),          // 252: ability.GetAbilityForPlayerByCategoryResponse
-	(*LearnAbilityResponse)(nil),                           // 253: ability.LearnAbilityResponse
-	(*CheckIfPlayerHaveAbilityResponse)(nil),               // 254: ability.CheckIfPlayerHaveAbilityResponse
-	(*GetAllAbilityCategoryResponse)(nil),                  // 255: ability_category.GetAllAbilityCategoryResponse
-	(*GetAbilityCategoryBySlugResponse)(nil),               // 256: ability_category.GetAbilityCategoryBySlugResponse
-	(*CheckGuildNameResponse)(nil),                         // 257: guild.CheckGuildNameResponse
-	(*CreateGuildResponse)(nil),                            // 258: guild.CreateGuildResponse
-	(*JoinGuildResponse)(nil),                              // 259: guild.JoinGuildResponse
-	(*GetJoinGuildsListResponse)(nil),                      // 260: guild.GetJoinGuildsListResponse
-	(*GetPlayerGuildResponse)(nil),                         // 261: guild.GetPlayerGuildResponse
-	(*LeaveGuildResponse)(nil),                             // 262: guild.LeaveGuildResponse
-	(*GetPlayersGuildResponse)(nil),                        // 263: guild.GetPlayersGuildResponse
-	(*AddPlayerToGuildResponse)(nil),                       // 264: guild.AddPlayerToGuildResponse
-	(*RemovePlayerToGuildResponse)(nil),                    // 265: guild.RemovePlayerToGuildResponse
-	(*GetGuildPointsResponse)(nil),                         // 266: guild_point.GetGuildPointsResponse
-	(*GetPlayerGuildPointsResponse)(nil),                   // 267: guild_point.GetPlayerGuildPointsResponse
+	(*CrafterGetRepairWeaponInfoRequest)(nil),              // 118: safeplanet_crafter.CrafterGetRepairWeaponInfoRequest
+	(*CrafterRepairWeaponRequest)(nil),                     // 119: safeplanet_crafter.CrafterRepairWeaponRequest
+	(*GetAbilityForPlayerByCategoryRequest)(nil),           // 120: ability.GetAbilityForPlayerByCategoryRequest
+	(*LearnAbilityRequest)(nil),                            // 121: ability.LearnAbilityRequest
+	(*CheckIfPlayerHaveAbilityRequest)(nil),                // 122: ability.CheckIfPlayerHaveAbilityRequest
+	(*GetAllAbilityCategoryRequest)(nil),                   // 123: ability_category.GetAllAbilityCategoryRequest
+	(*GetAbilityCategoryBySlugRequest)(nil),                // 124: ability_category.GetAbilityCategoryBySlugRequest
+	(*CheckGuildNameRequest)(nil),                          // 125: guild.CheckGuildNameRequest
+	(*CreateGuildRequest)(nil),                             // 126: guild.CreateGuildRequest
+	(*JoinGuildRequest)(nil),                               // 127: guild.JoinGuildRequest
+	(*GetJoinGuildsListRequest)(nil),                       // 128: guild.GetJoinGuildsListRequest
+	(*GetPlayerGuildRequest)(nil),                          // 129: guild.GetPlayerGuildRequest
+	(*LeaveGuildRequest)(nil),                              // 130: guild.LeaveGuildRequest
+	(*GetPlayersGuildRequest)(nil),                         // 131: guild.GetPlayersGuildRequest
+	(*AddPlayerToGuildRequest)(nil),                        // 132: guild.AddPlayerToGuildRequest
+	(*RemovePlayerToGuildRequest)(nil),                     // 133: guild.RemovePlayerToGuildRequest
+	(*GetGuildPointsRequest)(nil),                          // 134: guild_point.GetGuildPointsRequest
+	(*GetPlayerGuildPointsRequest)(nil),                    // 135: guild_point.GetPlayerGuildPointsRequest
+	(*PlayerStartTutorialResponse)(nil),                    // 136: tutorial.PlayerStartTutorialResponse
+	(*PlayerEndTutorialResponse)(nil),                      // 137: tutorial.PlayerEndTutorialResponse
+	(*StartTravelTutorialResponse)(nil),                    // 138: tutorial.StartTravelTutorialResponse
+	(*GetArmorByIDResponse)(nil),                           // 139: armor.GetArmorByIDResponse
+	(*GetArmorByNameResponse)(nil),                         // 140: armor.GetArmorByNameResponse
+	(*GetPlayerArmorsResponse)(nil),                        // 141: armor.GetPlayerArmorsResponse
+	(*GetPlayerArmorsByCategoryIDResponse)(nil),            // 142: armor.GetPlayerArmorsByCategoryIDResponse
+	(*GetPlayerArmorsEquippedResponse)(nil),                // 143: armor.GetPlayerArmorsEquippedResponse
+	(*GetPlayerArmorEquippedByCategoryIDResponse)(nil),     // 144: armor.GetPlayerArmorEquippedByCategoryIDResponse
+	(*EquipArmorResponse)(nil),                             // 145: armor.EquipArmorResponse
+	(*GetAllArmorCategoryResponse)(nil),                    // 146: armor_category.GetAllArmorCategoryResponse
+	(*GetArmorCategoryBySlugResponse)(nil),                 // 147: armor_category.GetArmorCategoryBySlugResponse
+	(*GetWeaponByIDResponse)(nil),                          // 148: weapon.GetWeaponByIDResponse
+	(*GetWeaponByNameResponse)(nil),                        // 149: weapon.GetWeaponByNameResponse
+	(*GetPlayerWeaponsResponse)(nil),                       // 150: weapon.GetPlayerWeaponsResponse
+	(*GetPlayerWeaponEquippedResponse)(nil),                // 151: weapon.GetPlayerWeaponEquippedResponse
+	(*EquipWeaponResponse)(nil),                            // 152: weapon.EquipWeaponResponse
+	(*GetPlayerByIDResponse)(nil),                          // 153: player.GetPlayerByIDResponse
+	(*GetPlayerByUsernameResponse)(nil),                    // 154: player.GetPlayerByUsernameResponse
+	(*GetPlayerExperienceResponse)(nil),                    // 155: player.GetPlayerExperienceResponse
+	(*PlayerSetLanguageResponse)(nil),                      // 156: player_configuration.PlayerSetLanguageResponse
+	(*PlayerSetTimezoneResponse)(nil),                      // 157: player_configuration.PlayerSetTimezoneResponse
+	(*GetPlayerResourcesResponse)(nil),                     // 158: player_inventory.GetPlayerResourcesResponse
+	(*GetPlayerItemsResponse)(nil),                         // 159: player_inventory.GetPlayerItemsResponse
+	(*GetPlayerAmuletsResponse)(nil),                       // 160: player_inventory.GetPlayerAmuletsResponse
+	(*GetPlayerItemByIDResponse)(nil),                      // 161: player_inventory.GetPlayerItemByIDResponse
+	(*GetPlayerResourceByIDResponse)(nil),                  // 162: player_inventory.GetPlayerResourceByIDResponse
+	(*CreatePlayerPositionResponse)(nil),                   // 163: player_position.CreatePlayerPositionResponse
+	(*GetPlayerCurrentPlanetResponse)(nil),                 // 164: player_position.GetPlayerCurrentPlanetResponse
+	(*CountPlanetVisitedResponse)(nil),                     // 165: player_position.CountPlanetVisitedResponse
+	(*CountSystemVisitedResponse)(nil),                     // 166: player_position.CountSystemVisitedResponse
+	(*CountPlayerVisitedCurrentPlanetResponse)(nil),        // 167: player_position.CountPlayerVisitedCurrentPlanetResponse
+	(*SignInResponse)(nil),                                 // 168: player.SignInResponse
+	(*GetPlayerActivityByIDResponse)(nil),                  // 169: player_activity.GetPlayerActivityByIDResponse
+	(*GetActivePlayerActivitiesResponse)(nil),              // 170: player_activity.GetActivePlayerActivitiesResponse
+	(*CreatePlayerActivityResponse)(nil),                   // 171: player_activity.CreatePlayerActivityResponse
+	(*UpdatePlayerActivityResponse)(nil),                   // 172: player_activity.UpdatePlayerActivityResponse
+	(*DeletePlayerActivityResponse)(nil),                   // 173: player_activity.DeletePlayerActivityResponse
+	(*DeletePlayerActivityByControllerResponse)(nil),       // 174: player_activity.DeletePlayerActivityByControllerResponse
+	(*GetPlayerActivityToNotifyResponse)(nil),              // 175: player_activity.GetPlayerActivityToNotifyResponse
+	(*SetPlayerActivityNotifiedResponse)(nil),              // 176: player_activity.SetPlayerActivityNotifiedResponse
+	(*GetEnemyByIDResponse)(nil),                           // 177: enemy.GetEnemyByIDResponse
+	(*HitEnemyResponse)(nil),                               // 178: enemy.HitEnemyResponse
+	(*GetTitanByIDResponse)(nil),                           // 179: titan.GetTitanByIDResponse
+	(*GetTitanByNameResponse)(nil),                         // 180: titan.GetTitanByNameResponse
+	(*GetTitanByPlanetIDResponse)(nil),                     // 181: titan.GetTitanByPlanetIDResponse
+	(*GetTitanByPlanetSystemIDResponse)(nil),               // 182: titan.GetTitanByPlanetSystemIDResponse
+	(*HitTitanResponse)(nil),                               // 183: titan.HitTitanResponse
+	(*TitanDiscoveredResponse)(nil),                        // 184: titan.TitanDiscoveredResponse
+	(*GetAllEventResponse)(nil),                            // 185: titan_event.GetAllEventResponse
+	(*GetTitanEventByIDResponse)(nil),                      // 186: titan_event.GetTitanEventByIDResponse
+	(*GetEventChoiceByIDResponse)(nil),                     // 187: titan_event.GetEventChoiceByIDResponse
+	(*GetRandomEventResponse)(nil),                         // 188: titan_event.GetRandomEventResponse
+	(*SubmitAnswerResponse)(nil),                           // 189: titan_event.SubmitAnswerResponse
+	(*GetTitanDamageByTitanIDResponse)(nil),                // 190: titan_damage.GetTitanDamageByTitanIDResponse
+	(*GetLanguageBySlugResponse)(nil),                      // 191: language.GetLanguageBySlugResponse
+	(*GetLanguageByNameResponse)(nil),                      // 192: language.GetLanguageByNameResponse
+	(*GetAllLanguagesResponse)(nil),                        // 193: language.GetAllLanguagesResponse
+	(*GetTimezoneByDescriptionResponse)(nil),               // 194: timezone.GetTimezoneByDescriptionResponse
+	(*GetTimezoneByNameResponse)(nil),                      // 195: timezone.GetTimezoneByNameResponse
+	(*GetAllTimezonesResponse)(nil),                        // 196: timezone.GetAllTimezonesResponse
+	(*GetAllNPCResponse)(nil),                              // 197: npc.GetAllNPCResponse
+	(*BankDepositResponse)(nil),                            // 198: npc.BankDepositResponse
+	(*BankWithdrawResponse)(nil),                           // 199: npc.BankWithdrawResponse
+	(*GetPlanetByIDResponse)(nil),                          // 200: planet.GetPlanetByIDResponse
+	(*GetPlanetByNameResponse)(nil),                        // 201: planet.GetPlanetByNameResponse
+	(*GetPlanetByCoordinateResponse)(nil),                  // 202: planet.GetPlanetByCoordinateResponse
+	(*GetPlanetByMapIDResponse)(nil),                       // 203: planet.GetPlanetByMapIDResponse
+	(*GetExpansionInfoResponse)(nil),                       // 204: planet.GetExpansionInfoResponse
+	(*GetSafePlanetsResponse)(nil),                         // 205: planet.GetSafePlanetsResponse
+	(*GetPlanetMapByIDResponse)(nil),                       // 206: planet_map.GetPlanetMapByIDResponse
+	(*GetResourceByIDResponse)(nil),                        // 207: resource.GetResourceByIDResponse
+	(*GetResourceByNameResponse)(nil),                      // 208: resource.GetResourceByNameResponse
+	(*GetAllItemsResponse)(nil),                            // 209: item.GetAllItemsResponse
+	(*GetShoppableItemsResponse)(nil),                      // 210: item.GetShoppableItemsResponse
+	(*GetItemsByCategoryIDResponse)(nil),                   // 211: item.GetItemsByCategoryIDResponse
+	(*GetCraftableItemsByCategoryIDResponse)(nil),          // 212: item.GetCraftableItemsByCategoryIDResponse
+	(*UseItemResponse)(nil),                                // 213: item.UseItemResponse
+	(*BuyItemResponse)(nil),                                // 214: item.BuyItemResponse
+	(*GetItemByIDResponse)(nil),                            // 215: item.GetItemByIDResponse
+	(*GetAllItemCategoriesResponse)(nil),                   // 216: item_category.GetAllItemCategoriesResponse
+	(*GetPlayerShipsResponse)(nil),                         // 217: ship.GetPlayerShipsResponse
+	(*GetPlayerShipEquippedResponse)(nil),                  // 218: ship.GetPlayerShipEquippedResponse
+	(*LaboratoryStartCraftingResponse)(nil),                // 219: ship_laboratory.LaboratoryStartCraftingResponse
+	(*LaboratoryCheckHaveResourceForCraftingResponse)(nil), // 220: ship_laboratory.LaboratoryCheckHaveResourceForCraftingResponse
+	(*LaboratoryCheckCraftingResponse)(nil),                // 221: ship_laboratory.LaboratoryCheckCraftingResponse
+	(*LaboratoryEndCraftingResponse)(nil),                  // 222: ship_laboratory.LaboratoryEndCraftingResponse
+	(*GetShipRepairInfoResponse)(nil),                      // 223: ship_repair.GetShipRepairInfoResponse
+	(*StartShipRepairResponse)(nil),                        // 224: ship_repair.StartShipRepairResponse
+	(*EndShipRepairResponse)(nil),                          // 225: ship_repair.EndShipRepairResponse
+	(*CheckShipRepairResponse)(nil),                        // 226: ship_repair.CheckShipRepairResponse
+	(*GetRestsInfoResponse)(nil),                           // 227: ship_rest.GetRestsInfoResponse
+	(*StartPlayerRestResponse)(nil),                        // 228: ship_rest.StartPlayerRestResponse
+	(*EndPlayerRestResponse)(nil),                          // 229: ship_rest.EndPlayerRestResponse
+	(*GetShipTravelInfoResponse)(nil),                      // 230: ship_travel.GetShipTravelInfoResponse
+	(*StartShipTravelResponse)(nil),                        // 231: ship_travel.StartShipTravelResponse
+	(*CheckShipTravelResponse)(nil),                        // 232: ship_travel.CheckShipTravelResponse
+	(*EndShipTravelResponse)(nil),                          // 233: ship_travel.EndShipTravelResponse
+	(*GetPlayerEconomyResponse)(nil),                       // 234: player_economy.GetPlayerEconomyResponse
+	(*DropTresureResponse)(nil),                            // 235: tresure.DropTresureResponse
+	(*GetMissionResponse)(nil),                             // 236: mission.GetMissionResponse
+	(*CheckMissionResponse)(nil),                           // 237: mission.CheckMissionResponse
+	(*GetMissionRewardResponse)(nil),                       // 238: mission.GetMissionRewardResponse
+	(*GetTeletrasportSafePlanetListResponse)(nil),          // 239: expansion.GetTeletrasportSafePlanetListResponse
+	(*EndTeletrasportSafePlanetResponse)(nil),              // 240: expansion.EndTeletrasportSafePlanetResponse
+	(*GetRecapActiveResearchResponse)(nil),                 // 241: safeplanet_research.GetRecapActiveResearchResponse
+	(*ResearchDonationResponse)(nil),                       // 242: safeplanet_research.ResearchDonationResponse
+	(*ExplorationStartResponse)(nil),                       // 243: exploration.ExplorationStartResponse
+	(*ExplorationContinueResponse)(nil),                    // 244: exploration.ExplorationContinueResponse
+	(*ExplorationEndResponse)(nil),                         // 245: exploration.ExplorationEndResponse
+	(*ExplorationCheckResponse)(nil),                       // 246: exploration.ExplorationCheckResponse
+	(*ExplorationDropResourcesResponse)(nil),               // 247: exploration.ExplorationDropResourcesResponse
+	(*GetAllExplorationCategoriesResponse)(nil),            // 248: exploration_category.GetAllExplorationCategoriesResponse
+	(*GetConquerorsByPlanetIDResponse)(nil),                // 249: conqueror.GetConquerorsByPlanetIDResponse
+	(*GetCurrentConquerorByPlanetIDResponse)(nil),          // 250: conqueror.GetCurrentConquerorByPlanetIDResponse
+	(*CrafterStartResponse)(nil),                           // 251: safeplanet_crafter.CrafterStartResponse
+	(*CrafterEndResponse)(nil),                             // 252: safeplanet_crafter.CrafterEndResponse
+	(*CrafterCheckResponse)(nil),                           // 253: safeplanet_crafter.CrafterCheckResponse
+	(*CrafterGetRepairWeaponInfoResponse)(nil),             // 254: safeplanet_crafter.CrafterGetRepairWeaponInfoResponse
+	(*CrafterRepairWeaponResponse)(nil),                    // 255: safeplanet_crafter.CrafterRepairWeaponResponse
+	(*GetAbilityForPlayerByCategoryResponse)(nil),          // 256: ability.GetAbilityForPlayerByCategoryResponse
+	(*LearnAbilityResponse)(nil),                           // 257: ability.LearnAbilityResponse
+	(*CheckIfPlayerHaveAbilityResponse)(nil),               // 258: ability.CheckIfPlayerHaveAbilityResponse
+	(*GetAllAbilityCategoryResponse)(nil),                  // 259: ability_category.GetAllAbilityCategoryResponse
+	(*GetAbilityCategoryBySlugResponse)(nil),               // 260: ability_category.GetAbilityCategoryBySlugResponse
+	(*CheckGuildNameResponse)(nil),                         // 261: guild.CheckGuildNameResponse
+	(*CreateGuildResponse)(nil),                            // 262: guild.CreateGuildResponse
+	(*JoinGuildResponse)(nil),                              // 263: guild.JoinGuildResponse
+	(*GetJoinGuildsListResponse)(nil),                      // 264: guild.GetJoinGuildsListResponse
+	(*GetPlayerGuildResponse)(nil),                         // 265: guild.GetPlayerGuildResponse
+	(*LeaveGuildResponse)(nil),                             // 266: guild.LeaveGuildResponse
+	(*GetPlayersGuildResponse)(nil),                        // 267: guild.GetPlayersGuildResponse
+	(*AddPlayerToGuildResponse)(nil),                       // 268: guild.AddPlayerToGuildResponse
+	(*RemovePlayerToGuildResponse)(nil),                    // 269: guild.RemovePlayerToGuildResponse
+	(*GetGuildPointsResponse)(nil),                         // 270: guild_point.GetGuildPointsResponse
+	(*GetPlayerGuildPointsResponse)(nil),                   // 271: guild_point.GetPlayerGuildPointsResponse
 }
 var file_noname_proto_depIdxs = []int32{
 	0,   // 0: NoName.PlayerStartTutorial:input_type -> tutorial.PlayerStartTutorialRequest
@@ -1324,159 +1345,163 @@ var file_noname_proto_depIdxs = []int32{
 	115, // 116: NoName.CrafterStart:input_type -> safeplanet_crafter.CrafterStartRequest
 	116, // 117: NoName.CrafterEnd:input_type -> safeplanet_crafter.CrafterEndRequest
 	117, // 118: NoName.CrafterCheck:input_type -> safeplanet_crafter.CrafterCheckRequest
-	118, // 119: NoName.GetAbilityForPlayerByCategory:input_type -> ability.GetAbilityForPlayerByCategoryRequest
-	119, // 120: NoName.LearnAbility:input_type -> ability.LearnAbilityRequest
-	120, // 121: NoName.CheckIfPlayerHaveAbility:input_type -> ability.CheckIfPlayerHaveAbilityRequest
-	121, // 122: NoName.GetAllAbilityCategory:input_type -> ability_category.GetAllAbilityCategoryRequest
-	122, // 123: NoName.GetAbilityCategoryBySlug:input_type -> ability_category.GetAbilityCategoryBySlugRequest
-	123, // 124: NoName.CheckGuildName:input_type -> guild.CheckGuildNameRequest
-	124, // 125: NoName.CreateGuild:input_type -> guild.CreateGuildRequest
-	125, // 126: NoName.JoinGuild:input_type -> guild.JoinGuildRequest
-	126, // 127: NoName.GetJoinGuildsList:input_type -> guild.GetJoinGuildsListRequest
-	127, // 128: NoName.GetPlayerGuild:input_type -> guild.GetPlayerGuildRequest
-	128, // 129: NoName.LeaveGuild:input_type -> guild.LeaveGuildRequest
-	129, // 130: NoName.GetPlayersGuild:input_type -> guild.GetPlayersGuildRequest
-	130, // 131: NoName.AddPlayerToGuild:input_type -> guild.AddPlayerToGuildRequest
-	131, // 132: NoName.RemovePlayerToGuild:input_type -> guild.RemovePlayerToGuildRequest
-	132, // 133: NoName.GetGuildPoints:input_type -> guild_point.GetGuildPointsRequest
-	133, // 134: NoName.GetPlayerGuildPoints:input_type -> guild_point.GetPlayerGuildPointsRequest
-	134, // 135: NoName.PlayerStartTutorial:output_type -> tutorial.PlayerStartTutorialResponse
-	135, // 136: NoName.PlayerEndTutorial:output_type -> tutorial.PlayerEndTutorialResponse
-	136, // 137: NoName.StartTravelTutorial:output_type -> tutorial.StartTravelTutorialResponse
-	137, // 138: NoName.GetArmorByID:output_type -> armor.GetArmorByIDResponse
-	138, // 139: NoName.GetArmorByName:output_type -> armor.GetArmorByNameResponse
-	139, // 140: NoName.GetPlayerArmors:output_type -> armor.GetPlayerArmorsResponse
-	140, // 141: NoName.GetPlayerArmorsByCategoryID:output_type -> armor.GetPlayerArmorsByCategoryIDResponse
-	141, // 142: NoName.GetPlayerArmorsEquipped:output_type -> armor.GetPlayerArmorsEquippedResponse
-	142, // 143: NoName.GetPlayerArmorEquippedByCategoryID:output_type -> armor.GetPlayerArmorEquippedByCategoryIDResponse
-	143, // 144: NoName.EquipArmor:output_type -> armor.EquipArmorResponse
-	144, // 145: NoName.GetAllArmorCategory:output_type -> armor_category.GetAllArmorCategoryResponse
-	145, // 146: NoName.GetArmorCategoryBySlug:output_type -> armor_category.GetArmorCategoryBySlugResponse
-	146, // 147: NoName.GetWeaponByID:output_type -> weapon.GetWeaponByIDResponse
-	147, // 148: NoName.GetWeaponByName:output_type -> weapon.GetWeaponByNameResponse
-	148, // 149: NoName.GetPlayerWeapons:output_type -> weapon.GetPlayerWeaponsResponse
-	149, // 150: NoName.GetPlayerWeaponEquipped:output_type -> weapon.GetPlayerWeaponEquippedResponse
-	150, // 151: NoName.EquipWeapon:output_type -> weapon.EquipWeaponResponse
-	151, // 152: NoName.GetPlayerByID:output_type -> player.GetPlayerByIDResponse
-	152, // 153: NoName.GetPlayerByUsername:output_type -> player.GetPlayerByUsernameResponse
-	153, // 154: NoName.GetPlayerExperience:output_type -> player.GetPlayerExperienceResponse
-	154, // 155: NoName.PlayerSetLanguage:output_type -> player_configuration.PlayerSetLanguageResponse
-	155, // 156: NoName.PlayerSetTimezone:output_type -> player_configuration.PlayerSetTimezoneResponse
-	156, // 157: NoName.GetPlayerResources:output_type -> player_inventory.GetPlayerResourcesResponse
-	157, // 158: NoName.GetPlayerItems:output_type -> player_inventory.GetPlayerItemsResponse
-	158, // 159: NoName.GetPlayerAmulets:output_type -> player_inventory.GetPlayerAmuletsResponse
-	159, // 160: NoName.GetPlayerItemByID:output_type -> player_inventory.GetPlayerItemByIDResponse
-	160, // 161: NoName.GetPlayerResourceByID:output_type -> player_inventory.GetPlayerResourceByIDResponse
-	161, // 162: NoName.CreatePlayerPosition:output_type -> player_position.CreatePlayerPositionResponse
-	162, // 163: NoName.GetPlayerCurrentPlanet:output_type -> player_position.GetPlayerCurrentPlanetResponse
-	163, // 164: NoName.CountPlanetVisited:output_type -> player_position.CountPlanetVisitedResponse
-	164, // 165: NoName.CountSystemVisited:output_type -> player_position.CountSystemVisitedResponse
-	165, // 166: NoName.CountPlayerVisitedCurrentPlanet:output_type -> player_position.CountPlayerVisitedCurrentPlanetResponse
-	166, // 167: NoName.SignIn:output_type -> player.SignInResponse
-	167, // 168: NoName.GetPlayerStateByID:output_type -> player_activity.GetPlayerActivityByIDResponse
-	168, // 169: NoName.GetActivePlayerActivities:output_type -> player_activity.GetActivePlayerActivitiesResponse
-	169, // 170: NoName.CreatePlayerActivity:output_type -> player_activity.CreatePlayerActivityResponse
-	170, // 171: NoName.UpdatePlayerActivity:output_type -> player_activity.UpdatePlayerActivityResponse
-	171, // 172: NoName.DeletePlayerActivity:output_type -> player_activity.DeletePlayerActivityResponse
-	172, // 173: NoName.DeletePlayerActivityByController:output_type -> player_activity.DeletePlayerActivityByControllerResponse
-	173, // 174: NoName.GetPlayerActivityToNotify:output_type -> player_activity.GetPlayerActivityToNotifyResponse
-	174, // 175: NoName.SetPlayerActivityNotified:output_type -> player_activity.SetPlayerActivityNotifiedResponse
-	175, // 176: NoName.GetEnemyByID:output_type -> enemy.GetEnemyByIDResponse
-	176, // 177: NoName.HitEnemy:output_type -> enemy.HitEnemyResponse
-	177, // 178: NoName.GetTitanByID:output_type -> titan.GetTitanByIDResponse
-	178, // 179: NoName.GetTitanByName:output_type -> titan.GetTitanByNameResponse
-	179, // 180: NoName.GetTitanByPlanetID:output_type -> titan.GetTitanByPlanetIDResponse
-	180, // 181: NoName.GetTitanByPlanetSystemID:output_type -> titan.GetTitanByPlanetSystemIDResponse
-	181, // 182: NoName.HitTitan:output_type -> titan.HitTitanResponse
-	182, // 183: NoName.TitanDiscovered:output_type -> titan.TitanDiscoveredResponse
-	183, // 184: NoName.GetAllEvent:output_type -> titan_event.GetAllEventResponse
-	184, // 185: NoName.GetEventByID:output_type -> titan_event.GetTitanEventByIDResponse
-	185, // 186: NoName.GetEventChoiceByID:output_type -> titan_event.GetEventChoiceByIDResponse
-	186, // 187: NoName.GetRandomEvent:output_type -> titan_event.GetRandomEventResponse
-	187, // 188: NoName.SubmitAnswer:output_type -> titan_event.SubmitAnswerResponse
-	188, // 189: NoName.GetTitanDamageByTitanID:output_type -> titan_damage.GetTitanDamageByTitanIDResponse
-	189, // 190: NoName.GetLanguageBySlug:output_type -> language.GetLanguageBySlugResponse
-	190, // 191: NoName.GetLanguageByName:output_type -> language.GetLanguageByNameResponse
-	191, // 192: NoName.GetAllLanguages:output_type -> language.GetAllLanguagesResponse
-	192, // 193: NoName.GetTimezoneByDescription:output_type -> timezone.GetTimezoneByDescriptionResponse
-	193, // 194: NoName.GetTimezoneByName:output_type -> timezone.GetTimezoneByNameResponse
-	194, // 195: NoName.GetAllTimezones:output_type -> timezone.GetAllTimezonesResponse
-	195, // 196: NoName.GetAllNPC:output_type -> npc.GetAllNPCResponse
-	196, // 197: NoName.BankDeposit:output_type -> npc.BankDepositResponse
-	197, // 198: NoName.BankWithdraw:output_type -> npc.BankWithdrawResponse
-	198, // 199: NoName.GetPlanetByID:output_type -> planet.GetPlanetByIDResponse
-	199, // 200: NoName.GetPlanetByName:output_type -> planet.GetPlanetByNameResponse
-	200, // 201: NoName.GetPlanetByCoordinate:output_type -> planet.GetPlanetByCoordinateResponse
-	201, // 202: NoName.GetPlanetByMapID:output_type -> planet.GetPlanetByMapIDResponse
-	202, // 203: NoName.GetExpansionInfo:output_type -> planet.GetExpansionInfoResponse
-	203, // 204: NoName.GetSafePlanets:output_type -> planet.GetSafePlanetsResponse
-	204, // 205: NoName.GetPlanetMapByID:output_type -> planet_map.GetPlanetMapByIDResponse
-	205, // 206: NoName.GetResourceByID:output_type -> resource.GetResourceByIDResponse
-	206, // 207: NoName.GetResourceByName:output_type -> resource.GetResourceByNameResponse
-	207, // 208: NoName.GetAllItems:output_type -> item.GetAllItemsResponse
-	208, // 209: NoName.GetShoppableItems:output_type -> item.GetShoppableItemsResponse
-	209, // 210: NoName.GetItemsByCategoryID:output_type -> item.GetItemsByCategoryIDResponse
-	210, // 211: NoName.GetCraftableItemsByCategoryID:output_type -> item.GetCraftableItemsByCategoryIDResponse
-	211, // 212: NoName.UseItem:output_type -> item.UseItemResponse
-	212, // 213: NoName.BuyItem:output_type -> item.BuyItemResponse
-	213, // 214: NoName.GetItemByID:output_type -> item.GetItemByIDResponse
-	214, // 215: NoName.GetAllItemCategories:output_type -> item_category.GetAllItemCategoriesResponse
-	215, // 216: NoName.GetPlayerShips:output_type -> ship.GetPlayerShipsResponse
-	216, // 217: NoName.GetPlayerShipEquipped:output_type -> ship.GetPlayerShipEquippedResponse
-	217, // 218: NoName.LaboratoryStartCrafting:output_type -> ship_laboratory.LaboratoryStartCraftingResponse
-	218, // 219: NoName.LaboratoryCheckHaveResourceForCrafting:output_type -> ship_laboratory.LaboratoryCheckHaveResourceForCraftingResponse
-	219, // 220: NoName.LaboratoryCheckCrafting:output_type -> ship_laboratory.LaboratoryCheckCraftingResponse
-	220, // 221: NoName.LaboratoryEndCrafting:output_type -> ship_laboratory.LaboratoryEndCraftingResponse
-	221, // 222: NoName.GetShipRepairInfo:output_type -> ship_repair.GetShipRepairInfoResponse
-	222, // 223: NoName.StartShipRepair:output_type -> ship_repair.StartShipRepairResponse
-	223, // 224: NoName.EndShipRepair:output_type -> ship_repair.EndShipRepairResponse
-	224, // 225: NoName.CheckShipRepair:output_type -> ship_repair.CheckShipRepairResponse
-	225, // 226: NoName.GetRestsInfo:output_type -> ship_rest.GetRestsInfoResponse
-	226, // 227: NoName.StartPlayerRest:output_type -> ship_rest.StartPlayerRestResponse
-	227, // 228: NoName.EndPlayerRest:output_type -> ship_rest.EndPlayerRestResponse
-	228, // 229: NoName.GetShipTravelInfo:output_type -> ship_travel.GetShipTravelInfoResponse
-	229, // 230: NoName.StartShipTravel:output_type -> ship_travel.StartShipTravelResponse
-	230, // 231: NoName.CheckShipTravel:output_type -> ship_travel.CheckShipTravelResponse
-	231, // 232: NoName.EndShipTravel:output_type -> ship_travel.EndShipTravelResponse
-	231, // 233: NoName.EndShipTravelDiamond:output_type -> ship_travel.EndShipTravelResponse
-	232, // 234: NoName.GetPlayerEconomy:output_type -> player_economy.GetPlayerEconomyResponse
-	233, // 235: NoName.DropTresure:output_type -> tresure.DropTresureResponse
-	234, // 236: NoName.GetMission:output_type -> mission.GetMissionResponse
-	235, // 237: NoName.CheckMission:output_type -> mission.CheckMissionResponse
-	236, // 238: NoName.GetMissionReward:output_type -> mission.GetMissionRewardResponse
-	237, // 239: NoName.GetTeletrasportSafePlanetList:output_type -> expansion.GetTeletrasportSafePlanetListResponse
-	238, // 240: NoName.EndTeletrasportSafePlanet:output_type -> expansion.EndTeletrasportSafePlanetResponse
-	239, // 241: NoName.GetRecapActiveResearch:output_type -> safeplanet_research.GetRecapActiveResearchResponse
-	240, // 242: NoName.ResearchDonation:output_type -> safeplanet_research.ResearchDonationResponse
-	241, // 243: NoName.ExplorationStart:output_type -> exploration.ExplorationStartResponse
-	242, // 244: NoName.ExplorationContinue:output_type -> exploration.ExplorationContinueResponse
-	243, // 245: NoName.ExplorationEnd:output_type -> exploration.ExplorationEndResponse
-	244, // 246: NoName.ExplorationCheck:output_type -> exploration.ExplorationCheckResponse
-	245, // 247: NoName.ExplorationDropResources:output_type -> exploration.ExplorationDropResourcesResponse
-	246, // 248: NoName.GetAllExplorationCategories:output_type -> exploration_category.GetAllExplorationCategoriesResponse
-	247, // 249: NoName.GetConquerorsByPlanetID:output_type -> conqueror.GetConquerorsByPlanetIDResponse
-	248, // 250: NoName.GetCurrentConquerorByPlanetID:output_type -> conqueror.GetCurrentConquerorByPlanetIDResponse
-	249, // 251: NoName.CrafterStart:output_type -> safeplanet_crafter.CrafterStartResponse
-	250, // 252: NoName.CrafterEnd:output_type -> safeplanet_crafter.CrafterEndResponse
-	251, // 253: NoName.CrafterCheck:output_type -> safeplanet_crafter.CrafterCheckResponse
-	252, // 254: NoName.GetAbilityForPlayerByCategory:output_type -> ability.GetAbilityForPlayerByCategoryResponse
-	253, // 255: NoName.LearnAbility:output_type -> ability.LearnAbilityResponse
-	254, // 256: NoName.CheckIfPlayerHaveAbility:output_type -> ability.CheckIfPlayerHaveAbilityResponse
-	255, // 257: NoName.GetAllAbilityCategory:output_type -> ability_category.GetAllAbilityCategoryResponse
-	256, // 258: NoName.GetAbilityCategoryBySlug:output_type -> ability_category.GetAbilityCategoryBySlugResponse
-	257, // 259: NoName.CheckGuildName:output_type -> guild.CheckGuildNameResponse
-	258, // 260: NoName.CreateGuild:output_type -> guild.CreateGuildResponse
-	259, // 261: NoName.JoinGuild:output_type -> guild.JoinGuildResponse
-	260, // 262: NoName.GetJoinGuildsList:output_type -> guild.GetJoinGuildsListResponse
-	261, // 263: NoName.GetPlayerGuild:output_type -> guild.GetPlayerGuildResponse
-	262, // 264: NoName.LeaveGuild:output_type -> guild.LeaveGuildResponse
-	263, // 265: NoName.GetPlayersGuild:output_type -> guild.GetPlayersGuildResponse
-	264, // 266: NoName.AddPlayerToGuild:output_type -> guild.AddPlayerToGuildResponse
-	265, // 267: NoName.RemovePlayerToGuild:output_type -> guild.RemovePlayerToGuildResponse
-	266, // 268: NoName.GetGuildPoints:output_type -> guild_point.GetGuildPointsResponse
-	267, // 269: NoName.GetPlayerGuildPoints:output_type -> guild_point.GetPlayerGuildPointsResponse
-	135, // [135:270] is the sub-list for method output_type
-	0,   // [0:135] is the sub-list for method input_type
+	118, // 119: NoName.CrafterGetRepairWeaponInfo:input_type -> safeplanet_crafter.CrafterGetRepairWeaponInfoRequest
+	119, // 120: NoName.CrafterRepairWeapon:input_type -> safeplanet_crafter.CrafterRepairWeaponRequest
+	120, // 121: NoName.GetAbilityForPlayerByCategory:input_type -> ability.GetAbilityForPlayerByCategoryRequest
+	121, // 122: NoName.LearnAbility:input_type -> ability.LearnAbilityRequest
+	122, // 123: NoName.CheckIfPlayerHaveAbility:input_type -> ability.CheckIfPlayerHaveAbilityRequest
+	123, // 124: NoName.GetAllAbilityCategory:input_type -> ability_category.GetAllAbilityCategoryRequest
+	124, // 125: NoName.GetAbilityCategoryBySlug:input_type -> ability_category.GetAbilityCategoryBySlugRequest
+	125, // 126: NoName.CheckGuildName:input_type -> guild.CheckGuildNameRequest
+	126, // 127: NoName.CreateGuild:input_type -> guild.CreateGuildRequest
+	127, // 128: NoName.JoinGuild:input_type -> guild.JoinGuildRequest
+	128, // 129: NoName.GetJoinGuildsList:input_type -> guild.GetJoinGuildsListRequest
+	129, // 130: NoName.GetPlayerGuild:input_type -> guild.GetPlayerGuildRequest
+	130, // 131: NoName.LeaveGuild:input_type -> guild.LeaveGuildRequest
+	131, // 132: NoName.GetPlayersGuild:input_type -> guild.GetPlayersGuildRequest
+	132, // 133: NoName.AddPlayerToGuild:input_type -> guild.AddPlayerToGuildRequest
+	133, // 134: NoName.RemovePlayerToGuild:input_type -> guild.RemovePlayerToGuildRequest
+	134, // 135: NoName.GetGuildPoints:input_type -> guild_point.GetGuildPointsRequest
+	135, // 136: NoName.GetPlayerGuildPoints:input_type -> guild_point.GetPlayerGuildPointsRequest
+	136, // 137: NoName.PlayerStartTutorial:output_type -> tutorial.PlayerStartTutorialResponse
+	137, // 138: NoName.PlayerEndTutorial:output_type -> tutorial.PlayerEndTutorialResponse
+	138, // 139: NoName.StartTravelTutorial:output_type -> tutorial.StartTravelTutorialResponse
+	139, // 140: NoName.GetArmorByID:output_type -> armor.GetArmorByIDResponse
+	140, // 141: NoName.GetArmorByName:output_type -> armor.GetArmorByNameResponse
+	141, // 142: NoName.GetPlayerArmors:output_type -> armor.GetPlayerArmorsResponse
+	142, // 143: NoName.GetPlayerArmorsByCategoryID:output_type -> armor.GetPlayerArmorsByCategoryIDResponse
+	143, // 144: NoName.GetPlayerArmorsEquipped:output_type -> armor.GetPlayerArmorsEquippedResponse
+	144, // 145: NoName.GetPlayerArmorEquippedByCategoryID:output_type -> armor.GetPlayerArmorEquippedByCategoryIDResponse
+	145, // 146: NoName.EquipArmor:output_type -> armor.EquipArmorResponse
+	146, // 147: NoName.GetAllArmorCategory:output_type -> armor_category.GetAllArmorCategoryResponse
+	147, // 148: NoName.GetArmorCategoryBySlug:output_type -> armor_category.GetArmorCategoryBySlugResponse
+	148, // 149: NoName.GetWeaponByID:output_type -> weapon.GetWeaponByIDResponse
+	149, // 150: NoName.GetWeaponByName:output_type -> weapon.GetWeaponByNameResponse
+	150, // 151: NoName.GetPlayerWeapons:output_type -> weapon.GetPlayerWeaponsResponse
+	151, // 152: NoName.GetPlayerWeaponEquipped:output_type -> weapon.GetPlayerWeaponEquippedResponse
+	152, // 153: NoName.EquipWeapon:output_type -> weapon.EquipWeaponResponse
+	153, // 154: NoName.GetPlayerByID:output_type -> player.GetPlayerByIDResponse
+	154, // 155: NoName.GetPlayerByUsername:output_type -> player.GetPlayerByUsernameResponse
+	155, // 156: NoName.GetPlayerExperience:output_type -> player.GetPlayerExperienceResponse
+	156, // 157: NoName.PlayerSetLanguage:output_type -> player_configuration.PlayerSetLanguageResponse
+	157, // 158: NoName.PlayerSetTimezone:output_type -> player_configuration.PlayerSetTimezoneResponse
+	158, // 159: NoName.GetPlayerResources:output_type -> player_inventory.GetPlayerResourcesResponse
+	159, // 160: NoName.GetPlayerItems:output_type -> player_inventory.GetPlayerItemsResponse
+	160, // 161: NoName.GetPlayerAmulets:output_type -> player_inventory.GetPlayerAmuletsResponse
+	161, // 162: NoName.GetPlayerItemByID:output_type -> player_inventory.GetPlayerItemByIDResponse
+	162, // 163: NoName.GetPlayerResourceByID:output_type -> player_inventory.GetPlayerResourceByIDResponse
+	163, // 164: NoName.CreatePlayerPosition:output_type -> player_position.CreatePlayerPositionResponse
+	164, // 165: NoName.GetPlayerCurrentPlanet:output_type -> player_position.GetPlayerCurrentPlanetResponse
+	165, // 166: NoName.CountPlanetVisited:output_type -> player_position.CountPlanetVisitedResponse
+	166, // 167: NoName.CountSystemVisited:output_type -> player_position.CountSystemVisitedResponse
+	167, // 168: NoName.CountPlayerVisitedCurrentPlanet:output_type -> player_position.CountPlayerVisitedCurrentPlanetResponse
+	168, // 169: NoName.SignIn:output_type -> player.SignInResponse
+	169, // 170: NoName.GetPlayerStateByID:output_type -> player_activity.GetPlayerActivityByIDResponse
+	170, // 171: NoName.GetActivePlayerActivities:output_type -> player_activity.GetActivePlayerActivitiesResponse
+	171, // 172: NoName.CreatePlayerActivity:output_type -> player_activity.CreatePlayerActivityResponse
+	172, // 173: NoName.UpdatePlayerActivity:output_type -> player_activity.UpdatePlayerActivityResponse
+	173, // 174: NoName.DeletePlayerActivity:output_type -> player_activity.DeletePlayerActivityResponse
+	174, // 175: NoName.DeletePlayerActivityByController:output_type -> player_activity.DeletePlayerActivityByControllerResponse
+	175, // 176: NoName.GetPlayerActivityToNotify:output_type -> player_activity.GetPlayerActivityToNotifyResponse
+	176, // 177: NoName.SetPlayerActivityNotified:output_type -> player_activity.SetPlayerActivityNotifiedResponse
+	177, // 178: NoName.GetEnemyByID:output_type -> enemy.GetEnemyByIDResponse
+	178, // 179: NoName.HitEnemy:output_type -> enemy.HitEnemyResponse
+	179, // 180: NoName.GetTitanByID:output_type -> titan.GetTitanByIDResponse
+	180, // 181: NoName.GetTitanByName:output_type -> titan.GetTitanByNameResponse
+	181, // 182: NoName.GetTitanByPlanetID:output_type -> titan.GetTitanByPlanetIDResponse
+	182, // 183: NoName.GetTitanByPlanetSystemID:output_type -> titan.GetTitanByPlanetSystemIDResponse
+	183, // 184: NoName.HitTitan:output_type -> titan.HitTitanResponse
+	184, // 185: NoName.TitanDiscovered:output_type -> titan.TitanDiscoveredResponse
+	185, // 186: NoName.GetAllEvent:output_type -> titan_event.GetAllEventResponse
+	186, // 187: NoName.GetEventByID:output_type -> titan_event.GetTitanEventByIDResponse
+	187, // 188: NoName.GetEventChoiceByID:output_type -> titan_event.GetEventChoiceByIDResponse
+	188, // 189: NoName.GetRandomEvent:output_type -> titan_event.GetRandomEventResponse
+	189, // 190: NoName.SubmitAnswer:output_type -> titan_event.SubmitAnswerResponse
+	190, // 191: NoName.GetTitanDamageByTitanID:output_type -> titan_damage.GetTitanDamageByTitanIDResponse
+	191, // 192: NoName.GetLanguageBySlug:output_type -> language.GetLanguageBySlugResponse
+	192, // 193: NoName.GetLanguageByName:output_type -> language.GetLanguageByNameResponse
+	193, // 194: NoName.GetAllLanguages:output_type -> language.GetAllLanguagesResponse
+	194, // 195: NoName.GetTimezoneByDescription:output_type -> timezone.GetTimezoneByDescriptionResponse
+	195, // 196: NoName.GetTimezoneByName:output_type -> timezone.GetTimezoneByNameResponse
+	196, // 197: NoName.GetAllTimezones:output_type -> timezone.GetAllTimezonesResponse
+	197, // 198: NoName.GetAllNPC:output_type -> npc.GetAllNPCResponse
+	198, // 199: NoName.BankDeposit:output_type -> npc.BankDepositResponse
+	199, // 200: NoName.BankWithdraw:output_type -> npc.BankWithdrawResponse
+	200, // 201: NoName.GetPlanetByID:output_type -> planet.GetPlanetByIDResponse
+	201, // 202: NoName.GetPlanetByName:output_type -> planet.GetPlanetByNameResponse
+	202, // 203: NoName.GetPlanetByCoordinate:output_type -> planet.GetPlanetByCoordinateResponse
+	203, // 204: NoName.GetPlanetByMapID:output_type -> planet.GetPlanetByMapIDResponse
+	204, // 205: NoName.GetExpansionInfo:output_type -> planet.GetExpansionInfoResponse
+	205, // 206: NoName.GetSafePlanets:output_type -> planet.GetSafePlanetsResponse
+	206, // 207: NoName.GetPlanetMapByID:output_type -> planet_map.GetPlanetMapByIDResponse
+	207, // 208: NoName.GetResourceByID:output_type -> resource.GetResourceByIDResponse
+	208, // 209: NoName.GetResourceByName:output_type -> resource.GetResourceByNameResponse
+	209, // 210: NoName.GetAllItems:output_type -> item.GetAllItemsResponse
+	210, // 211: NoName.GetShoppableItems:output_type -> item.GetShoppableItemsResponse
+	211, // 212: NoName.GetItemsByCategoryID:output_type -> item.GetItemsByCategoryIDResponse
+	212, // 213: NoName.GetCraftableItemsByCategoryID:output_type -> item.GetCraftableItemsByCategoryIDResponse
+	213, // 214: NoName.UseItem:output_type -> item.UseItemResponse
+	214, // 215: NoName.BuyItem:output_type -> item.BuyItemResponse
+	215, // 216: NoName.GetItemByID:output_type -> item.GetItemByIDResponse
+	216, // 217: NoName.GetAllItemCategories:output_type -> item_category.GetAllItemCategoriesResponse
+	217, // 218: NoName.GetPlayerShips:output_type -> ship.GetPlayerShipsResponse
+	218, // 219: NoName.GetPlayerShipEquipped:output_type -> ship.GetPlayerShipEquippedResponse
+	219, // 220: NoName.LaboratoryStartCrafting:output_type -> ship_laboratory.LaboratoryStartCraftingResponse
+	220, // 221: NoName.LaboratoryCheckHaveResourceForCrafting:output_type -> ship_laboratory.LaboratoryCheckHaveResourceForCraftingResponse
+	221, // 222: NoName.LaboratoryCheckCrafting:output_type -> ship_laboratory.LaboratoryCheckCraftingResponse
+	222, // 223: NoName.LaboratoryEndCrafting:output_type -> ship_laboratory.LaboratoryEndCraftingResponse
+	223, // 224: NoName.GetShipRepairInfo:output_type -> ship_repair.GetShipRepairInfoResponse
+	224, // 225: NoName.StartShipRepair:output_type -> ship_repair.StartShipRepairResponse
+	225, // 226: NoName.EndShipRepair:output_type -> ship_repair.EndShipRepairResponse
+	226, // 227: NoName.CheckShipRepair:output_type -> ship_repair.CheckShipRepairResponse
+	227, // 228: NoName.GetRestsInfo:output_type -> ship_rest.GetRestsInfoResponse
+	228, // 229: NoName.StartPlayerRest:output_type -> ship_rest.StartPlayerRestResponse
+	229, // 230: NoName.EndPlayerRest:output_type -> ship_rest.EndPlayerRestResponse
+	230, // 231: NoName.GetShipTravelInfo:output_type -> ship_travel.GetShipTravelInfoResponse
+	231, // 232: NoName.StartShipTravel:output_type -> ship_travel.StartShipTravelResponse
+	232, // 233: NoName.CheckShipTravel:output_type -> ship_travel.CheckShipTravelResponse
+	233, // 234: NoName.EndShipTravel:output_type -> ship_travel.EndShipTravelResponse
+	233, // 235: NoName.EndShipTravelDiamond:output_type -> ship_travel.EndShipTravelResponse
+	234, // 236: NoName.GetPlayerEconomy:output_type -> player_economy.GetPlayerEconomyResponse
+	235, // 237: NoName.DropTresure:output_type -> tresure.DropTresureResponse
+	236, // 238: NoName.GetMission:output_type -> mission.GetMissionResponse
+	237, // 239: NoName.CheckMission:output_type -> mission.CheckMissionResponse
+	238, // 240: NoName.GetMissionReward:output_type -> mission.GetMissionRewardResponse
+	239, // 241: NoName.GetTeletrasportSafePlanetList:output_type -> expansion.GetTeletrasportSafePlanetListResponse
+	240, // 242: NoName.EndTeletrasportSafePlanet:output_type -> expansion.EndTeletrasportSafePlanetResponse
+	241, // 243: NoName.GetRecapActiveResearch:output_type -> safeplanet_research.GetRecapActiveResearchResponse
+	242, // 244: NoName.ResearchDonation:output_type -> safeplanet_research.ResearchDonationResponse
+	243, // 245: NoName.ExplorationStart:output_type -> exploration.ExplorationStartResponse
+	244, // 246: NoName.ExplorationContinue:output_type -> exploration.ExplorationContinueResponse
+	245, // 247: NoName.ExplorationEnd:output_type -> exploration.ExplorationEndResponse
+	246, // 248: NoName.ExplorationCheck:output_type -> exploration.ExplorationCheckResponse
+	247, // 249: NoName.ExplorationDropResources:output_type -> exploration.ExplorationDropResourcesResponse
+	248, // 250: NoName.GetAllExplorationCategories:output_type -> exploration_category.GetAllExplorationCategoriesResponse
+	249, // 251: NoName.GetConquerorsByPlanetID:output_type -> conqueror.GetConquerorsByPlanetIDResponse
+	250, // 252: NoName.GetCurrentConquerorByPlanetID:output_type -> conqueror.GetCurrentConquerorByPlanetIDResponse
+	251, // 253: NoName.CrafterStart:output_type -> safeplanet_crafter.CrafterStartResponse
+	252, // 254: NoName.CrafterEnd:output_type -> safeplanet_crafter.CrafterEndResponse
+	253, // 255: NoName.CrafterCheck:output_type -> safeplanet_crafter.CrafterCheckResponse
+	254, // 256: NoName.CrafterGetRepairWeaponInfo:output_type -> safeplanet_crafter.CrafterGetRepairWeaponInfoResponse
+	255, // 257: NoName.CrafterRepairWeapon:output_type -> safeplanet_crafter.CrafterRepairWeaponResponse
+	256, // 258: NoName.GetAbilityForPlayerByCategory:output_type -> ability.GetAbilityForPlayerByCategoryResponse
+	257, // 259: NoName.LearnAbility:output_type -> ability.LearnAbilityResponse
+	258, // 260: NoName.CheckIfPlayerHaveAbility:output_type -> ability.CheckIfPlayerHaveAbilityResponse
+	259, // 261: NoName.GetAllAbilityCategory:output_type -> ability_category.GetAllAbilityCategoryResponse
+	260, // 262: NoName.GetAbilityCategoryBySlug:output_type -> ability_category.GetAbilityCategoryBySlugResponse
+	261, // 263: NoName.CheckGuildName:output_type -> guild.CheckGuildNameResponse
+	262, // 264: NoName.CreateGuild:output_type -> guild.CreateGuildResponse
+	263, // 265: NoName.JoinGuild:output_type -> guild.JoinGuildResponse
+	264, // 266: NoName.GetJoinGuildsList:output_type -> guild.GetJoinGuildsListResponse
+	265, // 267: NoName.GetPlayerGuild:output_type -> guild.GetPlayerGuildResponse
+	266, // 268: NoName.LeaveGuild:output_type -> guild.LeaveGuildResponse
+	267, // 269: NoName.GetPlayersGuild:output_type -> guild.GetPlayersGuildResponse
+	268, // 270: NoName.AddPlayerToGuild:output_type -> guild.AddPlayerToGuildResponse
+	269, // 271: NoName.RemovePlayerToGuild:output_type -> guild.RemovePlayerToGuildResponse
+	270, // 272: NoName.GetGuildPoints:output_type -> guild_point.GetGuildPointsResponse
+	271, // 273: NoName.GetPlayerGuildPoints:output_type -> guild_point.GetPlayerGuildPointsResponse
+	137, // [137:274] is the sub-list for method output_type
+	0,   // [0:137] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name

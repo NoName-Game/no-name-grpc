@@ -367,6 +367,195 @@ func (x *CrafterCheckResponse) GetCraftingEndTime() *timestamp.Timestamp {
 	return nil
 }
 
+// CrafterGetRepairWeaponInfo
+type CrafterGetRepairWeaponInfoRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	WeaponID uint32 `protobuf:"varint,2,opt,name=WeaponID,proto3" json:"WeaponID,omitempty"`
+}
+
+func (x *CrafterGetRepairWeaponInfoRequest) Reset() {
+	*x = CrafterGetRepairWeaponInfoRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_safeplanet_crafter_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CrafterGetRepairWeaponInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CrafterGetRepairWeaponInfoRequest) ProtoMessage() {}
+
+func (x *CrafterGetRepairWeaponInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_safeplanet_crafter_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CrafterGetRepairWeaponInfoRequest.ProtoReflect.Descriptor instead.
+func (*CrafterGetRepairWeaponInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_safeplanet_crafter_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *CrafterGetRepairWeaponInfoRequest) GetWeaponID() uint32 {
+	if x != nil {
+		return x.WeaponID
+	}
+	return 0
+}
+
+type CrafterGetRepairWeaponInfoResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Value int32 `protobuf:"varint,1,opt,name=Value,proto3" json:"Value,omitempty"`
+}
+
+func (x *CrafterGetRepairWeaponInfoResponse) Reset() {
+	*x = CrafterGetRepairWeaponInfoResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_safeplanet_crafter_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CrafterGetRepairWeaponInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CrafterGetRepairWeaponInfoResponse) ProtoMessage() {}
+
+func (x *CrafterGetRepairWeaponInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_safeplanet_crafter_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CrafterGetRepairWeaponInfoResponse.ProtoReflect.Descriptor instead.
+func (*CrafterGetRepairWeaponInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_safeplanet_crafter_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *CrafterGetRepairWeaponInfoResponse) GetValue() int32 {
+	if x != nil {
+		return x.Value
+	}
+	return 0
+}
+
+// CrafterRepairWeapon
+type CrafterRepairWeaponRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	WeaponID uint32 `protobuf:"varint,2,opt,name=WeaponID,proto3" json:"WeaponID,omitempty"`
+}
+
+func (x *CrafterRepairWeaponRequest) Reset() {
+	*x = CrafterRepairWeaponRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_safeplanet_crafter_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CrafterRepairWeaponRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CrafterRepairWeaponRequest) ProtoMessage() {}
+
+func (x *CrafterRepairWeaponRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_safeplanet_crafter_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CrafterRepairWeaponRequest.ProtoReflect.Descriptor instead.
+func (*CrafterRepairWeaponRequest) Descriptor() ([]byte, []int) {
+	return file_proto_safeplanet_crafter_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *CrafterRepairWeaponRequest) GetPlayerID() uint32 {
+	if x != nil {
+		return x.PlayerID
+	}
+	return 0
+}
+
+func (x *CrafterRepairWeaponRequest) GetWeaponID() uint32 {
+	if x != nil {
+		return x.WeaponID
+	}
+	return 0
+}
+
+type CrafterRepairWeaponResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *CrafterRepairWeaponResponse) Reset() {
+	*x = CrafterRepairWeaponResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_safeplanet_crafter_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CrafterRepairWeaponResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CrafterRepairWeaponResponse) ProtoMessage() {}
+
+func (x *CrafterRepairWeaponResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_safeplanet_crafter_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CrafterRepairWeaponResponse.ProtoReflect.Descriptor instead.
+func (*CrafterRepairWeaponResponse) Descriptor() ([]byte, []int) {
+	return file_proto_safeplanet_crafter_proto_rawDescGZIP(), []int{9}
+}
+
 var File_proto_safeplanet_crafter_proto protoreflect.FileDescriptor
 
 var file_proto_safeplanet_crafter_proto_rawDesc = []byte{
@@ -424,8 +613,24 @@ var file_proto_safeplanet_crafter_proto_rawDesc = []byte{
 	0x66, 0x74, 0x69, 0x6e, 0x67, 0x45, 0x6e, 0x64, 0x54, 0x69, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01,
 	0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74,
 	0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x0f,
-	0x43, 0x72, 0x61, 0x66, 0x74, 0x69, 0x6e, 0x67, 0x45, 0x6e, 0x64, 0x54, 0x69, 0x6d, 0x65, 0x42,
-	0x06, 0x5a, 0x04, 0x2e, 0x3b, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x43, 0x72, 0x61, 0x66, 0x74, 0x69, 0x6e, 0x67, 0x45, 0x6e, 0x64, 0x54, 0x69, 0x6d, 0x65, 0x22,
+	0x3f, 0x0a, 0x21, 0x43, 0x72, 0x61, 0x66, 0x74, 0x65, 0x72, 0x47, 0x65, 0x74, 0x52, 0x65, 0x70,
+	0x61, 0x69, 0x72, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x49, 0x44,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x49, 0x44,
+	0x22, 0x3a, 0x0a, 0x22, 0x43, 0x72, 0x61, 0x66, 0x74, 0x65, 0x72, 0x47, 0x65, 0x74, 0x52, 0x65,
+	0x70, 0x61, 0x69, 0x72, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x05, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x54, 0x0a, 0x1a,
+	0x43, 0x72, 0x61, 0x66, 0x74, 0x65, 0x72, 0x52, 0x65, 0x70, 0x61, 0x69, 0x72, 0x57, 0x65, 0x61,
+	0x70, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x6c,
+	0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x50, 0x6c,
+	0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x12, 0x1a, 0x0a, 0x08, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e,
+	0x49, 0x44, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e,
+	0x49, 0x44, 0x22, 0x1d, 0x0a, 0x1b, 0x43, 0x72, 0x61, 0x66, 0x74, 0x65, 0x72, 0x52, 0x65, 0x70,
+	0x61, 0x69, 0x72, 0x57, 0x65, 0x61, 0x70, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x3b, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x33,
 }
 
 var (
@@ -440,30 +645,34 @@ func file_proto_safeplanet_crafter_proto_rawDescGZIP() []byte {
 	return file_proto_safeplanet_crafter_proto_rawDescData
 }
 
-var file_proto_safeplanet_crafter_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_proto_safeplanet_crafter_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_proto_safeplanet_crafter_proto_goTypes = []interface{}{
-	(*CrafterStartRequest)(nil),  // 0: safeplanet_crafter.CrafterStartRequest
-	(*CrafterStartResponse)(nil), // 1: safeplanet_crafter.CrafterStartResponse
-	(*CrafterEndRequest)(nil),    // 2: safeplanet_crafter.CrafterEndRequest
-	(*CrafterEndResponse)(nil),   // 3: safeplanet_crafter.CrafterEndResponse
-	(*CrafterCheckRequest)(nil),  // 4: safeplanet_crafter.CrafterCheckRequest
-	(*CrafterCheckResponse)(nil), // 5: safeplanet_crafter.CrafterCheckResponse
-	nil,                          // 6: safeplanet_crafter.CrafterStartRequest.ResourcesEntry
-	(*timestamp.Timestamp)(nil),  // 7: google.protobuf.Timestamp
-	(*Weapon)(nil),               // 8: weapon.Weapon
-	(*Armor)(nil),                // 9: armor.Armor
+	(*CrafterStartRequest)(nil),                // 0: safeplanet_crafter.CrafterStartRequest
+	(*CrafterStartResponse)(nil),               // 1: safeplanet_crafter.CrafterStartResponse
+	(*CrafterEndRequest)(nil),                  // 2: safeplanet_crafter.CrafterEndRequest
+	(*CrafterEndResponse)(nil),                 // 3: safeplanet_crafter.CrafterEndResponse
+	(*CrafterCheckRequest)(nil),                // 4: safeplanet_crafter.CrafterCheckRequest
+	(*CrafterCheckResponse)(nil),               // 5: safeplanet_crafter.CrafterCheckResponse
+	(*CrafterGetRepairWeaponInfoRequest)(nil),  // 6: safeplanet_crafter.CrafterGetRepairWeaponInfoRequest
+	(*CrafterGetRepairWeaponInfoResponse)(nil), // 7: safeplanet_crafter.CrafterGetRepairWeaponInfoResponse
+	(*CrafterRepairWeaponRequest)(nil),         // 8: safeplanet_crafter.CrafterRepairWeaponRequest
+	(*CrafterRepairWeaponResponse)(nil),        // 9: safeplanet_crafter.CrafterRepairWeaponResponse
+	nil,                                        // 10: safeplanet_crafter.CrafterStartRequest.ResourcesEntry
+	(*timestamp.Timestamp)(nil),                // 11: google.protobuf.Timestamp
+	(*Weapon)(nil),                             // 12: weapon.Weapon
+	(*Armor)(nil),                              // 13: armor.Armor
 }
 var file_proto_safeplanet_crafter_proto_depIdxs = []int32{
-	6, // 0: safeplanet_crafter.CrafterStartRequest.Resources:type_name -> safeplanet_crafter.CrafterStartRequest.ResourcesEntry
-	7, // 1: safeplanet_crafter.CrafterStartResponse.CraftingEndTime:type_name -> google.protobuf.Timestamp
-	8, // 2: safeplanet_crafter.CrafterEndResponse.Weapon:type_name -> weapon.Weapon
-	9, // 3: safeplanet_crafter.CrafterEndResponse.Armor:type_name -> armor.Armor
-	7, // 4: safeplanet_crafter.CrafterCheckResponse.CraftingEndTime:type_name -> google.protobuf.Timestamp
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	10, // 0: safeplanet_crafter.CrafterStartRequest.Resources:type_name -> safeplanet_crafter.CrafterStartRequest.ResourcesEntry
+	11, // 1: safeplanet_crafter.CrafterStartResponse.CraftingEndTime:type_name -> google.protobuf.Timestamp
+	12, // 2: safeplanet_crafter.CrafterEndResponse.Weapon:type_name -> weapon.Weapon
+	13, // 3: safeplanet_crafter.CrafterEndResponse.Armor:type_name -> armor.Armor
+	11, // 4: safeplanet_crafter.CrafterCheckResponse.CraftingEndTime:type_name -> google.protobuf.Timestamp
+	5,  // [5:5] is the sub-list for method output_type
+	5,  // [5:5] is the sub-list for method input_type
+	5,  // [5:5] is the sub-list for extension type_name
+	5,  // [5:5] is the sub-list for extension extendee
+	0,  // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_proto_safeplanet_crafter_proto_init() }
@@ -546,6 +755,54 @@ func file_proto_safeplanet_crafter_proto_init() {
 				return nil
 			}
 		}
+		file_proto_safeplanet_crafter_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CrafterGetRepairWeaponInfoRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_safeplanet_crafter_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CrafterGetRepairWeaponInfoResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_safeplanet_crafter_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CrafterRepairWeaponRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_safeplanet_crafter_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CrafterRepairWeaponResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -553,7 +810,7 @@ func file_proto_safeplanet_crafter_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_safeplanet_crafter_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

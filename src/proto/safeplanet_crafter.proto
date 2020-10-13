@@ -35,3 +35,20 @@ message CrafterCheckResponse {
     bool FinishCrafting = 2;
     google.protobuf.Timestamp CraftingEndTime = 3;
 }
+
+// CrafterGetRepairWeaponInfo
+message CrafterGetRepairWeaponInfoRequest {
+    uint32 WeaponID = 2;
+}
+message CrafterGetRepairWeaponInfoResponse {
+    int32 Value = 1;
+}
+
+// CrafterRepairWeapon
+message CrafterRepairWeaponRequest {
+    uint32 PlayerID = 1;
+    uint32 WeaponID = 2;
+}
+message CrafterRepairWeaponResponse {
+    // Empty
+}

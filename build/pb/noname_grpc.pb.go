@@ -174,6 +174,8 @@ type NoNameClient interface {
 	CrafterStart(ctx context.Context, in *CrafterStartRequest, opts ...grpc.CallOption) (*CrafterStartResponse, error)
 	CrafterEnd(ctx context.Context, in *CrafterEndRequest, opts ...grpc.CallOption) (*CrafterEndResponse, error)
 	CrafterCheck(ctx context.Context, in *CrafterCheckRequest, opts ...grpc.CallOption) (*CrafterCheckResponse, error)
+	CrafterGetRepairWeaponInfo(ctx context.Context, in *CrafterGetRepairWeaponInfoRequest, opts ...grpc.CallOption) (*CrafterGetRepairWeaponInfoResponse, error)
+	CrafterRepairWeapon(ctx context.Context, in *CrafterRepairWeaponRequest, opts ...grpc.CallOption) (*CrafterRepairWeaponResponse, error)
 	// Ability
 	GetAbilityForPlayerByCategory(ctx context.Context, in *GetAbilityForPlayerByCategoryRequest, opts ...grpc.CallOption) (*GetAbilityForPlayerByCategoryResponse, error)
 	LearnAbility(ctx context.Context, in *LearnAbilityRequest, opts ...grpc.CallOption) (*LearnAbilityResponse, error)
@@ -1275,6 +1277,24 @@ func (c *noNameClient) CrafterCheck(ctx context.Context, in *CrafterCheckRequest
 	return out, nil
 }
 
+func (c *noNameClient) CrafterGetRepairWeaponInfo(ctx context.Context, in *CrafterGetRepairWeaponInfoRequest, opts ...grpc.CallOption) (*CrafterGetRepairWeaponInfoResponse, error) {
+	out := new(CrafterGetRepairWeaponInfoResponse)
+	err := c.cc.Invoke(ctx, "/NoName/CrafterGetRepairWeaponInfo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) CrafterRepairWeapon(ctx context.Context, in *CrafterRepairWeaponRequest, opts ...grpc.CallOption) (*CrafterRepairWeaponResponse, error) {
+	out := new(CrafterRepairWeaponResponse)
+	err := c.cc.Invoke(ctx, "/NoName/CrafterRepairWeapon", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetAbilityForPlayerByCategory(ctx context.Context, in *GetAbilityForPlayerByCategoryRequest, opts ...grpc.CallOption) (*GetAbilityForPlayerByCategoryResponse, error) {
 	out := new(GetAbilityForPlayerByCategoryResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAbilityForPlayerByCategory", in, out, opts...)
@@ -1580,6 +1600,8 @@ type NoNameServer interface {
 	CrafterStart(context.Context, *CrafterStartRequest) (*CrafterStartResponse, error)
 	CrafterEnd(context.Context, *CrafterEndRequest) (*CrafterEndResponse, error)
 	CrafterCheck(context.Context, *CrafterCheckRequest) (*CrafterCheckResponse, error)
+	CrafterGetRepairWeaponInfo(context.Context, *CrafterGetRepairWeaponInfoRequest) (*CrafterGetRepairWeaponInfoResponse, error)
+	CrafterRepairWeapon(context.Context, *CrafterRepairWeaponRequest) (*CrafterRepairWeaponResponse, error)
 	// Ability
 	GetAbilityForPlayerByCategory(context.Context, *GetAbilityForPlayerByCategoryRequest) (*GetAbilityForPlayerByCategoryResponse, error)
 	LearnAbility(context.Context, *LearnAbilityRequest) (*LearnAbilityResponse, error)
@@ -1963,6 +1985,12 @@ func (*UnimplementedNoNameServer) CrafterEnd(context.Context, *CrafterEndRequest
 }
 func (*UnimplementedNoNameServer) CrafterCheck(context.Context, *CrafterCheckRequest) (*CrafterCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CrafterCheck not implemented")
+}
+func (*UnimplementedNoNameServer) CrafterGetRepairWeaponInfo(context.Context, *CrafterGetRepairWeaponInfoRequest) (*CrafterGetRepairWeaponInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CrafterGetRepairWeaponInfo not implemented")
+}
+func (*UnimplementedNoNameServer) CrafterRepairWeapon(context.Context, *CrafterRepairWeaponRequest) (*CrafterRepairWeaponResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CrafterRepairWeapon not implemented")
 }
 func (*UnimplementedNoNameServer) GetAbilityForPlayerByCategory(context.Context, *GetAbilityForPlayerByCategoryRequest) (*GetAbilityForPlayerByCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAbilityForPlayerByCategory not implemented")
@@ -4160,6 +4188,42 @@ func _NoName_CrafterCheck_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_CrafterGetRepairWeaponInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CrafterGetRepairWeaponInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CrafterGetRepairWeaponInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CrafterGetRepairWeaponInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CrafterGetRepairWeaponInfo(ctx, req.(*CrafterGetRepairWeaponInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_CrafterRepairWeapon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CrafterRepairWeaponRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CrafterRepairWeapon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CrafterRepairWeapon",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CrafterRepairWeapon(ctx, req.(*CrafterRepairWeaponRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetAbilityForPlayerByCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAbilityForPlayerByCategoryRequest)
 	if err := dec(in); err != nil {
@@ -4927,6 +4991,14 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CrafterCheck",
 			Handler:    _NoName_CrafterCheck_Handler,
+		},
+		{
+			MethodName: "CrafterGetRepairWeaponInfo",
+			Handler:    _NoName_CrafterGetRepairWeaponInfo_Handler,
+		},
+		{
+			MethodName: "CrafterRepairWeapon",
+			Handler:    _NoName_CrafterRepairWeapon_Handler,
 		},
 		{
 			MethodName: "GetAbilityForPlayerByCategory",
