@@ -21,6 +21,9 @@ type NoNameClient interface {
 	PlayerStartTutorial(ctx context.Context, in *PlayerStartTutorialRequest, opts ...grpc.CallOption) (*PlayerStartTutorialResponse, error)
 	PlayerEndTutorial(ctx context.Context, in *PlayerEndTutorialRequest, opts ...grpc.CallOption) (*PlayerEndTutorialResponse, error)
 	StartTravelTutorial(ctx context.Context, in *StartTravelTutorialRequest, opts ...grpc.CallOption) (*StartTravelTutorialResponse, error)
+	// Rarity
+	GetAllRarities(ctx context.Context, in *GetAllRaritiesRequest, opts ...grpc.CallOption) (*GetAllRaritiesResponse, error)
+	GetAllCraftableRarities(ctx context.Context, in *GetAllCraftableRaritiesRequest, opts ...grpc.CallOption) (*GetAllCraftableRaritiesResponse, error)
 	// Armor
 	GetArmorByID(ctx context.Context, in *GetArmorByIDRequest, opts ...grpc.CallOption) (*GetArmorByIDResponse, error)
 	GetArmorByName(ctx context.Context, in *GetArmorByNameRequest, opts ...grpc.CallOption) (*GetArmorByNameResponse, error)
@@ -125,16 +128,13 @@ type NoNameClient interface {
 	// Ship
 	GetPlayerShips(ctx context.Context, in *GetPlayerShipsRequest, opts ...grpc.CallOption) (*GetPlayerShipsResponse, error)
 	GetPlayerShipEquipped(ctx context.Context, in *GetPlayerShipEquippedRequest, opts ...grpc.CallOption) (*GetPlayerShipEquippedResponse, error)
+	// Ship - Categoru
+	GetAllShipCategories(ctx context.Context, in *GetAllShipCategoriesRequest, opts ...grpc.CallOption) (*GetAllShipCategoriesResponse, error)
 	// Ship - Laboratory
 	LaboratoryStartCrafting(ctx context.Context, in *LaboratoryStartCraftingRequest, opts ...grpc.CallOption) (*LaboratoryStartCraftingResponse, error)
 	LaboratoryCheckHaveResourceForCrafting(ctx context.Context, in *LaboratoryCheckHaveResourceForCraftingRequest, opts ...grpc.CallOption) (*LaboratoryCheckHaveResourceForCraftingResponse, error)
 	LaboratoryCheckCrafting(ctx context.Context, in *LaboratoryCheckCraftingRequest, opts ...grpc.CallOption) (*LaboratoryCheckCraftingResponse, error)
 	LaboratoryEndCrafting(ctx context.Context, in *LaboratoryEndCraftingRequest, opts ...grpc.CallOption) (*LaboratoryEndCraftingResponse, error)
-	// Ship - Repair
-	GetShipRepairInfo(ctx context.Context, in *GetShipRepairInfoRequest, opts ...grpc.CallOption) (*GetShipRepairInfoResponse, error)
-	StartShipRepair(ctx context.Context, in *StartShipRepairRequest, opts ...grpc.CallOption) (*StartShipRepairResponse, error)
-	EndShipRepair(ctx context.Context, in *EndShipRepairRequest, opts ...grpc.CallOption) (*EndShipRepairResponse, error)
-	CheckShipRepair(ctx context.Context, in *CheckShipRepairRequest, opts ...grpc.CallOption) (*CheckShipRepairResponse, error)
 	// Ship - Rests
 	GetRestsInfo(ctx context.Context, in *GetRestsInfoRequest, opts ...grpc.CallOption) (*GetRestsInfoResponse, error)
 	StartPlayerRest(ctx context.Context, in *StartPlayerRestRequest, opts ...grpc.CallOption) (*StartPlayerRestResponse, error)
@@ -196,6 +196,17 @@ type NoNameClient interface {
 	// Guild - Points
 	GetGuildPoints(ctx context.Context, in *GetGuildPointsRequest, opts ...grpc.CallOption) (*GetGuildPointsResponse, error)
 	GetPlayerGuildPoints(ctx context.Context, in *GetPlayerGuildPointsRequest, opts ...grpc.CallOption) (*GetPlayerGuildPointsResponse, error)
+	// Hangar - Repair
+	GetShipRepairInfo(ctx context.Context, in *GetShipRepairInfoRequest, opts ...grpc.CallOption) (*GetShipRepairInfoResponse, error)
+	StartShipRepair(ctx context.Context, in *StartShipRepairRequest, opts ...grpc.CallOption) (*StartShipRepairResponse, error)
+	EndShipRepair(ctx context.Context, in *EndShipRepairRequest, opts ...grpc.CallOption) (*EndShipRepairResponse, error)
+	CheckShipRepair(ctx context.Context, in *CheckShipRepairRequest, opts ...grpc.CallOption) (*CheckShipRepairResponse, error)
+	// Hangar - Create
+	GetCreateShipInfo(ctx context.Context, in *GetCreateShipInfoRequest, opts ...grpc.CallOption) (*GetCreateShipInfoResponse, error)
+	StartCreateShip(ctx context.Context, in *StartCreateShipRequest, opts ...grpc.CallOption) (*StartCreateShipResponse, error)
+	CheckCreateShip(ctx context.Context, in *CheckCreateShipRequest, opts ...grpc.CallOption) (*CheckCreateShipResponse, error)
+	EndCreateShip(ctx context.Context, in *EndCreateShipRequest, opts ...grpc.CallOption) (*EndCreateShipResponse, error)
+	EndCreateShipDiamond(ctx context.Context, in *EndCreateShipRequest, opts ...grpc.CallOption) (*EndCreateShipResponse, error)
 }
 
 type noNameClient struct {
@@ -227,6 +238,24 @@ func (c *noNameClient) PlayerEndTutorial(ctx context.Context, in *PlayerEndTutor
 func (c *noNameClient) StartTravelTutorial(ctx context.Context, in *StartTravelTutorialRequest, opts ...grpc.CallOption) (*StartTravelTutorialResponse, error) {
 	out := new(StartTravelTutorialResponse)
 	err := c.cc.Invoke(ctx, "/NoName/StartTravelTutorial", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetAllRarities(ctx context.Context, in *GetAllRaritiesRequest, opts ...grpc.CallOption) (*GetAllRaritiesResponse, error) {
+	out := new(GetAllRaritiesResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAllRarities", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetAllCraftableRarities(ctx context.Context, in *GetAllCraftableRaritiesRequest, opts ...grpc.CallOption) (*GetAllCraftableRaritiesResponse, error) {
+	out := new(GetAllCraftableRaritiesResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAllCraftableRarities", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -953,6 +982,15 @@ func (c *noNameClient) GetPlayerShipEquipped(ctx context.Context, in *GetPlayerS
 	return out, nil
 }
 
+func (c *noNameClient) GetAllShipCategories(ctx context.Context, in *GetAllShipCategoriesRequest, opts ...grpc.CallOption) (*GetAllShipCategoriesResponse, error) {
+	out := new(GetAllShipCategoriesResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAllShipCategories", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) LaboratoryStartCrafting(ctx context.Context, in *LaboratoryStartCraftingRequest, opts ...grpc.CallOption) (*LaboratoryStartCraftingResponse, error) {
 	out := new(LaboratoryStartCraftingResponse)
 	err := c.cc.Invoke(ctx, "/NoName/LaboratoryStartCrafting", in, out, opts...)
@@ -983,42 +1021,6 @@ func (c *noNameClient) LaboratoryCheckCrafting(ctx context.Context, in *Laborato
 func (c *noNameClient) LaboratoryEndCrafting(ctx context.Context, in *LaboratoryEndCraftingRequest, opts ...grpc.CallOption) (*LaboratoryEndCraftingResponse, error) {
 	out := new(LaboratoryEndCraftingResponse)
 	err := c.cc.Invoke(ctx, "/NoName/LaboratoryEndCrafting", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) GetShipRepairInfo(ctx context.Context, in *GetShipRepairInfoRequest, opts ...grpc.CallOption) (*GetShipRepairInfoResponse, error) {
-	out := new(GetShipRepairInfoResponse)
-	err := c.cc.Invoke(ctx, "/NoName/GetShipRepairInfo", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) StartShipRepair(ctx context.Context, in *StartShipRepairRequest, opts ...grpc.CallOption) (*StartShipRepairResponse, error) {
-	out := new(StartShipRepairResponse)
-	err := c.cc.Invoke(ctx, "/NoName/StartShipRepair", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) EndShipRepair(ctx context.Context, in *EndShipRepairRequest, opts ...grpc.CallOption) (*EndShipRepairResponse, error) {
-	out := new(EndShipRepairResponse)
-	err := c.cc.Invoke(ctx, "/NoName/EndShipRepair", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *noNameClient) CheckShipRepair(ctx context.Context, in *CheckShipRepairRequest, opts ...grpc.CallOption) (*CheckShipRepairResponse, error) {
-	out := new(CheckShipRepairResponse)
-	err := c.cc.Invoke(ctx, "/NoName/CheckShipRepair", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1439,6 +1441,87 @@ func (c *noNameClient) GetPlayerGuildPoints(ctx context.Context, in *GetPlayerGu
 	return out, nil
 }
 
+func (c *noNameClient) GetShipRepairInfo(ctx context.Context, in *GetShipRepairInfoRequest, opts ...grpc.CallOption) (*GetShipRepairInfoResponse, error) {
+	out := new(GetShipRepairInfoResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetShipRepairInfo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) StartShipRepair(ctx context.Context, in *StartShipRepairRequest, opts ...grpc.CallOption) (*StartShipRepairResponse, error) {
+	out := new(StartShipRepairResponse)
+	err := c.cc.Invoke(ctx, "/NoName/StartShipRepair", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) EndShipRepair(ctx context.Context, in *EndShipRepairRequest, opts ...grpc.CallOption) (*EndShipRepairResponse, error) {
+	out := new(EndShipRepairResponse)
+	err := c.cc.Invoke(ctx, "/NoName/EndShipRepair", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) CheckShipRepair(ctx context.Context, in *CheckShipRepairRequest, opts ...grpc.CallOption) (*CheckShipRepairResponse, error) {
+	out := new(CheckShipRepairResponse)
+	err := c.cc.Invoke(ctx, "/NoName/CheckShipRepair", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetCreateShipInfo(ctx context.Context, in *GetCreateShipInfoRequest, opts ...grpc.CallOption) (*GetCreateShipInfoResponse, error) {
+	out := new(GetCreateShipInfoResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetCreateShipInfo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) StartCreateShip(ctx context.Context, in *StartCreateShipRequest, opts ...grpc.CallOption) (*StartCreateShipResponse, error) {
+	out := new(StartCreateShipResponse)
+	err := c.cc.Invoke(ctx, "/NoName/StartCreateShip", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) CheckCreateShip(ctx context.Context, in *CheckCreateShipRequest, opts ...grpc.CallOption) (*CheckCreateShipResponse, error) {
+	out := new(CheckCreateShipResponse)
+	err := c.cc.Invoke(ctx, "/NoName/CheckCreateShip", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) EndCreateShip(ctx context.Context, in *EndCreateShipRequest, opts ...grpc.CallOption) (*EndCreateShipResponse, error) {
+	out := new(EndCreateShipResponse)
+	err := c.cc.Invoke(ctx, "/NoName/EndCreateShip", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) EndCreateShipDiamond(ctx context.Context, in *EndCreateShipRequest, opts ...grpc.CallOption) (*EndCreateShipResponse, error) {
+	out := new(EndCreateShipResponse)
+	err := c.cc.Invoke(ctx, "/NoName/EndCreateShipDiamond", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // NoNameServer is the server API for NoName service.
 // All implementations must embed UnimplementedNoNameServer
 // for forward compatibility
@@ -1447,6 +1530,9 @@ type NoNameServer interface {
 	PlayerStartTutorial(context.Context, *PlayerStartTutorialRequest) (*PlayerStartTutorialResponse, error)
 	PlayerEndTutorial(context.Context, *PlayerEndTutorialRequest) (*PlayerEndTutorialResponse, error)
 	StartTravelTutorial(context.Context, *StartTravelTutorialRequest) (*StartTravelTutorialResponse, error)
+	// Rarity
+	GetAllRarities(context.Context, *GetAllRaritiesRequest) (*GetAllRaritiesResponse, error)
+	GetAllCraftableRarities(context.Context, *GetAllCraftableRaritiesRequest) (*GetAllCraftableRaritiesResponse, error)
 	// Armor
 	GetArmorByID(context.Context, *GetArmorByIDRequest) (*GetArmorByIDResponse, error)
 	GetArmorByName(context.Context, *GetArmorByNameRequest) (*GetArmorByNameResponse, error)
@@ -1551,16 +1637,13 @@ type NoNameServer interface {
 	// Ship
 	GetPlayerShips(context.Context, *GetPlayerShipsRequest) (*GetPlayerShipsResponse, error)
 	GetPlayerShipEquipped(context.Context, *GetPlayerShipEquippedRequest) (*GetPlayerShipEquippedResponse, error)
+	// Ship - Categoru
+	GetAllShipCategories(context.Context, *GetAllShipCategoriesRequest) (*GetAllShipCategoriesResponse, error)
 	// Ship - Laboratory
 	LaboratoryStartCrafting(context.Context, *LaboratoryStartCraftingRequest) (*LaboratoryStartCraftingResponse, error)
 	LaboratoryCheckHaveResourceForCrafting(context.Context, *LaboratoryCheckHaveResourceForCraftingRequest) (*LaboratoryCheckHaveResourceForCraftingResponse, error)
 	LaboratoryCheckCrafting(context.Context, *LaboratoryCheckCraftingRequest) (*LaboratoryCheckCraftingResponse, error)
 	LaboratoryEndCrafting(context.Context, *LaboratoryEndCraftingRequest) (*LaboratoryEndCraftingResponse, error)
-	// Ship - Repair
-	GetShipRepairInfo(context.Context, *GetShipRepairInfoRequest) (*GetShipRepairInfoResponse, error)
-	StartShipRepair(context.Context, *StartShipRepairRequest) (*StartShipRepairResponse, error)
-	EndShipRepair(context.Context, *EndShipRepairRequest) (*EndShipRepairResponse, error)
-	CheckShipRepair(context.Context, *CheckShipRepairRequest) (*CheckShipRepairResponse, error)
 	// Ship - Rests
 	GetRestsInfo(context.Context, *GetRestsInfoRequest) (*GetRestsInfoResponse, error)
 	StartPlayerRest(context.Context, *StartPlayerRestRequest) (*StartPlayerRestResponse, error)
@@ -1622,6 +1705,17 @@ type NoNameServer interface {
 	// Guild - Points
 	GetGuildPoints(context.Context, *GetGuildPointsRequest) (*GetGuildPointsResponse, error)
 	GetPlayerGuildPoints(context.Context, *GetPlayerGuildPointsRequest) (*GetPlayerGuildPointsResponse, error)
+	// Hangar - Repair
+	GetShipRepairInfo(context.Context, *GetShipRepairInfoRequest) (*GetShipRepairInfoResponse, error)
+	StartShipRepair(context.Context, *StartShipRepairRequest) (*StartShipRepairResponse, error)
+	EndShipRepair(context.Context, *EndShipRepairRequest) (*EndShipRepairResponse, error)
+	CheckShipRepair(context.Context, *CheckShipRepairRequest) (*CheckShipRepairResponse, error)
+	// Hangar - Create
+	GetCreateShipInfo(context.Context, *GetCreateShipInfoRequest) (*GetCreateShipInfoResponse, error)
+	StartCreateShip(context.Context, *StartCreateShipRequest) (*StartCreateShipResponse, error)
+	CheckCreateShip(context.Context, *CheckCreateShipRequest) (*CheckCreateShipResponse, error)
+	EndCreateShip(context.Context, *EndCreateShipRequest) (*EndCreateShipResponse, error)
+	EndCreateShipDiamond(context.Context, *EndCreateShipRequest) (*EndCreateShipResponse, error)
 	mustEmbedUnimplementedNoNameServer()
 }
 
@@ -1637,6 +1731,12 @@ func (*UnimplementedNoNameServer) PlayerEndTutorial(context.Context, *PlayerEndT
 }
 func (*UnimplementedNoNameServer) StartTravelTutorial(context.Context, *StartTravelTutorialRequest) (*StartTravelTutorialResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method StartTravelTutorial not implemented")
+}
+func (*UnimplementedNoNameServer) GetAllRarities(context.Context, *GetAllRaritiesRequest) (*GetAllRaritiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllRarities not implemented")
+}
+func (*UnimplementedNoNameServer) GetAllCraftableRarities(context.Context, *GetAllCraftableRaritiesRequest) (*GetAllCraftableRaritiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllCraftableRarities not implemented")
 }
 func (*UnimplementedNoNameServer) GetArmorByID(context.Context, *GetArmorByIDRequest) (*GetArmorByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetArmorByID not implemented")
@@ -1878,6 +1978,9 @@ func (*UnimplementedNoNameServer) GetPlayerShips(context.Context, *GetPlayerShip
 func (*UnimplementedNoNameServer) GetPlayerShipEquipped(context.Context, *GetPlayerShipEquippedRequest) (*GetPlayerShipEquippedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerShipEquipped not implemented")
 }
+func (*UnimplementedNoNameServer) GetAllShipCategories(context.Context, *GetAllShipCategoriesRequest) (*GetAllShipCategoriesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllShipCategories not implemented")
+}
 func (*UnimplementedNoNameServer) LaboratoryStartCrafting(context.Context, *LaboratoryStartCraftingRequest) (*LaboratoryStartCraftingResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LaboratoryStartCrafting not implemented")
 }
@@ -1889,18 +1992,6 @@ func (*UnimplementedNoNameServer) LaboratoryCheckCrafting(context.Context, *Labo
 }
 func (*UnimplementedNoNameServer) LaboratoryEndCrafting(context.Context, *LaboratoryEndCraftingRequest) (*LaboratoryEndCraftingResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LaboratoryEndCrafting not implemented")
-}
-func (*UnimplementedNoNameServer) GetShipRepairInfo(context.Context, *GetShipRepairInfoRequest) (*GetShipRepairInfoResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetShipRepairInfo not implemented")
-}
-func (*UnimplementedNoNameServer) StartShipRepair(context.Context, *StartShipRepairRequest) (*StartShipRepairResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method StartShipRepair not implemented")
-}
-func (*UnimplementedNoNameServer) EndShipRepair(context.Context, *EndShipRepairRequest) (*EndShipRepairResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method EndShipRepair not implemented")
-}
-func (*UnimplementedNoNameServer) CheckShipRepair(context.Context, *CheckShipRepairRequest) (*CheckShipRepairResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CheckShipRepair not implemented")
 }
 func (*UnimplementedNoNameServer) GetRestsInfo(context.Context, *GetRestsInfoRequest) (*GetRestsInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRestsInfo not implemented")
@@ -2040,6 +2131,33 @@ func (*UnimplementedNoNameServer) GetGuildPoints(context.Context, *GetGuildPoint
 func (*UnimplementedNoNameServer) GetPlayerGuildPoints(context.Context, *GetPlayerGuildPointsRequest) (*GetPlayerGuildPointsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerGuildPoints not implemented")
 }
+func (*UnimplementedNoNameServer) GetShipRepairInfo(context.Context, *GetShipRepairInfoRequest) (*GetShipRepairInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetShipRepairInfo not implemented")
+}
+func (*UnimplementedNoNameServer) StartShipRepair(context.Context, *StartShipRepairRequest) (*StartShipRepairResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StartShipRepair not implemented")
+}
+func (*UnimplementedNoNameServer) EndShipRepair(context.Context, *EndShipRepairRequest) (*EndShipRepairResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EndShipRepair not implemented")
+}
+func (*UnimplementedNoNameServer) CheckShipRepair(context.Context, *CheckShipRepairRequest) (*CheckShipRepairResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckShipRepair not implemented")
+}
+func (*UnimplementedNoNameServer) GetCreateShipInfo(context.Context, *GetCreateShipInfoRequest) (*GetCreateShipInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCreateShipInfo not implemented")
+}
+func (*UnimplementedNoNameServer) StartCreateShip(context.Context, *StartCreateShipRequest) (*StartCreateShipResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StartCreateShip not implemented")
+}
+func (*UnimplementedNoNameServer) CheckCreateShip(context.Context, *CheckCreateShipRequest) (*CheckCreateShipResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckCreateShip not implemented")
+}
+func (*UnimplementedNoNameServer) EndCreateShip(context.Context, *EndCreateShipRequest) (*EndCreateShipResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EndCreateShip not implemented")
+}
+func (*UnimplementedNoNameServer) EndCreateShipDiamond(context.Context, *EndCreateShipRequest) (*EndCreateShipResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EndCreateShipDiamond not implemented")
+}
 func (*UnimplementedNoNameServer) mustEmbedUnimplementedNoNameServer() {}
 
 func RegisterNoNameServer(s *grpc.Server, srv NoNameServer) {
@@ -2096,6 +2214,42 @@ func _NoName_StartTravelTutorial_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).StartTravelTutorial(ctx, req.(*StartTravelTutorialRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetAllRarities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllRaritiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllRarities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllRarities",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllRarities(ctx, req.(*GetAllRaritiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetAllCraftableRarities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllCraftableRaritiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllCraftableRarities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllCraftableRarities",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllCraftableRarities(ctx, req.(*GetAllCraftableRaritiesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3540,6 +3694,24 @@ func _NoName_GetPlayerShipEquipped_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetAllShipCategories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllShipCategoriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAllShipCategories(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAllShipCategories",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAllShipCategories(ctx, req.(*GetAllShipCategoriesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_LaboratoryStartCrafting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(LaboratoryStartCraftingRequest)
 	if err := dec(in); err != nil {
@@ -3608,78 +3780,6 @@ func _NoName_LaboratoryEndCrafting_Handler(srv interface{}, ctx context.Context,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).LaboratoryEndCrafting(ctx, req.(*LaboratoryEndCraftingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_GetShipRepairInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShipRepairInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).GetShipRepairInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/GetShipRepairInfo",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).GetShipRepairInfo(ctx, req.(*GetShipRepairInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_StartShipRepair_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartShipRepairRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).StartShipRepair(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/StartShipRepair",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).StartShipRepair(ctx, req.(*StartShipRepairRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_EndShipRepair_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EndShipRepairRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).EndShipRepair(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/EndShipRepair",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).EndShipRepair(ctx, req.(*EndShipRepairRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NoName_CheckShipRepair_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CheckShipRepairRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NoNameServer).CheckShipRepair(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/NoName/CheckShipRepair",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoNameServer).CheckShipRepair(ctx, req.(*CheckShipRepairRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4512,6 +4612,168 @@ func _NoName_GetPlayerGuildPoints_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetShipRepairInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShipRepairInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetShipRepairInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetShipRepairInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetShipRepairInfo(ctx, req.(*GetShipRepairInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_StartShipRepair_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartShipRepairRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).StartShipRepair(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/StartShipRepair",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).StartShipRepair(ctx, req.(*StartShipRepairRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_EndShipRepair_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EndShipRepairRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).EndShipRepair(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/EndShipRepair",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).EndShipRepair(ctx, req.(*EndShipRepairRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_CheckShipRepair_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckShipRepairRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CheckShipRepair(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CheckShipRepair",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CheckShipRepair(ctx, req.(*CheckShipRepairRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetCreateShipInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCreateShipInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetCreateShipInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetCreateShipInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetCreateShipInfo(ctx, req.(*GetCreateShipInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_StartCreateShip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartCreateShipRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).StartCreateShip(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/StartCreateShip",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).StartCreateShip(ctx, req.(*StartCreateShipRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_CheckCreateShip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckCreateShipRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CheckCreateShip(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CheckCreateShip",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CheckCreateShip(ctx, req.(*CheckCreateShipRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_EndCreateShip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EndCreateShipRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).EndCreateShip(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/EndCreateShip",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).EndCreateShip(ctx, req.(*EndCreateShipRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_EndCreateShipDiamond_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EndCreateShipRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).EndCreateShipDiamond(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/EndCreateShipDiamond",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).EndCreateShipDiamond(ctx, req.(*EndCreateShipRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _NoName_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "NoName",
 	HandlerType: (*NoNameServer)(nil),
@@ -4527,6 +4789,14 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "StartTravelTutorial",
 			Handler:    _NoName_StartTravelTutorial_Handler,
+		},
+		{
+			MethodName: "GetAllRarities",
+			Handler:    _NoName_GetAllRarities_Handler,
+		},
+		{
+			MethodName: "GetAllCraftableRarities",
+			Handler:    _NoName_GetAllCraftableRarities_Handler,
 		},
 		{
 			MethodName: "GetArmorByID",
@@ -4849,6 +5119,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetPlayerShipEquipped_Handler,
 		},
 		{
+			MethodName: "GetAllShipCategories",
+			Handler:    _NoName_GetAllShipCategories_Handler,
+		},
+		{
 			MethodName: "LaboratoryStartCrafting",
 			Handler:    _NoName_LaboratoryStartCrafting_Handler,
 		},
@@ -4863,22 +5137,6 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "LaboratoryEndCrafting",
 			Handler:    _NoName_LaboratoryEndCrafting_Handler,
-		},
-		{
-			MethodName: "GetShipRepairInfo",
-			Handler:    _NoName_GetShipRepairInfo_Handler,
-		},
-		{
-			MethodName: "StartShipRepair",
-			Handler:    _NoName_StartShipRepair_Handler,
-		},
-		{
-			MethodName: "EndShipRepair",
-			Handler:    _NoName_EndShipRepair_Handler,
-		},
-		{
-			MethodName: "CheckShipRepair",
-			Handler:    _NoName_CheckShipRepair_Handler,
 		},
 		{
 			MethodName: "GetRestsInfo",
@@ -5063,6 +5321,42 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPlayerGuildPoints",
 			Handler:    _NoName_GetPlayerGuildPoints_Handler,
+		},
+		{
+			MethodName: "GetShipRepairInfo",
+			Handler:    _NoName_GetShipRepairInfo_Handler,
+		},
+		{
+			MethodName: "StartShipRepair",
+			Handler:    _NoName_StartShipRepair_Handler,
+		},
+		{
+			MethodName: "EndShipRepair",
+			Handler:    _NoName_EndShipRepair_Handler,
+		},
+		{
+			MethodName: "CheckShipRepair",
+			Handler:    _NoName_CheckShipRepair_Handler,
+		},
+		{
+			MethodName: "GetCreateShipInfo",
+			Handler:    _NoName_GetCreateShipInfo_Handler,
+		},
+		{
+			MethodName: "StartCreateShip",
+			Handler:    _NoName_StartCreateShip_Handler,
+		},
+		{
+			MethodName: "CheckCreateShip",
+			Handler:    _NoName_CheckCreateShip_Handler,
+		},
+		{
+			MethodName: "EndCreateShip",
+			Handler:    _NoName_EndCreateShip_Handler,
+		},
+		{
+			MethodName: "EndCreateShipDiamond",
+			Handler:    _NoName_EndCreateShipDiamond_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

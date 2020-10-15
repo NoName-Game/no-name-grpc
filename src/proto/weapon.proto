@@ -15,6 +15,7 @@ message Weapon {
     float Penetration = 11;
     uint32 Potential = 12;
     int32 Durability = 13;
+    int32 DurabilityCap = 14;
 }
 
 // GetWeaponByID

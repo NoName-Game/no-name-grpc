@@ -7,3 +7,11 @@ message ShipCategory {
     string Name = 2;
     string Slug = 3;
 }
+
+// GetAllShipCategories
+message GetAllShipCategoriesRequest {
+    // Empty
+}
+message GetAllShipCategoriesResponse {
+    repeated ShipCategory ShipCategories = 1;
+}

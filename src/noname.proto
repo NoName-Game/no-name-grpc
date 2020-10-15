@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+import "proto/rarity.proto";
 import "proto/armor.proto";
 import "proto/armor_category.proto";
 import "proto/weapon.proto";
@@ -16,6 +17,7 @@ import "proto/npc.proto";
 import "proto/planet.proto";
 import "proto/resource.proto";
 import "proto/ship.proto";
+import "proto/ship_category.proto";
 import "proto/player_economy.proto";
 import "proto/tresure.proto";
 import "proto/mission.proto";
@@ -28,7 +30,8 @@ import "proto/titan_event.proto";
 import "proto/titan_damage.proto";
 import "proto/safeplanet_crafter.proto";
 import "proto/ship_laboratory.proto";
-import "proto/ship_repair.proto";
+import "proto/safeplanet_hangar_repair.proto";
+import "proto/safeplanet_hangar_create.proto";
 import "proto/ship_rest.proto";
 import "proto/ship_travel.proto";
 import "proto/tutorial.proto";
@@ -48,6 +51,10 @@ service NoName {
     rpc PlayerStartTutorial (tutorial.PlayerStartTutorialRequest) returns (tutorial.PlayerStartTutorialResponse) {}
     rpc PlayerEndTutorial (tutorial.PlayerEndTutorialRequest) returns (tutorial.PlayerEndTutorialResponse) {}
     rpc StartTravelTutorial (tutorial.StartTravelTutorialRequest) returns (tutorial.StartTravelTutorialResponse) {}
+
+    // Rarity
+    rpc GetAllRarities (rarity.GetAllRaritiesRequest) returns (rarity.GetAllRaritiesResponse) {}
+    rpc GetAllCraftableRarities (rarity.GetAllCraftableRaritiesRequest) returns (rarity.GetAllCraftableRaritiesResponse) {}
 
     // Armor
     rpc GetArmorByID (armor.GetArmorByIDRequest) returns (armor.GetArmorByIDResponse) {}
@@ -177,17 +184,14 @@ service NoName {
     rpc GetPlayerShips (ship.GetPlayerShipsRequest) returns (ship.GetPlayerShipsResponse) {}
     rpc GetPlayerShipEquipped (ship.GetPlayerShipEquippedRequest) returns (ship.GetPlayerShipEquippedResponse) {}
 
+    // Ship - Categoru
+    rpc GetAllShipCategories (ship_category.GetAllShipCategoriesRequest) returns (ship_category.GetAllShipCategoriesResponse) {}
+
     // Ship - Laboratory
     rpc LaboratoryStartCrafting(ship_laboratory.LaboratoryStartCraftingRequest) returns (ship_laboratory.LaboratoryStartCraftingResponse) {}
     rpc LaboratoryCheckHaveResourceForCrafting(ship_laboratory.LaboratoryCheckHaveResourceForCraftingRequest) returns (ship_laboratory.LaboratoryCheckHaveResourceForCraftingResponse) {}
     rpc LaboratoryCheckCrafting(ship_laboratory.LaboratoryCheckCraftingRequest) returns (ship_laboratory.LaboratoryCheckCraftingResponse) {}
     rpc LaboratoryEndCrafting(ship_laboratory.LaboratoryEndCraftingRequest) returns (ship_laboratory.LaboratoryEndCraftingResponse) {}
-
-    // Ship - Repair
-    rpc GetShipRepairInfo (ship_repair.GetShipRepairInfoRequest) returns (ship_repair.GetShipRepairInfoResponse) {}
-    rpc StartShipRepair (ship_repair.StartShipRepairRequest) returns (ship_repair.StartShipRepairResponse) {}
-    rpc EndShipRepair (ship_repair.EndShipRepairRequest) returns (ship_repair.EndShipRepairResponse) {}
-    rpc CheckShipRepair (ship_repair.CheckShipRepairRequest) returns (ship_repair.CheckShipRepairResponse) {}
 
     // Ship - Rests
     rpc GetRestsInfo (ship_rest.GetRestsInfoRequest) returns (ship_rest.GetRestsInfoResponse) {}
@@ -264,4 +268,18 @@ service NoName {
     // Guild - Points
     rpc GetGuildPoints (guild_point.GetGuildPointsRequest) returns (guild_point.GetGuildPointsResponse) {}
     rpc GetPlayerGuildPoints (guild_point.GetPlayerGuildPointsRequest) returns (guild_point.GetPlayerGuildPointsResponse) {}
+
+    // Hangar - Repair
+    rpc GetShipRepairInfo (safeplanet_hangar_repair.GetShipRepairInfoRequest) returns (safeplanet_hangar_repair.GetShipRepairInfoResponse) {}
+    rpc StartShipRepair (safeplanet_hangar_repair.StartShipRepairRequest) returns (safeplanet_hangar_repair.StartShipRepairResponse) {}
+    rpc EndShipRepair (safeplanet_hangar_repair.EndShipRepairRequest) returns (safeplanet_hangar_repair.EndShipRepairResponse) {}
+    rpc CheckShipRepair (safeplanet_hangar_repair.CheckShipRepairRequest) returns (safeplanet_hangar_repair.CheckShipRepairResponse) {}
+
+
+    // Hangar - Create
+    rpc GetCreateShipInfo (safeplanet_hangar_create.GetCreateShipInfoRequest) returns (safeplanet_hangar_create.GetCreateShipInfoResponse) {}
+    rpc StartCreateShip (safeplanet_hangar_create.StartCreateShipRequest) returns (safeplanet_hangar_create.StartCreateShipResponse) {}
+    rpc CheckCreateShip (safeplanet_hangar_create.CheckCreateShipRequest) returns (safeplanet_hangar_create.CheckCreateShipResponse) {}
+    rpc EndCreateShip (safeplanet_hangar_create.EndCreateShipRequest) returns (safeplanet_hangar_create.EndCreateShipResponse) {}
+    rpc EndCreateShipDiamond (safeplanet_hangar_create.EndCreateShipRequest) returns (safeplanet_hangar_create.EndCreateShipResponse) {}
 }

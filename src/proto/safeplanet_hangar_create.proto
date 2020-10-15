@@ -1,0 +1,43 @@
+syntax = "proto3";
+option go_package = ".;pb";
+import "proto/ship.proto";
+import "google/protobuf/timestamp.proto";
+package safeplanet_hangar_create;
+
+
+// GetCreateShipInfo
+message GetCreateShipInfoRequest {
+    uint32 RarityID = 1;
+    uint32 CategoryID = 2;
+}
+message GetCreateShipInfoResponse {
+    int32 Price = 1;
+}
+
+// StartCreateShip
+message StartCreateShipRequest {
+    uint32 RarityID = 1;
+    uint32 CategoryID = 2;
+    uint32 PlayerID = 3;
+}
+message StartCreateShipResponse {
+    google.protobuf.Timestamp ShipCreateEndTime = 1;
+}
+
+// CheckCreateShip
+message CheckCreateShipRequest {
+    uint32 PlayerID = 1;
+}
+message CheckCreateShipResponse {
+    bool ShipCreateInProgress = 1;
+    bool FinishShipCreating = 2;
+    google.protobuf.Timestamp ShipCreatingEndTime = 3;
+}
+
+// EndCreateShip
+message EndCreateShipRequest {
+    uint32 PlayerID = 1;
+}
+message EndCreateShipResponse {
+    ship.Ship Ship = 1;
+}

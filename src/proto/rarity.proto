@@ -7,3 +7,19 @@ message Rarity {
     string Name = 2;
     string Slug = 3;
 }
+
+// GetAllRarities
+message GetAllRaritiesRequest {
+    // Empty
+}
+message GetAllRaritiesResponse {
+    repeated Rarity Rarities = 1;
+}
+
+// GetAllCraftableRarities
+message GetAllCraftableRaritiesRequest {
+    // Empty
+}
+message GetAllCraftableRaritiesResponse {
+    repeated Rarity Rarities = 1;
+}
