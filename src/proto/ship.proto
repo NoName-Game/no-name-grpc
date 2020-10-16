@@ -18,6 +18,14 @@ message Ship {
     bool Equipped = 11;
 }
 
+// GetShipByID
+message GetShipByIDRequest {
+    uint32 ShipID = 1;
+}
+message GetShipByIDResponse {
+    Ship Ship = 1;
+}
+
 // GetPlayerShips
 message GetPlayerShipsRequest {
     uint32 PlayerID = 1;
@@ -32,4 +40,13 @@ message GetPlayerShipEquippedRequest {
 }
 message GetPlayerShipEquippedResponse {
     ship.Ship Ship = 1;
+}
+
+// EquipShip
+message EquipShipRequest {
+    uint32 PlayerID = 1;
+    uint32 ShipID = 2;
+}
+message EquipShipResponse {
+    // Empty
 }

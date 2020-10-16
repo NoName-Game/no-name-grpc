@@ -182,8 +182,10 @@ service NoName {
     rpc GetAllItemCategories (item_category.GetAllItemCategoriesRequest) returns (item_category.GetAllItemCategoriesResponse) {}
 
     // Ship
+    rpc GetShipByID (ship.GetShipByIDRequest) returns (ship.GetShipByIDResponse) {}
     rpc GetPlayerShips (ship.GetPlayerShipsRequest) returns (ship.GetPlayerShipsResponse) {}
     rpc GetPlayerShipEquipped (ship.GetPlayerShipEquippedRequest) returns (ship.GetPlayerShipEquippedResponse) {}
+    rpc EquipShip (ship.EquipShipRequest) returns (ship.EquipShipResponse) {}
 
     // Ship - Categoru
     rpc GetAllShipCategories (ship_category.GetAllShipCategoriesRequest) returns (ship_category.GetAllShipCategoriesResponse) {}

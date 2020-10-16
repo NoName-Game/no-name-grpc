@@ -127,8 +127,10 @@ type NoNameClient interface {
 	// ItemCateogory
 	GetAllItemCategories(ctx context.Context, in *GetAllItemCategoriesRequest, opts ...grpc.CallOption) (*GetAllItemCategoriesResponse, error)
 	// Ship
+	GetShipByID(ctx context.Context, in *GetShipByIDRequest, opts ...grpc.CallOption) (*GetShipByIDResponse, error)
 	GetPlayerShips(ctx context.Context, in *GetPlayerShipsRequest, opts ...grpc.CallOption) (*GetPlayerShipsResponse, error)
 	GetPlayerShipEquipped(ctx context.Context, in *GetPlayerShipEquippedRequest, opts ...grpc.CallOption) (*GetPlayerShipEquippedResponse, error)
+	EquipShip(ctx context.Context, in *EquipShipRequest, opts ...grpc.CallOption) (*EquipShipResponse, error)
 	// Ship - Categoru
 	GetAllShipCategories(ctx context.Context, in *GetAllShipCategoriesRequest, opts ...grpc.CallOption) (*GetAllShipCategoriesResponse, error)
 	GetShipCategoryByID(ctx context.Context, in *GetShipCategoryByIDRequest, opts ...grpc.CallOption) (*GetShipCategoryByIDResponse, error)
@@ -975,6 +977,15 @@ func (c *noNameClient) GetAllItemCategories(ctx context.Context, in *GetAllItemC
 	return out, nil
 }
 
+func (c *noNameClient) GetShipByID(ctx context.Context, in *GetShipByIDRequest, opts ...grpc.CallOption) (*GetShipByIDResponse, error) {
+	out := new(GetShipByIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetShipByID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetPlayerShips(ctx context.Context, in *GetPlayerShipsRequest, opts ...grpc.CallOption) (*GetPlayerShipsResponse, error) {
 	out := new(GetPlayerShipsResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerShips", in, out, opts...)
@@ -987,6 +998,15 @@ func (c *noNameClient) GetPlayerShips(ctx context.Context, in *GetPlayerShipsReq
 func (c *noNameClient) GetPlayerShipEquipped(ctx context.Context, in *GetPlayerShipEquippedRequest, opts ...grpc.CallOption) (*GetPlayerShipEquippedResponse, error) {
 	out := new(GetPlayerShipEquippedResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerShipEquipped", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) EquipShip(ctx context.Context, in *EquipShipRequest, opts ...grpc.CallOption) (*EquipShipResponse, error) {
+	out := new(EquipShipResponse)
+	err := c.cc.Invoke(ctx, "/NoName/EquipShip", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1656,8 +1676,10 @@ type NoNameServer interface {
 	// ItemCateogory
 	GetAllItemCategories(context.Context, *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error)
 	// Ship
+	GetShipByID(context.Context, *GetShipByIDRequest) (*GetShipByIDResponse, error)
 	GetPlayerShips(context.Context, *GetPlayerShipsRequest) (*GetPlayerShipsResponse, error)
 	GetPlayerShipEquipped(context.Context, *GetPlayerShipEquippedRequest) (*GetPlayerShipEquippedResponse, error)
+	EquipShip(context.Context, *EquipShipRequest) (*EquipShipResponse, error)
 	// Ship - Categoru
 	GetAllShipCategories(context.Context, *GetAllShipCategoriesRequest) (*GetAllShipCategoriesResponse, error)
 	GetShipCategoryByID(context.Context, *GetShipCategoryByIDRequest) (*GetShipCategoryByIDResponse, error)
@@ -1997,11 +2019,17 @@ func (*UnimplementedNoNameServer) GetItemByID(context.Context, *GetItemByIDReque
 func (*UnimplementedNoNameServer) GetAllItemCategories(context.Context, *GetAllItemCategoriesRequest) (*GetAllItemCategoriesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllItemCategories not implemented")
 }
+func (*UnimplementedNoNameServer) GetShipByID(context.Context, *GetShipByIDRequest) (*GetShipByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetShipByID not implemented")
+}
 func (*UnimplementedNoNameServer) GetPlayerShips(context.Context, *GetPlayerShipsRequest) (*GetPlayerShipsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerShips not implemented")
 }
 func (*UnimplementedNoNameServer) GetPlayerShipEquipped(context.Context, *GetPlayerShipEquippedRequest) (*GetPlayerShipEquippedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerShipEquipped not implemented")
+}
+func (*UnimplementedNoNameServer) EquipShip(context.Context, *EquipShipRequest) (*EquipShipResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EquipShip not implemented")
 }
 func (*UnimplementedNoNameServer) GetAllShipCategories(context.Context, *GetAllShipCategoriesRequest) (*GetAllShipCategoriesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllShipCategories not implemented")
@@ -3704,6 +3732,24 @@ func _NoName_GetAllItemCategories_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetShipByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShipByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetShipByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetShipByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetShipByID(ctx, req.(*GetShipByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetPlayerShips_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPlayerShipsRequest)
 	if err := dec(in); err != nil {
@@ -3736,6 +3782,24 @@ func _NoName_GetPlayerShipEquipped_Handler(srv interface{}, ctx context.Context,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetPlayerShipEquipped(ctx, req.(*GetPlayerShipEquippedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_EquipShip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EquipShipRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).EquipShip(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/EquipShip",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).EquipShip(ctx, req.(*EquipShipRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5179,12 +5243,20 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetAllItemCategories_Handler,
 		},
 		{
+			MethodName: "GetShipByID",
+			Handler:    _NoName_GetShipByID_Handler,
+		},
+		{
 			MethodName: "GetPlayerShips",
 			Handler:    _NoName_GetPlayerShips_Handler,
 		},
 		{
 			MethodName: "GetPlayerShipEquipped",
 			Handler:    _NoName_GetPlayerShipEquipped_Handler,
+		},
+		{
+			MethodName: "EquipShip",
+			Handler:    _NoName_EquipShip_Handler,
 		},
 		{
 			MethodName: "GetAllShipCategories",
