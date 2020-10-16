@@ -1,5 +1,8 @@
 syntax = "proto3";
 import "proto/language.proto";
+import "proto/item.proto";
+import "proto/resource.proto";
+import "proto/player_economy.proto";
 option go_package = ".;pb";
 package player;
 
@@ -48,4 +51,14 @@ message GetPlayerExperienceRequest {
 }
 message GetPlayerExperienceResponse {
     int32 Value = 1;
+}
+
+// GetPlayerDailyReward
+message GetPlayerDailyRewardRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerDailyRewardResponse {
+    int32 Experience = 1;
+    int32 Money = 2;
+    int32 Diamond = 3;
 }
