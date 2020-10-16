@@ -24,6 +24,7 @@ type NoNameClient interface {
 	// Rarity
 	GetAllRarities(ctx context.Context, in *GetAllRaritiesRequest, opts ...grpc.CallOption) (*GetAllRaritiesResponse, error)
 	GetAllCraftableRarities(ctx context.Context, in *GetAllCraftableRaritiesRequest, opts ...grpc.CallOption) (*GetAllCraftableRaritiesResponse, error)
+	GetRarityByID(ctx context.Context, in *GetRarityByIDRequest, opts ...grpc.CallOption) (*GetRarityByIDResponse, error)
 	// Armor
 	GetArmorByID(ctx context.Context, in *GetArmorByIDRequest, opts ...grpc.CallOption) (*GetArmorByIDResponse, error)
 	GetArmorByName(ctx context.Context, in *GetArmorByNameRequest, opts ...grpc.CallOption) (*GetArmorByNameResponse, error)
@@ -130,6 +131,7 @@ type NoNameClient interface {
 	GetPlayerShipEquipped(ctx context.Context, in *GetPlayerShipEquippedRequest, opts ...grpc.CallOption) (*GetPlayerShipEquippedResponse, error)
 	// Ship - Categoru
 	GetAllShipCategories(ctx context.Context, in *GetAllShipCategoriesRequest, opts ...grpc.CallOption) (*GetAllShipCategoriesResponse, error)
+	GetShipCategoryByID(ctx context.Context, in *GetShipCategoryByIDRequest, opts ...grpc.CallOption) (*GetShipCategoryByIDResponse, error)
 	// Ship - Laboratory
 	LaboratoryStartCrafting(ctx context.Context, in *LaboratoryStartCraftingRequest, opts ...grpc.CallOption) (*LaboratoryStartCraftingResponse, error)
 	LaboratoryCheckHaveResourceForCrafting(ctx context.Context, in *LaboratoryCheckHaveResourceForCraftingRequest, opts ...grpc.CallOption) (*LaboratoryCheckHaveResourceForCraftingResponse, error)
@@ -256,6 +258,15 @@ func (c *noNameClient) GetAllRarities(ctx context.Context, in *GetAllRaritiesReq
 func (c *noNameClient) GetAllCraftableRarities(ctx context.Context, in *GetAllCraftableRaritiesRequest, opts ...grpc.CallOption) (*GetAllCraftableRaritiesResponse, error) {
 	out := new(GetAllCraftableRaritiesResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAllCraftableRarities", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetRarityByID(ctx context.Context, in *GetRarityByIDRequest, opts ...grpc.CallOption) (*GetRarityByIDResponse, error) {
+	out := new(GetRarityByIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetRarityByID", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -991,6 +1002,15 @@ func (c *noNameClient) GetAllShipCategories(ctx context.Context, in *GetAllShipC
 	return out, nil
 }
 
+func (c *noNameClient) GetShipCategoryByID(ctx context.Context, in *GetShipCategoryByIDRequest, opts ...grpc.CallOption) (*GetShipCategoryByIDResponse, error) {
+	out := new(GetShipCategoryByIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetShipCategoryByID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) LaboratoryStartCrafting(ctx context.Context, in *LaboratoryStartCraftingRequest, opts ...grpc.CallOption) (*LaboratoryStartCraftingResponse, error) {
 	out := new(LaboratoryStartCraftingResponse)
 	err := c.cc.Invoke(ctx, "/NoName/LaboratoryStartCrafting", in, out, opts...)
@@ -1533,6 +1553,7 @@ type NoNameServer interface {
 	// Rarity
 	GetAllRarities(context.Context, *GetAllRaritiesRequest) (*GetAllRaritiesResponse, error)
 	GetAllCraftableRarities(context.Context, *GetAllCraftableRaritiesRequest) (*GetAllCraftableRaritiesResponse, error)
+	GetRarityByID(context.Context, *GetRarityByIDRequest) (*GetRarityByIDResponse, error)
 	// Armor
 	GetArmorByID(context.Context, *GetArmorByIDRequest) (*GetArmorByIDResponse, error)
 	GetArmorByName(context.Context, *GetArmorByNameRequest) (*GetArmorByNameResponse, error)
@@ -1639,6 +1660,7 @@ type NoNameServer interface {
 	GetPlayerShipEquipped(context.Context, *GetPlayerShipEquippedRequest) (*GetPlayerShipEquippedResponse, error)
 	// Ship - Categoru
 	GetAllShipCategories(context.Context, *GetAllShipCategoriesRequest) (*GetAllShipCategoriesResponse, error)
+	GetShipCategoryByID(context.Context, *GetShipCategoryByIDRequest) (*GetShipCategoryByIDResponse, error)
 	// Ship - Laboratory
 	LaboratoryStartCrafting(context.Context, *LaboratoryStartCraftingRequest) (*LaboratoryStartCraftingResponse, error)
 	LaboratoryCheckHaveResourceForCrafting(context.Context, *LaboratoryCheckHaveResourceForCraftingRequest) (*LaboratoryCheckHaveResourceForCraftingResponse, error)
@@ -1737,6 +1759,9 @@ func (*UnimplementedNoNameServer) GetAllRarities(context.Context, *GetAllRaritie
 }
 func (*UnimplementedNoNameServer) GetAllCraftableRarities(context.Context, *GetAllCraftableRaritiesRequest) (*GetAllCraftableRaritiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllCraftableRarities not implemented")
+}
+func (*UnimplementedNoNameServer) GetRarityByID(context.Context, *GetRarityByIDRequest) (*GetRarityByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRarityByID not implemented")
 }
 func (*UnimplementedNoNameServer) GetArmorByID(context.Context, *GetArmorByIDRequest) (*GetArmorByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetArmorByID not implemented")
@@ -1980,6 +2005,9 @@ func (*UnimplementedNoNameServer) GetPlayerShipEquipped(context.Context, *GetPla
 }
 func (*UnimplementedNoNameServer) GetAllShipCategories(context.Context, *GetAllShipCategoriesRequest) (*GetAllShipCategoriesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllShipCategories not implemented")
+}
+func (*UnimplementedNoNameServer) GetShipCategoryByID(context.Context, *GetShipCategoryByIDRequest) (*GetShipCategoryByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetShipCategoryByID not implemented")
 }
 func (*UnimplementedNoNameServer) LaboratoryStartCrafting(context.Context, *LaboratoryStartCraftingRequest) (*LaboratoryStartCraftingResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LaboratoryStartCrafting not implemented")
@@ -2250,6 +2278,24 @@ func _NoName_GetAllCraftableRarities_Handler(srv interface{}, ctx context.Contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetAllCraftableRarities(ctx, req.(*GetAllCraftableRaritiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetRarityByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRarityByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetRarityByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetRarityByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetRarityByID(ctx, req.(*GetRarityByIDRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3712,6 +3758,24 @@ func _NoName_GetAllShipCategories_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetShipCategoryByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShipCategoryByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetShipCategoryByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetShipCategoryByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetShipCategoryByID(ctx, req.(*GetShipCategoryByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_LaboratoryStartCrafting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(LaboratoryStartCraftingRequest)
 	if err := dec(in); err != nil {
@@ -4799,6 +4863,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetAllCraftableRarities_Handler,
 		},
 		{
+			MethodName: "GetRarityByID",
+			Handler:    _NoName_GetRarityByID_Handler,
+		},
+		{
 			MethodName: "GetArmorByID",
 			Handler:    _NoName_GetArmorByID_Handler,
 		},
@@ -5121,6 +5189,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAllShipCategories",
 			Handler:    _NoName_GetAllShipCategories_Handler,
+		},
+		{
+			MethodName: "GetShipCategoryByID",
+			Handler:    _NoName_GetShipCategoryByID_Handler,
 		},
 		{
 			MethodName: "LaboratoryStartCrafting",

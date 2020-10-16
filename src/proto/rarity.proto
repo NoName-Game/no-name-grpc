@@ -23,3 +23,11 @@ message GetAllCraftableRaritiesRequest {
 message GetAllCraftableRaritiesResponse {
     repeated Rarity Rarities = 1;
 }
+
+// GetRarityByID
+message GetRarityByIDRequest {
+    uint32 RarityID = 1;
+}
+message GetRarityByIDResponse {
+    Rarity Rarity = 1;
+}

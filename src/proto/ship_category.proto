@@ -15,3 +15,11 @@ message GetAllShipCategoriesRequest {
 message GetAllShipCategoriesResponse {
     repeated ShipCategory ShipCategories = 1;
 }
+
+// GetShipCategoryByID
+message GetShipCategoryByIDRequest {
+    uint32 ShipCategoryID = 1;
+}
+message GetShipCategoryByIDResponse {
+    ShipCategory ShipCategory = 1;
+}

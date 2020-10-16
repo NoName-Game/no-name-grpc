@@ -55,6 +55,7 @@ service NoName {
     // Rarity
     rpc GetAllRarities (rarity.GetAllRaritiesRequest) returns (rarity.GetAllRaritiesResponse) {}
     rpc GetAllCraftableRarities (rarity.GetAllCraftableRaritiesRequest) returns (rarity.GetAllCraftableRaritiesResponse) {}
+    rpc GetRarityByID (rarity.GetRarityByIDRequest) returns (rarity.GetRarityByIDResponse) {}
 
     // Armor
     rpc GetArmorByID (armor.GetArmorByIDRequest) returns (armor.GetArmorByIDResponse) {}
@@ -186,6 +187,7 @@ service NoName {
 
     // Ship - Categoru
     rpc GetAllShipCategories (ship_category.GetAllShipCategoriesRequest) returns (ship_category.GetAllShipCategoriesResponse) {}
+    rpc GetShipCategoryByID (ship_category.GetShipCategoryByIDRequest) returns (ship_category.GetShipCategoryByIDResponse) {}
 
     // Ship - Laboratory
     rpc LaboratoryStartCrafting(ship_laboratory.LaboratoryStartCraftingRequest) returns (ship_laboratory.LaboratoryStartCraftingResponse) {}
