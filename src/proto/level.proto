@@ -5,5 +5,5 @@ package level;
 message Level {
     uint32 ID = 1;
     int32 ExperienceNeeded = 2;
-    int32 PlayerMaxLife = 3;
+    int64 PlayerMaxLife = 3;
 }

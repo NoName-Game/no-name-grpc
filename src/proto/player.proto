@@ -9,7 +9,7 @@ message Player {
     string Username = 2;
     uint32 LevelID = 3;
     level.Level Level = 4;
-    int32 LifePoint = 5;
+    int64 LifePoint = 5;
     bool Dead = 6;
     bool Tutorial = 7;
     bool Banned = 8;
@@ -49,7 +49,15 @@ message GetPlayerExperienceRequest {
     uint32 PlayerID = 1;
 }
 message GetPlayerExperienceResponse {
-    int32 Value = 1;
+    int64 Value = 1;
+}
+
+// GetPlayerLifePoint
+message GetPlayerLifePointRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerLifePointResponse {
+    int64 Value = 1;
 }
 
 // GetPlayerDailyReward

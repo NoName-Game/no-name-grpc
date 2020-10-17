@@ -46,6 +46,7 @@ type NoNameClient interface {
 	GetPlayerByID(ctx context.Context, in *GetPlayerByIDRequest, opts ...grpc.CallOption) (*GetPlayerByIDResponse, error)
 	GetPlayerByUsername(ctx context.Context, in *GetPlayerByUsernameRequest, opts ...grpc.CallOption) (*GetPlayerByUsernameResponse, error)
 	GetPlayerExperience(ctx context.Context, in *GetPlayerExperienceRequest, opts ...grpc.CallOption) (*GetPlayerExperienceResponse, error)
+	GetPlayerLifePoint(ctx context.Context, in *GetPlayerLifePointRequest, opts ...grpc.CallOption) (*GetPlayerLifePointResponse, error)
 	GetPlayerDailyReward(ctx context.Context, in *GetPlayerDailyRewardRequest, opts ...grpc.CallOption) (*GetPlayerDailyRewardResponse, error)
 	// Player - Configuration
 	PlayerSetLanguage(ctx context.Context, in *PlayerSetLanguageRequest, opts ...grpc.CallOption) (*PlayerSetLanguageResponse, error)
@@ -423,6 +424,15 @@ func (c *noNameClient) GetPlayerByUsername(ctx context.Context, in *GetPlayerByU
 func (c *noNameClient) GetPlayerExperience(ctx context.Context, in *GetPlayerExperienceRequest, opts ...grpc.CallOption) (*GetPlayerExperienceResponse, error) {
 	out := new(GetPlayerExperienceResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetPlayerExperience", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetPlayerLifePoint(ctx context.Context, in *GetPlayerLifePointRequest, opts ...grpc.CallOption) (*GetPlayerLifePointResponse, error) {
+	out := new(GetPlayerLifePointResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetPlayerLifePoint", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1605,6 +1615,7 @@ type NoNameServer interface {
 	GetPlayerByID(context.Context, *GetPlayerByIDRequest) (*GetPlayerByIDResponse, error)
 	GetPlayerByUsername(context.Context, *GetPlayerByUsernameRequest) (*GetPlayerByUsernameResponse, error)
 	GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error)
+	GetPlayerLifePoint(context.Context, *GetPlayerLifePointRequest) (*GetPlayerLifePointResponse, error)
 	GetPlayerDailyReward(context.Context, *GetPlayerDailyRewardRequest) (*GetPlayerDailyRewardResponse, error)
 	// Player - Configuration
 	PlayerSetLanguage(context.Context, *PlayerSetLanguageRequest) (*PlayerSetLanguageResponse, error)
@@ -1846,6 +1857,9 @@ func (*UnimplementedNoNameServer) GetPlayerByUsername(context.Context, *GetPlaye
 }
 func (*UnimplementedNoNameServer) GetPlayerExperience(context.Context, *GetPlayerExperienceRequest) (*GetPlayerExperienceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerExperience not implemented")
+}
+func (*UnimplementedNoNameServer) GetPlayerLifePoint(context.Context, *GetPlayerLifePointRequest) (*GetPlayerLifePointResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerLifePoint not implemented")
 }
 func (*UnimplementedNoNameServer) GetPlayerDailyReward(context.Context, *GetPlayerDailyRewardRequest) (*GetPlayerDailyRewardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayerDailyReward not implemented")
@@ -2644,6 +2658,24 @@ func _NoName_GetPlayerExperience_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetPlayerExperience(ctx, req.(*GetPlayerExperienceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetPlayerLifePoint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerLifePointRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetPlayerLifePoint(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetPlayerLifePoint",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetPlayerLifePoint(ctx, req.(*GetPlayerLifePointRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5029,6 +5061,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPlayerExperience",
 			Handler:    _NoName_GetPlayerExperience_Handler,
+		},
+		{
+			MethodName: "GetPlayerLifePoint",
+			Handler:    _NoName_GetPlayerLifePoint_Handler,
 		},
 		{
 			MethodName: "GetPlayerDailyReward",
