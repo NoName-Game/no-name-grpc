@@ -1,22 +1,21 @@
 syntax = "proto3";
 import "proto/language.proto";
-import "proto/item.proto";
-import "proto/resource.proto";
-import "proto/player_economy.proto";
+import "proto/level.proto";
 option go_package = ".;pb";
 package player;
 
 message Player {
     uint32 ID = 1;
     string Username = 2;
-    uint32 Level = 3;
-    int32 LifePoint = 4;
-    bool Dead = 5;
-    bool Tutorial = 6;
-    bool Banned = 7;
-    int64 ChatID = 8;
-    uint32 LanguageID = 9;
-    language.Language Language = 10;
+    uint32 LevelID = 3;
+    level.Level Level = 4;
+    int32 LifePoint = 5;
+    bool Dead = 6;
+    bool Tutorial = 7;
+    bool Banned = 8;
+    int64 ChatID = 9;
+    uint32 LanguageID = 10;
+    language.Language Language = 11;
 }
 
 // GetPlayerByID
