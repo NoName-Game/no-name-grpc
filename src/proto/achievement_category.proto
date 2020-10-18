@@ -16,6 +16,14 @@ message GetAllAchievementCategoryResponse {
     repeated AchievementCategory AchievementCategories = 1;
 }
 
+// GetAchievementCategoryByID
+message GetAchievementCategoryByIDRequest {
+    uint32 CategoryID = 1;
+}
+message GetAchievementCategoryByIDResponse {
+    AchievementCategory AchievementCategory = 1;
+}
+
 // GetAchievementCategoryBySlug
 message GetAchievementCategoryBySlugRequest {
     string Slug = 1;

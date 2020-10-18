@@ -293,11 +293,13 @@ service NoName {
 
     // Achievement
     rpc GetAllAchievement (achievement.GetAllAchievementRequest) returns (achievement.GetAllAchievementResponse) {}
+    rpc GetAchievementsByCategoryID (achievement.GetAchievementsByCategoryIDRequest) returns (achievement.GetAchievementsByCategoryIDResponse) {}
     rpc GetAchievementForPlayerByCategory (achievement.GetAchievementForPlayerByCategoryRequest) returns (achievement.GetAchievementForPlayerByCategoryResponse) {}
     rpc CheckIfPlayerHaveAchievement (achievement.CheckIfPlayerHaveAchievementRequest) returns (achievement.CheckIfPlayerHaveAchievementResponse) {}
 
     // Achievement - Category
     rpc GetAllAchievementCategory (achievement_category.GetAllAchievementCategoryRequest) returns (achievement_category.GetAllAchievementCategoryResponse) {}
+    rpc GetAchievementCategoryByID (achievement_category.GetAchievementCategoryByIDRequest) returns (achievement_category.GetAchievementCategoryByIDResponse) {}
     rpc GetAchievementCategoryBySlug (achievement_category.GetAchievementCategoryBySlugRequest) returns (achievement_category.GetAchievementCategoryBySlugResponse) {}
 
     // Achievement - Player

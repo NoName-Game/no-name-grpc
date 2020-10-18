@@ -215,10 +215,12 @@ type NoNameClient interface {
 	EndCreateShipDiamond(ctx context.Context, in *EndCreateShipRequest, opts ...grpc.CallOption) (*EndCreateShipResponse, error)
 	// Achievement
 	GetAllAchievement(ctx context.Context, in *GetAllAchievementRequest, opts ...grpc.CallOption) (*GetAllAchievementResponse, error)
+	GetAchievementsByCategoryID(ctx context.Context, in *GetAchievementsByCategoryIDRequest, opts ...grpc.CallOption) (*GetAchievementsByCategoryIDResponse, error)
 	GetAchievementForPlayerByCategory(ctx context.Context, in *GetAchievementForPlayerByCategoryRequest, opts ...grpc.CallOption) (*GetAchievementForPlayerByCategoryResponse, error)
 	CheckIfPlayerHaveAchievement(ctx context.Context, in *CheckIfPlayerHaveAchievementRequest, opts ...grpc.CallOption) (*CheckIfPlayerHaveAchievementResponse, error)
 	// Achievement - Category
 	GetAllAchievementCategory(ctx context.Context, in *GetAllAchievementCategoryRequest, opts ...grpc.CallOption) (*GetAllAchievementCategoryResponse, error)
+	GetAchievementCategoryByID(ctx context.Context, in *GetAchievementCategoryByIDRequest, opts ...grpc.CallOption) (*GetAchievementCategoryByIDResponse, error)
 	GetAchievementCategoryBySlug(ctx context.Context, in *GetAchievementCategoryBySlugRequest, opts ...grpc.CallOption) (*GetAchievementCategoryBySlugResponse, error)
 	// Achievement - Player
 	GetPlayerAchievementToNotify(ctx context.Context, in *GetPlayerAchievementToNotifyRequest, opts ...grpc.CallOption) (*GetPlayerAchievementToNotifyResponse, error)
@@ -1601,6 +1603,15 @@ func (c *noNameClient) GetAllAchievement(ctx context.Context, in *GetAllAchievem
 	return out, nil
 }
 
+func (c *noNameClient) GetAchievementsByCategoryID(ctx context.Context, in *GetAchievementsByCategoryIDRequest, opts ...grpc.CallOption) (*GetAchievementsByCategoryIDResponse, error) {
+	out := new(GetAchievementsByCategoryIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAchievementsByCategoryID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetAchievementForPlayerByCategory(ctx context.Context, in *GetAchievementForPlayerByCategoryRequest, opts ...grpc.CallOption) (*GetAchievementForPlayerByCategoryResponse, error) {
 	out := new(GetAchievementForPlayerByCategoryResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAchievementForPlayerByCategory", in, out, opts...)
@@ -1622,6 +1633,15 @@ func (c *noNameClient) CheckIfPlayerHaveAchievement(ctx context.Context, in *Che
 func (c *noNameClient) GetAllAchievementCategory(ctx context.Context, in *GetAllAchievementCategoryRequest, opts ...grpc.CallOption) (*GetAllAchievementCategoryResponse, error) {
 	out := new(GetAllAchievementCategoryResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAllAchievementCategory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *noNameClient) GetAchievementCategoryByID(ctx context.Context, in *GetAchievementCategoryByIDRequest, opts ...grpc.CallOption) (*GetAchievementCategoryByIDResponse, error) {
+	out := new(GetAchievementCategoryByIDResponse)
+	err := c.cc.Invoke(ctx, "/NoName/GetAchievementCategoryByID", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1857,10 +1877,12 @@ type NoNameServer interface {
 	EndCreateShipDiamond(context.Context, *EndCreateShipRequest) (*EndCreateShipResponse, error)
 	// Achievement
 	GetAllAchievement(context.Context, *GetAllAchievementRequest) (*GetAllAchievementResponse, error)
+	GetAchievementsByCategoryID(context.Context, *GetAchievementsByCategoryIDRequest) (*GetAchievementsByCategoryIDResponse, error)
 	GetAchievementForPlayerByCategory(context.Context, *GetAchievementForPlayerByCategoryRequest) (*GetAchievementForPlayerByCategoryResponse, error)
 	CheckIfPlayerHaveAchievement(context.Context, *CheckIfPlayerHaveAchievementRequest) (*CheckIfPlayerHaveAchievementResponse, error)
 	// Achievement - Category
 	GetAllAchievementCategory(context.Context, *GetAllAchievementCategoryRequest) (*GetAllAchievementCategoryResponse, error)
+	GetAchievementCategoryByID(context.Context, *GetAchievementCategoryByIDRequest) (*GetAchievementCategoryByIDResponse, error)
 	GetAchievementCategoryBySlug(context.Context, *GetAchievementCategoryBySlugRequest) (*GetAchievementCategoryBySlugResponse, error)
 	// Achievement - Player
 	GetPlayerAchievementToNotify(context.Context, *GetPlayerAchievementToNotifyRequest) (*GetPlayerAchievementToNotifyResponse, error)
@@ -2328,6 +2350,9 @@ func (*UnimplementedNoNameServer) EndCreateShipDiamond(context.Context, *EndCrea
 func (*UnimplementedNoNameServer) GetAllAchievement(context.Context, *GetAllAchievementRequest) (*GetAllAchievementResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllAchievement not implemented")
 }
+func (*UnimplementedNoNameServer) GetAchievementsByCategoryID(context.Context, *GetAchievementsByCategoryIDRequest) (*GetAchievementsByCategoryIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAchievementsByCategoryID not implemented")
+}
 func (*UnimplementedNoNameServer) GetAchievementForPlayerByCategory(context.Context, *GetAchievementForPlayerByCategoryRequest) (*GetAchievementForPlayerByCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAchievementForPlayerByCategory not implemented")
 }
@@ -2336,6 +2361,9 @@ func (*UnimplementedNoNameServer) CheckIfPlayerHaveAchievement(context.Context, 
 }
 func (*UnimplementedNoNameServer) GetAllAchievementCategory(context.Context, *GetAllAchievementCategoryRequest) (*GetAllAchievementCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllAchievementCategory not implemented")
+}
+func (*UnimplementedNoNameServer) GetAchievementCategoryByID(context.Context, *GetAchievementCategoryByIDRequest) (*GetAchievementCategoryByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAchievementCategoryByID not implemented")
 }
 func (*UnimplementedNoNameServer) GetAchievementCategoryBySlug(context.Context, *GetAchievementCategoryBySlugRequest) (*GetAchievementCategoryBySlugResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAchievementCategoryBySlug not implemented")
@@ -5088,6 +5116,24 @@ func _NoName_GetAllAchievement_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_GetAchievementsByCategoryID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAchievementsByCategoryIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAchievementsByCategoryID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAchievementsByCategoryID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAchievementsByCategoryID(ctx, req.(*GetAchievementsByCategoryIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetAchievementForPlayerByCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAchievementForPlayerByCategoryRequest)
 	if err := dec(in); err != nil {
@@ -5138,6 +5184,24 @@ func _NoName_GetAllAchievementCategory_Handler(srv interface{}, ctx context.Cont
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NoNameServer).GetAllAchievementCategory(ctx, req.(*GetAllAchievementCategoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NoName_GetAchievementCategoryByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAchievementCategoryByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).GetAchievementCategoryByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/GetAchievementCategoryByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).GetAchievementCategoryByID(ctx, req.(*GetAchievementCategoryByIDRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5809,6 +5873,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NoName_GetAllAchievement_Handler,
 		},
 		{
+			MethodName: "GetAchievementsByCategoryID",
+			Handler:    _NoName_GetAchievementsByCategoryID_Handler,
+		},
+		{
 			MethodName: "GetAchievementForPlayerByCategory",
 			Handler:    _NoName_GetAchievementForPlayerByCategory_Handler,
 		},
@@ -5819,6 +5887,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAllAchievementCategory",
 			Handler:    _NoName_GetAllAchievementCategory_Handler,
+		},
+		{
+			MethodName: "GetAchievementCategoryByID",
+			Handler:    _NoName_GetAchievementCategoryByID_Handler,
 		},
 		{
 			MethodName: "GetAchievementCategoryBySlug",
