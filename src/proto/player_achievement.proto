@@ -1,0 +1,30 @@
+syntax = "proto3";
+import "proto/player.proto";
+import "proto/achievement.proto";
+option go_package = ".;pb";
+package player_achievement;
+
+message PlayerAchievement {
+    uint32 ID = 1;
+    uint32 PlayerID = 2;
+    player.Player Player = 3;
+    uint32 AchievementID = 4;
+    achievement.Achievement Achievement = 5;
+    bool ToNotify = 6;
+}
+
+// GetPlayerAchievementToNotify
+message GetPlayerAchievementToNotifyRequest {
+    // Empty
+}
+message GetPlayerAchievementToNotifyResponse {
+    repeated PlayerAchievement PlayerAchievements = 1;
+}
+
+// SetPlayerAchievementNotified
+message SetPlayerAchievementNotifiedRequest {
+    uint32 AchievementID = 1;
+}
+message SetPlayerAchievementNotifiedResponse {
+    // Empty
+}

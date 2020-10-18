@@ -42,6 +42,9 @@ import "proto/ability.proto";
 import "proto/ability_category.proto";
 import "proto/guild.proto";
 import "proto/guild_point.proto";
+import "proto/achievement.proto";
+import "proto/achievement_category.proto";
+import "proto/player_achievement.proto";
 
 option go_package = ".;pb";
 
@@ -281,11 +284,23 @@ service NoName {
     rpc EndShipRepair (safeplanet_hangar_repair.EndShipRepairRequest) returns (safeplanet_hangar_repair.EndShipRepairResponse) {}
     rpc CheckShipRepair (safeplanet_hangar_repair.CheckShipRepairRequest) returns (safeplanet_hangar_repair.CheckShipRepairResponse) {}
 
-
     // Hangar - Create
     rpc GetCreateShipInfo (safeplanet_hangar_create.GetCreateShipInfoRequest) returns (safeplanet_hangar_create.GetCreateShipInfoResponse) {}
     rpc StartCreateShip (safeplanet_hangar_create.StartCreateShipRequest) returns (safeplanet_hangar_create.StartCreateShipResponse) {}
     rpc CheckCreateShip (safeplanet_hangar_create.CheckCreateShipRequest) returns (safeplanet_hangar_create.CheckCreateShipResponse) {}
     rpc EndCreateShip (safeplanet_hangar_create.EndCreateShipRequest) returns (safeplanet_hangar_create.EndCreateShipResponse) {}
     rpc EndCreateShipDiamond (safeplanet_hangar_create.EndCreateShipRequest) returns (safeplanet_hangar_create.EndCreateShipResponse) {}
+
+    // Achievement
+    rpc GetAllAchievement (achievement.GetAllAchievementRequest) returns (achievement.GetAllAchievementResponse) {}
+    rpc GetAchievementForPlayerByCategory (achievement.GetAchievementForPlayerByCategoryRequest) returns (achievement.GetAchievementForPlayerByCategoryResponse) {}
+    rpc CheckIfPlayerHaveAchievement (achievement.CheckIfPlayerHaveAchievementRequest) returns (achievement.CheckIfPlayerHaveAchievementResponse) {}
+
+    // Achievement - Category
+    rpc GetAllAchievementCategory (achievement_category.GetAllAchievementCategoryRequest) returns (achievement_category.GetAllAchievementCategoryResponse) {}
+    rpc GetAchievementCategoryBySlug (achievement_category.GetAchievementCategoryBySlugRequest) returns (achievement_category.GetAchievementCategoryBySlugResponse) {}
+
+    // Achievement - Player
+    rpc GetPlayerAchievementToNotify (player_achievement.GetPlayerAchievementToNotifyRequest) returns (player_achievement.GetPlayerAchievementToNotifyResponse) {}
+    rpc SetPlayerAchievementNotified (player_achievement.SetPlayerAchievementNotifiedRequest) returns (player_achievement.SetPlayerAchievementNotifiedResponse) {}
 }

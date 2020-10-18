@@ -16,8 +16,7 @@ message PlayerEndTutorialRequest {
     uint32 PlayerID = 1;
 }
 message PlayerEndTutorialResponse {
-    uint32 Money = 1;
-    uint32 Exp = 2;
+    // Empty
 }
 
 // StartTravelTutorial

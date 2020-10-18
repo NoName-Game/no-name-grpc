@@ -1,0 +1,25 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package achievement_category;
+
+message AchievementCategory {
+    uint32 ID = 1;
+    string Name = 2;
+    string Slug = 3;
+}
+
+// GetAllAchievementCategory
+message GetAllAchievementCategoryRequest {
+    // Empty
+}
+message GetAllAchievementCategoryResponse {
+    repeated AchievementCategory AchievementCategories = 1;
+}
+
+// GetAchievementCategoryBySlug
+message GetAchievementCategoryBySlugRequest {
+    string Slug = 1;
+}
+message GetAchievementCategoryBySlugResponse {
+    AchievementCategory AchievementCategory = 1;
+}
