@@ -7,3 +7,6 @@ build:
 		echo "Container not running, restarting..."; \
 		docker-compose up; \
 	fi;
+
+shell:
+	@docker-compose exec $(SERVICE_NAME) bash

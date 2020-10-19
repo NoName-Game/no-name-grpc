@@ -5,18 +5,18 @@ RUN apk update && apk upgrade \
     && apk add git curl build-base autoconf automake libtool \
     && apk add protoc protobuf-dev
 
-# Install protoc-gen-go
-ENV GO111MODULE=on
-RUN go get github.com/golang/protobuf/protoc-gen-go \
-    && go get github.com/gogo/protobuf/protoc-gen-gofast
+# Install protoc-gen-go (GOGO)
+RUN go get github.com/gogo/protobuf/protoc-gen-gogo \
+    && go get github.com/gogo/protobuf/proto \
+    && go get github.com/gogo/protobuf/gogoproto \
+    && go get github.com/gogo/protobuf/protoc-gen-gofast \
+    && go get github.com/gogo/protobuf/protoc-gen-gogofast
+
 ENV PATH="$PATH:$(go env GOPATH)/bin"
 
-WORKDIR /home/noname
+RUN echo $GOPATH
 
-# WIP (protoc-gen-go-grpc): https://github.com/grpc/grpc.io/issues/298
-RUN git clone -b v1.31.0 https://github.com/grpc/grpc-go \
-    && cd grpc-go/cmd/protoc-gen-go-grpc \
-    && go install .
+WORKDIR /home/noname
 
 #No Root
 RUN adduser -D -u 1000 noname -h  /home/noname
