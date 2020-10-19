@@ -7,7 +7,8 @@ RUN apk update && apk upgrade \
 
 # Install protoc-gen-go
 ENV GO111MODULE=on
-RUN go get github.com/golang/protobuf/protoc-gen-go
+RUN go get github.com/golang/protobuf/protoc-gen-go \
+    && go get github.com/gogo/protobuf/protoc-gen-gofast
 ENV PATH="$PATH:$(go env GOPATH)/bin"
 
 WORKDIR /home/noname

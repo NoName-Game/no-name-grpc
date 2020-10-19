@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  noname-grpc:
+    build: .
+    command: >
+      sh -c "protoc
+      --proto_path=./import/
+      --go_out=./export/pb
+      --go-grpc_out=./export/pb
+      ./import/proto/*.proto ./import/noname.proto"
+    volumes:
+      - ./src:/home/noname/import
+      - ./build:/home/noname/export
