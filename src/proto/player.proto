@@ -1,6 +1,7 @@
 syntax = "proto3";
 import "proto/language.proto";
 import "proto/level.proto";
+import "proto/timezone.proto";
 option go_package = ".;pb";
 package player;
 
@@ -16,6 +17,8 @@ message Player {
     int64 ChatID = 9;
     uint32 LanguageID = 10;
     language.Language Language = 11;
+    uint32 TimezoneID = 12;
+    timezone.Timezone Timezone = 13;
 }
 
 // GetPlayerByID

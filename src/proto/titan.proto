@@ -49,6 +49,7 @@ message HitTitanRequest {
     uint32 TitanID = 1;
     uint32 PlayerID = 2;
     int32 BodySelection = 3;
+    uint32 AbilityID = 4;
 }
 message HitTitanResponse {
     bool PlayerDie = 1;
