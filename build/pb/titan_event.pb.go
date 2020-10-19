@@ -24,12 +24,9 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // TitanEvent
 type TitanEvent struct {
-	ID                   uint32         `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	TextCode             string         `protobuf:"bytes,2,opt,name=TextCode,proto3" json:"TextCode,omitempty"`
-	Choices              []*EventChoice `protobuf:"bytes,3,rep,name=Choices,proto3" json:"Choices,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	ID       uint32         `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	TextCode string         `protobuf:"bytes,2,opt,name=TextCode,proto3" json:"TextCode,omitempty"`
+	Choices  []*EventChoice `protobuf:"bytes,3,rep,name=Choices,proto3" json:"Choices,omitempty"`
 }
 
 func (m *TitanEvent) Reset()         { *m = TitanEvent{} }
@@ -87,12 +84,9 @@ func (m *TitanEvent) GetChoices() []*EventChoice {
 }
 
 type SubmitAnswerRequest struct {
-	TitanID              uint32   `protobuf:"varint,1,opt,name=titanID,proto3" json:"titanID,omitempty"`
-	ChoiceID             uint32   `protobuf:"varint,2,opt,name=choiceID,proto3" json:"choiceID,omitempty"`
-	PlayerID             uint32   `protobuf:"varint,3,opt,name=playerID,proto3" json:"playerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	TitanID  uint32 `protobuf:"varint,1,opt,name=titanID,proto3" json:"titanID,omitempty"`
+	ChoiceID uint32 `protobuf:"varint,2,opt,name=choiceID,proto3" json:"choiceID,omitempty"`
+	PlayerID uint32 `protobuf:"varint,3,opt,name=playerID,proto3" json:"playerID,omitempty"`
 }
 
 func (m *SubmitAnswerRequest) Reset()         { *m = SubmitAnswerRequest{} }
@@ -150,11 +144,8 @@ func (m *SubmitAnswerRequest) GetPlayerID() uint32 {
 }
 
 type SubmitAnswerResponse struct {
-	IsMalus              bool              `protobuf:"varint,1,opt,name=isMalus,proto3" json:"isMalus,omitempty"`
-	Hit                  *HitTitanResponse `protobuf:"bytes,2,opt,name=hit,proto3" json:"hit,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
-	XXX_unrecognized     []byte            `json:"-"`
-	XXX_sizecache        int32             `json:"-"`
+	IsMalus bool              `protobuf:"varint,1,opt,name=isMalus,proto3" json:"isMalus,omitempty"`
+	Hit     *HitTitanResponse `protobuf:"bytes,2,opt,name=hit,proto3" json:"hit,omitempty"`
 }
 
 func (m *SubmitAnswerResponse) Reset()         { *m = SubmitAnswerResponse{} }
@@ -205,9 +196,6 @@ func (m *SubmitAnswerResponse) GetHit() *HitTitanResponse {
 }
 
 type GetRandomEventRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetRandomEventRequest) Reset()         { *m = GetRandomEventRequest{} }
@@ -244,10 +232,7 @@ func (m *GetRandomEventRequest) XXX_DiscardUnknown() {
 var xxx_messageInfo_GetRandomEventRequest proto.InternalMessageInfo
 
 type GetRandomEventResponse struct {
-	Event                *TitanEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
-	XXX_unrecognized     []byte      `json:"-"`
-	XXX_sizecache        int32       `json:"-"`
+	Event *TitanEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
 }
 
 func (m *GetRandomEventResponse) Reset()         { *m = GetRandomEventResponse{} }
@@ -292,9 +277,6 @@ func (m *GetRandomEventResponse) GetEvent() *TitanEvent {
 
 // GetAll
 type GetAllEventRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetAllEventRequest) Reset()         { *m = GetAllEventRequest{} }
@@ -331,10 +313,7 @@ func (m *GetAllEventRequest) XXX_DiscardUnknown() {
 var xxx_messageInfo_GetAllEventRequest proto.InternalMessageInfo
 
 type GetAllEventResponse struct {
-	Events               []*TitanEvent `protobuf:"bytes,1,rep,name=events,proto3" json:"events,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
+	Events []*TitanEvent `protobuf:"bytes,1,rep,name=events,proto3" json:"events,omitempty"`
 }
 
 func (m *GetAllEventResponse) Reset()         { *m = GetAllEventResponse{} }
@@ -379,10 +358,7 @@ func (m *GetAllEventResponse) GetEvents() []*TitanEvent {
 
 // GetTitanEventByID
 type GetTitanEventByIDRequest struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
 }
 
 func (m *GetTitanEventByIDRequest) Reset()         { *m = GetTitanEventByIDRequest{} }
@@ -426,10 +402,7 @@ func (m *GetTitanEventByIDRequest) GetID() uint32 {
 }
 
 type GetTitanEventByIDResponse struct {
-	Event                *TitanEvent `protobuf:"bytes,1,opt,name=Event,proto3" json:"Event,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
-	XXX_unrecognized     []byte      `json:"-"`
-	XXX_sizecache        int32       `json:"-"`
+	Event *TitanEvent `protobuf:"bytes,1,opt,name=Event,proto3" json:"Event,omitempty"`
 }
 
 func (m *GetTitanEventByIDResponse) Reset()         { *m = GetTitanEventByIDResponse{} }
@@ -473,13 +446,10 @@ func (m *GetTitanEventByIDResponse) GetEvent() *TitanEvent {
 }
 
 type EventChoice struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Correct              bool     `protobuf:"varint,2,opt,name=Correct,proto3" json:"Correct,omitempty"`
-	TextCode             string   `protobuf:"bytes,3,opt,name=TextCode,proto3" json:"TextCode,omitempty"`
-	TitanEventID         uint32   `protobuf:"varint,4,opt,name=TitanEventID,proto3" json:"TitanEventID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID           uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Correct      bool   `protobuf:"varint,2,opt,name=Correct,proto3" json:"Correct,omitempty"`
+	TextCode     string `protobuf:"bytes,3,opt,name=TextCode,proto3" json:"TextCode,omitempty"`
+	TitanEventID uint32 `protobuf:"varint,4,opt,name=TitanEventID,proto3" json:"TitanEventID,omitempty"`
 }
 
 func (m *EventChoice) Reset()         { *m = EventChoice{} }
@@ -545,10 +515,7 @@ func (m *EventChoice) GetTitanEventID() uint32 {
 
 // GetEventChoiceByID
 type GetEventChoiceByIDRequest struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
 }
 
 func (m *GetEventChoiceByIDRequest) Reset()         { *m = GetEventChoiceByIDRequest{} }
@@ -592,10 +559,7 @@ func (m *GetEventChoiceByIDRequest) GetID() uint32 {
 }
 
 type GetEventChoiceByIDResponse struct {
-	Choice               *EventChoice `protobuf:"bytes,1,opt,name=Choice,proto3" json:"Choice,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
-	XXX_unrecognized     []byte       `json:"-"`
-	XXX_sizecache        int32        `json:"-"`
+	Choice *EventChoice `protobuf:"bytes,1,opt,name=Choice,proto3" json:"Choice,omitempty"`
 }
 
 func (m *GetEventChoiceByIDResponse) Reset()         { *m = GetEventChoiceByIDResponse{} }
@@ -656,34 +620,35 @@ func init() {
 func init() { proto.RegisterFile("proto/titan_event.proto", fileDescriptor_f9ef6fe984cd362e) }
 
 var fileDescriptor_f9ef6fe984cd362e = []byte{
-	// 430 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x53, 0xcd, 0xce, 0xd2, 0x40,
-	0x14, 0x4d, 0xe9, 0x27, 0xe0, 0xad, 0x9f, 0x89, 0x03, 0xca, 0xc8, 0x82, 0x90, 0x59, 0xa1, 0xc6,
-	0x62, 0x70, 0xe9, 0x0a, 0x28, 0xd6, 0x9a, 0xe8, 0x62, 0x64, 0xa5, 0x0b, 0x53, 0x60, 0x22, 0x4d,
-	0x4a, 0x5b, 0xdb, 0x41, 0xe4, 0x0d, 0x5d, 0xfa, 0x08, 0x86, 0x27, 0x31, 0xbd, 0x9d, 0xfe, 0x21,
-	0x92, 0x6f, 0xd5, 0x9c, 0x7b, 0xcf, 0xbd, 0x67, 0xce, 0xcc, 0x29, 0xf4, 0xa2, 0x38, 0x94, 0xe1,
-	0x58, 0x7a, 0xd2, 0x0d, 0xbe, 0x8a, 0x1f, 0x22, 0x90, 0x26, 0x56, 0x88, 0x51, 0x29, 0xf5, 0x1f,
-	0x55, 0x58, 0x59, 0x9f, 0xf9, 0x00, 0xcb, 0x14, 0x2e, 0x52, 0x02, 0x79, 0x08, 0x0d, 0xc7, 0xa2,
-	0xda, 0x50, 0x1b, 0xdd, 0xf2, 0x86, 0x63, 0x91, 0x3e, 0xb4, 0x97, 0xe2, 0xa7, 0x9c, 0x87, 0x1b,
-	0x41, 0x1b, 0x43, 0x6d, 0x74, 0x9f, 0x17, 0x98, 0x4c, 0xa0, 0x35, 0xdf, 0x86, 0xde, 0x5a, 0x24,
-	0x54, 0x1f, 0xea, 0x23, 0x63, 0x42, 0xcd, 0xaa, 0x3c, 0x2e, 0xcc, 0x08, 0x3c, 0x27, 0xb2, 0x6f,
-	0xd0, 0xf9, 0xb4, 0x5f, 0xed, 0x3c, 0x39, 0x0d, 0x92, 0x83, 0x88, 0xb9, 0xf8, 0xbe, 0x17, 0x89,
-	0x24, 0x14, 0x5a, 0x38, 0x5a, 0x68, 0xe7, 0x30, 0x3d, 0xc0, 0x1a, 0x67, 0x1d, 0x0b, 0x0f, 0x70,
-	0xcb, 0x0b, 0x9c, 0xf6, 0x22, 0xdf, 0x3d, 0x8a, 0xd8, 0xb1, 0xa8, 0x9e, 0xf5, 0x72, 0xcc, 0xbe,
-	0x40, 0xb7, 0x2e, 0x94, 0x44, 0x61, 0x90, 0x88, 0x54, 0xc9, 0x4b, 0x3e, 0xb8, 0xfe, 0x3e, 0x41,
-	0xa5, 0x36, 0xcf, 0x21, 0x79, 0x06, 0xfa, 0xd6, 0x93, 0x28, 0x62, 0x4c, 0x7a, 0x99, 0x15, 0xf3,
-	0x9d, 0x27, 0xf1, 0x76, 0xf2, 0x79, 0x9e, 0x72, 0x58, 0x0f, 0x1e, 0xdb, 0x42, 0x72, 0x37, 0xd8,
-	0x84, 0x3b, 0xb4, 0xa9, 0x7c, 0x30, 0x1b, 0x9e, 0x9c, 0x37, 0x94, 0xee, 0x4b, 0xb8, 0x87, 0xd7,
-	0x82, 0xaa, 0xc5, 0x7e, 0x75, 0x55, 0xe5, 0x03, 0xf0, 0x8c, 0xc5, 0xba, 0x40, 0x6c, 0x21, 0xa7,
-	0xbe, 0x5f, 0x5b, 0xff, 0x16, 0x3a, 0xb5, 0xaa, 0xda, 0x3d, 0x86, 0x26, 0x4e, 0xa5, 0x96, 0xf4,
-	0x6b, 0xcb, 0x15, 0x8d, 0x3d, 0x07, 0x6a, 0x0b, 0x59, 0x36, 0x66, 0x47, 0xc7, 0xca, 0x9f, 0xe2,
-	0x2c, 0x01, 0xec, 0x3d, 0x3c, 0xbd, 0xc0, 0x2d, 0x5d, 0x2d, 0xee, 0xe4, 0x0a, 0x3f, 0xec, 0x00,
-	0x46, 0x25, 0x15, 0xff, 0x84, 0x8d, 0x42, 0x6b, 0x1e, 0xc6, 0xb1, 0x58, 0x67, 0xaf, 0xd0, 0xe6,
-	0x39, 0xac, 0xc5, 0x50, 0x3f, 0x8b, 0x21, 0x83, 0x07, 0xa5, 0x92, 0x63, 0xd1, 0x1b, 0xdc, 0x57,
-	0xab, 0xb1, 0x17, 0x68, 0xa2, 0xa2, 0x7d, 0xcd, 0xf1, 0x47, 0xe8, 0x5f, 0x22, 0x2b, 0xcb, 0xaf,
-	0xa0, 0x99, 0x55, 0x95, 0xe7, 0xff, 0x87, 0x5e, 0xf1, 0x66, 0xe4, 0xd7, 0x69, 0xa0, 0xfd, 0x3e,
-	0x0d, 0xb4, 0x3f, 0xa7, 0x81, 0xf6, 0xf9, 0xc6, 0x7c, 0x13, 0xad, 0x56, 0x4d, 0xfc, 0xf9, 0x5e,
-	0xff, 0x0d, 0x00, 0x00, 0xff, 0xff, 0xda, 0xd3, 0x22, 0x49, 0xb7, 0x03, 0x00, 0x00,
+	// 446 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x53, 0x4d, 0xaf, 0xd2, 0x40,
+	0x14, 0xa5, 0xf4, 0x09, 0x78, 0xeb, 0x33, 0xb1, 0xef, 0x29, 0x23, 0x8b, 0x86, 0xcc, 0x0a, 0x35,
+	0xf6, 0x19, 0x5c, 0xba, 0x7a, 0x50, 0xac, 0x35, 0xd1, 0xc5, 0xc8, 0x4a, 0x17, 0xa6, 0xc0, 0x44,
+	0x9a, 0x94, 0xb6, 0xb6, 0x83, 0xc8, 0xbf, 0xf0, 0x67, 0xb9, 0x64, 0xe9, 0xd2, 0xc0, 0x1f, 0x31,
+	0xbd, 0x9d, 0x7e, 0x21, 0x12, 0x57, 0xcd, 0xb9, 0xf7, 0xdc, 0x7b, 0xe6, 0xcc, 0x9c, 0x42, 0x37,
+	0x8a, 0x43, 0x11, 0xde, 0x08, 0x4f, 0xb8, 0xc1, 0x67, 0xfe, 0x8d, 0x07, 0xc2, 0xc4, 0x8a, 0xae,
+	0x55, 0x4a, 0xbd, 0x07, 0x15, 0x56, 0xd6, 0xa7, 0x3e, 0xc0, 0x34, 0x85, 0x93, 0x94, 0xa0, 0xdf,
+	0x87, 0xa6, 0x63, 0x11, 0xa5, 0xaf, 0x0c, 0x2e, 0x59, 0xd3, 0xb1, 0xf4, 0x1e, 0x74, 0xa6, 0xfc,
+	0xbb, 0x18, 0x87, 0x0b, 0x4e, 0x9a, 0x7d, 0x65, 0x70, 0x97, 0x15, 0x58, 0x1f, 0x42, 0x7b, 0xbc,
+	0x0c, 0xbd, 0x39, 0x4f, 0x88, 0xda, 0x57, 0x07, 0xda, 0x90, 0x98, 0x55, 0x79, 0x5c, 0x98, 0x11,
+	0x58, 0x4e, 0xa4, 0x5f, 0xe0, 0xea, 0xc3, 0x7a, 0xb6, 0xf2, 0xc4, 0x6d, 0x90, 0x6c, 0x78, 0xcc,
+	0xf8, 0xd7, 0x35, 0x4f, 0x84, 0x4e, 0xa0, 0x8d, 0xa3, 0x85, 0x76, 0x0e, 0xd3, 0x03, 0xcc, 0x71,
+	0xd6, 0xb1, 0xf0, 0x00, 0x97, 0xac, 0xc0, 0x69, 0x2f, 0xf2, 0xdd, 0x2d, 0x8f, 0x1d, 0x8b, 0xa8,
+	0x59, 0x2f, 0xc7, 0xf4, 0x13, 0x5c, 0xd7, 0x85, 0x92, 0x28, 0x0c, 0x12, 0x9e, 0x2a, 0x79, 0xc9,
+	0x3b, 0xd7, 0x5f, 0x27, 0xa8, 0xd4, 0x61, 0x39, 0xd4, 0x9f, 0x80, 0xba, 0xf4, 0x04, 0x8a, 0x68,
+	0xc3, 0x6e, 0x66, 0xc5, 0x7c, 0xe3, 0x09, 0xbc, 0x9d, 0x7c, 0x9e, 0xa5, 0x1c, 0xda, 0x85, 0x87,
+	0x36, 0x17, 0xcc, 0x0d, 0x16, 0xe1, 0x0a, 0x6d, 0x4a, 0x1f, 0xd4, 0x86, 0x47, 0xc7, 0x0d, 0xa9,
+	0xfb, 0x1c, 0xee, 0xe0, 0xb5, 0xa0, 0x6a, 0xb1, 0x5f, 0x5e, 0x55, 0xf9, 0x00, 0x2c, 0x63, 0xd1,
+	0x6b, 0xd0, 0x6d, 0x2e, 0x6e, 0x7d, 0xbf, 0xb6, 0xfe, 0x35, 0x5c, 0xd5, 0xaa, 0x72, 0xf7, 0x0d,
+	0xb4, 0x70, 0x2a, 0xb5, 0xa4, 0x9e, 0x5b, 0x2e, 0x69, 0xf4, 0x29, 0x10, 0x9b, 0x8b, 0xb2, 0x31,
+	0xda, 0x3a, 0x56, 0xfe, 0x14, 0x47, 0x09, 0xa0, 0x6f, 0xe1, 0xf1, 0x09, 0x6e, 0xe9, 0x6a, 0xf2,
+	0x5f, 0xae, 0xf0, 0x43, 0x37, 0xa0, 0x55, 0x52, 0xf1, 0x57, 0xd8, 0x08, 0xb4, 0xc7, 0x61, 0x1c,
+	0xf3, 0x79, 0xf6, 0x0a, 0x1d, 0x96, 0xc3, 0x5a, 0x0c, 0xd5, 0xa3, 0x18, 0x52, 0xb8, 0x57, 0x2a,
+	0x39, 0x16, 0xb9, 0xc0, 0x7d, 0xb5, 0x1a, 0x7d, 0x86, 0x26, 0x2a, 0xda, 0xe7, 0x1c, 0xbf, 0x87,
+	0xde, 0x29, 0xb2, 0xb4, 0xfc, 0x02, 0x5a, 0x59, 0x55, 0x7a, 0xfe, 0x77, 0xe8, 0x25, 0x6f, 0x64,
+	0xfc, 0xdc, 0x1b, 0xca, 0x6e, 0x6f, 0x28, 0xbf, 0xf7, 0x86, 0xf2, 0xe3, 0x60, 0x34, 0x76, 0x07,
+	0xa3, 0xf1, 0xeb, 0x60, 0x34, 0x3e, 0x5e, 0x98, 0xaf, 0xa2, 0xd9, 0xac, 0x85, 0x3f, 0xe2, 0xcb,
+	0x3f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x84, 0x4c, 0x53, 0x37, 0xc3, 0x03, 0x00, 0x00,
 }
 
 func (m *TitanEvent) Marshal() (dAtA []byte, err error) {
@@ -706,10 +671,6 @@ func (m *TitanEvent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Choices) > 0 {
 		for iNdEx := len(m.Choices) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -759,10 +720,6 @@ func (m *SubmitAnswerRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintTitanEvent(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -801,10 +758,6 @@ func (m *SubmitAnswerResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Hit != nil {
 		{
 			size, err := m.Hit.MarshalToSizedBuffer(dAtA[:i])
@@ -850,10 +803,6 @@ func (m *GetRandomEventRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -877,10 +826,6 @@ func (m *GetRandomEventResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Event != nil {
 		{
 			size, err := m.Event.MarshalToSizedBuffer(dAtA[:i])
@@ -916,10 +861,6 @@ func (m *GetAllEventRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -943,10 +884,6 @@ func (m *GetAllEventResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Events) > 0 {
 		for iNdEx := len(m.Events) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -984,10 +921,6 @@ func (m *GetTitanEventByIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, error
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ID != 0 {
 		i = encodeVarintTitanEvent(dAtA, i, uint64(m.ID))
 		i--
@@ -1016,10 +949,6 @@ func (m *GetTitanEventByIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Event != nil {
 		{
 			size, err := m.Event.MarshalToSizedBuffer(dAtA[:i])
@@ -1055,10 +984,6 @@ func (m *EventChoice) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.TitanEventID != 0 {
 		i = encodeVarintTitanEvent(dAtA, i, uint64(m.TitanEventID))
 		i--
@@ -1109,10 +1034,6 @@ func (m *GetEventChoiceByIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ID != 0 {
 		i = encodeVarintTitanEvent(dAtA, i, uint64(m.ID))
 		i--
@@ -1141,10 +1062,6 @@ func (m *GetEventChoiceByIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, err
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Choice != nil {
 		{
 			size, err := m.Choice.MarshalToSizedBuffer(dAtA[:i])
@@ -1190,9 +1107,6 @@ func (m *TitanEvent) Size() (n int) {
 			n += 1 + l + sovTitanEvent(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1211,9 +1125,6 @@ func (m *SubmitAnswerRequest) Size() (n int) {
 	if m.PlayerID != 0 {
 		n += 1 + sovTitanEvent(uint64(m.PlayerID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1230,9 +1141,6 @@ func (m *SubmitAnswerResponse) Size() (n int) {
 		l = m.Hit.Size()
 		n += 1 + l + sovTitanEvent(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1242,9 +1150,6 @@ func (m *GetRandomEventRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1258,9 +1163,6 @@ func (m *GetRandomEventResponse) Size() (n int) {
 		l = m.Event.Size()
 		n += 1 + l + sovTitanEvent(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1270,9 +1172,6 @@ func (m *GetAllEventRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1288,9 +1187,6 @@ func (m *GetAllEventResponse) Size() (n int) {
 			n += 1 + l + sovTitanEvent(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1302,9 +1198,6 @@ func (m *GetTitanEventByIDRequest) Size() (n int) {
 	_ = l
 	if m.ID != 0 {
 		n += 1 + sovTitanEvent(uint64(m.ID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1318,9 +1211,6 @@ func (m *GetTitanEventByIDResponse) Size() (n int) {
 	if m.Event != nil {
 		l = m.Event.Size()
 		n += 1 + l + sovTitanEvent(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1344,9 +1234,6 @@ func (m *EventChoice) Size() (n int) {
 	if m.TitanEventID != 0 {
 		n += 1 + sovTitanEvent(uint64(m.TitanEventID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1358,9 +1245,6 @@ func (m *GetEventChoiceByIDRequest) Size() (n int) {
 	_ = l
 	if m.ID != 0 {
 		n += 1 + sovTitanEvent(uint64(m.ID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1374,9 +1258,6 @@ func (m *GetEventChoiceByIDResponse) Size() (n int) {
 	if m.Choice != nil {
 		l = m.Choice.Size()
 		n += 1 + l + sovTitanEvent(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1516,7 +1397,6 @@ func (m *TitanEvent) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1627,7 +1507,6 @@ func (m *SubmitAnswerRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1737,7 +1616,6 @@ func (m *SubmitAnswerResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1791,7 +1669,6 @@ func (m *GetRandomEventRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1881,7 +1758,6 @@ func (m *GetRandomEventResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1935,7 +1811,6 @@ func (m *GetAllEventRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2023,7 +1898,6 @@ func (m *GetAllEventResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2096,7 +1970,6 @@ func (m *GetTitanEventByIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2186,7 +2059,6 @@ func (m *GetTitanEventByIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2330,7 +2202,6 @@ func (m *EventChoice) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2403,7 +2274,6 @@ func (m *GetEventChoiceByIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2493,7 +2363,6 @@ func (m *GetEventChoiceByIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

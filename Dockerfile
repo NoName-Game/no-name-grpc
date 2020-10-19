@@ -10,11 +10,10 @@ RUN go get github.com/gogo/protobuf/protoc-gen-gogo \
     && go get github.com/gogo/protobuf/proto \
     && go get github.com/gogo/protobuf/gogoproto \
     && go get github.com/gogo/protobuf/protoc-gen-gofast \
-    && go get github.com/gogo/protobuf/protoc-gen-gogofast
+    && go get github.com/gogo/protobuf/protoc-gen-gogofast \
+    && go get github.com/gogo/protobuf/protoc-gen-gogofaster
 
 ENV PATH="$PATH:$(go env GOPATH)/bin"
-
-RUN echo $GOPATH
 
 WORKDIR /home/noname
 

@@ -23,19 +23,16 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type Ship struct {
-	ID                   uint32        `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string        `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	PlayerID             uint32        `protobuf:"varint,3,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	RarityID             uint32        `protobuf:"varint,5,opt,name=RarityID,proto3" json:"RarityID,omitempty"`
-	Rarity               *Rarity       `protobuf:"bytes,6,opt,name=Rarity,proto3" json:"Rarity,omitempty"`
-	ShipCategoryID       uint32        `protobuf:"varint,7,opt,name=ShipCategoryID,proto3" json:"ShipCategoryID,omitempty"`
-	ShipCategory         *ShipCategory `protobuf:"bytes,8,opt,name=ShipCategory,proto3" json:"ShipCategory,omitempty"`
-	ShipStatsID          uint32        `protobuf:"varint,9,opt,name=ShipStatsID,proto3" json:"ShipStatsID,omitempty"`
-	ShipStats            *ShipStats    `protobuf:"bytes,10,opt,name=ShipStats,proto3" json:"ShipStats,omitempty"`
-	Equipped             bool          `protobuf:"varint,11,opt,name=Equipped,proto3" json:"Equipped,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
+	ID             uint32        `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name           string        `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	PlayerID       uint32        `protobuf:"varint,3,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	RarityID       uint32        `protobuf:"varint,5,opt,name=RarityID,proto3" json:"RarityID,omitempty"`
+	Rarity         *Rarity       `protobuf:"bytes,6,opt,name=Rarity,proto3" json:"Rarity,omitempty"`
+	ShipCategoryID uint32        `protobuf:"varint,7,opt,name=ShipCategoryID,proto3" json:"ShipCategoryID,omitempty"`
+	ShipCategory   *ShipCategory `protobuf:"bytes,8,opt,name=ShipCategory,proto3" json:"ShipCategory,omitempty"`
+	ShipStatsID    uint32        `protobuf:"varint,9,opt,name=ShipStatsID,proto3" json:"ShipStatsID,omitempty"`
+	ShipStats      *ShipStats    `protobuf:"bytes,10,opt,name=ShipStats,proto3" json:"ShipStats,omitempty"`
+	Equipped       bool          `protobuf:"varint,11,opt,name=Equipped,proto3" json:"Equipped,omitempty"`
 }
 
 func (m *Ship) Reset()         { *m = Ship{} }
@@ -143,10 +140,7 @@ func (m *Ship) GetEquipped() bool {
 
 // GetShipByID
 type GetShipByIDRequest struct {
-	ShipID               uint32   `protobuf:"varint,1,opt,name=ShipID,proto3" json:"ShipID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ShipID uint32 `protobuf:"varint,1,opt,name=ShipID,proto3" json:"ShipID,omitempty"`
 }
 
 func (m *GetShipByIDRequest) Reset()         { *m = GetShipByIDRequest{} }
@@ -190,10 +184,7 @@ func (m *GetShipByIDRequest) GetShipID() uint32 {
 }
 
 type GetShipByIDResponse struct {
-	Ship                 *Ship    `protobuf:"bytes,1,opt,name=Ship,proto3" json:"Ship,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Ship *Ship `protobuf:"bytes,1,opt,name=Ship,proto3" json:"Ship,omitempty"`
 }
 
 func (m *GetShipByIDResponse) Reset()         { *m = GetShipByIDResponse{} }
@@ -238,10 +229,7 @@ func (m *GetShipByIDResponse) GetShip() *Ship {
 
 // GetPlayerShips
 type GetPlayerShipsRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *GetPlayerShipsRequest) Reset()         { *m = GetPlayerShipsRequest{} }
@@ -285,10 +273,7 @@ func (m *GetPlayerShipsRequest) GetPlayerID() uint32 {
 }
 
 type GetPlayerShipsResponse struct {
-	Ships                []*Ship  `protobuf:"bytes,1,rep,name=Ships,proto3" json:"Ships,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Ships []*Ship `protobuf:"bytes,1,rep,name=Ships,proto3" json:"Ships,omitempty"`
 }
 
 func (m *GetPlayerShipsResponse) Reset()         { *m = GetPlayerShipsResponse{} }
@@ -333,10 +318,7 @@ func (m *GetPlayerShipsResponse) GetShips() []*Ship {
 
 // GetPlayerShipEquipped
 type GetPlayerShipEquippedRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *GetPlayerShipEquippedRequest) Reset()         { *m = GetPlayerShipEquippedRequest{} }
@@ -380,10 +362,7 @@ func (m *GetPlayerShipEquippedRequest) GetPlayerID() uint32 {
 }
 
 type GetPlayerShipEquippedResponse struct {
-	Ship                 *Ship    `protobuf:"bytes,1,opt,name=Ship,proto3" json:"Ship,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Ship *Ship `protobuf:"bytes,1,opt,name=Ship,proto3" json:"Ship,omitempty"`
 }
 
 func (m *GetPlayerShipEquippedResponse) Reset()         { *m = GetPlayerShipEquippedResponse{} }
@@ -428,11 +407,8 @@ func (m *GetPlayerShipEquippedResponse) GetShip() *Ship {
 
 // EquipShip
 type EquipShipRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	ShipID               uint32   `protobuf:"varint,2,opt,name=ShipID,proto3" json:"ShipID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	ShipID   uint32 `protobuf:"varint,2,opt,name=ShipID,proto3" json:"ShipID,omitempty"`
 }
 
 func (m *EquipShipRequest) Reset()         { *m = EquipShipRequest{} }
@@ -483,9 +459,6 @@ func (m *EquipShipRequest) GetShipID() uint32 {
 }
 
 type EquipShipResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *EquipShipResponse) Reset()         { *m = EquipShipResponse{} }
@@ -536,33 +509,34 @@ func init() {
 func init() { proto.RegisterFile("proto/ship.proto", fileDescriptor_4da4eb6c09d7c152) }
 
 var fileDescriptor_4da4eb6c09d7c152 = []byte{
-	// 413 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x53, 0x41, 0xcb, 0xd3, 0x40,
-	0x10, 0x65, 0xf3, 0xe5, 0x8b, 0xed, 0x44, 0x4b, 0xdd, 0xd2, 0xb2, 0x56, 0x0d, 0x21, 0x87, 0x92,
-	0x83, 0x44, 0x68, 0xf1, 0x52, 0x0f, 0x85, 0x1a, 0x2d, 0xb9, 0x88, 0x6c, 0x6f, 0x5e, 0x24, 0xd5,
-	0xc5, 0x06, 0xd4, 0xa4, 0xc9, 0xf6, 0xd0, 0x7f, 0xe8, 0xd1, 0x9f, 0x20, 0x3d, 0xf8, 0x3b, 0x64,
-	0x67, 0x93, 0x74, 0x53, 0x10, 0x7b, 0x9b, 0x79, 0xef, 0xcd, 0xbc, 0xd9, 0x19, 0x16, 0x86, 0x45,
-	0x99, 0xcb, 0xfc, 0x65, 0xb5, 0xcf, 0x8a, 0x08, 0x43, 0x6a, 0xab, 0x78, 0x4a, 0x35, 0x5e, 0xa6,
-	0x65, 0x26, 0x4f, 0x9a, 0x99, 0x3e, 0xb9, 0x68, 0x3f, 0x7d, 0x4e, 0xa5, 0xf8, 0x9a, 0x97, 0x0d,
-	0x35, 0x31, 0xa8, 0x4a, 0xa6, 0xb2, 0xd2, 0x78, 0xf0, 0xc7, 0x02, 0x7b, 0xbb, 0xcf, 0x0a, 0x3a,
-	0x00, 0x2b, 0x89, 0x19, 0xf1, 0x49, 0xf8, 0x88, 0x5b, 0x49, 0x4c, 0x29, 0xd8, 0xef, 0xd3, 0xef,
-	0x82, 0x59, 0x3e, 0x09, 0xfb, 0x1c, 0x63, 0x3a, 0x85, 0xde, 0x87, 0x6f, 0xe9, 0x49, 0x94, 0x49,
-	0xcc, 0xee, 0x50, 0xd9, 0xe6, 0x8a, 0xe3, 0x38, 0x4b, 0x12, 0xb3, 0x7b, 0xcd, 0x35, 0x39, 0x9d,
-	0x81, 0xa3, 0x63, 0xe6, 0xf8, 0x24, 0x74, 0xe7, 0x83, 0xa8, 0x1e, 0x5b, 0xa3, 0xbc, 0x66, 0xe9,
-	0x0c, 0x06, 0x6a, 0x96, 0x37, 0xf5, 0xe8, 0x49, 0xcc, 0x1e, 0x60, 0xa7, 0x2b, 0x94, 0xae, 0xe0,
-	0xa1, 0x89, 0xb0, 0x1e, 0x76, 0x7d, 0x1a, 0x75, 0x1f, 0x6e, 0x4a, 0x78, 0xa7, 0x80, 0xfa, 0xe0,
-	0xaa, 0x7c, 0xab, 0x16, 0x91, 0xc4, 0xac, 0x8f, 0x2e, 0x26, 0x44, 0x17, 0xd0, 0x6f, 0x53, 0x06,
-	0xd8, 0x7f, 0x1c, 0x19, 0xdb, 0x6b, 0x49, 0x7e, 0xd1, 0xa9, 0x1d, 0xbc, 0x3d, 0x1c, 0xb3, 0xa2,
-	0x10, 0x5f, 0x98, 0xeb, 0x93, 0xb0, 0xc7, 0xdb, 0x3c, 0x78, 0x01, 0x74, 0x23, 0xa4, 0xd2, 0xae,
-	0x4f, 0x49, 0xcc, 0xc5, 0xe1, 0x28, 0x2a, 0x49, 0x27, 0xe0, 0x28, 0xa8, 0xdd, 0x7c, 0x9d, 0x05,
-	0xaf, 0x60, 0xd4, 0x51, 0x57, 0x45, 0xfe, 0xa3, 0x12, 0xd4, 0xd3, 0xc7, 0x42, 0xb1, 0x3b, 0x07,
-	0x1c, 0x08, 0x47, 0xe1, 0x88, 0x07, 0x0b, 0x18, 0x6f, 0x84, 0xd4, 0x37, 0x51, 0x40, 0xd5, 0xf8,
-	0x98, 0x97, 0x23, 0xdd, 0xcb, 0x05, 0x4b, 0x98, 0x5c, 0x17, 0xd5, 0x76, 0x3e, 0xdc, 0x23, 0xc0,
-	0x88, 0x7f, 0x77, 0xe5, 0xa7, 0x89, 0x60, 0x09, 0xcf, 0x3a, 0xb5, 0xcd, 0x73, 0x6f, 0xf1, 0x5d,
-	0xc1, 0xf3, 0x7f, 0xd4, 0xde, 0xf8, 0xda, 0x77, 0x30, 0xc4, 0x1a, 0x84, 0xfe, 0x6f, 0x68, 0x2c,
-	0xdb, 0xea, 0x2c, 0x7b, 0x04, 0x8f, 0x8d, 0x3e, 0xda, 0x7c, 0x4d, 0x7f, 0x9e, 0x3d, 0xf2, 0xeb,
-	0xec, 0x91, 0xdf, 0x67, 0x8f, 0x7c, 0xb4, 0xa3, 0xd7, 0xc5, 0x6e, 0xe7, 0xe0, 0x9f, 0x59, 0xfc,
-	0x0d, 0x00, 0x00, 0xff, 0xff, 0x73, 0x44, 0x5d, 0x7d, 0x94, 0x03, 0x00, 0x00,
+	// 430 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x53, 0xc1, 0x6e, 0xd3, 0x40,
+	0x10, 0xcd, 0xba, 0xae, 0x49, 0xc6, 0x10, 0x95, 0xad, 0x1a, 0x2d, 0x01, 0x56, 0x96, 0x0f, 0x95,
+	0x0f, 0xc8, 0x48, 0x8d, 0xb8, 0x94, 0x43, 0xa5, 0x62, 0xa8, 0x7c, 0x41, 0x68, 0x7b, 0xe3, 0x82,
+	0x5c, 0x58, 0x11, 0x4b, 0x80, 0x1d, 0x7b, 0x73, 0xc8, 0x5f, 0xf0, 0x59, 0x1c, 0x73, 0xe4, 0x88,
+	0x12, 0x89, 0xef, 0x40, 0x3b, 0x6b, 0x3b, 0xeb, 0x48, 0xa8, 0xb9, 0xcd, 0xbc, 0xf7, 0x66, 0xde,
+	0xec, 0x8c, 0x16, 0x4e, 0xca, 0xaa, 0x50, 0xc5, 0xcb, 0x7a, 0x9e, 0x97, 0x31, 0x86, 0xd4, 0xd5,
+	0xf1, 0x94, 0x1a, 0xbc, 0xca, 0xaa, 0x5c, 0xad, 0x0c, 0x33, 0x7d, 0xb2, 0xd3, 0x7e, 0xfa, 0x9c,
+	0x29, 0xf9, 0xb5, 0xa8, 0x5a, 0x6a, 0x62, 0x51, 0xb5, 0xca, 0x54, 0x6d, 0xf0, 0xf0, 0xaf, 0x03,
+	0xee, 0xed, 0x3c, 0x2f, 0xe9, 0x18, 0x9c, 0x34, 0x61, 0x24, 0x20, 0xd1, 0x23, 0xe1, 0xa4, 0x09,
+	0xa5, 0xe0, 0xbe, 0xcf, 0xbe, 0x4b, 0xe6, 0x04, 0x24, 0x1a, 0x09, 0x8c, 0xe9, 0x14, 0x86, 0x1f,
+	0xbe, 0x65, 0x2b, 0x59, 0xa5, 0x09, 0x3b, 0x42, 0x65, 0x97, 0x6b, 0x4e, 0xe0, 0x2c, 0x69, 0xc2,
+	0x8e, 0x0d, 0xd7, 0xe6, 0xf4, 0x1c, 0x3c, 0x13, 0x33, 0x2f, 0x20, 0x91, 0x7f, 0x31, 0x8e, 0x9b,
+	0xb1, 0x0d, 0x2a, 0x1a, 0x96, 0x9e, 0xc3, 0x58, 0xcf, 0xf2, 0xa6, 0x19, 0x3d, 0x4d, 0xd8, 0x03,
+	0xec, 0xb4, 0x87, 0xd2, 0x2b, 0x78, 0x68, 0x23, 0x6c, 0x88, 0x5d, 0x9f, 0xc6, 0xfd, 0x87, 0xdb,
+	0x12, 0xd1, 0x2b, 0xa0, 0x01, 0xf8, 0x3a, 0xbf, 0xd5, 0x8b, 0x48, 0x13, 0x36, 0x42, 0x17, 0x1b,
+	0xa2, 0x33, 0x18, 0x75, 0x29, 0x03, 0xec, 0x7f, 0x16, 0x5b, 0xdb, 0xeb, 0x48, 0xb1, 0xd3, 0xe9,
+	0x1d, 0xbc, 0x5d, 0x2c, 0xf3, 0xb2, 0x94, 0x5f, 0x98, 0x1f, 0x90, 0x68, 0x28, 0xba, 0x3c, 0x7c,
+	0x01, 0xf4, 0x46, 0x2a, 0xad, 0xbd, 0x5e, 0xa5, 0x89, 0x90, 0x8b, 0xa5, 0xac, 0x15, 0x9d, 0x80,
+	0xa7, 0xa1, 0x6e, 0xf3, 0x4d, 0x16, 0xbe, 0x82, 0xd3, 0x9e, 0xba, 0x2e, 0x8b, 0x1f, 0xb5, 0xa4,
+	0xdc, 0x1c, 0x0b, 0xc5, 0xfe, 0x05, 0xe0, 0x40, 0x38, 0x8a, 0x40, 0x3c, 0x9c, 0xc1, 0xd9, 0x8d,
+	0x54, 0xe6, 0x26, 0x1a, 0xa8, 0x5b, 0x1f, 0xfb, 0x72, 0xa4, 0x7f, 0xb9, 0xf0, 0x12, 0x26, 0xfb,
+	0x45, 0x8d, 0x5d, 0x00, 0xc7, 0x08, 0x30, 0x12, 0x1c, 0xed, 0xf9, 0x19, 0x22, 0xbc, 0x84, 0x67,
+	0xbd, 0xda, 0xf6, 0xb9, 0x87, 0xf8, 0x5e, 0xc1, 0xf3, 0xff, 0xd4, 0x1e, 0xf8, 0xda, 0x77, 0x70,
+	0x82, 0x35, 0x08, 0xdd, 0x6f, 0x68, 0x2d, 0xdb, 0xe9, 0x2d, 0xfb, 0x14, 0x1e, 0x5b, 0x7d, 0x8c,
+	0xf9, 0x35, 0xff, 0xb5, 0xe1, 0x64, 0xbd, 0xe1, 0xe4, 0xcf, 0x86, 0x93, 0x9f, 0x5b, 0x3e, 0x58,
+	0x6f, 0xf9, 0xe0, 0xf7, 0x96, 0x0f, 0x3e, 0xba, 0xf1, 0xeb, 0xf2, 0xee, 0xce, 0xc3, 0xff, 0x33,
+	0xfb, 0x17, 0x00, 0x00, 0xff, 0xff, 0x11, 0x69, 0xbf, 0x56, 0xa0, 0x03, 0x00, 0x00,
 }
 
 func (m *Ship) Marshal() (dAtA []byte, err error) {
@@ -585,10 +559,6 @@ func (m *Ship) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Equipped {
 		i--
 		if m.Equipped {
@@ -690,10 +660,6 @@ func (m *GetShipByIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ShipID != 0 {
 		i = encodeVarintShip(dAtA, i, uint64(m.ShipID))
 		i--
@@ -722,10 +688,6 @@ func (m *GetShipByIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Ship != nil {
 		{
 			size, err := m.Ship.MarshalToSizedBuffer(dAtA[:i])
@@ -761,10 +723,6 @@ func (m *GetPlayerShipsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintShip(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -793,10 +751,6 @@ func (m *GetPlayerShipsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Ships) > 0 {
 		for iNdEx := len(m.Ships) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -834,10 +788,6 @@ func (m *GetPlayerShipEquippedRequest) MarshalToSizedBuffer(dAtA []byte) (int, e
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintShip(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -866,10 +816,6 @@ func (m *GetPlayerShipEquippedResponse) MarshalToSizedBuffer(dAtA []byte) (int, 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Ship != nil {
 		{
 			size, err := m.Ship.MarshalToSizedBuffer(dAtA[:i])
@@ -905,10 +851,6 @@ func (m *EquipShipRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ShipID != 0 {
 		i = encodeVarintShip(dAtA, i, uint64(m.ShipID))
 		i--
@@ -942,10 +884,6 @@ func (m *EquipShipResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -1000,9 +938,6 @@ func (m *Ship) Size() (n int) {
 	if m.Equipped {
 		n += 2
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1014,9 +949,6 @@ func (m *GetShipByIDRequest) Size() (n int) {
 	_ = l
 	if m.ShipID != 0 {
 		n += 1 + sovShip(uint64(m.ShipID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1031,9 +963,6 @@ func (m *GetShipByIDResponse) Size() (n int) {
 		l = m.Ship.Size()
 		n += 1 + l + sovShip(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1045,9 +974,6 @@ func (m *GetPlayerShipsRequest) Size() (n int) {
 	_ = l
 	if m.PlayerID != 0 {
 		n += 1 + sovShip(uint64(m.PlayerID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1064,9 +990,6 @@ func (m *GetPlayerShipsResponse) Size() (n int) {
 			n += 1 + l + sovShip(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1078,9 +1001,6 @@ func (m *GetPlayerShipEquippedRequest) Size() (n int) {
 	_ = l
 	if m.PlayerID != 0 {
 		n += 1 + sovShip(uint64(m.PlayerID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1094,9 +1014,6 @@ func (m *GetPlayerShipEquippedResponse) Size() (n int) {
 	if m.Ship != nil {
 		l = m.Ship.Size()
 		n += 1 + l + sovShip(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1113,9 +1030,6 @@ func (m *EquipShipRequest) Size() (n int) {
 	if m.ShipID != 0 {
 		n += 1 + sovShip(uint64(m.ShipID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1125,9 +1039,6 @@ func (m *EquipShipResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1436,7 +1347,6 @@ func (m *Ship) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1509,7 +1419,6 @@ func (m *GetShipByIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1599,7 +1508,6 @@ func (m *GetShipByIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1672,7 +1580,6 @@ func (m *GetPlayerShipsRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1760,7 +1667,6 @@ func (m *GetPlayerShipsResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1833,7 +1739,6 @@ func (m *GetPlayerShipEquippedRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1923,7 +1828,6 @@ func (m *GetPlayerShipEquippedResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2015,7 +1919,6 @@ func (m *EquipShipRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2069,7 +1972,6 @@ func (m *EquipShipResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

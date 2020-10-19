@@ -25,11 +25,8 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // GetCreateShipInfo
 type GetCreateShipInfoRequest struct {
-	RarityID             uint32   `protobuf:"varint,1,opt,name=RarityID,proto3" json:"RarityID,omitempty"`
-	CategoryID           uint32   `protobuf:"varint,2,opt,name=CategoryID,proto3" json:"CategoryID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	RarityID   uint32 `protobuf:"varint,1,opt,name=RarityID,proto3" json:"RarityID,omitempty"`
+	CategoryID uint32 `protobuf:"varint,2,opt,name=CategoryID,proto3" json:"CategoryID,omitempty"`
 }
 
 func (m *GetCreateShipInfoRequest) Reset()         { *m = GetCreateShipInfoRequest{} }
@@ -80,10 +77,7 @@ func (m *GetCreateShipInfoRequest) GetCategoryID() uint32 {
 }
 
 type GetCreateShipInfoResponse struct {
-	Price                int32    `protobuf:"varint,1,opt,name=Price,proto3" json:"Price,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Price int32 `protobuf:"varint,1,opt,name=Price,proto3" json:"Price,omitempty"`
 }
 
 func (m *GetCreateShipInfoResponse) Reset()         { *m = GetCreateShipInfoResponse{} }
@@ -128,12 +122,9 @@ func (m *GetCreateShipInfoResponse) GetPrice() int32 {
 
 // StartCreateShip
 type StartCreateShipRequest struct {
-	RarityID             uint32   `protobuf:"varint,1,opt,name=RarityID,proto3" json:"RarityID,omitempty"`
-	CategoryID           uint32   `protobuf:"varint,2,opt,name=CategoryID,proto3" json:"CategoryID,omitempty"`
-	PlayerID             uint32   `protobuf:"varint,3,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	RarityID   uint32 `protobuf:"varint,1,opt,name=RarityID,proto3" json:"RarityID,omitempty"`
+	CategoryID uint32 `protobuf:"varint,2,opt,name=CategoryID,proto3" json:"CategoryID,omitempty"`
+	PlayerID   uint32 `protobuf:"varint,3,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *StartCreateShipRequest) Reset()         { *m = StartCreateShipRequest{} }
@@ -191,10 +182,7 @@ func (m *StartCreateShipRequest) GetPlayerID() uint32 {
 }
 
 type StartCreateShipResponse struct {
-	ShipCreateEndTime    *types.Timestamp `protobuf:"bytes,1,opt,name=ShipCreateEndTime,proto3" json:"ShipCreateEndTime,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
+	ShipCreateEndTime *types.Timestamp `protobuf:"bytes,1,opt,name=ShipCreateEndTime,proto3" json:"ShipCreateEndTime,omitempty"`
 }
 
 func (m *StartCreateShipResponse) Reset()         { *m = StartCreateShipResponse{} }
@@ -239,10 +227,7 @@ func (m *StartCreateShipResponse) GetShipCreateEndTime() *types.Timestamp {
 
 // CheckCreateShip
 type CheckCreateShipRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *CheckCreateShipRequest) Reset()         { *m = CheckCreateShipRequest{} }
@@ -289,9 +274,6 @@ type CheckCreateShipResponse struct {
 	ShipCreateInProgress bool             `protobuf:"varint,1,opt,name=ShipCreateInProgress,proto3" json:"ShipCreateInProgress,omitempty"`
 	FinishShipCreating   bool             `protobuf:"varint,2,opt,name=FinishShipCreating,proto3" json:"FinishShipCreating,omitempty"`
 	ShipCreatingEndTime  *types.Timestamp `protobuf:"bytes,3,opt,name=ShipCreatingEndTime,proto3" json:"ShipCreatingEndTime,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
 }
 
 func (m *CheckCreateShipResponse) Reset()         { *m = CheckCreateShipResponse{} }
@@ -350,10 +332,7 @@ func (m *CheckCreateShipResponse) GetShipCreatingEndTime() *types.Timestamp {
 
 // EndCreateShip
 type EndCreateShipRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *EndCreateShipRequest) Reset()         { *m = EndCreateShipRequest{} }
@@ -397,10 +376,7 @@ func (m *EndCreateShipRequest) GetPlayerID() uint32 {
 }
 
 type EndCreateShipResponse struct {
-	Ship                 *Ship    `protobuf:"bytes,1,opt,name=Ship,proto3" json:"Ship,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Ship *Ship `protobuf:"bytes,1,opt,name=Ship,proto3" json:"Ship,omitempty"`
 }
 
 func (m *EndCreateShipResponse) Reset()         { *m = EndCreateShipResponse{} }
@@ -459,31 +435,32 @@ func init() {
 }
 
 var fileDescriptor_2a700c4d4aee9e48 = []byte{
-	// 383 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x92, 0x41, 0x4f, 0xfa, 0x30,
-	0x18, 0xc6, 0xb3, 0x3f, 0xf0, 0x0f, 0x79, 0x8d, 0x89, 0x56, 0x84, 0xb9, 0xc3, 0x34, 0x8b, 0x07,
-	0x4f, 0x23, 0xa2, 0x89, 0x07, 0x6f, 0x02, 0xea, 0x12, 0x0f, 0x64, 0x10, 0x0f, 0x5e, 0x48, 0x19,
-	0x65, 0x6b, 0x84, 0x76, 0xb6, 0xe5, 0xc0, 0x37, 0x34, 0xf1, 0xe2, 0x47, 0x30, 0x7c, 0x12, 0xb3,
-	0x6e, 0x43, 0x02, 0x33, 0xc6, 0xc4, 0xe3, 0xd3, 0xe7, 0xfd, 0xbd, 0x7d, 0xfa, 0x6c, 0x70, 0x1a,
-	0x0b, 0xae, 0x78, 0x53, 0xe2, 0x09, 0x89, 0xa7, 0x98, 0x11, 0x35, 0x8c, 0x30, 0x0b, 0xb1, 0x18,
-	0x06, 0x82, 0x60, 0x45, 0x5c, 0x6d, 0x23, 0xf3, 0x3b, 0xdf, 0xda, 0xcb, 0xf8, 0x88, 0xc6, 0xe9,
-	0xac, 0x75, 0x1c, 0x72, 0x1e, 0x4e, 0x49, 0x53, 0xab, 0xd1, 0x7c, 0xd2, 0x54, 0x74, 0x46, 0xa4,
-	0xc2, 0xb3, 0x6c, 0xc0, 0x79, 0x04, 0xf3, 0x8e, 0xa8, 0xb6, 0xe6, 0xfb, 0x11, 0x8d, 0x3d, 0x36,
-	0xe1, 0x3e, 0x79, 0x99, 0x13, 0xa9, 0x90, 0x05, 0x55, 0x1f, 0x0b, 0xaa, 0x16, 0x5e, 0xc7, 0x34,
-	0x4e, 0x8c, 0xb3, 0x5d, 0x7f, 0xa5, 0x91, 0x0d, 0xd0, 0xc6, 0x8a, 0x84, 0x5c, 0x24, 0xee, 0x3f,
-	0xed, 0xae, 0x9d, 0x38, 0xe7, 0x70, 0x54, 0xb0, 0x57, 0xc6, 0x9c, 0x49, 0x82, 0x6a, 0x50, 0xe9,
-	0x09, 0x1a, 0x10, 0xbd, 0xb5, 0xe2, 0xa7, 0xc2, 0x89, 0xa1, 0xde, 0x57, 0x58, 0xac, 0x41, 0x7f,
-	0x10, 0x24, 0x61, 0x7b, 0x53, 0xbc, 0x20, 0xc2, 0xeb, 0x98, 0xa5, 0x94, 0xcd, 0xb5, 0x13, 0x40,
-	0x63, 0xeb, 0xc6, 0x2c, 0xe2, 0x3d, 0xec, 0x27, 0x3a, 0x75, 0xba, 0x6c, 0x3c, 0xa0, 0xb3, 0x34,
-	0xee, 0x4e, 0xcb, 0x72, 0xd3, 0x52, 0xdd, 0xbc, 0x54, 0x77, 0x90, 0x97, 0xea, 0x6f, 0x43, 0xce,
-	0x25, 0xd4, 0xdb, 0x11, 0x09, 0x9e, 0x0b, 0x9f, 0xb5, 0x8a, 0x66, 0x6c, 0x44, 0x7b, 0x33, 0xa0,
-	0xb1, 0x85, 0x65, 0xd9, 0x5a, 0x50, 0xfb, 0xba, 0xc6, 0x63, 0x3d, 0xc1, 0x43, 0x41, 0xa4, 0xd4,
-	0x3b, 0xaa, 0x7e, 0xa1, 0x87, 0x5c, 0x40, 0xb7, 0x94, 0x51, 0x19, 0xad, 0x5c, 0xca, 0x42, 0x5d,
-	0x57, 0xd5, 0x2f, 0x70, 0xd0, 0x03, 0x1c, 0xac, 0xeb, 0xbc, 0x81, 0xd2, 0x8f, 0x0d, 0x14, 0x61,
-	0x4e, 0x0b, 0x6a, 0x5d, 0x36, 0xfe, 0x5d, 0x03, 0x57, 0x70, 0xb8, 0xc1, 0x64, 0xcf, 0xb7, 0xa1,
-	0x9c, 0xe8, 0xec, 0x6b, 0x80, 0xab, 0x7f, 0x77, 0x3d, 0xa1, 0xcf, 0x6f, 0xd0, 0xeb, 0xd2, 0x36,
-	0xde, 0x97, 0xb6, 0xf1, 0xb1, 0xb4, 0x8d, 0xa7, 0xb2, 0x7b, 0x1d, 0x8f, 0x46, 0xff, 0x75, 0xd2,
-	0x8b, 0xcf, 0x00, 0x00, 0x00, 0xff, 0xff, 0x41, 0x17, 0x5c, 0x84, 0x62, 0x03, 0x00, 0x00,
+	// 400 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x92, 0x31, 0x6f, 0xda, 0x40,
+	0x1c, 0xc5, 0x71, 0x81, 0x0a, 0xfd, 0xab, 0x4a, 0xad, 0x4b, 0xc1, 0xf5, 0x70, 0xad, 0xac, 0x0e,
+	0x9d, 0x8c, 0x4a, 0x2b, 0x65, 0xc8, 0x16, 0x20, 0x89, 0xa5, 0x0c, 0xc8, 0xa0, 0x0c, 0x59, 0xd0,
+	0x61, 0x0e, 0xfb, 0x14, 0xb8, 0x73, 0xee, 0x8e, 0x81, 0x6f, 0x91, 0x8f, 0x15, 0x29, 0x0b, 0x63,
+	0xc6, 0x08, 0xbe, 0x48, 0xe4, 0xb3, 0x4d, 0x10, 0x38, 0x8a, 0x22, 0x65, 0x7c, 0xf7, 0xfe, 0xbf,
+	0xff, 0xbd, 0x7b, 0x36, 0xfc, 0x8e, 0x05, 0x57, 0xbc, 0x25, 0xf1, 0x94, 0xc4, 0x33, 0xcc, 0x88,
+	0x1a, 0x45, 0x98, 0x85, 0x58, 0x8c, 0x02, 0x41, 0xb0, 0x22, 0xae, 0xb6, 0x4d, 0xeb, 0x25, 0xdf,
+	0xfe, 0x92, 0xf1, 0x11, 0x8d, 0xd3, 0x59, 0xfb, 0x67, 0xc8, 0x79, 0x38, 0x23, 0x2d, 0xad, 0xc6,
+	0x8b, 0x69, 0x4b, 0xd1, 0x39, 0x91, 0x0a, 0xcf, 0xb3, 0x01, 0xe7, 0x12, 0xac, 0x33, 0xa2, 0x3a,
+	0x9a, 0x1f, 0x44, 0x34, 0xf6, 0xd8, 0x94, 0xfb, 0xe4, 0x66, 0x41, 0xa4, 0x32, 0x6d, 0xa8, 0xf9,
+	0x58, 0x50, 0xb5, 0xf4, 0xba, 0x96, 0xf1, 0xcb, 0xf8, 0xf3, 0xd9, 0xdf, 0x6a, 0x13, 0x01, 0x74,
+	0xb0, 0x22, 0x21, 0x17, 0x89, 0xfb, 0x41, 0xbb, 0x3b, 0x27, 0xce, 0x5f, 0xf8, 0x51, 0xb0, 0x57,
+	0xc6, 0x9c, 0x49, 0x62, 0xd6, 0xa1, 0xda, 0x17, 0x34, 0x20, 0x7a, 0x6b, 0xd5, 0x4f, 0x85, 0x13,
+	0x43, 0x63, 0xa0, 0xb0, 0xd8, 0x81, 0xde, 0x21, 0x48, 0xc2, 0xf6, 0x67, 0x78, 0x49, 0x84, 0xd7,
+	0xb5, 0xca, 0x29, 0x9b, 0x6b, 0x27, 0x80, 0xe6, 0xc1, 0x8d, 0x59, 0xc4, 0x73, 0xf8, 0x9a, 0xe8,
+	0xd4, 0xe9, 0xb1, 0xc9, 0x90, 0xce, 0xd3, 0xb8, 0x9f, 0xda, 0xb6, 0x9b, 0x96, 0xea, 0xe6, 0xa5,
+	0xba, 0xc3, 0xbc, 0x54, 0xff, 0x10, 0x72, 0xfe, 0x43, 0xa3, 0x13, 0x91, 0xe0, 0xba, 0xf0, 0x59,
+	0xdb, 0x68, 0xc6, 0x5e, 0xb4, 0x7b, 0x03, 0x9a, 0x07, 0x58, 0x96, 0xad, 0x0d, 0xf5, 0xe7, 0x6b,
+	0x3c, 0xd6, 0x17, 0x3c, 0x14, 0x44, 0x4a, 0xbd, 0xa3, 0xe6, 0x17, 0x7a, 0xa6, 0x0b, 0xe6, 0x29,
+	0x65, 0x54, 0x46, 0x5b, 0x97, 0xb2, 0x50, 0xd7, 0x55, 0xf3, 0x0b, 0x1c, 0xf3, 0x02, 0xbe, 0xed,
+	0xea, 0xbc, 0x81, 0xf2, 0xab, 0x0d, 0x14, 0x61, 0x4e, 0x1b, 0xea, 0x3d, 0x36, 0x79, 0x5b, 0x03,
+	0x47, 0xf0, 0x7d, 0x8f, 0xc9, 0x9e, 0x8f, 0xa0, 0x92, 0xe8, 0xec, 0x6b, 0x80, 0xab, 0x7f, 0x77,
+	0x3d, 0xa1, 0xcf, 0x4f, 0xd0, 0xdd, 0x1a, 0x19, 0xab, 0x35, 0x32, 0x1e, 0xd7, 0xc8, 0xb8, 0xdd,
+	0xa0, 0xd2, 0x6a, 0x83, 0x4a, 0x0f, 0x1b, 0x54, 0xba, 0xaa, 0xb8, 0xc7, 0xf1, 0x78, 0xfc, 0x51,
+	0xa7, 0xfe, 0xf7, 0x14, 0x00, 0x00, 0xff, 0xff, 0x50, 0x64, 0x66, 0x9a, 0x6e, 0x03, 0x00, 0x00,
 }
 
 func (m *GetCreateShipInfoRequest) Marshal() (dAtA []byte, err error) {
@@ -506,10 +483,6 @@ func (m *GetCreateShipInfoRequest) MarshalToSizedBuffer(dAtA []byte) (int, error
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.CategoryID != 0 {
 		i = encodeVarintSafeplanetHangarCreate(dAtA, i, uint64(m.CategoryID))
 		i--
@@ -543,10 +516,6 @@ func (m *GetCreateShipInfoResponse) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Price != 0 {
 		i = encodeVarintSafeplanetHangarCreate(dAtA, i, uint64(m.Price))
 		i--
@@ -575,10 +544,6 @@ func (m *StartCreateShipRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintSafeplanetHangarCreate(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -617,10 +582,6 @@ func (m *StartCreateShipResponse) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ShipCreateEndTime != nil {
 		{
 			size, err := m.ShipCreateEndTime.MarshalToSizedBuffer(dAtA[:i])
@@ -656,10 +617,6 @@ func (m *CheckCreateShipRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintSafeplanetHangarCreate(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -688,10 +645,6 @@ func (m *CheckCreateShipResponse) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ShipCreatingEndTime != nil {
 		{
 			size, err := m.ShipCreatingEndTime.MarshalToSizedBuffer(dAtA[:i])
@@ -747,10 +700,6 @@ func (m *EndCreateShipRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintSafeplanetHangarCreate(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -779,10 +728,6 @@ func (m *EndCreateShipResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Ship != nil {
 		{
 			size, err := m.Ship.MarshalToSizedBuffer(dAtA[:i])
@@ -821,9 +766,6 @@ func (m *GetCreateShipInfoRequest) Size() (n int) {
 	if m.CategoryID != 0 {
 		n += 1 + sovSafeplanetHangarCreate(uint64(m.CategoryID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -835,9 +777,6 @@ func (m *GetCreateShipInfoResponse) Size() (n int) {
 	_ = l
 	if m.Price != 0 {
 		n += 1 + sovSafeplanetHangarCreate(uint64(m.Price))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -857,9 +796,6 @@ func (m *StartCreateShipRequest) Size() (n int) {
 	if m.PlayerID != 0 {
 		n += 1 + sovSafeplanetHangarCreate(uint64(m.PlayerID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -873,9 +809,6 @@ func (m *StartCreateShipResponse) Size() (n int) {
 		l = m.ShipCreateEndTime.Size()
 		n += 1 + l + sovSafeplanetHangarCreate(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -887,9 +820,6 @@ func (m *CheckCreateShipRequest) Size() (n int) {
 	_ = l
 	if m.PlayerID != 0 {
 		n += 1 + sovSafeplanetHangarCreate(uint64(m.PlayerID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -910,9 +840,6 @@ func (m *CheckCreateShipResponse) Size() (n int) {
 		l = m.ShipCreatingEndTime.Size()
 		n += 1 + l + sovSafeplanetHangarCreate(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -924,9 +851,6 @@ func (m *EndCreateShipRequest) Size() (n int) {
 	_ = l
 	if m.PlayerID != 0 {
 		n += 1 + sovSafeplanetHangarCreate(uint64(m.PlayerID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -940,9 +864,6 @@ func (m *EndCreateShipResponse) Size() (n int) {
 	if m.Ship != nil {
 		l = m.Ship.Size()
 		n += 1 + l + sovSafeplanetHangarCreate(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1035,7 +956,6 @@ func (m *GetCreateShipInfoRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1108,7 +1028,6 @@ func (m *GetCreateShipInfoResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1219,7 +1138,6 @@ func (m *StartCreateShipRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1309,7 +1227,6 @@ func (m *StartCreateShipResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1382,7 +1299,6 @@ func (m *CheckCreateShipRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1512,7 +1428,6 @@ func (m *CheckCreateShipResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1585,7 +1500,6 @@ func (m *EndCreateShipRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1675,7 +1589,6 @@ func (m *EndCreateShipResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

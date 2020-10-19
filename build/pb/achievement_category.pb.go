@@ -23,12 +23,9 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type AchievementCategory struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	Slug                 string   `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID   uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	Slug string `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
 }
 
 func (m *AchievementCategory) Reset()         { *m = AchievementCategory{} }
@@ -87,9 +84,6 @@ func (m *AchievementCategory) GetSlug() string {
 
 // GetAllAchievementCategory
 type GetAllAchievementCategoryRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetAllAchievementCategoryRequest) Reset()         { *m = GetAllAchievementCategoryRequest{} }
@@ -127,9 +121,6 @@ var xxx_messageInfo_GetAllAchievementCategoryRequest proto.InternalMessageInfo
 
 type GetAllAchievementCategoryResponse struct {
 	AchievementCategories []*AchievementCategory `protobuf:"bytes,1,rep,name=AchievementCategories,proto3" json:"AchievementCategories,omitempty"`
-	XXX_NoUnkeyedLiteral  struct{}               `json:"-"`
-	XXX_unrecognized      []byte                 `json:"-"`
-	XXX_sizecache         int32                  `json:"-"`
 }
 
 func (m *GetAllAchievementCategoryResponse) Reset()         { *m = GetAllAchievementCategoryResponse{} }
@@ -174,10 +165,7 @@ func (m *GetAllAchievementCategoryResponse) GetAchievementCategories() []*Achiev
 
 // GetAchievementCategoryByID
 type GetAchievementCategoryByIDRequest struct {
-	CategoryID           uint32   `protobuf:"varint,1,opt,name=CategoryID,proto3" json:"CategoryID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	CategoryID uint32 `protobuf:"varint,1,opt,name=CategoryID,proto3" json:"CategoryID,omitempty"`
 }
 
 func (m *GetAchievementCategoryByIDRequest) Reset()         { *m = GetAchievementCategoryByIDRequest{} }
@@ -221,10 +209,7 @@ func (m *GetAchievementCategoryByIDRequest) GetCategoryID() uint32 {
 }
 
 type GetAchievementCategoryByIDResponse struct {
-	AchievementCategory  *AchievementCategory `protobuf:"bytes,1,opt,name=AchievementCategory,proto3" json:"AchievementCategory,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
+	AchievementCategory *AchievementCategory `protobuf:"bytes,1,opt,name=AchievementCategory,proto3" json:"AchievementCategory,omitempty"`
 }
 
 func (m *GetAchievementCategoryByIDResponse) Reset()         { *m = GetAchievementCategoryByIDResponse{} }
@@ -269,10 +254,7 @@ func (m *GetAchievementCategoryByIDResponse) GetAchievementCategory() *Achieveme
 
 // GetAchievementCategoryBySlug
 type GetAchievementCategoryBySlugRequest struct {
-	Slug                 string   `protobuf:"bytes,1,opt,name=Slug,proto3" json:"Slug,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Slug string `protobuf:"bytes,1,opt,name=Slug,proto3" json:"Slug,omitempty"`
 }
 
 func (m *GetAchievementCategoryBySlugRequest) Reset()         { *m = GetAchievementCategoryBySlugRequest{} }
@@ -316,10 +298,7 @@ func (m *GetAchievementCategoryBySlugRequest) GetSlug() string {
 }
 
 type GetAchievementCategoryBySlugResponse struct {
-	AchievementCategory  *AchievementCategory `protobuf:"bytes,1,opt,name=AchievementCategory,proto3" json:"AchievementCategory,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
+	AchievementCategory *AchievementCategory `protobuf:"bytes,1,opt,name=AchievementCategory,proto3" json:"AchievementCategory,omitempty"`
 }
 
 func (m *GetAchievementCategoryBySlugResponse) Reset()         { *m = GetAchievementCategoryBySlugResponse{} }
@@ -375,7 +354,7 @@ func init() {
 func init() { proto.RegisterFile("proto/achievement_category.proto", fileDescriptor_2883501740ee9590) }
 
 var fileDescriptor_2883501740ee9590 = []byte{
-	// 266 bytes of a gzipped FileDescriptorProto
+	// 279 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x52, 0x28, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x4f, 0x4c, 0xce, 0xc8, 0x4c, 0x2d, 0x4b, 0xcd, 0x4d, 0xcd, 0x2b, 0x89, 0x4f, 0x4e,
 	0x2c, 0x49, 0x4d, 0xcf, 0x2f, 0xaa, 0xd4, 0x03, 0x4b, 0x09, 0x89, 0x60, 0x93, 0x53, 0xf2, 0xe5,
@@ -390,9 +369,10 @@ var fileDescriptor_2883501740ee9590 = []byte{
 	0x3c, 0x3c, 0x90, 0x44, 0x94, 0x1a, 0x19, 0xb9, 0x94, 0xf0, 0x99, 0x02, 0xf5, 0x4c, 0x34, 0xd6,
 	0x50, 0x06, 0x9b, 0x47, 0x92, 0x57, 0xb0, 0x99, 0xa2, 0x64, 0xc9, 0xa5, 0x8c, 0xcb, 0x09, 0xa0,
 	0x38, 0x81, 0x79, 0x05, 0x16, 0x5d, 0x8c, 0x48, 0xd1, 0xd5, 0xcc, 0xc8, 0xa5, 0x82, 0x5f, 0x2f,
-	0x1d, 0x3c, 0xe0, 0x24, 0x74, 0xe2, 0x91, 0x1c, 0xe3, 0x85, 0x47, 0x72, 0x8c, 0x0f, 0x1e, 0xc9,
-	0x31, 0x46, 0xb1, 0xe8, 0x59, 0x17, 0x24, 0x25, 0xb1, 0x81, 0x13, 0xad, 0x31, 0x20, 0x00, 0x00,
-	0xff, 0xff, 0xd3, 0xa1, 0x97, 0xd0, 0xd8, 0x02, 0x00, 0x00,
+	0x1d, 0x3c, 0xe0, 0x24, 0x77, 0xe2, 0x91, 0x1c, 0xe3, 0x85, 0x47, 0x72, 0x8c, 0x0f, 0x1e, 0xc9,
+	0x31, 0x4e, 0x78, 0x2c, 0xc7, 0x70, 0xe1, 0xb1, 0x1c, 0xc3, 0x8d, 0xc7, 0x72, 0x0c, 0x51, 0x2c,
+	0x7a, 0xd6, 0x05, 0x49, 0x49, 0x6c, 0xe0, 0x04, 0x6c, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0x3f,
+	0x29, 0x5d, 0x02, 0xe4, 0x02, 0x00, 0x00,
 }
 
 func (m *AchievementCategory) Marshal() (dAtA []byte, err error) {
@@ -415,10 +395,6 @@ func (m *AchievementCategory) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Slug) > 0 {
 		i -= len(m.Slug)
 		copy(dAtA[i:], m.Slug)
@@ -461,10 +437,6 @@ func (m *GetAllAchievementCategoryRequest) MarshalToSizedBuffer(dAtA []byte) (in
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -488,10 +460,6 @@ func (m *GetAllAchievementCategoryResponse) MarshalToSizedBuffer(dAtA []byte) (i
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.AchievementCategories) > 0 {
 		for iNdEx := len(m.AchievementCategories) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -529,10 +497,6 @@ func (m *GetAchievementCategoryByIDRequest) MarshalToSizedBuffer(dAtA []byte) (i
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.CategoryID != 0 {
 		i = encodeVarintAchievementCategory(dAtA, i, uint64(m.CategoryID))
 		i--
@@ -561,10 +525,6 @@ func (m *GetAchievementCategoryByIDResponse) MarshalToSizedBuffer(dAtA []byte) (
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.AchievementCategory != nil {
 		{
 			size, err := m.AchievementCategory.MarshalToSizedBuffer(dAtA[:i])
@@ -600,10 +560,6 @@ func (m *GetAchievementCategoryBySlugRequest) MarshalToSizedBuffer(dAtA []byte) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Slug) > 0 {
 		i -= len(m.Slug)
 		copy(dAtA[i:], m.Slug)
@@ -634,10 +590,6 @@ func (m *GetAchievementCategoryBySlugResponse) MarshalToSizedBuffer(dAtA []byte)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.AchievementCategory != nil {
 		{
 			size, err := m.AchievementCategory.MarshalToSizedBuffer(dAtA[:i])
@@ -681,9 +633,6 @@ func (m *AchievementCategory) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovAchievementCategory(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -693,9 +642,6 @@ func (m *GetAllAchievementCategoryRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -711,9 +657,6 @@ func (m *GetAllAchievementCategoryResponse) Size() (n int) {
 			n += 1 + l + sovAchievementCategory(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -725,9 +668,6 @@ func (m *GetAchievementCategoryByIDRequest) Size() (n int) {
 	_ = l
 	if m.CategoryID != 0 {
 		n += 1 + sovAchievementCategory(uint64(m.CategoryID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -742,9 +682,6 @@ func (m *GetAchievementCategoryByIDResponse) Size() (n int) {
 		l = m.AchievementCategory.Size()
 		n += 1 + l + sovAchievementCategory(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -758,9 +695,6 @@ func (m *GetAchievementCategoryBySlugRequest) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovAchievementCategory(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -773,9 +707,6 @@ func (m *GetAchievementCategoryBySlugResponse) Size() (n int) {
 	if m.AchievementCategory != nil {
 		l = m.AchievementCategory.Size()
 		n += 1 + l + sovAchievementCategory(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -913,7 +844,6 @@ func (m *AchievementCategory) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -967,7 +897,6 @@ func (m *GetAllAchievementCategoryRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1055,7 +984,6 @@ func (m *GetAllAchievementCategoryResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1128,7 +1056,6 @@ func (m *GetAchievementCategoryByIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1218,7 +1145,6 @@ func (m *GetAchievementCategoryByIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1304,7 +1230,6 @@ func (m *GetAchievementCategoryBySlugRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1394,7 +1319,6 @@ func (m *GetAchievementCategoryBySlugResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

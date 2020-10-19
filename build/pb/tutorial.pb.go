@@ -25,10 +25,7 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // PlayerStartTutorial
 type PlayerStartTutorialRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *PlayerStartTutorialRequest) Reset()         { *m = PlayerStartTutorialRequest{} }
@@ -72,9 +69,6 @@ func (m *PlayerStartTutorialRequest) GetPlayerID() uint32 {
 }
 
 type PlayerStartTutorialResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *PlayerStartTutorialResponse) Reset()         { *m = PlayerStartTutorialResponse{} }
@@ -112,10 +106,7 @@ var xxx_messageInfo_PlayerStartTutorialResponse proto.InternalMessageInfo
 
 // PlayerEndTutorial
 type PlayerEndTutorialRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *PlayerEndTutorialRequest) Reset()         { *m = PlayerEndTutorialRequest{} }
@@ -159,9 +150,6 @@ func (m *PlayerEndTutorialRequest) GetPlayerID() uint32 {
 }
 
 type PlayerEndTutorialResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *PlayerEndTutorialResponse) Reset()         { *m = PlayerEndTutorialResponse{} }
@@ -199,10 +187,7 @@ var xxx_messageInfo_PlayerEndTutorialResponse proto.InternalMessageInfo
 
 // StartTravelTutorial
 type StartTravelTutorialRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *StartTravelTutorialRequest) Reset()         { *m = StartTravelTutorialRequest{} }
@@ -246,10 +231,7 @@ func (m *StartTravelTutorialRequest) GetPlayerID() uint32 {
 }
 
 type StartTravelTutorialResponse struct {
-	TravelingEndTime     *types.Timestamp `protobuf:"bytes,1,opt,name=TravelingEndTime,proto3" json:"TravelingEndTime,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
+	TravelingEndTime *types.Timestamp `protobuf:"bytes,1,opt,name=TravelingEndTime,proto3" json:"TravelingEndTime,omitempty"`
 }
 
 func (m *StartTravelTutorialResponse) Reset()         { *m = StartTravelTutorialResponse{} }
@@ -304,7 +286,7 @@ func init() {
 func init() { proto.RegisterFile("proto/tutorial.proto", fileDescriptor_89006cb20b0184a4) }
 
 var fileDescriptor_89006cb20b0184a4 = []byte{
-	// 224 bytes of a gzipped FileDescriptorProto
+	// 237 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x29, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x2f, 0x29, 0x2d, 0xc9, 0x2f, 0xca, 0x4c, 0xcc, 0xd1, 0x03, 0x73, 0x85, 0x38, 0x60,
 	0x7c, 0x29, 0xf9, 0xf4, 0xfc, 0xfc, 0xf4, 0x9c, 0x54, 0x7d, 0xb0, 0x78, 0x52, 0x69, 0x9a, 0x7e,
@@ -316,9 +298,10 @@ var fileDescriptor_89006cb20b0184a4 = []byte{
 	0xf4, 0x41, 0x0d, 0xb5, 0xe0, 0x92, 0x82, 0xd8, 0x56, 0x94, 0x58, 0x96, 0x9a, 0x43, 0x8a, 0xb1,
 	0xa9, 0x5c, 0xd2, 0x58, 0x75, 0x42, 0x0c, 0x16, 0x72, 0xe3, 0x12, 0x80, 0xc8, 0x64, 0xe6, 0xa5,
 	0x83, 0x2c, 0xce, 0xcc, 0x4d, 0x05, 0x1b, 0xc1, 0x6d, 0x24, 0xa5, 0x07, 0x09, 0x42, 0x3d, 0x58,
-	0x10, 0xea, 0x85, 0xc0, 0x82, 0x30, 0x08, 0x43, 0x8f, 0x93, 0xd0, 0x89, 0x47, 0x72, 0x8c, 0x17,
-	0x1e, 0xc9, 0x31, 0x3e, 0x78, 0x24, 0xc7, 0x18, 0xc5, 0xa2, 0x67, 0x5d, 0x90, 0x94, 0xc4, 0x06,
-	0xd6, 0x69, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0x18, 0xce, 0x75, 0xd9, 0xac, 0x01, 0x00, 0x00,
+	0x10, 0xea, 0x85, 0xc0, 0x82, 0x30, 0x08, 0x43, 0x8f, 0x93, 0xdc, 0x89, 0x47, 0x72, 0x8c, 0x17,
+	0x1e, 0xc9, 0x31, 0x3e, 0x78, 0x24, 0xc7, 0x38, 0xe1, 0xb1, 0x1c, 0xc3, 0x85, 0xc7, 0x72, 0x0c,
+	0x37, 0x1e, 0xcb, 0x31, 0x44, 0xb1, 0xe8, 0x59, 0x17, 0x24, 0x25, 0xb1, 0x81, 0x4d, 0x31, 0x06,
+	0x04, 0x00, 0x00, 0xff, 0xff, 0xc8, 0x5c, 0xf3, 0x7f, 0xb8, 0x01, 0x00, 0x00,
 }
 
 func (m *PlayerStartTutorialRequest) Marshal() (dAtA []byte, err error) {
@@ -341,10 +324,6 @@ func (m *PlayerStartTutorialRequest) MarshalToSizedBuffer(dAtA []byte) (int, err
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintTutorial(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -373,10 +352,6 @@ func (m *PlayerStartTutorialResponse) MarshalToSizedBuffer(dAtA []byte) (int, er
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -400,10 +375,6 @@ func (m *PlayerEndTutorialRequest) MarshalToSizedBuffer(dAtA []byte) (int, error
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintTutorial(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -432,10 +403,6 @@ func (m *PlayerEndTutorialResponse) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -459,10 +426,6 @@ func (m *StartTravelTutorialRequest) MarshalToSizedBuffer(dAtA []byte) (int, err
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintTutorial(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -491,10 +454,6 @@ func (m *StartTravelTutorialResponse) MarshalToSizedBuffer(dAtA []byte) (int, er
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.TravelingEndTime != nil {
 		{
 			size, err := m.TravelingEndTime.MarshalToSizedBuffer(dAtA[:i])
@@ -530,9 +489,6 @@ func (m *PlayerStartTutorialRequest) Size() (n int) {
 	if m.PlayerID != 0 {
 		n += 1 + sovTutorial(uint64(m.PlayerID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -542,9 +498,6 @@ func (m *PlayerStartTutorialResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -557,9 +510,6 @@ func (m *PlayerEndTutorialRequest) Size() (n int) {
 	if m.PlayerID != 0 {
 		n += 1 + sovTutorial(uint64(m.PlayerID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -569,9 +519,6 @@ func (m *PlayerEndTutorialResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -583,9 +530,6 @@ func (m *StartTravelTutorialRequest) Size() (n int) {
 	_ = l
 	if m.PlayerID != 0 {
 		n += 1 + sovTutorial(uint64(m.PlayerID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -599,9 +543,6 @@ func (m *StartTravelTutorialResponse) Size() (n int) {
 	if m.TravelingEndTime != nil {
 		l = m.TravelingEndTime.Size()
 		n += 1 + l + sovTutorial(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -675,7 +616,6 @@ func (m *PlayerStartTutorialRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -729,7 +669,6 @@ func (m *PlayerStartTutorialResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -802,7 +741,6 @@ func (m *PlayerEndTutorialRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -856,7 +794,6 @@ func (m *PlayerEndTutorialResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -929,7 +866,6 @@ func (m *StartTravelTutorialRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1019,7 +955,6 @@ func (m *StartTravelTutorialResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

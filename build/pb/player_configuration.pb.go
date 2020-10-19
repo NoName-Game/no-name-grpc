@@ -24,11 +24,8 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // PlayerSetLanguage
 type PlayerSetLanguageRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	LanguageID           uint32   `protobuf:"varint,2,opt,name=LanguageID,proto3" json:"LanguageID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID   uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	LanguageID uint32 `protobuf:"varint,2,opt,name=LanguageID,proto3" json:"LanguageID,omitempty"`
 }
 
 func (m *PlayerSetLanguageRequest) Reset()         { *m = PlayerSetLanguageRequest{} }
@@ -79,9 +76,6 @@ func (m *PlayerSetLanguageRequest) GetLanguageID() uint32 {
 }
 
 type PlayerSetLanguageResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *PlayerSetLanguageResponse) Reset()         { *m = PlayerSetLanguageResponse{} }
@@ -119,11 +113,8 @@ var xxx_messageInfo_PlayerSetLanguageResponse proto.InternalMessageInfo
 
 // PlayerSetTimezone
 type PlayerSetTimezoneRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	TimezoneID           uint32   `protobuf:"varint,2,opt,name=TimezoneID,proto3" json:"TimezoneID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID   uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	TimezoneID uint32 `protobuf:"varint,2,opt,name=TimezoneID,proto3" json:"TimezoneID,omitempty"`
 }
 
 func (m *PlayerSetTimezoneRequest) Reset()         { *m = PlayerSetTimezoneRequest{} }
@@ -174,9 +165,6 @@ func (m *PlayerSetTimezoneRequest) GetTimezoneID() uint32 {
 }
 
 type PlayerSetTimezoneResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *PlayerSetTimezoneResponse) Reset()         { *m = PlayerSetTimezoneResponse{} }
@@ -222,7 +210,7 @@ func init() {
 func init() { proto.RegisterFile("proto/player_configuration.proto", fileDescriptor_e910c183fdc97af3) }
 
 var fileDescriptor_e910c183fdc97af3 = []byte{
-	// 177 bytes of a gzipped FileDescriptorProto
+	// 190 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x52, 0x28, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x2f, 0xc8, 0x49, 0xac, 0x4c, 0x2d, 0x8a, 0x4f, 0xce, 0xcf, 0x4b, 0xcb, 0x4c, 0x2f,
 	0x2d, 0x4a, 0x2c, 0xc9, 0xcc, 0xcf, 0xd3, 0x03, 0x4b, 0x09, 0x89, 0x60, 0x93, 0x53, 0x0a, 0xe3,
@@ -231,10 +219,10 @@ var fileDescriptor_e910c183fdc97af3 = []byte{
 	0x15, 0x18, 0x35, 0x78, 0x83, 0xe0, 0x7c, 0x21, 0x39, 0x2e, 0x2e, 0x98, 0x72, 0x4f, 0x17, 0x09,
 	0x26, 0xb0, 0x2c, 0x92, 0x88, 0x92, 0x34, 0x97, 0x24, 0x16, 0x73, 0x8b, 0x0b, 0xf2, 0xf3, 0x8a,
 	0x53, 0x51, 0x2c, 0x0d, 0xc9, 0xcc, 0x4d, 0xad, 0xca, 0xcf, 0x23, 0xd6, 0x52, 0x98, 0x72, 0x84,
-	0xa5, 0x08, 0x11, 0x14, 0x4b, 0x11, 0xe6, 0x42, 0x2c, 0x75, 0x12, 0x3a, 0xf1, 0x48, 0x8e, 0xf1,
-	0xc2, 0x23, 0x39, 0xc6, 0x07, 0x8f, 0xe4, 0x18, 0xa3, 0x58, 0xf4, 0xac, 0x0b, 0x92, 0x92, 0xd8,
-	0xc0, 0x41, 0x63, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0x8c, 0x7b, 0x75, 0x0d, 0x3e, 0x01, 0x00,
-	0x00,
+	0xa5, 0x08, 0x11, 0x14, 0x4b, 0x11, 0xe6, 0x42, 0x2c, 0x75, 0x92, 0x3b, 0xf1, 0x48, 0x8e, 0xf1,
+	0xc2, 0x23, 0x39, 0xc6, 0x07, 0x8f, 0xe4, 0x18, 0x27, 0x3c, 0x96, 0x63, 0xb8, 0xf0, 0x58, 0x8e,
+	0xe1, 0xc6, 0x63, 0x39, 0x86, 0x28, 0x16, 0x3d, 0xeb, 0x82, 0xa4, 0x24, 0x36, 0x70, 0x30, 0x19,
+	0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0x5f, 0x27, 0x1d, 0x77, 0x4a, 0x01, 0x00, 0x00,
 }
 
 func (m *PlayerSetLanguageRequest) Marshal() (dAtA []byte, err error) {
@@ -257,10 +245,6 @@ func (m *PlayerSetLanguageRequest) MarshalToSizedBuffer(dAtA []byte) (int, error
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.LanguageID != 0 {
 		i = encodeVarintPlayerConfiguration(dAtA, i, uint64(m.LanguageID))
 		i--
@@ -294,10 +278,6 @@ func (m *PlayerSetLanguageResponse) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -321,10 +301,6 @@ func (m *PlayerSetTimezoneRequest) MarshalToSizedBuffer(dAtA []byte) (int, error
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.TimezoneID != 0 {
 		i = encodeVarintPlayerConfiguration(dAtA, i, uint64(m.TimezoneID))
 		i--
@@ -358,10 +334,6 @@ func (m *PlayerSetTimezoneResponse) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -388,9 +360,6 @@ func (m *PlayerSetLanguageRequest) Size() (n int) {
 	if m.LanguageID != 0 {
 		n += 1 + sovPlayerConfiguration(uint64(m.LanguageID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -400,9 +369,6 @@ func (m *PlayerSetLanguageResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -418,9 +384,6 @@ func (m *PlayerSetTimezoneRequest) Size() (n int) {
 	if m.TimezoneID != 0 {
 		n += 1 + sovPlayerConfiguration(uint64(m.TimezoneID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -430,9 +393,6 @@ func (m *PlayerSetTimezoneResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -524,7 +484,6 @@ func (m *PlayerSetLanguageRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -578,7 +537,6 @@ func (m *PlayerSetLanguageResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -670,7 +628,6 @@ func (m *PlayerSetTimezoneRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -724,7 +681,6 @@ func (m *PlayerSetTimezoneResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

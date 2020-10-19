@@ -23,15 +23,12 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type PlayerAchievement struct {
-	ID                   uint32       `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	PlayerID             uint32       `protobuf:"varint,2,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	Player               *Player      `protobuf:"bytes,3,opt,name=Player,proto3" json:"Player,omitempty"`
-	AchievementID        uint32       `protobuf:"varint,4,opt,name=AchievementID,proto3" json:"AchievementID,omitempty"`
-	Achievement          *Achievement `protobuf:"bytes,5,opt,name=Achievement,proto3" json:"Achievement,omitempty"`
-	ToNotify             bool         `protobuf:"varint,6,opt,name=ToNotify,proto3" json:"ToNotify,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
-	XXX_unrecognized     []byte       `json:"-"`
-	XXX_sizecache        int32        `json:"-"`
+	ID            uint32       `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	PlayerID      uint32       `protobuf:"varint,2,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	Player        *Player      `protobuf:"bytes,3,opt,name=Player,proto3" json:"Player,omitempty"`
+	AchievementID uint32       `protobuf:"varint,4,opt,name=AchievementID,proto3" json:"AchievementID,omitempty"`
+	Achievement   *Achievement `protobuf:"bytes,5,opt,name=Achievement,proto3" json:"Achievement,omitempty"`
+	ToNotify      bool         `protobuf:"varint,6,opt,name=ToNotify,proto3" json:"ToNotify,omitempty"`
 }
 
 func (m *PlayerAchievement) Reset()         { *m = PlayerAchievement{} }
@@ -111,9 +108,6 @@ func (m *PlayerAchievement) GetToNotify() bool {
 
 // GetPlayerAchievementToNotify
 type GetPlayerAchievementToNotifyRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetPlayerAchievementToNotifyRequest) Reset()         { *m = GetPlayerAchievementToNotifyRequest{} }
@@ -150,10 +144,7 @@ func (m *GetPlayerAchievementToNotifyRequest) XXX_DiscardUnknown() {
 var xxx_messageInfo_GetPlayerAchievementToNotifyRequest proto.InternalMessageInfo
 
 type GetPlayerAchievementToNotifyResponse struct {
-	PlayerAchievements   []*PlayerAchievement `protobuf:"bytes,1,rep,name=PlayerAchievements,proto3" json:"PlayerAchievements,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
+	PlayerAchievements []*PlayerAchievement `protobuf:"bytes,1,rep,name=PlayerAchievements,proto3" json:"PlayerAchievements,omitempty"`
 }
 
 func (m *GetPlayerAchievementToNotifyResponse) Reset()         { *m = GetPlayerAchievementToNotifyResponse{} }
@@ -198,10 +189,7 @@ func (m *GetPlayerAchievementToNotifyResponse) GetPlayerAchievements() []*Player
 
 // SetPlayerAchievementNotified
 type SetPlayerAchievementNotifiedRequest struct {
-	AchievementID        uint32   `protobuf:"varint,1,opt,name=AchievementID,proto3" json:"AchievementID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	AchievementID uint32 `protobuf:"varint,1,opt,name=AchievementID,proto3" json:"AchievementID,omitempty"`
 }
 
 func (m *SetPlayerAchievementNotifiedRequest) Reset()         { *m = SetPlayerAchievementNotifiedRequest{} }
@@ -245,9 +233,6 @@ func (m *SetPlayerAchievementNotifiedRequest) GetAchievementID() uint32 {
 }
 
 type SetPlayerAchievementNotifiedResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *SetPlayerAchievementNotifiedResponse) Reset()         { *m = SetPlayerAchievementNotifiedResponse{} }
@@ -294,7 +279,7 @@ func init() {
 func init() { proto.RegisterFile("proto/player_achievement.proto", fileDescriptor_2e12157cff19983a) }
 
 var fileDescriptor_2e12157cff19983a = []byte{
-	// 295 bytes of a gzipped FileDescriptorProto
+	// 308 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x2b, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x2f, 0xc8, 0x49, 0xac, 0x4c, 0x2d, 0x8a, 0x4f, 0x4c, 0xce, 0xc8, 0x4c, 0x2d, 0x4b,
 	0xcd, 0x4d, 0xcd, 0x2b, 0xd1, 0x03, 0x4b, 0x08, 0x09, 0x61, 0xca, 0x48, 0x09, 0x21, 0xeb, 0x81,
@@ -311,9 +296,10 @@ var fileDescriptor_2e12157cff19983a = []byte{
 	0x96, 0x60, 0x54, 0x60, 0xd6, 0xe0, 0x36, 0x52, 0xd5, 0xc3, 0x12, 0x5d, 0x18, 0xaa, 0x83, 0xb0,
 	0x18, 0xa0, 0xe4, 0xcd, 0xa5, 0x1c, 0x8c, 0xc5, 0x7a, 0xb0, 0xe5, 0x99, 0xa9, 0x29, 0x50, 0x57,
 	0x62, 0x06, 0x25, 0x23, 0x96, 0xa0, 0x54, 0x52, 0xe3, 0x52, 0xc1, 0x6f, 0x18, 0xc4, 0x2f, 0x4e,
-	0x42, 0x27, 0x1e, 0xc9, 0x31, 0x5e, 0x78, 0x24, 0xc7, 0xf8, 0xe0, 0x91, 0x1c, 0x63, 0x14, 0x8b,
-	0x9e, 0x75, 0x41, 0x52, 0x12, 0x1b, 0x38, 0x75, 0x18, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0x36,
-	0x75, 0x34, 0x0d, 0x80, 0x02, 0x00, 0x00,
+	0x72, 0x27, 0x1e, 0xc9, 0x31, 0x5e, 0x78, 0x24, 0xc7, 0xf8, 0xe0, 0x91, 0x1c, 0xe3, 0x84, 0xc7,
+	0x72, 0x0c, 0x17, 0x1e, 0xcb, 0x31, 0xdc, 0x78, 0x2c, 0xc7, 0x10, 0xc5, 0xa2, 0x67, 0x5d, 0x90,
+	0x94, 0xc4, 0x06, 0x4e, 0x29, 0xc6, 0x80, 0x00, 0x00, 0x00, 0xff, 0xff, 0x42, 0xd1, 0xca, 0xca,
+	0x8c, 0x02, 0x00, 0x00,
 }
 
 func (m *PlayerAchievement) Marshal() (dAtA []byte, err error) {
@@ -336,10 +322,6 @@ func (m *PlayerAchievement) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ToNotify {
 		i--
 		if m.ToNotify {
@@ -412,10 +394,6 @@ func (m *GetPlayerAchievementToNotifyRequest) MarshalToSizedBuffer(dAtA []byte) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -439,10 +417,6 @@ func (m *GetPlayerAchievementToNotifyResponse) MarshalToSizedBuffer(dAtA []byte)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.PlayerAchievements) > 0 {
 		for iNdEx := len(m.PlayerAchievements) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -480,10 +454,6 @@ func (m *SetPlayerAchievementNotifiedRequest) MarshalToSizedBuffer(dAtA []byte) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.AchievementID != 0 {
 		i = encodeVarintPlayerAchievement(dAtA, i, uint64(m.AchievementID))
 		i--
@@ -512,10 +482,6 @@ func (m *SetPlayerAchievementNotifiedResponse) MarshalToSizedBuffer(dAtA []byte)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -556,9 +522,6 @@ func (m *PlayerAchievement) Size() (n int) {
 	if m.ToNotify {
 		n += 2
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -568,9 +531,6 @@ func (m *GetPlayerAchievementToNotifyRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -586,9 +546,6 @@ func (m *GetPlayerAchievementToNotifyResponse) Size() (n int) {
 			n += 1 + l + sovPlayerAchievement(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -601,9 +558,6 @@ func (m *SetPlayerAchievementNotifiedRequest) Size() (n int) {
 	if m.AchievementID != 0 {
 		n += 1 + sovPlayerAchievement(uint64(m.AchievementID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -613,9 +567,6 @@ func (m *SetPlayerAchievementNotifiedResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -818,7 +769,6 @@ func (m *PlayerAchievement) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -872,7 +822,6 @@ func (m *GetPlayerAchievementToNotifyRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -960,7 +909,6 @@ func (m *GetPlayerAchievementToNotifyResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1033,7 +981,6 @@ func (m *SetPlayerAchievementNotifiedRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1087,7 +1034,6 @@ func (m *SetPlayerAchievementNotifiedResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

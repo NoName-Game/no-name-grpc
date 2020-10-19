@@ -24,10 +24,7 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // GetConquerorsByPlanetID
 type GetConquerorsByPlanetIDRequest struct {
-	PlanetID             uint32   `protobuf:"varint,1,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlanetID uint32 `protobuf:"varint,1,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
 }
 
 func (m *GetConquerorsByPlanetIDRequest) Reset()         { *m = GetConquerorsByPlanetIDRequest{} }
@@ -71,10 +68,7 @@ func (m *GetConquerorsByPlanetIDRequest) GetPlanetID() uint32 {
 }
 
 type GetConquerorsByPlanetIDResponse struct {
-	Conquerors           []*GetConquerorsByPlanetIDResponse_ConquerorList `protobuf:"bytes,1,rep,name=Conquerors,proto3" json:"Conquerors,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                                         `json:"-"`
-	XXX_unrecognized     []byte                                           `json:"-"`
-	XXX_sizecache        int32                                            `json:"-"`
+	Conquerors []*GetConquerorsByPlanetIDResponse_ConquerorList `protobuf:"bytes,1,rep,name=Conquerors,proto3" json:"Conquerors,omitempty"`
 }
 
 func (m *GetConquerorsByPlanetIDResponse) Reset()         { *m = GetConquerorsByPlanetIDResponse{} }
@@ -118,11 +112,8 @@ func (m *GetConquerorsByPlanetIDResponse) GetConquerors() []*GetConquerorsByPlan
 }
 
 type GetConquerorsByPlanetIDResponse_ConquerorList struct {
-	Player               *Player  `protobuf:"bytes,1,opt,name=Player,proto3" json:"Player,omitempty"`
-	NKills               int64    `protobuf:"varint,2,opt,name=NKills,proto3" json:"NKills,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Player *Player `protobuf:"bytes,1,opt,name=Player,proto3" json:"Player,omitempty"`
+	NKills int64   `protobuf:"varint,2,opt,name=NKills,proto3" json:"NKills,omitempty"`
 }
 
 func (m *GetConquerorsByPlanetIDResponse_ConquerorList) Reset() {
@@ -178,10 +169,7 @@ func (m *GetConquerorsByPlanetIDResponse_ConquerorList) GetNKills() int64 {
 
 // GetCurrentConquerorByPlanetIDRequest
 type GetCurrentConquerorByPlanetIDRequest struct {
-	PlanetID             uint32   `protobuf:"varint,1,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlanetID uint32 `protobuf:"varint,1,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
 }
 
 func (m *GetCurrentConquerorByPlanetIDRequest) Reset()         { *m = GetCurrentConquerorByPlanetIDRequest{} }
@@ -225,11 +213,8 @@ func (m *GetCurrentConquerorByPlanetIDRequest) GetPlanetID() uint32 {
 }
 
 type GetCurrentConquerorByPlanetIDResponse struct {
-	Player               *Player  `protobuf:"bytes,1,opt,name=Player,proto3" json:"Player,omitempty"`
-	NKills               int64    `protobuf:"varint,2,opt,name=NKills,proto3" json:"NKills,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Player *Player `protobuf:"bytes,1,opt,name=Player,proto3" json:"Player,omitempty"`
+	NKills int64   `protobuf:"varint,2,opt,name=NKills,proto3" json:"NKills,omitempty"`
 }
 
 func (m *GetCurrentConquerorByPlanetIDResponse) Reset()         { *m = GetCurrentConquerorByPlanetIDResponse{} }
@@ -290,7 +275,7 @@ func init() {
 func init() { proto.RegisterFile("proto/conqueror.proto", fileDescriptor_1bd3dfc696cda7c8) }
 
 var fileDescriptor_1bd3dfc696cda7c8 = []byte{
-	// 242 bytes of a gzipped FileDescriptorProto
+	// 255 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2d, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x4f, 0xce, 0xcf, 0x2b, 0x2c, 0x4d, 0x2d, 0xca, 0x2f, 0xd2, 0x03, 0xf3, 0x85, 0x38,
 	0xe1, 0x02, 0x52, 0x42, 0x10, 0x15, 0x05, 0x39, 0x89, 0x95, 0xa9, 0x50, 0x69, 0x25, 0x1b, 0x2e,
@@ -303,10 +288,10 @@ var fileDescriptor_1bd3dfc696cda7c8 = []byte{
 	0xec, 0x50, 0x6e, 0x23, 0x3e, 0x3d, 0xa8, 0x5f, 0x21, 0xa2, 0x41, 0x50, 0x59, 0x21, 0x31, 0x2e,
 	0x36, 0x3f, 0xef, 0xcc, 0x9c, 0x9c, 0x62, 0x09, 0x26, 0x05, 0x46, 0x0d, 0xe6, 0x20, 0x28, 0x4f,
 	0xc9, 0x89, 0x4b, 0x05, 0xe4, 0x9a, 0xd2, 0xa2, 0xa2, 0xd4, 0x3c, 0x84, 0xa3, 0x48, 0x0b, 0x92,
-	0x74, 0x2e, 0x55, 0x02, 0x66, 0x40, 0xc3, 0x85, 0x42, 0xc7, 0x3a, 0x09, 0x9d, 0x78, 0x24, 0xc7,
-	0x78, 0xe1, 0x91, 0x1c, 0xe3, 0x83, 0x47, 0x72, 0x8c, 0x51, 0x2c, 0x7a, 0xd6, 0x05, 0x49, 0x49,
-	0x6c, 0xe0, 0x48, 0x35, 0x06, 0x04, 0x00, 0x00, 0xff, 0xff, 0x27, 0x63, 0xf8, 0xb7, 0x0c, 0x02,
-	0x00, 0x00,
+	0x74, 0x2e, 0x55, 0x02, 0x66, 0x40, 0xc3, 0x85, 0x42, 0xc7, 0x3a, 0xc9, 0x9d, 0x78, 0x24, 0xc7,
+	0x78, 0xe1, 0x91, 0x1c, 0xe3, 0x83, 0x47, 0x72, 0x8c, 0x13, 0x1e, 0xcb, 0x31, 0x5c, 0x78, 0x2c,
+	0xc7, 0x70, 0xe3, 0xb1, 0x1c, 0x43, 0x14, 0x8b, 0x9e, 0x75, 0x41, 0x52, 0x12, 0x1b, 0x38, 0x82,
+	0x8d, 0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0x75, 0xda, 0xfd, 0xa4, 0x18, 0x02, 0x00, 0x00,
 }
 
 func (m *GetConquerorsByPlanetIDRequest) Marshal() (dAtA []byte, err error) {
@@ -329,10 +314,6 @@ func (m *GetConquerorsByPlanetIDRequest) MarshalToSizedBuffer(dAtA []byte) (int,
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlanetID != 0 {
 		i = encodeVarintConqueror(dAtA, i, uint64(m.PlanetID))
 		i--
@@ -361,10 +342,6 @@ func (m *GetConquerorsByPlanetIDResponse) MarshalToSizedBuffer(dAtA []byte) (int
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Conquerors) > 0 {
 		for iNdEx := len(m.Conquerors) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -402,10 +379,6 @@ func (m *GetConquerorsByPlanetIDResponse_ConquerorList) MarshalToSizedBuffer(dAt
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.NKills != 0 {
 		i = encodeVarintConqueror(dAtA, i, uint64(m.NKills))
 		i--
@@ -446,10 +419,6 @@ func (m *GetCurrentConquerorByPlanetIDRequest) MarshalToSizedBuffer(dAtA []byte)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlanetID != 0 {
 		i = encodeVarintConqueror(dAtA, i, uint64(m.PlanetID))
 		i--
@@ -478,10 +447,6 @@ func (m *GetCurrentConquerorByPlanetIDResponse) MarshalToSizedBuffer(dAtA []byte
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.NKills != 0 {
 		i = encodeVarintConqueror(dAtA, i, uint64(m.NKills))
 		i--
@@ -522,9 +487,6 @@ func (m *GetConquerorsByPlanetIDRequest) Size() (n int) {
 	if m.PlanetID != 0 {
 		n += 1 + sovConqueror(uint64(m.PlanetID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -539,9 +501,6 @@ func (m *GetConquerorsByPlanetIDResponse) Size() (n int) {
 			l = e.Size()
 			n += 1 + l + sovConqueror(uint64(l))
 		}
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -559,9 +518,6 @@ func (m *GetConquerorsByPlanetIDResponse_ConquerorList) Size() (n int) {
 	if m.NKills != 0 {
 		n += 1 + sovConqueror(uint64(m.NKills))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -573,9 +529,6 @@ func (m *GetCurrentConquerorByPlanetIDRequest) Size() (n int) {
 	_ = l
 	if m.PlanetID != 0 {
 		n += 1 + sovConqueror(uint64(m.PlanetID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -592,9 +545,6 @@ func (m *GetCurrentConquerorByPlanetIDResponse) Size() (n int) {
 	}
 	if m.NKills != 0 {
 		n += 1 + sovConqueror(uint64(m.NKills))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -668,7 +618,6 @@ func (m *GetConquerorsByPlanetIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -756,7 +705,6 @@ func (m *GetConquerorsByPlanetIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -865,7 +813,6 @@ func (m *GetConquerorsByPlanetIDResponse_ConquerorList) Unmarshal(dAtA []byte) e
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -938,7 +885,6 @@ func (m *GetCurrentConquerorByPlanetIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1047,7 +993,6 @@ func (m *GetCurrentConquerorByPlanetIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

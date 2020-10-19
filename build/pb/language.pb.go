@@ -23,13 +23,10 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type Language struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	Slug                 string   `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
-	Enabled              bool     `protobuf:"varint,4,opt,name=Enabled,proto3" json:"Enabled,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID      uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name    string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	Slug    string `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
+	Enabled bool   `protobuf:"varint,4,opt,name=Enabled,proto3" json:"Enabled,omitempty"`
 }
 
 func (m *Language) Reset()         { *m = Language{} }
@@ -95,10 +92,7 @@ func (m *Language) GetEnabled() bool {
 
 // GetLanguageBySlug
 type GetLanguageBySlugRequest struct {
-	Slug                 string   `protobuf:"bytes,1,opt,name=Slug,proto3" json:"Slug,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Slug string `protobuf:"bytes,1,opt,name=Slug,proto3" json:"Slug,omitempty"`
 }
 
 func (m *GetLanguageBySlugRequest) Reset()         { *m = GetLanguageBySlugRequest{} }
@@ -142,10 +136,7 @@ func (m *GetLanguageBySlugRequest) GetSlug() string {
 }
 
 type GetLanguageBySlugResponse struct {
-	Language             *Language `protobuf:"bytes,1,opt,name=Language,proto3" json:"Language,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
+	Language *Language `protobuf:"bytes,1,opt,name=Language,proto3" json:"Language,omitempty"`
 }
 
 func (m *GetLanguageBySlugResponse) Reset()         { *m = GetLanguageBySlugResponse{} }
@@ -190,10 +181,7 @@ func (m *GetLanguageBySlugResponse) GetLanguage() *Language {
 
 // GetLanguageBySlug
 type GetLanguageByNameRequest struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Name string `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
 }
 
 func (m *GetLanguageByNameRequest) Reset()         { *m = GetLanguageByNameRequest{} }
@@ -237,10 +225,7 @@ func (m *GetLanguageByNameRequest) GetName() string {
 }
 
 type GetLanguageByNameResponse struct {
-	Language             *Language `protobuf:"bytes,1,opt,name=Language,proto3" json:"Language,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
+	Language *Language `protobuf:"bytes,1,opt,name=Language,proto3" json:"Language,omitempty"`
 }
 
 func (m *GetLanguageByNameResponse) Reset()         { *m = GetLanguageByNameResponse{} }
@@ -285,9 +270,6 @@ func (m *GetLanguageByNameResponse) GetLanguage() *Language {
 
 // GetLanguages
 type GetAllLanguagesRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetAllLanguagesRequest) Reset()         { *m = GetAllLanguagesRequest{} }
@@ -324,10 +306,7 @@ func (m *GetAllLanguagesRequest) XXX_DiscardUnknown() {
 var xxx_messageInfo_GetAllLanguagesRequest proto.InternalMessageInfo
 
 type GetAllLanguagesResponse struct {
-	Languages            []*Language `protobuf:"bytes,1,rep,name=Languages,proto3" json:"Languages,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
-	XXX_unrecognized     []byte      `json:"-"`
-	XXX_sizecache        int32       `json:"-"`
+	Languages []*Language `protobuf:"bytes,1,rep,name=Languages,proto3" json:"Languages,omitempty"`
 }
 
 func (m *GetAllLanguagesResponse) Reset()         { *m = GetAllLanguagesResponse{} }
@@ -383,7 +362,7 @@ func init() {
 func init() { proto.RegisterFile("proto/language.proto", fileDescriptor_11b79a1b8494d8c8) }
 
 var fileDescriptor_11b79a1b8494d8c8 = []byte{
-	// 253 bytes of a gzipped FileDescriptorProto
+	// 266 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x29, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0xcf, 0x49, 0xcc, 0x4b, 0x2f, 0x4d, 0x4c, 0x4f, 0xd5, 0x03, 0x73, 0x85, 0x38, 0x60,
 	0x7c, 0xa5, 0x18, 0x2e, 0x0e, 0x1f, 0x28, 0x5b, 0x88, 0x8f, 0x8b, 0xc9, 0xd3, 0x45, 0x82, 0x51,
@@ -397,9 +376,10 @@ var fileDescriptor_11b79a1b8494d8c8 = []byte{
 	0x72, 0x90, 0xfb, 0x91, 0x2c, 0x07, 0x7b, 0x8d, 0x11, 0xe1, 0x35, 0x0c, 0xcb, 0x21, 0xea, 0xc9,
 	0xb4, 0x5c, 0x82, 0x4b, 0xcc, 0x3d, 0xb5, 0xc4, 0x31, 0x27, 0x07, 0x26, 0x52, 0x0c, 0xb5, 0x5a,
 	0xc9, 0x9b, 0x4b, 0x1c, 0x43, 0x06, 0x6a, 0x89, 0x01, 0x17, 0x27, 0x5c, 0x50, 0x82, 0x51, 0x81,
-	0x19, 0x87, 0x2d, 0x08, 0x45, 0x4e, 0x42, 0x27, 0x1e, 0xc9, 0x31, 0x5e, 0x78, 0x24, 0xc7, 0xf8,
-	0xe0, 0x91, 0x1c, 0x63, 0x14, 0x8b, 0x9e, 0x75, 0x41, 0x52, 0x12, 0x1b, 0x38, 0x8e, 0x8d, 0x01,
-	0x01, 0x00, 0x00, 0xff, 0xff, 0xdc, 0x33, 0x36, 0xab, 0xfb, 0x01, 0x00, 0x00,
+	0x19, 0x87, 0x2d, 0x08, 0x45, 0x4e, 0x72, 0x27, 0x1e, 0xc9, 0x31, 0x5e, 0x78, 0x24, 0xc7, 0xf8,
+	0xe0, 0x91, 0x1c, 0xe3, 0x84, 0xc7, 0x72, 0x0c, 0x17, 0x1e, 0xcb, 0x31, 0xdc, 0x78, 0x2c, 0xc7,
+	0x10, 0xc5, 0xa2, 0x67, 0x5d, 0x90, 0x94, 0xc4, 0x06, 0x8e, 0x6f, 0x63, 0x40, 0x00, 0x00, 0x00,
+	0xff, 0xff, 0x3c, 0xc2, 0xde, 0xc5, 0x07, 0x02, 0x00, 0x00,
 }
 
 func (m *Language) Marshal() (dAtA []byte, err error) {
@@ -422,10 +402,6 @@ func (m *Language) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Enabled {
 		i--
 		if m.Enabled {
@@ -478,10 +454,6 @@ func (m *GetLanguageBySlugRequest) MarshalToSizedBuffer(dAtA []byte) (int, error
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Slug) > 0 {
 		i -= len(m.Slug)
 		copy(dAtA[i:], m.Slug)
@@ -512,10 +484,6 @@ func (m *GetLanguageBySlugResponse) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Language != nil {
 		{
 			size, err := m.Language.MarshalToSizedBuffer(dAtA[:i])
@@ -551,10 +519,6 @@ func (m *GetLanguageByNameRequest) MarshalToSizedBuffer(dAtA []byte) (int, error
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Name) > 0 {
 		i -= len(m.Name)
 		copy(dAtA[i:], m.Name)
@@ -585,10 +549,6 @@ func (m *GetLanguageByNameResponse) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Language != nil {
 		{
 			size, err := m.Language.MarshalToSizedBuffer(dAtA[:i])
@@ -624,10 +584,6 @@ func (m *GetAllLanguagesRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -651,10 +607,6 @@ func (m *GetAllLanguagesResponse) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Languages) > 0 {
 		for iNdEx := len(m.Languages) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -703,9 +655,6 @@ func (m *Language) Size() (n int) {
 	if m.Enabled {
 		n += 2
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -718,9 +667,6 @@ func (m *GetLanguageBySlugRequest) Size() (n int) {
 	l = len(m.Slug)
 	if l > 0 {
 		n += 1 + l + sovLanguage(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -735,9 +681,6 @@ func (m *GetLanguageBySlugResponse) Size() (n int) {
 		l = m.Language.Size()
 		n += 1 + l + sovLanguage(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -750,9 +693,6 @@ func (m *GetLanguageByNameRequest) Size() (n int) {
 	l = len(m.Name)
 	if l > 0 {
 		n += 1 + l + sovLanguage(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -767,9 +707,6 @@ func (m *GetLanguageByNameResponse) Size() (n int) {
 		l = m.Language.Size()
 		n += 1 + l + sovLanguage(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -779,9 +716,6 @@ func (m *GetAllLanguagesRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -796,9 +730,6 @@ func (m *GetAllLanguagesResponse) Size() (n int) {
 			l = e.Size()
 			n += 1 + l + sovLanguage(uint64(l))
 		}
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -956,7 +887,6 @@ func (m *Language) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1042,7 +972,6 @@ func (m *GetLanguageBySlugRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1132,7 +1061,6 @@ func (m *GetLanguageBySlugResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1218,7 +1146,6 @@ func (m *GetLanguageByNameRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1308,7 +1235,6 @@ func (m *GetLanguageByNameResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1362,7 +1288,6 @@ func (m *GetAllLanguagesRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1450,7 +1375,6 @@ func (m *GetAllLanguagesResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

@@ -23,12 +23,9 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type ShipCategory struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	Slug                 string   `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID   uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	Slug string `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
 }
 
 func (m *ShipCategory) Reset()         { *m = ShipCategory{} }
@@ -87,9 +84,6 @@ func (m *ShipCategory) GetSlug() string {
 
 // GetAllShipCategories
 type GetAllShipCategoriesRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetAllShipCategoriesRequest) Reset()         { *m = GetAllShipCategoriesRequest{} }
@@ -126,10 +120,7 @@ func (m *GetAllShipCategoriesRequest) XXX_DiscardUnknown() {
 var xxx_messageInfo_GetAllShipCategoriesRequest proto.InternalMessageInfo
 
 type GetAllShipCategoriesResponse struct {
-	ShipCategories       []*ShipCategory `protobuf:"bytes,1,rep,name=ShipCategories,proto3" json:"ShipCategories,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	ShipCategories []*ShipCategory `protobuf:"bytes,1,rep,name=ShipCategories,proto3" json:"ShipCategories,omitempty"`
 }
 
 func (m *GetAllShipCategoriesResponse) Reset()         { *m = GetAllShipCategoriesResponse{} }
@@ -174,10 +165,7 @@ func (m *GetAllShipCategoriesResponse) GetShipCategories() []*ShipCategory {
 
 // GetShipCategoryByID
 type GetShipCategoryByIDRequest struct {
-	ShipCategoryID       uint32   `protobuf:"varint,1,opt,name=ShipCategoryID,proto3" json:"ShipCategoryID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ShipCategoryID uint32 `protobuf:"varint,1,opt,name=ShipCategoryID,proto3" json:"ShipCategoryID,omitempty"`
 }
 
 func (m *GetShipCategoryByIDRequest) Reset()         { *m = GetShipCategoryByIDRequest{} }
@@ -221,10 +209,7 @@ func (m *GetShipCategoryByIDRequest) GetShipCategoryID() uint32 {
 }
 
 type GetShipCategoryByIDResponse struct {
-	ShipCategory         *ShipCategory `protobuf:"bytes,1,opt,name=ShipCategory,proto3" json:"ShipCategory,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
+	ShipCategory *ShipCategory `protobuf:"bytes,1,opt,name=ShipCategory,proto3" json:"ShipCategory,omitempty"`
 }
 
 func (m *GetShipCategoryByIDResponse) Reset()         { *m = GetShipCategoryByIDResponse{} }
@@ -278,7 +263,7 @@ func init() {
 func init() { proto.RegisterFile("proto/ship_category.proto", fileDescriptor_a8989f56e1d68ed5) }
 
 var fileDescriptor_a8989f56e1d68ed5 = []byte{
-	// 234 bytes of a gzipped FileDescriptorProto
+	// 247 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x2c, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x2f, 0xce, 0xc8, 0x2c, 0x88, 0x4f, 0x4e, 0x2c, 0x49, 0x4d, 0xcf, 0x2f, 0xaa, 0xd4,
 	0x03, 0x8b, 0x09, 0xf1, 0xa2, 0x08, 0x2a, 0xb9, 0x71, 0xf1, 0x04, 0x67, 0x64, 0x16, 0x38, 0x43,
@@ -291,9 +276,10 @@ var fileDescriptor_a8989f56e1d68ed5 = []byte{
 	0x0f, 0xc8, 0x6e, 0x0d, 0x42, 0xd3, 0xa2, 0xe4, 0xc2, 0x25, 0xe5, 0x9e, 0x5a, 0x82, 0xac, 0xc4,
 	0xa9, 0xd2, 0xd3, 0x05, 0xea, 0x04, 0x21, 0x35, 0x14, 0x2b, 0x2a, 0xe1, 0xbe, 0x44, 0x13, 0x55,
 	0x8a, 0x03, 0xfb, 0x04, 0xd3, 0x14, 0xa8, 0x4b, 0xed, 0x51, 0x03, 0x0c, 0x6c, 0x08, 0x01, 0x77,
-	0xa2, 0x68, 0x70, 0x12, 0x3a, 0xf1, 0x48, 0x8e, 0xf1, 0xc2, 0x23, 0x39, 0xc6, 0x07, 0x8f, 0xe4,
-	0x18, 0xa3, 0x58, 0xf4, 0xac, 0x0b, 0x92, 0x92, 0xd8, 0xc0, 0x71, 0x63, 0x0c, 0x08, 0x00, 0x00,
-	0xff, 0xff, 0xd7, 0x3e, 0x5e, 0x2e, 0xb8, 0x01, 0x00, 0x00,
+	0xa2, 0x68, 0x70, 0x92, 0x3b, 0xf1, 0x48, 0x8e, 0xf1, 0xc2, 0x23, 0x39, 0xc6, 0x07, 0x8f, 0xe4,
+	0x18, 0x27, 0x3c, 0x96, 0x63, 0xb8, 0xf0, 0x58, 0x8e, 0xe1, 0xc6, 0x63, 0x39, 0x86, 0x28, 0x16,
+	0x3d, 0xeb, 0x82, 0xa4, 0x24, 0x36, 0x70, 0x3c, 0x19, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0xb1,
+	0x2a, 0x2a, 0x91, 0xc4, 0x01, 0x00, 0x00,
 }
 
 func (m *ShipCategory) Marshal() (dAtA []byte, err error) {
@@ -316,10 +302,6 @@ func (m *ShipCategory) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Slug) > 0 {
 		i -= len(m.Slug)
 		copy(dAtA[i:], m.Slug)
@@ -362,10 +344,6 @@ func (m *GetAllShipCategoriesRequest) MarshalToSizedBuffer(dAtA []byte) (int, er
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -389,10 +367,6 @@ func (m *GetAllShipCategoriesResponse) MarshalToSizedBuffer(dAtA []byte) (int, e
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.ShipCategories) > 0 {
 		for iNdEx := len(m.ShipCategories) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -430,10 +404,6 @@ func (m *GetShipCategoryByIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, err
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ShipCategoryID != 0 {
 		i = encodeVarintShipCategory(dAtA, i, uint64(m.ShipCategoryID))
 		i--
@@ -462,10 +432,6 @@ func (m *GetShipCategoryByIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, er
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ShipCategory != nil {
 		{
 			size, err := m.ShipCategory.MarshalToSizedBuffer(dAtA[:i])
@@ -509,9 +475,6 @@ func (m *ShipCategory) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovShipCategory(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -521,9 +484,6 @@ func (m *GetAllShipCategoriesRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -539,9 +499,6 @@ func (m *GetAllShipCategoriesResponse) Size() (n int) {
 			n += 1 + l + sovShipCategory(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -553,9 +510,6 @@ func (m *GetShipCategoryByIDRequest) Size() (n int) {
 	_ = l
 	if m.ShipCategoryID != 0 {
 		n += 1 + sovShipCategory(uint64(m.ShipCategoryID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -569,9 +523,6 @@ func (m *GetShipCategoryByIDResponse) Size() (n int) {
 	if m.ShipCategory != nil {
 		l = m.ShipCategory.Size()
 		n += 1 + l + sovShipCategory(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -709,7 +660,6 @@ func (m *ShipCategory) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -763,7 +713,6 @@ func (m *GetAllShipCategoriesRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -851,7 +800,6 @@ func (m *GetAllShipCategoriesResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -924,7 +872,6 @@ func (m *GetShipCategoryByIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1014,7 +961,6 @@ func (m *GetShipCategoryByIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

@@ -24,10 +24,7 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // GetGuildPoints
 type GetGuildPointsRequest struct {
-	GuildID              uint32   `protobuf:"varint,1,opt,name=GuildID,proto3" json:"GuildID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	GuildID uint32 `protobuf:"varint,1,opt,name=GuildID,proto3" json:"GuildID,omitempty"`
 }
 
 func (m *GetGuildPointsRequest) Reset()         { *m = GetGuildPointsRequest{} }
@@ -71,10 +68,7 @@ func (m *GetGuildPointsRequest) GetGuildID() uint32 {
 }
 
 type GetGuildPointsResponse struct {
-	Result               int32    `protobuf:"varint,1,opt,name=Result,proto3" json:"Result,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Result int32 `protobuf:"varint,1,opt,name=Result,proto3" json:"Result,omitempty"`
 }
 
 func (m *GetGuildPointsResponse) Reset()         { *m = GetGuildPointsResponse{} }
@@ -119,11 +113,8 @@ func (m *GetGuildPointsResponse) GetResult() int32 {
 
 // GetPlayerGuildPoints
 type GetPlayerGuildPointsRequest struct {
-	GuildID              uint32   `protobuf:"varint,1,opt,name=GuildID,proto3" json:"GuildID,omitempty"`
-	PlayerID             uint32   `protobuf:"varint,2,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	GuildID  uint32 `protobuf:"varint,1,opt,name=GuildID,proto3" json:"GuildID,omitempty"`
+	PlayerID uint32 `protobuf:"varint,2,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *GetPlayerGuildPointsRequest) Reset()         { *m = GetPlayerGuildPointsRequest{} }
@@ -174,10 +165,7 @@ func (m *GetPlayerGuildPointsRequest) GetPlayerID() uint32 {
 }
 
 type GetPlayerGuildPointsResponse struct {
-	Result               int32    `protobuf:"varint,1,opt,name=Result,proto3" json:"Result,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Result int32 `protobuf:"varint,1,opt,name=Result,proto3" json:"Result,omitempty"`
 }
 
 func (m *GetPlayerGuildPointsResponse) Reset()         { *m = GetPlayerGuildPointsResponse{} }
@@ -230,7 +218,7 @@ func init() {
 func init() { proto.RegisterFile("proto/guild_point.proto", fileDescriptor_414ed415941276ac) }
 
 var fileDescriptor_414ed415941276ac = []byte{
-	// 179 bytes of a gzipped FileDescriptorProto
+	// 192 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2f, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x4f, 0x2f, 0xcd, 0xcc, 0x49, 0x89, 0x2f, 0xc8, 0xcf, 0xcc, 0x2b, 0xd1, 0x03, 0x8b,
 	0x08, 0x71, 0x23, 0x09, 0x29, 0x19, 0x72, 0x89, 0xba, 0xa7, 0x96, 0xb8, 0x83, 0x44, 0x02, 0x40,
@@ -239,10 +227,10 @@ var fileDescriptor_414ed415941276ac = []byte{
 	0x71, 0x41, 0x7e, 0x5e, 0x71, 0xaa, 0x90, 0x18, 0x17, 0x5b, 0x50, 0x6a, 0x71, 0x69, 0x4e, 0x09,
 	0x58, 0x0b, 0x6b, 0x10, 0x94, 0xa7, 0x14, 0xcc, 0x25, 0xed, 0x9e, 0x5a, 0x12, 0x90, 0x93, 0x58,
 	0x99, 0x5a, 0x44, 0x8a, 0x55, 0x42, 0x52, 0x5c, 0x1c, 0x10, 0x5d, 0x9e, 0x2e, 0x12, 0x4c, 0x60,
-	0x29, 0x38, 0x5f, 0xc9, 0x8c, 0x4b, 0x06, 0xbb, 0xa1, 0xf8, 0x1d, 0xe3, 0x24, 0x74, 0xe2, 0x91,
-	0x1c, 0xe3, 0x85, 0x47, 0x72, 0x8c, 0x0f, 0x1e, 0xc9, 0x31, 0x46, 0xb1, 0xe8, 0x59, 0x17, 0x24,
-	0x25, 0xb1, 0x81, 0x43, 0xc6, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0x44, 0x8e, 0x51, 0xbf, 0x34,
-	0x01, 0x00, 0x00,
+	0x29, 0x38, 0x5f, 0xc9, 0x8c, 0x4b, 0x06, 0xbb, 0xa1, 0xf8, 0x1d, 0xe3, 0x24, 0x77, 0xe2, 0x91,
+	0x1c, 0xe3, 0x85, 0x47, 0x72, 0x8c, 0x0f, 0x1e, 0xc9, 0x31, 0x4e, 0x78, 0x2c, 0xc7, 0x70, 0xe1,
+	0xb1, 0x1c, 0xc3, 0x8d, 0xc7, 0x72, 0x0c, 0x51, 0x2c, 0x7a, 0xd6, 0x05, 0x49, 0x49, 0x6c, 0xe0,
+	0x50, 0x32, 0x06, 0x04, 0x00, 0x00, 0xff, 0xff, 0x2e, 0x09, 0x05, 0xf9, 0x40, 0x01, 0x00, 0x00,
 }
 
 func (m *GetGuildPointsRequest) Marshal() (dAtA []byte, err error) {
@@ -265,10 +253,6 @@ func (m *GetGuildPointsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.GuildID != 0 {
 		i = encodeVarintGuildPoint(dAtA, i, uint64(m.GuildID))
 		i--
@@ -297,10 +281,6 @@ func (m *GetGuildPointsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Result != 0 {
 		i = encodeVarintGuildPoint(dAtA, i, uint64(m.Result))
 		i--
@@ -329,10 +309,6 @@ func (m *GetPlayerGuildPointsRequest) MarshalToSizedBuffer(dAtA []byte) (int, er
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintGuildPoint(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -366,10 +342,6 @@ func (m *GetPlayerGuildPointsResponse) MarshalToSizedBuffer(dAtA []byte) (int, e
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Result != 0 {
 		i = encodeVarintGuildPoint(dAtA, i, uint64(m.Result))
 		i--
@@ -398,9 +370,6 @@ func (m *GetGuildPointsRequest) Size() (n int) {
 	if m.GuildID != 0 {
 		n += 1 + sovGuildPoint(uint64(m.GuildID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -412,9 +381,6 @@ func (m *GetGuildPointsResponse) Size() (n int) {
 	_ = l
 	if m.Result != 0 {
 		n += 1 + sovGuildPoint(uint64(m.Result))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -431,9 +397,6 @@ func (m *GetPlayerGuildPointsRequest) Size() (n int) {
 	if m.PlayerID != 0 {
 		n += 1 + sovGuildPoint(uint64(m.PlayerID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -445,9 +408,6 @@ func (m *GetPlayerGuildPointsResponse) Size() (n int) {
 	_ = l
 	if m.Result != 0 {
 		n += 1 + sovGuildPoint(uint64(m.Result))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -521,7 +481,6 @@ func (m *GetGuildPointsRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -594,7 +553,6 @@ func (m *GetGuildPointsResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -686,7 +644,6 @@ func (m *GetPlayerGuildPointsRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -759,7 +716,6 @@ func (m *GetPlayerGuildPointsResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

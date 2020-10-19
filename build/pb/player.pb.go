@@ -23,20 +23,17 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type Player struct {
-	ID                   uint32    `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Username             string    `protobuf:"bytes,2,opt,name=Username,proto3" json:"Username,omitempty"`
-	LevelID              uint32    `protobuf:"varint,3,opt,name=LevelID,proto3" json:"LevelID,omitempty"`
-	Level                *Level    `protobuf:"bytes,4,opt,name=Level,proto3" json:"Level,omitempty"`
-	LifePoint            int64     `protobuf:"varint,5,opt,name=LifePoint,proto3" json:"LifePoint,omitempty"`
-	Dead                 bool      `protobuf:"varint,6,opt,name=Dead,proto3" json:"Dead,omitempty"`
-	Tutorial             bool      `protobuf:"varint,7,opt,name=Tutorial,proto3" json:"Tutorial,omitempty"`
-	Banned               bool      `protobuf:"varint,8,opt,name=Banned,proto3" json:"Banned,omitempty"`
-	ChatID               int64     `protobuf:"varint,9,opt,name=ChatID,proto3" json:"ChatID,omitempty"`
-	LanguageID           uint32    `protobuf:"varint,10,opt,name=LanguageID,proto3" json:"LanguageID,omitempty"`
-	Language             *Language `protobuf:"bytes,11,opt,name=Language,proto3" json:"Language,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
+	ID         uint32    `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Username   string    `protobuf:"bytes,2,opt,name=Username,proto3" json:"Username,omitempty"`
+	LevelID    uint32    `protobuf:"varint,3,opt,name=LevelID,proto3" json:"LevelID,omitempty"`
+	Level      *Level    `protobuf:"bytes,4,opt,name=Level,proto3" json:"Level,omitempty"`
+	LifePoint  int64     `protobuf:"varint,5,opt,name=LifePoint,proto3" json:"LifePoint,omitempty"`
+	Dead       bool      `protobuf:"varint,6,opt,name=Dead,proto3" json:"Dead,omitempty"`
+	Tutorial   bool      `protobuf:"varint,7,opt,name=Tutorial,proto3" json:"Tutorial,omitempty"`
+	Banned     bool      `protobuf:"varint,8,opt,name=Banned,proto3" json:"Banned,omitempty"`
+	ChatID     int64     `protobuf:"varint,9,opt,name=ChatID,proto3" json:"ChatID,omitempty"`
+	LanguageID uint32    `protobuf:"varint,10,opt,name=LanguageID,proto3" json:"LanguageID,omitempty"`
+	Language   *Language `protobuf:"bytes,11,opt,name=Language,proto3" json:"Language,omitempty"`
 }
 
 func (m *Player) Reset()         { *m = Player{} }
@@ -151,10 +148,7 @@ func (m *Player) GetLanguage() *Language {
 
 // GetPlayerByID
 type GetPlayerByIDRequest struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
 }
 
 func (m *GetPlayerByIDRequest) Reset()         { *m = GetPlayerByIDRequest{} }
@@ -198,10 +192,7 @@ func (m *GetPlayerByIDRequest) GetID() uint32 {
 }
 
 type GetPlayerByIDResponse struct {
-	Player               *Player  `protobuf:"bytes,1,opt,name=Player,proto3" json:"Player,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Player *Player `protobuf:"bytes,1,opt,name=Player,proto3" json:"Player,omitempty"`
 }
 
 func (m *GetPlayerByIDResponse) Reset()         { *m = GetPlayerByIDResponse{} }
@@ -246,10 +237,7 @@ func (m *GetPlayerByIDResponse) GetPlayer() *Player {
 
 // FindPlayerByUsername
 type GetPlayerByUsernameRequest struct {
-	Username             string   `protobuf:"bytes,1,opt,name=Username,proto3" json:"Username,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Username string `protobuf:"bytes,1,opt,name=Username,proto3" json:"Username,omitempty"`
 }
 
 func (m *GetPlayerByUsernameRequest) Reset()         { *m = GetPlayerByUsernameRequest{} }
@@ -293,10 +281,7 @@ func (m *GetPlayerByUsernameRequest) GetUsername() string {
 }
 
 type GetPlayerByUsernameResponse struct {
-	Player               *Player  `protobuf:"bytes,1,opt,name=Player,proto3" json:"Player,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Player *Player `protobuf:"bytes,1,opt,name=Player,proto3" json:"Player,omitempty"`
 }
 
 func (m *GetPlayerByUsernameResponse) Reset()         { *m = GetPlayerByUsernameResponse{} }
@@ -341,12 +326,9 @@ func (m *GetPlayerByUsernameResponse) GetPlayer() *Player {
 
 // SignIn
 type SignInRequest struct {
-	Username             string   `protobuf:"bytes,1,opt,name=Username,proto3" json:"Username,omitempty"`
-	ChatID               int64    `protobuf:"varint,2,opt,name=ChatID,proto3" json:"ChatID,omitempty"`
-	LanguageID           uint32   `protobuf:"varint,3,opt,name=LanguageID,proto3" json:"LanguageID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Username   string `protobuf:"bytes,1,opt,name=Username,proto3" json:"Username,omitempty"`
+	ChatID     int64  `protobuf:"varint,2,opt,name=ChatID,proto3" json:"ChatID,omitempty"`
+	LanguageID uint32 `protobuf:"varint,3,opt,name=LanguageID,proto3" json:"LanguageID,omitempty"`
 }
 
 func (m *SignInRequest) Reset()         { *m = SignInRequest{} }
@@ -404,10 +386,7 @@ func (m *SignInRequest) GetLanguageID() uint32 {
 }
 
 type SignInResponse struct {
-	Player               *Player  `protobuf:"bytes,1,opt,name=Player,proto3" json:"Player,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Player *Player `protobuf:"bytes,1,opt,name=Player,proto3" json:"Player,omitempty"`
 }
 
 func (m *SignInResponse) Reset()         { *m = SignInResponse{} }
@@ -452,10 +431,7 @@ func (m *SignInResponse) GetPlayer() *Player {
 
 // GetPlayerExperience
 type GetPlayerExperienceRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *GetPlayerExperienceRequest) Reset()         { *m = GetPlayerExperienceRequest{} }
@@ -499,10 +475,7 @@ func (m *GetPlayerExperienceRequest) GetPlayerID() uint32 {
 }
 
 type GetPlayerExperienceResponse struct {
-	Value                int64    `protobuf:"varint,1,opt,name=Value,proto3" json:"Value,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Value int64 `protobuf:"varint,1,opt,name=Value,proto3" json:"Value,omitempty"`
 }
 
 func (m *GetPlayerExperienceResponse) Reset()         { *m = GetPlayerExperienceResponse{} }
@@ -547,10 +520,7 @@ func (m *GetPlayerExperienceResponse) GetValue() int64 {
 
 // GetPlayerLifePoint
 type GetPlayerLifePointRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *GetPlayerLifePointRequest) Reset()         { *m = GetPlayerLifePointRequest{} }
@@ -594,10 +564,7 @@ func (m *GetPlayerLifePointRequest) GetPlayerID() uint32 {
 }
 
 type GetPlayerLifePointResponse struct {
-	Value                int64    `protobuf:"varint,1,opt,name=Value,proto3" json:"Value,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Value int64 `protobuf:"varint,1,opt,name=Value,proto3" json:"Value,omitempty"`
 }
 
 func (m *GetPlayerLifePointResponse) Reset()         { *m = GetPlayerLifePointResponse{} }
@@ -642,10 +609,7 @@ func (m *GetPlayerLifePointResponse) GetValue() int64 {
 
 // GetPlayerDailyReward
 type GetPlayerDailyRewardRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *GetPlayerDailyRewardRequest) Reset()         { *m = GetPlayerDailyRewardRequest{} }
@@ -689,12 +653,9 @@ func (m *GetPlayerDailyRewardRequest) GetPlayerID() uint32 {
 }
 
 type GetPlayerDailyRewardResponse struct {
-	Experience           int32    `protobuf:"varint,1,opt,name=Experience,proto3" json:"Experience,omitempty"`
-	Money                int32    `protobuf:"varint,2,opt,name=Money,proto3" json:"Money,omitempty"`
-	Diamond              int32    `protobuf:"varint,3,opt,name=Diamond,proto3" json:"Diamond,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Experience int32 `protobuf:"varint,1,opt,name=Experience,proto3" json:"Experience,omitempty"`
+	Money      int32 `protobuf:"varint,2,opt,name=Money,proto3" json:"Money,omitempty"`
+	Diamond    int32 `protobuf:"varint,3,opt,name=Diamond,proto3" json:"Diamond,omitempty"`
 }
 
 func (m *GetPlayerDailyRewardResponse) Reset()         { *m = GetPlayerDailyRewardResponse{} }
@@ -770,38 +731,39 @@ func init() {
 func init() { proto.RegisterFile("proto/player.proto", fileDescriptor_09cb355f96931a95) }
 
 var fileDescriptor_09cb355f96931a95 = []byte{
-	// 492 bytes of a gzipped FileDescriptorProto
+	// 507 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x54, 0x4f, 0x8b, 0xd3, 0x40,
-	0x1c, 0x65, 0xd2, 0x26, 0xdb, 0xfe, 0xea, 0x16, 0x1c, 0xaa, 0x8c, 0x75, 0x09, 0x61, 0x0e, 0x4b,
-	0x4e, 0x11, 0xba, 0x07, 0x57, 0x3c, 0x08, 0x75, 0x16, 0x09, 0x54, 0x58, 0xc6, 0x3f, 0x07, 0x6f,
-	0xb3, 0xdb, 0xb1, 0x06, 0xb2, 0x93, 0x98, 0xa6, 0x6a, 0xbe, 0x9d, 0x47, 0x8f, 0x7e, 0x04, 0xe9,
-	0x27, 0x91, 0xcc, 0x24, 0xd9, 0xb1, 0x2c, 0xa5, 0xb2, 0xb7, 0xbc, 0xf7, 0x9b, 0x97, 0xf7, 0x9b,
-	0xf7, 0x42, 0x00, 0xe7, 0x45, 0x56, 0x66, 0xcf, 0xf2, 0x54, 0x54, 0xb2, 0x88, 0x34, 0xc0, 0x9e,
-	0x41, 0xd3, 0x89, 0x99, 0xa5, 0x42, 0xad, 0x36, 0x62, 0x25, 0xcd, 0x74, 0xfa, 0xb0, 0x61, 0xe5,
-	0x37, 0x99, 0x1a, 0x8a, 0xfe, 0x74, 0xc0, 0xbb, 0xd4, 0x1a, 0x3c, 0x06, 0x27, 0x66, 0x04, 0x05,
-	0x28, 0x3c, 0xe6, 0x4e, 0xcc, 0xf0, 0x14, 0x06, 0x1f, 0xd6, 0xb2, 0x50, 0xe2, 0x46, 0x12, 0x27,
-	0x40, 0xe1, 0x90, 0x77, 0x18, 0x13, 0x38, 0x5a, 0xd4, 0x6f, 0x89, 0x19, 0xe9, 0x69, 0x41, 0x0b,
-	0x31, 0x05, 0x57, 0x3f, 0x92, 0x7e, 0x80, 0xc2, 0xd1, 0xec, 0x41, 0x64, 0xdc, 0x34, 0xc7, 0xcd,
-	0x08, 0x9f, 0xc0, 0x70, 0x91, 0x7c, 0x96, 0x97, 0x59, 0xa2, 0x4a, 0xe2, 0x06, 0x28, 0xec, 0xf1,
-	0x5b, 0x02, 0x63, 0xe8, 0x33, 0x29, 0x96, 0xc4, 0x0b, 0x50, 0x38, 0xe0, 0xfa, 0xb9, 0xde, 0xe5,
-	0xfd, 0xa6, 0xcc, 0x8a, 0x44, 0xa4, 0xe4, 0x48, 0xf3, 0x1d, 0xc6, 0x8f, 0xc1, 0x9b, 0x0b, 0xa5,
-	0xe4, 0x92, 0x0c, 0xf4, 0xa4, 0x41, 0x35, 0xff, 0xfa, 0x8b, 0x28, 0x63, 0x46, 0x86, 0xda, 0xa2,
-	0x41, 0xd8, 0x07, 0x58, 0x34, 0xb9, 0xc4, 0x8c, 0x80, 0x5e, 0xdf, 0x62, 0x70, 0x04, 0x83, 0x16,
-	0x91, 0x91, 0xbe, 0x04, 0x8e, 0xba, 0x20, 0xdb, 0x09, 0xef, 0xce, 0xd0, 0x53, 0x98, 0xbc, 0x91,
-	0xa5, 0x09, 0x71, 0x5e, 0xc5, 0x8c, 0xcb, 0xaf, 0x1b, 0xb9, 0x2e, 0x77, 0xf3, 0xa4, 0xaf, 0xe0,
-	0xd1, 0xce, 0xb9, 0x75, 0x9e, 0xa9, 0xb5, 0xc4, 0xa7, 0x6d, 0x05, 0xfa, 0xf0, 0x68, 0x36, 0x8e,
-	0x9a, 0x4e, 0x0d, 0xcb, 0x9b, 0x29, 0x3d, 0x87, 0xa9, 0xf5, 0x82, 0xb6, 0x8b, 0xd6, 0xce, 0xae,
-	0x0b, 0xfd, 0x5b, 0x17, 0xbd, 0x80, 0xa7, 0x77, 0x2a, 0xff, 0x73, 0x81, 0x6b, 0x38, 0x7e, 0x97,
-	0xac, 0x54, 0xac, 0x0e, 0xf0, 0xb4, 0xe2, 0x77, 0xf6, 0xc4, 0xdf, 0xdb, 0x8d, 0x9f, 0x9e, 0xc3,
-	0xb8, 0x35, 0xb9, 0x47, 0x3e, 0x17, 0x3f, 0x72, 0x59, 0x24, 0x52, 0x5d, 0xdb, 0xf9, 0x98, 0x51,
-	0x57, 0x4a, 0x87, 0xe9, 0x99, 0x95, 0x8f, 0xad, 0x6c, 0x16, 0x98, 0x80, 0xfb, 0x51, 0xa4, 0x1b,
-	0x73, 0xc7, 0x1e, 0x37, 0x80, 0x3e, 0x87, 0x27, 0x9d, 0xa8, 0xfb, 0x7a, 0x0f, 0x71, 0x9b, 0x59,
-	0x7b, 0x5a, 0xc2, 0xbd, 0x66, 0x2f, 0xac, 0x0d, 0x99, 0x48, 0xd2, 0x8a, 0xcb, 0xef, 0xa2, 0x58,
-	0x1e, 0x62, 0xa7, 0xe0, 0xe4, 0x6e, 0x69, 0x63, 0xe8, 0x03, 0xdc, 0xde, 0x59, 0xab, 0x5d, 0x6e,
-	0x31, 0xf5, 0x42, 0x6f, 0x33, 0x25, 0x2b, 0xdd, 0xa3, 0xcb, 0x0d, 0xa8, 0xff, 0x00, 0x2c, 0x11,
-	0x37, 0x99, 0x5a, 0xea, 0x0e, 0x5d, 0xde, 0xc2, 0x39, 0xfe, 0xb5, 0xf5, 0xd1, 0xef, 0xad, 0x8f,
-	0xfe, 0x6c, 0x7d, 0xf4, 0xa9, 0x1f, 0xbd, 0xcc, 0xaf, 0xae, 0x3c, 0xfd, 0xb7, 0x39, 0xfb, 0x1b,
-	0x00, 0x00, 0xff, 0xff, 0x55, 0x42, 0xab, 0x25, 0xb4, 0x04, 0x00, 0x00,
+	0x1c, 0xed, 0xb4, 0x4d, 0xb6, 0xfd, 0xd5, 0x2d, 0x38, 0x54, 0x19, 0xeb, 0x12, 0xc2, 0x1c, 0x96,
+	0x9c, 0x22, 0x74, 0x0f, 0xae, 0x78, 0x10, 0xea, 0x2c, 0x12, 0xa8, 0xb0, 0x8c, 0x7f, 0x0e, 0xde,
+	0x66, 0xb7, 0x63, 0x0d, 0x64, 0x27, 0x31, 0x4d, 0xd5, 0x7e, 0x0b, 0x3f, 0x92, 0x47, 0x8f, 0x7b,
+	0xf4, 0x28, 0xed, 0x17, 0x91, 0xcc, 0x24, 0xd9, 0xb1, 0x2c, 0x4b, 0xc5, 0x5b, 0xde, 0xfb, 0xcd,
+	0xcb, 0xfb, 0xcd, 0x7b, 0x21, 0x80, 0xb3, 0x3c, 0x2d, 0xd2, 0x27, 0x59, 0x22, 0xd6, 0x32, 0x0f,
+	0x35, 0xc0, 0xae, 0x41, 0xe3, 0x91, 0x99, 0x25, 0x42, 0x2d, 0x56, 0x62, 0x21, 0xcd, 0x74, 0x7c,
+	0xbf, 0x62, 0xe5, 0x17, 0x99, 0x18, 0x8a, 0xfe, 0x68, 0x83, 0x7b, 0xae, 0x35, 0x78, 0x08, 0xed,
+	0x88, 0x11, 0xe4, 0xa3, 0xe0, 0x90, 0xb7, 0x23, 0x86, 0xc7, 0xd0, 0x7b, 0xb7, 0x94, 0xb9, 0x12,
+	0x57, 0x92, 0xb4, 0x7d, 0x14, 0xf4, 0x79, 0x83, 0x31, 0x81, 0x83, 0x59, 0xf9, 0x96, 0x88, 0x91,
+	0x8e, 0x16, 0xd4, 0x10, 0x53, 0x70, 0xf4, 0x23, 0xe9, 0xfa, 0x28, 0x18, 0x4c, 0xee, 0x85, 0xc6,
+	0x4d, 0x73, 0xdc, 0x8c, 0xf0, 0x11, 0xf4, 0x67, 0xf1, 0x47, 0x79, 0x9e, 0xc6, 0xaa, 0x20, 0x8e,
+	0x8f, 0x82, 0x0e, 0xbf, 0x21, 0x30, 0x86, 0x2e, 0x93, 0x62, 0x4e, 0x5c, 0x1f, 0x05, 0x3d, 0xae,
+	0x9f, 0xcb, 0x5d, 0xde, 0xae, 0x8a, 0x34, 0x8f, 0x45, 0x42, 0x0e, 0x34, 0xdf, 0x60, 0xfc, 0x10,
+	0xdc, 0xa9, 0x50, 0x4a, 0xce, 0x49, 0x4f, 0x4f, 0x2a, 0x54, 0xf2, 0x2f, 0x3f, 0x89, 0x22, 0x62,
+	0xa4, 0xaf, 0x2d, 0x2a, 0x84, 0x3d, 0x80, 0x59, 0x95, 0x4b, 0xc4, 0x08, 0xe8, 0xf5, 0x2d, 0x06,
+	0x87, 0xd0, 0xab, 0x11, 0x19, 0xe8, 0x4b, 0xe0, 0xb0, 0x09, 0xb2, 0x9e, 0xf0, 0xe6, 0x0c, 0x3d,
+	0x86, 0xd1, 0x2b, 0x59, 0x98, 0x10, 0xa7, 0xeb, 0x88, 0x71, 0xf9, 0x79, 0x25, 0x97, 0xc5, 0x6e,
+	0x9e, 0xf4, 0x05, 0x3c, 0xd8, 0x39, 0xb7, 0xcc, 0x52, 0xb5, 0x94, 0xf8, 0xb8, 0xae, 0x40, 0x1f,
+	0x1e, 0x4c, 0x86, 0x61, 0xd5, 0xa9, 0x61, 0x79, 0x35, 0xa5, 0xa7, 0x30, 0xb6, 0x5e, 0x50, 0x77,
+	0x51, 0xdb, 0xd9, 0x75, 0xa1, 0xbf, 0xeb, 0xa2, 0x67, 0xf0, 0xf8, 0x56, 0xe5, 0x3f, 0x2e, 0x70,
+	0x09, 0x87, 0x6f, 0xe2, 0x85, 0x8a, 0xd4, 0x1e, 0x9e, 0x56, 0xfc, 0xed, 0x3b, 0xe2, 0xef, 0xec,
+	0xc6, 0x4f, 0x4f, 0x61, 0x58, 0x9b, 0xfc, 0x47, 0x3e, 0x67, 0xdf, 0x32, 0x99, 0xc7, 0x52, 0x5d,
+	0xda, 0xf9, 0x98, 0x51, 0x53, 0x4a, 0x83, 0xe9, 0x89, 0x95, 0x8f, 0xad, 0xac, 0x16, 0x18, 0x81,
+	0xf3, 0x5e, 0x24, 0x2b, 0x73, 0xc7, 0x0e, 0x37, 0x80, 0x3e, 0x85, 0x47, 0x8d, 0xa8, 0xf9, 0x7a,
+	0xf7, 0x71, 0x9b, 0x58, 0x7b, 0x5a, 0xc2, 0x3b, 0xcd, 0x9e, 0x59, 0x1b, 0x32, 0x11, 0x27, 0x6b,
+	0x2e, 0xbf, 0x8a, 0x7c, 0xbe, 0x8f, 0x9d, 0x82, 0xa3, 0xdb, 0xa5, 0x95, 0xa1, 0x07, 0x70, 0x73,
+	0x67, 0xad, 0x76, 0xb8, 0xc5, 0x94, 0x0b, 0xbd, 0x4e, 0x95, 0x5c, 0xeb, 0x1e, 0x1d, 0x6e, 0x40,
+	0xf9, 0x07, 0x60, 0xb1, 0xb8, 0x4a, 0xd5, 0x5c, 0x77, 0xe8, 0xf0, 0x1a, 0x4e, 0xbd, 0x9f, 0x1b,
+	0x0f, 0x5d, 0x6f, 0x3c, 0xf4, 0x7b, 0xe3, 0xa1, 0xef, 0x5b, 0xaf, 0x75, 0xbd, 0xf5, 0x5a, 0xbf,
+	0xb6, 0x5e, 0xeb, 0x43, 0x37, 0x7c, 0x9e, 0x5d, 0x5c, 0xb8, 0xfa, 0xcf, 0x73, 0xf2, 0x27, 0x00,
+	0x00, 0xff, 0xff, 0xfa, 0xc2, 0xde, 0x9d, 0xc0, 0x04, 0x00, 0x00,
 }
 
 func (m *Player) Marshal() (dAtA []byte, err error) {
@@ -824,10 +786,6 @@ func (m *Player) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Language != nil {
 		{
 			size, err := m.Language.MarshalToSizedBuffer(dAtA[:i])
@@ -937,10 +895,6 @@ func (m *GetPlayerByIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ID != 0 {
 		i = encodeVarintPlayer(dAtA, i, uint64(m.ID))
 		i--
@@ -969,10 +923,6 @@ func (m *GetPlayerByIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Player != nil {
 		{
 			size, err := m.Player.MarshalToSizedBuffer(dAtA[:i])
@@ -1008,10 +958,6 @@ func (m *GetPlayerByUsernameRequest) MarshalToSizedBuffer(dAtA []byte) (int, err
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Username) > 0 {
 		i -= len(m.Username)
 		copy(dAtA[i:], m.Username)
@@ -1042,10 +988,6 @@ func (m *GetPlayerByUsernameResponse) MarshalToSizedBuffer(dAtA []byte) (int, er
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Player != nil {
 		{
 			size, err := m.Player.MarshalToSizedBuffer(dAtA[:i])
@@ -1081,10 +1023,6 @@ func (m *SignInRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.LanguageID != 0 {
 		i = encodeVarintPlayer(dAtA, i, uint64(m.LanguageID))
 		i--
@@ -1125,10 +1063,6 @@ func (m *SignInResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Player != nil {
 		{
 			size, err := m.Player.MarshalToSizedBuffer(dAtA[:i])
@@ -1164,10 +1098,6 @@ func (m *GetPlayerExperienceRequest) MarshalToSizedBuffer(dAtA []byte) (int, err
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintPlayer(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -1196,10 +1126,6 @@ func (m *GetPlayerExperienceResponse) MarshalToSizedBuffer(dAtA []byte) (int, er
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Value != 0 {
 		i = encodeVarintPlayer(dAtA, i, uint64(m.Value))
 		i--
@@ -1228,10 +1154,6 @@ func (m *GetPlayerLifePointRequest) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintPlayer(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -1260,10 +1182,6 @@ func (m *GetPlayerLifePointResponse) MarshalToSizedBuffer(dAtA []byte) (int, err
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Value != 0 {
 		i = encodeVarintPlayer(dAtA, i, uint64(m.Value))
 		i--
@@ -1292,10 +1210,6 @@ func (m *GetPlayerDailyRewardRequest) MarshalToSizedBuffer(dAtA []byte) (int, er
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintPlayer(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -1324,10 +1238,6 @@ func (m *GetPlayerDailyRewardResponse) MarshalToSizedBuffer(dAtA []byte) (int, e
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Diamond != 0 {
 		i = encodeVarintPlayer(dAtA, i, uint64(m.Diamond))
 		i--
@@ -1399,9 +1309,6 @@ func (m *Player) Size() (n int) {
 		l = m.Language.Size()
 		n += 1 + l + sovPlayer(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1413,9 +1320,6 @@ func (m *GetPlayerByIDRequest) Size() (n int) {
 	_ = l
 	if m.ID != 0 {
 		n += 1 + sovPlayer(uint64(m.ID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1430,9 +1334,6 @@ func (m *GetPlayerByIDResponse) Size() (n int) {
 		l = m.Player.Size()
 		n += 1 + l + sovPlayer(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1446,9 +1347,6 @@ func (m *GetPlayerByUsernameRequest) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovPlayer(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1461,9 +1359,6 @@ func (m *GetPlayerByUsernameResponse) Size() (n int) {
 	if m.Player != nil {
 		l = m.Player.Size()
 		n += 1 + l + sovPlayer(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1484,9 +1379,6 @@ func (m *SignInRequest) Size() (n int) {
 	if m.LanguageID != 0 {
 		n += 1 + sovPlayer(uint64(m.LanguageID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1500,9 +1392,6 @@ func (m *SignInResponse) Size() (n int) {
 		l = m.Player.Size()
 		n += 1 + l + sovPlayer(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1514,9 +1403,6 @@ func (m *GetPlayerExperienceRequest) Size() (n int) {
 	_ = l
 	if m.PlayerID != 0 {
 		n += 1 + sovPlayer(uint64(m.PlayerID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1530,9 +1416,6 @@ func (m *GetPlayerExperienceResponse) Size() (n int) {
 	if m.Value != 0 {
 		n += 1 + sovPlayer(uint64(m.Value))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1544,9 +1427,6 @@ func (m *GetPlayerLifePointRequest) Size() (n int) {
 	_ = l
 	if m.PlayerID != 0 {
 		n += 1 + sovPlayer(uint64(m.PlayerID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1560,9 +1440,6 @@ func (m *GetPlayerLifePointResponse) Size() (n int) {
 	if m.Value != 0 {
 		n += 1 + sovPlayer(uint64(m.Value))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1574,9 +1451,6 @@ func (m *GetPlayerDailyRewardRequest) Size() (n int) {
 	_ = l
 	if m.PlayerID != 0 {
 		n += 1 + sovPlayer(uint64(m.PlayerID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1595,9 +1469,6 @@ func (m *GetPlayerDailyRewardResponse) Size() (n int) {
 	}
 	if m.Diamond != 0 {
 		n += 1 + sovPlayer(uint64(m.Diamond))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1911,7 +1782,6 @@ func (m *Player) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1984,7 +1854,6 @@ func (m *GetPlayerByIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2074,7 +1943,6 @@ func (m *GetPlayerByIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2160,7 +2028,6 @@ func (m *GetPlayerByUsernameRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2250,7 +2117,6 @@ func (m *GetPlayerByUsernameResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2374,7 +2240,6 @@ func (m *SignInRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2464,7 +2329,6 @@ func (m *SignInResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2537,7 +2401,6 @@ func (m *GetPlayerExperienceRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2610,7 +2473,6 @@ func (m *GetPlayerExperienceResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2683,7 +2545,6 @@ func (m *GetPlayerLifePointRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2756,7 +2617,6 @@ func (m *GetPlayerLifePointResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2829,7 +2689,6 @@ func (m *GetPlayerDailyRewardRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2940,7 +2799,6 @@ func (m *GetPlayerDailyRewardResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

@@ -25,10 +25,7 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // GetRestsInfo
 type GetRestsInfoRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *GetRestsInfoRequest) Reset()         { *m = GetRestsInfoRequest{} }
@@ -72,11 +69,8 @@ func (m *GetRestsInfoRequest) GetPlayerID() uint32 {
 }
 
 type GetRestsInfoResponse struct {
-	NeedRests            bool     `protobuf:"varint,1,opt,name=NeedRests,proto3" json:"NeedRests,omitempty"`
-	RestsTime            uint32   `protobuf:"varint,2,opt,name=RestsTime,proto3" json:"RestsTime,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	NeedRests bool   `protobuf:"varint,1,opt,name=NeedRests,proto3" json:"NeedRests,omitempty"`
+	RestsTime uint32 `protobuf:"varint,2,opt,name=RestsTime,proto3" json:"RestsTime,omitempty"`
 }
 
 func (m *GetRestsInfoResponse) Reset()         { *m = GetRestsInfoResponse{} }
@@ -128,10 +122,7 @@ func (m *GetRestsInfoResponse) GetRestsTime() uint32 {
 
 // StartPlayerRest
 type StartPlayerRestRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *StartPlayerRestRequest) Reset()         { *m = StartPlayerRestRequest{} }
@@ -175,10 +166,7 @@ func (m *StartPlayerRestRequest) GetPlayerID() uint32 {
 }
 
 type StartPlayerRestResponse struct {
-	RestEndTime          *types.Timestamp `protobuf:"bytes,1,opt,name=RestEndTime,proto3" json:"RestEndTime,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
+	RestEndTime *types.Timestamp `protobuf:"bytes,1,opt,name=RestEndTime,proto3" json:"RestEndTime,omitempty"`
 }
 
 func (m *StartPlayerRestResponse) Reset()         { *m = StartPlayerRestResponse{} }
@@ -223,10 +211,7 @@ func (m *StartPlayerRestResponse) GetRestEndTime() *types.Timestamp {
 
 // EndPlayerRest
 type EndPlayerRestRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *EndPlayerRestRequest) Reset()         { *m = EndPlayerRestRequest{} }
@@ -270,10 +255,7 @@ func (m *EndPlayerRestRequest) GetPlayerID() uint32 {
 }
 
 type EndPlayerRestResponse struct {
-	LifeRecovered        int32    `protobuf:"varint,1,opt,name=LifeRecovered,proto3" json:"LifeRecovered,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	LifeRecovered int32 `protobuf:"varint,1,opt,name=LifeRecovered,proto3" json:"LifeRecovered,omitempty"`
 }
 
 func (m *EndPlayerRestResponse) Reset()         { *m = EndPlayerRestResponse{} }
@@ -328,7 +310,7 @@ func init() {
 func init() { proto.RegisterFile("proto/ship_rest.proto", fileDescriptor_b27bef38eeb2c890) }
 
 var fileDescriptor_b27bef38eeb2c890 = []byte{
-	// 276 bytes of a gzipped FileDescriptorProto
+	// 289 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2d, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x2f, 0xce, 0xc8, 0x2c, 0x88, 0x2f, 0x4a, 0x2d, 0x2e, 0xd1, 0x03, 0xf3, 0x85, 0x38,
 	0xe1, 0x02, 0x52, 0xf2, 0xe9, 0xf9, 0xf9, 0xe9, 0x39, 0xa9, 0xfa, 0x60, 0x89, 0xa4, 0xd2, 0x34,
@@ -343,10 +325,11 @@ var fileDescriptor_b27bef38eeb2c890 = []byte{
 	0xb0, 0x85, 0x20, 0x9d, 0xdc, 0x46, 0x52, 0x7a, 0x90, 0xe0, 0xd0, 0x83, 0x05, 0x87, 0x5e, 0x08,
 	0x2c, 0x38, 0x82, 0x90, 0x95, 0x2b, 0x19, 0x71, 0x89, 0xb8, 0xe6, 0xa5, 0x90, 0xe6, 0x18, 0x5b,
 	0x2e, 0x51, 0x34, 0x3d, 0x50, 0xa7, 0xa8, 0x70, 0xf1, 0xfa, 0x64, 0xa6, 0xa5, 0x06, 0xa5, 0x26,
-	0xe7, 0x97, 0xa5, 0x16, 0xa5, 0xa6, 0x80, 0x75, 0xb2, 0x06, 0xa1, 0x0a, 0x3a, 0x09, 0x9d, 0x78,
-	0x24, 0xc7, 0x78, 0xe1, 0x91, 0x1c, 0xe3, 0x83, 0x47, 0x72, 0x8c, 0x51, 0x2c, 0x7a, 0xd6, 0x05,
-	0x49, 0x49, 0x6c, 0x60, 0x77, 0x1a, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0x89, 0x49, 0xb2, 0x00,
-	0xe8, 0x01, 0x00, 0x00,
+	0xe7, 0x97, 0xa5, 0x16, 0xa5, 0xa6, 0x80, 0x75, 0xb2, 0x06, 0xa1, 0x0a, 0x3a, 0xc9, 0x9d, 0x78,
+	0x24, 0xc7, 0x78, 0xe1, 0x91, 0x1c, 0xe3, 0x83, 0x47, 0x72, 0x8c, 0x13, 0x1e, 0xcb, 0x31, 0x5c,
+	0x78, 0x2c, 0xc7, 0x70, 0xe3, 0xb1, 0x1c, 0x43, 0x14, 0x8b, 0x9e, 0x75, 0x41, 0x52, 0x12, 0x1b,
+	0xd8, 0xcd, 0xc6, 0x80, 0x00, 0x00, 0x00, 0xff, 0xff, 0x1d, 0x50, 0x94, 0xf4, 0xf4, 0x01, 0x00,
+	0x00,
 }
 
 func (m *GetRestsInfoRequest) Marshal() (dAtA []byte, err error) {
@@ -369,10 +352,6 @@ func (m *GetRestsInfoRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintShipRest(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -401,10 +380,6 @@ func (m *GetRestsInfoResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.RestsTime != 0 {
 		i = encodeVarintShipRest(dAtA, i, uint64(m.RestsTime))
 		i--
@@ -443,10 +418,6 @@ func (m *StartPlayerRestRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintShipRest(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -475,10 +446,6 @@ func (m *StartPlayerRestResponse) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.RestEndTime != nil {
 		{
 			size, err := m.RestEndTime.MarshalToSizedBuffer(dAtA[:i])
@@ -514,10 +481,6 @@ func (m *EndPlayerRestRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintShipRest(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -546,10 +509,6 @@ func (m *EndPlayerRestResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.LifeRecovered != 0 {
 		i = encodeVarintShipRest(dAtA, i, uint64(m.LifeRecovered))
 		i--
@@ -578,9 +537,6 @@ func (m *GetRestsInfoRequest) Size() (n int) {
 	if m.PlayerID != 0 {
 		n += 1 + sovShipRest(uint64(m.PlayerID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -596,9 +552,6 @@ func (m *GetRestsInfoResponse) Size() (n int) {
 	if m.RestsTime != 0 {
 		n += 1 + sovShipRest(uint64(m.RestsTime))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -610,9 +563,6 @@ func (m *StartPlayerRestRequest) Size() (n int) {
 	_ = l
 	if m.PlayerID != 0 {
 		n += 1 + sovShipRest(uint64(m.PlayerID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -627,9 +577,6 @@ func (m *StartPlayerRestResponse) Size() (n int) {
 		l = m.RestEndTime.Size()
 		n += 1 + l + sovShipRest(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -642,9 +589,6 @@ func (m *EndPlayerRestRequest) Size() (n int) {
 	if m.PlayerID != 0 {
 		n += 1 + sovShipRest(uint64(m.PlayerID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -656,9 +600,6 @@ func (m *EndPlayerRestResponse) Size() (n int) {
 	_ = l
 	if m.LifeRecovered != 0 {
 		n += 1 + sovShipRest(uint64(m.LifeRecovered))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -732,7 +673,6 @@ func (m *GetRestsInfoRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -825,7 +765,6 @@ func (m *GetRestsInfoResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -898,7 +837,6 @@ func (m *StartPlayerRestRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -988,7 +926,6 @@ func (m *StartPlayerRestResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1061,7 +998,6 @@ func (m *EndPlayerRestRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1134,7 +1070,6 @@ func (m *EndPlayerRestResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

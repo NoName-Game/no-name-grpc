@@ -23,16 +23,13 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type Titan struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	PlanetID             uint32   `protobuf:"varint,3,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
-	PlanetSystemID       uint32   `protobuf:"varint,4,opt,name=PlanetSystemID,proto3" json:"PlanetSystemID,omitempty"`
-	DeadCounter          uint32   `protobuf:"varint,5,opt,name=DeadCounter,proto3" json:"DeadCounter,omitempty"`
-	LifeMax              uint32   `protobuf:"varint,8,opt,name=LifeMax,proto3" json:"LifeMax,omitempty"`
-	LifePoint            int32    `protobuf:"varint,9,opt,name=LifePoint,proto3" json:"LifePoint,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID             uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name           string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	PlanetID       uint32 `protobuf:"varint,3,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
+	PlanetSystemID uint32 `protobuf:"varint,4,opt,name=PlanetSystemID,proto3" json:"PlanetSystemID,omitempty"`
+	DeadCounter    uint32 `protobuf:"varint,5,opt,name=DeadCounter,proto3" json:"DeadCounter,omitempty"`
+	LifeMax        uint32 `protobuf:"varint,8,opt,name=LifeMax,proto3" json:"LifeMax,omitempty"`
+	LifePoint      int32  `protobuf:"varint,9,opt,name=LifePoint,proto3" json:"LifePoint,omitempty"`
 }
 
 func (m *Titan) Reset()         { *m = Titan{} }
@@ -119,10 +116,7 @@ func (m *Titan) GetLifePoint() int32 {
 
 // GetTitanByID
 type GetTitanByIDRequest struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
 }
 
 func (m *GetTitanByIDRequest) Reset()         { *m = GetTitanByIDRequest{} }
@@ -166,10 +160,7 @@ func (m *GetTitanByIDRequest) GetID() uint32 {
 }
 
 type GetTitanByIDResponse struct {
-	Titan                *Titan   `protobuf:"bytes,1,opt,name=Titan,proto3" json:"Titan,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Titan *Titan `protobuf:"bytes,1,opt,name=Titan,proto3" json:"Titan,omitempty"`
 }
 
 func (m *GetTitanByIDResponse) Reset()         { *m = GetTitanByIDResponse{} }
@@ -214,10 +205,7 @@ func (m *GetTitanByIDResponse) GetTitan() *Titan {
 
 // GetTitanByPlanetID
 type GetTitanByPlanetIDRequest struct {
-	PlanetID             uint32   `protobuf:"varint,1,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlanetID uint32 `protobuf:"varint,1,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
 }
 
 func (m *GetTitanByPlanetIDRequest) Reset()         { *m = GetTitanByPlanetIDRequest{} }
@@ -261,10 +249,7 @@ func (m *GetTitanByPlanetIDRequest) GetPlanetID() uint32 {
 }
 
 type GetTitanByPlanetIDResponse struct {
-	Titan                *Titan   `protobuf:"bytes,1,opt,name=Titan,proto3" json:"Titan,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Titan *Titan `protobuf:"bytes,1,opt,name=Titan,proto3" json:"Titan,omitempty"`
 }
 
 func (m *GetTitanByPlanetIDResponse) Reset()         { *m = GetTitanByPlanetIDResponse{} }
@@ -309,10 +294,7 @@ func (m *GetTitanByPlanetIDResponse) GetTitan() *Titan {
 
 // GetTitanByPlanetSystemID
 type GetTitanByPlanetSystemIDRequest struct {
-	PlanetSystemID       uint32   `protobuf:"varint,1,opt,name=PlanetSystemID,proto3" json:"PlanetSystemID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlanetSystemID uint32 `protobuf:"varint,1,opt,name=PlanetSystemID,proto3" json:"PlanetSystemID,omitempty"`
 }
 
 func (m *GetTitanByPlanetSystemIDRequest) Reset()         { *m = GetTitanByPlanetSystemIDRequest{} }
@@ -356,10 +338,7 @@ func (m *GetTitanByPlanetSystemIDRequest) GetPlanetSystemID() uint32 {
 }
 
 type GetTitanByPlanetSystemIDResponse struct {
-	Titan                *Titan   `protobuf:"bytes,1,opt,name=Titan,proto3" json:"Titan,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Titan *Titan `protobuf:"bytes,1,opt,name=Titan,proto3" json:"Titan,omitempty"`
 }
 
 func (m *GetTitanByPlanetSystemIDResponse) Reset()         { *m = GetTitanByPlanetSystemIDResponse{} }
@@ -404,10 +383,7 @@ func (m *GetTitanByPlanetSystemIDResponse) GetTitan() *Titan {
 
 // GetTitanByName
 type GetTitanByNameRequest struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Name string `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
 }
 
 func (m *GetTitanByNameRequest) Reset()         { *m = GetTitanByNameRequest{} }
@@ -451,10 +427,7 @@ func (m *GetTitanByNameRequest) GetName() string {
 }
 
 type GetTitanByNameResponse struct {
-	Titan                *Titan   `protobuf:"bytes,1,opt,name=Titan,proto3" json:"Titan,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Titan *Titan `protobuf:"bytes,1,opt,name=Titan,proto3" json:"Titan,omitempty"`
 }
 
 func (m *GetTitanByNameResponse) Reset()         { *m = GetTitanByNameResponse{} }
@@ -499,12 +472,9 @@ func (m *GetTitanByNameResponse) GetTitan() *Titan {
 
 // HiTitan
 type HitTitanRequest struct {
-	TitanID              uint32   `protobuf:"varint,1,opt,name=TitanID,proto3" json:"TitanID,omitempty"`
-	PlayerID             uint32   `protobuf:"varint,2,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	BodySelection        int32    `protobuf:"varint,3,opt,name=BodySelection,proto3" json:"BodySelection,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	TitanID       uint32 `protobuf:"varint,1,opt,name=TitanID,proto3" json:"TitanID,omitempty"`
+	PlayerID      uint32 `protobuf:"varint,2,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	BodySelection int32  `protobuf:"varint,3,opt,name=BodySelection,proto3" json:"BodySelection,omitempty"`
 }
 
 func (m *HitTitanRequest) Reset()         { *m = HitTitanRequest{} }
@@ -562,15 +532,12 @@ func (m *HitTitanRequest) GetBodySelection() int32 {
 }
 
 type HitTitanResponse struct {
-	PlayerDie            bool     `protobuf:"varint,1,opt,name=PlayerDie,proto3" json:"PlayerDie,omitempty"`
-	TitanDie             bool     `protobuf:"varint,2,opt,name=TitanDie,proto3" json:"TitanDie,omitempty"`
-	DodgeAttack          bool     `protobuf:"varint,3,opt,name=DodgeAttack,proto3" json:"DodgeAttack,omitempty"`
-	PlayerDamage         int32    `protobuf:"varint,4,opt,name=PlayerDamage,proto3" json:"PlayerDamage,omitempty"`
-	PlayerExperience     int32    `protobuf:"varint,5,opt,name=PlayerExperience,proto3" json:"PlayerExperience,omitempty"`
-	TitanDamage          int32    `protobuf:"varint,6,opt,name=TitanDamage,proto3" json:"TitanDamage,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerDie        bool  `protobuf:"varint,1,opt,name=PlayerDie,proto3" json:"PlayerDie,omitempty"`
+	TitanDie         bool  `protobuf:"varint,2,opt,name=TitanDie,proto3" json:"TitanDie,omitempty"`
+	DodgeAttack      bool  `protobuf:"varint,3,opt,name=DodgeAttack,proto3" json:"DodgeAttack,omitempty"`
+	PlayerDamage     int32 `protobuf:"varint,4,opt,name=PlayerDamage,proto3" json:"PlayerDamage,omitempty"`
+	PlayerExperience int32 `protobuf:"varint,5,opt,name=PlayerExperience,proto3" json:"PlayerExperience,omitempty"`
+	TitanDamage      int32 `protobuf:"varint,6,opt,name=TitanDamage,proto3" json:"TitanDamage,omitempty"`
 }
 
 func (m *HitTitanResponse) Reset()         { *m = HitTitanResponse{} }
@@ -650,9 +617,6 @@ func (m *HitTitanResponse) GetTitanDamage() int32 {
 
 //TitanDiscovered
 type TitanDiscoveredRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *TitanDiscoveredRequest) Reset()         { *m = TitanDiscoveredRequest{} }
@@ -689,10 +653,7 @@ func (m *TitanDiscoveredRequest) XXX_DiscardUnknown() {
 var xxx_messageInfo_TitanDiscoveredRequest proto.InternalMessageInfo
 
 type TitanDiscoveredResponse struct {
-	Titans               []*Titan `protobuf:"bytes,1,rep,name=Titans,proto3" json:"Titans,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Titans []*Titan `protobuf:"bytes,1,rep,name=Titans,proto3" json:"Titans,omitempty"`
 }
 
 func (m *TitanDiscoveredResponse) Reset()         { *m = TitanDiscoveredResponse{} }
@@ -754,39 +715,39 @@ func init() {
 func init() { proto.RegisterFile("proto/titan.proto", fileDescriptor_419d54287fea80a6) }
 
 var fileDescriptor_419d54287fea80a6 = []byte{
-	// 497 bytes of a gzipped FileDescriptorProto
+	// 512 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x54, 0x4b, 0x6f, 0xd3, 0x40,
-	0x10, 0xd6, 0xa6, 0x71, 0x9a, 0x4c, 0x1f, 0x94, 0x05, 0xca, 0x52, 0x55, 0xc1, 0x5a, 0x15, 0x14,
+	0x10, 0xce, 0xa6, 0x71, 0x9a, 0x4c, 0x1f, 0x94, 0x05, 0xca, 0x52, 0x55, 0xc6, 0x5a, 0x15, 0x14,
 	0x81, 0x14, 0x24, 0x38, 0x20, 0x01, 0x12, 0x10, 0xcc, 0xc3, 0x12, 0xa0, 0x6a, 0xcb, 0x89, 0x9b,
-	0x9b, 0x0c, 0x95, 0x45, 0xe3, 0x0d, 0xf6, 0x16, 0x35, 0xff, 0x10, 0x6e, 0xfc, 0x84, 0x2a, 0xbf,
-	0x04, 0x79, 0x76, 0x37, 0xce, 0xab, 0x87, 0xdc, 0x66, 0xbe, 0xf9, 0x76, 0xbe, 0x79, 0xd9, 0x70,
-	0x73, 0x94, 0x6b, 0xa3, 0x9f, 0x98, 0xd4, 0x24, 0x59, 0x97, 0x6c, 0x1e, 0x90, 0x23, 0xff, 0x32,
-	0x08, 0xbe, 0x95, 0x16, 0xdf, 0x85, 0x5a, 0x1c, 0x09, 0x16, 0xb2, 0xce, 0x8e, 0xaa, 0xc5, 0x11,
-	0xe7, 0x50, 0xff, 0x9a, 0x0c, 0x51, 0xd4, 0x42, 0xd6, 0x69, 0x29, 0xb2, 0xf9, 0x01, 0x34, 0x8f,
-	0xcf, 0x93, 0x0c, 0x4d, 0x1c, 0x89, 0x0d, 0x62, 0x4e, 0x7d, 0xfe, 0x10, 0x76, 0xad, 0x7d, 0x32,
-	0x2e, 0x0c, 0x0e, 0xe3, 0x48, 0xd4, 0x89, 0xb1, 0x80, 0xf2, 0x10, 0xb6, 0x22, 0x4c, 0x06, 0xef,
-	0xf4, 0x45, 0x66, 0x30, 0x17, 0x01, 0x91, 0x66, 0x21, 0x2e, 0x60, 0xf3, 0x73, 0xfa, 0x03, 0xbf,
-	0x24, 0x97, 0xa2, 0x49, 0x51, 0xef, 0xf2, 0x43, 0x68, 0x95, 0xe6, 0xb1, 0x4e, 0x33, 0x23, 0x5a,
-	0x21, 0xeb, 0x04, 0xaa, 0x02, 0xe4, 0x03, 0xb8, 0xf5, 0x11, 0x0d, 0x75, 0xd3, 0x1b, 0xc7, 0x91,
-	0xc2, 0x5f, 0x17, 0x58, 0x98, 0xc5, 0xc6, 0xe4, 0x0b, 0xb8, 0x3d, 0x4f, 0x2b, 0x46, 0x3a, 0x2b,
-	0x90, 0x4b, 0x37, 0x09, 0xa2, 0x6e, 0x3d, 0xdd, 0xee, 0xda, 0x71, 0x11, 0xa6, 0x6c, 0x48, 0x3e,
-	0x87, 0x7b, 0xd5, 0x5b, 0xdf, 0xba, 0x17, 0x9a, 0x9d, 0x0e, 0x9b, 0x9f, 0x8e, 0x7c, 0x03, 0x07,
-	0xab, 0x1e, 0xae, 0x21, 0x1d, 0xc3, 0xfd, 0xc5, 0x0c, 0x7e, 0xa6, 0xbe, 0x80, 0xe5, 0x15, 0xb0,
-	0x55, 0x2b, 0x90, 0x1f, 0x20, 0xbc, 0x3e, 0xd5, 0x1a, 0x25, 0x3d, 0x86, 0x3b, 0x55, 0x9e, 0xf2,
-	0x40, 0x7c, 0x21, 0xfe, 0x76, 0x58, 0x75, 0x3b, 0xf2, 0x15, 0xec, 0x2f, 0x92, 0xd7, 0x90, 0x1a,
-	0xc2, 0x8d, 0x4f, 0xa9, 0x7d, 0xed, 0x45, 0x04, 0x6c, 0x92, 0x3f, 0x6d, 0xd3, 0xbb, 0x6e, 0x11,
-	0x63, 0xcc, 0xe3, 0x88, 0xce, 0xd7, 0x2e, 0x82, 0x7c, 0x7e, 0x04, 0x3b, 0x3d, 0x3d, 0x18, 0x9f,
-	0xe0, 0x39, 0xf6, 0x4d, 0xaa, 0x33, 0xba, 0xe3, 0x40, 0xcd, 0x83, 0xf2, 0x8a, 0xc1, 0x5e, 0xa5,
-	0xe7, 0xea, 0x3c, 0x84, 0x96, 0x4d, 0x13, 0xa5, 0xb6, 0xb5, 0xa6, 0xaa, 0x80, 0x52, 0x94, 0xe8,
-	0x65, 0xb0, 0x46, 0xc1, 0xa9, 0x4f, 0x37, 0xaf, 0x07, 0x67, 0xf8, 0xd6, 0x98, 0xa4, 0xff, 0x93,
-	0x24, 0x9b, 0x6a, 0x16, 0xe2, 0x12, 0xb6, 0x5d, 0xaa, 0x64, 0x98, 0x9c, 0x21, 0x7d, 0x3b, 0x81,
-	0x9a, 0xc3, 0xf8, 0x23, 0xd8, 0xb3, 0xfe, 0xfb, 0xcb, 0x11, 0xe6, 0x29, 0x66, 0x7d, 0xa4, 0xcf,
-	0x27, 0x50, 0x4b, 0x78, 0xa9, 0x68, 0xd5, 0x6d, 0xba, 0x06, 0xd1, 0x66, 0x21, 0x29, 0x60, 0xdf,
-	0xd5, 0x57, 0xf4, 0xf5, 0x6f, 0xcc, 0x71, 0xe0, 0x06, 0x2b, 0x5f, 0xc3, 0xdd, 0xa5, 0x88, 0x1b,
-	0xc1, 0x11, 0x34, 0x28, 0x54, 0x08, 0x16, 0x6e, 0x2c, 0xed, 0xca, 0xc5, 0x7a, 0xfc, 0xcf, 0xa4,
-	0xcd, 0xfe, 0x4d, 0xda, 0xec, 0x6a, 0xd2, 0x66, 0xdf, 0xeb, 0xdd, 0x97, 0xa3, 0xd3, 0xd3, 0x06,
-	0xfd, 0x76, 0x9e, 0xfd, 0x0f, 0x00, 0x00, 0xff, 0xff, 0x7b, 0x2c, 0x64, 0x95, 0x8b, 0x04, 0x00,
-	0x00,
+	0x9b, 0x0c, 0x95, 0x45, 0xe3, 0x0d, 0xf1, 0x16, 0x35, 0xff, 0x82, 0x9f, 0x05, 0xb7, 0x1e, 0x39,
+	0x56, 0xc9, 0x1f, 0x41, 0x9e, 0xf5, 0xc6, 0x79, 0x94, 0x43, 0x6e, 0x33, 0xdf, 0x7c, 0x3b, 0xdf,
+	0xbc, 0x6c, 0xb8, 0x3e, 0x18, 0x6a, 0xa3, 0x1f, 0x99, 0xc4, 0xc4, 0x69, 0x9b, 0x6c, 0xee, 0x91,
+	0x23, 0xff, 0x30, 0xf0, 0xbe, 0xe4, 0x16, 0xdf, 0x86, 0x6a, 0x14, 0x0a, 0x16, 0xb0, 0xd6, 0x96,
+	0xaa, 0x46, 0x21, 0xe7, 0x50, 0xfb, 0x1c, 0xf7, 0x51, 0x54, 0x03, 0xd6, 0x6a, 0x2a, 0xb2, 0xf9,
+	0x1e, 0x34, 0x0e, 0x4f, 0xe3, 0x14, 0x4d, 0x14, 0x8a, 0x35, 0x62, 0x4e, 0x7d, 0x7e, 0x1f, 0xb6,
+	0xad, 0x7d, 0x34, 0xca, 0x0c, 0xf6, 0xa3, 0x50, 0xd4, 0x88, 0xb1, 0x80, 0xf2, 0x00, 0x36, 0x42,
+	0x8c, 0x7b, 0x6f, 0xf4, 0x59, 0x6a, 0x70, 0x28, 0x3c, 0x22, 0xcd, 0x42, 0x5c, 0xc0, 0xfa, 0xc7,
+	0xe4, 0x1b, 0x7e, 0x8a, 0xcf, 0x45, 0x83, 0xa2, 0xce, 0xe5, 0xfb, 0xd0, 0xcc, 0xcd, 0x43, 0x9d,
+	0xa4, 0x46, 0x34, 0x03, 0xd6, 0xf2, 0x54, 0x09, 0xc8, 0x7b, 0x70, 0xe3, 0x3d, 0x1a, 0xea, 0xa6,
+	0x33, 0x8a, 0x42, 0x85, 0x3f, 0xce, 0x30, 0x33, 0x8b, 0x8d, 0xc9, 0x67, 0x70, 0x73, 0x9e, 0x96,
+	0x0d, 0x74, 0x9a, 0x21, 0x97, 0xc5, 0x24, 0x88, 0xba, 0xf1, 0x78, 0xb3, 0x6d, 0xc7, 0x45, 0x98,
+	0xb2, 0x21, 0xf9, 0x14, 0xee, 0x94, 0x6f, 0x5d, 0xeb, 0x4e, 0x68, 0x76, 0x3a, 0x6c, 0x7e, 0x3a,
+	0xf2, 0x15, 0xec, 0x5d, 0xf5, 0x70, 0x05, 0xe9, 0x08, 0xee, 0x2e, 0x66, 0x70, 0x33, 0x75, 0x05,
+	0x2c, 0xaf, 0x80, 0x5d, 0xb5, 0x02, 0xf9, 0x0e, 0x82, 0xff, 0xa7, 0x5a, 0xa1, 0xa4, 0x87, 0x70,
+	0xab, 0xcc, 0x93, 0x1f, 0x88, 0x2b, 0xc4, 0xdd, 0x0e, 0x2b, 0x6f, 0x47, 0xbe, 0x80, 0xdd, 0x45,
+	0xf2, 0x0a, 0x52, 0x7d, 0xb8, 0xf6, 0x21, 0xb1, 0xaf, 0x9d, 0x88, 0x80, 0x75, 0xf2, 0xa7, 0x6d,
+	0x3a, 0xb7, 0x58, 0xc4, 0x08, 0x87, 0x51, 0x48, 0xe7, 0x6b, 0x17, 0x41, 0x3e, 0x3f, 0x80, 0xad,
+	0x8e, 0xee, 0x8d, 0x8e, 0xf0, 0x14, 0xbb, 0x26, 0xd1, 0x29, 0xdd, 0xb1, 0xa7, 0xe6, 0x41, 0x79,
+	0xc9, 0x60, 0xa7, 0xd4, 0x2b, 0xea, 0xdc, 0x87, 0xa6, 0x4d, 0x13, 0x26, 0xb6, 0xb5, 0x86, 0x2a,
+	0x81, 0x5c, 0x94, 0xe8, 0x79, 0xb0, 0x4a, 0xc1, 0xa9, 0x4f, 0x37, 0xaf, 0x7b, 0x27, 0xf8, 0xda,
+	0x98, 0xb8, 0xfb, 0x9d, 0x24, 0x1b, 0x6a, 0x16, 0xe2, 0x12, 0x36, 0x8b, 0x54, 0x71, 0x3f, 0x3e,
+	0x41, 0xfa, 0x76, 0x3c, 0x35, 0x87, 0xf1, 0x07, 0xb0, 0x63, 0xfd, 0xb7, 0xe7, 0x03, 0x1c, 0x26,
+	0x98, 0x76, 0x91, 0x3e, 0x1f, 0x4f, 0x2d, 0xe1, 0xb9, 0xa2, 0x55, 0xb7, 0xe9, 0xea, 0x44, 0x9b,
+	0x85, 0xa4, 0x80, 0xdd, 0xa2, 0xbe, 0xac, 0xab, 0x7f, 0xe2, 0x10, 0x7b, 0xc5, 0x60, 0xe5, 0x4b,
+	0xb8, 0xbd, 0x14, 0x29, 0x46, 0x70, 0x00, 0x75, 0x0a, 0x65, 0x82, 0x05, 0x6b, 0x4b, 0xbb, 0x2a,
+	0x62, 0x1d, 0xff, 0xf7, 0xd8, 0x67, 0x17, 0x63, 0x9f, 0x5d, 0x8e, 0x7d, 0xf6, 0x6b, 0xe2, 0x57,
+	0x2e, 0x26, 0x7e, 0xe5, 0xef, 0xc4, 0xaf, 0x7c, 0xad, 0xb5, 0x9f, 0x0f, 0x8e, 0x8f, 0xeb, 0xf4,
+	0x0b, 0x7a, 0xf2, 0x2f, 0x00, 0x00, 0xff, 0xff, 0x93, 0xe2, 0xac, 0xaf, 0x97, 0x04, 0x00, 0x00,
 }
 
 func (m *Titan) Marshal() (dAtA []byte, err error) {
@@ -809,10 +770,6 @@ func (m *Titan) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.LifePoint != 0 {
 		i = encodeVarintTitan(dAtA, i, uint64(m.LifePoint))
 		i--
@@ -873,10 +830,6 @@ func (m *GetTitanByIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ID != 0 {
 		i = encodeVarintTitan(dAtA, i, uint64(m.ID))
 		i--
@@ -905,10 +858,6 @@ func (m *GetTitanByIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Titan != nil {
 		{
 			size, err := m.Titan.MarshalToSizedBuffer(dAtA[:i])
@@ -944,10 +893,6 @@ func (m *GetTitanByPlanetIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlanetID != 0 {
 		i = encodeVarintTitan(dAtA, i, uint64(m.PlanetID))
 		i--
@@ -976,10 +921,6 @@ func (m *GetTitanByPlanetIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, err
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Titan != nil {
 		{
 			size, err := m.Titan.MarshalToSizedBuffer(dAtA[:i])
@@ -1015,10 +956,6 @@ func (m *GetTitanByPlanetSystemIDRequest) MarshalToSizedBuffer(dAtA []byte) (int
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlanetSystemID != 0 {
 		i = encodeVarintTitan(dAtA, i, uint64(m.PlanetSystemID))
 		i--
@@ -1047,10 +984,6 @@ func (m *GetTitanByPlanetSystemIDResponse) MarshalToSizedBuffer(dAtA []byte) (in
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Titan != nil {
 		{
 			size, err := m.Titan.MarshalToSizedBuffer(dAtA[:i])
@@ -1086,10 +1019,6 @@ func (m *GetTitanByNameRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Name) > 0 {
 		i -= len(m.Name)
 		copy(dAtA[i:], m.Name)
@@ -1120,10 +1049,6 @@ func (m *GetTitanByNameResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Titan != nil {
 		{
 			size, err := m.Titan.MarshalToSizedBuffer(dAtA[:i])
@@ -1159,10 +1084,6 @@ func (m *HitTitanRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.BodySelection != 0 {
 		i = encodeVarintTitan(dAtA, i, uint64(m.BodySelection))
 		i--
@@ -1201,10 +1122,6 @@ func (m *HitTitanResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.TitanDamage != 0 {
 		i = encodeVarintTitan(dAtA, i, uint64(m.TitanDamage))
 		i--
@@ -1273,10 +1190,6 @@ func (m *TitanDiscoveredRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -1300,10 +1213,6 @@ func (m *TitanDiscoveredResponse) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Titans) > 0 {
 		for iNdEx := len(m.Titans) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -1360,9 +1269,6 @@ func (m *Titan) Size() (n int) {
 	if m.LifePoint != 0 {
 		n += 1 + sovTitan(uint64(m.LifePoint))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1374,9 +1280,6 @@ func (m *GetTitanByIDRequest) Size() (n int) {
 	_ = l
 	if m.ID != 0 {
 		n += 1 + sovTitan(uint64(m.ID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1391,9 +1294,6 @@ func (m *GetTitanByIDResponse) Size() (n int) {
 		l = m.Titan.Size()
 		n += 1 + l + sovTitan(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1405,9 +1305,6 @@ func (m *GetTitanByPlanetIDRequest) Size() (n int) {
 	_ = l
 	if m.PlanetID != 0 {
 		n += 1 + sovTitan(uint64(m.PlanetID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1422,9 +1319,6 @@ func (m *GetTitanByPlanetIDResponse) Size() (n int) {
 		l = m.Titan.Size()
 		n += 1 + l + sovTitan(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1436,9 +1330,6 @@ func (m *GetTitanByPlanetSystemIDRequest) Size() (n int) {
 	_ = l
 	if m.PlanetSystemID != 0 {
 		n += 1 + sovTitan(uint64(m.PlanetSystemID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1453,9 +1344,6 @@ func (m *GetTitanByPlanetSystemIDResponse) Size() (n int) {
 		l = m.Titan.Size()
 		n += 1 + l + sovTitan(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1469,9 +1357,6 @@ func (m *GetTitanByNameRequest) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTitan(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1484,9 +1369,6 @@ func (m *GetTitanByNameResponse) Size() (n int) {
 	if m.Titan != nil {
 		l = m.Titan.Size()
 		n += 1 + l + sovTitan(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1505,9 +1387,6 @@ func (m *HitTitanRequest) Size() (n int) {
 	}
 	if m.BodySelection != 0 {
 		n += 1 + sovTitan(uint64(m.BodySelection))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1536,9 +1415,6 @@ func (m *HitTitanResponse) Size() (n int) {
 	if m.TitanDamage != 0 {
 		n += 1 + sovTitan(uint64(m.TitanDamage))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1548,9 +1424,6 @@ func (m *TitanDiscoveredRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1565,9 +1438,6 @@ func (m *TitanDiscoveredResponse) Size() (n int) {
 			l = e.Size()
 			n += 1 + l + sovTitan(uint64(l))
 		}
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1768,7 +1638,6 @@ func (m *Titan) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1841,7 +1710,6 @@ func (m *GetTitanByIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1931,7 +1799,6 @@ func (m *GetTitanByIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2004,7 +1871,6 @@ func (m *GetTitanByPlanetIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2094,7 +1960,6 @@ func (m *GetTitanByPlanetIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2167,7 +2032,6 @@ func (m *GetTitanByPlanetSystemIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2257,7 +2121,6 @@ func (m *GetTitanByPlanetSystemIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2343,7 +2206,6 @@ func (m *GetTitanByNameRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2433,7 +2295,6 @@ func (m *GetTitanByNameResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2544,7 +2405,6 @@ func (m *HitTitanRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2715,7 +2575,6 @@ func (m *HitTitanResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2769,7 +2628,6 @@ func (m *TitanDiscoveredRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2857,7 +2715,6 @@ func (m *TitanDiscoveredResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

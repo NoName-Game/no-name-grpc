@@ -23,12 +23,9 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type ExplorationCategory struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	Slug                 string   `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID   uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	Slug string `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
 }
 
 func (m *ExplorationCategory) Reset()         { *m = ExplorationCategory{} }
@@ -86,9 +83,6 @@ func (m *ExplorationCategory) GetSlug() string {
 }
 
 type GetAllExplorationCategoriesRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetAllExplorationCategoriesRequest) Reset()         { *m = GetAllExplorationCategoriesRequest{} }
@@ -126,9 +120,6 @@ var xxx_messageInfo_GetAllExplorationCategoriesRequest proto.InternalMessageInfo
 
 type GetAllExplorationCategoriesResponse struct {
 	ExplorationCategories []*ExplorationCategory `protobuf:"bytes,1,rep,name=ExplorationCategories,proto3" json:"ExplorationCategories,omitempty"`
-	XXX_NoUnkeyedLiteral  struct{}               `json:"-"`
-	XXX_unrecognized      []byte                 `json:"-"`
-	XXX_sizecache         int32                  `json:"-"`
 }
 
 func (m *GetAllExplorationCategoriesResponse) Reset()         { *m = GetAllExplorationCategoriesResponse{} }
@@ -180,7 +171,7 @@ func init() {
 func init() { proto.RegisterFile("proto/exploration_category.proto", fileDescriptor_79e676f03934d3c7) }
 
 var fileDescriptor_79e676f03934d3c7 = []byte{
-	// 198 bytes of a gzipped FileDescriptorProto
+	// 211 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x52, 0x28, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x4f, 0xad, 0x28, 0xc8, 0xc9, 0x2f, 0x4a, 0x2c, 0xc9, 0xcc, 0xcf, 0x8b, 0x4f, 0x4e,
 	0x2c, 0x49, 0x4d, 0xcf, 0x2f, 0xaa, 0xd4, 0x03, 0x4b, 0x09, 0x89, 0x60, 0x93, 0x53, 0xf2, 0xe5,
@@ -191,9 +182,10 @@ var fileDescriptor_79e676f03934d3c7 = []byte{
 	0x33, 0xb5, 0x38, 0x28, 0xb5, 0xb0, 0x34, 0xb5, 0xb8, 0x44, 0xa9, 0x8d, 0x91, 0x4b, 0x19, 0xaf,
 	0xb2, 0xe2, 0x82, 0xfc, 0xbc, 0xe2, 0x54, 0xa1, 0x78, 0x2e, 0x51, 0xac, 0x0a, 0x24, 0x18, 0x15,
 	0x98, 0x35, 0xb8, 0x8d, 0x34, 0xf5, 0xb0, 0x7a, 0x17, 0x8b, 0x7f, 0x82, 0xb0, 0x9b, 0xe3, 0x24,
-	0x74, 0xe2, 0x91, 0x1c, 0xe3, 0x85, 0x47, 0x72, 0x8c, 0x0f, 0x1e, 0xc9, 0x31, 0x46, 0xb1, 0xe8,
-	0x59, 0x17, 0x24, 0x25, 0xb1, 0x81, 0x83, 0xcb, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0x7a, 0x57,
-	0x20, 0x2b, 0x52, 0x01, 0x00, 0x00,
+	0x77, 0xe2, 0x91, 0x1c, 0xe3, 0x85, 0x47, 0x72, 0x8c, 0x0f, 0x1e, 0xc9, 0x31, 0x4e, 0x78, 0x2c,
+	0xc7, 0x70, 0xe1, 0xb1, 0x1c, 0xc3, 0x8d, 0xc7, 0x72, 0x0c, 0x51, 0x2c, 0x7a, 0xd6, 0x05, 0x49,
+	0x49, 0x6c, 0xe0, 0xa0, 0x33, 0x06, 0x04, 0x00, 0x00, 0xff, 0xff, 0x9e, 0xc7, 0xfd, 0xfe, 0x5e,
+	0x01, 0x00, 0x00,
 }
 
 func (m *ExplorationCategory) Marshal() (dAtA []byte, err error) {
@@ -216,10 +208,6 @@ func (m *ExplorationCategory) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Slug) > 0 {
 		i -= len(m.Slug)
 		copy(dAtA[i:], m.Slug)
@@ -262,10 +250,6 @@ func (m *GetAllExplorationCategoriesRequest) MarshalToSizedBuffer(dAtA []byte) (
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -289,10 +273,6 @@ func (m *GetAllExplorationCategoriesResponse) MarshalToSizedBuffer(dAtA []byte) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.ExplorationCategories) > 0 {
 		for iNdEx := len(m.ExplorationCategories) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -338,9 +318,6 @@ func (m *ExplorationCategory) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovExplorationCategory(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -350,9 +327,6 @@ func (m *GetAllExplorationCategoriesRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -367,9 +341,6 @@ func (m *GetAllExplorationCategoriesResponse) Size() (n int) {
 			l = e.Size()
 			n += 1 + l + sovExplorationCategory(uint64(l))
 		}
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -507,7 +478,6 @@ func (m *ExplorationCategory) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -561,7 +531,6 @@ func (m *GetAllExplorationCategoriesRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -649,7 +618,6 @@ func (m *GetAllExplorationCategoriesResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

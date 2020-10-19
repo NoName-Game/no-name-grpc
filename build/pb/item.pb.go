@@ -23,21 +23,18 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type Item struct {
-	ID                   uint32        `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string        `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	Slug                 string        `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
-	Craftable            bool          `protobuf:"varint,4,opt,name=Craftable,proto3" json:"Craftable,omitempty"`
-	ItemRecipeID         uint32        `protobuf:"varint,5,opt,name=ItemRecipeID,proto3" json:"ItemRecipeID,omitempty"`
-	ItemRecipe           *ItemRecipe   `protobuf:"bytes,6,opt,name=ItemRecipe,proto3" json:"ItemRecipe,omitempty"`
-	RarityID             uint32        `protobuf:"varint,7,opt,name=RarityID,proto3" json:"RarityID,omitempty"`
-	Rarity               *Rarity       `protobuf:"bytes,8,opt,name=Rarity,proto3" json:"Rarity,omitempty"`
-	ItemCategoryID       uint32        `protobuf:"varint,9,opt,name=ItemCategoryID,proto3" json:"ItemCategoryID,omitempty"`
-	ItemCategory         *ItemCategory `protobuf:"bytes,10,opt,name=ItemCategory,proto3" json:"ItemCategory,omitempty"`
-	Value                int32         `protobuf:"varint,11,opt,name=Value,proto3" json:"Value,omitempty"`
-	Price                int32         `protobuf:"varint,13,opt,name=Price,proto3" json:"Price,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
+	ID             uint32        `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name           string        `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	Slug           string        `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
+	Craftable      bool          `protobuf:"varint,4,opt,name=Craftable,proto3" json:"Craftable,omitempty"`
+	ItemRecipeID   uint32        `protobuf:"varint,5,opt,name=ItemRecipeID,proto3" json:"ItemRecipeID,omitempty"`
+	ItemRecipe     *ItemRecipe   `protobuf:"bytes,6,opt,name=ItemRecipe,proto3" json:"ItemRecipe,omitempty"`
+	RarityID       uint32        `protobuf:"varint,7,opt,name=RarityID,proto3" json:"RarityID,omitempty"`
+	Rarity         *Rarity       `protobuf:"bytes,8,opt,name=Rarity,proto3" json:"Rarity,omitempty"`
+	ItemCategoryID uint32        `protobuf:"varint,9,opt,name=ItemCategoryID,proto3" json:"ItemCategoryID,omitempty"`
+	ItemCategory   *ItemCategory `protobuf:"bytes,10,opt,name=ItemCategory,proto3" json:"ItemCategory,omitempty"`
+	Value          int32         `protobuf:"varint,11,opt,name=Value,proto3" json:"Value,omitempty"`
+	Price          int32         `protobuf:"varint,13,opt,name=Price,proto3" json:"Price,omitempty"`
 }
 
 func (m *Item) Reset()         { *m = Item{} }
@@ -159,9 +156,6 @@ func (m *Item) GetPrice() int32 {
 
 // GetAllItems
 type GetAllItemsRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetAllItemsRequest) Reset()         { *m = GetAllItemsRequest{} }
@@ -198,10 +192,7 @@ func (m *GetAllItemsRequest) XXX_DiscardUnknown() {
 var xxx_messageInfo_GetAllItemsRequest proto.InternalMessageInfo
 
 type GetAllItemsResponse struct {
-	Items                []*Item  `protobuf:"bytes,1,rep,name=Items,proto3" json:"Items,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Items []*Item `protobuf:"bytes,1,rep,name=Items,proto3" json:"Items,omitempty"`
 }
 
 func (m *GetAllItemsResponse) Reset()         { *m = GetAllItemsResponse{} }
@@ -246,9 +237,6 @@ func (m *GetAllItemsResponse) GetItems() []*Item {
 
 // GetShoppableItems
 type GetShoppableItemsRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetShoppableItemsRequest) Reset()         { *m = GetShoppableItemsRequest{} }
@@ -285,10 +273,7 @@ func (m *GetShoppableItemsRequest) XXX_DiscardUnknown() {
 var xxx_messageInfo_GetShoppableItemsRequest proto.InternalMessageInfo
 
 type GetShoppableItemsResponse struct {
-	Items                []*Item  `protobuf:"bytes,1,rep,name=Items,proto3" json:"Items,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Items []*Item `protobuf:"bytes,1,rep,name=Items,proto3" json:"Items,omitempty"`
 }
 
 func (m *GetShoppableItemsResponse) Reset()         { *m = GetShoppableItemsResponse{} }
@@ -333,10 +318,7 @@ func (m *GetShoppableItemsResponse) GetItems() []*Item {
 
 // GetItemByID
 type GetItemByIDRequest struct {
-	ItemID               uint32   `protobuf:"varint,1,opt,name=ItemID,proto3" json:"ItemID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ItemID uint32 `protobuf:"varint,1,opt,name=ItemID,proto3" json:"ItemID,omitempty"`
 }
 
 func (m *GetItemByIDRequest) Reset()         { *m = GetItemByIDRequest{} }
@@ -380,10 +362,7 @@ func (m *GetItemByIDRequest) GetItemID() uint32 {
 }
 
 type GetItemByIDResponse struct {
-	Item                 *Item    `protobuf:"bytes,1,opt,name=Item,proto3" json:"Item,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Item *Item `protobuf:"bytes,1,opt,name=Item,proto3" json:"Item,omitempty"`
 }
 
 func (m *GetItemByIDResponse) Reset()         { *m = GetItemByIDResponse{} }
@@ -428,10 +407,7 @@ func (m *GetItemByIDResponse) GetItem() *Item {
 
 // GetItemsByCategoryID
 type GetItemsByCategoryIDRequest struct {
-	CategoryID           uint32   `protobuf:"varint,1,opt,name=categoryID,proto3" json:"categoryID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	CategoryID uint32 `protobuf:"varint,1,opt,name=categoryID,proto3" json:"categoryID,omitempty"`
 }
 
 func (m *GetItemsByCategoryIDRequest) Reset()         { *m = GetItemsByCategoryIDRequest{} }
@@ -475,10 +451,7 @@ func (m *GetItemsByCategoryIDRequest) GetCategoryID() uint32 {
 }
 
 type GetItemsByCategoryIDResponse struct {
-	Items                []*Item  `protobuf:"bytes,1,rep,name=Items,proto3" json:"Items,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Items []*Item `protobuf:"bytes,1,rep,name=Items,proto3" json:"Items,omitempty"`
 }
 
 func (m *GetItemsByCategoryIDResponse) Reset()         { *m = GetItemsByCategoryIDResponse{} }
@@ -523,10 +496,7 @@ func (m *GetItemsByCategoryIDResponse) GetItems() []*Item {
 
 // GetCraftableItemsByCategoryID
 type GetCraftableItemsByCategoryIDRequest struct {
-	CategoryID           uint32   `protobuf:"varint,1,opt,name=categoryID,proto3" json:"categoryID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	CategoryID uint32 `protobuf:"varint,1,opt,name=categoryID,proto3" json:"categoryID,omitempty"`
 }
 
 func (m *GetCraftableItemsByCategoryIDRequest) Reset()         { *m = GetCraftableItemsByCategoryIDRequest{} }
@@ -570,10 +540,7 @@ func (m *GetCraftableItemsByCategoryIDRequest) GetCategoryID() uint32 {
 }
 
 type GetCraftableItemsByCategoryIDResponse struct {
-	Items                []*Item  `protobuf:"bytes,1,rep,name=Items,proto3" json:"Items,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Items []*Item `protobuf:"bytes,1,rep,name=Items,proto3" json:"Items,omitempty"`
 }
 
 func (m *GetCraftableItemsByCategoryIDResponse) Reset()         { *m = GetCraftableItemsByCategoryIDResponse{} }
@@ -618,11 +585,8 @@ func (m *GetCraftableItemsByCategoryIDResponse) GetItems() []*Item {
 
 // UseItem
 type UseItemRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	ItemID               uint32   `protobuf:"varint,2,opt,name=ItemID,proto3" json:"ItemID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	ItemID   uint32 `protobuf:"varint,2,opt,name=ItemID,proto3" json:"ItemID,omitempty"`
 }
 
 func (m *UseItemRequest) Reset()         { *m = UseItemRequest{} }
@@ -673,9 +637,6 @@ func (m *UseItemRequest) GetItemID() uint32 {
 }
 
 type UseItemResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *UseItemResponse) Reset()         { *m = UseItemResponse{} }
@@ -713,12 +674,9 @@ var xxx_messageInfo_UseItemResponse proto.InternalMessageInfo
 
 // BuyItem
 type BuyItemRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	ItemID               uint32   `protobuf:"varint,2,opt,name=ItemID,proto3" json:"ItemID,omitempty"`
-	Quantity             int32    `protobuf:"varint,3,opt,name=Quantity,proto3" json:"Quantity,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	ItemID   uint32 `protobuf:"varint,2,opt,name=ItemID,proto3" json:"ItemID,omitempty"`
+	Quantity int32  `protobuf:"varint,3,opt,name=Quantity,proto3" json:"Quantity,omitempty"`
 }
 
 func (m *BuyItemRequest) Reset()         { *m = BuyItemRequest{} }
@@ -776,9 +734,6 @@ func (m *BuyItemRequest) GetQuantity() int32 {
 }
 
 type BuyItemResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *BuyItemResponse) Reset()         { *m = BuyItemResponse{} }
@@ -835,40 +790,41 @@ func init() {
 func init() { proto.RegisterFile("proto/item.proto", fileDescriptor_8f471139970114f8) }
 
 var fileDescriptor_8f471139970114f8 = []byte{
-	// 522 bytes of a gzipped FileDescriptorProto
+	// 536 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x54, 0xcd, 0x6e, 0xd3, 0x40,
-	0x10, 0xd6, 0x26, 0x4e, 0x48, 0x26, 0xd4, 0xc0, 0x52, 0xd1, 0xad, 0x5b, 0x59, 0x96, 0x05, 0x95,
-	0x0f, 0xc8, 0x48, 0x45, 0xa8, 0x07, 0x54, 0x01, 0xa9, 0x45, 0xe4, 0x0b, 0x2a, 0x5b, 0xc1, 0x81,
-	0x0b, 0x38, 0xd1, 0x52, 0x22, 0x39, 0xb5, 0xb1, 0xd7, 0x07, 0xbf, 0x06, 0x4f, 0xc5, 0x91, 0x47,
-	0x40, 0x79, 0x12, 0xb4, 0xb3, 0x8e, 0x7f, 0x50, 0x24, 0x22, 0x7a, 0x9b, 0xf9, 0x66, 0xe6, 0xfb,
-	0x66, 0x76, 0xc6, 0x86, 0xfb, 0x69, 0x96, 0xc8, 0xe4, 0xd9, 0x52, 0x8a, 0x95, 0x8f, 0x26, 0x35,
-	0x94, 0x6d, 0x1d, 0x36, 0xf8, 0xe7, 0x45, 0x24, 0xc5, 0x75, 0x92, 0x95, 0x3a, 0xc1, 0xa2, 0x3a,
-	0x94, 0x45, 0xd9, 0x52, 0x6e, 0xb0, 0x83, 0x56, 0x7a, 0x26, 0x16, 0xcb, 0x54, 0xe8, 0x80, 0xfb,
-	0xa3, 0x0f, 0x46, 0x28, 0xc5, 0x8a, 0x9a, 0xd0, 0x0b, 0x03, 0x46, 0x1c, 0xe2, 0xed, 0xf1, 0x5e,
-	0x18, 0x50, 0x0a, 0xc6, 0xbb, 0x68, 0x25, 0x58, 0xcf, 0x21, 0xde, 0x98, 0xa3, 0xad, 0xb0, 0xab,
-	0xb8, 0xb8, 0x66, 0x7d, 0x8d, 0x29, 0x9b, 0x1e, 0xc3, 0xf8, 0x22, 0x8b, 0xbe, 0xca, 0x68, 0x1e,
-	0x0b, 0x66, 0x38, 0xc4, 0x1b, 0xf1, 0x06, 0xa0, 0x2e, 0xdc, 0x55, 0xec, 0x1c, 0x25, 0xc3, 0x80,
-	0x0d, 0x90, 0xbf, 0x83, 0xd1, 0x33, 0x80, 0xc6, 0x67, 0x43, 0x87, 0x78, 0x93, 0xd3, 0x03, 0xbf,
-	0xdd, 0x6a, 0x13, 0xe6, 0xad, 0x54, 0x6a, 0xc1, 0x88, 0xe3, 0x90, 0x61, 0xc0, 0xee, 0x20, 0x71,
-	0xed, 0xd3, 0x13, 0x18, 0x6a, 0x9b, 0x8d, 0x90, 0xd0, 0xf4, 0xab, 0xf7, 0xd0, 0x28, 0xaf, 0xa2,
-	0xf4, 0x04, 0x4c, 0xc5, 0x78, 0x51, 0x3d, 0x61, 0x18, 0xb0, 0x31, 0x32, 0xfd, 0x85, 0xd2, 0x57,
-	0x7a, 0x90, 0x0d, 0xc2, 0x00, 0x59, 0x8f, 0xfc, 0xee, 0x02, 0xda, 0x29, 0xbc, 0x53, 0x40, 0xf7,
-	0x61, 0xf0, 0x31, 0x8a, 0x0b, 0xc1, 0x26, 0x0e, 0xf1, 0x06, 0x5c, 0x3b, 0x0a, 0xbd, 0xcc, 0x96,
-	0x0b, 0xc1, 0xf6, 0x34, 0x8a, 0x8e, 0xbb, 0x0f, 0x74, 0x26, 0xe4, 0x9b, 0x38, 0x56, 0x0c, 0x39,
-	0x17, 0xdf, 0x0b, 0x91, 0x4b, 0xf7, 0x0c, 0x1e, 0x76, 0xd0, 0x3c, 0x4d, 0x6e, 0x72, 0x41, 0x1d,
-	0x18, 0x20, 0xc0, 0x88, 0xd3, 0xf7, 0x26, 0xa7, 0x80, 0x2d, 0xe9, 0x27, 0xd3, 0x01, 0xd7, 0x02,
-	0x36, 0x13, 0xf2, 0xea, 0x5b, 0x92, 0xa6, 0x6a, 0x29, 0x1d, 0xd2, 0x73, 0x38, 0xdc, 0x12, 0xdb,
-	0x99, 0xfa, 0x29, 0x76, 0xaa, 0xec, 0x69, 0x19, 0x06, 0x15, 0x29, 0x7d, 0x04, 0x43, 0x05, 0xd5,
-	0xf7, 0x54, 0x79, 0xee, 0x0b, 0x9c, 0xa0, 0xc9, 0xae, 0x64, 0x6c, 0x7d, 0x82, 0x98, 0xdc, 0x55,
-	0x41, 0xdc, 0x3d, 0x87, 0xa3, 0xaa, 0x2c, 0x9f, 0x96, 0xcd, 0x4e, 0x36, 0x6a, 0x36, 0xc0, 0xa2,
-	0x59, 0x9f, 0x56, 0x6c, 0x21, 0xee, 0x6b, 0x38, 0xde, 0x5e, 0xbe, 0xf3, 0x94, 0x6f, 0xe1, 0xf1,
-	0x4c, 0xc8, 0xfa, 0xaa, 0xff, 0xbb, 0x93, 0x10, 0x9e, 0xfc, 0x83, 0x67, 0xe7, 0x96, 0x02, 0x30,
-	0x3f, 0xe4, 0x42, 0x7f, 0x0c, 0x5a, 0xdc, 0x82, 0xd1, 0x65, 0x1c, 0x95, 0x22, 0xab, 0xa5, 0x6b,
-	0xbf, 0xb5, 0x90, 0x5e, 0x67, 0x21, 0x0f, 0xe0, 0x5e, 0xcd, 0xa2, 0xa5, 0xdd, 0x2f, 0x60, 0x4e,
-	0x8b, 0xf2, 0x96, 0xc4, 0xaa, 0xe6, 0x7d, 0x11, 0xdd, 0x48, 0xf5, 0x01, 0xf6, 0xf1, 0xb4, 0x6b,
-	0x5f, 0x89, 0xd6, 0x0a, 0x5a, 0x74, 0x4a, 0x7f, 0xae, 0x6d, 0xf2, 0x6b, 0x6d, 0x93, 0xdf, 0x6b,
-	0x9b, 0x7c, 0x32, 0xfc, 0x97, 0xe9, 0x7c, 0x3e, 0xc4, 0x1f, 0xd4, 0xf3, 0x3f, 0x01, 0x00, 0x00,
-	0xff, 0xff, 0x62, 0x83, 0x71, 0x8c, 0x02, 0x05, 0x00, 0x00,
+	0x10, 0xce, 0x26, 0x4e, 0x48, 0x26, 0xd4, 0xc0, 0x52, 0xd1, 0xad, 0x5b, 0x59, 0xd6, 0x0a, 0x2a,
+	0x1f, 0x90, 0x91, 0x8a, 0x50, 0x0f, 0xa8, 0x02, 0x52, 0x8b, 0xc8, 0x17, 0x54, 0xb6, 0x82, 0x03,
+	0x17, 0x70, 0xa2, 0xa5, 0x44, 0x72, 0x6a, 0x63, 0xaf, 0x0f, 0x7e, 0x0b, 0xc4, 0x53, 0x71, 0xec,
+	0x91, 0x23, 0x4a, 0x5e, 0x04, 0xed, 0xae, 0xe3, 0x1f, 0x54, 0x89, 0x08, 0x6e, 0x33, 0xdf, 0xcc,
+	0x7c, 0xdf, 0xcc, 0xce, 0xd8, 0x70, 0x37, 0x49, 0x63, 0x11, 0x3f, 0x59, 0x08, 0xbe, 0xf4, 0x94,
+	0x89, 0x0d, 0x69, 0x5b, 0xfb, 0x35, 0xfe, 0x71, 0x1e, 0x0a, 0x7e, 0x19, 0xa7, 0x85, 0x4e, 0xb0,
+	0xb0, 0x0e, 0xa5, 0x61, 0xba, 0x10, 0x1b, 0x6c, 0xaf, 0x91, 0x9e, 0xf2, 0xf9, 0x22, 0xe1, 0x3a,
+	0x40, 0xbf, 0xf7, 0xc0, 0x08, 0x04, 0x5f, 0x62, 0x13, 0xba, 0x81, 0x4f, 0x90, 0x83, 0xdc, 0x1d,
+	0xd6, 0x0d, 0x7c, 0x8c, 0xc1, 0x78, 0x13, 0x2e, 0x39, 0xe9, 0x3a, 0xc8, 0x1d, 0x31, 0x65, 0x4b,
+	0xec, 0x22, 0xca, 0x2f, 0x49, 0x4f, 0x63, 0xd2, 0xc6, 0x87, 0x30, 0x3a, 0x4b, 0xc3, 0xcf, 0x22,
+	0x9c, 0x45, 0x9c, 0x18, 0x0e, 0x72, 0x87, 0xac, 0x06, 0x30, 0x85, 0xdb, 0x92, 0x9d, 0x29, 0xc9,
+	0xc0, 0x27, 0x7d, 0xc5, 0xdf, 0xc2, 0xf0, 0x09, 0x40, 0xed, 0x93, 0x81, 0x83, 0xdc, 0xf1, 0xf1,
+	0x9e, 0xd7, 0x6c, 0xb5, 0x0e, 0xb3, 0x46, 0x2a, 0xb6, 0x60, 0xc8, 0xd4, 0x90, 0x81, 0x4f, 0x6e,
+	0x29, 0xe2, 0xca, 0xc7, 0x47, 0x30, 0xd0, 0x36, 0x19, 0x2a, 0x42, 0xd3, 0x2b, 0xdf, 0x43, 0xa3,
+	0xac, 0x8c, 0xe2, 0x23, 0x30, 0x25, 0xe3, 0x59, 0xf9, 0x84, 0x81, 0x4f, 0x46, 0x8a, 0xe9, 0x0f,
+	0x14, 0xbf, 0xd0, 0x83, 0x6c, 0x10, 0x02, 0x8a, 0xf5, 0xc0, 0x6b, 0x2f, 0xa0, 0x99, 0xc2, 0x5a,
+	0x05, 0x78, 0x17, 0xfa, 0xef, 0xc3, 0x28, 0xe7, 0x64, 0xec, 0x20, 0xb7, 0xcf, 0xb4, 0x23, 0xd1,
+	0xf3, 0x74, 0x31, 0xe7, 0x64, 0x47, 0xa3, 0xca, 0xa1, 0xbb, 0x80, 0xa7, 0x5c, 0xbc, 0x8a, 0x22,
+	0xc9, 0x90, 0x31, 0xfe, 0x35, 0xe7, 0x99, 0xa0, 0x27, 0x70, 0xbf, 0x85, 0x66, 0x49, 0x7c, 0x95,
+	0x71, 0xec, 0x40, 0x5f, 0x01, 0x04, 0x39, 0x3d, 0x77, 0x7c, 0x0c, 0xaa, 0x25, 0xfd, 0x64, 0x3a,
+	0x40, 0x2d, 0x20, 0x53, 0x2e, 0x2e, 0xbe, 0xc4, 0x49, 0x22, 0x97, 0xd2, 0x22, 0x3d, 0x85, 0xfd,
+	0x1b, 0x62, 0x5b, 0x53, 0x3f, 0x56, 0x9d, 0x4a, 0x7b, 0x52, 0x04, 0x7e, 0x49, 0x8a, 0x1f, 0xc0,
+	0x40, 0x42, 0xd5, 0x3d, 0x95, 0x1e, 0x7d, 0xa6, 0x26, 0xa8, 0xb3, 0x4b, 0x19, 0x5b, 0x9f, 0xa0,
+	0x4a, 0x6e, 0xab, 0x28, 0x9c, 0x9e, 0xc2, 0x41, 0x59, 0x96, 0x4d, 0x8a, 0x7a, 0x27, 0x1b, 0x35,
+	0x1b, 0x60, 0x5e, 0xaf, 0x4f, 0x2b, 0x36, 0x10, 0xfa, 0x12, 0x0e, 0x6f, 0x2e, 0xdf, 0x7a, 0xca,
+	0xd7, 0xf0, 0x70, 0xca, 0x45, 0x75, 0xd5, 0xff, 0xdc, 0x49, 0x00, 0x8f, 0xfe, 0xc2, 0xb3, 0x75,
+	0x4b, 0x3e, 0x98, 0xef, 0x32, 0xae, 0x3f, 0x06, 0x2d, 0x6e, 0xc1, 0xf0, 0x3c, 0x0a, 0x0b, 0x9e,
+	0x56, 0xd2, 0x95, 0xdf, 0x58, 0x48, 0xb7, 0xb5, 0x90, 0x7b, 0x70, 0xa7, 0x62, 0xd1, 0xd2, 0xf4,
+	0x13, 0x98, 0x93, 0xbc, 0xf8, 0x4f, 0x62, 0x59, 0xf3, 0x36, 0x0f, 0xaf, 0x84, 0xfc, 0x00, 0x7b,
+	0xea, 0xb4, 0x2b, 0x5f, 0x8a, 0x56, 0x0a, 0x5a, 0x74, 0x62, 0xff, 0x58, 0xd9, 0xe8, 0x7a, 0x65,
+	0xa3, 0x5f, 0x2b, 0x1b, 0x7d, 0x5b, 0xdb, 0x9d, 0xeb, 0xb5, 0xdd, 0xf9, 0xb9, 0xb6, 0x3b, 0x1f,
+	0x0c, 0xef, 0x79, 0x32, 0x9b, 0x0d, 0xd4, 0xcf, 0xea, 0xe9, 0xef, 0x00, 0x00, 0x00, 0xff, 0xff,
+	0xf6, 0xc5, 0x7c, 0x9d, 0x0e, 0x05, 0x00, 0x00,
 }
 
 func (m *Item) Marshal() (dAtA []byte, err error) {
@@ -891,10 +847,6 @@ func (m *Item) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Price != 0 {
 		i = encodeVarintItem(dAtA, i, uint64(m.Price))
 		i--
@@ -1008,10 +960,6 @@ func (m *GetAllItemsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -1035,10 +983,6 @@ func (m *GetAllItemsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Items) > 0 {
 		for iNdEx := len(m.Items) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -1076,10 +1020,6 @@ func (m *GetShoppableItemsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -1103,10 +1043,6 @@ func (m *GetShoppableItemsResponse) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Items) > 0 {
 		for iNdEx := len(m.Items) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -1144,10 +1080,6 @@ func (m *GetItemByIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ItemID != 0 {
 		i = encodeVarintItem(dAtA, i, uint64(m.ItemID))
 		i--
@@ -1176,10 +1108,6 @@ func (m *GetItemByIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Item != nil {
 		{
 			size, err := m.Item.MarshalToSizedBuffer(dAtA[:i])
@@ -1215,10 +1143,6 @@ func (m *GetItemsByCategoryIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, er
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.CategoryID != 0 {
 		i = encodeVarintItem(dAtA, i, uint64(m.CategoryID))
 		i--
@@ -1247,10 +1171,6 @@ func (m *GetItemsByCategoryIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, e
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Items) > 0 {
 		for iNdEx := len(m.Items) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -1288,10 +1208,6 @@ func (m *GetCraftableItemsByCategoryIDRequest) MarshalToSizedBuffer(dAtA []byte)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.CategoryID != 0 {
 		i = encodeVarintItem(dAtA, i, uint64(m.CategoryID))
 		i--
@@ -1320,10 +1236,6 @@ func (m *GetCraftableItemsByCategoryIDResponse) MarshalToSizedBuffer(dAtA []byte
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Items) > 0 {
 		for iNdEx := len(m.Items) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -1361,10 +1273,6 @@ func (m *UseItemRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ItemID != 0 {
 		i = encodeVarintItem(dAtA, i, uint64(m.ItemID))
 		i--
@@ -1398,10 +1306,6 @@ func (m *UseItemResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -1425,10 +1329,6 @@ func (m *BuyItemRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Quantity != 0 {
 		i = encodeVarintItem(dAtA, i, uint64(m.Quantity))
 		i--
@@ -1467,10 +1367,6 @@ func (m *BuyItemResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -1532,9 +1428,6 @@ func (m *Item) Size() (n int) {
 	if m.Price != 0 {
 		n += 1 + sovItem(uint64(m.Price))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1544,9 +1437,6 @@ func (m *GetAllItemsRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1562,9 +1452,6 @@ func (m *GetAllItemsResponse) Size() (n int) {
 			n += 1 + l + sovItem(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1574,9 +1461,6 @@ func (m *GetShoppableItemsRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1592,9 +1476,6 @@ func (m *GetShoppableItemsResponse) Size() (n int) {
 			n += 1 + l + sovItem(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1606,9 +1487,6 @@ func (m *GetItemByIDRequest) Size() (n int) {
 	_ = l
 	if m.ItemID != 0 {
 		n += 1 + sovItem(uint64(m.ItemID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1623,9 +1501,6 @@ func (m *GetItemByIDResponse) Size() (n int) {
 		l = m.Item.Size()
 		n += 1 + l + sovItem(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1637,9 +1512,6 @@ func (m *GetItemsByCategoryIDRequest) Size() (n int) {
 	_ = l
 	if m.CategoryID != 0 {
 		n += 1 + sovItem(uint64(m.CategoryID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1656,9 +1528,6 @@ func (m *GetItemsByCategoryIDResponse) Size() (n int) {
 			n += 1 + l + sovItem(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1670,9 +1539,6 @@ func (m *GetCraftableItemsByCategoryIDRequest) Size() (n int) {
 	_ = l
 	if m.CategoryID != 0 {
 		n += 1 + sovItem(uint64(m.CategoryID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1689,9 +1555,6 @@ func (m *GetCraftableItemsByCategoryIDResponse) Size() (n int) {
 			n += 1 + l + sovItem(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1707,9 +1570,6 @@ func (m *UseItemRequest) Size() (n int) {
 	if m.ItemID != 0 {
 		n += 1 + sovItem(uint64(m.ItemID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1719,9 +1579,6 @@ func (m *UseItemResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1740,9 +1597,6 @@ func (m *BuyItemRequest) Size() (n int) {
 	if m.Quantity != 0 {
 		n += 1 + sovItem(uint64(m.Quantity))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1752,9 +1606,6 @@ func (m *BuyItemResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -2114,7 +1965,6 @@ func (m *Item) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2168,7 +2018,6 @@ func (m *GetAllItemsRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2256,7 +2105,6 @@ func (m *GetAllItemsResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2310,7 +2158,6 @@ func (m *GetShoppableItemsRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2398,7 +2245,6 @@ func (m *GetShoppableItemsResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2471,7 +2317,6 @@ func (m *GetItemByIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2561,7 +2406,6 @@ func (m *GetItemByIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2634,7 +2478,6 @@ func (m *GetItemsByCategoryIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2722,7 +2565,6 @@ func (m *GetItemsByCategoryIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2795,7 +2637,6 @@ func (m *GetCraftableItemsByCategoryIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2883,7 +2724,6 @@ func (m *GetCraftableItemsByCategoryIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2975,7 +2815,6 @@ func (m *UseItemRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3029,7 +2868,6 @@ func (m *UseItemResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3140,7 +2978,6 @@ func (m *BuyItemRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3194,7 +3031,6 @@ func (m *BuyItemResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

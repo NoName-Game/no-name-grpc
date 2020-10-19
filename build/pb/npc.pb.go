@@ -23,15 +23,12 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type NPC struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	Slug                 string   `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
-	OpeningTime          int32    `protobuf:"varint,4,opt,name=OpeningTime,proto3" json:"OpeningTime,omitempty"`
-	ClosingTime          int32    `protobuf:"varint,5,opt,name=ClosingTime,proto3" json:"ClosingTime,omitempty"`
-	Enabled              bool     `protobuf:"varint,6,opt,name=Enabled,proto3" json:"Enabled,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID          uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name        string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	Slug        string `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
+	OpeningTime int32  `protobuf:"varint,4,opt,name=OpeningTime,proto3" json:"OpeningTime,omitempty"`
+	ClosingTime int32  `protobuf:"varint,5,opt,name=ClosingTime,proto3" json:"ClosingTime,omitempty"`
+	Enabled     bool   `protobuf:"varint,6,opt,name=Enabled,proto3" json:"Enabled,omitempty"`
 }
 
 func (m *NPC) Reset()         { *m = NPC{} }
@@ -111,9 +108,6 @@ func (m *NPC) GetEnabled() bool {
 
 // GetAllNPC
 type GetAllNPCRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetAllNPCRequest) Reset()         { *m = GetAllNPCRequest{} }
@@ -150,10 +144,7 @@ func (m *GetAllNPCRequest) XXX_DiscardUnknown() {
 var xxx_messageInfo_GetAllNPCRequest proto.InternalMessageInfo
 
 type GetAllNPCResponse struct {
-	NPCs                 []*NPC   `protobuf:"bytes,1,rep,name=NPCs,proto3" json:"NPCs,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	NPCs []*NPC `protobuf:"bytes,1,rep,name=NPCs,proto3" json:"NPCs,omitempty"`
 }
 
 func (m *GetAllNPCResponse) Reset()         { *m = GetAllNPCResponse{} }
@@ -198,11 +189,8 @@ func (m *GetAllNPCResponse) GetNPCs() []*NPC {
 
 // Bank Deposit
 type BankDepositRequest struct {
-	PlayerID             uint32   `protobuf:"varint,2,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	Amount               int32    `protobuf:"varint,3,opt,name=Amount,proto3" json:"Amount,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,2,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	Amount   int32  `protobuf:"varint,3,opt,name=Amount,proto3" json:"Amount,omitempty"`
 }
 
 func (m *BankDepositRequest) Reset()         { *m = BankDepositRequest{} }
@@ -253,10 +241,7 @@ func (m *BankDepositRequest) GetAmount() int32 {
 }
 
 type BankDepositResponse struct {
-	Value                int32    `protobuf:"varint,1,opt,name=Value,proto3" json:"Value,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Value int32 `protobuf:"varint,1,opt,name=Value,proto3" json:"Value,omitempty"`
 }
 
 func (m *BankDepositResponse) Reset()         { *m = BankDepositResponse{} }
@@ -301,11 +286,8 @@ func (m *BankDepositResponse) GetValue() int32 {
 
 // Bank Deposit Withdraw
 type BankWithdrawRequest struct {
-	PlayerID             uint32   `protobuf:"varint,2,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	Amount               int32    `protobuf:"varint,3,opt,name=Amount,proto3" json:"Amount,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,2,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	Amount   int32  `protobuf:"varint,3,opt,name=Amount,proto3" json:"Amount,omitempty"`
 }
 
 func (m *BankWithdrawRequest) Reset()         { *m = BankWithdrawRequest{} }
@@ -356,10 +338,7 @@ func (m *BankWithdrawRequest) GetAmount() int32 {
 }
 
 type BankWithdrawResponse struct {
-	Value                int32    `protobuf:"varint,1,opt,name=Value,proto3" json:"Value,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Value int32 `protobuf:"varint,1,opt,name=Value,proto3" json:"Value,omitempty"`
 }
 
 func (m *BankWithdrawResponse) Reset()         { *m = BankWithdrawResponse{} }
@@ -415,28 +394,29 @@ func init() {
 func init() { proto.RegisterFile("proto/npc.proto", fileDescriptor_8ae1f6e76b0ace78) }
 
 var fileDescriptor_8ae1f6e76b0ace78 = []byte{
-	// 323 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x91, 0xcf, 0x4a, 0xf3, 0x40,
-	0x14, 0xc5, 0x99, 0x26, 0xe9, 0xd7, 0xef, 0x96, 0xfa, 0xe7, 0x5a, 0x64, 0x10, 0x29, 0x21, 0xab,
-	0x80, 0x52, 0x51, 0x97, 0xae, 0xda, 0x44, 0x34, 0x9b, 0x18, 0x46, 0x51, 0x70, 0x97, 0xb6, 0x43,
-	0x0d, 0x4e, 0x27, 0x63, 0x33, 0x41, 0x7c, 0x16, 0x5f, 0xc8, 0xa5, 0x8f, 0x20, 0x7d, 0x12, 0xc9,
-	0xa4, 0x95, 0x76, 0xe3, 0xc6, 0xdd, 0x3d, 0xbf, 0x1c, 0xce, 0xe1, 0x64, 0x60, 0x5b, 0xcd, 0x73,
-	0x9d, 0x9f, 0x48, 0x35, 0xee, 0x9b, 0x0b, 0x2d, 0xa9, 0xc6, 0xde, 0x3b, 0x01, 0x2b, 0x4e, 0x02,
-	0xdc, 0x82, 0x46, 0x14, 0x52, 0xe2, 0x12, 0xbf, 0xc3, 0x1a, 0x51, 0x88, 0x08, 0x76, 0x9c, 0xce,
-	0x38, 0x6d, 0xb8, 0xc4, 0xff, 0xcf, 0xcc, 0x5d, 0xb1, 0x5b, 0x51, 0x4e, 0xa9, 0x55, 0xb3, 0xea,
-	0x46, 0x17, 0xda, 0x37, 0x8a, 0xcb, 0x4c, 0x4e, 0xef, 0xb2, 0x19, 0xa7, 0xb6, 0x4b, 0x7c, 0x87,
-	0xad, 0xa3, 0xca, 0x11, 0x88, 0xbc, 0x58, 0x39, 0x9c, 0xda, 0xb1, 0x86, 0x90, 0xc2, 0xbf, 0x4b,
-	0x99, 0x8e, 0x04, 0x9f, 0xd0, 0xa6, 0x4b, 0xfc, 0x16, 0x5b, 0x49, 0x0f, 0x61, 0xe7, 0x8a, 0xeb,
-	0x81, 0x10, 0x71, 0x12, 0x30, 0xfe, 0x52, 0xf2, 0x42, 0x7b, 0xa7, 0xb0, 0xbb, 0xc6, 0x0a, 0x95,
-	0xcb, 0x82, 0xe3, 0x21, 0xd8, 0x71, 0x12, 0x14, 0x94, 0xb8, 0x96, 0xdf, 0x3e, 0x6b, 0xf5, 0xab,
-	0x95, 0xd5, 0x77, 0x43, 0xbd, 0x6b, 0xc0, 0x61, 0x2a, 0x9f, 0x43, 0xae, 0xf2, 0x22, 0xd3, 0xcb,
-	0x20, 0x3c, 0x80, 0x56, 0x22, 0xd2, 0x37, 0x3e, 0x8f, 0x42, 0x33, 0xb3, 0xc3, 0x7e, 0x34, 0xee,
-	0x43, 0x73, 0x30, 0xcb, 0x4b, 0xa9, 0xcd, 0x58, 0x87, 0x2d, 0x95, 0x77, 0x04, 0x7b, 0x1b, 0x49,
-	0xcb, 0xfa, 0x2e, 0x38, 0xf7, 0xa9, 0x28, 0xb9, 0xf9, 0x81, 0x0e, 0xab, 0x85, 0x17, 0xd5, 0xe6,
-	0x87, 0x4c, 0x3f, 0x4d, 0xe6, 0xe9, 0xeb, 0x5f, 0x7a, 0x8f, 0xa1, 0xbb, 0x19, 0xf5, 0x5b, 0xf1,
-	0x10, 0x3f, 0x16, 0x3d, 0xf2, 0xb9, 0xe8, 0x91, 0xaf, 0x45, 0x8f, 0x3c, 0xda, 0xfd, 0x0b, 0x35,
-	0x1a, 0x35, 0xcd, 0xa3, 0x9f, 0x7f, 0x07, 0x00, 0x00, 0xff, 0xff, 0x08, 0xd6, 0xfe, 0x09, 0x07,
-	0x02, 0x00, 0x00,
+	// 337 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x92, 0xc1, 0x4a, 0xeb, 0x40,
+	0x18, 0x85, 0x3b, 0x4d, 0xd2, 0xdb, 0xfb, 0x97, 0xde, 0xab, 0x63, 0x91, 0x41, 0x64, 0x08, 0x59,
+	0x05, 0x94, 0x8a, 0xba, 0x74, 0xd5, 0x26, 0xa2, 0xd9, 0xc4, 0x30, 0x8a, 0x82, 0xbb, 0xb4, 0x1d,
+	0x6a, 0x70, 0x3a, 0x19, 0x9b, 0x04, 0xf1, 0x2d, 0xdc, 0xfb, 0x42, 0x2e, 0xbb, 0x74, 0x29, 0xed,
+	0x8b, 0x48, 0x26, 0xad, 0xb4, 0x1b, 0x37, 0xee, 0xfe, 0xf3, 0xe5, 0x70, 0x0e, 0x27, 0x0c, 0xfc,
+	0x57, 0xd3, 0x34, 0x4f, 0x8f, 0xa4, 0x1a, 0x76, 0xf5, 0x85, 0x0d, 0xa9, 0x86, 0xce, 0x1b, 0x02,
+	0x23, 0x8c, 0x3c, 0xfc, 0x0f, 0xea, 0x81, 0x4f, 0x90, 0x8d, 0xdc, 0x36, 0xab, 0x07, 0x3e, 0xc6,
+	0x60, 0x86, 0xf1, 0x84, 0x93, 0xba, 0x8d, 0xdc, 0xbf, 0x4c, 0xdf, 0x25, 0xbb, 0x16, 0xc5, 0x98,
+	0x18, 0x15, 0x2b, 0x6f, 0x6c, 0x43, 0xeb, 0x4a, 0x71, 0x99, 0xc8, 0xf1, 0x4d, 0x32, 0xe1, 0xc4,
+	0xb4, 0x91, 0x6b, 0xb1, 0x75, 0x54, 0x3a, 0x3c, 0x91, 0x66, 0x2b, 0x87, 0x55, 0x39, 0xd6, 0x10,
+	0x26, 0xf0, 0xe7, 0x5c, 0xc6, 0x03, 0xc1, 0x47, 0xa4, 0x61, 0x23, 0xb7, 0xc9, 0x56, 0xd2, 0xc1,
+	0xb0, 0x75, 0xc1, 0xf3, 0x9e, 0x10, 0x61, 0xe4, 0x31, 0xfe, 0x54, 0xf0, 0x2c, 0x77, 0x8e, 0x61,
+	0x7b, 0x8d, 0x65, 0x2a, 0x95, 0x19, 0xc7, 0xfb, 0x60, 0x86, 0x91, 0x97, 0x11, 0x64, 0x1b, 0x6e,
+	0xeb, 0xa4, 0xd9, 0x2d, 0x57, 0x96, 0xdf, 0x35, 0x75, 0x2e, 0x01, 0xf7, 0x63, 0xf9, 0xe8, 0x73,
+	0x95, 0x66, 0x49, 0xbe, 0x0c, 0xc2, 0x7b, 0xd0, 0x8c, 0x44, 0xfc, 0xc2, 0xa7, 0x81, 0xaf, 0x67,
+	0xb6, 0xd9, 0xb7, 0xc6, 0xbb, 0xd0, 0xe8, 0x4d, 0xd2, 0x42, 0xe6, 0x7a, 0xac, 0xc5, 0x96, 0xca,
+	0x39, 0x80, 0x9d, 0x8d, 0xa4, 0x65, 0x7d, 0x07, 0xac, 0xdb, 0x58, 0x14, 0x5c, 0xff, 0x40, 0x8b,
+	0x55, 0xc2, 0x09, 0x2a, 0xf3, 0x5d, 0x92, 0x3f, 0x8c, 0xa6, 0xf1, 0xf3, 0x6f, 0x7a, 0x0f, 0xa1,
+	0xb3, 0x19, 0xf5, 0x53, 0x71, 0x9f, 0xbe, 0xcf, 0x29, 0x9a, 0xcd, 0x29, 0xfa, 0x9c, 0x53, 0xf4,
+	0xba, 0xa0, 0xb5, 0xd9, 0x82, 0xd6, 0x3e, 0x16, 0xb4, 0x76, 0x6f, 0x76, 0xcf, 0xd4, 0x60, 0xd0,
+	0xd0, 0x0f, 0xe0, 0xf4, 0x2b, 0x00, 0x00, 0xff, 0xff, 0x75, 0x27, 0x3c, 0x6d, 0x13, 0x02, 0x00,
+	0x00,
 }
 
 func (m *NPC) Marshal() (dAtA []byte, err error) {
@@ -459,10 +439,6 @@ func (m *NPC) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Enabled {
 		i--
 		if m.Enabled {
@@ -525,10 +501,6 @@ func (m *GetAllNPCRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -552,10 +524,6 @@ func (m *GetAllNPCResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.NPCs) > 0 {
 		for iNdEx := len(m.NPCs) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -593,10 +561,6 @@ func (m *BankDepositRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Amount != 0 {
 		i = encodeVarintNpc(dAtA, i, uint64(m.Amount))
 		i--
@@ -630,10 +594,6 @@ func (m *BankDepositResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Value != 0 {
 		i = encodeVarintNpc(dAtA, i, uint64(m.Value))
 		i--
@@ -662,10 +622,6 @@ func (m *BankWithdrawRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Amount != 0 {
 		i = encodeVarintNpc(dAtA, i, uint64(m.Amount))
 		i--
@@ -699,10 +655,6 @@ func (m *BankWithdrawResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Value != 0 {
 		i = encodeVarintNpc(dAtA, i, uint64(m.Value))
 		i--
@@ -748,9 +700,6 @@ func (m *NPC) Size() (n int) {
 	if m.Enabled {
 		n += 2
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -760,9 +709,6 @@ func (m *GetAllNPCRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -777,9 +723,6 @@ func (m *GetAllNPCResponse) Size() (n int) {
 			l = e.Size()
 			n += 1 + l + sovNpc(uint64(l))
 		}
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -796,9 +739,6 @@ func (m *BankDepositRequest) Size() (n int) {
 	if m.Amount != 0 {
 		n += 1 + sovNpc(uint64(m.Amount))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -810,9 +750,6 @@ func (m *BankDepositResponse) Size() (n int) {
 	_ = l
 	if m.Value != 0 {
 		n += 1 + sovNpc(uint64(m.Value))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -829,9 +766,6 @@ func (m *BankWithdrawRequest) Size() (n int) {
 	if m.Amount != 0 {
 		n += 1 + sovNpc(uint64(m.Amount))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -843,9 +777,6 @@ func (m *BankWithdrawResponse) Size() (n int) {
 	_ = l
 	if m.Value != 0 {
 		n += 1 + sovNpc(uint64(m.Value))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1041,7 +972,6 @@ func (m *NPC) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1095,7 +1025,6 @@ func (m *GetAllNPCRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1183,7 +1112,6 @@ func (m *GetAllNPCResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1275,7 +1203,6 @@ func (m *BankDepositRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1348,7 +1275,6 @@ func (m *BankDepositResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1440,7 +1366,6 @@ func (m *BankWithdrawRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1513,7 +1438,6 @@ func (m *BankWithdrawResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

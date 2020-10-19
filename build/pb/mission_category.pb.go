@@ -23,12 +23,9 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type MissionCategory struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	Slug                 string   `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID   uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	Slug string `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
 }
 
 func (m *MissionCategory) Reset()         { *m = MissionCategory{} }
@@ -87,11 +84,8 @@ func (m *MissionCategory) GetSlug() string {
 
 // Struct per la tipologia di mission
 type MissionResourcesFinding struct {
-	ResourceQty          uint32   `protobuf:"varint,1,opt,name=ResourceQty,proto3" json:"ResourceQty,omitempty"`
-	ResourceID           uint32   `protobuf:"varint,2,opt,name=ResourceID,proto3" json:"ResourceID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ResourceQty uint32 `protobuf:"varint,1,opt,name=ResourceQty,proto3" json:"ResourceQty,omitempty"`
+	ResourceID  uint32 `protobuf:"varint,2,opt,name=ResourceID,proto3" json:"ResourceID,omitempty"`
 }
 
 func (m *MissionResourcesFinding) Reset()         { *m = MissionResourcesFinding{} }
@@ -142,10 +136,7 @@ func (m *MissionResourcesFinding) GetResourceID() uint32 {
 }
 
 type MissionKillMob struct {
-	EnemyID              uint32   `protobuf:"varint,1,opt,name=EnemyID,proto3" json:"EnemyID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	EnemyID uint32 `protobuf:"varint,1,opt,name=EnemyID,proto3" json:"EnemyID,omitempty"`
 }
 
 func (m *MissionKillMob) Reset()         { *m = MissionKillMob{} }
@@ -189,10 +180,7 @@ func (m *MissionKillMob) GetEnemyID() uint32 {
 }
 
 type MissionPlanetFinding struct {
-	PlanetID             uint32   `protobuf:"varint,1,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlanetID uint32 `protobuf:"varint,1,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
 }
 
 func (m *MissionPlanetFinding) Reset()         { *m = MissionPlanetFinding{} }
@@ -237,9 +225,6 @@ func (m *MissionPlanetFinding) GetPlanetID() uint32 {
 
 // GetAllMissionCategories
 type GetAllMissionCategoriesRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetAllMissionCategoriesRequest) Reset()         { *m = GetAllMissionCategoriesRequest{} }
@@ -276,10 +261,7 @@ func (m *GetAllMissionCategoriesRequest) XXX_DiscardUnknown() {
 var xxx_messageInfo_GetAllMissionCategoriesRequest proto.InternalMessageInfo
 
 type GetAllMissionCategoriesResponse struct {
-	MissionCategories    []*MissionCategory `protobuf:"bytes,1,rep,name=MissionCategories,proto3" json:"MissionCategories,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
-	XXX_unrecognized     []byte             `json:"-"`
-	XXX_sizecache        int32              `json:"-"`
+	MissionCategories []*MissionCategory `protobuf:"bytes,1,rep,name=MissionCategories,proto3" json:"MissionCategories,omitempty"`
 }
 
 func (m *GetAllMissionCategoriesResponse) Reset()         { *m = GetAllMissionCategoriesResponse{} }
@@ -334,26 +316,26 @@ func init() {
 func init() { proto.RegisterFile("proto/mission_category.proto", fileDescriptor_8ae05f8237883399) }
 
 var fileDescriptor_8ae05f8237883399 = []byte{
-	// 290 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x74, 0x91, 0x4d, 0x4b, 0xc4, 0x30,
-	0x10, 0x86, 0xc9, 0xee, 0xe2, 0xc7, 0x2c, 0xbb, 0x6a, 0x10, 0x2c, 0x22, 0xb5, 0xe6, 0x54, 0x3c,
-	0x54, 0x58, 0x8f, 0x9e, 0xd4, 0xaa, 0x14, 0x59, 0x3f, 0xe2, 0x4d, 0x0f, 0xd2, 0xae, 0xa1, 0x04,
-	0xd2, 0xa4, 0x36, 0xe9, 0xa1, 0xff, 0xd0, 0xa3, 0x3f, 0x41, 0xfa, 0x4b, 0x64, 0xfb, 0xc5, 0xba,
-	0xc5, 0xdb, 0xbc, 0x4f, 0x66, 0xde, 0x0c, 0xf3, 0xc2, 0x51, 0x9a, 0x29, 0xa3, 0xce, 0x12, 0xae,
-	0x35, 0x57, 0xf2, 0x7d, 0x11, 0x1a, 0x16, 0xab, 0xac, 0xf0, 0x2a, 0x8c, 0x77, 0xd7, 0x39, 0x09,
-	0x60, 0x67, 0x5e, 0xb3, 0xeb, 0x06, 0xe1, 0x29, 0x0c, 0x02, 0xdf, 0x42, 0x0e, 0x72, 0x27, 0x74,
-	0x10, 0xf8, 0x18, 0xc3, 0xe8, 0x21, 0x4c, 0x98, 0x35, 0x70, 0x90, 0xbb, 0x4d, 0xab, 0x7a, 0xc9,
-	0x5e, 0x44, 0x1e, 0x5b, 0xc3, 0x9a, 0x2d, 0x6b, 0xf2, 0x06, 0x07, 0x8d, 0x15, 0x65, 0x5a, 0xe5,
-	0xd9, 0x82, 0xe9, 0x5b, 0x2e, 0x3f, 0xb8, 0x8c, 0xb1, 0x03, 0xe3, 0x96, 0x3d, 0x9b, 0xa2, 0xf1,
-	0x5e, 0x45, 0xd8, 0x06, 0x68, 0x65, 0xe0, 0x57, 0x5f, 0x4d, 0xe8, 0x0a, 0x21, 0xa7, 0x30, 0x6d,
-	0xcc, 0xef, 0xb9, 0x10, 0x73, 0x15, 0x61, 0x0b, 0x36, 0x6f, 0x24, 0x4b, 0x8a, 0x6e, 0xd7, 0x56,
-	0x92, 0x19, 0xec, 0x37, 0xbd, 0x4f, 0x22, 0x94, 0xcc, 0xb4, 0x5b, 0x1c, 0xc2, 0x56, 0x0d, 0xba,
-	0x91, 0x4e, 0x13, 0x07, 0xec, 0x3b, 0x66, 0x2e, 0x85, 0xf8, 0x7b, 0x0d, 0xce, 0x34, 0x65, 0x9f,
-	0x39, 0xd3, 0x86, 0x64, 0x70, 0xfc, 0x6f, 0x87, 0x4e, 0x95, 0xd4, 0x0c, 0x3f, 0xc2, 0x5e, 0xef,
-	0xd1, 0x42, 0xce, 0xd0, 0x1d, 0xcf, 0x4e, 0xbc, 0x5e, 0x24, 0x6b, 0x77, 0xa7, 0xfd, 0xd9, 0x2b,
-	0xfc, 0x55, 0xda, 0xe8, 0xbb, 0xb4, 0xd1, 0x4f, 0x69, 0xa3, 0xd7, 0x91, 0x77, 0x91, 0x46, 0xd1,
-	0x46, 0x15, 0xe5, 0xf9, 0x6f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x17, 0x93, 0x67, 0xdb, 0xea, 0x01,
-	0x00, 0x00,
+	// 304 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x29, 0x28, 0xca, 0x2f,
+	0xc9, 0xd7, 0xcf, 0xcd, 0x2c, 0x2e, 0xce, 0xcc, 0xcf, 0x8b, 0x4f, 0x4e, 0x2c, 0x49, 0x4d, 0xcf,
+	0x2f, 0xaa, 0xd4, 0x03, 0x0b, 0x0b, 0x09, 0xa0, 0x8b, 0x2b, 0x79, 0x72, 0xf1, 0xfb, 0x42, 0xc4,
+	0x9c, 0xa1, 0x42, 0x42, 0x7c, 0x5c, 0x4c, 0x9e, 0x2e, 0x12, 0x8c, 0x0a, 0x8c, 0x1a, 0xbc, 0x41,
+	0x4c, 0x9e, 0x2e, 0x42, 0x42, 0x5c, 0x2c, 0x7e, 0x89, 0xb9, 0xa9, 0x12, 0x4c, 0x0a, 0x8c, 0x1a,
+	0x9c, 0x41, 0x60, 0x36, 0x48, 0x2c, 0x38, 0xa7, 0x34, 0x5d, 0x82, 0x19, 0x22, 0x06, 0x62, 0x2b,
+	0x45, 0x73, 0x89, 0x43, 0x8d, 0x0a, 0x4a, 0x2d, 0xce, 0x2f, 0x2d, 0x4a, 0x4e, 0x2d, 0x76, 0xcb,
+	0xcc, 0x4b, 0xc9, 0xcc, 0x4b, 0x17, 0x52, 0xe0, 0xe2, 0x86, 0x89, 0x05, 0x96, 0x54, 0x42, 0xcd,
+	0x46, 0x16, 0x12, 0x92, 0xe3, 0xe2, 0x82, 0x71, 0x3d, 0x5d, 0xc0, 0x56, 0xf1, 0x06, 0x21, 0x89,
+	0x28, 0x69, 0x71, 0xf1, 0x41, 0x0d, 0xf7, 0xce, 0xcc, 0xc9, 0xf1, 0xcd, 0x4f, 0x12, 0x92, 0xe0,
+	0x62, 0x77, 0xcd, 0x4b, 0xcd, 0xad, 0x84, 0xbb, 0x15, 0xc6, 0x55, 0x32, 0xe2, 0x12, 0x81, 0xaa,
+	0x0d, 0xc8, 0x49, 0xcc, 0x4b, 0x2d, 0x81, 0xb9, 0x42, 0x8a, 0x8b, 0x03, 0x22, 0x00, 0xd7, 0x02,
+	0xe7, 0x2b, 0x29, 0x70, 0xc9, 0xb9, 0xa7, 0x96, 0x38, 0xe6, 0xe4, 0xa0, 0x86, 0x46, 0x66, 0x6a,
+	0x71, 0x50, 0x6a, 0x61, 0x69, 0x6a, 0x71, 0x89, 0x52, 0x11, 0x97, 0x3c, 0x4e, 0x15, 0xc5, 0x05,
+	0xf9, 0x79, 0xc5, 0xa9, 0x42, 0xfe, 0x5c, 0x82, 0x18, 0x92, 0x12, 0x8c, 0x0a, 0xcc, 0x1a, 0xdc,
+	0x46, 0x8a, 0x7a, 0x18, 0x51, 0x82, 0x16, 0xee, 0x41, 0x98, 0x7a, 0x9d, 0xe4, 0x4e, 0x3c, 0x92,
+	0x63, 0xbc, 0xf0, 0x48, 0x8e, 0xf1, 0xc1, 0x23, 0x39, 0xc6, 0x09, 0x8f, 0xe5, 0x18, 0x2e, 0x3c,
+	0x96, 0x63, 0xb8, 0xf1, 0x58, 0x8e, 0x21, 0x8a, 0x45, 0xcf, 0xba, 0x20, 0x29, 0x89, 0x0d, 0x1c,
+	0xad, 0xc6, 0x80, 0x00, 0x00, 0x00, 0xff, 0xff, 0xc9, 0x2a, 0xe0, 0xb3, 0xf6, 0x01, 0x00, 0x00,
 }
 
 func (m *MissionCategory) Marshal() (dAtA []byte, err error) {
@@ -376,10 +358,6 @@ func (m *MissionCategory) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Slug) > 0 {
 		i -= len(m.Slug)
 		copy(dAtA[i:], m.Slug)
@@ -422,10 +400,6 @@ func (m *MissionResourcesFinding) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ResourceID != 0 {
 		i = encodeVarintMissionCategory(dAtA, i, uint64(m.ResourceID))
 		i--
@@ -459,10 +433,6 @@ func (m *MissionKillMob) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.EnemyID != 0 {
 		i = encodeVarintMissionCategory(dAtA, i, uint64(m.EnemyID))
 		i--
@@ -491,10 +461,6 @@ func (m *MissionPlanetFinding) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlanetID != 0 {
 		i = encodeVarintMissionCategory(dAtA, i, uint64(m.PlanetID))
 		i--
@@ -523,10 +489,6 @@ func (m *GetAllMissionCategoriesRequest) MarshalToSizedBuffer(dAtA []byte) (int,
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -550,10 +512,6 @@ func (m *GetAllMissionCategoriesResponse) MarshalToSizedBuffer(dAtA []byte) (int
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.MissionCategories) > 0 {
 		for iNdEx := len(m.MissionCategories) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -599,9 +557,6 @@ func (m *MissionCategory) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovMissionCategory(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -617,9 +572,6 @@ func (m *MissionResourcesFinding) Size() (n int) {
 	if m.ResourceID != 0 {
 		n += 1 + sovMissionCategory(uint64(m.ResourceID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -631,9 +583,6 @@ func (m *MissionKillMob) Size() (n int) {
 	_ = l
 	if m.EnemyID != 0 {
 		n += 1 + sovMissionCategory(uint64(m.EnemyID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -647,9 +596,6 @@ func (m *MissionPlanetFinding) Size() (n int) {
 	if m.PlanetID != 0 {
 		n += 1 + sovMissionCategory(uint64(m.PlanetID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -659,9 +605,6 @@ func (m *GetAllMissionCategoriesRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -676,9 +619,6 @@ func (m *GetAllMissionCategoriesResponse) Size() (n int) {
 			l = e.Size()
 			n += 1 + l + sovMissionCategory(uint64(l))
 		}
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -816,7 +756,6 @@ func (m *MissionCategory) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -908,7 +847,6 @@ func (m *MissionResourcesFinding) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -981,7 +919,6 @@ func (m *MissionKillMob) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1054,7 +991,6 @@ func (m *MissionPlanetFinding) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1108,7 +1044,6 @@ func (m *GetAllMissionCategoriesRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1196,7 +1131,6 @@ func (m *GetAllMissionCategoriesResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

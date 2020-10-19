@@ -23,13 +23,10 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type TitanDamage struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	PlayerID             uint32   `protobuf:"varint,2,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	TitanID              uint32   `protobuf:"varint,3,opt,name=TitanID,proto3" json:"TitanID,omitempty"`
-	DamageInflicted      int32    `protobuf:"varint,4,opt,name=DamageInflicted,proto3" json:"DamageInflicted,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID              uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	PlayerID        uint32 `protobuf:"varint,2,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	TitanID         uint32 `protobuf:"varint,3,opt,name=TitanID,proto3" json:"TitanID,omitempty"`
+	DamageInflicted int32  `protobuf:"varint,4,opt,name=DamageInflicted,proto3" json:"DamageInflicted,omitempty"`
 }
 
 func (m *TitanDamage) Reset()         { *m = TitanDamage{} }
@@ -95,10 +92,7 @@ func (m *TitanDamage) GetDamageInflicted() int32 {
 
 // GetTitanDamageByTitanID
 type GetTitanDamageByTitanIDRequest struct {
-	TitanID              uint32   `protobuf:"varint,1,opt,name=TitanID,proto3" json:"TitanID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	TitanID uint32 `protobuf:"varint,1,opt,name=TitanID,proto3" json:"TitanID,omitempty"`
 }
 
 func (m *GetTitanDamageByTitanIDRequest) Reset()         { *m = GetTitanDamageByTitanIDRequest{} }
@@ -142,10 +136,7 @@ func (m *GetTitanDamageByTitanIDRequest) GetTitanID() uint32 {
 }
 
 type GetTitanDamageByTitanIDResponse struct {
-	Damages              []*TitanDamage `protobuf:"bytes,1,rep,name=damages,proto3" json:"damages,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	Damages []*TitanDamage `protobuf:"bytes,1,rep,name=damages,proto3" json:"damages,omitempty"`
 }
 
 func (m *GetTitanDamageByTitanIDResponse) Reset()         { *m = GetTitanDamageByTitanIDResponse{} }
@@ -197,7 +188,7 @@ func init() {
 func init() { proto.RegisterFile("proto/titan_damage.proto", fileDescriptor_1cf06fac82462d5e) }
 
 var fileDescriptor_1cf06fac82462d5e = []byte{
-	// 220 bytes of a gzipped FileDescriptorProto
+	// 233 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x28, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x2f, 0xc9, 0x2c, 0x49, 0xcc, 0x8b, 0x4f, 0x49, 0xcc, 0x4d, 0x4c, 0x4f, 0xd5, 0x03,
 	0x0b, 0x09, 0xf1, 0x20, 0x8b, 0x29, 0xd5, 0x72, 0x71, 0x87, 0x80, 0xf8, 0x2e, 0x60, 0xae, 0x10,
@@ -209,9 +200,10 @@ var fileDescriptor_1cf06fac82462d5e = []byte{
 	0x54, 0x09, 0x35, 0x24, 0x28, 0xb5, 0xb0, 0x34, 0xb5, 0xb8, 0x04, 0xd9, 0x16, 0x46, 0x14, 0x5b,
 	0x94, 0xc2, 0xb8, 0xe4, 0x71, 0xea, 0x2d, 0x2e, 0xc8, 0xcf, 0x2b, 0x4e, 0x15, 0x32, 0xe6, 0x62,
 	0x87, 0xf8, 0xb3, 0x58, 0x82, 0x51, 0x81, 0x59, 0x83, 0xdb, 0x48, 0x52, 0x0f, 0x25, 0x44, 0x90,
-	0x34, 0x07, 0xc1, 0x54, 0x3a, 0x09, 0x9d, 0x78, 0x24, 0xc7, 0x78, 0xe1, 0x91, 0x1c, 0xe3, 0x83,
-	0x47, 0x72, 0x8c, 0x51, 0x2c, 0x7a, 0xd6, 0x05, 0x49, 0x49, 0x6c, 0xe0, 0xb0, 0x33, 0x06, 0x04,
-	0x00, 0x00, 0xff, 0xff, 0x6a, 0xd1, 0x46, 0xce, 0x57, 0x01, 0x00, 0x00,
+	0x34, 0x07, 0xc1, 0x54, 0x3a, 0xc9, 0x9d, 0x78, 0x24, 0xc7, 0x78, 0xe1, 0x91, 0x1c, 0xe3, 0x83,
+	0x47, 0x72, 0x8c, 0x13, 0x1e, 0xcb, 0x31, 0x5c, 0x78, 0x2c, 0xc7, 0x70, 0xe3, 0xb1, 0x1c, 0x43,
+	0x14, 0x8b, 0x9e, 0x75, 0x41, 0x52, 0x12, 0x1b, 0x38, 0x1c, 0x8d, 0x01, 0x01, 0x00, 0x00, 0xff,
+	0xff, 0x2d, 0x65, 0xe9, 0xc1, 0x63, 0x01, 0x00, 0x00,
 }
 
 func (m *TitanDamage) Marshal() (dAtA []byte, err error) {
@@ -234,10 +226,6 @@ func (m *TitanDamage) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.DamageInflicted != 0 {
 		i = encodeVarintTitanDamage(dAtA, i, uint64(m.DamageInflicted))
 		i--
@@ -281,10 +269,6 @@ func (m *GetTitanDamageByTitanIDRequest) MarshalToSizedBuffer(dAtA []byte) (int,
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.TitanID != 0 {
 		i = encodeVarintTitanDamage(dAtA, i, uint64(m.TitanID))
 		i--
@@ -313,10 +297,6 @@ func (m *GetTitanDamageByTitanIDResponse) MarshalToSizedBuffer(dAtA []byte) (int
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Damages) > 0 {
 		for iNdEx := len(m.Damages) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -363,9 +343,6 @@ func (m *TitanDamage) Size() (n int) {
 	if m.DamageInflicted != 0 {
 		n += 1 + sovTitanDamage(uint64(m.DamageInflicted))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -377,9 +354,6 @@ func (m *GetTitanDamageByTitanIDRequest) Size() (n int) {
 	_ = l
 	if m.TitanID != 0 {
 		n += 1 + sovTitanDamage(uint64(m.TitanID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -395,9 +369,6 @@ func (m *GetTitanDamageByTitanIDResponse) Size() (n int) {
 			l = e.Size()
 			n += 1 + l + sovTitanDamage(uint64(l))
 		}
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -528,7 +499,6 @@ func (m *TitanDamage) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -601,7 +571,6 @@ func (m *GetTitanDamageByTitanIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -689,7 +658,6 @@ func (m *GetTitanDamageByTitanIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

@@ -23,13 +23,10 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type Guild struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	GuildType            bool     `protobuf:"varint,9,opt,name=GuildType,proto3" json:"GuildType,omitempty"`
-	OwnerID              uint32   `protobuf:"varint,13,opt,name=OwnerID,proto3" json:"OwnerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID        uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name      string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	GuildType bool   `protobuf:"varint,9,opt,name=GuildType,proto3" json:"GuildType,omitempty"`
+	OwnerID   uint32 `protobuf:"varint,13,opt,name=OwnerID,proto3" json:"OwnerID,omitempty"`
 }
 
 func (m *Guild) Reset()         { *m = Guild{} }
@@ -95,10 +92,7 @@ func (m *Guild) GetOwnerID() uint32 {
 
 // CheckGuildName
 type CheckGuildNameRequest struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Name string `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
 }
 
 func (m *CheckGuildNameRequest) Reset()         { *m = CheckGuildNameRequest{} }
@@ -142,10 +136,7 @@ func (m *CheckGuildNameRequest) GetName() string {
 }
 
 type CheckGuildNameResponse struct {
-	GuildNameFree        bool     `protobuf:"varint,1,opt,name=GuildNameFree,proto3" json:"GuildNameFree,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	GuildNameFree bool `protobuf:"varint,1,opt,name=GuildNameFree,proto3" json:"GuildNameFree,omitempty"`
 }
 
 func (m *CheckGuildNameResponse) Reset()         { *m = CheckGuildNameResponse{} }
@@ -190,12 +181,9 @@ func (m *CheckGuildNameResponse) GetGuildNameFree() bool {
 
 // CreateGuild
 type CreateGuildRequest struct {
-	GuildName            string   `protobuf:"bytes,1,opt,name=GuildName,proto3" json:"GuildName,omitempty"`
-	OwnerID              uint32   `protobuf:"varint,2,opt,name=OwnerID,proto3" json:"OwnerID,omitempty"`
-	GuildType            bool     `protobuf:"varint,3,opt,name=GuildType,proto3" json:"GuildType,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	GuildName string `protobuf:"bytes,1,opt,name=GuildName,proto3" json:"GuildName,omitempty"`
+	OwnerID   uint32 `protobuf:"varint,2,opt,name=OwnerID,proto3" json:"OwnerID,omitempty"`
+	GuildType bool   `protobuf:"varint,3,opt,name=GuildType,proto3" json:"GuildType,omitempty"`
 }
 
 func (m *CreateGuildRequest) Reset()         { *m = CreateGuildRequest{} }
@@ -253,9 +241,6 @@ func (m *CreateGuildRequest) GetGuildType() bool {
 }
 
 type CreateGuildResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateGuildResponse) Reset()         { *m = CreateGuildResponse{} }
@@ -293,11 +278,8 @@ var xxx_messageInfo_CreateGuildResponse proto.InternalMessageInfo
 
 // JoinGuild
 type JoinGuildRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	GuildName            string   `protobuf:"bytes,2,opt,name=GuildName,proto3" json:"GuildName,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID  uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	GuildName string `protobuf:"bytes,2,opt,name=GuildName,proto3" json:"GuildName,omitempty"`
 }
 
 func (m *JoinGuildRequest) Reset()         { *m = JoinGuildRequest{} }
@@ -348,9 +330,6 @@ func (m *JoinGuildRequest) GetGuildName() string {
 }
 
 type JoinGuildResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *JoinGuildResponse) Reset()         { *m = JoinGuildResponse{} }
@@ -388,9 +367,6 @@ var xxx_messageInfo_JoinGuildResponse proto.InternalMessageInfo
 
 // GetJoinGuildsList
 type GetJoinGuildsListRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetJoinGuildsListRequest) Reset()         { *m = GetJoinGuildsListRequest{} }
@@ -427,10 +403,7 @@ func (m *GetJoinGuildsListRequest) XXX_DiscardUnknown() {
 var xxx_messageInfo_GetJoinGuildsListRequest proto.InternalMessageInfo
 
 type GetJoinGuildsListResponse struct {
-	GuildsList           []*Guild `protobuf:"bytes,1,rep,name=GuildsList,proto3" json:"GuildsList,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	GuildsList []*Guild `protobuf:"bytes,1,rep,name=GuildsList,proto3" json:"GuildsList,omitempty"`
 }
 
 func (m *GetJoinGuildsListResponse) Reset()         { *m = GetJoinGuildsListResponse{} }
@@ -475,10 +448,7 @@ func (m *GetJoinGuildsListResponse) GetGuildsList() []*Guild {
 
 // GetPlayerGuild
 type GetPlayerGuildRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *GetPlayerGuildRequest) Reset()         { *m = GetPlayerGuildRequest{} }
@@ -522,11 +492,8 @@ func (m *GetPlayerGuildRequest) GetPlayerID() uint32 {
 }
 
 type GetPlayerGuildResponse struct {
-	InGuild              bool     `protobuf:"varint,1,opt,name=InGuild,proto3" json:"InGuild,omitempty"`
-	Guild                *Guild   `protobuf:"bytes,2,opt,name=Guild,proto3" json:"Guild,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	InGuild bool   `protobuf:"varint,1,opt,name=InGuild,proto3" json:"InGuild,omitempty"`
+	Guild   *Guild `protobuf:"bytes,2,opt,name=Guild,proto3" json:"Guild,omitempty"`
 }
 
 func (m *GetPlayerGuildResponse) Reset()         { *m = GetPlayerGuildResponse{} }
@@ -578,10 +545,7 @@ func (m *GetPlayerGuildResponse) GetGuild() *Guild {
 
 // LeaveGuild
 type LeaveGuildRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *LeaveGuildRequest) Reset()         { *m = LeaveGuildRequest{} }
@@ -625,9 +589,6 @@ func (m *LeaveGuildRequest) GetPlayerID() uint32 {
 }
 
 type LeaveGuildResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *LeaveGuildResponse) Reset()         { *m = LeaveGuildResponse{} }
@@ -665,10 +626,7 @@ var xxx_messageInfo_LeaveGuildResponse proto.InternalMessageInfo
 
 // GetPlayersGuild
 type GetPlayersGuildRequest struct {
-	GuildID              uint32   `protobuf:"varint,1,opt,name=GuildID,proto3" json:"GuildID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	GuildID uint32 `protobuf:"varint,1,opt,name=GuildID,proto3" json:"GuildID,omitempty"`
 }
 
 func (m *GetPlayersGuildRequest) Reset()         { *m = GetPlayersGuildRequest{} }
@@ -712,10 +670,7 @@ func (m *GetPlayersGuildRequest) GetGuildID() uint32 {
 }
 
 type GetPlayersGuildResponse struct {
-	Players              []*Player `protobuf:"bytes,1,rep,name=Players,proto3" json:"Players,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
+	Players []*Player `protobuf:"bytes,1,rep,name=Players,proto3" json:"Players,omitempty"`
 }
 
 func (m *GetPlayersGuildResponse) Reset()         { *m = GetPlayersGuildResponse{} }
@@ -760,11 +715,8 @@ func (m *GetPlayersGuildResponse) GetPlayers() []*Player {
 
 // AddPlayerToGuild
 type AddPlayerToGuildRequest struct {
-	PlayerUsername       string   `protobuf:"bytes,1,opt,name=PlayerUsername,proto3" json:"PlayerUsername,omitempty"`
-	GuildID              uint32   `protobuf:"varint,2,opt,name=GuildID,proto3" json:"GuildID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerUsername string `protobuf:"bytes,1,opt,name=PlayerUsername,proto3" json:"PlayerUsername,omitempty"`
+	GuildID        uint32 `protobuf:"varint,2,opt,name=GuildID,proto3" json:"GuildID,omitempty"`
 }
 
 func (m *AddPlayerToGuildRequest) Reset()         { *m = AddPlayerToGuildRequest{} }
@@ -815,9 +767,6 @@ func (m *AddPlayerToGuildRequest) GetGuildID() uint32 {
 }
 
 type AddPlayerToGuildResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *AddPlayerToGuildResponse) Reset()         { *m = AddPlayerToGuildResponse{} }
@@ -855,11 +804,8 @@ var xxx_messageInfo_AddPlayerToGuildResponse proto.InternalMessageInfo
 
 // RemovePlayerToGuild
 type RemovePlayerToGuildRequest struct {
-	PlayerUsername       string   `protobuf:"bytes,1,opt,name=PlayerUsername,proto3" json:"PlayerUsername,omitempty"`
-	GuildID              uint32   `protobuf:"varint,2,opt,name=GuildID,proto3" json:"GuildID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerUsername string `protobuf:"bytes,1,opt,name=PlayerUsername,proto3" json:"PlayerUsername,omitempty"`
+	GuildID        uint32 `protobuf:"varint,2,opt,name=GuildID,proto3" json:"GuildID,omitempty"`
 }
 
 func (m *RemovePlayerToGuildRequest) Reset()         { *m = RemovePlayerToGuildRequest{} }
@@ -910,9 +856,6 @@ func (m *RemovePlayerToGuildRequest) GetGuildID() uint32 {
 }
 
 type RemovePlayerToGuildResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *RemovePlayerToGuildResponse) Reset()         { *m = RemovePlayerToGuildResponse{} }
@@ -973,36 +916,37 @@ func init() {
 func init() { proto.RegisterFile("proto/guild.proto", fileDescriptor_2fe4cffb18d57fed) }
 
 var fileDescriptor_2fe4cffb18d57fed = []byte{
-	// 467 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x94, 0xdf, 0x8b, 0xd3, 0x40,
-	0x10, 0xc7, 0xd9, 0xdc, 0x9d, 0x69, 0x47, 0x5b, 0xec, 0x9e, 0xbd, 0x5b, 0xa3, 0x96, 0xb0, 0x88,
-	0x04, 0x94, 0x1c, 0xdc, 0x3d, 0x0a, 0x82, 0xb6, 0x58, 0x22, 0x45, 0x25, 0x54, 0x1f, 0x14, 0x84,
-	0xb4, 0x1d, 0xb4, 0xda, 0x26, 0x31, 0x49, 0x2b, 0xfd, 0x0f, 0x7d, 0xf4, 0x4f, 0x90, 0xfe, 0x25,
-	0xd2, 0xdd, 0xcd, 0x8f, 0x4d, 0xfb, 0xd0, 0x17, 0xdf, 0x76, 0xbe, 0xb3, 0x33, 0xdf, 0xcf, 0x4c,
-	0xb7, 0x81, 0x4e, 0x9c, 0x44, 0x59, 0x74, 0xf5, 0x75, 0x35, 0x5f, 0xcc, 0x5c, 0x71, 0xa6, 0x67,
-	0x22, 0xb0, 0xa8, 0xcc, 0xc4, 0x8b, 0x60, 0x83, 0x89, 0x4c, 0xf1, 0x29, 0x9c, 0x0d, 0x77, 0x49,
-	0xda, 0x06, 0xc3, 0x1b, 0x30, 0x62, 0x13, 0xa7, 0xe5, 0x1b, 0xde, 0x80, 0x52, 0x38, 0x7d, 0x1b,
-	0x2c, 0x91, 0x19, 0x36, 0x71, 0x9a, 0xbe, 0x38, 0xd3, 0x87, 0xd0, 0x14, 0x97, 0xc7, 0x9b, 0x18,
-	0x59, 0xd3, 0x26, 0x4e, 0xc3, 0x2f, 0x05, 0xca, 0xc0, 0x7c, 0xf7, 0x2b, 0xc4, 0xc4, 0x1b, 0xb0,
-	0x96, 0x68, 0x93, 0x87, 0xfc, 0x29, 0x74, 0xfb, 0xdf, 0x70, 0xfa, 0x43, 0xdc, 0xdd, 0x75, 0xf2,
-	0xf1, 0xe7, 0x0a, 0xd3, 0xac, 0x30, 0x21, 0xa5, 0x09, 0x7f, 0x01, 0x17, 0xf5, 0xcb, 0x69, 0x1c,
-	0x85, 0x29, 0xd2, 0xc7, 0xd0, 0x2a, 0xc4, 0xd7, 0x09, 0xca, 0xb2, 0x86, 0xaf, 0x8b, 0xfc, 0x3b,
-	0xd0, 0x7e, 0x82, 0x41, 0x86, 0x42, 0xce, 0x9d, 0x72, 0xf4, 0x8a, 0x5d, 0x29, 0x54, 0xd1, 0x0d,
-	0x0d, 0x5d, 0x1f, 0xf9, 0xa4, 0x36, 0x32, 0xef, 0xc2, 0xb9, 0xe6, 0x25, 0x41, 0xf9, 0x08, 0xee,
-	0xbe, 0x89, 0xe6, 0xa1, 0x06, 0x60, 0x41, 0xe3, 0xbd, 0x58, 0x7c, 0xb1, 0xe5, 0x22, 0xd6, 0xe1,
-	0x8c, 0x1a, 0x1c, 0x3f, 0x87, 0x4e, 0xa5, 0x9b, 0xb2, 0xb0, 0x80, 0x0d, 0x31, 0x2b, 0xf4, 0x74,
-	0x34, 0x4f, 0x33, 0x65, 0xc5, 0x3d, 0xb8, 0x7f, 0x20, 0xa7, 0x96, 0xf8, 0x0c, 0xa0, 0x54, 0x19,
-	0xb1, 0x4f, 0x9c, 0xdb, 0xd7, 0x77, 0x5c, 0xf9, 0x5a, 0xa4, 0x45, 0x25, 0xcf, 0x6f, 0xa0, 0x3b,
-	0xc4, 0x4c, 0x82, 0x1e, 0x3b, 0x0e, 0xff, 0x08, 0x17, 0xf5, 0x22, 0x65, 0xce, 0xc0, 0xf4, 0x24,
-	0x94, 0xfa, 0xed, 0xf2, 0x90, 0x72, 0xf5, 0x0e, 0xc5, 0xf8, 0x75, 0x22, 0x99, 0xe2, 0x57, 0xd0,
-	0x19, 0x61, 0xb0, 0xc6, 0xa3, 0x41, 0xee, 0x01, 0xad, 0x16, 0xa8, 0xd5, 0x5d, 0x57, 0xf0, 0x52,
-	0xad, 0x17, 0x03, 0x53, 0xc4, 0x45, 0xab, 0x3c, 0xe4, 0x7d, 0xb8, 0xdc, 0xab, 0x51, 0x33, 0x39,
-	0x60, 0x2a, 0x5d, 0x6d, 0xb3, 0xed, 0xaa, 0x7f, 0x98, 0x94, 0xfd, 0x3c, 0xcd, 0x3f, 0xc3, 0xe5,
-	0xcb, 0xd9, 0x4c, 0x46, 0xe3, 0x48, 0x73, 0x7e, 0x02, 0x6d, 0xa9, 0x7f, 0x48, 0x31, 0x09, 0xcb,
-	0x37, 0x5a, 0x53, 0xab, 0x84, 0x86, 0x4e, 0x68, 0x01, 0xdb, 0x6f, 0xae, 0x26, 0xfe, 0x02, 0x96,
-	0x8f, 0xcb, 0x68, 0x8d, 0xff, 0xc9, 0xfb, 0x11, 0x3c, 0x38, 0xd8, 0x5f, 0xda, 0xbf, 0xa2, 0xbf,
-	0xb7, 0x3d, 0xf2, 0x67, 0xdb, 0x23, 0x7f, 0xb7, 0x3d, 0xf2, 0xe9, 0xd4, 0x7d, 0x1e, 0x4f, 0x26,
-	0xb7, 0xc4, 0xe7, 0xe7, 0xe6, 0x5f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x83, 0xae, 0xea, 0x6a, 0xae,
+	// 483 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x94, 0xcf, 0x6e, 0xd3, 0x40,
+	0x10, 0xc6, 0xb3, 0x6e, 0x8b, 0x93, 0x81, 0x44, 0x64, 0x4b, 0xda, 0xc5, 0x80, 0x65, 0xad, 0x10,
+	0xb2, 0x04, 0x72, 0xa5, 0xf6, 0x88, 0x84, 0x04, 0x89, 0x88, 0x8c, 0x22, 0x40, 0x56, 0xe1, 0x00,
+	0x12, 0x92, 0xdb, 0x8c, 0x20, 0xd0, 0xda, 0xc6, 0x76, 0x8b, 0xfa, 0x16, 0x3c, 0x16, 0xc7, 0x1e,
+	0x39, 0xa2, 0xe4, 0x45, 0x50, 0x76, 0xd7, 0x7f, 0xd6, 0xc9, 0x21, 0x97, 0xde, 0x76, 0xbe, 0xd9,
+	0x99, 0xef, 0x37, 0x93, 0x8d, 0xa1, 0x9f, 0xa4, 0x71, 0x1e, 0x1f, 0x7c, 0xbd, 0x98, 0x9d, 0x4d,
+	0x3d, 0x71, 0xa6, 0x3b, 0x22, 0xb0, 0xa8, 0xcc, 0x24, 0x67, 0xe1, 0x15, 0xa6, 0x32, 0xc5, 0x4f,
+	0x61, 0x67, 0xbc, 0x4c, 0xd2, 0x1e, 0x18, 0xfe, 0x88, 0x11, 0x87, 0xb8, 0xdd, 0xc0, 0xf0, 0x47,
+	0x94, 0xc2, 0xf6, 0xdb, 0xf0, 0x1c, 0x99, 0xe1, 0x10, 0xb7, 0x13, 0x88, 0x33, 0x7d, 0x08, 0x1d,
+	0x71, 0xf9, 0xf8, 0x2a, 0x41, 0xd6, 0x71, 0x88, 0xdb, 0x0e, 0x2a, 0x81, 0x32, 0x30, 0xdf, 0xfd,
+	0x8a, 0x30, 0xf5, 0x47, 0xac, 0x2b, 0xda, 0x14, 0x21, 0x7f, 0x0a, 0x83, 0xe1, 0x37, 0x3c, 0xfd,
+	0x21, 0xee, 0x2e, 0x3b, 0x05, 0xf8, 0xf3, 0x02, 0xb3, 0xbc, 0x34, 0x21, 0x95, 0x09, 0x7f, 0x01,
+	0x7b, 0xcd, 0xcb, 0x59, 0x12, 0x47, 0x19, 0xd2, 0xc7, 0xd0, 0x2d, 0xc5, 0xd7, 0x29, 0xca, 0xb2,
+	0x76, 0xa0, 0x8b, 0xfc, 0x3b, 0xd0, 0x61, 0x8a, 0x61, 0x8e, 0x42, 0x2e, 0x9c, 0x0a, 0xf4, 0x9a,
+	0x5d, 0x25, 0xd4, 0xd1, 0x0d, 0x0d, 0x5d, 0x1f, 0x79, 0xab, 0x31, 0x32, 0x1f, 0xc0, 0xae, 0xe6,
+	0x25, 0x41, 0xf9, 0x04, 0xee, 0xbe, 0x89, 0x67, 0x91, 0x06, 0x60, 0x41, 0xfb, 0xbd, 0x58, 0x7c,
+	0xb9, 0xe5, 0x32, 0xd6, 0xe1, 0x8c, 0x06, 0x1c, 0xdf, 0x85, 0x7e, 0xad, 0x9b, 0xb2, 0xb0, 0x80,
+	0x8d, 0x31, 0x2f, 0xf5, 0x6c, 0x32, 0xcb, 0x72, 0x65, 0xc5, 0x7d, 0xb8, 0xbf, 0x26, 0xa7, 0x96,
+	0xf8, 0x0c, 0xa0, 0x52, 0x19, 0x71, 0xb6, 0xdc, 0xdb, 0x87, 0x77, 0x3c, 0xf9, 0x5a, 0xa4, 0x45,
+	0x2d, 0xcf, 0x8f, 0x60, 0x30, 0xc6, 0x5c, 0x82, 0x6e, 0x3a, 0x0e, 0xff, 0x08, 0x7b, 0xcd, 0x22,
+	0x65, 0xce, 0xc0, 0xf4, 0x25, 0x94, 0xfa, 0xed, 0x8a, 0x90, 0x72, 0xf5, 0x0e, 0xc5, 0xf8, 0x4d,
+	0x22, 0x99, 0xe2, 0x07, 0xd0, 0x9f, 0x60, 0x78, 0x89, 0x1b, 0x83, 0xdc, 0x03, 0x5a, 0x2f, 0x50,
+	0xab, 0x3b, 0xac, 0xe1, 0x65, 0x5a, 0x2f, 0x06, 0xa6, 0x88, 0xcb, 0x56, 0x45, 0xc8, 0x87, 0xb0,
+	0xbf, 0x52, 0xa3, 0x66, 0x72, 0xc1, 0x54, 0xba, 0xda, 0x66, 0xcf, 0x53, 0xff, 0x30, 0x29, 0x07,
+	0x45, 0x9a, 0x7f, 0x86, 0xfd, 0x97, 0xd3, 0xa9, 0x8c, 0x8e, 0x63, 0xcd, 0xf9, 0x09, 0xf4, 0xa4,
+	0xfe, 0x21, 0xc3, 0x34, 0xaa, 0xde, 0x68, 0x43, 0xad, 0x13, 0x1a, 0x3a, 0xa1, 0x05, 0x6c, 0xb5,
+	0xb9, 0x9a, 0xf8, 0x0b, 0x58, 0x01, 0x9e, 0xc7, 0x97, 0x78, 0x43, 0xde, 0x8f, 0xe0, 0xc1, 0xda,
+	0xfe, 0xd2, 0xfe, 0x95, 0xfd, 0x67, 0x6e, 0x93, 0xeb, 0xb9, 0x4d, 0xfe, 0xcd, 0x6d, 0xf2, 0x7b,
+	0x61, 0xb7, 0xae, 0x17, 0x76, 0xeb, 0xef, 0xc2, 0x6e, 0x7d, 0xda, 0xf6, 0x9e, 0x27, 0x27, 0x27,
+	0xb7, 0xc4, 0xa7, 0xe8, 0xe8, 0x7f, 0x00, 0x00, 0x00, 0xff, 0xff, 0xde, 0xc3, 0x23, 0x73, 0xba,
 	0x04, 0x00, 0x00,
 }
 
@@ -1026,10 +970,6 @@ func (m *Guild) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.OwnerID != 0 {
 		i = encodeVarintGuild(dAtA, i, uint64(m.OwnerID))
 		i--
@@ -1080,10 +1020,6 @@ func (m *CheckGuildNameRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Name) > 0 {
 		i -= len(m.Name)
 		copy(dAtA[i:], m.Name)
@@ -1114,10 +1050,6 @@ func (m *CheckGuildNameResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.GuildNameFree {
 		i--
 		if m.GuildNameFree {
@@ -1151,10 +1083,6 @@ func (m *CreateGuildRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.GuildType {
 		i--
 		if m.GuildType {
@@ -1200,10 +1128,6 @@ func (m *CreateGuildResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -1227,10 +1151,6 @@ func (m *JoinGuildRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.GuildName) > 0 {
 		i -= len(m.GuildName)
 		copy(dAtA[i:], m.GuildName)
@@ -1266,10 +1186,6 @@ func (m *JoinGuildResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -1293,10 +1209,6 @@ func (m *GetJoinGuildsListRequest) MarshalToSizedBuffer(dAtA []byte) (int, error
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -1320,10 +1232,6 @@ func (m *GetJoinGuildsListResponse) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.GuildsList) > 0 {
 		for iNdEx := len(m.GuildsList) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -1361,10 +1269,6 @@ func (m *GetPlayerGuildRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintGuild(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -1393,10 +1297,6 @@ func (m *GetPlayerGuildResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Guild != nil {
 		{
 			size, err := m.Guild.MarshalToSizedBuffer(dAtA[:i])
@@ -1442,10 +1342,6 @@ func (m *LeaveGuildRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintGuild(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -1474,10 +1370,6 @@ func (m *LeaveGuildResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -1501,10 +1393,6 @@ func (m *GetPlayersGuildRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.GuildID != 0 {
 		i = encodeVarintGuild(dAtA, i, uint64(m.GuildID))
 		i--
@@ -1533,10 +1421,6 @@ func (m *GetPlayersGuildResponse) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Players) > 0 {
 		for iNdEx := len(m.Players) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -1574,10 +1458,6 @@ func (m *AddPlayerToGuildRequest) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.GuildID != 0 {
 		i = encodeVarintGuild(dAtA, i, uint64(m.GuildID))
 		i--
@@ -1613,10 +1493,6 @@ func (m *AddPlayerToGuildResponse) MarshalToSizedBuffer(dAtA []byte) (int, error
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -1640,10 +1516,6 @@ func (m *RemovePlayerToGuildRequest) MarshalToSizedBuffer(dAtA []byte) (int, err
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.GuildID != 0 {
 		i = encodeVarintGuild(dAtA, i, uint64(m.GuildID))
 		i--
@@ -1679,10 +1551,6 @@ func (m *RemovePlayerToGuildResponse) MarshalToSizedBuffer(dAtA []byte) (int, er
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -1716,9 +1584,6 @@ func (m *Guild) Size() (n int) {
 	if m.OwnerID != 0 {
 		n += 1 + sovGuild(uint64(m.OwnerID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1732,9 +1597,6 @@ func (m *CheckGuildNameRequest) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovGuild(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1746,9 +1608,6 @@ func (m *CheckGuildNameResponse) Size() (n int) {
 	_ = l
 	if m.GuildNameFree {
 		n += 2
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1769,9 +1628,6 @@ func (m *CreateGuildRequest) Size() (n int) {
 	if m.GuildType {
 		n += 2
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1781,9 +1637,6 @@ func (m *CreateGuildResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1800,9 +1653,6 @@ func (m *JoinGuildRequest) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovGuild(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1812,9 +1662,6 @@ func (m *JoinGuildResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1824,9 +1671,6 @@ func (m *GetJoinGuildsListRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1842,9 +1686,6 @@ func (m *GetJoinGuildsListResponse) Size() (n int) {
 			n += 1 + l + sovGuild(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1856,9 +1697,6 @@ func (m *GetPlayerGuildRequest) Size() (n int) {
 	_ = l
 	if m.PlayerID != 0 {
 		n += 1 + sovGuild(uint64(m.PlayerID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1876,9 +1714,6 @@ func (m *GetPlayerGuildResponse) Size() (n int) {
 		l = m.Guild.Size()
 		n += 1 + l + sovGuild(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1891,9 +1726,6 @@ func (m *LeaveGuildRequest) Size() (n int) {
 	if m.PlayerID != 0 {
 		n += 1 + sovGuild(uint64(m.PlayerID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1903,9 +1735,6 @@ func (m *LeaveGuildResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1917,9 +1746,6 @@ func (m *GetPlayersGuildRequest) Size() (n int) {
 	_ = l
 	if m.GuildID != 0 {
 		n += 1 + sovGuild(uint64(m.GuildID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1935,9 +1761,6 @@ func (m *GetPlayersGuildResponse) Size() (n int) {
 			l = e.Size()
 			n += 1 + l + sovGuild(uint64(l))
 		}
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1955,9 +1778,6 @@ func (m *AddPlayerToGuildRequest) Size() (n int) {
 	if m.GuildID != 0 {
 		n += 1 + sovGuild(uint64(m.GuildID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1967,9 +1787,6 @@ func (m *AddPlayerToGuildResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1986,9 +1803,6 @@ func (m *RemovePlayerToGuildRequest) Size() (n int) {
 	if m.GuildID != 0 {
 		n += 1 + sovGuild(uint64(m.GuildID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1998,9 +1812,6 @@ func (m *RemovePlayerToGuildResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -2144,7 +1955,6 @@ func (m *Guild) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2230,7 +2040,6 @@ func (m *CheckGuildNameRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2304,7 +2113,6 @@ func (m *CheckGuildNameResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2429,7 +2237,6 @@ func (m *CreateGuildRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2483,7 +2290,6 @@ func (m *CreateGuildResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2588,7 +2394,6 @@ func (m *JoinGuildRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2642,7 +2447,6 @@ func (m *JoinGuildResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2696,7 +2500,6 @@ func (m *GetJoinGuildsListRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2784,7 +2587,6 @@ func (m *GetJoinGuildsListResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2857,7 +2659,6 @@ func (m *GetPlayerGuildRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2967,7 +2768,6 @@ func (m *GetPlayerGuildResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3040,7 +2840,6 @@ func (m *LeaveGuildRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3094,7 +2893,6 @@ func (m *LeaveGuildResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3167,7 +2965,6 @@ func (m *GetPlayersGuildRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3255,7 +3052,6 @@ func (m *GetPlayersGuildResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3360,7 +3156,6 @@ func (m *AddPlayerToGuildRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3414,7 +3209,6 @@ func (m *AddPlayerToGuildResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3519,7 +3313,6 @@ func (m *RemovePlayerToGuildRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3573,7 +3366,6 @@ func (m *RemovePlayerToGuildResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

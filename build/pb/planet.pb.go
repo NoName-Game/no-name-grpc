@@ -24,26 +24,23 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type Planet struct {
-	ID                   uint32            `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string            `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	X                    float64           `protobuf:"fixed64,3,opt,name=X,proto3" json:"X,omitempty"`
-	Y                    float64           `protobuf:"fixed64,4,opt,name=Y,proto3" json:"Y,omitempty"`
-	Z                    float64           `protobuf:"fixed64,5,opt,name=Z,proto3" json:"Z,omitempty"`
-	HashPosition         string            `protobuf:"bytes,6,opt,name=HashPosition,proto3" json:"HashPosition,omitempty"`
-	PlayerID             uint32            `protobuf:"varint,7,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	PlanetBiomeID        uint32            `protobuf:"varint,8,opt,name=PlanetBiomeID,proto3" json:"PlanetBiomeID,omitempty"`
-	PlanetBiome          *PlanetBiome      `protobuf:"bytes,9,opt,name=PlanetBiome,proto3" json:"PlanetBiome,omitempty"`
-	PlanetAtmosphereID   uint32            `protobuf:"varint,10,opt,name=PlanetAtmosphereID,proto3" json:"PlanetAtmosphereID,omitempty"`
-	PlanetAtmosphere     *PlanetAtmosphere `protobuf:"bytes,11,opt,name=PlanetAtmosphere,proto3" json:"PlanetAtmosphere,omitempty"`
-	PlanetMapID          uint32            `protobuf:"varint,12,opt,name=PlanetMapID,proto3" json:"PlanetMapID,omitempty"`
-	PlanetMap            *PlanetMap        `protobuf:"bytes,13,opt,name=PlanetMap,proto3" json:"PlanetMap,omitempty"`
-	Resources            []*Resource       `protobuf:"bytes,14,rep,name=Resources,proto3" json:"Resources,omitempty"`
-	Safe                 bool              `protobuf:"varint,15,opt,name=Safe,proto3" json:"Safe,omitempty"`
-	PlanetSystemID       uint32            `protobuf:"varint,16,opt,name=PlanetSystemID,proto3" json:"PlanetSystemID,omitempty"`
-	PlanetSystem         *PlanetSystem     `protobuf:"bytes,17,opt,name=PlanetSystem,proto3" json:"PlanetSystem,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
-	XXX_unrecognized     []byte            `json:"-"`
-	XXX_sizecache        int32             `json:"-"`
+	ID                 uint32            `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name               string            `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	X                  float64           `protobuf:"fixed64,3,opt,name=X,proto3" json:"X,omitempty"`
+	Y                  float64           `protobuf:"fixed64,4,opt,name=Y,proto3" json:"Y,omitempty"`
+	Z                  float64           `protobuf:"fixed64,5,opt,name=Z,proto3" json:"Z,omitempty"`
+	HashPosition       string            `protobuf:"bytes,6,opt,name=HashPosition,proto3" json:"HashPosition,omitempty"`
+	PlayerID           uint32            `protobuf:"varint,7,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	PlanetBiomeID      uint32            `protobuf:"varint,8,opt,name=PlanetBiomeID,proto3" json:"PlanetBiomeID,omitempty"`
+	PlanetBiome        *PlanetBiome      `protobuf:"bytes,9,opt,name=PlanetBiome,proto3" json:"PlanetBiome,omitempty"`
+	PlanetAtmosphereID uint32            `protobuf:"varint,10,opt,name=PlanetAtmosphereID,proto3" json:"PlanetAtmosphereID,omitempty"`
+	PlanetAtmosphere   *PlanetAtmosphere `protobuf:"bytes,11,opt,name=PlanetAtmosphere,proto3" json:"PlanetAtmosphere,omitempty"`
+	PlanetMapID        uint32            `protobuf:"varint,12,opt,name=PlanetMapID,proto3" json:"PlanetMapID,omitempty"`
+	PlanetMap          *PlanetMap        `protobuf:"bytes,13,opt,name=PlanetMap,proto3" json:"PlanetMap,omitempty"`
+	Resources          []*Resource       `protobuf:"bytes,14,rep,name=Resources,proto3" json:"Resources,omitempty"`
+	Safe               bool              `protobuf:"varint,15,opt,name=Safe,proto3" json:"Safe,omitempty"`
+	PlanetSystemID     uint32            `protobuf:"varint,16,opt,name=PlanetSystemID,proto3" json:"PlanetSystemID,omitempty"`
+	PlanetSystem       *PlanetSystem     `protobuf:"bytes,17,opt,name=PlanetSystem,proto3" json:"PlanetSystem,omitempty"`
 }
 
 func (m *Planet) Reset()         { *m = Planet{} }
@@ -200,12 +197,9 @@ func (m *Planet) GetPlanetSystem() *PlanetSystem {
 
 // GetPlanetByCoordinate
 type GetPlanetByCoordinateRequest struct {
-	X                    float64  `protobuf:"fixed64,1,opt,name=X,proto3" json:"X,omitempty"`
-	Y                    float64  `protobuf:"fixed64,2,opt,name=Y,proto3" json:"Y,omitempty"`
-	Z                    float64  `protobuf:"fixed64,3,opt,name=Z,proto3" json:"Z,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	X float64 `protobuf:"fixed64,1,opt,name=X,proto3" json:"X,omitempty"`
+	Y float64 `protobuf:"fixed64,2,opt,name=Y,proto3" json:"Y,omitempty"`
+	Z float64 `protobuf:"fixed64,3,opt,name=Z,proto3" json:"Z,omitempty"`
 }
 
 func (m *GetPlanetByCoordinateRequest) Reset()         { *m = GetPlanetByCoordinateRequest{} }
@@ -263,10 +257,7 @@ func (m *GetPlanetByCoordinateRequest) GetZ() float64 {
 }
 
 type GetPlanetByCoordinateResponse struct {
-	Planet               *Planet  `protobuf:"bytes,1,opt,name=Planet,proto3" json:"Planet,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Planet *Planet `protobuf:"bytes,1,opt,name=Planet,proto3" json:"Planet,omitempty"`
 }
 
 func (m *GetPlanetByCoordinateResponse) Reset()         { *m = GetPlanetByCoordinateResponse{} }
@@ -311,10 +302,7 @@ func (m *GetPlanetByCoordinateResponse) GetPlanet() *Planet {
 
 // GetPlanetByID
 type GetPlanetByIDRequest struct {
-	PlanetID             uint32   `protobuf:"varint,1,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlanetID uint32 `protobuf:"varint,1,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
 }
 
 func (m *GetPlanetByIDRequest) Reset()         { *m = GetPlanetByIDRequest{} }
@@ -358,10 +346,7 @@ func (m *GetPlanetByIDRequest) GetPlanetID() uint32 {
 }
 
 type GetPlanetByIDResponse struct {
-	Planet               *Planet  `protobuf:"bytes,1,opt,name=Planet,proto3" json:"Planet,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Planet *Planet `protobuf:"bytes,1,opt,name=Planet,proto3" json:"Planet,omitempty"`
 }
 
 func (m *GetPlanetByIDResponse) Reset()         { *m = GetPlanetByIDResponse{} }
@@ -406,10 +391,7 @@ func (m *GetPlanetByIDResponse) GetPlanet() *Planet {
 
 // GetPlanetByName
 type GetPlanetByNameRequest struct {
-	PlanetName           string   `protobuf:"bytes,1,opt,name=PlanetName,proto3" json:"PlanetName,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlanetName string `protobuf:"bytes,1,opt,name=PlanetName,proto3" json:"PlanetName,omitempty"`
 }
 
 func (m *GetPlanetByNameRequest) Reset()         { *m = GetPlanetByNameRequest{} }
@@ -453,10 +435,7 @@ func (m *GetPlanetByNameRequest) GetPlanetName() string {
 }
 
 type GetPlanetByNameResponse struct {
-	Planet               *Planet  `protobuf:"bytes,1,opt,name=Planet,proto3" json:"Planet,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Planet *Planet `protobuf:"bytes,1,opt,name=Planet,proto3" json:"Planet,omitempty"`
 }
 
 func (m *GetPlanetByNameResponse) Reset()         { *m = GetPlanetByNameResponse{} }
@@ -501,10 +480,7 @@ func (m *GetPlanetByNameResponse) GetPlanet() *Planet {
 
 // GetPlanetByMapID
 type GetPlanetByMapIDRequest struct {
-	MapID                uint32   `protobuf:"varint,1,opt,name=MapID,proto3" json:"MapID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	MapID uint32 `protobuf:"varint,1,opt,name=MapID,proto3" json:"MapID,omitempty"`
 }
 
 func (m *GetPlanetByMapIDRequest) Reset()         { *m = GetPlanetByMapIDRequest{} }
@@ -548,10 +524,7 @@ func (m *GetPlanetByMapIDRequest) GetMapID() uint32 {
 }
 
 type GetPlanetByMapIDResponse struct {
-	Planet               *Planet  `protobuf:"bytes,1,opt,name=Planet,proto3" json:"Planet,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Planet *Planet `protobuf:"bytes,1,opt,name=Planet,proto3" json:"Planet,omitempty"`
 }
 
 func (m *GetPlanetByMapIDResponse) Reset()         { *m = GetPlanetByMapIDResponse{} }
@@ -596,9 +569,6 @@ func (m *GetPlanetByMapIDResponse) GetPlanet() *Planet {
 
 // GetExpansionInfo
 type GetExpansionInfoRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetExpansionInfoRequest) Reset()         { *m = GetExpansionInfoRequest{} }
@@ -638,9 +608,6 @@ type GetExpansionInfoResponse struct {
 	MissPlanetsCounter   uint32        `protobuf:"varint,1,opt,name=MissPlanetsCounter,proto3" json:"MissPlanetsCounter,omitempty"`
 	TotalPlanetsCounter  uint32        `protobuf:"varint,2,opt,name=TotalPlanetsCounter,proto3" json:"TotalPlanetsCounter,omitempty"`
 	LastSystemDiscovered *PlanetSystem `protobuf:"bytes,3,opt,name=LastSystemDiscovered,proto3" json:"LastSystemDiscovered,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
 }
 
 func (m *GetExpansionInfoResponse) Reset()         { *m = GetExpansionInfoResponse{} }
@@ -699,9 +666,6 @@ func (m *GetExpansionInfoResponse) GetLastSystemDiscovered() *PlanetSystem {
 
 // GetSafePlanets
 type GetSafePlanetsRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetSafePlanetsRequest) Reset()         { *m = GetSafePlanetsRequest{} }
@@ -738,10 +702,7 @@ func (m *GetSafePlanetsRequest) XXX_DiscardUnknown() {
 var xxx_messageInfo_GetSafePlanetsRequest proto.InternalMessageInfo
 
 type GetSafePlanetsResponse struct {
-	SafePlanets          []*Planet `protobuf:"bytes,1,rep,name=SafePlanets,proto3" json:"SafePlanets,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
+	SafePlanets []*Planet `protobuf:"bytes,1,rep,name=SafePlanets,proto3" json:"SafePlanets,omitempty"`
 }
 
 func (m *GetSafePlanetsResponse) Reset()         { *m = GetSafePlanetsResponse{} }
@@ -803,48 +764,49 @@ func init() {
 func init() { proto.RegisterFile("proto/planet.proto", fileDescriptor_68d8275d0fe35fcc) }
 
 var fileDescriptor_68d8275d0fe35fcc = []byte{
-	// 650 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x54, 0x41, 0x4f, 0xdb, 0x4c,
-	0x10, 0xd5, 0x06, 0xc8, 0x47, 0x26, 0x21, 0x1f, 0xdd, 0x06, 0x58, 0x68, 0x89, 0x2c, 0xb7, 0xaa,
-	0x72, 0x32, 0x28, 0x5c, 0x2a, 0x71, 0x40, 0x80, 0x2b, 0x70, 0x55, 0x0a, 0x32, 0x3d, 0x40, 0x2e,
-	0x95, 0x81, 0x45, 0x58, 0x22, 0x5e, 0xd7, 0x6b, 0xaa, 0x72, 0xeb, 0xcf, 0xeb, 0xa5, 0x52, 0x7f,
-	0x42, 0xc5, 0x2f, 0xa9, 0x3c, 0xbb, 0x36, 0xbb, 0x4e, 0xaa, 0x8a, 0x9b, 0xe7, 0xbd, 0x99, 0x79,
-	0xb3, 0x3b, 0x6f, 0x0d, 0x34, 0xcd, 0x44, 0x2e, 0x36, 0xd2, 0xdb, 0x28, 0xe1, 0xb9, 0x87, 0x01,
-	0x6d, 0xaa, 0x68, 0x8d, 0x99, 0xdc, 0xe7, 0x8b, 0x58, 0x8c, 0xb9, 0xca, 0x58, 0x5b, 0xb7, 0x98,
-	0x28, 0x1f, 0x0b, 0x99, 0xde, 0xf0, 0xac, 0xa4, 0x97, 0x2d, 0x7a, 0x1c, 0xa5, 0x1a, 0x5f, 0xb5,
-	0x70, 0x79, 0x2f, 0x73, 0x3e, 0xd6, 0x54, 0x4f, 0x51, 0x19, 0x97, 0xe2, 0x2e, 0xbb, 0xd4, 0x8d,
-	0xdc, 0xef, 0x73, 0xd0, 0x3c, 0xc1, 0x6c, 0xda, 0x85, 0x46, 0xe0, 0x33, 0xe2, 0x90, 0xc1, 0x42,
-	0xd8, 0x08, 0x7c, 0x4a, 0x61, 0xf6, 0x63, 0x34, 0xe6, 0xac, 0xe1, 0x90, 0x41, 0x2b, 0xc4, 0x6f,
-	0xda, 0x01, 0x72, 0xc6, 0x66, 0x1c, 0x32, 0x20, 0x21, 0x39, 0x2b, 0xa2, 0x73, 0x36, 0xab, 0xa2,
-	0xf3, 0x22, 0x1a, 0xb1, 0x39, 0x15, 0x8d, 0xa8, 0x0b, 0x9d, 0xc3, 0x48, 0xde, 0x9c, 0x08, 0x19,
-	0xe7, 0xb1, 0x48, 0x58, 0x13, 0xbb, 0x58, 0x18, 0x5d, 0x83, 0xf9, 0x93, 0xdb, 0xe8, 0x9e, 0x67,
-	0x81, 0xcf, 0xfe, 0x43, 0xdd, 0x2a, 0xa6, 0xaf, 0x61, 0x41, 0xcd, 0xb5, 0x57, 0xdc, 0x4a, 0xe0,
-	0xb3, 0x79, 0x4c, 0xb0, 0x41, 0xba, 0x0d, 0x6d, 0x03, 0x60, 0x2d, 0x87, 0x0c, 0xda, 0xc3, 0x55,
-	0xcf, 0xba, 0x50, 0x23, 0x21, 0x34, 0xb3, 0xa9, 0x07, 0x54, 0x85, 0xbb, 0xd5, 0xf5, 0x06, 0x3e,
-	0x03, 0xd4, 0x99, 0xc2, 0xd0, 0x63, 0x58, 0xac, 0xa3, 0xac, 0x8d, 0x8a, 0xaf, 0xbc, 0xc9, 0x45,
-	0xd5, 0x53, 0xc3, 0x89, 0x62, 0xea, 0x94, 0xd3, 0x1f, 0x45, 0x69, 0xe0, 0xb3, 0x0e, 0x2a, 0x9b,
-	0x10, 0xdd, 0x82, 0x56, 0x15, 0xb2, 0x05, 0xd4, 0x5a, 0xf2, 0x8c, 0xad, 0x57, 0x64, 0xf8, 0x98,
-	0x47, 0x37, 0xa1, 0x15, 0xea, 0x2d, 0x4b, 0xd6, 0x75, 0x66, 0x06, 0xed, 0x21, 0xf5, 0xaa, 0xbd,
-	0x97, 0x54, 0xf8, 0x98, 0x54, 0xac, 0xfa, 0x34, 0xba, 0xe6, 0xec, 0x7f, 0x87, 0x0c, 0xe6, 0x43,
-	0xfc, 0xa6, 0x6f, 0xa0, 0xab, 0x5a, 0x9e, 0xa2, 0x8b, 0x02, 0x9f, 0x2d, 0xe2, 0x7c, 0x35, 0x94,
-	0xee, 0x40, 0xc7, 0x44, 0xd8, 0x33, 0x9c, 0xf2, 0x85, 0x67, 0x7b, 0xd0, 0x4c, 0x09, 0xad, 0x02,
-	0xf7, 0x10, 0x5e, 0x1e, 0xf0, 0x5c, 0x2f, 0xe6, 0x7e, 0x5f, 0x88, 0xec, 0x2a, 0x4e, 0xa2, 0x9c,
-	0x87, 0xfc, 0xcb, 0x1d, 0x97, 0xb9, 0xf2, 0x1c, 0xb1, 0x3c, 0xd7, 0xb0, 0x3c, 0xa7, 0xfd, 0x38,
-	0x72, 0x0f, 0x60, 0xfd, 0x2f, 0x9d, 0x64, 0x2a, 0x12, 0x59, 0x9c, 0x49, 0x9b, 0x1d, 0xfb, 0xb5,
-	0x87, 0x5d, 0x3d, 0xa5, 0x1e, 0x2f, 0xd4, 0xac, 0x3b, 0x84, 0x9e, 0xd1, 0x28, 0xf0, 0xcb, 0x51,
-	0x94, 0x61, 0x13, 0x9e, 0x57, 0x0f, 0xa5, 0x8a, 0xdd, 0x1d, 0x58, 0xaa, 0xd5, 0x3c, 0x51, 0xf4,
-	0x2d, 0x2c, 0x1b, 0x0d, 0x8a, 0xe7, 0x56, 0xca, 0xf6, 0x01, 0x14, 0x8c, 0xef, 0x91, 0xe0, 0x4b,
-	0x32, 0x10, 0x77, 0x17, 0x56, 0x26, 0x2a, 0x9f, 0x28, 0xbe, 0x61, 0xb5, 0x40, 0xf3, 0x95, 0xea,
-	0x3d, 0x98, 0x53, 0xfe, 0x54, 0x27, 0x56, 0x81, 0xbb, 0x07, 0x6c, 0xb2, 0xe0, 0x89, 0xa2, 0xab,
-	0x28, 0xfa, 0xee, 0x5b, 0x1a, 0x25, 0x32, 0x16, 0x49, 0x90, 0x5c, 0x0b, 0x2d, 0xea, 0xfe, 0x24,
-	0xd8, 0xbf, 0xc6, 0xe9, 0xfe, 0x1e, 0xd0, 0xa3, 0x58, 0x4a, 0xd5, 0x45, 0xee, 0x8b, 0xbb, 0x24,
-	0xe7, 0x99, 0x1e, 0x6f, 0x0a, 0x43, 0x37, 0xe1, 0xf9, 0x27, 0x91, 0x47, 0xb7, 0xb5, 0x82, 0x06,
-	0x16, 0x4c, 0xa3, 0xe8, 0x31, 0xf4, 0x3e, 0x44, 0x52, 0x3b, 0xd4, 0x8f, 0xe5, 0xa5, 0xf8, 0xca,
-	0x33, 0x7e, 0x85, 0x56, 0xfb, 0x87, 0xb9, 0xa7, 0x16, 0xba, 0x2b, 0xe8, 0x8e, 0xe2, 0x61, 0x69,
-	0xa5, 0xf2, 0xa0, 0xef, 0x71, 0xeb, 0x16, 0xa1, 0x4f, 0xb9, 0x09, 0x6d, 0x03, 0x66, 0x04, 0x1f,
-	0x72, 0xfd, 0x2a, 0xcd, 0x94, 0x3d, 0xfa, 0xe3, 0xa1, 0x4f, 0x7e, 0x3d, 0xf4, 0xc9, 0xef, 0x87,
-	0x3e, 0x19, 0xcd, 0x7a, 0xdb, 0xe9, 0xc5, 0x45, 0x13, 0xff, 0xf3, 0x5b, 0x7f, 0x02, 0x00, 0x00,
-	0xff, 0xff, 0x9d, 0x43, 0xde, 0x5f, 0x87, 0x06, 0x00, 0x00,
+	// 664 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x54, 0xc1, 0x4e, 0xdb, 0x40,
+	0x10, 0x65, 0x03, 0xa4, 0x64, 0x12, 0x52, 0xba, 0x0d, 0xb0, 0xd0, 0x62, 0x45, 0x6e, 0x55, 0xe5,
+	0x64, 0x50, 0xb8, 0x54, 0xe2, 0x80, 0x00, 0x57, 0xe0, 0xaa, 0x14, 0x64, 0x7a, 0x80, 0x5c, 0x2a,
+	0x03, 0x8b, 0xb0, 0x44, 0xbc, 0xae, 0xd7, 0x54, 0xe5, 0xd6, 0x4f, 0xe8, 0x67, 0xf5, 0x52, 0x89,
+	0x63, 0x8f, 0x15, 0xfc, 0x48, 0xe5, 0xd9, 0xb5, 0x59, 0x3b, 0xa9, 0x2a, 0x6e, 0x9e, 0xf7, 0x66,
+	0xe6, 0xcd, 0xee, 0xbc, 0x35, 0xd0, 0x38, 0x11, 0xa9, 0x58, 0x8d, 0xaf, 0x82, 0x88, 0xa7, 0x0e,
+	0x06, 0xb4, 0xae, 0xa2, 0x65, 0x66, 0x72, 0x9f, 0x4f, 0x43, 0x31, 0xe4, 0x2a, 0x63, 0x79, 0xa5,
+	0xc4, 0x04, 0xe9, 0x50, 0xc8, 0xf8, 0x92, 0x27, 0x39, 0xbd, 0x50, 0xa2, 0x87, 0x41, 0xac, 0xf1,
+	0xa5, 0x12, 0x2e, 0x6f, 0x64, 0xca, 0x87, 0x9a, 0xea, 0x28, 0x2a, 0xe1, 0x52, 0x5c, 0x27, 0x67,
+	0xba, 0x91, 0xfd, 0x7d, 0x1a, 0xea, 0x87, 0x98, 0x4d, 0xdb, 0x50, 0xf3, 0x5c, 0x46, 0xba, 0xa4,
+	0x37, 0xeb, 0xd7, 0x3c, 0x97, 0x52, 0x98, 0xfa, 0x18, 0x0c, 0x39, 0xab, 0x75, 0x49, 0xaf, 0xe1,
+	0xe3, 0x37, 0x6d, 0x01, 0x39, 0x66, 0x93, 0x5d, 0xd2, 0x23, 0x3e, 0x39, 0xce, 0xa2, 0x13, 0x36,
+	0xa5, 0xa2, 0x93, 0x2c, 0x1a, 0xb0, 0x69, 0x15, 0x0d, 0xa8, 0x0d, 0xad, 0xbd, 0x40, 0x5e, 0x1e,
+	0x0a, 0x19, 0xa6, 0xa1, 0x88, 0x58, 0x1d, 0xbb, 0x94, 0x30, 0xba, 0x0c, 0x33, 0x87, 0x57, 0xc1,
+	0x0d, 0x4f, 0x3c, 0x97, 0x3d, 0x41, 0xdd, 0x22, 0xa6, 0xaf, 0x61, 0x56, 0xcd, 0xb5, 0x9d, 0xdd,
+	0x8a, 0xe7, 0xb2, 0x19, 0x4c, 0x28, 0x83, 0x74, 0x03, 0x9a, 0x06, 0xc0, 0x1a, 0x5d, 0xd2, 0x6b,
+	0xf6, 0x97, 0x9c, 0xd2, 0x85, 0x1a, 0x09, 0xbe, 0x99, 0x4d, 0x1d, 0xa0, 0x2a, 0xdc, 0x2a, 0xae,
+	0xd7, 0x73, 0x19, 0xa0, 0xce, 0x18, 0x86, 0x1e, 0xc0, 0x5c, 0x15, 0x65, 0x4d, 0x54, 0x7c, 0xe5,
+	0x8c, 0x2e, 0xaa, 0x9a, 0xea, 0x8f, 0x14, 0xd3, 0x6e, 0x3e, 0xfd, 0x7e, 0x10, 0x7b, 0x2e, 0x6b,
+	0xa1, 0xb2, 0x09, 0xd1, 0x75, 0x68, 0x14, 0x21, 0x9b, 0x45, 0xad, 0x79, 0xc7, 0xd8, 0x7a, 0x41,
+	0xfa, 0x0f, 0x79, 0x74, 0x0d, 0x1a, 0xbe, 0xde, 0xb2, 0x64, 0xed, 0xee, 0x64, 0xaf, 0xd9, 0xa7,
+	0x4e, 0xb1, 0xf7, 0x9c, 0xf2, 0x1f, 0x92, 0xb2, 0x55, 0x1f, 0x05, 0x17, 0x9c, 0x3d, 0xed, 0x92,
+	0xde, 0x8c, 0x8f, 0xdf, 0xf4, 0x0d, 0xb4, 0x55, 0xcb, 0x23, 0x74, 0x91, 0xe7, 0xb2, 0x39, 0x9c,
+	0xaf, 0x82, 0xd2, 0x4d, 0x68, 0x99, 0x08, 0x7b, 0x86, 0x53, 0xbe, 0x70, 0xca, 0x1e, 0x34, 0x53,
+	0xfc, 0x52, 0x81, 0xbd, 0x07, 0x2f, 0x77, 0x79, 0xaa, 0x17, 0x73, 0xb3, 0x23, 0x44, 0x72, 0x1e,
+	0x46, 0x41, 0xca, 0x7d, 0xfe, 0xe5, 0x9a, 0xcb, 0x54, 0x79, 0x8e, 0x94, 0x3c, 0x57, 0x2b, 0x79,
+	0x4e, 0xfb, 0x71, 0x60, 0xef, 0xc2, 0xca, 0x3f, 0x3a, 0xc9, 0x58, 0x44, 0x32, 0x3b, 0x93, 0x36,
+	0x3b, 0xf6, 0x6b, 0xf6, 0xdb, 0x7a, 0x4a, 0x3d, 0x9e, 0xaf, 0x59, 0xbb, 0x0f, 0x1d, 0xa3, 0x91,
+	0xe7, 0xe6, 0xa3, 0x28, 0xc3, 0x46, 0x3c, 0x2d, 0x1e, 0x4a, 0x11, 0xdb, 0x9b, 0x30, 0x5f, 0xa9,
+	0x79, 0xa4, 0xe8, 0x5b, 0x58, 0x30, 0x1a, 0x64, 0xcf, 0x2d, 0x97, 0xb5, 0x00, 0x14, 0x8c, 0xef,
+	0x91, 0xe0, 0x4b, 0x32, 0x10, 0x7b, 0x0b, 0x16, 0x47, 0x2a, 0x1f, 0x29, 0xbe, 0x5a, 0x6a, 0x81,
+	0xe6, 0xcb, 0xd5, 0x3b, 0x30, 0xad, 0xfc, 0xa9, 0x4e, 0xac, 0x02, 0x7b, 0x1b, 0xd8, 0x68, 0xc1,
+	0x23, 0x45, 0x97, 0x50, 0xf4, 0xdd, 0xb7, 0x38, 0x88, 0x64, 0x28, 0x22, 0x2f, 0xba, 0x10, 0x5a,
+	0xd4, 0xfe, 0x45, 0xb0, 0x7f, 0x85, 0xd3, 0xfd, 0x1d, 0xa0, 0xfb, 0xa1, 0x94, 0xaa, 0x8b, 0xdc,
+	0x11, 0xd7, 0x51, 0xca, 0x13, 0x3d, 0xde, 0x18, 0x86, 0xae, 0xc1, 0xf3, 0x4f, 0x22, 0x0d, 0xae,
+	0x2a, 0x05, 0x35, 0x2c, 0x18, 0x47, 0xd1, 0x03, 0xe8, 0x7c, 0x08, 0xa4, 0x76, 0xa8, 0x1b, 0xca,
+	0x33, 0xf1, 0x95, 0x27, 0xfc, 0x1c, 0xad, 0xf6, 0x1f, 0x73, 0x8f, 0x2d, 0xb4, 0x17, 0xd1, 0x1d,
+	0xd9, 0xc3, 0xd2, 0x4a, 0xf9, 0x41, 0xdf, 0xe3, 0xd6, 0x4b, 0x84, 0x3e, 0xe5, 0x1a, 0x34, 0x0d,
+	0x98, 0x11, 0x7c, 0xc8, 0xd5, 0xab, 0x34, 0x53, 0xb6, 0xad, 0x9f, 0x77, 0x16, 0xb9, 0xbd, 0xb3,
+	0xc8, 0x9f, 0x3b, 0x8b, 0xfc, 0xb8, 0xb7, 0x26, 0x6e, 0xef, 0xad, 0x89, 0xdf, 0xf7, 0xd6, 0xc4,
+	0x60, 0xca, 0xd9, 0x88, 0x4f, 0x4f, 0xeb, 0xf8, 0xcf, 0x5f, 0xff, 0x1b, 0x00, 0x00, 0xff, 0xff,
+	0x43, 0xb4, 0x15, 0x7f, 0x93, 0x06, 0x00, 0x00,
 }
 
 func (m *Planet) Marshal() (dAtA []byte, err error) {
@@ -867,10 +829,6 @@ func (m *Planet) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlanetSystem != nil {
 		{
 			size, err := m.PlanetSystem.MarshalToSizedBuffer(dAtA[:i])
@@ -1032,10 +990,6 @@ func (m *GetPlanetByCoordinateRequest) MarshalToSizedBuffer(dAtA []byte) (int, e
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Z != 0 {
 		i -= 8
 		encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(math.Float64bits(float64(m.Z))))
@@ -1077,10 +1031,6 @@ func (m *GetPlanetByCoordinateResponse) MarshalToSizedBuffer(dAtA []byte) (int, 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Planet != nil {
 		{
 			size, err := m.Planet.MarshalToSizedBuffer(dAtA[:i])
@@ -1116,10 +1066,6 @@ func (m *GetPlanetByIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlanetID != 0 {
 		i = encodeVarintPlanet(dAtA, i, uint64(m.PlanetID))
 		i--
@@ -1148,10 +1094,6 @@ func (m *GetPlanetByIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Planet != nil {
 		{
 			size, err := m.Planet.MarshalToSizedBuffer(dAtA[:i])
@@ -1187,10 +1129,6 @@ func (m *GetPlanetByNameRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.PlanetName) > 0 {
 		i -= len(m.PlanetName)
 		copy(dAtA[i:], m.PlanetName)
@@ -1221,10 +1159,6 @@ func (m *GetPlanetByNameResponse) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Planet != nil {
 		{
 			size, err := m.Planet.MarshalToSizedBuffer(dAtA[:i])
@@ -1260,10 +1194,6 @@ func (m *GetPlanetByMapIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.MapID != 0 {
 		i = encodeVarintPlanet(dAtA, i, uint64(m.MapID))
 		i--
@@ -1292,10 +1222,6 @@ func (m *GetPlanetByMapIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, error
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Planet != nil {
 		{
 			size, err := m.Planet.MarshalToSizedBuffer(dAtA[:i])
@@ -1331,10 +1257,6 @@ func (m *GetExpansionInfoRequest) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -1358,10 +1280,6 @@ func (m *GetExpansionInfoResponse) MarshalToSizedBuffer(dAtA []byte) (int, error
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.LastSystemDiscovered != nil {
 		{
 			size, err := m.LastSystemDiscovered.MarshalToSizedBuffer(dAtA[:i])
@@ -1407,10 +1325,6 @@ func (m *GetSafePlanetsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -1434,10 +1348,6 @@ func (m *GetSafePlanetsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.SafePlanets) > 0 {
 		for iNdEx := len(m.SafePlanets) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -1532,9 +1442,6 @@ func (m *Planet) Size() (n int) {
 		l = m.PlanetSystem.Size()
 		n += 2 + l + sovPlanet(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1553,9 +1460,6 @@ func (m *GetPlanetByCoordinateRequest) Size() (n int) {
 	if m.Z != 0 {
 		n += 9
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1569,9 +1473,6 @@ func (m *GetPlanetByCoordinateResponse) Size() (n int) {
 		l = m.Planet.Size()
 		n += 1 + l + sovPlanet(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1583,9 +1484,6 @@ func (m *GetPlanetByIDRequest) Size() (n int) {
 	_ = l
 	if m.PlanetID != 0 {
 		n += 1 + sovPlanet(uint64(m.PlanetID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1600,9 +1498,6 @@ func (m *GetPlanetByIDResponse) Size() (n int) {
 		l = m.Planet.Size()
 		n += 1 + l + sovPlanet(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1615,9 +1510,6 @@ func (m *GetPlanetByNameRequest) Size() (n int) {
 	l = len(m.PlanetName)
 	if l > 0 {
 		n += 1 + l + sovPlanet(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1632,9 +1524,6 @@ func (m *GetPlanetByNameResponse) Size() (n int) {
 		l = m.Planet.Size()
 		n += 1 + l + sovPlanet(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1646,9 +1535,6 @@ func (m *GetPlanetByMapIDRequest) Size() (n int) {
 	_ = l
 	if m.MapID != 0 {
 		n += 1 + sovPlanet(uint64(m.MapID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1663,9 +1549,6 @@ func (m *GetPlanetByMapIDResponse) Size() (n int) {
 		l = m.Planet.Size()
 		n += 1 + l + sovPlanet(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1675,9 +1558,6 @@ func (m *GetExpansionInfoRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1697,9 +1577,6 @@ func (m *GetExpansionInfoResponse) Size() (n int) {
 		l = m.LastSystemDiscovered.Size()
 		n += 1 + l + sovPlanet(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1709,9 +1586,6 @@ func (m *GetSafePlanetsRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1726,9 +1600,6 @@ func (m *GetSafePlanetsResponse) Size() (n int) {
 			l = e.Size()
 			n += 1 + l + sovPlanet(uint64(l))
 		}
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -2192,7 +2063,6 @@ func (m *Planet) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2279,7 +2149,6 @@ func (m *GetPlanetByCoordinateRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2369,7 +2238,6 @@ func (m *GetPlanetByCoordinateResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2442,7 +2310,6 @@ func (m *GetPlanetByIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2532,7 +2399,6 @@ func (m *GetPlanetByIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2618,7 +2484,6 @@ func (m *GetPlanetByNameRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2708,7 +2573,6 @@ func (m *GetPlanetByNameResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2781,7 +2645,6 @@ func (m *GetPlanetByMapIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2871,7 +2734,6 @@ func (m *GetPlanetByMapIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2925,7 +2787,6 @@ func (m *GetExpansionInfoRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3053,7 +2914,6 @@ func (m *GetExpansionInfoResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3107,7 +2967,6 @@ func (m *GetSafePlanetsRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3195,7 +3054,6 @@ func (m *GetSafePlanetsResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

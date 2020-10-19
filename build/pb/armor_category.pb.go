@@ -23,12 +23,9 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type ArmorCategory struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	Slug                 string   `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID   uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	Slug string `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
 }
 
 func (m *ArmorCategory) Reset()         { *m = ArmorCategory{} }
@@ -87,9 +84,6 @@ func (m *ArmorCategory) GetSlug() string {
 
 // GetAllArmorCategory
 type GetAllArmorCategoryRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetAllArmorCategoryRequest) Reset()         { *m = GetAllArmorCategoryRequest{} }
@@ -126,10 +120,7 @@ func (m *GetAllArmorCategoryRequest) XXX_DiscardUnknown() {
 var xxx_messageInfo_GetAllArmorCategoryRequest proto.InternalMessageInfo
 
 type GetAllArmorCategoryResponse struct {
-	ArmorCategories      []*ArmorCategory `protobuf:"bytes,1,rep,name=ArmorCategories,proto3" json:"ArmorCategories,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
+	ArmorCategories []*ArmorCategory `protobuf:"bytes,1,rep,name=ArmorCategories,proto3" json:"ArmorCategories,omitempty"`
 }
 
 func (m *GetAllArmorCategoryResponse) Reset()         { *m = GetAllArmorCategoryResponse{} }
@@ -174,10 +165,7 @@ func (m *GetAllArmorCategoryResponse) GetArmorCategories() []*ArmorCategory {
 
 // GetArmorCategoryBySlug
 type GetArmorCategoryBySlugRequest struct {
-	Slug                 string   `protobuf:"bytes,1,opt,name=Slug,proto3" json:"Slug,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Slug string `protobuf:"bytes,1,opt,name=Slug,proto3" json:"Slug,omitempty"`
 }
 
 func (m *GetArmorCategoryBySlugRequest) Reset()         { *m = GetArmorCategoryBySlugRequest{} }
@@ -221,10 +209,7 @@ func (m *GetArmorCategoryBySlugRequest) GetSlug() string {
 }
 
 type GetArmorCategoryBySlugResponse struct {
-	ArmorCategory        *ArmorCategory `protobuf:"bytes,1,opt,name=ArmorCategory,proto3" json:"ArmorCategory,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	ArmorCategory *ArmorCategory `protobuf:"bytes,1,opt,name=ArmorCategory,proto3" json:"ArmorCategory,omitempty"`
 }
 
 func (m *GetArmorCategoryBySlugResponse) Reset()         { *m = GetArmorCategoryBySlugResponse{} }
@@ -278,7 +263,7 @@ func init() {
 func init() { proto.RegisterFile("proto/armor_category.proto", fileDescriptor_abe9710380d9ecc4) }
 
 var fileDescriptor_abe9710380d9ecc4 = []byte{
-	// 227 bytes of a gzipped FileDescriptorProto
+	// 240 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x2a, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x4f, 0x2c, 0xca, 0xcd, 0x2f, 0x8a, 0x4f, 0x4e, 0x2c, 0x49, 0x4d, 0xcf, 0x2f, 0xaa,
 	0xd4, 0x03, 0x0b, 0x0a, 0xf1, 0xa1, 0x8a, 0x2a, 0xb9, 0x73, 0xf1, 0x3a, 0x82, 0x44, 0x9c, 0xa1,
@@ -290,10 +275,10 @@ var fileDescriptor_abe9710380d9ecc4 = []byte{
 	0x1f, 0x59, 0x22, 0x33, 0xb5, 0x58, 0x82, 0x51, 0x81, 0x59, 0x83, 0xdb, 0x48, 0x56, 0x0f, 0xcd,
 	0x17, 0xa8, 0xfa, 0xd1, 0x75, 0x29, 0x19, 0x73, 0xc9, 0x82, 0xec, 0x41, 0x56, 0xe4, 0x54, 0x09,
 	0x72, 0x1f, 0xd4, 0x21, 0x70, 0xa7, 0x33, 0x22, 0x39, 0x3d, 0x95, 0x4b, 0x0e, 0x97, 0x26, 0xa8,
-	0xfb, 0x9c, 0xd1, 0x42, 0x09, 0xac, 0x9d, 0xa0, 0xeb, 0x50, 0xf5, 0x38, 0x09, 0x9d, 0x78, 0x24,
-	0xc7, 0x78, 0xe1, 0x91, 0x1c, 0xe3, 0x83, 0x47, 0x72, 0x8c, 0x51, 0x2c, 0x7a, 0xd6, 0x05, 0x49,
-	0x49, 0x6c, 0xe0, 0x58, 0x31, 0x06, 0x04, 0x00, 0x00, 0xff, 0xff, 0x0d, 0x0f, 0xb9, 0x88, 0xb3,
-	0x01, 0x00, 0x00,
+	0xfb, 0x9c, 0xd1, 0x42, 0x09, 0xac, 0x9d, 0xa0, 0xeb, 0x50, 0xf5, 0x38, 0xc9, 0x9d, 0x78, 0x24,
+	0xc7, 0x78, 0xe1, 0x91, 0x1c, 0xe3, 0x83, 0x47, 0x72, 0x8c, 0x13, 0x1e, 0xcb, 0x31, 0x5c, 0x78,
+	0x2c, 0xc7, 0x70, 0xe3, 0xb1, 0x1c, 0x43, 0x14, 0x8b, 0x9e, 0x75, 0x41, 0x52, 0x12, 0x1b, 0x38,
+	0x86, 0x8c, 0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0x8e, 0x8e, 0xc5, 0x8c, 0xbf, 0x01, 0x00, 0x00,
 }
 
 func (m *ArmorCategory) Marshal() (dAtA []byte, err error) {
@@ -316,10 +301,6 @@ func (m *ArmorCategory) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Slug) > 0 {
 		i -= len(m.Slug)
 		copy(dAtA[i:], m.Slug)
@@ -362,10 +343,6 @@ func (m *GetAllArmorCategoryRequest) MarshalToSizedBuffer(dAtA []byte) (int, err
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -389,10 +366,6 @@ func (m *GetAllArmorCategoryResponse) MarshalToSizedBuffer(dAtA []byte) (int, er
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.ArmorCategories) > 0 {
 		for iNdEx := len(m.ArmorCategories) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -430,10 +403,6 @@ func (m *GetArmorCategoryBySlugRequest) MarshalToSizedBuffer(dAtA []byte) (int, 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Slug) > 0 {
 		i -= len(m.Slug)
 		copy(dAtA[i:], m.Slug)
@@ -464,10 +433,6 @@ func (m *GetArmorCategoryBySlugResponse) MarshalToSizedBuffer(dAtA []byte) (int,
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ArmorCategory != nil {
 		{
 			size, err := m.ArmorCategory.MarshalToSizedBuffer(dAtA[:i])
@@ -511,9 +476,6 @@ func (m *ArmorCategory) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovArmorCategory(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -523,9 +485,6 @@ func (m *GetAllArmorCategoryRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -541,9 +500,6 @@ func (m *GetAllArmorCategoryResponse) Size() (n int) {
 			n += 1 + l + sovArmorCategory(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -557,9 +513,6 @@ func (m *GetArmorCategoryBySlugRequest) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovArmorCategory(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -572,9 +525,6 @@ func (m *GetArmorCategoryBySlugResponse) Size() (n int) {
 	if m.ArmorCategory != nil {
 		l = m.ArmorCategory.Size()
 		n += 1 + l + sovArmorCategory(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -712,7 +662,6 @@ func (m *ArmorCategory) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -766,7 +715,6 @@ func (m *GetAllArmorCategoryRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -854,7 +802,6 @@ func (m *GetAllArmorCategoryResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -940,7 +887,6 @@ func (m *GetArmorCategoryBySlugRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1030,7 +976,6 @@ func (m *GetArmorCategoryBySlugResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

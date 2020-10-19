@@ -23,17 +23,14 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type Ability struct {
-	ID                   uint32           `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string           `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	Slug                 string           `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
-	Level                uint32           `protobuf:"varint,4,opt,name=Level,proto3" json:"Level,omitempty"`
-	AbilityCategoryID    uint32           `protobuf:"varint,5,opt,name=AbilityCategoryID,proto3" json:"AbilityCategoryID,omitempty"`
-	AbilityCategory      *AbilityCategory `protobuf:"bytes,6,opt,name=AbilityCategory,proto3" json:"AbilityCategory,omitempty"`
-	AbilityType          int32            `protobuf:"varint,7,opt,name=AbilityType,proto3" json:"AbilityType,omitempty"`
-	Amulets              uint32           `protobuf:"varint,8,opt,name=Amulets,proto3" json:"Amulets,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
+	ID                uint32           `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name              string           `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	Slug              string           `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
+	Level             uint32           `protobuf:"varint,4,opt,name=Level,proto3" json:"Level,omitempty"`
+	AbilityCategoryID uint32           `protobuf:"varint,5,opt,name=AbilityCategoryID,proto3" json:"AbilityCategoryID,omitempty"`
+	AbilityCategory   *AbilityCategory `protobuf:"bytes,6,opt,name=AbilityCategory,proto3" json:"AbilityCategory,omitempty"`
+	AbilityType       int32            `protobuf:"varint,7,opt,name=AbilityType,proto3" json:"AbilityType,omitempty"`
+	Amulets           uint32           `protobuf:"varint,8,opt,name=Amulets,proto3" json:"Amulets,omitempty"`
 }
 
 func (m *Ability) Reset()         { *m = Ability{} }
@@ -127,11 +124,8 @@ func (m *Ability) GetAmulets() uint32 {
 
 // GetAbilityForPlayerByCategory
 type GetAbilityForPlayerByCategoryRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	AbilityCategoryID    uint32   `protobuf:"varint,2,opt,name=AbilityCategoryID,proto3" json:"AbilityCategoryID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID          uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	AbilityCategoryID uint32 `protobuf:"varint,2,opt,name=AbilityCategoryID,proto3" json:"AbilityCategoryID,omitempty"`
 }
 
 func (m *GetAbilityForPlayerByCategoryRequest) Reset()         { *m = GetAbilityForPlayerByCategoryRequest{} }
@@ -182,10 +176,7 @@ func (m *GetAbilityForPlayerByCategoryRequest) GetAbilityCategoryID() uint32 {
 }
 
 type GetAbilityForPlayerByCategoryResponse struct {
-	Ability              *Ability `protobuf:"bytes,1,opt,name=Ability,proto3" json:"Ability,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Ability *Ability `protobuf:"bytes,1,opt,name=Ability,proto3" json:"Ability,omitempty"`
 }
 
 func (m *GetAbilityForPlayerByCategoryResponse) Reset()         { *m = GetAbilityForPlayerByCategoryResponse{} }
@@ -230,11 +221,8 @@ func (m *GetAbilityForPlayerByCategoryResponse) GetAbility() *Ability {
 
 // CheckIfPlayerHaveAbility
 type CheckIfPlayerHaveAbilityRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	AbilityID            uint32   `protobuf:"varint,2,opt,name=AbilityID,proto3" json:"AbilityID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID  uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	AbilityID uint32 `protobuf:"varint,2,opt,name=AbilityID,proto3" json:"AbilityID,omitempty"`
 }
 
 func (m *CheckIfPlayerHaveAbilityRequest) Reset()         { *m = CheckIfPlayerHaveAbilityRequest{} }
@@ -285,11 +273,8 @@ func (m *CheckIfPlayerHaveAbilityRequest) GetAbilityID() uint32 {
 }
 
 type CheckIfPlayerHaveAbilityResponse struct {
-	HaveAbility          bool     `protobuf:"varint,1,opt,name=haveAbility,proto3" json:"haveAbility,omitempty"`
-	Ability              *Ability `protobuf:"bytes,2,opt,name=Ability,proto3" json:"Ability,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	HaveAbility bool     `protobuf:"varint,1,opt,name=haveAbility,proto3" json:"haveAbility,omitempty"`
+	Ability     *Ability `protobuf:"bytes,2,opt,name=Ability,proto3" json:"Ability,omitempty"`
 }
 
 func (m *CheckIfPlayerHaveAbilityResponse) Reset()         { *m = CheckIfPlayerHaveAbilityResponse{} }
@@ -341,11 +326,8 @@ func (m *CheckIfPlayerHaveAbilityResponse) GetAbility() *Ability {
 
 // LearnAbility
 type LearnAbilityRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	AbilityCategoryID    uint32   `protobuf:"varint,2,opt,name=AbilityCategoryID,proto3" json:"AbilityCategoryID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID          uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	AbilityCategoryID uint32 `protobuf:"varint,2,opt,name=AbilityCategoryID,proto3" json:"AbilityCategoryID,omitempty"`
 }
 
 func (m *LearnAbilityRequest) Reset()         { *m = LearnAbilityRequest{} }
@@ -396,9 +378,6 @@ func (m *LearnAbilityRequest) GetAbilityCategoryID() uint32 {
 }
 
 type LearnAbilityResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *LearnAbilityResponse) Reset()         { *m = LearnAbilityResponse{} }
@@ -447,31 +426,32 @@ func init() {
 func init() { proto.RegisterFile("proto/ability.proto", fileDescriptor_7c88b1bf5de9426a) }
 
 var fileDescriptor_7c88b1bf5de9426a = []byte{
-	// 376 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x53, 0xcd, 0x4e, 0xf2, 0x40,
-	0x14, 0xcd, 0xf4, 0x03, 0x0a, 0xb7, 0xf9, 0xfc, 0x19, 0x88, 0x99, 0x10, 0x82, 0xb5, 0xd1, 0xa4,
-	0x31, 0x06, 0x13, 0x5c, 0xba, 0xe2, 0x27, 0x6a, 0x23, 0x31, 0xa6, 0xb8, 0xd2, 0x05, 0x29, 0xe4,
-	0x0a, 0xc4, 0x42, 0x6b, 0x5b, 0x48, 0x78, 0x09, 0x9f, 0xcb, 0xa5, 0x8f, 0x60, 0x78, 0x12, 0xc3,
-	0x74, 0x5a, 0xfe, 0x24, 0xc8, 0x6e, 0xce, 0xb9, 0x67, 0xee, 0xb9, 0xe7, 0x4e, 0x06, 0xb2, 0xae,
-	0xe7, 0x04, 0xce, 0xa5, 0xd5, 0xee, 0xdb, 0xfd, 0x60, 0x52, 0xe2, 0x88, 0xca, 0x02, 0xe6, 0x0b,
-	0x4b, 0xd5, 0x56, 0xc7, 0x0a, 0xb0, 0xeb, 0x78, 0x42, 0xa6, 0x7d, 0x48, 0x20, 0x57, 0xc2, 0x12,
-	0xdd, 0x03, 0xc9, 0xa8, 0x33, 0xa2, 0x12, 0xfd, 0xbf, 0x29, 0x19, 0x75, 0x4a, 0x21, 0xf1, 0x60,
-	0x0d, 0x90, 0x49, 0x2a, 0xd1, 0x33, 0x26, 0x3f, 0xcf, 0xb8, 0xa6, 0x3d, 0xea, 0xb2, 0x7f, 0x21,
-	0x37, 0x3b, 0xd3, 0x1c, 0x24, 0x1b, 0x38, 0x46, 0x9b, 0x25, 0xf8, 0xd5, 0x10, 0xd0, 0x0b, 0x38,
-	0x14, 0x8d, 0x6b, 0xc2, 0xd2, 0xa8, 0xb3, 0x24, 0x57, 0xac, 0x17, 0xe8, 0x3d, 0xec, 0xaf, 0x90,
-	0x2c, 0xa5, 0x12, 0x5d, 0x29, 0x9f, 0x94, 0xd6, 0x26, 0x5f, 0x11, 0x9a, 0xab, 0x37, 0xa9, 0x0a,
-	0x8a, 0xa0, 0x9e, 0x26, 0x2e, 0x32, 0x59, 0x25, 0x7a, 0xd2, 0x5c, 0xa4, 0x28, 0x03, 0xb9, 0x32,
-	0x18, 0xd9, 0x18, 0xf8, 0x2c, 0xcd, 0x47, 0x8a, 0xa0, 0xe6, 0xc2, 0xe9, 0x2d, 0x06, 0x42, 0x7b,
-	0xe3, 0x78, 0x8f, 0xb6, 0x35, 0x41, 0xaf, 0x3a, 0x77, 0xc3, 0xf7, 0x11, 0xfa, 0x01, 0xcd, 0x43,
-	0x3a, 0x2c, 0xc5, 0x2b, 0x8b, 0xf1, 0xef, 0xd1, 0xa5, 0x0d, 0xd1, 0xb5, 0x26, 0x9c, 0x6d, 0x71,
-	0xf4, 0x5d, 0x67, 0xe8, 0x23, 0x3d, 0x8f, 0x9f, 0x8a, 0x3b, 0x2a, 0xe5, 0x83, 0x68, 0x37, 0xd1,
-	0x4a, 0xcc, 0x48, 0xa0, 0xbd, 0xc0, 0x71, 0xad, 0x87, 0x9d, 0x37, 0xe3, 0x35, 0x6c, 0x77, 0x67,
-	0x8d, 0x31, 0x12, 0xfd, 0x21, 0x41, 0x01, 0x32, 0x42, 0x1d, 0x4f, 0x3e, 0x27, 0x34, 0x17, 0xd4,
-	0xcd, 0xcd, 0xc5, 0xb0, 0x2a, 0x28, 0xbd, 0x39, 0xcd, 0x0d, 0xd2, 0xe6, 0x22, 0xb5, 0x18, 0x47,
-	0xda, 0x16, 0xa7, 0x05, 0xd9, 0x06, 0x5a, 0xde, 0x70, 0x87, 0x08, 0xbb, 0x3d, 0xc2, 0x11, 0xe4,
-	0x96, 0x0d, 0xc2, 0x18, 0x55, 0xfa, 0x39, 0x2d, 0x92, 0xaf, 0x69, 0x91, 0x7c, 0x4f, 0x8b, 0xe4,
-	0x39, 0x51, 0xba, 0x76, 0xdb, 0xed, 0x14, 0xff, 0x3a, 0x57, 0x3f, 0x01, 0x00, 0x00, 0xff, 0xff,
-	0x05, 0xd5, 0x97, 0xea, 0x78, 0x03, 0x00, 0x00,
+	// 390 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x53, 0x4d, 0x4f, 0xea, 0x40,
+	0x14, 0x65, 0xfa, 0x80, 0xc2, 0x6d, 0xde, 0x7b, 0x3a, 0x10, 0x33, 0x21, 0xa4, 0xd6, 0x46, 0x93,
+	0xc6, 0x18, 0x4c, 0x70, 0xe9, 0x8a, 0x8f, 0xa8, 0x8d, 0xc4, 0x98, 0xe2, 0x4a, 0x17, 0xa4, 0x90,
+	0x11, 0x88, 0x85, 0xd6, 0xb6, 0x90, 0xf0, 0x27, 0x8c, 0x3f, 0xcb, 0x25, 0x4b, 0x97, 0x06, 0xfe,
+	0x88, 0x61, 0x3a, 0x2d, 0x5f, 0x12, 0x64, 0x37, 0xe7, 0xdc, 0x33, 0xf7, 0xdc, 0x73, 0x27, 0x03,
+	0x19, 0xc7, 0xb5, 0x7d, 0xfb, 0xdc, 0x6c, 0x76, 0xad, 0xae, 0x3f, 0x2a, 0x30, 0x84, 0x45, 0x0e,
+	0x73, 0xf9, 0xa5, 0x6a, 0xa3, 0x65, 0xfa, 0xb4, 0x6d, 0xbb, 0x5c, 0xa6, 0xbe, 0x09, 0x20, 0x96,
+	0x82, 0x12, 0xfe, 0x07, 0x82, 0x5e, 0x25, 0x48, 0x41, 0xda, 0x5f, 0x43, 0xd0, 0xab, 0x18, 0x43,
+	0xfc, 0xce, 0xec, 0x51, 0x22, 0x28, 0x48, 0x4b, 0x1b, 0xec, 0x3c, 0xe3, 0xea, 0xd6, 0xa0, 0x4d,
+	0xfe, 0x04, 0xdc, 0xec, 0x8c, 0xb3, 0x90, 0xa8, 0xd1, 0x21, 0xb5, 0x48, 0x9c, 0x5d, 0x0d, 0x00,
+	0x3e, 0x83, 0x7d, 0xde, 0xb8, 0xc2, 0x2d, 0xf5, 0x2a, 0x49, 0x30, 0xc5, 0x7a, 0x01, 0xdf, 0xc2,
+	0xff, 0x15, 0x92, 0x24, 0x15, 0xa4, 0x49, 0xc5, 0xa3, 0xc2, 0xda, 0xe4, 0x2b, 0x42, 0x63, 0xf5,
+	0x26, 0x56, 0x40, 0xe2, 0xd4, 0xc3, 0xc8, 0xa1, 0x44, 0x54, 0x90, 0x96, 0x30, 0x16, 0x29, 0x4c,
+	0x40, 0x2c, 0xf5, 0x06, 0x16, 0xf5, 0x3d, 0x92, 0x62, 0x23, 0x85, 0x50, 0x75, 0xe0, 0xf8, 0x9a,
+	0xfa, 0x5c, 0x7b, 0x65, 0xbb, 0xf7, 0x96, 0x39, 0xa2, 0x6e, 0x79, 0xee, 0x46, 0x5f, 0x07, 0xd4,
+	0xf3, 0x71, 0x0e, 0x52, 0x41, 0x29, 0x5a, 0x59, 0x84, 0x7f, 0x8e, 0x2e, 0x6c, 0x88, 0xae, 0xd6,
+	0xe1, 0x64, 0x8b, 0xa3, 0xe7, 0xd8, 0x7d, 0x8f, 0xe2, 0xd3, 0xe8, 0xa9, 0x98, 0xa3, 0x54, 0xdc,
+	0x0b, 0x77, 0x13, 0xae, 0xc4, 0x08, 0x05, 0xea, 0x13, 0x1c, 0x56, 0x3a, 0xb4, 0xf5, 0xa2, 0x3f,
+	0x07, 0xed, 0x6e, 0xcc, 0x21, 0x0d, 0x45, 0xbf, 0x48, 0x90, 0x87, 0x34, 0x57, 0x47, 0x93, 0xcf,
+	0x09, 0xd5, 0x01, 0x65, 0x73, 0x73, 0x3e, 0xac, 0x02, 0x52, 0x67, 0x4e, 0x33, 0x83, 0x94, 0xb1,
+	0x48, 0x2d, 0xc6, 0x11, 0xb6, 0xc5, 0x69, 0x40, 0xa6, 0x46, 0x4d, 0xb7, 0xbf, 0x43, 0x84, 0xdd,
+	0x1e, 0xe1, 0x00, 0xb2, 0xcb, 0x06, 0x41, 0x8c, 0xb2, 0xfc, 0x31, 0x91, 0xd1, 0x78, 0x22, 0xa3,
+	0xaf, 0x89, 0x8c, 0xde, 0xa7, 0x72, 0x6c, 0x3c, 0x95, 0x63, 0x9f, 0x53, 0x39, 0xf6, 0x18, 0x2f,
+	0x5c, 0x3a, 0xcd, 0x66, 0x92, 0x7d, 0xa3, 0x8b, 0xef, 0x00, 0x00, 0x00, 0xff, 0xff, 0x0e, 0xd2,
+	0x38, 0x44, 0x84, 0x03, 0x00, 0x00,
 }
 
 func (m *Ability) Marshal() (dAtA []byte, err error) {
@@ -494,10 +474,6 @@ func (m *Ability) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Amulets != 0 {
 		i = encodeVarintAbility(dAtA, i, uint64(m.Amulets))
 		i--
@@ -572,10 +548,6 @@ func (m *GetAbilityForPlayerByCategoryRequest) MarshalToSizedBuffer(dAtA []byte)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.AbilityCategoryID != 0 {
 		i = encodeVarintAbility(dAtA, i, uint64(m.AbilityCategoryID))
 		i--
@@ -609,10 +581,6 @@ func (m *GetAbilityForPlayerByCategoryResponse) MarshalToSizedBuffer(dAtA []byte
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Ability != nil {
 		{
 			size, err := m.Ability.MarshalToSizedBuffer(dAtA[:i])
@@ -648,10 +616,6 @@ func (m *CheckIfPlayerHaveAbilityRequest) MarshalToSizedBuffer(dAtA []byte) (int
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.AbilityID != 0 {
 		i = encodeVarintAbility(dAtA, i, uint64(m.AbilityID))
 		i--
@@ -685,10 +649,6 @@ func (m *CheckIfPlayerHaveAbilityResponse) MarshalToSizedBuffer(dAtA []byte) (in
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Ability != nil {
 		{
 			size, err := m.Ability.MarshalToSizedBuffer(dAtA[:i])
@@ -734,10 +694,6 @@ func (m *LearnAbilityRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.AbilityCategoryID != 0 {
 		i = encodeVarintAbility(dAtA, i, uint64(m.AbilityCategoryID))
 		i--
@@ -771,10 +727,6 @@ func (m *LearnAbilityResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -822,9 +774,6 @@ func (m *Ability) Size() (n int) {
 	if m.Amulets != 0 {
 		n += 1 + sovAbility(uint64(m.Amulets))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -840,9 +789,6 @@ func (m *GetAbilityForPlayerByCategoryRequest) Size() (n int) {
 	if m.AbilityCategoryID != 0 {
 		n += 1 + sovAbility(uint64(m.AbilityCategoryID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -855,9 +801,6 @@ func (m *GetAbilityForPlayerByCategoryResponse) Size() (n int) {
 	if m.Ability != nil {
 		l = m.Ability.Size()
 		n += 1 + l + sovAbility(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -873,9 +816,6 @@ func (m *CheckIfPlayerHaveAbilityRequest) Size() (n int) {
 	}
 	if m.AbilityID != 0 {
 		n += 1 + sovAbility(uint64(m.AbilityID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -893,9 +833,6 @@ func (m *CheckIfPlayerHaveAbilityResponse) Size() (n int) {
 		l = m.Ability.Size()
 		n += 1 + l + sovAbility(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -911,9 +848,6 @@ func (m *LearnAbilityRequest) Size() (n int) {
 	if m.AbilityCategoryID != 0 {
 		n += 1 + sovAbility(uint64(m.AbilityCategoryID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -923,9 +857,6 @@ func (m *LearnAbilityResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1174,7 +1105,6 @@ func (m *Ability) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1266,7 +1196,6 @@ func (m *GetAbilityForPlayerByCategoryRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1356,7 +1285,6 @@ func (m *GetAbilityForPlayerByCategoryResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1448,7 +1376,6 @@ func (m *CheckIfPlayerHaveAbilityRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1558,7 +1485,6 @@ func (m *CheckIfPlayerHaveAbilityResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1650,7 +1576,6 @@ func (m *LearnAbilityRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1704,7 +1629,6 @@ func (m *LearnAbilityResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

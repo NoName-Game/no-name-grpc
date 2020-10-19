@@ -23,12 +23,9 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type AbilityCategory struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	Slug                 string   `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID   uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	Slug string `protobuf:"bytes,3,opt,name=Slug,proto3" json:"Slug,omitempty"`
 }
 
 func (m *AbilityCategory) Reset()         { *m = AbilityCategory{} }
@@ -87,9 +84,6 @@ func (m *AbilityCategory) GetSlug() string {
 
 // GetAllAbilityCategory
 type GetAllAbilityCategoryRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetAllAbilityCategoryRequest) Reset()         { *m = GetAllAbilityCategoryRequest{} }
@@ -126,10 +120,7 @@ func (m *GetAllAbilityCategoryRequest) XXX_DiscardUnknown() {
 var xxx_messageInfo_GetAllAbilityCategoryRequest proto.InternalMessageInfo
 
 type GetAllAbilityCategoryResponse struct {
-	AbilityCategories    []*AbilityCategory `protobuf:"bytes,1,rep,name=AbilityCategories,proto3" json:"AbilityCategories,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
-	XXX_unrecognized     []byte             `json:"-"`
-	XXX_sizecache        int32              `json:"-"`
+	AbilityCategories []*AbilityCategory `protobuf:"bytes,1,rep,name=AbilityCategories,proto3" json:"AbilityCategories,omitempty"`
 }
 
 func (m *GetAllAbilityCategoryResponse) Reset()         { *m = GetAllAbilityCategoryResponse{} }
@@ -174,10 +165,7 @@ func (m *GetAllAbilityCategoryResponse) GetAbilityCategories() []*AbilityCategor
 
 // GetAbilityCategoryBySlug
 type GetAbilityCategoryBySlugRequest struct {
-	Slug                 string   `protobuf:"bytes,1,opt,name=Slug,proto3" json:"Slug,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Slug string `protobuf:"bytes,1,opt,name=Slug,proto3" json:"Slug,omitempty"`
 }
 
 func (m *GetAbilityCategoryBySlugRequest) Reset()         { *m = GetAbilityCategoryBySlugRequest{} }
@@ -221,10 +209,7 @@ func (m *GetAbilityCategoryBySlugRequest) GetSlug() string {
 }
 
 type GetAbilityCategoryBySlugResponse struct {
-	AbilityCategory      *AbilityCategory `protobuf:"bytes,1,opt,name=AbilityCategory,proto3" json:"AbilityCategory,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
+	AbilityCategory *AbilityCategory `protobuf:"bytes,1,opt,name=AbilityCategory,proto3" json:"AbilityCategory,omitempty"`
 }
 
 func (m *GetAbilityCategoryBySlugResponse) Reset()         { *m = GetAbilityCategoryBySlugResponse{} }
@@ -278,7 +263,7 @@ func init() {
 func init() { proto.RegisterFile("proto/ability_category.proto", fileDescriptor_f45ff9038c466eee) }
 
 var fileDescriptor_f45ff9038c466eee = []byte{
-	// 229 bytes of a gzipped FileDescriptorProto
+	// 242 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x29, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x4f, 0x4c, 0xca, 0xcc, 0xc9, 0x2c, 0xa9, 0x8c, 0x4f, 0x4e, 0x2c, 0x49, 0x4d, 0xcf,
 	0x2f, 0xaa, 0xd4, 0x03, 0x0b, 0x0b, 0x09, 0xa0, 0x8b, 0x2b, 0x79, 0x72, 0xf1, 0x3b, 0x42, 0xc4,
@@ -290,10 +275,11 @@ var fileDescriptor_f45ff9038c466eee = []byte{
 	0x9f, 0x4b, 0x10, 0x55, 0x2a, 0x33, 0xb5, 0x58, 0x82, 0x51, 0x81, 0x59, 0x83, 0xdb, 0x48, 0x51,
 	0x0f, 0xc3, 0x47, 0xe8, 0xa6, 0x60, 0xea, 0x55, 0x32, 0xe5, 0x92, 0x07, 0xd9, 0x88, 0xaa, 0xd0,
 	0xa9, 0x12, 0xe4, 0x5a, 0xa8, 0xa3, 0xe0, 0x1e, 0x61, 0x44, 0xf2, 0x48, 0x3e, 0x97, 0x02, 0x6e,
-	0x6d, 0x50, 0xb7, 0x7a, 0x63, 0x84, 0x1b, 0xd8, 0x08, 0xa2, 0x5c, 0x8a, 0xae, 0xd3, 0x49, 0xe8,
-	0xc4, 0x23, 0x39, 0xc6, 0x0b, 0x8f, 0xe4, 0x18, 0x1f, 0x3c, 0x92, 0x63, 0x8c, 0x62, 0xd1, 0xb3,
-	0x2e, 0x48, 0x4a, 0x62, 0x03, 0xc7, 0x98, 0x31, 0x20, 0x00, 0x00, 0xff, 0xff, 0xaf, 0xb0, 0xea,
-	0x10, 0xd1, 0x01, 0x00, 0x00,
+	0x6d, 0x50, 0xb7, 0x7a, 0x63, 0x84, 0x1b, 0xd8, 0x08, 0xa2, 0x5c, 0x8a, 0xae, 0xd3, 0x49, 0xee,
+	0xc4, 0x23, 0x39, 0xc6, 0x0b, 0x8f, 0xe4, 0x18, 0x1f, 0x3c, 0x92, 0x63, 0x9c, 0xf0, 0x58, 0x8e,
+	0xe1, 0xc2, 0x63, 0x39, 0x86, 0x1b, 0x8f, 0xe5, 0x18, 0xa2, 0x58, 0xf4, 0xac, 0x0b, 0x92, 0x92,
+	0xd8, 0xc0, 0xb1, 0x67, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0x21, 0xf3, 0x15, 0xf7, 0xdd, 0x01,
+	0x00, 0x00,
 }
 
 func (m *AbilityCategory) Marshal() (dAtA []byte, err error) {
@@ -316,10 +302,6 @@ func (m *AbilityCategory) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Slug) > 0 {
 		i -= len(m.Slug)
 		copy(dAtA[i:], m.Slug)
@@ -362,10 +344,6 @@ func (m *GetAllAbilityCategoryRequest) MarshalToSizedBuffer(dAtA []byte) (int, e
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -389,10 +367,6 @@ func (m *GetAllAbilityCategoryResponse) MarshalToSizedBuffer(dAtA []byte) (int, 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.AbilityCategories) > 0 {
 		for iNdEx := len(m.AbilityCategories) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -430,10 +404,6 @@ func (m *GetAbilityCategoryBySlugRequest) MarshalToSizedBuffer(dAtA []byte) (int
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Slug) > 0 {
 		i -= len(m.Slug)
 		copy(dAtA[i:], m.Slug)
@@ -464,10 +434,6 @@ func (m *GetAbilityCategoryBySlugResponse) MarshalToSizedBuffer(dAtA []byte) (in
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.AbilityCategory != nil {
 		{
 			size, err := m.AbilityCategory.MarshalToSizedBuffer(dAtA[:i])
@@ -511,9 +477,6 @@ func (m *AbilityCategory) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovAbilityCategory(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -523,9 +486,6 @@ func (m *GetAllAbilityCategoryRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -541,9 +501,6 @@ func (m *GetAllAbilityCategoryResponse) Size() (n int) {
 			n += 1 + l + sovAbilityCategory(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -557,9 +514,6 @@ func (m *GetAbilityCategoryBySlugRequest) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovAbilityCategory(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -572,9 +526,6 @@ func (m *GetAbilityCategoryBySlugResponse) Size() (n int) {
 	if m.AbilityCategory != nil {
 		l = m.AbilityCategory.Size()
 		n += 1 + l + sovAbilityCategory(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -712,7 +663,6 @@ func (m *AbilityCategory) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -766,7 +716,6 @@ func (m *GetAllAbilityCategoryRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -854,7 +803,6 @@ func (m *GetAllAbilityCategoryResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -940,7 +888,6 @@ func (m *GetAbilityCategoryBySlugRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1030,7 +977,6 @@ func (m *GetAbilityCategoryBySlugResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

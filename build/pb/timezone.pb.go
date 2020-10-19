@@ -23,12 +23,9 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type Timezone struct {
-	ID                   uint32   `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	Description          string   `protobuf:"bytes,3,opt,name=Description,proto3" json:"Description,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ID          uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name        string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	Description string `protobuf:"bytes,3,opt,name=Description,proto3" json:"Description,omitempty"`
 }
 
 func (m *Timezone) Reset()         { *m = Timezone{} }
@@ -87,10 +84,7 @@ func (m *Timezone) GetDescription() string {
 
 // GetTimezoneByDescription
 type GetTimezoneByDescriptionRequest struct {
-	Description          string   `protobuf:"bytes,1,opt,name=Description,proto3" json:"Description,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Description string `protobuf:"bytes,1,opt,name=Description,proto3" json:"Description,omitempty"`
 }
 
 func (m *GetTimezoneByDescriptionRequest) Reset()         { *m = GetTimezoneByDescriptionRequest{} }
@@ -134,10 +128,7 @@ func (m *GetTimezoneByDescriptionRequest) GetDescription() string {
 }
 
 type GetTimezoneByDescriptionResponse struct {
-	Timezone             *Timezone `protobuf:"bytes,1,opt,name=Timezone,proto3" json:"Timezone,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
+	Timezone *Timezone `protobuf:"bytes,1,opt,name=Timezone,proto3" json:"Timezone,omitempty"`
 }
 
 func (m *GetTimezoneByDescriptionResponse) Reset()         { *m = GetTimezoneByDescriptionResponse{} }
@@ -182,10 +173,7 @@ func (m *GetTimezoneByDescriptionResponse) GetTimezone() *Timezone {
 
 // GetTimezoneBySlug
 type GetTimezoneByNameRequest struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Name string `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
 }
 
 func (m *GetTimezoneByNameRequest) Reset()         { *m = GetTimezoneByNameRequest{} }
@@ -229,10 +217,7 @@ func (m *GetTimezoneByNameRequest) GetName() string {
 }
 
 type GetTimezoneByNameResponse struct {
-	Timezone             *Timezone `protobuf:"bytes,1,opt,name=Timezone,proto3" json:"Timezone,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
+	Timezone *Timezone `protobuf:"bytes,1,opt,name=Timezone,proto3" json:"Timezone,omitempty"`
 }
 
 func (m *GetTimezoneByNameResponse) Reset()         { *m = GetTimezoneByNameResponse{} }
@@ -277,9 +262,6 @@ func (m *GetTimezoneByNameResponse) GetTimezone() *Timezone {
 
 // GetTimezones
 type GetAllTimezonesRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetAllTimezonesRequest) Reset()         { *m = GetAllTimezonesRequest{} }
@@ -316,10 +298,7 @@ func (m *GetAllTimezonesRequest) XXX_DiscardUnknown() {
 var xxx_messageInfo_GetAllTimezonesRequest proto.InternalMessageInfo
 
 type GetAllTimezonesResponse struct {
-	Timezones            []*Timezone `protobuf:"bytes,1,rep,name=Timezones,proto3" json:"Timezones,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
-	XXX_unrecognized     []byte      `json:"-"`
-	XXX_sizecache        int32       `json:"-"`
+	Timezones []*Timezone `protobuf:"bytes,1,rep,name=Timezones,proto3" json:"Timezones,omitempty"`
 }
 
 func (m *GetAllTimezonesResponse) Reset()         { *m = GetAllTimezonesResponse{} }
@@ -375,7 +354,7 @@ func init() {
 func init() { proto.RegisterFile("proto/timezone.proto", fileDescriptor_b196135ca602f380) }
 
 var fileDescriptor_b196135ca602f380 = []byte{
-	// 248 bytes of a gzipped FileDescriptorProto
+	// 261 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x29, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x2f, 0xc9, 0xcc, 0x4d, 0xad, 0xca, 0xcf, 0x4b, 0xd5, 0x03, 0x73, 0x85, 0x38, 0x60,
 	0x7c, 0xa5, 0x00, 0x2e, 0x8e, 0x10, 0x28, 0x5b, 0x88, 0x8f, 0x8b, 0xc9, 0xd3, 0x45, 0x82, 0x51,
@@ -389,9 +368,10 @@ var fileDescriptor_b196135ca602f380 = []byte{
 	0x2a, 0x23, 0xc2, 0xab, 0x4a, 0xde, 0x5c, 0x92, 0x58, 0xd4, 0x93, 0x69, 0xb9, 0x04, 0x97, 0x98,
 	0x7b, 0x6a, 0x89, 0x63, 0x4e, 0x0e, 0x4c, 0xa4, 0x18, 0x6a, 0xb5, 0x92, 0x37, 0x97, 0x38, 0x86,
 	0x0c, 0xd4, 0x12, 0x03, 0x2e, 0x4e, 0xb8, 0xa0, 0x04, 0xa3, 0x02, 0x33, 0x0e, 0x5b, 0x10, 0x8a,
-	0x9c, 0x84, 0x4e, 0x3c, 0x92, 0x63, 0xbc, 0xf0, 0x48, 0x8e, 0xf1, 0xc1, 0x23, 0x39, 0xc6, 0x28,
-	0x16, 0x3d, 0xeb, 0x82, 0xa4, 0x24, 0x36, 0x70, 0x9c, 0x1b, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff,
-	0x49, 0x85, 0x4e, 0x12, 0x0b, 0x02, 0x00, 0x00,
+	0x9c, 0xe4, 0x4e, 0x3c, 0x92, 0x63, 0xbc, 0xf0, 0x48, 0x8e, 0xf1, 0xc1, 0x23, 0x39, 0xc6, 0x09,
+	0x8f, 0xe5, 0x18, 0x2e, 0x3c, 0x96, 0x63, 0xb8, 0xf1, 0x58, 0x8e, 0x21, 0x8a, 0x45, 0xcf, 0xba,
+	0x20, 0x29, 0x89, 0x0d, 0x1c, 0xff, 0xc6, 0x80, 0x00, 0x00, 0x00, 0xff, 0xff, 0x5a, 0x30, 0xc5,
+	0x87, 0x17, 0x02, 0x00, 0x00,
 }
 
 func (m *Timezone) Marshal() (dAtA []byte, err error) {
@@ -414,10 +394,6 @@ func (m *Timezone) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Description) > 0 {
 		i -= len(m.Description)
 		copy(dAtA[i:], m.Description)
@@ -460,10 +436,6 @@ func (m *GetTimezoneByDescriptionRequest) MarshalToSizedBuffer(dAtA []byte) (int
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Description) > 0 {
 		i -= len(m.Description)
 		copy(dAtA[i:], m.Description)
@@ -494,10 +466,6 @@ func (m *GetTimezoneByDescriptionResponse) MarshalToSizedBuffer(dAtA []byte) (in
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Timezone != nil {
 		{
 			size, err := m.Timezone.MarshalToSizedBuffer(dAtA[:i])
@@ -533,10 +501,6 @@ func (m *GetTimezoneByNameRequest) MarshalToSizedBuffer(dAtA []byte) (int, error
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Name) > 0 {
 		i -= len(m.Name)
 		copy(dAtA[i:], m.Name)
@@ -567,10 +531,6 @@ func (m *GetTimezoneByNameResponse) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Timezone != nil {
 		{
 			size, err := m.Timezone.MarshalToSizedBuffer(dAtA[:i])
@@ -606,10 +566,6 @@ func (m *GetAllTimezonesRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -633,10 +589,6 @@ func (m *GetAllTimezonesResponse) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Timezones) > 0 {
 		for iNdEx := len(m.Timezones) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -682,9 +634,6 @@ func (m *Timezone) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTimezone(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -697,9 +646,6 @@ func (m *GetTimezoneByDescriptionRequest) Size() (n int) {
 	l = len(m.Description)
 	if l > 0 {
 		n += 1 + l + sovTimezone(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -714,9 +660,6 @@ func (m *GetTimezoneByDescriptionResponse) Size() (n int) {
 		l = m.Timezone.Size()
 		n += 1 + l + sovTimezone(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -729,9 +672,6 @@ func (m *GetTimezoneByNameRequest) Size() (n int) {
 	l = len(m.Name)
 	if l > 0 {
 		n += 1 + l + sovTimezone(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -746,9 +686,6 @@ func (m *GetTimezoneByNameResponse) Size() (n int) {
 		l = m.Timezone.Size()
 		n += 1 + l + sovTimezone(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -758,9 +695,6 @@ func (m *GetAllTimezonesRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -775,9 +709,6 @@ func (m *GetAllTimezonesResponse) Size() (n int) {
 			l = e.Size()
 			n += 1 + l + sovTimezone(uint64(l))
 		}
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -915,7 +846,6 @@ func (m *Timezone) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1001,7 +931,6 @@ func (m *GetTimezoneByDescriptionRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1091,7 +1020,6 @@ func (m *GetTimezoneByDescriptionResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1177,7 +1105,6 @@ func (m *GetTimezoneByNameRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1267,7 +1194,6 @@ func (m *GetTimezoneByNameResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1321,7 +1247,6 @@ func (m *GetAllTimezonesRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1409,7 +1334,6 @@ func (m *GetAllTimezonesResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

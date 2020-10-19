@@ -24,10 +24,7 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // GetTeletrasportSafePlanetList
 type GetTeletrasportSafePlanetListRequest struct {
-	PlanetID             uint32   `protobuf:"varint,1,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlanetID uint32 `protobuf:"varint,1,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
 }
 
 func (m *GetTeletrasportSafePlanetListRequest) Reset()         { *m = GetTeletrasportSafePlanetListRequest{} }
@@ -71,10 +68,7 @@ func (m *GetTeletrasportSafePlanetListRequest) GetPlanetID() uint32 {
 }
 
 type GetTeletrasportSafePlanetListResponse struct {
-	SafePlanets          []*GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList `protobuf:"bytes,1,rep,name=SafePlanets,proto3" json:"SafePlanets,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                                                            `json:"-"`
-	XXX_unrecognized     []byte                                                              `json:"-"`
-	XXX_sizecache        int32                                                               `json:"-"`
+	SafePlanets []*GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList `protobuf:"bytes,1,rep,name=SafePlanets,proto3" json:"SafePlanets,omitempty"`
 }
 
 func (m *GetTeletrasportSafePlanetListResponse) Reset()         { *m = GetTeletrasportSafePlanetListResponse{} }
@@ -118,11 +112,8 @@ func (m *GetTeletrasportSafePlanetListResponse) GetSafePlanets() []*GetTeletrasp
 }
 
 type GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList struct {
-	Planet               *Planet  `protobuf:"bytes,1,opt,name=Planet,proto3" json:"Planet,omitempty"`
-	Price                uint32   `protobuf:"varint,2,opt,name=Price,proto3" json:"Price,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Planet *Planet `protobuf:"bytes,1,opt,name=Planet,proto3" json:"Planet,omitempty"`
+	Price  uint32  `protobuf:"varint,2,opt,name=Price,proto3" json:"Price,omitempty"`
 }
 
 func (m *GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList) Reset() {
@@ -178,12 +169,9 @@ func (m *GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList) GetPr
 
 // EndTeletrasportSafePlanet
 type EndTeletrasportSafePlanetRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	PlanetID             uint32   `protobuf:"varint,2,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
-	Price                int32    `protobuf:"varint,3,opt,name=Price,proto3" json:"Price,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	PlanetID uint32 `protobuf:"varint,2,opt,name=PlanetID,proto3" json:"PlanetID,omitempty"`
+	Price    int32  `protobuf:"varint,3,opt,name=Price,proto3" json:"Price,omitempty"`
 }
 
 func (m *EndTeletrasportSafePlanetRequest) Reset()         { *m = EndTeletrasportSafePlanetRequest{} }
@@ -241,9 +229,6 @@ func (m *EndTeletrasportSafePlanetRequest) GetPrice() int32 {
 }
 
 type EndTeletrasportSafePlanetResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *EndTeletrasportSafePlanetResponse) Reset()         { *m = EndTeletrasportSafePlanetResponse{} }
@@ -290,7 +275,7 @@ func init() {
 func init() { proto.RegisterFile("proto/expansion.proto", fileDescriptor_ab067e92a46b1c0b) }
 
 var fileDescriptor_ab067e92a46b1c0b = []byte{
-	// 261 bytes of a gzipped FileDescriptorProto
+	// 274 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2d, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x4f, 0xad, 0x28, 0x48, 0xcc, 0x2b, 0xce, 0xcc, 0xcf, 0xd3, 0x03, 0xf3, 0x85, 0x38,
 	0xe1, 0x02, 0x52, 0x42, 0x10, 0x15, 0x05, 0x39, 0x89, 0x79, 0xa9, 0x25, 0x10, 0x69, 0x25, 0x27,
@@ -304,10 +289,11 @@ var fileDescriptor_ab067e92a46b1c0b = []byte{
 	0x44, 0x34, 0x08, 0x2a, 0x2b, 0x24, 0xc2, 0xc5, 0x1a, 0x50, 0x94, 0x99, 0x9c, 0x2a, 0xc1, 0x04,
 	0xf6, 0x37, 0x84, 0xa3, 0x54, 0xc0, 0xa5, 0xe0, 0x9a, 0x97, 0x82, 0xdd, 0x78, 0xd4, 0x40, 0xab,
 	0x4c, 0x2d, 0x42, 0x09, 0x34, 0x30, 0x1f, 0x25, 0x40, 0x99, 0x50, 0x03, 0x14, 0x61, 0x23, 0xb3,
-	0x02, 0xa3, 0x06, 0x2b, 0xcc, 0x46, 0x65, 0x2e, 0x45, 0x3c, 0x36, 0x42, 0x82, 0xc6, 0x49, 0xe8,
-	0xc4, 0x23, 0x39, 0xc6, 0x0b, 0x8f, 0xe4, 0x18, 0x1f, 0x3c, 0x92, 0x63, 0x8c, 0x62, 0xd1, 0xb3,
-	0x2e, 0x48, 0x4a, 0x62, 0x03, 0x47, 0xb5, 0x31, 0x20, 0x00, 0x00, 0xff, 0xff, 0x95, 0x8b, 0x77,
-	0x01, 0x22, 0x02, 0x00, 0x00,
+	0x02, 0xa3, 0x06, 0x2b, 0xcc, 0x46, 0x65, 0x2e, 0x45, 0x3c, 0x36, 0x42, 0x82, 0xc6, 0x49, 0xee,
+	0xc4, 0x23, 0x39, 0xc6, 0x0b, 0x8f, 0xe4, 0x18, 0x1f, 0x3c, 0x92, 0x63, 0x9c, 0xf0, 0x58, 0x8e,
+	0xe1, 0xc2, 0x63, 0x39, 0x86, 0x1b, 0x8f, 0xe5, 0x18, 0xa2, 0x58, 0xf4, 0xac, 0x0b, 0x92, 0x92,
+	0xd8, 0xc0, 0xd1, 0x6e, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0x77, 0xb4, 0xae, 0x8d, 0x2e, 0x02,
+	0x00, 0x00,
 }
 
 func (m *GetTeletrasportSafePlanetListRequest) Marshal() (dAtA []byte, err error) {
@@ -330,10 +316,6 @@ func (m *GetTeletrasportSafePlanetListRequest) MarshalToSizedBuffer(dAtA []byte)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlanetID != 0 {
 		i = encodeVarintExpansion(dAtA, i, uint64(m.PlanetID))
 		i--
@@ -362,10 +344,6 @@ func (m *GetTeletrasportSafePlanetListResponse) MarshalToSizedBuffer(dAtA []byte
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.SafePlanets) > 0 {
 		for iNdEx := len(m.SafePlanets) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -403,10 +381,6 @@ func (m *GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList) Marsh
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Price != 0 {
 		i = encodeVarintExpansion(dAtA, i, uint64(m.Price))
 		i--
@@ -447,10 +421,6 @@ func (m *EndTeletrasportSafePlanetRequest) MarshalToSizedBuffer(dAtA []byte) (in
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Price != 0 {
 		i = encodeVarintExpansion(dAtA, i, uint64(m.Price))
 		i--
@@ -489,10 +459,6 @@ func (m *EndTeletrasportSafePlanetResponse) MarshalToSizedBuffer(dAtA []byte) (i
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -516,9 +482,6 @@ func (m *GetTeletrasportSafePlanetListRequest) Size() (n int) {
 	if m.PlanetID != 0 {
 		n += 1 + sovExpansion(uint64(m.PlanetID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -533,9 +496,6 @@ func (m *GetTeletrasportSafePlanetListResponse) Size() (n int) {
 			l = e.Size()
 			n += 1 + l + sovExpansion(uint64(l))
 		}
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -552,9 +512,6 @@ func (m *GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList) Size(
 	}
 	if m.Price != 0 {
 		n += 1 + sovExpansion(uint64(m.Price))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -574,9 +531,6 @@ func (m *EndTeletrasportSafePlanetRequest) Size() (n int) {
 	if m.Price != 0 {
 		n += 1 + sovExpansion(uint64(m.Price))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -586,9 +540,6 @@ func (m *EndTeletrasportSafePlanetResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -661,7 +612,6 @@ func (m *GetTeletrasportSafePlanetListRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -749,7 +699,6 @@ func (m *GetTeletrasportSafePlanetListResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -858,7 +807,6 @@ func (m *GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList) Unmar
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -969,7 +917,6 @@ func (m *EndTeletrasportSafePlanetRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1023,7 +970,6 @@ func (m *EndTeletrasportSafePlanetResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

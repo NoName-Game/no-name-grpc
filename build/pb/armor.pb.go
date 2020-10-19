@@ -24,21 +24,18 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type Armor struct {
-	ID                   uint32         `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string         `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	RarityID             uint32         `protobuf:"varint,3,opt,name=RarityID,proto3" json:"RarityID,omitempty"`
-	Rarity               *Rarity        `protobuf:"bytes,4,opt,name=Rarity,proto3" json:"Rarity,omitempty"`
-	ArmorCategoryID      uint32         `protobuf:"varint,5,opt,name=ArmorCategoryID,proto3" json:"ArmorCategoryID,omitempty"`
-	ArmorCategory        *ArmorCategory `protobuf:"bytes,6,opt,name=ArmorCategory,proto3" json:"ArmorCategory,omitempty"`
-	PlayerID             uint32         `protobuf:"varint,7,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	Equipped             bool           `protobuf:"varint,9,opt,name=Equipped,proto3" json:"Equipped,omitempty"`
-	Defense              float64        `protobuf:"fixed64,10,opt,name=Defense,proto3" json:"Defense,omitempty"`
-	Evasion              float64        `protobuf:"fixed64,11,opt,name=Evasion,proto3" json:"Evasion,omitempty"`
-	Halving              float64        `protobuf:"fixed64,12,opt,name=Halving,proto3" json:"Halving,omitempty"`
-	Potential            uint32         `protobuf:"varint,13,opt,name=Potential,proto3" json:"Potential,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	ID              uint32         `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name            string         `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	RarityID        uint32         `protobuf:"varint,3,opt,name=RarityID,proto3" json:"RarityID,omitempty"`
+	Rarity          *Rarity        `protobuf:"bytes,4,opt,name=Rarity,proto3" json:"Rarity,omitempty"`
+	ArmorCategoryID uint32         `protobuf:"varint,5,opt,name=ArmorCategoryID,proto3" json:"ArmorCategoryID,omitempty"`
+	ArmorCategory   *ArmorCategory `protobuf:"bytes,6,opt,name=ArmorCategory,proto3" json:"ArmorCategory,omitempty"`
+	PlayerID        uint32         `protobuf:"varint,7,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	Equipped        bool           `protobuf:"varint,9,opt,name=Equipped,proto3" json:"Equipped,omitempty"`
+	Defense         float64        `protobuf:"fixed64,10,opt,name=Defense,proto3" json:"Defense,omitempty"`
+	Evasion         float64        `protobuf:"fixed64,11,opt,name=Evasion,proto3" json:"Evasion,omitempty"`
+	Halving         float64        `protobuf:"fixed64,12,opt,name=Halving,proto3" json:"Halving,omitempty"`
+	Potential       uint32         `protobuf:"varint,13,opt,name=Potential,proto3" json:"Potential,omitempty"`
 }
 
 func (m *Armor) Reset()         { *m = Armor{} }
@@ -160,10 +157,7 @@ func (m *Armor) GetPotential() uint32 {
 
 // GetArmorByID
 type GetArmorByIDRequest struct {
-	ArmorID              uint32   `protobuf:"varint,1,opt,name=ArmorID,proto3" json:"ArmorID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ArmorID uint32 `protobuf:"varint,1,opt,name=ArmorID,proto3" json:"ArmorID,omitempty"`
 }
 
 func (m *GetArmorByIDRequest) Reset()         { *m = GetArmorByIDRequest{} }
@@ -207,10 +201,7 @@ func (m *GetArmorByIDRequest) GetArmorID() uint32 {
 }
 
 type GetArmorByIDResponse struct {
-	Armor                *Armor   `protobuf:"bytes,1,opt,name=Armor,proto3" json:"Armor,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Armor *Armor `protobuf:"bytes,1,opt,name=Armor,proto3" json:"Armor,omitempty"`
 }
 
 func (m *GetArmorByIDResponse) Reset()         { *m = GetArmorByIDResponse{} }
@@ -255,10 +246,7 @@ func (m *GetArmorByIDResponse) GetArmor() *Armor {
 
 // GetArmorByName
 type GetArmorByNameRequest struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Name string `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
 }
 
 func (m *GetArmorByNameRequest) Reset()         { *m = GetArmorByNameRequest{} }
@@ -302,10 +290,7 @@ func (m *GetArmorByNameRequest) GetName() string {
 }
 
 type GetArmorByNameResponse struct {
-	Armor                *Armor   `protobuf:"bytes,1,opt,name=Armor,proto3" json:"Armor,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Armor *Armor `protobuf:"bytes,1,opt,name=Armor,proto3" json:"Armor,omitempty"`
 }
 
 func (m *GetArmorByNameResponse) Reset()         { *m = GetArmorByNameResponse{} }
@@ -350,10 +335,7 @@ func (m *GetArmorByNameResponse) GetArmor() *Armor {
 
 // GetPlayerArmors
 type GetPlayerArmorsRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *GetPlayerArmorsRequest) Reset()         { *m = GetPlayerArmorsRequest{} }
@@ -397,10 +379,7 @@ func (m *GetPlayerArmorsRequest) GetPlayerID() uint32 {
 }
 
 type GetPlayerArmorsResponse struct {
-	Armors               []*Armor `protobuf:"bytes,1,rep,name=Armors,proto3" json:"Armors,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Armors []*Armor `protobuf:"bytes,1,rep,name=Armors,proto3" json:"Armors,omitempty"`
 }
 
 func (m *GetPlayerArmorsResponse) Reset()         { *m = GetPlayerArmorsResponse{} }
@@ -445,11 +424,8 @@ func (m *GetPlayerArmorsResponse) GetArmors() []*Armor {
 
 // GetPlayerArmorsByCategoryID
 type GetPlayerArmorsByCategoryIDRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	CategoryID           uint32   `protobuf:"varint,2,opt,name=CategoryID,proto3" json:"CategoryID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID   uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	CategoryID uint32 `protobuf:"varint,2,opt,name=CategoryID,proto3" json:"CategoryID,omitempty"`
 }
 
 func (m *GetPlayerArmorsByCategoryIDRequest) Reset()         { *m = GetPlayerArmorsByCategoryIDRequest{} }
@@ -500,10 +476,7 @@ func (m *GetPlayerArmorsByCategoryIDRequest) GetCategoryID() uint32 {
 }
 
 type GetPlayerArmorsByCategoryIDResponse struct {
-	Armors               []*Armor `protobuf:"bytes,1,rep,name=Armors,proto3" json:"Armors,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Armors []*Armor `protobuf:"bytes,1,rep,name=Armors,proto3" json:"Armors,omitempty"`
 }
 
 func (m *GetPlayerArmorsByCategoryIDResponse) Reset()         { *m = GetPlayerArmorsByCategoryIDResponse{} }
@@ -548,10 +521,7 @@ func (m *GetPlayerArmorsByCategoryIDResponse) GetArmors() []*Armor {
 
 // GetPlayerArmorsEquipped
 type GetPlayerArmorsEquippedRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *GetPlayerArmorsEquippedRequest) Reset()         { *m = GetPlayerArmorsEquippedRequest{} }
@@ -595,10 +565,7 @@ func (m *GetPlayerArmorsEquippedRequest) GetPlayerID() uint32 {
 }
 
 type GetPlayerArmorsEquippedResponse struct {
-	Armors               []*Armor `protobuf:"bytes,1,rep,name=Armors,proto3" json:"Armors,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Armors []*Armor `protobuf:"bytes,1,rep,name=Armors,proto3" json:"Armors,omitempty"`
 }
 
 func (m *GetPlayerArmorsEquippedResponse) Reset()         { *m = GetPlayerArmorsEquippedResponse{} }
@@ -643,11 +610,8 @@ func (m *GetPlayerArmorsEquippedResponse) GetArmors() []*Armor {
 
 // GetPlayerArmorsEquippedByCategoryID
 type GetPlayerArmorEquippedByCategoryIDRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	CategoryID           uint32   `protobuf:"varint,2,opt,name=CategoryID,proto3" json:"CategoryID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID   uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	CategoryID uint32 `protobuf:"varint,2,opt,name=CategoryID,proto3" json:"CategoryID,omitempty"`
 }
 
 func (m *GetPlayerArmorEquippedByCategoryIDRequest) Reset() {
@@ -702,10 +666,7 @@ func (m *GetPlayerArmorEquippedByCategoryIDRequest) GetCategoryID() uint32 {
 }
 
 type GetPlayerArmorEquippedByCategoryIDResponse struct {
-	Armor                *Armor   `protobuf:"bytes,1,opt,name=Armor,proto3" json:"Armor,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Armor *Armor `protobuf:"bytes,1,opt,name=Armor,proto3" json:"Armor,omitempty"`
 }
 
 func (m *GetPlayerArmorEquippedByCategoryIDResponse) Reset() {
@@ -754,12 +715,9 @@ func (m *GetPlayerArmorEquippedByCategoryIDResponse) GetArmor() *Armor {
 
 // EquipArmor
 type EquipArmorRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	ArmorID              uint32   `protobuf:"varint,2,opt,name=ArmorID,proto3" json:"ArmorID,omitempty"`
-	Equip                bool     `protobuf:"varint,3,opt,name=Equip,proto3" json:"Equip,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	ArmorID  uint32 `protobuf:"varint,2,opt,name=ArmorID,proto3" json:"ArmorID,omitempty"`
+	Equip    bool   `protobuf:"varint,3,opt,name=Equip,proto3" json:"Equip,omitempty"`
 }
 
 func (m *EquipArmorRequest) Reset()         { *m = EquipArmorRequest{} }
@@ -817,9 +775,6 @@ func (m *EquipArmorRequest) GetEquip() bool {
 }
 
 type EquipArmorResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *EquipArmorResponse) Reset()         { *m = EquipArmorResponse{} }
@@ -876,39 +831,40 @@ func init() {
 func init() { proto.RegisterFile("proto/armor.proto", fileDescriptor_b61c395c5c8b6d12) }
 
 var fileDescriptor_b61c395c5c8b6d12 = []byte{
-	// 511 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x54, 0xdf, 0x8b, 0xd3, 0x40,
-	0x10, 0x66, 0xd3, 0x1f, 0xd7, 0x4e, 0xaf, 0x27, 0xb7, 0x56, 0x5d, 0x8a, 0xc6, 0xb0, 0x8a, 0x44,
-	0x85, 0x1e, 0x9c, 0x3e, 0xe9, 0x81, 0xd8, 0xcb, 0x71, 0x06, 0x41, 0xca, 0x3e, 0xfa, 0x72, 0xe6,
-	0x74, 0x2d, 0x81, 0x5e, 0x93, 0x4b, 0x72, 0x07, 0x7d, 0xf5, 0xaf, 0xf3, 0xd1, 0x3f, 0x41, 0xfa,
-	0x97, 0xc8, 0xce, 0xee, 0xb6, 0x49, 0x8a, 0xd2, 0x82, 0x6f, 0x3b, 0xf3, 0xcd, 0x7c, 0xdf, 0x97,
-	0x99, 0xcd, 0xc2, 0x61, 0x9a, 0x25, 0x45, 0x72, 0x14, 0x65, 0x57, 0x49, 0x36, 0xc2, 0x33, 0x6d,
-	0x61, 0x30, 0xa4, 0x1a, 0xc9, 0xa2, 0x2c, 0x2e, 0x16, 0x1a, 0x1a, 0x0e, 0x4b, 0xd5, 0x17, 0x5f,
-	0xa3, 0x42, 0x4e, 0x93, 0xcc, 0x60, 0xfc, 0x47, 0x03, 0x5a, 0xef, 0x15, 0x40, 0x0f, 0xc0, 0x09,
-	0x03, 0x46, 0x3c, 0xe2, 0xf7, 0x85, 0x13, 0x06, 0x94, 0x42, 0xf3, 0x53, 0x74, 0x25, 0x99, 0xe3,
-	0x11, 0xbf, 0x2b, 0xf0, 0x4c, 0x87, 0xd0, 0x11, 0xc8, 0x1c, 0x06, 0xac, 0x81, 0x95, 0xab, 0x98,
-	0x3e, 0x83, 0xb6, 0x3e, 0xb3, 0xa6, 0x47, 0xfc, 0xde, 0xf1, 0xc1, 0xc8, 0x98, 0xd0, 0x59, 0x61,
-	0x50, 0xea, 0xc3, 0x1d, 0x14, 0x3c, 0x35, 0x46, 0xc2, 0x80, 0xb5, 0x90, 0xaa, 0x9e, 0xa6, 0xa7,
-	0xd0, 0xaf, 0xa4, 0x58, 0x1b, 0x89, 0x1f, 0x8d, 0x6a, 0x5f, 0x52, 0x29, 0x12, 0xd5, 0x1e, 0x65,
-	0x79, 0x32, 0x8b, 0x16, 0x32, 0x0b, 0x03, 0xb6, 0xa7, 0x2d, 0xdb, 0x58, 0x61, 0x67, 0xd7, 0x37,
-	0x71, 0x9a, 0xca, 0x6f, 0xac, 0xeb, 0x11, 0xbf, 0x23, 0x56, 0x31, 0x65, 0xb0, 0x17, 0xc8, 0xef,
-	0x72, 0x9e, 0x4b, 0x06, 0x1e, 0xf1, 0x89, 0xb0, 0xa1, 0x42, 0xce, 0x6e, 0xa3, 0x3c, 0x4e, 0xe6,
-	0xac, 0xa7, 0x11, 0x13, 0x2a, 0xe4, 0x43, 0x34, 0xbb, 0x8d, 0xe7, 0x53, 0xb6, 0xaf, 0x11, 0x13,
-	0xd2, 0x87, 0xd0, 0x9d, 0x24, 0x85, 0x9c, 0x17, 0x71, 0x34, 0x63, 0x7d, 0xb4, 0xb1, 0x4e, 0xf0,
-	0x23, 0xb8, 0x7b, 0x2e, 0x0b, 0xf4, 0x3d, 0x5e, 0x84, 0x81, 0x90, 0xd7, 0x37, 0x32, 0x2f, 0x14,
-	0x1d, 0xe6, 0x56, 0x6b, 0xb1, 0x21, 0x7f, 0x03, 0x83, 0x6a, 0x43, 0x9e, 0x26, 0xca, 0x1a, 0x37,
-	0xcb, 0xc4, 0xfa, 0xde, 0xf1, 0xbe, 0x9e, 0x94, 0x1e, 0x90, 0xd0, 0x10, 0x7f, 0x09, 0xf7, 0xd6,
-	0xbd, 0x6a, 0xab, 0x56, 0xce, 0x2e, 0x9c, 0xac, 0x17, 0xce, 0x4f, 0xe0, 0x7e, 0xbd, 0x78, 0x07,
-	0xa9, 0xd7, 0xd8, 0xad, 0xc7, 0x8d, 0x99, 0xdc, 0x6a, 0x95, 0xb7, 0x42, 0xaa, 0x5b, 0xe1, 0xef,
-	0xe0, 0xc1, 0x46, 0x97, 0x11, 0x7d, 0x0a, 0x6d, 0x9d, 0x61, 0xc4, 0x6b, 0x6c, 0xa8, 0x1a, 0x8c,
-	0x7f, 0x01, 0x5e, 0x23, 0x18, 0x2f, 0xd6, 0xd7, 0x6a, 0x0b, 0x0b, 0xd4, 0x05, 0x28, 0x5d, 0x4f,
-	0x07, 0xd1, 0x52, 0x86, 0x7f, 0x84, 0x27, 0xff, 0x54, 0xd8, 0xc9, 0xee, 0x09, 0xb8, 0x35, 0x32,
-	0x7b, 0x09, 0xb7, 0x99, 0xd6, 0x39, 0x3c, 0xfe, 0x6b, 0xf7, 0x4e, 0x36, 0xa6, 0xf0, 0xbc, 0x4a,
-	0x64, 0x79, 0xfe, 0xf7, 0xf0, 0x26, 0xf0, 0x62, 0x1b, 0xa1, 0x1d, 0xee, 0xd9, 0x05, 0x1c, 0x22,
-	0x87, 0x4e, 0x6e, 0x61, 0xb1, 0xf4, 0x67, 0x39, 0x95, 0x3f, 0x8b, 0x0e, 0xa0, 0x85, 0x54, 0xf8,
-	0xbc, 0x75, 0x84, 0x0e, 0xf8, 0x00, 0x68, 0x59, 0x40, 0x5b, 0x1b, 0xd3, 0x9f, 0x4b, 0x97, 0xfc,
-	0x5a, 0xba, 0xe4, 0xf7, 0xd2, 0x25, 0x9f, 0x9b, 0xa3, 0xb7, 0xe9, 0xe5, 0x65, 0x1b, 0x9f, 0xd5,
-	0x57, 0x7f, 0x02, 0x00, 0x00, 0xff, 0xff, 0x53, 0xb3, 0x77, 0x98, 0xa2, 0x05, 0x00, 0x00,
+	// 527 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x54, 0x4f, 0x6f, 0xd3, 0x4e,
+	0x10, 0xcd, 0x3a, 0x7f, 0x9a, 0x4c, 0x9a, 0xfe, 0xd4, 0xfd, 0x05, 0x58, 0x45, 0xb0, 0x58, 0x0b,
+	0x42, 0x06, 0xa4, 0x54, 0x2a, 0x9c, 0xa0, 0x12, 0x22, 0x75, 0x55, 0x2c, 0x24, 0x14, 0xed, 0x91,
+	0x4b, 0x71, 0x61, 0x89, 0x2c, 0xa5, 0xb1, 0x6b, 0xbb, 0x95, 0x72, 0xe5, 0x13, 0xf0, 0xb1, 0x38,
+	0xf6, 0xc8, 0x11, 0x25, 0x5f, 0x04, 0x79, 0x76, 0x9d, 0xd8, 0xae, 0x40, 0x89, 0xc4, 0x6d, 0x67,
+	0xde, 0xcc, 0x7b, 0xcf, 0x33, 0xeb, 0x85, 0xfd, 0x28, 0x0e, 0xd3, 0xf0, 0xc0, 0x8f, 0x2f, 0xc2,
+	0x78, 0x88, 0x67, 0xda, 0xc4, 0x60, 0x40, 0x35, 0x12, 0xfb, 0x71, 0x90, 0xce, 0x35, 0x34, 0x18,
+	0x14, 0xaa, 0xcf, 0x3e, 0xfb, 0xa9, 0x9a, 0x84, 0xb1, 0xc1, 0xc4, 0xb7, 0x3a, 0x34, 0xdf, 0x66,
+	0x00, 0xdd, 0x03, 0xcb, 0x73, 0x19, 0xb1, 0x89, 0xd3, 0x93, 0x96, 0xe7, 0x52, 0x0a, 0x8d, 0x0f,
+	0xfe, 0x85, 0x62, 0x96, 0x4d, 0x9c, 0x8e, 0xc4, 0x33, 0x1d, 0x40, 0x5b, 0x22, 0xb3, 0xe7, 0xb2,
+	0x3a, 0x56, 0xae, 0x62, 0xfa, 0x04, 0x5a, 0xfa, 0xcc, 0x1a, 0x36, 0x71, 0xba, 0x87, 0x7b, 0x43,
+	0x63, 0x42, 0x67, 0xa5, 0x41, 0xa9, 0x03, 0xff, 0xa1, 0xe0, 0xb1, 0x31, 0xe2, 0xb9, 0xac, 0x89,
+	0x54, 0xd5, 0x34, 0x3d, 0x86, 0x5e, 0x29, 0xc5, 0x5a, 0x48, 0xfc, 0x60, 0x58, 0xf9, 0x92, 0x52,
+	0x91, 0x2c, 0xf7, 0x64, 0x96, 0xc7, 0x53, 0x7f, 0xae, 0x62, 0xcf, 0x65, 0x3b, 0xda, 0x72, 0x1e,
+	0x67, 0xd8, 0xc9, 0xe5, 0x55, 0x10, 0x45, 0xea, 0x0b, 0xeb, 0xd8, 0xc4, 0x69, 0xcb, 0x55, 0x4c,
+	0x19, 0xec, 0xb8, 0xea, 0xab, 0x9a, 0x25, 0x8a, 0x81, 0x4d, 0x1c, 0x22, 0xf3, 0x30, 0x43, 0x4e,
+	0xae, 0xfd, 0x24, 0x08, 0x67, 0xac, 0xab, 0x11, 0x13, 0x66, 0xc8, 0x3b, 0x7f, 0x7a, 0x1d, 0xcc,
+	0x26, 0x6c, 0x57, 0x23, 0x26, 0xa4, 0xf7, 0xa1, 0x33, 0x0e, 0x53, 0x35, 0x4b, 0x03, 0x7f, 0xca,
+	0x7a, 0x68, 0x63, 0x9d, 0x10, 0x07, 0xf0, 0xff, 0xa9, 0x4a, 0xd1, 0xf7, 0x68, 0xee, 0xb9, 0x52,
+	0x5d, 0x5e, 0xa9, 0x24, 0xcd, 0xe8, 0x30, 0xb7, 0x5a, 0x4b, 0x1e, 0x8a, 0x57, 0xd0, 0x2f, 0x37,
+	0x24, 0x51, 0x98, 0x59, 0x13, 0x66, 0x99, 0x58, 0xdf, 0x3d, 0xdc, 0xd5, 0x93, 0xd2, 0x03, 0x92,
+	0x1a, 0x12, 0xcf, 0xe1, 0xce, 0xba, 0x37, 0xdb, 0x6a, 0x2e, 0x97, 0x2f, 0x9c, 0xac, 0x17, 0x2e,
+	0x8e, 0xe0, 0x6e, 0xb5, 0x78, 0x0b, 0xa9, 0x97, 0xd8, 0xad, 0xc7, 0x8d, 0x99, 0x24, 0xd7, 0x2a,
+	0x6e, 0x85, 0x94, 0xb7, 0x22, 0xde, 0xc0, 0xbd, 0x5b, 0x5d, 0x46, 0xf4, 0x31, 0xb4, 0x74, 0x86,
+	0x11, 0xbb, 0x7e, 0x4b, 0xd5, 0x60, 0xe2, 0x13, 0x88, 0x0a, 0xc1, 0x68, 0xbe, 0xbe, 0x56, 0x1b,
+	0x58, 0xa0, 0x1c, 0xa0, 0x70, 0x3d, 0x2d, 0x44, 0x0b, 0x19, 0xf1, 0x1e, 0x1e, 0xfd, 0x55, 0x61,
+	0x2b, 0xbb, 0x47, 0xc0, 0x2b, 0x64, 0xf9, 0x25, 0xdc, 0x64, 0x5a, 0xa7, 0xf0, 0xf0, 0x8f, 0xdd,
+	0x5b, 0xd9, 0x98, 0xc0, 0xd3, 0x32, 0x51, 0xce, 0xf3, 0xaf, 0x87, 0x37, 0x86, 0x67, 0x9b, 0x08,
+	0x6d, 0x71, 0xcf, 0xce, 0x60, 0x1f, 0x39, 0x74, 0x72, 0x03, 0x8b, 0x85, 0x3f, 0xcb, 0x2a, 0xfd,
+	0x59, 0xb4, 0x0f, 0x4d, 0xa4, 0xc2, 0xe7, 0xad, 0x2d, 0x75, 0x20, 0xfa, 0x40, 0x8b, 0x02, 0xda,
+	0xda, 0x88, 0xff, 0x58, 0x70, 0x72, 0xb3, 0xe0, 0xe4, 0xd7, 0x82, 0x93, 0xef, 0x4b, 0x5e, 0xbb,
+	0x59, 0xf2, 0xda, 0xcf, 0x25, 0xaf, 0x7d, 0x6c, 0x0c, 0x5f, 0x47, 0xe7, 0xe7, 0x2d, 0x7c, 0x62,
+	0x5f, 0xfc, 0x0e, 0x00, 0x00, 0xff, 0xff, 0xbb, 0x97, 0xa8, 0xc6, 0xae, 0x05, 0x00, 0x00,
 }
 
 func (m *Armor) Marshal() (dAtA []byte, err error) {
@@ -931,10 +887,6 @@ func (m *Armor) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Potential != 0 {
 		i = encodeVarintArmor(dAtA, i, uint64(m.Potential))
 		i--
@@ -1042,10 +994,6 @@ func (m *GetArmorByIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ArmorID != 0 {
 		i = encodeVarintArmor(dAtA, i, uint64(m.ArmorID))
 		i--
@@ -1074,10 +1022,6 @@ func (m *GetArmorByIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Armor != nil {
 		{
 			size, err := m.Armor.MarshalToSizedBuffer(dAtA[:i])
@@ -1113,10 +1057,6 @@ func (m *GetArmorByNameRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Name) > 0 {
 		i -= len(m.Name)
 		copy(dAtA[i:], m.Name)
@@ -1147,10 +1087,6 @@ func (m *GetArmorByNameResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Armor != nil {
 		{
 			size, err := m.Armor.MarshalToSizedBuffer(dAtA[:i])
@@ -1186,10 +1122,6 @@ func (m *GetPlayerArmorsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintArmor(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -1218,10 +1150,6 @@ func (m *GetPlayerArmorsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Armors) > 0 {
 		for iNdEx := len(m.Armors) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -1259,10 +1187,6 @@ func (m *GetPlayerArmorsByCategoryIDRequest) MarshalToSizedBuffer(dAtA []byte) (
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.CategoryID != 0 {
 		i = encodeVarintArmor(dAtA, i, uint64(m.CategoryID))
 		i--
@@ -1296,10 +1220,6 @@ func (m *GetPlayerArmorsByCategoryIDResponse) MarshalToSizedBuffer(dAtA []byte) 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Armors) > 0 {
 		for iNdEx := len(m.Armors) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -1337,10 +1257,6 @@ func (m *GetPlayerArmorsEquippedRequest) MarshalToSizedBuffer(dAtA []byte) (int,
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintArmor(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -1369,10 +1285,6 @@ func (m *GetPlayerArmorsEquippedResponse) MarshalToSizedBuffer(dAtA []byte) (int
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if len(m.Armors) > 0 {
 		for iNdEx := len(m.Armors) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -1410,10 +1322,6 @@ func (m *GetPlayerArmorEquippedByCategoryIDRequest) MarshalToSizedBuffer(dAtA []
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.CategoryID != 0 {
 		i = encodeVarintArmor(dAtA, i, uint64(m.CategoryID))
 		i--
@@ -1447,10 +1355,6 @@ func (m *GetPlayerArmorEquippedByCategoryIDResponse) MarshalToSizedBuffer(dAtA [
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Armor != nil {
 		{
 			size, err := m.Armor.MarshalToSizedBuffer(dAtA[:i])
@@ -1486,10 +1390,6 @@ func (m *EquipArmorRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Equip {
 		i--
 		if m.Equip {
@@ -1533,10 +1433,6 @@ func (m *EquipArmorResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	return len(dAtA) - i, nil
 }
 
@@ -1596,9 +1492,6 @@ func (m *Armor) Size() (n int) {
 	if m.Potential != 0 {
 		n += 1 + sovArmor(uint64(m.Potential))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1610,9 +1503,6 @@ func (m *GetArmorByIDRequest) Size() (n int) {
 	_ = l
 	if m.ArmorID != 0 {
 		n += 1 + sovArmor(uint64(m.ArmorID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1627,9 +1517,6 @@ func (m *GetArmorByIDResponse) Size() (n int) {
 		l = m.Armor.Size()
 		n += 1 + l + sovArmor(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1642,9 +1529,6 @@ func (m *GetArmorByNameRequest) Size() (n int) {
 	l = len(m.Name)
 	if l > 0 {
 		n += 1 + l + sovArmor(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1659,9 +1543,6 @@ func (m *GetArmorByNameResponse) Size() (n int) {
 		l = m.Armor.Size()
 		n += 1 + l + sovArmor(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1673,9 +1554,6 @@ func (m *GetPlayerArmorsRequest) Size() (n int) {
 	_ = l
 	if m.PlayerID != 0 {
 		n += 1 + sovArmor(uint64(m.PlayerID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1692,9 +1570,6 @@ func (m *GetPlayerArmorsResponse) Size() (n int) {
 			n += 1 + l + sovArmor(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1709,9 +1584,6 @@ func (m *GetPlayerArmorsByCategoryIDRequest) Size() (n int) {
 	}
 	if m.CategoryID != 0 {
 		n += 1 + sovArmor(uint64(m.CategoryID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1728,9 +1600,6 @@ func (m *GetPlayerArmorsByCategoryIDResponse) Size() (n int) {
 			n += 1 + l + sovArmor(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1742,9 +1611,6 @@ func (m *GetPlayerArmorsEquippedRequest) Size() (n int) {
 	_ = l
 	if m.PlayerID != 0 {
 		n += 1 + sovArmor(uint64(m.PlayerID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1761,9 +1627,6 @@ func (m *GetPlayerArmorsEquippedResponse) Size() (n int) {
 			n += 1 + l + sovArmor(uint64(l))
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1779,9 +1642,6 @@ func (m *GetPlayerArmorEquippedByCategoryIDRequest) Size() (n int) {
 	if m.CategoryID != 0 {
 		n += 1 + sovArmor(uint64(m.CategoryID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1794,9 +1654,6 @@ func (m *GetPlayerArmorEquippedByCategoryIDResponse) Size() (n int) {
 	if m.Armor != nil {
 		l = m.Armor.Size()
 		n += 1 + l + sovArmor(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1816,9 +1673,6 @@ func (m *EquipArmorRequest) Size() (n int) {
 	if m.Equip {
 		n += 2
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -1828,9 +1682,6 @@ func (m *EquipArmorResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -2136,7 +1987,6 @@ func (m *Armor) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2209,7 +2059,6 @@ func (m *GetArmorByIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2299,7 +2148,6 @@ func (m *GetArmorByIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2385,7 +2233,6 @@ func (m *GetArmorByNameRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2475,7 +2322,6 @@ func (m *GetArmorByNameResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2548,7 +2394,6 @@ func (m *GetPlayerArmorsRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2636,7 +2481,6 @@ func (m *GetPlayerArmorsResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2728,7 +2572,6 @@ func (m *GetPlayerArmorsByCategoryIDRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2816,7 +2659,6 @@ func (m *GetPlayerArmorsByCategoryIDResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2889,7 +2731,6 @@ func (m *GetPlayerArmorsEquippedRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2977,7 +2818,6 @@ func (m *GetPlayerArmorsEquippedResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3069,7 +2909,6 @@ func (m *GetPlayerArmorEquippedByCategoryIDRequest) Unmarshal(dAtA []byte) error
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3159,7 +2998,6 @@ func (m *GetPlayerArmorEquippedByCategoryIDResponse) Unmarshal(dAtA []byte) erro
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3271,7 +3109,6 @@ func (m *EquipArmorRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -3325,7 +3162,6 @@ func (m *EquipArmorResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}

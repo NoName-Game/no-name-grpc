@@ -25,11 +25,8 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // LaboratoryStartCrafting
 type LaboratoryStartCraftingRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	ItemID               uint32   `protobuf:"varint,2,opt,name=ItemID,proto3" json:"ItemID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	ItemID   uint32 `protobuf:"varint,2,opt,name=ItemID,proto3" json:"ItemID,omitempty"`
 }
 
 func (m *LaboratoryStartCraftingRequest) Reset()         { *m = LaboratoryStartCraftingRequest{} }
@@ -80,10 +77,7 @@ func (m *LaboratoryStartCraftingRequest) GetItemID() uint32 {
 }
 
 type LaboratoryStartCraftingResponse struct {
-	CraftingEndTime      *types.Timestamp `protobuf:"bytes,1,opt,name=CraftingEndTime,proto3" json:"CraftingEndTime,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
+	CraftingEndTime *types.Timestamp `protobuf:"bytes,1,opt,name=CraftingEndTime,proto3" json:"CraftingEndTime,omitempty"`
 }
 
 func (m *LaboratoryStartCraftingResponse) Reset()         { *m = LaboratoryStartCraftingResponse{} }
@@ -128,11 +122,8 @@ func (m *LaboratoryStartCraftingResponse) GetCraftingEndTime() *types.Timestamp 
 
 // LaboratoryCheckHaveResourceForCrafting
 type LaboratoryCheckHaveResourceForCraftingRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	ItemID               uint32   `protobuf:"varint,2,opt,name=ItemID,proto3" json:"ItemID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	ItemID   uint32 `protobuf:"varint,2,opt,name=ItemID,proto3" json:"ItemID,omitempty"`
 }
 
 func (m *LaboratoryCheckHaveResourceForCraftingRequest) Reset() {
@@ -187,10 +178,7 @@ func (m *LaboratoryCheckHaveResourceForCraftingRequest) GetItemID() uint32 {
 }
 
 type LaboratoryCheckHaveResourceForCraftingResponse struct {
-	HaveResources        bool     `protobuf:"varint,1,opt,name=HaveResources,proto3" json:"HaveResources,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	HaveResources bool `protobuf:"varint,1,opt,name=HaveResources,proto3" json:"HaveResources,omitempty"`
 }
 
 func (m *LaboratoryCheckHaveResourceForCraftingResponse) Reset() {
@@ -239,10 +227,7 @@ func (m *LaboratoryCheckHaveResourceForCraftingResponse) GetHaveResources() bool
 
 // LaboratoryCheckCrafting
 type LaboratoryCheckCraftingRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *LaboratoryCheckCraftingRequest) Reset()         { *m = LaboratoryCheckCraftingRequest{} }
@@ -286,12 +271,9 @@ func (m *LaboratoryCheckCraftingRequest) GetPlayerID() uint32 {
 }
 
 type LaboratoryCheckCraftingResponse struct {
-	CraftInProgress      bool             `protobuf:"varint,1,opt,name=CraftInProgress,proto3" json:"CraftInProgress,omitempty"`
-	FinishCrafting       bool             `protobuf:"varint,2,opt,name=FinishCrafting,proto3" json:"FinishCrafting,omitempty"`
-	CraftingEndTime      *types.Timestamp `protobuf:"bytes,3,opt,name=CraftingEndTime,proto3" json:"CraftingEndTime,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
+	CraftInProgress bool             `protobuf:"varint,1,opt,name=CraftInProgress,proto3" json:"CraftInProgress,omitempty"`
+	FinishCrafting  bool             `protobuf:"varint,2,opt,name=FinishCrafting,proto3" json:"FinishCrafting,omitempty"`
+	CraftingEndTime *types.Timestamp `protobuf:"bytes,3,opt,name=CraftingEndTime,proto3" json:"CraftingEndTime,omitempty"`
 }
 
 func (m *LaboratoryCheckCraftingResponse) Reset()         { *m = LaboratoryCheckCraftingResponse{} }
@@ -350,10 +332,7 @@ func (m *LaboratoryCheckCraftingResponse) GetCraftingEndTime() *types.Timestamp 
 
 // LaboratoryEndCrafting
 type LaboratoryEndCraftingRequest struct {
-	PlayerID             uint32   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
 func (m *LaboratoryEndCraftingRequest) Reset()         { *m = LaboratoryEndCraftingRequest{} }
@@ -397,10 +376,7 @@ func (m *LaboratoryEndCraftingRequest) GetPlayerID() uint32 {
 }
 
 type LaboratoryEndCraftingResponse struct {
-	Item                 *Item    `protobuf:"bytes,1,opt,name=Item,proto3" json:"Item,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Item *Item `protobuf:"bytes,1,opt,name=Item,proto3" json:"Item,omitempty"`
 }
 
 func (m *LaboratoryEndCraftingResponse) Reset()         { *m = LaboratoryEndCraftingResponse{} }
@@ -457,30 +433,31 @@ func init() {
 func init() { proto.RegisterFile("proto/ship_laboratory.proto", fileDescriptor_9a8037840dc645ab) }
 
 var fileDescriptor_9a8037840dc645ab = []byte{
-	// 363 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x92, 0xcf, 0x4a, 0xc3, 0x40,
-	0x10, 0xc6, 0x89, 0x96, 0x52, 0x46, 0x6a, 0x25, 0x07, 0x29, 0x51, 0x53, 0x09, 0x22, 0xbd, 0x98,
-	0x82, 0xde, 0x54, 0x10, 0xec, 0x1f, 0x0c, 0x78, 0x28, 0x6b, 0xf1, 0xe0, 0x45, 0x36, 0xed, 0x34,
-	0x5d, 0x6c, 0xb2, 0x71, 0x77, 0x2b, 0xf4, 0xd1, 0x7c, 0x03, 0x8f, 0x3e, 0x82, 0xf4, 0x49, 0xa4,
-	0x9b, 0xa4, 0xad, 0xc1, 0x82, 0x05, 0x8f, 0xfb, 0xdb, 0x9d, 0x6f, 0xbe, 0x6f, 0x66, 0xe1, 0x20,
-	0x16, 0x5c, 0xf1, 0x86, 0x1c, 0xb1, 0xf8, 0x79, 0x4c, 0x7d, 0x2e, 0xa8, 0xe2, 0x62, 0xea, 0x6a,
-	0x6a, 0x56, 0x72, 0xd8, 0xaa, 0x05, 0x9c, 0x07, 0x63, 0x6c, 0xe8, 0x6b, 0x7f, 0x32, 0x6c, 0x28,
-	0x16, 0xa2, 0x54, 0x34, 0x8c, 0x93, 0x0a, 0x6b, 0x2f, 0x91, 0x63, 0x0a, 0xc3, 0x84, 0x38, 0x3d,
-	0xb0, 0xef, 0x17, 0x02, 0x0f, 0x8a, 0x0a, 0xd5, 0x14, 0x74, 0xa8, 0x58, 0x14, 0x10, 0x7c, 0x9d,
-	0xa0, 0x54, 0xa6, 0x05, 0xa5, 0xee, 0x98, 0x4e, 0x51, 0x78, 0xad, 0xaa, 0x71, 0x6c, 0xd4, 0xcb,
-	0x64, 0x71, 0x36, 0xf7, 0xa1, 0xe8, 0x29, 0x0c, 0xbd, 0x56, 0x75, 0x4b, 0xdf, 0xa4, 0x27, 0x27,
-	0x80, 0xda, 0x5a, 0x55, 0x19, 0xf3, 0x48, 0xa2, 0xd9, 0x82, 0x4a, 0xc6, 0xda, 0xd1, 0xa0, 0xc7,
-	0x42, 0xd4, 0xea, 0x3b, 0xe7, 0x96, 0x9b, 0xa4, 0x70, 0xb3, 0x14, 0x6e, 0x2f, 0x4b, 0x41, 0xf2,
-	0x25, 0x4e, 0x1f, 0xce, 0x96, 0x8d, 0x9a, 0x23, 0xec, 0xbf, 0xdc, 0xd1, 0x37, 0x24, 0x28, 0xf9,
-	0x44, 0xf4, 0xb1, 0xc3, 0xc5, 0x7f, 0xa4, 0x79, 0x04, 0xf7, 0xaf, 0x4d, 0xd2, 0x70, 0x27, 0x50,
-	0x5e, 0x7d, 0x22, 0x75, 0xab, 0x12, 0xf9, 0x09, 0x9d, 0xeb, 0xd5, 0xd9, 0x6b, 0xdd, 0x0d, 0xdc,
-	0x3a, 0xef, 0xc6, 0xea, 0x90, 0x73, 0xe5, 0xa9, 0x8f, 0x7a, 0x3a, 0x64, 0x2f, 0xea, 0x0a, 0x1e,
-	0x08, 0x94, 0x99, 0x93, 0x3c, 0x36, 0x4f, 0x61, 0xb7, 0xc3, 0x22, 0x26, 0x47, 0x99, 0x86, 0x9e,
-	0x41, 0x89, 0xe4, 0xe8, 0x6f, 0x6b, 0xdb, 0xde, 0x7c, 0x6d, 0x97, 0x70, 0xb8, 0xb4, 0xde, 0x8e,
-	0x06, 0x9b, 0xe4, 0xbe, 0x81, 0xa3, 0x35, 0xb5, 0x69, 0x68, 0x1b, 0x0a, 0xf3, 0xc5, 0xa5, 0xdf,
-	0x09, 0x5c, 0xfd, 0xdb, 0xe7, 0x84, 0x68, 0x7e, 0x6b, 0x7e, 0xcc, 0x6c, 0xe3, 0x73, 0x66, 0x1b,
-	0x5f, 0x33, 0xdb, 0x78, 0x2a, 0xb8, 0x57, 0xb1, 0xef, 0x17, 0xb5, 0xeb, 0x8b, 0xef, 0x00, 0x00,
-	0x00, 0xff, 0xff, 0xa0, 0xcf, 0x17, 0xb8, 0x70, 0x03, 0x00, 0x00,
+	// 380 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x92, 0xcf, 0x4a, 0xeb, 0x40,
+	0x14, 0xc6, 0x9b, 0x7b, 0x4b, 0x29, 0xe7, 0xd2, 0xdb, 0x4b, 0x16, 0x97, 0x12, 0x75, 0x2a, 0x41,
+	0xa4, 0x1b, 0x53, 0xd0, 0x9d, 0x0a, 0x82, 0xfd, 0x83, 0x01, 0x17, 0x25, 0x16, 0x17, 0x6e, 0x24,
+	0x69, 0x4f, 0xd3, 0xc1, 0x26, 0x13, 0x67, 0xa6, 0x42, 0xdf, 0xc2, 0xd7, 0xf1, 0x0d, 0x5c, 0x76,
+	0xe9, 0x52, 0xda, 0x17, 0x91, 0x4e, 0x92, 0xb6, 0x06, 0x0b, 0x16, 0x5c, 0xce, 0x6f, 0xe6, 0x7c,
+	0xe7, 0x7c, 0xdf, 0x19, 0xd8, 0x89, 0x38, 0x93, 0xac, 0x2e, 0x86, 0x34, 0xba, 0x1f, 0xb9, 0x1e,
+	0xe3, 0xae, 0x64, 0x7c, 0x62, 0x29, 0xaa, 0x97, 0x33, 0xd8, 0xa8, 0xfa, 0x8c, 0xf9, 0x23, 0xac,
+	0xab, 0x6b, 0x6f, 0x3c, 0xa8, 0x4b, 0x1a, 0xa0, 0x90, 0x6e, 0x10, 0xc5, 0x15, 0xc6, 0xbf, 0x58,
+	0x8e, 0x4a, 0x0c, 0x62, 0x62, 0x76, 0x81, 0x5c, 0x2f, 0x05, 0x6e, 0xa4, 0xcb, 0x65, 0x83, 0xbb,
+	0x03, 0x49, 0x43, 0xdf, 0xc1, 0xc7, 0x31, 0x0a, 0xa9, 0x1b, 0x50, 0xec, 0x8c, 0xdc, 0x09, 0x72,
+	0xbb, 0x59, 0xd1, 0xf6, 0xb5, 0x5a, 0xc9, 0x59, 0x9e, 0xf5, 0xff, 0x50, 0xb0, 0x25, 0x06, 0x76,
+	0xb3, 0xf2, 0x4b, 0xdd, 0x24, 0x27, 0xd3, 0x87, 0xea, 0x46, 0x55, 0x11, 0xb1, 0x50, 0xa0, 0xde,
+	0x84, 0x72, 0xca, 0x5a, 0x61, 0xbf, 0x4b, 0x03, 0x54, 0xea, 0x7f, 0x8e, 0x0d, 0x2b, 0x76, 0x61,
+	0xa5, 0x2e, 0xac, 0x6e, 0xea, 0xc2, 0xc9, 0x96, 0x98, 0x3d, 0x38, 0x5a, 0x35, 0x6a, 0x0c, 0xb1,
+	0xf7, 0x70, 0xe5, 0x3e, 0xa1, 0x83, 0x82, 0x8d, 0x79, 0x0f, 0xdb, 0x8c, 0xff, 0x84, 0x9b, 0x5b,
+	0xb0, 0xbe, 0xdb, 0x24, 0x31, 0x77, 0x00, 0xa5, 0xf5, 0x27, 0x42, 0xb5, 0x2a, 0x3a, 0x9f, 0xa1,
+	0x79, 0xbe, 0x9e, 0xbd, 0xd2, 0xdd, 0x62, 0x5a, 0xf3, 0x45, 0x5b, 0x0f, 0x39, 0x53, 0x9e, 0xcc,
+	0x51, 0x4b, 0x42, 0xb6, 0xc3, 0x0e, 0x67, 0x3e, 0x47, 0x91, 0x4e, 0x92, 0xc5, 0xfa, 0x21, 0xfc,
+	0x6d, 0xd3, 0x90, 0x8a, 0x61, 0xaa, 0xa1, 0x32, 0x28, 0x3a, 0x19, 0xfa, 0xd5, 0xda, 0x7e, 0x6f,
+	0xbf, 0xb6, 0x53, 0xd8, 0x5d, 0x8d, 0xde, 0x0a, 0xfb, 0xdb, 0xf8, 0xbe, 0x80, 0xbd, 0x0d, 0xb5,
+	0x89, 0x69, 0x02, 0xf9, 0xc5, 0xe2, 0x92, 0xef, 0x04, 0x96, 0xfa, 0xed, 0x0b, 0xe2, 0x28, 0x7e,
+	0x49, 0x5e, 0x67, 0x44, 0x9b, 0xce, 0x88, 0xf6, 0x3e, 0x23, 0xda, 0xf3, 0x9c, 0xe4, 0xa6, 0x73,
+	0x92, 0x7b, 0x9b, 0x93, 0xdc, 0x5d, 0xde, 0x3a, 0x8b, 0x3c, 0xaf, 0xa0, 0x1c, 0x9c, 0x7c, 0x04,
+	0x00, 0x00, 0xff, 0xff, 0xb8, 0xed, 0x95, 0x52, 0x7c, 0x03, 0x00, 0x00,
 }
 
 func (m *LaboratoryStartCraftingRequest) Marshal() (dAtA []byte, err error) {
@@ -503,10 +480,6 @@ func (m *LaboratoryStartCraftingRequest) MarshalToSizedBuffer(dAtA []byte) (int,
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ItemID != 0 {
 		i = encodeVarintShipLaboratory(dAtA, i, uint64(m.ItemID))
 		i--
@@ -540,10 +513,6 @@ func (m *LaboratoryStartCraftingResponse) MarshalToSizedBuffer(dAtA []byte) (int
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.CraftingEndTime != nil {
 		{
 			size, err := m.CraftingEndTime.MarshalToSizedBuffer(dAtA[:i])
@@ -579,10 +548,6 @@ func (m *LaboratoryCheckHaveResourceForCraftingRequest) MarshalToSizedBuffer(dAt
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.ItemID != 0 {
 		i = encodeVarintShipLaboratory(dAtA, i, uint64(m.ItemID))
 		i--
@@ -616,10 +581,6 @@ func (m *LaboratoryCheckHaveResourceForCraftingResponse) MarshalToSizedBuffer(dA
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.HaveResources {
 		i--
 		if m.HaveResources {
@@ -653,10 +614,6 @@ func (m *LaboratoryCheckCraftingRequest) MarshalToSizedBuffer(dAtA []byte) (int,
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintShipLaboratory(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -685,10 +642,6 @@ func (m *LaboratoryCheckCraftingResponse) MarshalToSizedBuffer(dAtA []byte) (int
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.CraftingEndTime != nil {
 		{
 			size, err := m.CraftingEndTime.MarshalToSizedBuffer(dAtA[:i])
@@ -744,10 +697,6 @@ func (m *LaboratoryEndCraftingRequest) MarshalToSizedBuffer(dAtA []byte) (int, e
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.PlayerID != 0 {
 		i = encodeVarintShipLaboratory(dAtA, i, uint64(m.PlayerID))
 		i--
@@ -776,10 +725,6 @@ func (m *LaboratoryEndCraftingResponse) MarshalToSizedBuffer(dAtA []byte) (int, 
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Item != nil {
 		{
 			size, err := m.Item.MarshalToSizedBuffer(dAtA[:i])
@@ -818,9 +763,6 @@ func (m *LaboratoryStartCraftingRequest) Size() (n int) {
 	if m.ItemID != 0 {
 		n += 1 + sovShipLaboratory(uint64(m.ItemID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -833,9 +775,6 @@ func (m *LaboratoryStartCraftingResponse) Size() (n int) {
 	if m.CraftingEndTime != nil {
 		l = m.CraftingEndTime.Size()
 		n += 1 + l + sovShipLaboratory(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -852,9 +791,6 @@ func (m *LaboratoryCheckHaveResourceForCraftingRequest) Size() (n int) {
 	if m.ItemID != 0 {
 		n += 1 + sovShipLaboratory(uint64(m.ItemID))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -867,9 +803,6 @@ func (m *LaboratoryCheckHaveResourceForCraftingResponse) Size() (n int) {
 	if m.HaveResources {
 		n += 2
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -881,9 +814,6 @@ func (m *LaboratoryCheckCraftingRequest) Size() (n int) {
 	_ = l
 	if m.PlayerID != 0 {
 		n += 1 + sovShipLaboratory(uint64(m.PlayerID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -904,9 +834,6 @@ func (m *LaboratoryCheckCraftingResponse) Size() (n int) {
 		l = m.CraftingEndTime.Size()
 		n += 1 + l + sovShipLaboratory(uint64(l))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -918,9 +845,6 @@ func (m *LaboratoryEndCraftingRequest) Size() (n int) {
 	_ = l
 	if m.PlayerID != 0 {
 		n += 1 + sovShipLaboratory(uint64(m.PlayerID))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -934,9 +858,6 @@ func (m *LaboratoryEndCraftingResponse) Size() (n int) {
 	if m.Item != nil {
 		l = m.Item.Size()
 		n += 1 + l + sovShipLaboratory(uint64(l))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1029,7 +950,6 @@ func (m *LaboratoryStartCraftingRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1119,7 +1039,6 @@ func (m *LaboratoryStartCraftingResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1211,7 +1130,6 @@ func (m *LaboratoryCheckHaveResourceForCraftingRequest) Unmarshal(dAtA []byte) e
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1285,7 +1203,6 @@ func (m *LaboratoryCheckHaveResourceForCraftingResponse) Unmarshal(dAtA []byte) 
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1358,7 +1275,6 @@ func (m *LaboratoryCheckCraftingRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1488,7 +1404,6 @@ func (m *LaboratoryCheckCraftingResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1561,7 +1476,6 @@ func (m *LaboratoryEndCraftingRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1651,7 +1565,6 @@ func (m *LaboratoryEndCraftingResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
