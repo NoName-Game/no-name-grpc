@@ -7,8 +7,8 @@ message Titan {
     string Name = 2;
     uint32 PlanetID = 3;
     uint32 PlanetSystemID = 4;
-    uint32 DeadCounter = 5;
-    uint32 LifeMax = 8;
+    int32 DeadCounter = 5;
+    int32 LifeMax = 8;
     int32 LifePoint = 9;
 }
 
