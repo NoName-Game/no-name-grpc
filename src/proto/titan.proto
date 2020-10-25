@@ -60,6 +60,7 @@ message HitTitanResponse {
     int32 PlayerDamage = 4;
     int32 PlayerExperience = 5;
     int32 TitanDamage = 6;
+    uint32 TitanEventID = 7;
 }
 
 //TitanDiscovered

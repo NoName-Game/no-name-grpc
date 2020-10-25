@@ -22,25 +22,25 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
-// TitanEvent
-type TitanEvent struct {
-	ID       uint32         `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	TextCode string         `protobuf:"bytes,2,opt,name=TextCode,proto3" json:"TextCode,omitempty"`
-	Choices  []*EventChoice `protobuf:"bytes,3,rep,name=Choices,proto3" json:"Choices,omitempty"`
+// TitanEventQuestion
+type TitanEventQuestion struct {
+	ID       uint32              `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	TextCode string              `protobuf:"bytes,2,opt,name=TextCode,proto3" json:"TextCode,omitempty"`
+	Answers  []*TitanEventAnswer `protobuf:"bytes,3,rep,name=Answers,proto3" json:"Answers,omitempty"`
 }
 
-func (m *TitanEvent) Reset()         { *m = TitanEvent{} }
-func (m *TitanEvent) String() string { return proto.CompactTextString(m) }
-func (*TitanEvent) ProtoMessage()    {}
-func (*TitanEvent) Descriptor() ([]byte, []int) {
+func (m *TitanEventQuestion) Reset()         { *m = TitanEventQuestion{} }
+func (m *TitanEventQuestion) String() string { return proto.CompactTextString(m) }
+func (*TitanEventQuestion) ProtoMessage()    {}
+func (*TitanEventQuestion) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f9ef6fe984cd362e, []int{0}
 }
-func (m *TitanEvent) XXX_Unmarshal(b []byte) error {
+func (m *TitanEventQuestion) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *TitanEvent) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *TitanEventQuestion) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_TitanEvent.Marshal(b, m, deterministic)
+		return xxx_messageInfo_TitanEventQuestion.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -50,420 +50,58 @@ func (m *TitanEvent) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (m *TitanEvent) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_TitanEvent.Merge(m, src)
+func (m *TitanEventQuestion) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TitanEventQuestion.Merge(m, src)
 }
-func (m *TitanEvent) XXX_Size() int {
+func (m *TitanEventQuestion) XXX_Size() int {
 	return m.Size()
 }
-func (m *TitanEvent) XXX_DiscardUnknown() {
-	xxx_messageInfo_TitanEvent.DiscardUnknown(m)
+func (m *TitanEventQuestion) XXX_DiscardUnknown() {
+	xxx_messageInfo_TitanEventQuestion.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_TitanEvent proto.InternalMessageInfo
+var xxx_messageInfo_TitanEventQuestion proto.InternalMessageInfo
 
-func (m *TitanEvent) GetID() uint32 {
+func (m *TitanEventQuestion) GetID() uint32 {
 	if m != nil {
 		return m.ID
 	}
 	return 0
 }
 
-func (m *TitanEvent) GetTextCode() string {
+func (m *TitanEventQuestion) GetTextCode() string {
 	if m != nil {
 		return m.TextCode
 	}
 	return ""
 }
 
-func (m *TitanEvent) GetChoices() []*EventChoice {
+func (m *TitanEventQuestion) GetAnswers() []*TitanEventAnswer {
 	if m != nil {
-		return m.Choices
+		return m.Answers
 	}
 	return nil
 }
 
-type SubmitAnswerRequest struct {
-	TitanID  uint32 `protobuf:"varint,1,opt,name=titanID,proto3" json:"titanID,omitempty"`
-	ChoiceID uint32 `protobuf:"varint,2,opt,name=choiceID,proto3" json:"choiceID,omitempty"`
-	PlayerID uint32 `protobuf:"varint,3,opt,name=playerID,proto3" json:"playerID,omitempty"`
-}
-
-func (m *SubmitAnswerRequest) Reset()         { *m = SubmitAnswerRequest{} }
-func (m *SubmitAnswerRequest) String() string { return proto.CompactTextString(m) }
-func (*SubmitAnswerRequest) ProtoMessage()    {}
-func (*SubmitAnswerRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f9ef6fe984cd362e, []int{1}
-}
-func (m *SubmitAnswerRequest) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *SubmitAnswerRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_SubmitAnswerRequest.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *SubmitAnswerRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SubmitAnswerRequest.Merge(m, src)
-}
-func (m *SubmitAnswerRequest) XXX_Size() int {
-	return m.Size()
-}
-func (m *SubmitAnswerRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_SubmitAnswerRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SubmitAnswerRequest proto.InternalMessageInfo
-
-func (m *SubmitAnswerRequest) GetTitanID() uint32 {
-	if m != nil {
-		return m.TitanID
-	}
-	return 0
-}
-
-func (m *SubmitAnswerRequest) GetChoiceID() uint32 {
-	if m != nil {
-		return m.ChoiceID
-	}
-	return 0
-}
-
-func (m *SubmitAnswerRequest) GetPlayerID() uint32 {
-	if m != nil {
-		return m.PlayerID
-	}
-	return 0
-}
-
-type SubmitAnswerResponse struct {
-	IsMalus bool              `protobuf:"varint,1,opt,name=isMalus,proto3" json:"isMalus,omitempty"`
-	Hit     *HitTitanResponse `protobuf:"bytes,2,opt,name=hit,proto3" json:"hit,omitempty"`
-}
-
-func (m *SubmitAnswerResponse) Reset()         { *m = SubmitAnswerResponse{} }
-func (m *SubmitAnswerResponse) String() string { return proto.CompactTextString(m) }
-func (*SubmitAnswerResponse) ProtoMessage()    {}
-func (*SubmitAnswerResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f9ef6fe984cd362e, []int{2}
-}
-func (m *SubmitAnswerResponse) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *SubmitAnswerResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_SubmitAnswerResponse.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *SubmitAnswerResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SubmitAnswerResponse.Merge(m, src)
-}
-func (m *SubmitAnswerResponse) XXX_Size() int {
-	return m.Size()
-}
-func (m *SubmitAnswerResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_SubmitAnswerResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SubmitAnswerResponse proto.InternalMessageInfo
-
-func (m *SubmitAnswerResponse) GetIsMalus() bool {
-	if m != nil {
-		return m.IsMalus
-	}
-	return false
-}
-
-func (m *SubmitAnswerResponse) GetHit() *HitTitanResponse {
-	if m != nil {
-		return m.Hit
-	}
-	return nil
-}
-
-type GetRandomEventRequest struct {
-}
-
-func (m *GetRandomEventRequest) Reset()         { *m = GetRandomEventRequest{} }
-func (m *GetRandomEventRequest) String() string { return proto.CompactTextString(m) }
-func (*GetRandomEventRequest) ProtoMessage()    {}
-func (*GetRandomEventRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f9ef6fe984cd362e, []int{3}
-}
-func (m *GetRandomEventRequest) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *GetRandomEventRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_GetRandomEventRequest.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *GetRandomEventRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetRandomEventRequest.Merge(m, src)
-}
-func (m *GetRandomEventRequest) XXX_Size() int {
-	return m.Size()
-}
-func (m *GetRandomEventRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetRandomEventRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetRandomEventRequest proto.InternalMessageInfo
-
-type GetRandomEventResponse struct {
-	Event *TitanEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
-}
-
-func (m *GetRandomEventResponse) Reset()         { *m = GetRandomEventResponse{} }
-func (m *GetRandomEventResponse) String() string { return proto.CompactTextString(m) }
-func (*GetRandomEventResponse) ProtoMessage()    {}
-func (*GetRandomEventResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f9ef6fe984cd362e, []int{4}
-}
-func (m *GetRandomEventResponse) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *GetRandomEventResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_GetRandomEventResponse.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *GetRandomEventResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetRandomEventResponse.Merge(m, src)
-}
-func (m *GetRandomEventResponse) XXX_Size() int {
-	return m.Size()
-}
-func (m *GetRandomEventResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetRandomEventResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetRandomEventResponse proto.InternalMessageInfo
-
-func (m *GetRandomEventResponse) GetEvent() *TitanEvent {
-	if m != nil {
-		return m.Event
-	}
-	return nil
-}
-
-// GetAll
-type GetAllEventRequest struct {
-}
-
-func (m *GetAllEventRequest) Reset()         { *m = GetAllEventRequest{} }
-func (m *GetAllEventRequest) String() string { return proto.CompactTextString(m) }
-func (*GetAllEventRequest) ProtoMessage()    {}
-func (*GetAllEventRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f9ef6fe984cd362e, []int{5}
-}
-func (m *GetAllEventRequest) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *GetAllEventRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_GetAllEventRequest.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *GetAllEventRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetAllEventRequest.Merge(m, src)
-}
-func (m *GetAllEventRequest) XXX_Size() int {
-	return m.Size()
-}
-func (m *GetAllEventRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetAllEventRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetAllEventRequest proto.InternalMessageInfo
-
-type GetAllEventResponse struct {
-	Events []*TitanEvent `protobuf:"bytes,1,rep,name=events,proto3" json:"events,omitempty"`
-}
-
-func (m *GetAllEventResponse) Reset()         { *m = GetAllEventResponse{} }
-func (m *GetAllEventResponse) String() string { return proto.CompactTextString(m) }
-func (*GetAllEventResponse) ProtoMessage()    {}
-func (*GetAllEventResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f9ef6fe984cd362e, []int{6}
-}
-func (m *GetAllEventResponse) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *GetAllEventResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_GetAllEventResponse.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *GetAllEventResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetAllEventResponse.Merge(m, src)
-}
-func (m *GetAllEventResponse) XXX_Size() int {
-	return m.Size()
-}
-func (m *GetAllEventResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetAllEventResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetAllEventResponse proto.InternalMessageInfo
-
-func (m *GetAllEventResponse) GetEvents() []*TitanEvent {
-	if m != nil {
-		return m.Events
-	}
-	return nil
-}
-
-// GetTitanEventByID
-type GetTitanEventByIDRequest struct {
-	ID uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-}
-
-func (m *GetTitanEventByIDRequest) Reset()         { *m = GetTitanEventByIDRequest{} }
-func (m *GetTitanEventByIDRequest) String() string { return proto.CompactTextString(m) }
-func (*GetTitanEventByIDRequest) ProtoMessage()    {}
-func (*GetTitanEventByIDRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f9ef6fe984cd362e, []int{7}
-}
-func (m *GetTitanEventByIDRequest) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *GetTitanEventByIDRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_GetTitanEventByIDRequest.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *GetTitanEventByIDRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetTitanEventByIDRequest.Merge(m, src)
-}
-func (m *GetTitanEventByIDRequest) XXX_Size() int {
-	return m.Size()
-}
-func (m *GetTitanEventByIDRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetTitanEventByIDRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetTitanEventByIDRequest proto.InternalMessageInfo
-
-func (m *GetTitanEventByIDRequest) GetID() uint32 {
-	if m != nil {
-		return m.ID
-	}
-	return 0
-}
-
-type GetTitanEventByIDResponse struct {
-	Event *TitanEvent `protobuf:"bytes,1,opt,name=Event,proto3" json:"Event,omitempty"`
-}
-
-func (m *GetTitanEventByIDResponse) Reset()         { *m = GetTitanEventByIDResponse{} }
-func (m *GetTitanEventByIDResponse) String() string { return proto.CompactTextString(m) }
-func (*GetTitanEventByIDResponse) ProtoMessage()    {}
-func (*GetTitanEventByIDResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f9ef6fe984cd362e, []int{8}
-}
-func (m *GetTitanEventByIDResponse) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *GetTitanEventByIDResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_GetTitanEventByIDResponse.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *GetTitanEventByIDResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetTitanEventByIDResponse.Merge(m, src)
-}
-func (m *GetTitanEventByIDResponse) XXX_Size() int {
-	return m.Size()
-}
-func (m *GetTitanEventByIDResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetTitanEventByIDResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetTitanEventByIDResponse proto.InternalMessageInfo
-
-func (m *GetTitanEventByIDResponse) GetEvent() *TitanEvent {
-	if m != nil {
-		return m.Event
-	}
-	return nil
-}
-
-type EventChoice struct {
+type TitanEventAnswer struct {
 	ID           uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
 	Correct      bool   `protobuf:"varint,2,opt,name=Correct,proto3" json:"Correct,omitempty"`
 	TextCode     string `protobuf:"bytes,3,opt,name=TextCode,proto3" json:"TextCode,omitempty"`
 	TitanEventID uint32 `protobuf:"varint,4,opt,name=TitanEventID,proto3" json:"TitanEventID,omitempty"`
 }
 
-func (m *EventChoice) Reset()         { *m = EventChoice{} }
-func (m *EventChoice) String() string { return proto.CompactTextString(m) }
-func (*EventChoice) ProtoMessage()    {}
-func (*EventChoice) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f9ef6fe984cd362e, []int{9}
+func (m *TitanEventAnswer) Reset()         { *m = TitanEventAnswer{} }
+func (m *TitanEventAnswer) String() string { return proto.CompactTextString(m) }
+func (*TitanEventAnswer) ProtoMessage()    {}
+func (*TitanEventAnswer) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f9ef6fe984cd362e, []int{1}
 }
-func (m *EventChoice) XXX_Unmarshal(b []byte) error {
+func (m *TitanEventAnswer) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *EventChoice) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *TitanEventAnswer) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_EventChoice.Marshal(b, m, deterministic)
+		return xxx_messageInfo_TitanEventAnswer.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -473,63 +111,62 @@ func (m *EventChoice) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) 
 		return b[:n], nil
 	}
 }
-func (m *EventChoice) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_EventChoice.Merge(m, src)
+func (m *TitanEventAnswer) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TitanEventAnswer.Merge(m, src)
 }
-func (m *EventChoice) XXX_Size() int {
+func (m *TitanEventAnswer) XXX_Size() int {
 	return m.Size()
 }
-func (m *EventChoice) XXX_DiscardUnknown() {
-	xxx_messageInfo_EventChoice.DiscardUnknown(m)
+func (m *TitanEventAnswer) XXX_DiscardUnknown() {
+	xxx_messageInfo_TitanEventAnswer.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_EventChoice proto.InternalMessageInfo
+var xxx_messageInfo_TitanEventAnswer proto.InternalMessageInfo
 
-func (m *EventChoice) GetID() uint32 {
+func (m *TitanEventAnswer) GetID() uint32 {
 	if m != nil {
 		return m.ID
 	}
 	return 0
 }
 
-func (m *EventChoice) GetCorrect() bool {
+func (m *TitanEventAnswer) GetCorrect() bool {
 	if m != nil {
 		return m.Correct
 	}
 	return false
 }
 
-func (m *EventChoice) GetTextCode() string {
+func (m *TitanEventAnswer) GetTextCode() string {
 	if m != nil {
 		return m.TextCode
 	}
 	return ""
 }
 
-func (m *EventChoice) GetTitanEventID() uint32 {
+func (m *TitanEventAnswer) GetTitanEventID() uint32 {
 	if m != nil {
 		return m.TitanEventID
 	}
 	return 0
 }
 
-// GetEventChoiceByID
-type GetEventChoiceByIDRequest struct {
-	ID uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+// GetTitanEventQuestions
+type GetTitanEventQuestionsRequest struct {
 }
 
-func (m *GetEventChoiceByIDRequest) Reset()         { *m = GetEventChoiceByIDRequest{} }
-func (m *GetEventChoiceByIDRequest) String() string { return proto.CompactTextString(m) }
-func (*GetEventChoiceByIDRequest) ProtoMessage()    {}
-func (*GetEventChoiceByIDRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f9ef6fe984cd362e, []int{10}
+func (m *GetTitanEventQuestionsRequest) Reset()         { *m = GetTitanEventQuestionsRequest{} }
+func (m *GetTitanEventQuestionsRequest) String() string { return proto.CompactTextString(m) }
+func (*GetTitanEventQuestionsRequest) ProtoMessage()    {}
+func (*GetTitanEventQuestionsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f9ef6fe984cd362e, []int{2}
 }
-func (m *GetEventChoiceByIDRequest) XXX_Unmarshal(b []byte) error {
+func (m *GetTitanEventQuestionsRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *GetEventChoiceByIDRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *GetTitanEventQuestionsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_GetEventChoiceByIDRequest.Marshal(b, m, deterministic)
+		return xxx_messageInfo_GetTitanEventQuestionsRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -539,41 +176,123 @@ func (m *GetEventChoiceByIDRequest) XXX_Marshal(b []byte, deterministic bool) ([
 		return b[:n], nil
 	}
 }
-func (m *GetEventChoiceByIDRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetEventChoiceByIDRequest.Merge(m, src)
+func (m *GetTitanEventQuestionsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTitanEventQuestionsRequest.Merge(m, src)
 }
-func (m *GetEventChoiceByIDRequest) XXX_Size() int {
+func (m *GetTitanEventQuestionsRequest) XXX_Size() int {
 	return m.Size()
 }
-func (m *GetEventChoiceByIDRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetEventChoiceByIDRequest.DiscardUnknown(m)
+func (m *GetTitanEventQuestionsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTitanEventQuestionsRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetEventChoiceByIDRequest proto.InternalMessageInfo
+var xxx_messageInfo_GetTitanEventQuestionsRequest proto.InternalMessageInfo
 
-func (m *GetEventChoiceByIDRequest) GetID() uint32 {
+type GetTitanEventQuestionsResponse struct {
+	Questions []*TitanEventQuestion `protobuf:"bytes,1,rep,name=Questions,proto3" json:"Questions,omitempty"`
+}
+
+func (m *GetTitanEventQuestionsResponse) Reset()         { *m = GetTitanEventQuestionsResponse{} }
+func (m *GetTitanEventQuestionsResponse) String() string { return proto.CompactTextString(m) }
+func (*GetTitanEventQuestionsResponse) ProtoMessage()    {}
+func (*GetTitanEventQuestionsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f9ef6fe984cd362e, []int{3}
+}
+func (m *GetTitanEventQuestionsResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetTitanEventQuestionsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetTitanEventQuestionsResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetTitanEventQuestionsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTitanEventQuestionsResponse.Merge(m, src)
+}
+func (m *GetTitanEventQuestionsResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetTitanEventQuestionsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTitanEventQuestionsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetTitanEventQuestionsResponse proto.InternalMessageInfo
+
+func (m *GetTitanEventQuestionsResponse) GetQuestions() []*TitanEventQuestion {
+	if m != nil {
+		return m.Questions
+	}
+	return nil
+}
+
+// GetTitanEventQuestionByID
+type GetTitanEventQuestionByIDRequest struct {
+	ID uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+}
+
+func (m *GetTitanEventQuestionByIDRequest) Reset()         { *m = GetTitanEventQuestionByIDRequest{} }
+func (m *GetTitanEventQuestionByIDRequest) String() string { return proto.CompactTextString(m) }
+func (*GetTitanEventQuestionByIDRequest) ProtoMessage()    {}
+func (*GetTitanEventQuestionByIDRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f9ef6fe984cd362e, []int{4}
+}
+func (m *GetTitanEventQuestionByIDRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetTitanEventQuestionByIDRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetTitanEventQuestionByIDRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetTitanEventQuestionByIDRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTitanEventQuestionByIDRequest.Merge(m, src)
+}
+func (m *GetTitanEventQuestionByIDRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetTitanEventQuestionByIDRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTitanEventQuestionByIDRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetTitanEventQuestionByIDRequest proto.InternalMessageInfo
+
+func (m *GetTitanEventQuestionByIDRequest) GetID() uint32 {
 	if m != nil {
 		return m.ID
 	}
 	return 0
 }
 
-type GetEventChoiceByIDResponse struct {
-	Choice *EventChoice `protobuf:"bytes,1,opt,name=Choice,proto3" json:"Choice,omitempty"`
+type GetTitanEventQuestionByIDResponse struct {
+	Question *TitanEventQuestion `protobuf:"bytes,1,opt,name=Question,proto3" json:"Question,omitempty"`
 }
 
-func (m *GetEventChoiceByIDResponse) Reset()         { *m = GetEventChoiceByIDResponse{} }
-func (m *GetEventChoiceByIDResponse) String() string { return proto.CompactTextString(m) }
-func (*GetEventChoiceByIDResponse) ProtoMessage()    {}
-func (*GetEventChoiceByIDResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f9ef6fe984cd362e, []int{11}
+func (m *GetTitanEventQuestionByIDResponse) Reset()         { *m = GetTitanEventQuestionByIDResponse{} }
+func (m *GetTitanEventQuestionByIDResponse) String() string { return proto.CompactTextString(m) }
+func (*GetTitanEventQuestionByIDResponse) ProtoMessage()    {}
+func (*GetTitanEventQuestionByIDResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f9ef6fe984cd362e, []int{5}
 }
-func (m *GetEventChoiceByIDResponse) XXX_Unmarshal(b []byte) error {
+func (m *GetTitanEventQuestionByIDResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *GetEventChoiceByIDResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *GetTitanEventQuestionByIDResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_GetEventChoiceByIDResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_GetTitanEventQuestionByIDResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -583,75 +302,308 @@ func (m *GetEventChoiceByIDResponse) XXX_Marshal(b []byte, deterministic bool) (
 		return b[:n], nil
 	}
 }
-func (m *GetEventChoiceByIDResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetEventChoiceByIDResponse.Merge(m, src)
+func (m *GetTitanEventQuestionByIDResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTitanEventQuestionByIDResponse.Merge(m, src)
 }
-func (m *GetEventChoiceByIDResponse) XXX_Size() int {
+func (m *GetTitanEventQuestionByIDResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *GetEventChoiceByIDResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetEventChoiceByIDResponse.DiscardUnknown(m)
+func (m *GetTitanEventQuestionByIDResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTitanEventQuestionByIDResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetEventChoiceByIDResponse proto.InternalMessageInfo
+var xxx_messageInfo_GetTitanEventQuestionByIDResponse proto.InternalMessageInfo
 
-func (m *GetEventChoiceByIDResponse) GetChoice() *EventChoice {
+func (m *GetTitanEventQuestionByIDResponse) GetQuestion() *TitanEventQuestion {
 	if m != nil {
-		return m.Choice
+		return m.Question
 	}
 	return nil
 }
 
+// GetTitanEventAnswerByID
+type GetTitanEventAnswerByIDRequest struct {
+	ID uint32 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+}
+
+func (m *GetTitanEventAnswerByIDRequest) Reset()         { *m = GetTitanEventAnswerByIDRequest{} }
+func (m *GetTitanEventAnswerByIDRequest) String() string { return proto.CompactTextString(m) }
+func (*GetTitanEventAnswerByIDRequest) ProtoMessage()    {}
+func (*GetTitanEventAnswerByIDRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f9ef6fe984cd362e, []int{6}
+}
+func (m *GetTitanEventAnswerByIDRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetTitanEventAnswerByIDRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetTitanEventAnswerByIDRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetTitanEventAnswerByIDRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTitanEventAnswerByIDRequest.Merge(m, src)
+}
+func (m *GetTitanEventAnswerByIDRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetTitanEventAnswerByIDRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTitanEventAnswerByIDRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetTitanEventAnswerByIDRequest proto.InternalMessageInfo
+
+func (m *GetTitanEventAnswerByIDRequest) GetID() uint32 {
+	if m != nil {
+		return m.ID
+	}
+	return 0
+}
+
+type GetTitanEventAnswerByIDResponse struct {
+	Answer *TitanEventAnswer `protobuf:"bytes,1,opt,name=Answer,proto3" json:"Answer,omitempty"`
+}
+
+func (m *GetTitanEventAnswerByIDResponse) Reset()         { *m = GetTitanEventAnswerByIDResponse{} }
+func (m *GetTitanEventAnswerByIDResponse) String() string { return proto.CompactTextString(m) }
+func (*GetTitanEventAnswerByIDResponse) ProtoMessage()    {}
+func (*GetTitanEventAnswerByIDResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f9ef6fe984cd362e, []int{7}
+}
+func (m *GetTitanEventAnswerByIDResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetTitanEventAnswerByIDResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetTitanEventAnswerByIDResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetTitanEventAnswerByIDResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTitanEventAnswerByIDResponse.Merge(m, src)
+}
+func (m *GetTitanEventAnswerByIDResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetTitanEventAnswerByIDResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTitanEventAnswerByIDResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetTitanEventAnswerByIDResponse proto.InternalMessageInfo
+
+func (m *GetTitanEventAnswerByIDResponse) GetAnswer() *TitanEventAnswer {
+	if m != nil {
+		return m.Answer
+	}
+	return nil
+}
+
+// TitanEventSubmitAnswer
+type TitanEventSubmitAnswerRequest struct {
+	TitanID  uint32 `protobuf:"varint,1,opt,name=TitanID,proto3" json:"TitanID,omitempty"`
+	AnswerID uint32 `protobuf:"varint,2,opt,name=AnswerID,proto3" json:"AnswerID,omitempty"`
+	PlayerID uint32 `protobuf:"varint,3,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+}
+
+func (m *TitanEventSubmitAnswerRequest) Reset()         { *m = TitanEventSubmitAnswerRequest{} }
+func (m *TitanEventSubmitAnswerRequest) String() string { return proto.CompactTextString(m) }
+func (*TitanEventSubmitAnswerRequest) ProtoMessage()    {}
+func (*TitanEventSubmitAnswerRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f9ef6fe984cd362e, []int{8}
+}
+func (m *TitanEventSubmitAnswerRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *TitanEventSubmitAnswerRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_TitanEventSubmitAnswerRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *TitanEventSubmitAnswerRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TitanEventSubmitAnswerRequest.Merge(m, src)
+}
+func (m *TitanEventSubmitAnswerRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *TitanEventSubmitAnswerRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_TitanEventSubmitAnswerRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TitanEventSubmitAnswerRequest proto.InternalMessageInfo
+
+func (m *TitanEventSubmitAnswerRequest) GetTitanID() uint32 {
+	if m != nil {
+		return m.TitanID
+	}
+	return 0
+}
+
+func (m *TitanEventSubmitAnswerRequest) GetAnswerID() uint32 {
+	if m != nil {
+		return m.AnswerID
+	}
+	return 0
+}
+
+func (m *TitanEventSubmitAnswerRequest) GetPlayerID() uint32 {
+	if m != nil {
+		return m.PlayerID
+	}
+	return 0
+}
+
+type TitanEventSubmitAnswerResponse struct {
+	IsMalus      bool  `protobuf:"varint,1,opt,name=IsMalus,proto3" json:"IsMalus,omitempty"`
+	IsBonus      bool  `protobuf:"varint,2,opt,name=IsBonus,proto3" json:"IsBonus,omitempty"`
+	PlayerDie    bool  `protobuf:"varint,3,opt,name=PlayerDie,proto3" json:"PlayerDie,omitempty"`
+	TitanDie     bool  `protobuf:"varint,4,opt,name=TitanDie,proto3" json:"TitanDie,omitempty"`
+	PlayerDamage int64 `protobuf:"varint,5,opt,name=PlayerDamage,proto3" json:"PlayerDamage,omitempty"`
+	TitanDamage  int64 `protobuf:"varint,6,opt,name=TitanDamage,proto3" json:"TitanDamage,omitempty"`
+}
+
+func (m *TitanEventSubmitAnswerResponse) Reset()         { *m = TitanEventSubmitAnswerResponse{} }
+func (m *TitanEventSubmitAnswerResponse) String() string { return proto.CompactTextString(m) }
+func (*TitanEventSubmitAnswerResponse) ProtoMessage()    {}
+func (*TitanEventSubmitAnswerResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f9ef6fe984cd362e, []int{9}
+}
+func (m *TitanEventSubmitAnswerResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *TitanEventSubmitAnswerResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_TitanEventSubmitAnswerResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *TitanEventSubmitAnswerResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TitanEventSubmitAnswerResponse.Merge(m, src)
+}
+func (m *TitanEventSubmitAnswerResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *TitanEventSubmitAnswerResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_TitanEventSubmitAnswerResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TitanEventSubmitAnswerResponse proto.InternalMessageInfo
+
+func (m *TitanEventSubmitAnswerResponse) GetIsMalus() bool {
+	if m != nil {
+		return m.IsMalus
+	}
+	return false
+}
+
+func (m *TitanEventSubmitAnswerResponse) GetIsBonus() bool {
+	if m != nil {
+		return m.IsBonus
+	}
+	return false
+}
+
+func (m *TitanEventSubmitAnswerResponse) GetPlayerDie() bool {
+	if m != nil {
+		return m.PlayerDie
+	}
+	return false
+}
+
+func (m *TitanEventSubmitAnswerResponse) GetTitanDie() bool {
+	if m != nil {
+		return m.TitanDie
+	}
+	return false
+}
+
+func (m *TitanEventSubmitAnswerResponse) GetPlayerDamage() int64 {
+	if m != nil {
+		return m.PlayerDamage
+	}
+	return 0
+}
+
+func (m *TitanEventSubmitAnswerResponse) GetTitanDamage() int64 {
+	if m != nil {
+		return m.TitanDamage
+	}
+	return 0
+}
+
 func init() {
-	proto.RegisterType((*TitanEvent)(nil), "titan_event.TitanEvent")
-	proto.RegisterType((*SubmitAnswerRequest)(nil), "titan_event.SubmitAnswerRequest")
-	proto.RegisterType((*SubmitAnswerResponse)(nil), "titan_event.SubmitAnswerResponse")
-	proto.RegisterType((*GetRandomEventRequest)(nil), "titan_event.GetRandomEventRequest")
-	proto.RegisterType((*GetRandomEventResponse)(nil), "titan_event.GetRandomEventResponse")
-	proto.RegisterType((*GetAllEventRequest)(nil), "titan_event.GetAllEventRequest")
-	proto.RegisterType((*GetAllEventResponse)(nil), "titan_event.GetAllEventResponse")
-	proto.RegisterType((*GetTitanEventByIDRequest)(nil), "titan_event.GetTitanEventByIDRequest")
-	proto.RegisterType((*GetTitanEventByIDResponse)(nil), "titan_event.GetTitanEventByIDResponse")
-	proto.RegisterType((*EventChoice)(nil), "titan_event.EventChoice")
-	proto.RegisterType((*GetEventChoiceByIDRequest)(nil), "titan_event.GetEventChoiceByIDRequest")
-	proto.RegisterType((*GetEventChoiceByIDResponse)(nil), "titan_event.GetEventChoiceByIDResponse")
+	proto.RegisterType((*TitanEventQuestion)(nil), "titan_event.TitanEventQuestion")
+	proto.RegisterType((*TitanEventAnswer)(nil), "titan_event.TitanEventAnswer")
+	proto.RegisterType((*GetTitanEventQuestionsRequest)(nil), "titan_event.GetTitanEventQuestionsRequest")
+	proto.RegisterType((*GetTitanEventQuestionsResponse)(nil), "titan_event.GetTitanEventQuestionsResponse")
+	proto.RegisterType((*GetTitanEventQuestionByIDRequest)(nil), "titan_event.GetTitanEventQuestionByIDRequest")
+	proto.RegisterType((*GetTitanEventQuestionByIDResponse)(nil), "titan_event.GetTitanEventQuestionByIDResponse")
+	proto.RegisterType((*GetTitanEventAnswerByIDRequest)(nil), "titan_event.GetTitanEventAnswerByIDRequest")
+	proto.RegisterType((*GetTitanEventAnswerByIDResponse)(nil), "titan_event.GetTitanEventAnswerByIDResponse")
+	proto.RegisterType((*TitanEventSubmitAnswerRequest)(nil), "titan_event.TitanEventSubmitAnswerRequest")
+	proto.RegisterType((*TitanEventSubmitAnswerResponse)(nil), "titan_event.TitanEventSubmitAnswerResponse")
 }
 
 func init() { proto.RegisterFile("proto/titan_event.proto", fileDescriptor_f9ef6fe984cd362e) }
 
 var fileDescriptor_f9ef6fe984cd362e = []byte{
-	// 446 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x53, 0x4d, 0xaf, 0xd2, 0x40,
-	0x14, 0xa5, 0xf4, 0x09, 0x78, 0xeb, 0x33, 0xb1, 0xef, 0x29, 0x23, 0x8b, 0x86, 0xcc, 0x0a, 0x35,
-	0xf6, 0x19, 0x5c, 0xba, 0x7a, 0x50, 0xac, 0x35, 0xd1, 0xc5, 0xc8, 0x4a, 0x17, 0xa6, 0xc0, 0x44,
-	0x9a, 0x94, 0xb6, 0xb6, 0x83, 0xc8, 0xbf, 0xf0, 0x67, 0xb9, 0x64, 0xe9, 0xd2, 0xc0, 0x1f, 0x31,
-	0xbd, 0x9d, 0x7e, 0x21, 0x12, 0x57, 0xcd, 0xb9, 0xf7, 0xdc, 0x7b, 0xe6, 0xcc, 0x9c, 0x42, 0x37,
-	0x8a, 0x43, 0x11, 0xde, 0x08, 0x4f, 0xb8, 0xc1, 0x67, 0xfe, 0x8d, 0x07, 0xc2, 0xc4, 0x8a, 0xae,
-	0x55, 0x4a, 0xbd, 0x07, 0x15, 0x56, 0xd6, 0xa7, 0x3e, 0xc0, 0x34, 0x85, 0x93, 0x94, 0xa0, 0xdf,
-	0x87, 0xa6, 0x63, 0x11, 0xa5, 0xaf, 0x0c, 0x2e, 0x59, 0xd3, 0xb1, 0xf4, 0x1e, 0x74, 0xa6, 0xfc,
-	0xbb, 0x18, 0x87, 0x0b, 0x4e, 0x9a, 0x7d, 0x65, 0x70, 0x97, 0x15, 0x58, 0x1f, 0x42, 0x7b, 0xbc,
-	0x0c, 0xbd, 0x39, 0x4f, 0x88, 0xda, 0x57, 0x07, 0xda, 0x90, 0x98, 0x55, 0x79, 0x5c, 0x98, 0x11,
-	0x58, 0x4e, 0xa4, 0x5f, 0xe0, 0xea, 0xc3, 0x7a, 0xb6, 0xf2, 0xc4, 0x6d, 0x90, 0x6c, 0x78, 0xcc,
-	0xf8, 0xd7, 0x35, 0x4f, 0x84, 0x4e, 0xa0, 0x8d, 0xa3, 0x85, 0x76, 0x0e, 0xd3, 0x03, 0xcc, 0x71,
-	0xd6, 0xb1, 0xf0, 0x00, 0x97, 0xac, 0xc0, 0x69, 0x2f, 0xf2, 0xdd, 0x2d, 0x8f, 0x1d, 0x8b, 0xa8,
-	0x59, 0x2f, 0xc7, 0xf4, 0x13, 0x5c, 0xd7, 0x85, 0x92, 0x28, 0x0c, 0x12, 0x9e, 0x2a, 0x79, 0xc9,
-	0x3b, 0xd7, 0x5f, 0x27, 0xa8, 0xd4, 0x61, 0x39, 0xd4, 0x9f, 0x80, 0xba, 0xf4, 0x04, 0x8a, 0x68,
-	0xc3, 0x6e, 0x66, 0xc5, 0x7c, 0xe3, 0x09, 0xbc, 0x9d, 0x7c, 0x9e, 0xa5, 0x1c, 0xda, 0x85, 0x87,
-	0x36, 0x17, 0xcc, 0x0d, 0x16, 0xe1, 0x0a, 0x6d, 0x4a, 0x1f, 0xd4, 0x86, 0x47, 0xc7, 0x0d, 0xa9,
-	0xfb, 0x1c, 0xee, 0xe0, 0xb5, 0xa0, 0x6a, 0xb1, 0x5f, 0x5e, 0x55, 0xf9, 0x00, 0x2c, 0x63, 0xd1,
-	0x6b, 0xd0, 0x6d, 0x2e, 0x6e, 0x7d, 0xbf, 0xb6, 0xfe, 0x35, 0x5c, 0xd5, 0xaa, 0x72, 0xf7, 0x0d,
-	0xb4, 0x70, 0x2a, 0xb5, 0xa4, 0x9e, 0x5b, 0x2e, 0x69, 0xf4, 0x29, 0x10, 0x9b, 0x8b, 0xb2, 0x31,
-	0xda, 0x3a, 0x56, 0xfe, 0x14, 0x47, 0x09, 0xa0, 0x6f, 0xe1, 0xf1, 0x09, 0x6e, 0xe9, 0x6a, 0xf2,
-	0x5f, 0xae, 0xf0, 0x43, 0x37, 0xa0, 0x55, 0x52, 0xf1, 0x57, 0xd8, 0x08, 0xb4, 0xc7, 0x61, 0x1c,
-	0xf3, 0x79, 0xf6, 0x0a, 0x1d, 0x96, 0xc3, 0x5a, 0x0c, 0xd5, 0xa3, 0x18, 0x52, 0xb8, 0x57, 0x2a,
-	0x39, 0x16, 0xb9, 0xc0, 0x7d, 0xb5, 0x1a, 0x7d, 0x86, 0x26, 0x2a, 0xda, 0xe7, 0x1c, 0xbf, 0x87,
-	0xde, 0x29, 0xb2, 0xb4, 0xfc, 0x02, 0x5a, 0x59, 0x55, 0x7a, 0xfe, 0x77, 0xe8, 0x25, 0x6f, 0x64,
-	0xfc, 0xdc, 0x1b, 0xca, 0x6e, 0x6f, 0x28, 0xbf, 0xf7, 0x86, 0xf2, 0xe3, 0x60, 0x34, 0x76, 0x07,
-	0xa3, 0xf1, 0xeb, 0x60, 0x34, 0x3e, 0x5e, 0x98, 0xaf, 0xa2, 0xd9, 0xac, 0x85, 0x3f, 0xe2, 0xcb,
-	0x3f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x84, 0x4c, 0x53, 0x37, 0xc3, 0x03, 0x00, 0x00,
+	// 452 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x54, 0x3d, 0x6f, 0xd3, 0x40,
+	0x18, 0xce, 0xc5, 0x21, 0x71, 0xde, 0x50, 0x84, 0x6e, 0xe1, 0x84, 0xc8, 0xc5, 0xdc, 0x94, 0x29,
+	0xa0, 0x22, 0xc4, 0x50, 0x31, 0x90, 0x1a, 0x21, 0x0f, 0x48, 0x70, 0x74, 0x40, 0x2c, 0xc5, 0x81,
+	0x13, 0x8a, 0xd4, 0xda, 0xa9, 0xef, 0x0c, 0x44, 0xe2, 0x47, 0xf0, 0xb3, 0x18, 0x3b, 0x30, 0x30,
+	0xa2, 0xe4, 0x8f, 0xa0, 0xfb, 0xb2, 0x13, 0x17, 0x17, 0xb6, 0x3c, 0x1f, 0xef, 0x3d, 0xcf, 0x9b,
+	0xbc, 0x0a, 0xdc, 0x59, 0x15, 0xb9, 0xca, 0x1f, 0xa8, 0xa5, 0x4a, 0xb3, 0x53, 0xf1, 0x59, 0x64,
+	0x6a, 0x66, 0x18, 0x3c, 0xda, 0xa1, 0xd8, 0x1a, 0xf0, 0x89, 0x86, 0xcf, 0x35, 0x7a, 0x5d, 0x0a,
+	0xa9, 0x96, 0x79, 0x86, 0x6f, 0x41, 0x37, 0x89, 0x09, 0x8a, 0xd0, 0xf4, 0x80, 0x77, 0x93, 0x18,
+	0xdf, 0x85, 0xf0, 0x44, 0x7c, 0x55, 0xc7, 0xf9, 0x47, 0x41, 0xba, 0x11, 0x9a, 0x0e, 0x79, 0x85,
+	0xf1, 0x13, 0x18, 0x3c, 0xcb, 0xe4, 0x17, 0x51, 0x48, 0x12, 0x44, 0xc1, 0x74, 0x74, 0x38, 0x9e,
+	0xed, 0x66, 0xd6, 0xaf, 0x5b, 0x17, 0xf7, 0x6e, 0xf6, 0x0d, 0x6e, 0x37, 0xc5, 0x2b, 0xc1, 0x04,
+	0x06, 0xc7, 0x79, 0x51, 0x88, 0x0f, 0xca, 0xe4, 0x86, 0xdc, 0xc3, 0xbd, 0x4a, 0x41, 0xa3, 0x12,
+	0x83, 0x9b, 0xf5, 0xcb, 0x49, 0x4c, 0x7a, 0xe6, 0xbd, 0x3d, 0x8e, 0x4d, 0x60, 0xfc, 0x42, 0xa8,
+	0xab, 0xbb, 0x4b, 0x2e, 0x2e, 0xf4, 0x47, 0x76, 0x0a, 0xb4, 0xcd, 0x20, 0x57, 0x79, 0x26, 0x05,
+	0x7e, 0x0a, 0xc3, 0x8a, 0x24, 0xc8, 0xec, 0x3e, 0x69, 0xd9, 0xdd, 0xfb, 0x78, 0x3d, 0xc1, 0x0e,
+	0x21, 0xfa, 0x6b, 0xc0, 0x7c, 0x9d, 0xc4, 0xae, 0x44, 0xf3, 0xfb, 0x60, 0xef, 0xe1, 0xfe, 0x35,
+	0x33, 0xae, 0xd7, 0x11, 0x84, 0x9e, 0x37, 0xa3, 0xff, 0x51, 0xab, 0x1a, 0x60, 0x0f, 0x1b, 0x6b,
+	0xdb, 0x1f, 0xe6, 0xba, 0x4e, 0x6f, 0x61, 0xd2, 0x3a, 0xe1, 0x1a, 0x3d, 0x86, 0xbe, 0x65, 0x5d,
+	0x9f, 0x7f, 0x9c, 0x88, 0x33, 0xb3, 0x0b, 0x18, 0xd7, 0xda, 0x9b, 0x72, 0x71, 0xbe, 0xf4, 0x0e,
+	0x57, 0x85, 0xc0, 0xc0, 0x18, 0xaa, 0x3e, 0x1e, 0xea, 0xf3, 0xb0, 0xd6, 0x24, 0x36, 0x97, 0x73,
+	0xc0, 0x2b, 0xac, 0xb5, 0x57, 0x67, 0xe9, 0xda, 0x68, 0x81, 0xd5, 0x3c, 0x66, 0x3f, 0x11, 0xd0,
+	0xb6, 0x4c, 0xb7, 0x0c, 0x81, 0x41, 0x22, 0x5f, 0xa6, 0x67, 0xa5, 0x34, 0xa1, 0x21, 0xf7, 0xd0,
+	0x2a, 0xf3, 0x3c, 0x2b, 0xa5, 0xbf, 0x56, 0x07, 0xf1, 0x3d, 0x18, 0xda, 0x88, 0x78, 0x69, 0xcf,
+	0x35, 0xe4, 0x35, 0x61, 0x6e, 0x59, 0x67, 0x6a, 0xb1, 0x67, 0xc4, 0x0a, 0xeb, 0x5b, 0x76, 0xc6,
+	0xf4, 0x3c, 0xfd, 0x24, 0xc8, 0x8d, 0x08, 0x4d, 0x03, 0xbe, 0xc7, 0xe1, 0x08, 0x46, 0xd6, 0x6f,
+	0x2d, 0x7d, 0x63, 0xd9, 0xa5, 0xe6, 0xf4, 0xc7, 0x86, 0xa2, 0xcb, 0x0d, 0x45, 0xbf, 0x37, 0x14,
+	0x7d, 0xdf, 0xd2, 0xce, 0xe5, 0x96, 0x76, 0x7e, 0x6d, 0x69, 0xe7, 0x5d, 0x6f, 0x76, 0xb4, 0x5a,
+	0x2c, 0xfa, 0xe6, 0xaf, 0xe1, 0xd1, 0x9f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x4b, 0x82, 0x72, 0x2e,
+	0x35, 0x04, 0x00, 0x00,
 }
 
-func (m *TitanEvent) Marshal() (dAtA []byte, err error) {
+func (m *TitanEventQuestion) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -661,20 +613,20 @@ func (m *TitanEvent) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *TitanEvent) MarshalTo(dAtA []byte) (int, error) {
+func (m *TitanEventQuestion) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *TitanEvent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *TitanEventQuestion) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.Choices) > 0 {
-		for iNdEx := len(m.Choices) - 1; iNdEx >= 0; iNdEx-- {
+	if len(m.Answers) > 0 {
+		for iNdEx := len(m.Answers) - 1; iNdEx >= 0; iNdEx-- {
 			{
-				size, err := m.Choices[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				size, err := m.Answers[iNdEx].MarshalToSizedBuffer(dAtA[:i])
 				if err != nil {
 					return 0, err
 				}
@@ -700,7 +652,7 @@ func (m *TitanEvent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *SubmitAnswerRequest) Marshal() (dAtA []byte, err error) {
+func (m *TitanEventAnswer) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -710,276 +662,12 @@ func (m *SubmitAnswerRequest) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *SubmitAnswerRequest) MarshalTo(dAtA []byte) (int, error) {
+func (m *TitanEventAnswer) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *SubmitAnswerRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.PlayerID != 0 {
-		i = encodeVarintTitanEvent(dAtA, i, uint64(m.PlayerID))
-		i--
-		dAtA[i] = 0x18
-	}
-	if m.ChoiceID != 0 {
-		i = encodeVarintTitanEvent(dAtA, i, uint64(m.ChoiceID))
-		i--
-		dAtA[i] = 0x10
-	}
-	if m.TitanID != 0 {
-		i = encodeVarintTitanEvent(dAtA, i, uint64(m.TitanID))
-		i--
-		dAtA[i] = 0x8
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *SubmitAnswerResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *SubmitAnswerResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *SubmitAnswerResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.Hit != nil {
-		{
-			size, err := m.Hit.MarshalToSizedBuffer(dAtA[:i])
-			if err != nil {
-				return 0, err
-			}
-			i -= size
-			i = encodeVarintTitanEvent(dAtA, i, uint64(size))
-		}
-		i--
-		dAtA[i] = 0x12
-	}
-	if m.IsMalus {
-		i--
-		if m.IsMalus {
-			dAtA[i] = 1
-		} else {
-			dAtA[i] = 0
-		}
-		i--
-		dAtA[i] = 0x8
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *GetRandomEventRequest) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *GetRandomEventRequest) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *GetRandomEventRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	return len(dAtA) - i, nil
-}
-
-func (m *GetRandomEventResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *GetRandomEventResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *GetRandomEventResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.Event != nil {
-		{
-			size, err := m.Event.MarshalToSizedBuffer(dAtA[:i])
-			if err != nil {
-				return 0, err
-			}
-			i -= size
-			i = encodeVarintTitanEvent(dAtA, i, uint64(size))
-		}
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *GetAllEventRequest) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *GetAllEventRequest) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *GetAllEventRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	return len(dAtA) - i, nil
-}
-
-func (m *GetAllEventResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *GetAllEventResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *GetAllEventResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if len(m.Events) > 0 {
-		for iNdEx := len(m.Events) - 1; iNdEx >= 0; iNdEx-- {
-			{
-				size, err := m.Events[iNdEx].MarshalToSizedBuffer(dAtA[:i])
-				if err != nil {
-					return 0, err
-				}
-				i -= size
-				i = encodeVarintTitanEvent(dAtA, i, uint64(size))
-			}
-			i--
-			dAtA[i] = 0xa
-		}
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *GetTitanEventByIDRequest) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *GetTitanEventByIDRequest) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *GetTitanEventByIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.ID != 0 {
-		i = encodeVarintTitanEvent(dAtA, i, uint64(m.ID))
-		i--
-		dAtA[i] = 0x8
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *GetTitanEventByIDResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *GetTitanEventByIDResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *GetTitanEventByIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.Event != nil {
-		{
-			size, err := m.Event.MarshalToSizedBuffer(dAtA[:i])
-			if err != nil {
-				return 0, err
-			}
-			i -= size
-			i = encodeVarintTitanEvent(dAtA, i, uint64(size))
-		}
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *EventChoice) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *EventChoice) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *EventChoice) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *TitanEventAnswer) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -1014,7 +702,7 @@ func (m *EventChoice) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *GetEventChoiceByIDRequest) Marshal() (dAtA []byte, err error) {
+func (m *GetTitanEventQuestionsRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -1024,12 +712,72 @@ func (m *GetEventChoiceByIDRequest) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *GetEventChoiceByIDRequest) MarshalTo(dAtA []byte) (int, error) {
+func (m *GetTitanEventQuestionsRequest) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *GetEventChoiceByIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *GetTitanEventQuestionsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *GetTitanEventQuestionsResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetTitanEventQuestionsResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetTitanEventQuestionsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Questions) > 0 {
+		for iNdEx := len(m.Questions) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.Questions[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintTitanEvent(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *GetTitanEventQuestionByIDRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetTitanEventQuestionByIDRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetTitanEventQuestionByIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -1042,7 +790,7 @@ func (m *GetEventChoiceByIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	return len(dAtA) - i, nil
 }
 
-func (m *GetEventChoiceByIDResponse) Marshal() (dAtA []byte, err error) {
+func (m *GetTitanEventQuestionByIDResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -1052,19 +800,19 @@ func (m *GetEventChoiceByIDResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *GetEventChoiceByIDResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *GetTitanEventQuestionByIDResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *GetEventChoiceByIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *GetTitanEventQuestionByIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.Choice != nil {
+	if m.Question != nil {
 		{
-			size, err := m.Choice.MarshalToSizedBuffer(dAtA[:i])
+			size, err := m.Question.MarshalToSizedBuffer(dAtA[:i])
 			if err != nil {
 				return 0, err
 			}
@@ -1073,6 +821,180 @@ func (m *GetEventChoiceByIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, err
 		}
 		i--
 		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *GetTitanEventAnswerByIDRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetTitanEventAnswerByIDRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetTitanEventAnswerByIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.ID != 0 {
+		i = encodeVarintTitanEvent(dAtA, i, uint64(m.ID))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *GetTitanEventAnswerByIDResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetTitanEventAnswerByIDResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetTitanEventAnswerByIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Answer != nil {
+		{
+			size, err := m.Answer.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintTitanEvent(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *TitanEventSubmitAnswerRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *TitanEventSubmitAnswerRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *TitanEventSubmitAnswerRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.PlayerID != 0 {
+		i = encodeVarintTitanEvent(dAtA, i, uint64(m.PlayerID))
+		i--
+		dAtA[i] = 0x18
+	}
+	if m.AnswerID != 0 {
+		i = encodeVarintTitanEvent(dAtA, i, uint64(m.AnswerID))
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.TitanID != 0 {
+		i = encodeVarintTitanEvent(dAtA, i, uint64(m.TitanID))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *TitanEventSubmitAnswerResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *TitanEventSubmitAnswerResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *TitanEventSubmitAnswerResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.TitanDamage != 0 {
+		i = encodeVarintTitanEvent(dAtA, i, uint64(m.TitanDamage))
+		i--
+		dAtA[i] = 0x30
+	}
+	if m.PlayerDamage != 0 {
+		i = encodeVarintTitanEvent(dAtA, i, uint64(m.PlayerDamage))
+		i--
+		dAtA[i] = 0x28
+	}
+	if m.TitanDie {
+		i--
+		if m.TitanDie {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x20
+	}
+	if m.PlayerDie {
+		i--
+		if m.PlayerDie {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x18
+	}
+	if m.IsBonus {
+		i--
+		if m.IsBonus {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.IsMalus {
+		i--
+		if m.IsMalus {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x8
 	}
 	return len(dAtA) - i, nil
 }
@@ -1088,7 +1010,7 @@ func encodeVarintTitanEvent(dAtA []byte, offset int, v uint64) int {
 	dAtA[offset] = uint8(v)
 	return base
 }
-func (m *TitanEvent) Size() (n int) {
+func (m *TitanEventQuestion) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1101,8 +1023,8 @@ func (m *TitanEvent) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTitanEvent(uint64(l))
 	}
-	if len(m.Choices) > 0 {
-		for _, e := range m.Choices {
+	if len(m.Answers) > 0 {
+		for _, e := range m.Answers {
 			l = e.Size()
 			n += 1 + l + sovTitanEvent(uint64(l))
 		}
@@ -1110,112 +1032,7 @@ func (m *TitanEvent) Size() (n int) {
 	return n
 }
 
-func (m *SubmitAnswerRequest) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	if m.TitanID != 0 {
-		n += 1 + sovTitanEvent(uint64(m.TitanID))
-	}
-	if m.ChoiceID != 0 {
-		n += 1 + sovTitanEvent(uint64(m.ChoiceID))
-	}
-	if m.PlayerID != 0 {
-		n += 1 + sovTitanEvent(uint64(m.PlayerID))
-	}
-	return n
-}
-
-func (m *SubmitAnswerResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	if m.IsMalus {
-		n += 2
-	}
-	if m.Hit != nil {
-		l = m.Hit.Size()
-		n += 1 + l + sovTitanEvent(uint64(l))
-	}
-	return n
-}
-
-func (m *GetRandomEventRequest) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	return n
-}
-
-func (m *GetRandomEventResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	if m.Event != nil {
-		l = m.Event.Size()
-		n += 1 + l + sovTitanEvent(uint64(l))
-	}
-	return n
-}
-
-func (m *GetAllEventRequest) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	return n
-}
-
-func (m *GetAllEventResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	if len(m.Events) > 0 {
-		for _, e := range m.Events {
-			l = e.Size()
-			n += 1 + l + sovTitanEvent(uint64(l))
-		}
-	}
-	return n
-}
-
-func (m *GetTitanEventByIDRequest) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	if m.ID != 0 {
-		n += 1 + sovTitanEvent(uint64(m.ID))
-	}
-	return n
-}
-
-func (m *GetTitanEventByIDResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	if m.Event != nil {
-		l = m.Event.Size()
-		n += 1 + l + sovTitanEvent(uint64(l))
-	}
-	return n
-}
-
-func (m *EventChoice) Size() (n int) {
+func (m *TitanEventAnswer) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1237,7 +1054,31 @@ func (m *EventChoice) Size() (n int) {
 	return n
 }
 
-func (m *GetEventChoiceByIDRequest) Size() (n int) {
+func (m *GetTitanEventQuestionsRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *GetTitanEventQuestionsResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.Questions) > 0 {
+		for _, e := range m.Questions {
+			l = e.Size()
+			n += 1 + l + sovTitanEvent(uint64(l))
+		}
+	}
+	return n
+}
+
+func (m *GetTitanEventQuestionByIDRequest) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1249,15 +1090,85 @@ func (m *GetEventChoiceByIDRequest) Size() (n int) {
 	return n
 }
 
-func (m *GetEventChoiceByIDResponse) Size() (n int) {
+func (m *GetTitanEventQuestionByIDResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
 	var l int
 	_ = l
-	if m.Choice != nil {
-		l = m.Choice.Size()
+	if m.Question != nil {
+		l = m.Question.Size()
 		n += 1 + l + sovTitanEvent(uint64(l))
+	}
+	return n
+}
+
+func (m *GetTitanEventAnswerByIDRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.ID != 0 {
+		n += 1 + sovTitanEvent(uint64(m.ID))
+	}
+	return n
+}
+
+func (m *GetTitanEventAnswerByIDResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Answer != nil {
+		l = m.Answer.Size()
+		n += 1 + l + sovTitanEvent(uint64(l))
+	}
+	return n
+}
+
+func (m *TitanEventSubmitAnswerRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.TitanID != 0 {
+		n += 1 + sovTitanEvent(uint64(m.TitanID))
+	}
+	if m.AnswerID != 0 {
+		n += 1 + sovTitanEvent(uint64(m.AnswerID))
+	}
+	if m.PlayerID != 0 {
+		n += 1 + sovTitanEvent(uint64(m.PlayerID))
+	}
+	return n
+}
+
+func (m *TitanEventSubmitAnswerResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.IsMalus {
+		n += 2
+	}
+	if m.IsBonus {
+		n += 2
+	}
+	if m.PlayerDie {
+		n += 2
+	}
+	if m.TitanDie {
+		n += 2
+	}
+	if m.PlayerDamage != 0 {
+		n += 1 + sovTitanEvent(uint64(m.PlayerDamage))
+	}
+	if m.TitanDamage != 0 {
+		n += 1 + sovTitanEvent(uint64(m.TitanDamage))
 	}
 	return n
 }
@@ -1268,7 +1179,7 @@ func sovTitanEvent(x uint64) (n int) {
 func sozTitanEvent(x uint64) (n int) {
 	return sovTitanEvent(uint64((x << 1) ^ uint64((int64(x) >> 63))))
 }
-func (m *TitanEvent) Unmarshal(dAtA []byte) error {
+func (m *TitanEventQuestion) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1291,10 +1202,10 @@ func (m *TitanEvent) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: TitanEvent: wiretype end group for non-group")
+			return fmt.Errorf("proto: TitanEventQuestion: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: TitanEvent: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: TitanEventQuestion: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1350,7 +1261,7 @@ func (m *TitanEvent) Unmarshal(dAtA []byte) error {
 			iNdEx = postIndex
 		case 3:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Choices", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Answers", wireType)
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
@@ -1377,8 +1288,8 @@ func (m *TitanEvent) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Choices = append(m.Choices, &EventChoice{})
-			if err := m.Choices[len(m.Choices)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			m.Answers = append(m.Answers, &TitanEventAnswer{})
+			if err := m.Answers[len(m.Answers)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
@@ -1406,7 +1317,7 @@ func (m *TitanEvent) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *SubmitAnswerRequest) Unmarshal(dAtA []byte) error {
+func (m *TitanEventAnswer) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1429,672 +1340,10 @@ func (m *SubmitAnswerRequest) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: SubmitAnswerRequest: wiretype end group for non-group")
+			return fmt.Errorf("proto: TitanEventAnswer: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: SubmitAnswerRequest: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field TitanID", wireType)
-			}
-			m.TitanID = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTitanEvent
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.TitanID |= uint32(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		case 2:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field ChoiceID", wireType)
-			}
-			m.ChoiceID = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTitanEvent
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.ChoiceID |= uint32(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		case 3:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field PlayerID", wireType)
-			}
-			m.PlayerID = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTitanEvent
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.PlayerID |= uint32(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTitanEvent(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *SubmitAnswerResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTitanEvent
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: SubmitAnswerResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: SubmitAnswerResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field IsMalus", wireType)
-			}
-			var v int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTitanEvent
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				v |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.IsMalus = bool(v != 0)
-		case 2:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Hit", wireType)
-			}
-			var msglen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTitanEvent
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				msglen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if msglen < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			if m.Hit == nil {
-				m.Hit = &HitTitanResponse{}
-			}
-			if err := m.Hit.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
-				return err
-			}
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTitanEvent(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *GetRandomEventRequest) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTitanEvent
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: GetRandomEventRequest: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: GetRandomEventRequest: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTitanEvent(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *GetRandomEventResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTitanEvent
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: GetRandomEventResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: GetRandomEventResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Event", wireType)
-			}
-			var msglen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTitanEvent
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				msglen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if msglen < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			if m.Event == nil {
-				m.Event = &TitanEvent{}
-			}
-			if err := m.Event.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
-				return err
-			}
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTitanEvent(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *GetAllEventRequest) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTitanEvent
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: GetAllEventRequest: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: GetAllEventRequest: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTitanEvent(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *GetAllEventResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTitanEvent
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: GetAllEventResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: GetAllEventResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Events", wireType)
-			}
-			var msglen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTitanEvent
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				msglen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if msglen < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Events = append(m.Events, &TitanEvent{})
-			if err := m.Events[len(m.Events)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
-				return err
-			}
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTitanEvent(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *GetTitanEventByIDRequest) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTitanEvent
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: GetTitanEventByIDRequest: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: GetTitanEventByIDRequest: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field ID", wireType)
-			}
-			m.ID = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTitanEvent
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.ID |= uint32(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTitanEvent(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *GetTitanEventByIDResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTitanEvent
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: GetTitanEventByIDResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: GetTitanEventByIDResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Event", wireType)
-			}
-			var msglen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTitanEvent
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				msglen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if msglen < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			if m.Event == nil {
-				m.Event = &TitanEvent{}
-			}
-			if err := m.Event.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
-				return err
-			}
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTitanEvent(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *EventChoice) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTitanEvent
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: EventChoice: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: EventChoice: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: TitanEventAnswer: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -2211,7 +1460,7 @@ func (m *EventChoice) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *GetEventChoiceByIDRequest) Unmarshal(dAtA []byte) error {
+func (m *GetTitanEventQuestionsRequest) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -2234,10 +1483,150 @@ func (m *GetEventChoiceByIDRequest) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: GetEventChoiceByIDRequest: wiretype end group for non-group")
+			return fmt.Errorf("proto: GetTitanEventQuestionsRequest: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: GetEventChoiceByIDRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: GetTitanEventQuestionsRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTitanEvent(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetTitanEventQuestionsResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTitanEvent
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetTitanEventQuestionsResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetTitanEventQuestionsResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Questions", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTitanEvent
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Questions = append(m.Questions, &TitanEventQuestion{})
+			if err := m.Questions[len(m.Questions)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTitanEvent(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetTitanEventQuestionByIDRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTitanEvent
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetTitanEventQuestionByIDRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetTitanEventQuestionByIDRequest: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -2283,7 +1672,7 @@ func (m *GetEventChoiceByIDRequest) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *GetEventChoiceByIDResponse) Unmarshal(dAtA []byte) error {
+func (m *GetTitanEventQuestionByIDResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -2306,15 +1695,15 @@ func (m *GetEventChoiceByIDResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: GetEventChoiceByIDResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: GetTitanEventQuestionByIDResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: GetEventChoiceByIDResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: GetTitanEventQuestionByIDResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Choice", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Question", wireType)
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
@@ -2341,13 +1730,455 @@ func (m *GetEventChoiceByIDResponse) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			if m.Choice == nil {
-				m.Choice = &EventChoice{}
+			if m.Question == nil {
+				m.Question = &TitanEventQuestion{}
 			}
-			if err := m.Choice.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			if err := m.Question.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTitanEvent(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetTitanEventAnswerByIDRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTitanEvent
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetTitanEventAnswerByIDRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetTitanEventAnswerByIDRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ID", wireType)
+			}
+			m.ID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTitanEvent
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.ID |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTitanEvent(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetTitanEventAnswerByIDResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTitanEvent
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetTitanEventAnswerByIDResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetTitanEventAnswerByIDResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Answer", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTitanEvent
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Answer == nil {
+				m.Answer = &TitanEventAnswer{}
+			}
+			if err := m.Answer.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTitanEvent(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *TitanEventSubmitAnswerRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTitanEvent
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: TitanEventSubmitAnswerRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: TitanEventSubmitAnswerRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TitanID", wireType)
+			}
+			m.TitanID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTitanEvent
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.TitanID |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field AnswerID", wireType)
+			}
+			m.AnswerID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTitanEvent
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.AnswerID |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PlayerID", wireType)
+			}
+			m.PlayerID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTitanEvent
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.PlayerID |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTitanEvent(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthTitanEvent
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *TitanEventSubmitAnswerResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTitanEvent
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: TitanEventSubmitAnswerResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: TitanEventSubmitAnswerResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field IsMalus", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTitanEvent
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.IsMalus = bool(v != 0)
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field IsBonus", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTitanEvent
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.IsBonus = bool(v != 0)
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PlayerDie", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTitanEvent
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.PlayerDie = bool(v != 0)
+		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TitanDie", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTitanEvent
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.TitanDie = bool(v != 0)
+		case 5:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PlayerDamage", wireType)
+			}
+			m.PlayerDamage = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTitanEvent
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.PlayerDamage |= int64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 6:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TitanDamage", wireType)
+			}
+			m.TitanDamage = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTitanEvent
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.TitanDamage |= int64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
 		default:
 			iNdEx = preIndex
 			skippy, err := skipTitanEvent(dAtA[iNdEx:])
