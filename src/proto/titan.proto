@@ -4,12 +4,13 @@ package titan;
 
 message Titan {
     uint32 ID = 1;
-    string Name = 2;
+    uint32 PlanetSystemID = 2;
     uint32 PlanetID = 3;
-    uint32 PlanetSystemID = 4;
-    int32 DeadCounter = 5;
-    int32 LifeMax = 8;
-    int32 LifePoint = 9;
+    int64 LifePoint = 4;
+    int32 LifeMax = 5;
+    bool Died = 6;
+    bool Dropped = 7;
+    int32 RespawnCounter = 8;
 }
 
 // GetTitanByID

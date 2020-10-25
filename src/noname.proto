@@ -27,7 +27,6 @@ import "proto/exploration.proto";
 import "proto/exploration_category.proto";
 import "proto/conqueror.proto";
 import "proto/titan_event.proto";
-import "proto/titan_damage.proto";
 import "proto/safeplanet_crafter.proto";
 import "proto/ship_laboratory.proto";
 import "proto/safeplanet_hangar_repair.proto";
@@ -138,9 +137,6 @@ service NoName {
     rpc GetEventChoiceByID(titan_event.GetEventChoiceByIDRequest) returns (titan_event.GetEventChoiceByIDResponse) {}
     rpc GetRandomEvent(titan_event.GetRandomEventRequest) returns (titan_event.GetRandomEventResponse) {}
     rpc SubmitAnswer(titan_event.SubmitAnswerRequest) returns (titan_event.SubmitAnswerResponse) {}
-
-    // Titan Damage
-    rpc GetTitanDamageByTitanID(titan_damage.GetTitanDamageByTitanIDRequest) returns (titan_damage.GetTitanDamageByTitanIDResponse) {}
 
     // Language
     rpc GetLanguageBySlug (language.GetLanguageBySlugRequest) returns (language.GetLanguageBySlugResponse) {}
