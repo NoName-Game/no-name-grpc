@@ -10,7 +10,7 @@ message Player {
     string Username = 2;
     uint32 LevelID = 3;
     level.Level Level = 4;
-    int64 LifePoint = 5;
+    int64 LifePoint = 5; // Dynamic
     bool Dead = 6;
     bool Tutorial = 7;
     bool Banned = 8;
