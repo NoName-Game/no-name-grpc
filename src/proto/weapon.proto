@@ -12,8 +12,6 @@ message Weapon {
     uint32 RarityID = 6;
     rarity.Rarity Rarity = 7;
     float Precision = 10;
-    float Penetration = 11;
-    uint32 Potential = 12;
     int32 Durability = 13;
     int32 DurabilityCap = 14;
 }

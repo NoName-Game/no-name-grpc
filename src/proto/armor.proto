@@ -16,7 +16,6 @@ message Armor {
     double Defense = 10;
     double Evasion = 11;
     double Halving = 12;
-    uint32 Potential = 13;
 }
 
 // GetArmorByID

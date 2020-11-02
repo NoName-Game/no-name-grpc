@@ -41,7 +41,6 @@ message GetPlayerByUsernameResponse {
 message SignInRequest {
     string Username = 1;
     int64 ChatID = 2;
-    uint32 LanguageID = 3;
 }
 message SignInResponse {
     Player Player = 1;
