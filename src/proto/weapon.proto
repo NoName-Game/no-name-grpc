@@ -6,12 +6,12 @@ package weapon;
 message Weapon {
     uint32 ID = 1;
     string Name = 2;
-    float RawDamage = 3;
+    double RawDamage = 3;
     uint32 PlayerID = 4;
     bool Equipped = 5;
     uint32 RarityID = 6;
     rarity.Rarity Rarity = 7;
-    float Precision = 10;
+    double Precision = 10;
     int32 Durability = 13;
     int32 DurabilityCap = 14;
 }

@@ -1,7 +1,6 @@
 syntax = "proto3";
 import "proto/rarity.proto";
 import "proto/ship_category.proto";
-import "proto/ship_stats.proto";
 option go_package = ".;pb";
 package ship;
 
@@ -13,9 +12,12 @@ message Ship {
     rarity.Rarity Rarity = 6;
     uint32 ShipCategoryID = 7;
     ship_category.ShipCategory ShipCategory = 8;
-    uint32 ShipStatsID = 9;
-    ship_stats.ShipStats ShipStats = 10;
-    bool Equipped = 11;
+    uint32 Integrity = 9;
+    double Tank = 10;
+    double Engine = 11;
+    double Speed = 12;
+    int32 Radar = 13;
+    bool Equipped = 14;
 }
 
 // GetShipByID

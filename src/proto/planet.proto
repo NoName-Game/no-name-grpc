@@ -1,6 +1,5 @@
 syntax = "proto3";
 import "proto/planet_biome.proto";
-import "proto/planet_atmosphere.proto";
 import "proto/planet_map.proto";
 import "proto/planet_system.proto";
 import "proto/resource.proto";
@@ -17,8 +16,6 @@ message Planet {
     uint32 PlayerID = 7;
     uint32 PlanetBiomeID = 8;
     planet_biome.PlanetBiome PlanetBiome = 9;
-    uint32 PlanetAtmosphereID = 10;
-    planet_atmosphere.PlanetAtmosphere PlanetAtmosphere = 11;
     uint32 PlanetMapID = 12;
     planet_map.PlanetMap PlanetMap = 13;
     repeated resource.Resource Resources = 14;
