@@ -25,7 +25,7 @@ message EndPlayerRestRequest {
     uint32 PlayerID = 1;
 }
 message EndPlayerRestResponse {
-    int32 LifeRecovered = 1;
+    int64 LifeRecovered = 1;
 }
 
 
