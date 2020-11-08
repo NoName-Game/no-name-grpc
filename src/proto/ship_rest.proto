@@ -9,7 +9,8 @@ message GetRestsInfoRequest {
 }
 message GetRestsInfoResponse {
     bool NeedRests = 1;
-    uint32 RestsTime = 2;
+    int32 PlayRestsTime = 2;
+    int32 FullRestsTime = 3;
 }
 
 // StartPlayerRest
