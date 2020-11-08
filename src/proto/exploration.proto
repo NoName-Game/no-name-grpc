@@ -47,11 +47,12 @@ message ExplorationDropResourcesRequest {
     uint32 PlayerID = 1;
 }
 message ExplorationDropResourcesResponse {
-    message ExplorationDropResourcesResult {
+    message DropResult {
         uint32 ResourceID = 1;
         int32 Quantity = 2;
     }
-    repeated ExplorationDropResourcesResult DropResults = 1;
+    repeated DropResult CycleDropResults = 1;
+    repeated DropResult AllDropResults = 2;
 }
 
 
