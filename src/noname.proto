@@ -44,6 +44,7 @@ import "proto/guild_point.proto";
 import "proto/achievement.proto";
 import "proto/achievement_category.proto";
 import "proto/player_achievement.proto";
+import "proto/planet_bookmark.proto";
 
 option go_package = ".;pb";
 
@@ -161,6 +162,11 @@ service NoName {
     rpc GetPlanetByMapID (planet.GetPlanetByMapIDRequest) returns (planet.GetPlanetByMapIDResponse) {}
     rpc GetExpansionInfo (planet.GetExpansionInfoRequest) returns (planet.GetExpansionInfoResponse) {}
     rpc GetSafePlanets (planet.GetSafePlanetsRequest) returns (planet.GetSafePlanetsResponse) {}
+
+    // Planet Bookmark
+    rpc AddPlanetBookmark (planet_bookmark.AddPlanetBookmarkRequest) returns (planet_bookmark.AddPlanetBookmarkResponse) {}
+    rpc RemovePlanetBookmark (planet_bookmark.RemovePlanetBookmarkRequest) returns (planet_bookmark.RemovePlanetBookmarkResponse) {}
+    rpc CheckIfPlayerHavePlanetBookmark (planet_bookmark.CheckIfPlayerHavePlanetBookmarkRequest) returns (planet_bookmark.CheckIfPlayerHavePlanetBookmarkResponse) {}
 
     // PlanetMap
     rpc GetPlanetMapByID (planet_map.GetPlanetMapByIDRequest) returns (planet_map.GetPlanetMapByIDResponse) {}

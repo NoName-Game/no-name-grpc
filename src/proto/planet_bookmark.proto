@@ -1,0 +1,31 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package planet_bookmark;
+
+// AddPlanetBookmark
+message AddPlanetBookmarkRequest {
+    uint32 PlayerID = 1;
+    uint32 PlanetID = 2;
+}
+message AddPlanetBookmarkResponse {
+    // Empty
+}
+
+// RemovePlanetBookmark
+message RemovePlanetBookmarkRequest {
+    uint32 PlayerID = 1;
+    uint32 PlanetID = 2;
+}
+message RemovePlanetBookmarkResponse {
+    // Empty
+}
+
+
+// CheckIfPlayerHavePlanetBookmark
+message CheckIfPlayerHavePlanetBookmarkRequest {
+    uint32 PlayerID = 1;
+    uint32 PlanetID = 2;
+}
+message CheckIfPlayerHavePlanetBookmarkResponse {
+    bool HaveBookmark = 1;
+}
