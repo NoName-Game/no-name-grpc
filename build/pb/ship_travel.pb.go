@@ -24,23 +24,23 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
-// GetShipTravelInfo
-type GetShipTravelInfoRequest struct {
+// ShipTravelInfo
+type ShipTravelInfoRequest struct {
 	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
 }
 
-func (m *GetShipTravelInfoRequest) Reset()         { *m = GetShipTravelInfoRequest{} }
-func (m *GetShipTravelInfoRequest) String() string { return proto.CompactTextString(m) }
-func (*GetShipTravelInfoRequest) ProtoMessage()    {}
-func (*GetShipTravelInfoRequest) Descriptor() ([]byte, []int) {
+func (m *ShipTravelInfoRequest) Reset()         { *m = ShipTravelInfoRequest{} }
+func (m *ShipTravelInfoRequest) String() string { return proto.CompactTextString(m) }
+func (*ShipTravelInfoRequest) ProtoMessage()    {}
+func (*ShipTravelInfoRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_bf11c18278c88d6f, []int{0}
 }
-func (m *GetShipTravelInfoRequest) XXX_Unmarshal(b []byte) error {
+func (m *ShipTravelInfoRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *GetShipTravelInfoRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *ShipTravelInfoRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_GetShipTravelInfoRequest.Marshal(b, m, deterministic)
+		return xxx_messageInfo_ShipTravelInfoRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -50,41 +50,41 @@ func (m *GetShipTravelInfoRequest) XXX_Marshal(b []byte, deterministic bool) ([]
 		return b[:n], nil
 	}
 }
-func (m *GetShipTravelInfoRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetShipTravelInfoRequest.Merge(m, src)
+func (m *ShipTravelInfoRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ShipTravelInfoRequest.Merge(m, src)
 }
-func (m *GetShipTravelInfoRequest) XXX_Size() int {
+func (m *ShipTravelInfoRequest) XXX_Size() int {
 	return m.Size()
 }
-func (m *GetShipTravelInfoRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetShipTravelInfoRequest.DiscardUnknown(m)
+func (m *ShipTravelInfoRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ShipTravelInfoRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetShipTravelInfoRequest proto.InternalMessageInfo
+var xxx_messageInfo_ShipTravelInfoRequest proto.InternalMessageInfo
 
-func (m *GetShipTravelInfoRequest) GetPlayerID() uint32 {
+func (m *ShipTravelInfoRequest) GetPlayerID() uint32 {
 	if m != nil {
 		return m.PlayerID
 	}
 	return 0
 }
 
-type GetShipTravelInfoResponse struct {
-	Info []*GetShipTravelInfoResponse_GetShipTravelInfo `protobuf:"bytes,1,rep,name=Info,proto3" json:"Info,omitempty"`
+type ShipTravelInfoResponse struct {
+	Info []*ShipTravelInfoResponse_ShipTravelInfo `protobuf:"bytes,1,rep,name=Info,proto3" json:"Info,omitempty"`
 }
 
-func (m *GetShipTravelInfoResponse) Reset()         { *m = GetShipTravelInfoResponse{} }
-func (m *GetShipTravelInfoResponse) String() string { return proto.CompactTextString(m) }
-func (*GetShipTravelInfoResponse) ProtoMessage()    {}
-func (*GetShipTravelInfoResponse) Descriptor() ([]byte, []int) {
+func (m *ShipTravelInfoResponse) Reset()         { *m = ShipTravelInfoResponse{} }
+func (m *ShipTravelInfoResponse) String() string { return proto.CompactTextString(m) }
+func (*ShipTravelInfoResponse) ProtoMessage()    {}
+func (*ShipTravelInfoResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_bf11c18278c88d6f, []int{1}
 }
-func (m *GetShipTravelInfoResponse) XXX_Unmarshal(b []byte) error {
+func (m *ShipTravelInfoResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *GetShipTravelInfoResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *ShipTravelInfoResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_GetShipTravelInfoResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_ShipTravelInfoResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -94,26 +94,26 @@ func (m *GetShipTravelInfoResponse) XXX_Marshal(b []byte, deterministic bool) ([
 		return b[:n], nil
 	}
 }
-func (m *GetShipTravelInfoResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetShipTravelInfoResponse.Merge(m, src)
+func (m *ShipTravelInfoResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ShipTravelInfoResponse.Merge(m, src)
 }
-func (m *GetShipTravelInfoResponse) XXX_Size() int {
+func (m *ShipTravelInfoResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *GetShipTravelInfoResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetShipTravelInfoResponse.DiscardUnknown(m)
+func (m *ShipTravelInfoResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ShipTravelInfoResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetShipTravelInfoResponse proto.InternalMessageInfo
+var xxx_messageInfo_ShipTravelInfoResponse proto.InternalMessageInfo
 
-func (m *GetShipTravelInfoResponse) GetInfo() []*GetShipTravelInfoResponse_GetShipTravelInfo {
+func (m *ShipTravelInfoResponse) GetInfo() []*ShipTravelInfoResponse_ShipTravelInfo {
 	if m != nil {
 		return m.Info
 	}
 	return nil
 }
 
-type GetShipTravelInfoResponse_GetShipTravelInfo struct {
+type ShipTravelInfoResponse_ShipTravelInfo struct {
 	Planet    *Planet `protobuf:"bytes,1,opt,name=Planet,proto3" json:"Planet,omitempty"`
 	Distance  float64 `protobuf:"fixed64,2,opt,name=Distance,proto3" json:"Distance,omitempty"`
 	Time      int32   `protobuf:"varint,3,opt,name=Time,proto3" json:"Time,omitempty"`
@@ -121,22 +121,18 @@ type GetShipTravelInfoResponse_GetShipTravelInfo struct {
 	Integrity uint32  `protobuf:"varint,5,opt,name=Integrity,proto3" json:"Integrity,omitempty"`
 }
 
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) Reset() {
-	*m = GetShipTravelInfoResponse_GetShipTravelInfo{}
-}
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) String() string {
-	return proto.CompactTextString(m)
-}
-func (*GetShipTravelInfoResponse_GetShipTravelInfo) ProtoMessage() {}
-func (*GetShipTravelInfoResponse_GetShipTravelInfo) Descriptor() ([]byte, []int) {
+func (m *ShipTravelInfoResponse_ShipTravelInfo) Reset()         { *m = ShipTravelInfoResponse_ShipTravelInfo{} }
+func (m *ShipTravelInfoResponse_ShipTravelInfo) String() string { return proto.CompactTextString(m) }
+func (*ShipTravelInfoResponse_ShipTravelInfo) ProtoMessage()    {}
+func (*ShipTravelInfoResponse_ShipTravelInfo) Descriptor() ([]byte, []int) {
 	return fileDescriptor_bf11c18278c88d6f, []int{1, 0}
 }
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) XXX_Unmarshal(b []byte) error {
+func (m *ShipTravelInfoResponse_ShipTravelInfo) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *ShipTravelInfoResponse_ShipTravelInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_GetShipTravelInfoResponse_GetShipTravelInfo.Marshal(b, m, deterministic)
+		return xxx_messageInfo_ShipTravelInfoResponse_ShipTravelInfo.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -146,47 +142,47 @@ func (m *GetShipTravelInfoResponse_GetShipTravelInfo) XXX_Marshal(b []byte, dete
 		return b[:n], nil
 	}
 }
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetShipTravelInfoResponse_GetShipTravelInfo.Merge(m, src)
+func (m *ShipTravelInfoResponse_ShipTravelInfo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ShipTravelInfoResponse_ShipTravelInfo.Merge(m, src)
 }
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) XXX_Size() int {
+func (m *ShipTravelInfoResponse_ShipTravelInfo) XXX_Size() int {
 	return m.Size()
 }
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetShipTravelInfoResponse_GetShipTravelInfo.DiscardUnknown(m)
+func (m *ShipTravelInfoResponse_ShipTravelInfo) XXX_DiscardUnknown() {
+	xxx_messageInfo_ShipTravelInfoResponse_ShipTravelInfo.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetShipTravelInfoResponse_GetShipTravelInfo proto.InternalMessageInfo
+var xxx_messageInfo_ShipTravelInfoResponse_ShipTravelInfo proto.InternalMessageInfo
 
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) GetPlanet() *Planet {
+func (m *ShipTravelInfoResponse_ShipTravelInfo) GetPlanet() *Planet {
 	if m != nil {
 		return m.Planet
 	}
 	return nil
 }
 
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) GetDistance() float64 {
+func (m *ShipTravelInfoResponse_ShipTravelInfo) GetDistance() float64 {
 	if m != nil {
 		return m.Distance
 	}
 	return 0
 }
 
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) GetTime() int32 {
+func (m *ShipTravelInfoResponse_ShipTravelInfo) GetTime() int32 {
 	if m != nil {
 		return m.Time
 	}
 	return 0
 }
 
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) GetFuel() float64 {
+func (m *ShipTravelInfoResponse_ShipTravelInfo) GetFuel() float64 {
 	if m != nil {
 		return m.Fuel
 	}
 	return 0
 }
 
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) GetIntegrity() uint32 {
+func (m *ShipTravelInfoResponse_ShipTravelInfo) GetIntegrity() uint32 {
 	if m != nil {
 		return m.Integrity
 	}
@@ -477,9 +473,9 @@ func (m *EndShipTravelResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_EndShipTravelResponse proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*GetShipTravelInfoRequest)(nil), "ship_travel.GetShipTravelInfoRequest")
-	proto.RegisterType((*GetShipTravelInfoResponse)(nil), "ship_travel.GetShipTravelInfoResponse")
-	proto.RegisterType((*GetShipTravelInfoResponse_GetShipTravelInfo)(nil), "ship_travel.GetShipTravelInfoResponse.GetShipTravelInfo")
+	proto.RegisterType((*ShipTravelInfoRequest)(nil), "ship_travel.ShipTravelInfoRequest")
+	proto.RegisterType((*ShipTravelInfoResponse)(nil), "ship_travel.ShipTravelInfoResponse")
+	proto.RegisterType((*ShipTravelInfoResponse_ShipTravelInfo)(nil), "ship_travel.ShipTravelInfoResponse.ShipTravelInfo")
 	proto.RegisterType((*StartShipTravelRequest)(nil), "ship_travel.StartShipTravelRequest")
 	proto.RegisterType((*StartShipTravelResponse)(nil), "ship_travel.StartShipTravelResponse")
 	proto.RegisterType((*CheckShipTravelRequest)(nil), "ship_travel.CheckShipTravelRequest")
@@ -491,38 +487,38 @@ func init() {
 func init() { proto.RegisterFile("proto/ship_travel.proto", fileDescriptor_bf11c18278c88d6f) }
 
 var fileDescriptor_bf11c18278c88d6f = []byte{
-	// 442 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x91, 0xcf, 0x6e, 0xd3, 0x40,
-	0x10, 0xc6, 0xb3, 0x4d, 0x5a, 0xa5, 0x13, 0xf1, 0x6f, 0x05, 0x8d, 0xb1, 0xd0, 0x62, 0xf9, 0x80,
-	0x2c, 0x0e, 0x8e, 0x14, 0x10, 0x42, 0xe2, 0x06, 0x6d, 0x90, 0x25, 0x84, 0xa2, 0xad, 0x4f, 0x5c,
-	0xd0, 0xa6, 0xdd, 0xda, 0x2b, 0xec, 0xb5, 0xf1, 0x6e, 0x90, 0xfa, 0x08, 0xdc, 0x78, 0x01, 0x9e,
-	0x83, 0x57, 0xe0, 0xd8, 0x23, 0x47, 0x94, 0xbc, 0x08, 0xca, 0xae, 0x13, 0xac, 0x3a, 0x48, 0xa4,
-	0xb7, 0x9d, 0x6f, 0xe7, 0x1b, 0xfd, 0xbe, 0x19, 0x18, 0x96, 0x55, 0xa1, 0x8b, 0x91, 0x4a, 0x45,
-	0xf9, 0x51, 0x57, 0xec, 0x0b, 0xcf, 0x42, 0xa3, 0xe0, 0x41, 0x43, 0x72, 0xb1, 0xed, 0x2a, 0x33,
-	0x26, 0xb9, 0xb6, 0x0d, 0xee, 0xe3, 0xa4, 0x28, 0x92, 0x8c, 0x8f, 0x4c, 0x35, 0x9b, 0x5f, 0x8c,
-	0xb4, 0xc8, 0xb9, 0xd2, 0x2c, 0x2f, 0x6d, 0x83, 0xff, 0x02, 0x9c, 0xb7, 0x5c, 0x9f, 0xa6, 0xa2,
-	0x8c, 0xcd, 0x94, 0x48, 0x5e, 0x14, 0x94, 0x7f, 0x9e, 0x73, 0xa5, 0xb1, 0x0b, 0xfd, 0x69, 0xc6,
-	0x2e, 0x79, 0x15, 0x1d, 0x3b, 0xc8, 0x43, 0xc1, 0x2d, 0xba, 0xa9, 0xfd, 0xaf, 0x7b, 0xf0, 0x70,
-	0x8b, 0x51, 0x95, 0x85, 0x54, 0x1c, 0xbf, 0x83, 0xde, 0xaa, 0x76, 0x90, 0xd7, 0x0d, 0x06, 0xe3,
-	0x97, 0x61, 0x93, 0xfc, 0x9f, 0xae, 0x2d, 0x3f, 0x66, 0x8a, 0xfb, 0x1d, 0xc1, 0xbd, 0xd6, 0x1f,
-	0x7e, 0x02, 0x07, 0x53, 0x13, 0xd5, 0xb0, 0x0d, 0xc6, 0xb7, 0xc3, 0x3a, 0xb9, 0x55, 0x69, 0xfd,
-	0xbb, 0x4a, 0x71, 0x2c, 0x94, 0x66, 0xf2, 0x8c, 0x3b, 0x7b, 0x1e, 0x0a, 0x10, 0xdd, 0xd4, 0x18,
-	0x43, 0x2f, 0x16, 0x39, 0x77, 0xba, 0x1e, 0x0a, 0xf6, 0xa9, 0x79, 0xaf, 0xb4, 0xc9, 0x9c, 0x67,
-	0x4e, 0xcf, 0xf4, 0x9a, 0x37, 0x7e, 0x04, 0x87, 0x91, 0xd4, 0x3c, 0xa9, 0x84, 0xbe, 0x74, 0xf6,
-	0xcd, 0x2a, 0xfe, 0x0a, 0x7e, 0x0c, 0x47, 0xa7, 0x9a, 0x55, 0x0d, 0xc0, 0xff, 0xd8, 0x20, 0x26,
-	0x00, 0x96, 0xf0, 0x3d, 0xcb, 0x2d, 0xd9, 0x21, 0x6d, 0x28, 0x3e, 0x83, 0x61, 0x6b, 0x6a, 0xbd,
-	0xde, 0x09, 0xdc, 0xb5, 0x8a, 0x90, 0xc9, 0x89, 0x3c, 0x37, 0x11, 0xec, 0x12, 0xdc, 0xd0, 0x1e,
-	0x3c, 0x5c, 0x1f, 0x3c, 0x8c, 0xd7, 0x07, 0xa7, 0x2d, 0x8f, 0xff, 0x1c, 0x8e, 0xde, 0xa4, 0xfc,
-	0xec, 0xd3, 0x4e, 0xe0, 0xfe, 0x0f, 0x04, 0xc3, 0x96, 0xad, 0x26, 0x7b, 0xba, 0x26, 0x8b, 0xe4,
-	0xb4, 0x2a, 0x92, 0x8a, 0x2b, 0x65, 0xfc, 0x7d, 0xda, 0xd2, 0x71, 0x00, 0x77, 0x26, 0x42, 0x0a,
-	0x95, 0x6e, 0xb8, 0xcc, 0x16, 0xfa, 0xf4, 0xba, 0xbc, 0x35, 0x6f, 0xf7, 0x06, 0x79, 0xc7, 0x70,
-	0xff, 0x44, 0x9e, 0xef, 0x96, 0x76, 0x08, 0x0f, 0xae, 0x79, 0x6c, 0xd4, 0xd7, 0xe4, 0xe7, 0x82,
-	0xa0, 0xab, 0x05, 0x41, 0xbf, 0x17, 0x04, 0x7d, 0x5b, 0x92, 0xce, 0xd5, 0x92, 0x74, 0x7e, 0x2d,
-	0x49, 0xe7, 0x43, 0x2f, 0x7c, 0x55, 0xce, 0x66, 0x07, 0x06, 0xe9, 0xd9, 0x9f, 0x00, 0x00, 0x00,
-	0xff, 0xff, 0x0f, 0xe4, 0xe5, 0x2b, 0xbd, 0x03, 0x00, 0x00,
+	// 433 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x91, 0x41, 0x6f, 0xd3, 0x30,
+	0x14, 0xc7, 0x6b, 0xda, 0x4d, 0xdd, 0xab, 0x18, 0xc8, 0x62, 0x6d, 0x14, 0x21, 0x13, 0xe5, 0x80,
+	0x22, 0x0e, 0xa9, 0x94, 0x71, 0xe3, 0x06, 0x5b, 0xa5, 0x5c, 0x50, 0xe5, 0xe5, 0xc4, 0x05, 0xb9,
+	0x9b, 0x97, 0x58, 0x24, 0x4e, 0x88, 0x5d, 0xa4, 0x7d, 0x0b, 0xce, 0x7c, 0x11, 0xbe, 0x02, 0xc7,
+	0x1d, 0x39, 0xa2, 0xf6, 0x73, 0x20, 0xa1, 0xda, 0x6d, 0x56, 0x92, 0x1d, 0x18, 0x37, 0xbf, 0xbf,
+	0xdf, 0xff, 0xe9, 0xf7, 0x7f, 0x0f, 0x26, 0x55, 0x5d, 0xea, 0x72, 0xaa, 0x32, 0x51, 0x7d, 0xd4,
+	0x35, 0xfb, 0xc2, 0xf3, 0xd0, 0x28, 0x78, 0xb4, 0x27, 0xb9, 0xd8, 0x76, 0x55, 0x39, 0x93, 0x5c,
+	0xdb, 0x06, 0xf7, 0x45, 0x5a, 0x96, 0x69, 0xce, 0xa7, 0xa6, 0x5a, 0x2c, 0xaf, 0xa7, 0x5a, 0x14,
+	0x5c, 0x69, 0x56, 0x54, 0xb6, 0xc1, 0x3f, 0x85, 0x93, 0x8b, 0x4c, 0x54, 0x89, 0x19, 0x11, 0xcb,
+	0xeb, 0x92, 0xf2, 0xcf, 0x4b, 0xae, 0x34, 0x76, 0x61, 0x38, 0xcf, 0xd9, 0x0d, 0xaf, 0xe3, 0x33,
+	0x07, 0x79, 0x28, 0x78, 0x4c, 0x9b, 0xda, 0xff, 0x8d, 0x60, 0xdc, 0x76, 0xa9, 0xaa, 0x94, 0x8a,
+	0xe3, 0x19, 0x0c, 0x36, 0xb5, 0x83, 0xbc, 0x7e, 0x30, 0x8a, 0xa2, 0x70, 0x9f, 0xf9, 0x7e, 0x4b,
+	0x5b, 0x36, 0x7e, 0xf7, 0x1b, 0x82, 0xe3, 0xbf, 0x3f, 0xf0, 0x4b, 0x38, 0x9c, 0x9b, 0x6c, 0x86,
+	0x67, 0x14, 0x1d, 0x87, 0xdb, 0xa8, 0x56, 0xa5, 0xdb, 0xdf, 0x0d, 0xf9, 0x99, 0x50, 0x9a, 0xc9,
+	0x4b, 0xee, 0x3c, 0xf2, 0x50, 0x80, 0x68, 0x53, 0x63, 0x0c, 0x83, 0x44, 0x14, 0xdc, 0xe9, 0x7b,
+	0x28, 0x38, 0xa0, 0xe6, 0xbd, 0xd1, 0x66, 0x4b, 0x9e, 0x3b, 0x03, 0xd3, 0x6b, 0xde, 0xf8, 0x39,
+	0x1c, 0xc5, 0x52, 0xf3, 0xb4, 0x16, 0xfa, 0xc6, 0x39, 0x30, 0xf1, 0xef, 0x04, 0x3f, 0x81, 0xf1,
+	0x85, 0x66, 0xb5, 0xbe, 0x03, 0xfc, 0x87, 0xad, 0x61, 0x02, 0x60, 0x09, 0xdf, 0xb3, 0xc2, 0x92,
+	0x1d, 0xd1, 0x3d, 0xc5, 0x67, 0x30, 0xe9, 0x4c, 0x6d, 0xb6, 0xfa, 0xd4, 0x2a, 0x42, 0xa6, 0xe7,
+	0xf2, 0xca, 0x44, 0xb0, 0x4b, 0x70, 0x43, 0x7b, 0xe1, 0x70, 0x77, 0xe1, 0x30, 0xd9, 0x5d, 0x98,
+	0x76, 0x3c, 0xfe, 0x6b, 0x18, 0xbf, 0xcb, 0xf8, 0xe5, 0xa7, 0x07, 0x81, 0xfb, 0xdf, 0x11, 0x4c,
+	0x3a, 0xb6, 0x2d, 0xd9, 0xab, 0x1d, 0x59, 0x2c, 0xe7, 0x75, 0x99, 0xd6, 0x5c, 0x29, 0xe3, 0x1f,
+	0xd2, 0x8e, 0x8e, 0x03, 0x78, 0x32, 0x13, 0x52, 0xa8, 0xac, 0xe1, 0x32, 0x5b, 0x18, 0xd2, 0xb6,
+	0x7c, 0x6f, 0xde, 0xfe, 0x7f, 0xe4, 0x8d, 0xe0, 0xd9, 0xb9, 0xbc, 0x7a, 0x58, 0xda, 0x09, 0x9c,
+	0xb4, 0x3c, 0x36, 0xea, 0x5b, 0xf2, 0x63, 0x45, 0xd0, 0xed, 0x8a, 0xa0, 0x5f, 0x2b, 0x82, 0xbe,
+	0xae, 0x49, 0xef, 0x76, 0x4d, 0x7a, 0x3f, 0xd7, 0xa4, 0xf7, 0x61, 0x10, 0xbe, 0xa9, 0x16, 0x8b,
+	0x43, 0x83, 0x74, 0xfa, 0x27, 0x00, 0x00, 0xff, 0xff, 0x1a, 0x03, 0x12, 0x60, 0xae, 0x03, 0x00,
+	0x00,
 }
 
-func (m *GetShipTravelInfoRequest) Marshal() (dAtA []byte, err error) {
+func (m *ShipTravelInfoRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -532,12 +528,12 @@ func (m *GetShipTravelInfoRequest) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *GetShipTravelInfoRequest) MarshalTo(dAtA []byte) (int, error) {
+func (m *ShipTravelInfoRequest) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *GetShipTravelInfoRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *ShipTravelInfoRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -550,7 +546,7 @@ func (m *GetShipTravelInfoRequest) MarshalToSizedBuffer(dAtA []byte) (int, error
 	return len(dAtA) - i, nil
 }
 
-func (m *GetShipTravelInfoResponse) Marshal() (dAtA []byte, err error) {
+func (m *ShipTravelInfoResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -560,12 +556,12 @@ func (m *GetShipTravelInfoResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *GetShipTravelInfoResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *ShipTravelInfoResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *GetShipTravelInfoResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *ShipTravelInfoResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -587,7 +583,7 @@ func (m *GetShipTravelInfoResponse) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	return len(dAtA) - i, nil
 }
 
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) Marshal() (dAtA []byte, err error) {
+func (m *ShipTravelInfoResponse_ShipTravelInfo) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -597,12 +593,12 @@ func (m *GetShipTravelInfoResponse_GetShipTravelInfo) Marshal() (dAtA []byte, er
 	return dAtA[:n], nil
 }
 
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) MarshalTo(dAtA []byte) (int, error) {
+func (m *ShipTravelInfoResponse_ShipTravelInfo) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *ShipTravelInfoResponse_ShipTravelInfo) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -859,7 +855,7 @@ func encodeVarintShipTravel(dAtA []byte, offset int, v uint64) int {
 	dAtA[offset] = uint8(v)
 	return base
 }
-func (m *GetShipTravelInfoRequest) Size() (n int) {
+func (m *ShipTravelInfoRequest) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -871,7 +867,7 @@ func (m *GetShipTravelInfoRequest) Size() (n int) {
 	return n
 }
 
-func (m *GetShipTravelInfoResponse) Size() (n int) {
+func (m *ShipTravelInfoResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -886,7 +882,7 @@ func (m *GetShipTravelInfoResponse) Size() (n int) {
 	return n
 }
 
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) Size() (n int) {
+func (m *ShipTravelInfoResponse_ShipTravelInfo) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -998,7 +994,7 @@ func sovShipTravel(x uint64) (n int) {
 func sozShipTravel(x uint64) (n int) {
 	return sovShipTravel(uint64((x << 1) ^ uint64((int64(x) >> 63))))
 }
-func (m *GetShipTravelInfoRequest) Unmarshal(dAtA []byte) error {
+func (m *ShipTravelInfoRequest) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1021,10 +1017,10 @@ func (m *GetShipTravelInfoRequest) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: GetShipTravelInfoRequest: wiretype end group for non-group")
+			return fmt.Errorf("proto: ShipTravelInfoRequest: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: GetShipTravelInfoRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: ShipTravelInfoRequest: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1070,7 +1066,7 @@ func (m *GetShipTravelInfoRequest) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *GetShipTravelInfoResponse) Unmarshal(dAtA []byte) error {
+func (m *ShipTravelInfoResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1093,10 +1089,10 @@ func (m *GetShipTravelInfoResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: GetShipTravelInfoResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: ShipTravelInfoResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: GetShipTravelInfoResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: ShipTravelInfoResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1128,7 +1124,7 @@ func (m *GetShipTravelInfoResponse) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Info = append(m.Info, &GetShipTravelInfoResponse_GetShipTravelInfo{})
+			m.Info = append(m.Info, &ShipTravelInfoResponse_ShipTravelInfo{})
 			if err := m.Info[len(m.Info)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
@@ -1157,7 +1153,7 @@ func (m *GetShipTravelInfoResponse) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *GetShipTravelInfoResponse_GetShipTravelInfo) Unmarshal(dAtA []byte) error {
+func (m *ShipTravelInfoResponse_ShipTravelInfo) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1180,10 +1176,10 @@ func (m *GetShipTravelInfoResponse_GetShipTravelInfo) Unmarshal(dAtA []byte) err
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: GetShipTravelInfo: wiretype end group for non-group")
+			return fmt.Errorf("proto: ShipTravelInfo: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: GetShipTravelInfo: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: ShipTravelInfo: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:

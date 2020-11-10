@@ -4,19 +4,19 @@ import "proto/planet.proto";
 import "google/protobuf/timestamp.proto";
 package ship_travel;
 
-// GetShipTravelInfo
-message GetShipTravelInfoRequest {
+// ShipTravelInfo
+message ShipTravelInfoRequest {
     uint32 PlayerID = 1;
 }
-message GetShipTravelInfoResponse {
-    message GetShipTravelInfo {
+message ShipTravelInfoResponse {
+    message ShipTravelInfo {
         planet.Planet  Planet = 1;
         double Distance = 2;
         int32 Time = 3;
         double Fuel = 4;
         uint32 Integrity = 5;
     }
-    repeated GetShipTravelInfo Info = 1;
+    repeated ShipTravelInfo Info = 1;
 }
 
 // StartShipTravel

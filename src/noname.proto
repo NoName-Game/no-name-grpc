@@ -209,7 +209,8 @@ service NoName {
     rpc EndPlayerRest (ship_rest.EndPlayerRestRequest) returns (ship_rest.EndPlayerRestResponse) {}
 
     // Ship - Travel
-    rpc GetShipTravelInfo (ship_travel.GetShipTravelInfoRequest) returns (ship_travel.GetShipTravelInfoResponse) {}
+    rpc ShipTravelRadarInfo (ship_travel.ShipTravelInfoRequest) returns (ship_travel.ShipTravelInfoResponse) {}
+    rpc ShipTravelFavoriteInfo (ship_travel.ShipTravelInfoRequest) returns (ship_travel.ShipTravelInfoResponse) {}
     rpc StartShipTravel (ship_travel.StartShipTravelRequest) returns (ship_travel.StartShipTravelResponse) {}
     rpc CheckShipTravel (ship_travel.CheckShipTravelRequest) returns (ship_travel.CheckShipTravelResponse) {}
     rpc EndShipTravel (ship_travel.EndShipTravelRequest) returns (ship_travel.EndShipTravelResponse) {}
