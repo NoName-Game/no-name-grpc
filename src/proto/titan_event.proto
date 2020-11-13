@@ -53,4 +53,5 @@ message TitanEventSubmitAnswerResponse {
     bool TitanDie = 4;
     int64 PlayerDamage = 5;
     int64 TitanDamage = 6;
+    uint32 QuestionID = 7;
 }
