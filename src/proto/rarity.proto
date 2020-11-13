@@ -1,9 +1,33 @@
 syntax = "proto3";
-option go_package = "proto";
+option go_package = ".;pb";
 package rarity;
 
 message Rarity {
     uint32 ID = 1;
     string Name = 2;
     string Slug = 3;
+}
+
+// GetAllRarities
+message GetAllRaritiesRequest {
+    // Empty
+}
+message GetAllRaritiesResponse {
+    repeated Rarity Rarities = 1;
+}
+
+// GetAllCraftableRarities
+message GetAllCraftableRaritiesRequest {
+    // Empty
+}
+message GetAllCraftableRaritiesResponse {
+    repeated Rarity Rarities = 1;
+}
+
+// GetRarityByID
+message GetRarityByIDRequest {
+    uint32 RarityID = 1;
+}
+message GetRarityByIDResponse {
+    Rarity Rarity = 1;
 }

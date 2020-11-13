@@ -1,0 +1,33 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package timezone;
+
+message Timezone {
+    uint32 ID = 1;
+    string Name = 2;
+    string Description = 3;
+}
+
+// GetTimezoneByDescription
+message GetTimezoneByDescriptionRequest {
+    string Description = 1;
+}
+message GetTimezoneByDescriptionResponse {
+    Timezone Timezone = 1;
+}
+
+// GetTimezoneBySlug
+message GetTimezoneByNameRequest {
+    string Name = 1;
+}
+message GetTimezoneByNameResponse {
+    Timezone Timezone = 1;
+}
+
+// GetTimezones
+message GetAllTimezonesRequest {
+    // Empty
+}
+message GetAllTimezonesResponse {
+    repeated Timezone Timezones = 1;
+}

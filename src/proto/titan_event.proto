@@ -1,64 +1,57 @@
 syntax = "proto3";
-option go_package = "proto";
-import "proto/titan.proto";
+option go_package = ".;pb";
 package titan_event;
 
-// TitanEvent
-message TitanEvent {
+// TitanEventQuestion
+message TitanEventQuestion {
     uint32 ID = 1;
     string TextCode = 2;
-    repeated EventChoice Choices = 3;
+    repeated TitanEventAnswer Answers = 3;
 }
 
-message SubmitAnswerRequest {
-    uint32 titanID = 1;
-    uint32 choiceID = 2;
-    uint32 playerID = 3;
-}
-
-message SubmitAnswerResponse {
-    bool isMalus = 1;
-    titan.HitTitanResponse hit = 2;
-}
-
-message GetRandomEventRequest {
-    // empty
-}
-
-message GetRandomEventResponse {
-    TitanEvent event = 1;
-}
-
-// GetAll
-message GetAllEventRequest{
-    // empty
-}
-
-message GetAllEventResponse {
-    repeated TitanEvent events = 1;
-}
-
-// GetTitanEventByID
-message GetTitanEventByIDRequest {
-    uint32 ID = 1;
-}
-
-message GetTitanEventByIDResponse {
-    TitanEvent Event = 1;
-}
-
-message EventChoice {
+message TitanEventAnswer {
     uint32 ID = 1;
     bool Correct = 2;
     string TextCode = 3;
     uint32 TitanEventID = 4;
 }
 
-// GetEventChoiceByID
-message GetEventChoiceByIDRequest {
-    uint32 ID = 1;
+// GetTitanEventQuestions
+message GetTitanEventQuestionsRequest{
+    // empty
+}
+message GetTitanEventQuestionsResponse {
+    repeated TitanEventQuestion Questions = 1;
 }
 
-message GetEventChoiceByIDResponse {
-    EventChoice Choice = 1;
+// GetTitanEventQuestionByID
+message GetTitanEventQuestionByIDRequest {
+    uint32 ID = 1;
+}
+message GetTitanEventQuestionByIDResponse {
+    TitanEventQuestion Question = 1;
+}
+
+// GetTitanEventAnswerByID
+message GetTitanEventAnswerByIDRequest {
+    uint32 ID = 1;
+}
+message GetTitanEventAnswerByIDResponse {
+    TitanEventAnswer Answer = 1;
+}
+
+// TitanEventSubmitAnswer
+message TitanEventSubmitAnswerRequest {
+    uint32 TitanID = 1;
+    uint32 AnswerID = 2;
+    uint32 PlayerID = 3;
+}
+message TitanEventSubmitAnswerResponse {
+    bool IsMalus = 1;
+    bool IsBonus = 2;
+    bool PlayerDie = 3;
+    bool TitanDie = 4;
+    int64 PlayerDamage = 5;
+    int64 TitanDamage = 6;
+    uint32 QuestionID = 7;
 }

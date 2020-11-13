@@ -1,0 +1,89 @@
+syntax = "proto3";
+import "proto/player.proto";
+option go_package = ".;pb";
+package guild;
+
+message Guild {
+    uint32 ID = 1;
+    string Name = 2;
+    bool GuildType = 9;
+    uint32 OwnerID = 13;
+}
+
+// CheckGuildName
+message CheckGuildNameRequest {
+    string Name = 1;
+}
+message CheckGuildNameResponse {
+    bool GuildNameFree = 1;
+}
+
+// CreateGuild
+message CreateGuildRequest {
+    string GuildName = 1;
+    uint32 OwnerID = 2;
+    bool GuildType = 3;
+}
+message CreateGuildResponse {
+    // Empty
+}
+
+// JoinGuild
+message JoinGuildRequest {
+    uint32 PlayerID = 1;
+    string GuildName = 2;
+}
+message JoinGuildResponse {
+    // Empty
+}
+
+// GetJoinGuildsList
+message GetJoinGuildsListRequest {
+    // Empty
+}
+message GetJoinGuildsListResponse {
+    repeated Guild GuildsList = 1;
+}
+
+// GetPlayerGuild
+message GetPlayerGuildRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerGuildResponse {
+    bool InGuild = 1;
+    Guild Guild = 2;
+}
+
+// LeaveGuild
+message LeaveGuildRequest {
+    uint32 PlayerID = 1;
+}
+message LeaveGuildResponse {
+    // Empty
+}
+
+// GetPlayersGuild
+message GetPlayersGuildRequest {
+    uint32 GuildID = 1;
+}
+message GetPlayersGuildResponse {
+    repeated player.Player Players= 1;
+}
+
+// AddPlayerToGuild
+message AddPlayerToGuildRequest {
+    string PlayerUsername = 1;
+    uint32 GuildID = 2;
+}
+message AddPlayerToGuildResponse {
+    // Empty
+}
+
+// RemovePlayerToGuild
+message RemovePlayerToGuildRequest {
+    string PlayerUsername = 1;
+    uint32 GuildID = 2;
+}
+message RemovePlayerToGuildResponse {
+    // Empty
+}

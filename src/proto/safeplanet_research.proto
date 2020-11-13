@@ -1,0 +1,34 @@
+syntax = "proto3";
+import "proto/rarity.proto";
+option go_package = ".;pb";
+package safeplanet_research;
+
+// Research
+message Research {
+    uint32 ID = 1;
+    uint32 DonationRarityID = 2;
+    rarity.Rarity Rarity = 3;
+    int32 DonationCap = 4;
+    bool Enabled = 5;
+    bool Completed = 6;
+}
+
+// GetRecapActiveResearch
+message GetRecapActiveResearchRequest {
+    // Empty
+}
+message GetRecapActiveResearchResponse {
+    Research Research = 1;
+    int32 MissingResourcesCounter = 2;
+    int32 DonatedResourcesCounter = 3;
+}
+
+// ResearchDonation
+message ResearchDonationRequest {
+    uint32 PlayerID = 1;
+    uint32 ResourceID = 2;
+    int32 Quantity = 3;
+}
+message ResearchDonationResponse {
+    // Empty
+}

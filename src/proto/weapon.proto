@@ -1,19 +1,19 @@
 syntax = "proto3";
 import "proto/rarity.proto";
-option go_package = "proto";
+option go_package = ".;pb";
 package weapon;
 
 message Weapon {
     uint32 ID = 1;
     string Name = 2;
-    float RawDamage = 3;
+    double RawDamage = 3;
     uint32 PlayerID = 4;
     bool Equipped = 5;
     uint32 RarityID = 6;
     rarity.Rarity Rarity = 7;
-    float Precision = 10;
-    float Penetration = 11;
-    uint32 Potential = 12;
+    double Precision = 10;
+    int32 Durability = 13;
+    int32 DurabilityCap = 14;
 }
 
 // GetWeaponByID
@@ -32,14 +32,6 @@ message GetWeaponByNameResponse {
     Weapon Weapon = 1;
 }
 
-// UpdateWeapon
-message UpdateWeaponRequest {
-    Weapon Weapon = 1;
-}
-message UpdateWeaponResponse {
-    // Empty
-}
-
 // GetPlayerWeapons
 message GetPlayerWeaponsRequest {
     uint32 PlayerID = 1;
@@ -54,4 +46,15 @@ message GetPlayerWeaponEquippedRequest {
 }
 message GetPlayerWeaponEquippedResponse {
     weapon.Weapon Weapon = 1;
+}
+
+
+// EquipWeapon
+message EquipWeaponRequest {
+    uint32 PlayerID = 1;
+    uint32 WeaponID = 2;
+    bool Equip = 3;
+}
+message EquipWeaponResponse {
+    // Empty
 }

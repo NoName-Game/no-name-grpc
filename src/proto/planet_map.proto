@@ -1,0 +1,22 @@
+syntax = "proto3";
+import "proto/enemy.proto";
+import "proto/tresure.proto";
+option go_package = ".;pb";
+package planet_map;
+
+message PlanetMap {
+    uint32 ID = 1;
+    string CellGrid = 2;
+    int32 StartPositionX = 3;
+    int32 StartPositionY = 4;
+    repeated enemy.Enemy Enemies = 5;
+    repeated tresure.Tresure Tresures = 6;
+}
+
+// GetMapByID
+message GetPlanetMapByIDRequest {
+    uint32 PlanetMapID = 1;
+}
+message GetPlanetMapByIDResponse {
+    PlanetMap PlanetMap = 1;
+}

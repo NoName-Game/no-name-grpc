@@ -1,0 +1,310 @@
+syntax = "proto3";
+
+import "proto/rarity.proto";
+import "proto/armor.proto";
+import "proto/armor_category.proto";
+import "proto/weapon.proto";
+import "proto/player.proto";
+import "proto/player_activity.proto";
+import "proto/player_position.proto";
+import "proto/enemy.proto";
+import "proto/item.proto";
+import "proto/item_category.proto";
+import "proto/language.proto";
+import "proto/timezone.proto";
+import "proto/planet_map.proto";
+import "proto/npc.proto";
+import "proto/planet.proto";
+import "proto/resource.proto";
+import "proto/ship.proto";
+import "proto/ship_category.proto";
+import "proto/player_economy.proto";
+import "proto/tresure.proto";
+import "proto/mission.proto";
+import "proto/titan.proto";
+import "proto/expansion.proto";
+import "proto/exploration.proto";
+import "proto/exploration_category.proto";
+import "proto/conqueror.proto";
+import "proto/titan_event.proto";
+import "proto/safeplanet_crafter.proto";
+import "proto/ship_laboratory.proto";
+import "proto/safeplanet_hangar_repair.proto";
+import "proto/safeplanet_hangar_create.proto";
+import "proto/ship_rest.proto";
+import "proto/ship_travel.proto";
+import "proto/tutorial.proto";
+import "proto/player_inventory.proto";
+import "proto/player_configuration.proto";
+import "proto/safeplanet_research.proto";
+import "proto/ability.proto";
+import "proto/ability_category.proto";
+import "proto/guild.proto";
+import "proto/guild_point.proto";
+import "proto/achievement.proto";
+import "proto/achievement_category.proto";
+import "proto/player_achievement.proto";
+import "proto/planet_bookmark.proto";
+
+option go_package = ".;pb";
+
+// The greeting service definition.
+service NoName {
+    // Tutorial
+    rpc PlayerStartTutorial (tutorial.PlayerStartTutorialRequest) returns (tutorial.PlayerStartTutorialResponse) {}
+    rpc PlayerEndTutorial (tutorial.PlayerEndTutorialRequest) returns (tutorial.PlayerEndTutorialResponse) {}
+    rpc StartTravelTutorial (tutorial.StartTravelTutorialRequest) returns (tutorial.StartTravelTutorialResponse) {}
+
+    // Rarity
+    rpc GetAllRarities (rarity.GetAllRaritiesRequest) returns (rarity.GetAllRaritiesResponse) {}
+    rpc GetAllCraftableRarities (rarity.GetAllCraftableRaritiesRequest) returns (rarity.GetAllCraftableRaritiesResponse) {}
+    rpc GetRarityByID (rarity.GetRarityByIDRequest) returns (rarity.GetRarityByIDResponse) {}
+
+    // Armor
+    rpc GetArmorByID (armor.GetArmorByIDRequest) returns (armor.GetArmorByIDResponse) {}
+    rpc GetArmorByName (armor.GetArmorByNameRequest) returns (armor.GetArmorByNameResponse) {}
+    rpc GetPlayerArmors (armor.GetPlayerArmorsRequest) returns (armor.GetPlayerArmorsResponse) {}
+    rpc GetPlayerArmorsByCategoryID (armor.GetPlayerArmorsByCategoryIDRequest) returns (armor.GetPlayerArmorsByCategoryIDResponse) {}
+    rpc GetPlayerArmorsEquipped (armor.GetPlayerArmorsEquippedRequest) returns (armor.GetPlayerArmorsEquippedResponse) {}
+    rpc GetPlayerArmorEquippedByCategoryID (armor.GetPlayerArmorEquippedByCategoryIDRequest) returns (armor.GetPlayerArmorEquippedByCategoryIDResponse) {}
+    rpc EquipArmor (armor.EquipArmorRequest) returns (armor.EquipArmorResponse) {}
+
+    // ArmorCategory
+    rpc GetAllArmorCategory (armor_category.GetAllArmorCategoryRequest) returns (armor_category.GetAllArmorCategoryResponse) {}
+    rpc GetArmorCategoryBySlug (armor_category.GetArmorCategoryBySlugRequest) returns (armor_category.GetArmorCategoryBySlugResponse) {}
+
+    // Weapon
+    rpc GetWeaponByID (weapon.GetWeaponByIDRequest) returns (weapon.GetWeaponByIDResponse) {}
+    rpc GetWeaponByName (weapon.GetWeaponByNameRequest) returns (weapon.GetWeaponByNameResponse) {}
+    rpc GetPlayerWeapons (weapon.GetPlayerWeaponsRequest) returns (weapon.GetPlayerWeaponsResponse) {}
+    rpc GetPlayerWeaponEquipped (weapon.GetPlayerWeaponEquippedRequest) returns (weapon.GetPlayerWeaponEquippedResponse) {}
+    rpc EquipWeapon (weapon.EquipWeaponRequest) returns (weapon.EquipWeaponResponse) {}
+
+    // Player
+    rpc GetPlayerByID (player.GetPlayerByIDRequest) returns (player.GetPlayerByIDResponse) {}
+    rpc GetPlayerByUsername (player.GetPlayerByUsernameRequest) returns (player.GetPlayerByUsernameResponse) {}
+    rpc GetPlayerExperience (player.GetPlayerExperienceRequest) returns (player.GetPlayerExperienceResponse) {}
+    rpc GetPlayerLifePoint (player.GetPlayerLifePointRequest) returns (player.GetPlayerLifePointResponse) {}
+    rpc GetPlayerDailyReward (player.GetPlayerDailyRewardRequest) returns (player.GetPlayerDailyRewardResponse) {}
+
+    // Player - Configuration
+    rpc PlayerSetLanguage (player_configuration.PlayerSetLanguageRequest) returns (player_configuration.PlayerSetLanguageResponse) {}
+    rpc PlayerSetTimezone (player_configuration.PlayerSetTimezoneRequest) returns (player_configuration.PlayerSetTimezoneResponse) {}
+
+    // Player - Inventory
+    rpc GetPlayerResources (player_inventory.GetPlayerResourcesRequest) returns (player_inventory.GetPlayerResourcesResponse) {}
+    rpc GetPlayerItems (player_inventory.GetPlayerItemsRequest) returns (player_inventory.GetPlayerItemsResponse) {}
+    rpc GetPlayerAmulets (player_inventory.GetPlayerAmuletsRequest) returns (player_inventory.GetPlayerAmuletsResponse) {}
+    rpc GetPlayerItemByID (player_inventory.GetPlayerItemByIDRequest) returns (player_inventory.GetPlayerItemByIDResponse) {}
+    rpc GetPlayerResourceByID (player_inventory.GetPlayerResourceByIDRequest) returns (player_inventory.GetPlayerResourceByIDResponse) {}
+
+    // Player - Position
+    rpc CreatePlayerPosition (player_position.CreatePlayerPositionRequest) returns (player_position.CreatePlayerPositionResponse) {}
+    rpc GetPlayerCurrentPlanet (player_position.GetPlayerCurrentPlanetRequest) returns (player_position.GetPlayerCurrentPlanetResponse) {}
+    rpc CountPlanetVisited (player_position.CountPlanetVisitedRequest) returns (player_position.CountPlanetVisitedResponse) {}
+    rpc CountSystemVisited (player_position.CountSystemVisitedRequest) returns (player_position.CountSystemVisitedResponse) {}
+    rpc CountPlayerVisitedCurrentPlanet (player_position.CountPlayerVisitedCurrentPlanetRequest) returns (player_position.CountPlayerVisitedCurrentPlanetResponse) {}
+
+    // Player - Signin
+    rpc SignIn (player.SignInRequest) returns (player.SignInResponse) {}
+
+    // Player - Activity
+    rpc GetPlayerStateByID (player_activity.GetPlayerActivityByIDRequest) returns (player_activity.GetPlayerActivityByIDResponse) {}
+    rpc GetActivePlayerActivities (player_activity.GetActivePlayerActivitiesRequest) returns (player_activity.GetActivePlayerActivitiesResponse) {}
+    rpc CreatePlayerActivity (player_activity.CreatePlayerActivityRequest) returns (player_activity.CreatePlayerActivityResponse) {}
+    rpc UpdatePlayerActivity (player_activity.UpdatePlayerActivityRequest) returns (player_activity.UpdatePlayerActivityResponse) {}
+    rpc DeletePlayerActivity (player_activity.DeletePlayerActivityRequest) returns (player_activity.DeletePlayerActivityResponse) {}
+    rpc DeletePlayerActivityByController (player_activity.DeletePlayerActivityByControllerRequest) returns (player_activity.DeletePlayerActivityByControllerResponse) {}
+
+    // Player - Activity - Notify
+    rpc GetPlayerActivityToNotify (player_activity.GetPlayerActivityToNotifyRequest) returns (player_activity.GetPlayerActivityToNotifyResponse) {}
+    rpc SetPlayerActivityNotified (player_activity.SetPlayerActivityNotifiedRequest) returns (player_activity.SetPlayerActivityNotifiedResponse) {}
+
+    // Enemy
+    rpc GetEnemyByID (enemy.GetEnemyByIDRequest) returns (enemy.GetEnemyByIDResponse) {}
+    rpc HitEnemy (enemy.HitEnemyRequest) returns (enemy.HitEnemyResponse) {}
+
+    // Titan
+    rpc GetTitanByID (titan.GetTitanByIDRequest) returns (titan.GetTitanByIDResponse) {}
+    rpc GetTitanByName (titan.GetTitanByNameRequest) returns (titan.GetTitanByNameResponse) {}
+    rpc GetTitanByPlanetID (titan.GetTitanByPlanetIDRequest) returns (titan.GetTitanByPlanetIDResponse) {}
+    rpc GetTitanByPlanetSystemID (titan.GetTitanByPlanetSystemIDRequest) returns (titan.GetTitanByPlanetSystemIDResponse) {}
+    rpc HitTitan (titan.HitTitanRequest) returns (titan.HitTitanResponse) {}
+    rpc TitanDiscovered (titan.TitanDiscoveredRequest) returns (titan.TitanDiscoveredResponse) {}
+
+    // Titan Event
+    rpc GetTitanEventQuestions (titan_event.GetTitanEventQuestionsRequest) returns (titan_event.GetTitanEventQuestionsResponse) {}
+    rpc GetTitanEventQuestionByID (titan_event.GetTitanEventQuestionByIDRequest) returns (titan_event.GetTitanEventQuestionByIDResponse) {}
+    rpc GetTitanEventAnswerByID(titan_event.GetTitanEventAnswerByIDRequest) returns (titan_event.GetTitanEventAnswerByIDResponse) {}
+    rpc TitanEventSubmitAnswer(titan_event.TitanEventSubmitAnswerRequest) returns (titan_event.TitanEventSubmitAnswerResponse) {}
+
+    // Language
+    rpc GetLanguageBySlug (language.GetLanguageBySlugRequest) returns (language.GetLanguageBySlugResponse) {}
+    rpc GetLanguageByName (language.GetLanguageByNameRequest) returns (language.GetLanguageByNameResponse) {}
+    rpc GetAllLanguages (language.GetAllLanguagesRequest) returns (language.GetAllLanguagesResponse) {}
+
+    // Timezone
+    rpc GetTimezoneByDescription (timezone.GetTimezoneByDescriptionRequest) returns (timezone.GetTimezoneByDescriptionResponse) {}
+    rpc GetTimezoneByName (timezone.GetTimezoneByNameRequest) returns (timezone.GetTimezoneByNameResponse) {}
+    rpc GetAllTimezones (timezone.GetAllTimezonesRequest) returns (timezone.GetAllTimezonesResponse) {}
+
+    // NPC
+    rpc GetAllNPC (npc.GetAllNPCRequest) returns (npc.GetAllNPCResponse) {}
+
+    // NPC - Banck
+    rpc BankDeposit (npc.BankDepositRequest) returns (npc.BankDepositResponse) {}
+    rpc BankWithdraw (npc.BankWithdrawRequest) returns (npc.BankWithdrawResponse) {}
+
+    // Planet
+    rpc GetPlanetByID (planet.GetPlanetByIDRequest) returns (planet.GetPlanetByIDResponse) {}
+    rpc GetPlanetByName (planet.GetPlanetByNameRequest) returns (planet.GetPlanetByNameResponse) {}
+    rpc GetPlanetByCoordinate (planet.GetPlanetByCoordinateRequest) returns (planet.GetPlanetByCoordinateResponse) {}
+    rpc GetPlanetByMapID (planet.GetPlanetByMapIDRequest) returns (planet.GetPlanetByMapIDResponse) {}
+    rpc GetExpansionInfo (planet.GetExpansionInfoRequest) returns (planet.GetExpansionInfoResponse) {}
+    rpc GetSafePlanets (planet.GetSafePlanetsRequest) returns (planet.GetSafePlanetsResponse) {}
+
+    // Planet Bookmark
+    rpc AddPlanetBookmark (planet_bookmark.AddPlanetBookmarkRequest) returns (planet_bookmark.AddPlanetBookmarkResponse) {}
+    rpc RemovePlanetBookmark (planet_bookmark.RemovePlanetBookmarkRequest) returns (planet_bookmark.RemovePlanetBookmarkResponse) {}
+    rpc CheckIfPlayerHavePlanetBookmark (planet_bookmark.CheckIfPlayerHavePlanetBookmarkRequest) returns (planet_bookmark.CheckIfPlayerHavePlanetBookmarkResponse) {}
+
+    // PlanetMap
+    rpc GetPlanetMapByID (planet_map.GetPlanetMapByIDRequest) returns (planet_map.GetPlanetMapByIDResponse) {}
+
+    // Resource
+    rpc GetResourceByID (resource.GetResourceByIDRequest) returns (resource.GetResourceByIDResponse) {}
+    rpc GetResourceByName (resource.GetResourceByNameRequest) returns (resource.GetResourceByNameResponse) {}
+
+    // Item
+    rpc GetAllItems (item.GetAllItemsRequest) returns (item.GetAllItemsResponse) {}
+    rpc GetShoppableItems (item.GetShoppableItemsRequest) returns (item.GetShoppableItemsResponse) {}
+    rpc GetItemsByCategoryID (item.GetItemsByCategoryIDRequest) returns (item.GetItemsByCategoryIDResponse) {}
+    rpc GetCraftableItemsByCategoryID (item.GetCraftableItemsByCategoryIDRequest) returns (item.GetCraftableItemsByCategoryIDResponse) {}
+    rpc UseItem (item.UseItemRequest) returns (item.UseItemResponse) {}
+    rpc BuyItem (item.BuyItemRequest) returns (item.BuyItemResponse) {}
+    rpc GetItemByID (item.GetItemByIDRequest) returns (item.GetItemByIDResponse) {}
+
+    // ItemCateogory
+    rpc GetAllItemCategories (item_category.GetAllItemCategoriesRequest) returns (item_category.GetAllItemCategoriesResponse) {}
+
+    // Ship
+    rpc GetShipByID (ship.GetShipByIDRequest) returns (ship.GetShipByIDResponse) {}
+    rpc GetPlayerShips (ship.GetPlayerShipsRequest) returns (ship.GetPlayerShipsResponse) {}
+    rpc GetPlayerShipEquipped (ship.GetPlayerShipEquippedRequest) returns (ship.GetPlayerShipEquippedResponse) {}
+    rpc EquipShip (ship.EquipShipRequest) returns (ship.EquipShipResponse) {}
+
+    // Ship - Categoru
+    rpc GetAllShipCategories (ship_category.GetAllShipCategoriesRequest) returns (ship_category.GetAllShipCategoriesResponse) {}
+    rpc GetShipCategoryByID (ship_category.GetShipCategoryByIDRequest) returns (ship_category.GetShipCategoryByIDResponse) {}
+
+    // Ship - Laboratory
+    rpc LaboratoryStartCrafting(ship_laboratory.LaboratoryStartCraftingRequest) returns (ship_laboratory.LaboratoryStartCraftingResponse) {}
+    rpc LaboratoryCheckHaveResourceForCrafting(ship_laboratory.LaboratoryCheckHaveResourceForCraftingRequest) returns (ship_laboratory.LaboratoryCheckHaveResourceForCraftingResponse) {}
+    rpc LaboratoryCheckCrafting(ship_laboratory.LaboratoryCheckCraftingRequest) returns (ship_laboratory.LaboratoryCheckCraftingResponse) {}
+    rpc LaboratoryEndCrafting(ship_laboratory.LaboratoryEndCraftingRequest) returns (ship_laboratory.LaboratoryEndCraftingResponse) {}
+
+    // Ship - Rests
+    rpc GetRestsInfo (ship_rest.GetRestsInfoRequest) returns (ship_rest.GetRestsInfoResponse) {}
+    rpc StartPlayerRest (ship_rest.StartPlayerRestRequest) returns (ship_rest.StartPlayerRestResponse) {}
+    rpc EndPlayerRest (ship_rest.EndPlayerRestRequest) returns (ship_rest.EndPlayerRestResponse) {}
+
+    // Ship - Travel
+    rpc ShipTravelRadarInfo (ship_travel.ShipTravelInfoRequest) returns (ship_travel.ShipTravelInfoResponse) {}
+    rpc ShipTravelFavoriteInfo (ship_travel.ShipTravelInfoRequest) returns (ship_travel.ShipTravelInfoResponse) {}
+    rpc StartShipTravel (ship_travel.StartShipTravelRequest) returns (ship_travel.StartShipTravelResponse) {}
+    rpc CheckShipTravel (ship_travel.CheckShipTravelRequest) returns (ship_travel.CheckShipTravelResponse) {}
+    rpc EndShipTravel (ship_travel.EndShipTravelRequest) returns (ship_travel.EndShipTravelResponse) {}
+    rpc EndShipTravelDiamond (ship_travel.EndShipTravelRequest) returns (ship_travel.EndShipTravelResponse) {}
+
+    // Transaction
+    rpc GetPlayerEconomy (player_economy.GetPlayerEconomyRequest) returns (player_economy.GetPlayerEconomyResponse) {}
+
+    // Tresure
+    rpc DropTresure (tresure.DropTresureRequest) returns (tresure.DropTresureResponse) {}
+
+    // Mission
+    rpc GetMission (mission.GetMissionRequest) returns (mission.GetMissionResponse) {}
+    rpc CheckMission (mission.CheckMissionRequest) returns (mission.CheckMissionResponse) {}
+    rpc GetMissionReward (mission.GetMissionRewardRequest) returns (mission.GetMissionRewardResponse) {}
+
+    // Expansion
+    rpc GetTeletrasportSafePlanetList (expansion.GetTeletrasportSafePlanetListRequest) returns (expansion.GetTeletrasportSafePlanetListResponse) {}
+    rpc EndTeletrasportSafePlanet (expansion.EndTeletrasportSafePlanetRequest) returns (expansion.EndTeletrasportSafePlanetResponse) {}
+
+    // Research
+    rpc GetRecapActiveResearch (safeplanet_research.GetRecapActiveResearchRequest) returns (safeplanet_research.GetRecapActiveResearchResponse) {}
+    rpc ResearchDonation (safeplanet_research.ResearchDonationRequest) returns (safeplanet_research.ResearchDonationResponse) {}
+
+    // Exploration
+    rpc ExplorationStart (exploration.ExplorationStartRequest) returns (exploration.ExplorationStartResponse) {}
+    rpc ExplorationContinue (exploration.ExplorationContinueRequest) returns (exploration.ExplorationContinueResponse) {}
+    rpc ExplorationEnd (exploration.ExplorationEndRequest) returns (exploration.ExplorationEndResponse) {}
+    rpc ExplorationCheck (exploration.ExplorationCheckRequest) returns (exploration.ExplorationCheckResponse) {}
+    rpc ExplorationDropResources (exploration.ExplorationDropResourcesRequest) returns (exploration.ExplorationDropResourcesResponse) {}
+
+    // Exploration Category
+    rpc GetAllExplorationCategories (exploration_category.GetAllExplorationCategoriesRequest) returns (exploration_category.GetAllExplorationCategoriesResponse) {}
+
+    // Conquerors
+    rpc GetConquerorsByPlanetID (conqueror.GetConquerorsByPlanetIDRequest) returns (conqueror.GetConquerorsByPlanetIDResponse) {}
+    rpc GetCurrentConquerorByPlanetID (conqueror.GetCurrentConquerorByPlanetIDRequest) returns (conqueror.GetCurrentConquerorByPlanetIDResponse) {}
+
+    // Safeplanet - Crafter
+    rpc CrafterStart (safeplanet_crafter.CrafterStartRequest) returns (safeplanet_crafter.CrafterStartResponse) {}
+    rpc CrafterEnd (safeplanet_crafter.CrafterEndRequest) returns (safeplanet_crafter.CrafterEndResponse) {}
+    rpc CrafterCheck (safeplanet_crafter.CrafterCheckRequest) returns (safeplanet_crafter.CrafterCheckResponse) {}
+    rpc CrafterGetRepairWeaponInfo (safeplanet_crafter.CrafterGetRepairWeaponInfoRequest) returns (safeplanet_crafter.CrafterGetRepairWeaponInfoResponse) {}
+    rpc CrafterRepairWeapon (safeplanet_crafter.CrafterRepairWeaponRequest) returns (safeplanet_crafter.CrafterRepairWeaponResponse) {}
+
+    // Ability
+    rpc GetAbilityForPlayerByCategory (ability.GetAbilityForPlayerByCategoryRequest) returns (ability.GetAbilityForPlayerByCategoryResponse) {}
+    rpc LearnAbility (ability.LearnAbilityRequest) returns (ability.LearnAbilityResponse) {}
+    rpc CheckIfPlayerHaveAbility (ability.CheckIfPlayerHaveAbilityRequest) returns (ability.CheckIfPlayerHaveAbilityResponse) {}
+
+    // AbilityCategory
+    rpc GetAllAbilityCategory (ability_category.GetAllAbilityCategoryRequest) returns (ability_category.GetAllAbilityCategoryResponse) {}
+    rpc GetAbilityCategoryBySlug (ability_category.GetAbilityCategoryBySlugRequest) returns (ability_category.GetAbilityCategoryBySlugResponse) {}
+
+    // Guild
+    rpc CheckGuildName (guild.CheckGuildNameRequest) returns (guild.CheckGuildNameResponse) {}
+    rpc CreateGuild (guild.CreateGuildRequest) returns (guild.CreateGuildResponse) {}
+    rpc JoinGuild (guild.JoinGuildRequest) returns (guild.JoinGuildResponse) {}
+    rpc GetJoinGuildsList (guild.GetJoinGuildsListRequest) returns (guild.GetJoinGuildsListResponse) {}
+    rpc GetPlayerGuild (guild.GetPlayerGuildRequest) returns (guild.GetPlayerGuildResponse) {}
+    rpc LeaveGuild (guild.LeaveGuildRequest) returns (guild.LeaveGuildResponse) {}
+    rpc GetPlayersGuild (guild.GetPlayersGuildRequest) returns (guild.GetPlayersGuildResponse) {}
+    rpc AddPlayerToGuild (guild.AddPlayerToGuildRequest) returns (guild.AddPlayerToGuildResponse) {}
+    rpc RemovePlayerToGuild (guild.RemovePlayerToGuildRequest) returns (guild.RemovePlayerToGuildResponse) {}
+
+    // Guild - Points
+    rpc GetGuildPoints (guild_point.GetGuildPointsRequest) returns (guild_point.GetGuildPointsResponse) {}
+    rpc GetPlayerGuildPoints (guild_point.GetPlayerGuildPointsRequest) returns (guild_point.GetPlayerGuildPointsResponse) {}
+
+    // Hangar - Repair
+    rpc GetShipRepairInfo (safeplanet_hangar_repair.GetShipRepairInfoRequest) returns (safeplanet_hangar_repair.GetShipRepairInfoResponse) {}
+    rpc StartShipRepair (safeplanet_hangar_repair.StartShipRepairRequest) returns (safeplanet_hangar_repair.StartShipRepairResponse) {}
+    rpc EndShipRepair (safeplanet_hangar_repair.EndShipRepairRequest) returns (safeplanet_hangar_repair.EndShipRepairResponse) {}
+    rpc CheckShipRepair (safeplanet_hangar_repair.CheckShipRepairRequest) returns (safeplanet_hangar_repair.CheckShipRepairResponse) {}
+
+    // Hangar - Create
+    rpc GetCreateShipInfo (safeplanet_hangar_create.GetCreateShipInfoRequest) returns (safeplanet_hangar_create.GetCreateShipInfoResponse) {}
+    rpc StartCreateShip (safeplanet_hangar_create.StartCreateShipRequest) returns (safeplanet_hangar_create.StartCreateShipResponse) {}
+    rpc CheckCreateShip (safeplanet_hangar_create.CheckCreateShipRequest) returns (safeplanet_hangar_create.CheckCreateShipResponse) {}
+    rpc EndCreateShip (safeplanet_hangar_create.EndCreateShipRequest) returns (safeplanet_hangar_create.EndCreateShipResponse) {}
+    rpc EndCreateShipDiamond (safeplanet_hangar_create.EndCreateShipRequest) returns (safeplanet_hangar_create.EndCreateShipResponse) {}
+
+    // Achievement
+    rpc GetAllAchievement (achievement.GetAllAchievementRequest) returns (achievement.GetAllAchievementResponse) {}
+    rpc GetAchievementsByCategoryID (achievement.GetAchievementsByCategoryIDRequest) returns (achievement.GetAchievementsByCategoryIDResponse) {}
+    rpc GetAchievementForPlayerByCategory (achievement.GetAchievementForPlayerByCategoryRequest) returns (achievement.GetAchievementForPlayerByCategoryResponse) {}
+    rpc CheckIfPlayerHaveAchievement (achievement.CheckIfPlayerHaveAchievementRequest) returns (achievement.CheckIfPlayerHaveAchievementResponse) {}
+
+    // Achievement - Category
+    rpc GetAllAchievementCategory (achievement_category.GetAllAchievementCategoryRequest) returns (achievement_category.GetAllAchievementCategoryResponse) {}
+    rpc GetAchievementCategoryByID (achievement_category.GetAchievementCategoryByIDRequest) returns (achievement_category.GetAchievementCategoryByIDResponse) {}
+    rpc GetAchievementCategoryBySlug (achievement_category.GetAchievementCategoryBySlugRequest) returns (achievement_category.GetAchievementCategoryBySlugResponse) {}
+
+    // Achievement - Player
+    rpc GetPlayerAchievementToNotify (player_achievement.GetPlayerAchievementToNotifyRequest) returns (player_achievement.GetPlayerAchievementToNotifyResponse) {}
+    rpc SetPlayerAchievementNotified (player_achievement.SetPlayerAchievementNotifiedRequest) returns (player_achievement.SetPlayerAchievementNotifiedResponse) {}
+}

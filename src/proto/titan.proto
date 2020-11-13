@@ -1,13 +1,17 @@
 syntax = "proto3";
-option go_package = "proto";
+option go_package = ".;pb";
 package titan;
 
 message Titan {
     uint32 ID = 1;
-    string Name = 2;
-    uint32 PlanetID = 3;
-    uint32 LifeMax = 8;
-    int32 LifePoint = 9;
+    string Name = 2; // Dynamic
+    uint32 PlanetSystemID = 3;
+    uint32 PlanetID = 4;
+    int64 LifePoint = 5; // Dynamic
+    int64 LifeMax = 6;
+    bool Died = 7;
+    bool Dropped = 8;
+    int32 RespawnCounter = 9;
 }
 
 // GetTitanByID
@@ -26,6 +30,14 @@ message GetTitanByPlanetIDResponse {
     Titan Titan = 1;
 }
 
+// GetTitanByPlanetSystemID
+message GetTitanByPlanetSystemIDRequest {
+    uint32 PlanetSystemID = 1;
+}
+message GetTitanByPlanetSystemIDResponse {
+    Titan Titan = 1;
+}
+
 // GetTitanByName
 message GetTitanByNameRequest {
     string Name = 1;
@@ -39,14 +51,15 @@ message HitTitanRequest {
     uint32 TitanID = 1;
     uint32 PlayerID = 2;
     int32 BodySelection = 3;
+    uint32 AbilityID = 4;
 }
 message HitTitanResponse {
     bool PlayerDie = 1;
     bool TitanDie = 2;
     bool DodgeAttack = 3;
     int32 PlayerDamage = 4;
-    int32 PlayerExperience = 5;
     int32 TitanDamage = 6;
+    uint32 TitanEventID = 7;
 }
 
 //TitanDiscovered

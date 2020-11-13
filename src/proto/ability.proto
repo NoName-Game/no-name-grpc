@@ -1,0 +1,43 @@
+syntax = "proto3";
+import "proto/ability_category.proto";
+option go_package = ".;pb";
+package ability;
+
+message Ability {
+    uint32 ID = 1;
+    string Name = 2;
+    string Slug = 3;
+    uint32 Level = 4;
+    uint32 AbilityCategoryID = 5;
+    ability_category.AbilityCategory AbilityCategory = 6;
+    int32 AbilityType = 7;
+    uint32 Amulets = 8;
+}
+
+// GetAbilityForPlayerByCategory
+message GetAbilityForPlayerByCategoryRequest {
+    uint32 PlayerID = 1;
+    uint32 AbilityCategoryID = 2;
+}
+message GetAbilityForPlayerByCategoryResponse {
+    Ability Ability = 1;
+}
+
+// CheckIfPlayerHaveAbility
+message CheckIfPlayerHaveAbilityRequest {
+    uint32 PlayerID = 1;
+    uint32 AbilityID = 2;
+}
+message CheckIfPlayerHaveAbilityResponse {
+    bool haveAbility = 1;
+    Ability Ability = 2;
+}
+
+// LearnAbility
+message LearnAbilityRequest {
+    uint32 PlayerID = 1;
+    uint32 AbilityCategoryID = 2;
+}
+message LearnAbilityResponse {
+    // Empty
+}

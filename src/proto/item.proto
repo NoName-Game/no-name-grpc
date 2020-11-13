@@ -1,23 +1,23 @@
 syntax = "proto3";
 import "proto/item_category.proto";
 import "proto/rarity.proto";
-import "proto/recipe.proto";
-option go_package = "proto";
+import "proto/item_recipe.proto";
+option go_package = ".;pb";
 package item;
 
 message Item {
     uint32 ID = 1;
     string Name = 2;
     string Slug = 3;
-    uint32 RecipeID = 4;
-    recipe.Recipe Recipe = 5;
-    uint32 RarityID = 6;
-    rarity.Rarity Rarity = 7;
-    uint32 ItemCategoryID = 8;
-    item_category.ItemCategory ItemCategory = 9;
-    int32 Value = 10;
-    uint32 MinIntellectLvl = 11;
-    uint32 Price = 12;
+    bool Craftable = 4;
+    uint32 ItemRecipeID = 5;
+    item_recipe.ItemRecipe ItemRecipe = 6;
+    uint32 RarityID = 7;
+    rarity.Rarity Rarity = 8;
+    uint32 ItemCategoryID = 9;
+    item_category.ItemCategory ItemCategory = 10;
+    int32 Value = 11;
+    int32 Price = 13;
 }
 
 // GetAllItems
@@ -28,11 +28,35 @@ message GetAllItemsResponse {
     repeated Item Items = 1;
 }
 
-// GetItemByCategoryID
+// GetShoppableItems
+message GetShoppableItemsRequest {
+    // Empty
+}
+message GetShoppableItemsResponse {
+    repeated Item Items = 1;
+}
+
+// GetItemByID
+message GetItemByIDRequest {
+    uint32 ItemID = 1;
+}
+message GetItemByIDResponse {
+    Item Item = 1;
+}
+
+// GetItemsByCategoryID
 message GetItemsByCategoryIDRequest {
     uint32 categoryID = 1;
 }
 message GetItemsByCategoryIDResponse {
+    repeated Item Items = 1;
+}
+
+// GetCraftableItemsByCategoryID
+message GetCraftableItemsByCategoryIDRequest {
+    uint32 categoryID = 1;
+}
+message GetCraftableItemsByCategoryIDResponse {
     repeated Item Items = 1;
 }
 
@@ -42,5 +66,15 @@ message UseItemRequest {
     uint32 ItemID = 2;
 }
 message UseItemResponse {
+    // Empty
+}
+
+// BuyItem
+message BuyItemRequest {
+    uint32 PlayerID = 1;
+    uint32 ItemID = 2;
+    int32 Quantity = 3;
+}
+message BuyItemResponse {
     // Empty
 }

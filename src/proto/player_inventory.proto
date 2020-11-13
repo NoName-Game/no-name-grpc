@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "proto";
+option go_package = ".;pb";
 import "proto/item.proto";
 import "proto/resource.proto";
 package player_inventory;
@@ -8,8 +8,50 @@ message PlayerInventory {
     uint32 ID = 1;
     uint32 PlayerID = 2;
     int32 Quantity = 3;
-    uint32 ItemID = 4;
-    string ItemType = 5;
+    uint32 EntityID = 4;
+    uint32 TransactionTypeID = 5;
     resource.Resource Resource = 6;
     item.Item Item = 7;
+}
+
+// GetPlayerResources
+message GetPlayerResourcesRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerResourcesResponse {
+    repeated PlayerInventory PlayerInventory = 1;
+}
+
+// GetPlayerItems
+message GetPlayerItemsRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerItemsResponse {
+    repeated PlayerInventory PlayerInventory = 1;
+}
+
+// GetPlayerAmulets
+message GetPlayerAmuletsRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerAmuletsResponse {
+    PlayerInventory PlayerInventory = 1;
+}
+
+// GetPlayerItemByID
+message GetPlayerItemByIDRequest {
+    uint32 PlayerID = 1;
+    uint32 ItemID = 2;
+}
+message GetPlayerItemByIDResponse {
+    PlayerInventory PlayerInventory = 1;
+}
+
+// GetPlayerResourceByID
+message GetPlayerResourceByIDRequest {
+    uint32 PlayerID = 1;
+    uint32 ResourceID = 2;
+}
+message GetPlayerResourceByIDResponse {
+    PlayerInventory PlayerInventory = 1;
 }

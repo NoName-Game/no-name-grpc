@@ -1,0 +1,78 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+option go_package = ".;pb";
+package player_activity;
+
+message PlayerActivity {
+    uint32 ID = 1;
+    uint32 PlayerID = 2;
+    string Controller = 3;
+    string Payload = 4;
+    bool ToNotify = 5;
+    google.protobuf.Timestamp FinishAt = 6;
+}
+
+// GetPlayerActivityByID
+message GetPlayerActivityByIDRequest {
+    uint32 ActivityID = 1;
+}
+message GetPlayerActivityByIDResponse {
+    PlayerActivity PlayerActivity = 1;
+}
+
+// GetActivePlayerActivities
+message GetActivePlayerActivitiesRequest {
+    uint32 PlayerID = 1;
+}
+message GetActivePlayerActivitiesResponse {
+    repeated PlayerActivity Activities = 1;
+}
+
+// GetPlayerActivityToNotify
+message GetPlayerActivityToNotifyRequest {
+    // Empty
+}
+message GetPlayerActivityToNotifyResponse {
+    repeated PlayerActivity PlayerActivities = 1;
+}
+
+// SetPlayerActivityNotified
+message SetPlayerActivityNotifiedRequest {
+    uint32 ActivityID = 1;
+}
+message SetPlayerActivityNotifiedResponse {
+    // Empty
+}
+
+// CreatePlayerActivity
+message CreatePlayerActivityRequest {
+    PlayerActivity PlayerActivity = 1;
+}
+message CreatePlayerActivityResponse {
+    PlayerActivity PlayerActivity = 1;
+}
+
+// UpdatePlayerActivity
+message UpdatePlayerActivityRequest {
+    PlayerActivity PlayerActivity = 1;
+}
+message UpdatePlayerActivityResponse {
+    PlayerActivity PlayerActivity = 1;
+}
+
+// DeletePlayerActivity
+message DeletePlayerActivityRequest {
+    uint32 PlayerActivityID = 1;
+}
+message DeletePlayerActivityResponse {
+    // Empty
+}
+
+// DeletePlayerActivityByController
+message DeletePlayerActivityByControllerRequest {
+    uint32 PlayerID = 1;
+    string Controller = 2;
+}
+message DeletePlayerActivityByControllerResponse {
+    // Empty
+}

@@ -1,9 +1,25 @@
 syntax = "proto3";
-option go_package = "proto";
+option go_package = ".;pb";
 package ship_category;
 
 message ShipCategory {
     uint32 ID = 1;
     string Name = 2;
     string Slug = 3;
+}
+
+// GetAllShipCategories
+message GetAllShipCategoriesRequest {
+    // Empty
+}
+message GetAllShipCategoriesResponse {
+    repeated ShipCategory ShipCategories = 1;
+}
+
+// GetShipCategoryByID
+message GetShipCategoryByIDRequest {
+    uint32 ShipCategoryID = 1;
+}
+message GetShipCategoryByIDResponse {
+    ShipCategory ShipCategory = 1;
 }

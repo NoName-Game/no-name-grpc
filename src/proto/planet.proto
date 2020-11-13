@@ -1,9 +1,9 @@
 syntax = "proto3";
-import "proto/biome.proto";
-import "proto/atmosphere.proto";
-import "proto/maps.proto";
+import "proto/planet_biome.proto";
+import "proto/planet_map.proto";
 import "proto/planet_system.proto";
-option go_package = "proto";
+import "proto/resource.proto";
+option go_package = ".;pb";
 package planet;
 
 message Planet {
@@ -14,17 +14,14 @@ message Planet {
     double Z = 5;
     string HashPosition = 6;
     uint32 PlayerID = 7;
-    uint32 BiomeID = 8;
-    biome.Biome Biome = 9;
-    uint32 AtmosphereID = 10;
-    atmosphere.Atmosphere Atmosphere = 11;
-    uint32 MapID = 12;
-    maps.Maps Maps = 13;
-    string Resources = 14;
+    uint32 PlanetBiomeID = 8;
+    planet_biome.PlanetBiome PlanetBiome = 9;
+    uint32 PlanetMapID = 12;
+    planet_map.PlanetMap PlanetMap = 13;
+    repeated resource.Resource Resources = 14;
     bool Safe = 15;
-    bool Titan = 16;
-    uint32 PlanetSystemID = 17;
-    planet_system.PlanetSystem PlanetSystem = 18;
+    uint32 PlanetSystemID = 16;
+    planet_system.PlanetSystem PlanetSystem = 17;
 }
 
 // GetPlanetByCoordinate

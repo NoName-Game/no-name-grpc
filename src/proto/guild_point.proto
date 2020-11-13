@@ -1,0 +1,20 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package guild_point;
+
+// GetGuildPoints
+message GetGuildPointsRequest {
+    uint32 GuildID = 1;
+}
+message GetGuildPointsResponse {
+    int32 Result = 1;
+}
+
+// GetPlayerGuildPoints
+message GetPlayerGuildPointsRequest {
+    uint32 GuildID = 1;
+    uint32 PlayerID = 2;
+}
+message GetPlayerGuildPointsResponse {
+    int32 Result = 1;
+}

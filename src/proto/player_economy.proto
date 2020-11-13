@@ -1,0 +1,29 @@
+syntax = "proto3";
+option go_package = ".;pb";
+import "proto/transaction_type.proto";
+import "proto/transaction_category.proto";
+package player_economy;
+
+message PlayerEconomy {
+    uint32 ID = 1;
+    int32 Value = 2;
+    uint32 TransactionTypeID = 3;
+    transaction_type.TransactionType TransactionType = 4;
+    uint32 TransactionCategoryID = 5;
+    transaction_category.TransactionCategory TransactionCategory = 6;
+    uint32 PlayerID = 7;
+}
+
+// GetPlayerEconomy
+message GetPlayerEconomyRequest {
+    enum EconomyTypeEnum {
+        MONEY = 0;
+        DIAMOND = 1;
+        BANK = 2;
+    }
+    uint32 PlayerID = 1;
+    EconomyTypeEnum EconomyType = 2;
+}
+message GetPlayerEconomyResponse {
+    int32 Value = 1;
+}

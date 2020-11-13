@@ -1,0 +1,53 @@
+syntax = "proto3";
+import "proto/achievement_category.proto";
+option go_package = ".;pb";
+package achievement;
+
+message Achievement {
+    uint32 ID = 1;
+    string Name = 2;
+    string Slug = 3;
+    int64 Quantity = 4;
+    int32 GoldReward = 5;
+    int32 DiamondReward = 6;
+    int32 ExperienceReward = 7;
+    uint32 AchievementCategoryID = 8;
+    achievement_category.AchievementCategory AchievementCategory = 9;
+}
+
+// GetAllAchievement
+message GetAllAchievementRequest {
+    // Empty
+}
+message GetAllAchievementResponse {
+    repeated Achievement Achievements = 1;
+}
+
+// GetAchievementsByCategoryID
+message GetAchievementsByCategoryIDRequest {
+    uint32 CategoryID = 1;
+}
+message GetAchievementsByCategoryIDResponse {
+    repeated Achievement Achievements = 1;
+}
+
+// GetAchievementForPlayerByCategory
+message GetAchievementForPlayerByCategoryRequest {
+    uint32 PlayerID = 1;
+    uint32 AchievementCategoryID = 2;
+}
+message GetAchievementForPlayerByCategoryResponse {
+    Achievement Achievement = 1;
+}
+
+// CheckIfPlayerHaveAchievement
+message CheckIfPlayerHaveAchievementRequest {
+    uint32 PlayerID = 1;
+    uint32 AchievementID = 2;
+}
+message CheckIfPlayerHaveAchievementResponse {
+    bool haveAchievement = 1;
+    Achievement Achievement = 2;
+}
+
+

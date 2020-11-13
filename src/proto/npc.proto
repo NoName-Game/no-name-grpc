@@ -1,7 +1,5 @@
 syntax = "proto3";
-import "proto/armor.proto";
-import "proto/weapon.proto";
-option go_package = "proto";
+option go_package = ".;pb";
 package npc;
 
 message NPC {
@@ -37,23 +35,4 @@ message BankWithdrawRequest {
 }
 message BankWithdrawResponse {
     int32 Value = 1;
-}
-
-// Craft Armor
-message CraftArmorRequest {
-    string Category = 1;
-    string Items = 2;
-    uint32 PlayerID = 3;
-}
-message CraftArmorResponse {
-    armor.Armor Armor = 1;
-}
-
-// Craft Weapon
-message CraftWeaponRequest {
-    string Items = 1;
-    uint32 PlayerID = 2;
-}
-message CraftWeaponResponse {
-    weapon.Weapon Weapon = 1;
 }

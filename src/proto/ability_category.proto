@@ -1,0 +1,25 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package ability_category;
+
+message AbilityCategory {
+    uint32 ID = 1;
+    string Name = 2;
+    string Slug = 3;
+}
+
+// GetAllAbilityCategory
+message GetAllAbilityCategoryRequest {
+    // Empty
+}
+message GetAllAbilityCategoryResponse {
+    repeated AbilityCategory AbilityCategories = 1;
+}
+
+// GetAbilityCategoryBySlug
+message GetAbilityCategoryBySlugRequest {
+    string Slug = 1;
+}
+message GetAbilityCategoryBySlugResponse {
+    AbilityCategory AbilityCategory = 1;
+}

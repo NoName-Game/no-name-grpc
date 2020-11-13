@@ -1,0 +1,22 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package player_configuration;
+
+
+// PlayerSetLanguage
+message PlayerSetLanguageRequest {
+    uint32 PlayerID = 1;
+    uint32 LanguageID = 2;
+}
+message PlayerSetLanguageResponse {
+    // Empty
+}
+
+// PlayerSetTimezone
+message PlayerSetTimezoneRequest {
+    uint32 PlayerID = 1;
+    uint32 TimezoneID = 2;
+}
+message PlayerSetTimezoneResponse {
+    // Empty
+}
