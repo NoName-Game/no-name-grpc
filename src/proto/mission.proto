@@ -25,6 +25,7 @@ message CheckMissionRequest {
 message CheckMissionResponse {
     bool InMission = 1;
     bool Completed = 2;
+    Mission Mission = 3;
 }
 
 // GetMissionReward
