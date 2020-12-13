@@ -15,6 +15,7 @@ message ShipTravelInfoResponse {
         int32 Time = 3;
         double Fuel = 4;
         uint32 Integrity = 5;
+        bool AlreadyVisited = 6;
     }
     repeated ShipTravelInfo Info = 1;
 }
