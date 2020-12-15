@@ -2,6 +2,7 @@ syntax = "proto3";
 import "proto/language.proto";
 import "proto/level.proto";
 import "proto/timezone.proto";
+import "proto/item.proto";
 option go_package = ".;pb";
 package player;
 
@@ -70,4 +71,5 @@ message GetPlayerDailyRewardResponse {
     int32 Experience = 1;
     int32 Money = 2;
     int32 Diamond = 3;
+    item.Item Item = 4;
 }
