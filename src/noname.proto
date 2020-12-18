@@ -215,6 +215,7 @@ service NoName {
     rpc CheckShipTravel (ship_travel.CheckShipTravelRequest) returns (ship_travel.CheckShipTravelResponse) {}
     rpc EndShipTravel (ship_travel.EndShipTravelRequest) returns (ship_travel.EndShipTravelResponse) {}
     rpc EndShipTravelDiamond (ship_travel.EndShipTravelRequest) returns (ship_travel.EndShipTravelResponse) {}
+    rpc TravelRescue (ship_travel.TravelRescueRequest) returns (ship_travel.TravelRescueResponse) {}
 
     // Transaction
     rpc GetPlayerEconomy (player_economy.GetPlayerEconomyRequest) returns (player_economy.GetPlayerEconomyResponse) {}

@@ -46,3 +46,11 @@ message EndShipTravelRequest {
 message EndShipTravelResponse {
     // Empty
 }
+
+// TravelRescue
+message TravelRescueRequest {
+    uint32 PlayerID = 1;
+}
+message TravelRescueResponse {
+    // Empty
+}
