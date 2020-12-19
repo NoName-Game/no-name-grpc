@@ -1,6 +1,7 @@
 syntax = "proto3";
 option go_package = ".;pb";
 import "google/protobuf/timestamp.proto";
+import "proto/rarity.proto";
 package safeplanet_hangar_repair;
 
 
@@ -12,7 +13,8 @@ message GetShipRepairInfoResponse {
     message ShipRepairInfo {
         int32 RepairTime = 1;
         int32 QuantityResources = 2;
-        uint32 Integrity = 3;
+        rarity.Rarity RarityResources = 3;
+        uint32 Integrity = 4;
     }
     bool NeedRepairs = 1;
     ShipRepairInfo Partial = 2;
