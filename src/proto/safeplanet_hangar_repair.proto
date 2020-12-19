@@ -27,6 +27,7 @@ message StartShipRepairRequest {
     }
     uint32 PlayerID = 1;
     RapairTypeEnum RapairType = 2;
+    uint32 ShipID = 3;
 }
 message StartShipRepairResponse {
     message RepairResources {
