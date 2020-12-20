@@ -45,6 +45,7 @@ import "proto/achievement.proto";
 import "proto/achievement_category.proto";
 import "proto/player_achievement.proto";
 import "proto/planet_bookmark.proto";
+import "proto/safeplanet_relax_threecardgame.proto";
 
 option go_package = ".;pb";
 
@@ -308,4 +309,10 @@ service NoName {
     // Achievement - Player
     rpc GetPlayerAchievementToNotify (player_achievement.GetPlayerAchievementToNotifyRequest) returns (player_achievement.GetPlayerAchievementToNotifyResponse) {}
     rpc SetPlayerAchievementNotified (player_achievement.SetPlayerAchievementNotifiedRequest) returns (player_achievement.SetPlayerAchievementNotifiedResponse) {}
+
+    // Relax - Three Card Game
+    rpc ThreeCardGamePlay (safeplanet_relax_threecardgame.ThreeCardGamePlayRequest) returns (safeplanet_relax_threecardgame.ThreeCardGamePlayResponse) {}
+    rpc ThreeCardGameCheck (safeplanet_relax_threecardgame.ThreeCardGameCheckRequest) returns (safeplanet_relax_threecardgame.ThreeCardGameCheckResponse) {}
+    rpc ThreeCardGameRecoverPlay (safeplanet_relax_threecardgame.ThreeCardGameRecoverPlayRequest) returns (safeplanet_relax_threecardgame.ThreeCardGameRecoverPlayResponse) {}
+    rpc ThreeCardGameEndGame (safeplanet_relax_threecardgame.ThreeCardGameEndGameRequest) returns (safeplanet_relax_threecardgame.ThreeCardGameEndGameResponse) {}
 }

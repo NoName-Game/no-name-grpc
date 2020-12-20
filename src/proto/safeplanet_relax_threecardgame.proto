@@ -1,0 +1,44 @@
+syntax = "proto3";
+option go_package = ".;pb";
+import "proto/resource.proto";
+package safeplanet_relax_threecardgame;
+
+
+// ThreeCardGamePlay
+message ThreeCardGamePlayRequest {
+  uint32 PlayerID = 1;
+}
+message ThreeCardGamePlayResponse {
+  // Empty
+}
+
+// ThreeCardGameCheck
+message ThreeCardGameCheckRequest {
+  uint32 PlayerID = 1;
+  int32 PlayerChoice = 2;
+}
+message ThreeCardGameCheckResponse {
+  bool InGame = 1;
+  bool Win = 2;
+  resource.Resource Resource = 3;
+  repeated resource.Resource Resources = 4;
+}
+
+// ThreeCardGameRecoverPlay
+message ThreeCardGameRecoverPlayRequest {
+  uint32 PlayerID = 1;
+}
+message ThreeCardGameRecoverPlayResponse {
+  bool InGame = 1;
+  bool Win = 2;
+  resource.Resource Resource = 3;
+  repeated resource.Resource Resources = 4;
+}
+
+// ThreeCardGameEndGame
+message ThreeCardGameEndGameRequest {
+  uint32 PlayerID = 1;
+}
+message ThreeCardGameEndGameResponse {
+  // Empty
+}
