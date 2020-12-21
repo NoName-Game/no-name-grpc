@@ -46,6 +46,7 @@ import "proto/achievement_category.proto";
 import "proto/player_achievement.proto";
 import "proto/planet_bookmark.proto";
 import "proto/safeplanet_relax_threecardgame.proto";
+import "proto/safeplanet_statistics.proto";
 
 option go_package = ".;pb";
 
@@ -315,4 +316,17 @@ service NoName {
     rpc ThreeCardGameCheck (safeplanet_relax_threecardgame.ThreeCardGameCheckRequest) returns (safeplanet_relax_threecardgame.ThreeCardGameCheckResponse) {}
     rpc ThreeCardGameRecoverPlay (safeplanet_relax_threecardgame.ThreeCardGameRecoverPlayRequest) returns (safeplanet_relax_threecardgame.ThreeCardGameRecoverPlayResponse) {}
     rpc ThreeCardGameEndGame (safeplanet_relax_threecardgame.ThreeCardGameEndGameRequest) returns (safeplanet_relax_threecardgame.ThreeCardGameEndGameResponse) {}
+
+    // Sefeplanet - Statistics
+    rpc StatisticsTopPlayerEnemyKillAll (safeplanet_statistics.StatisticsTopPlayerEnemyKillAllRequest) returns (safeplanet_statistics.StatisticsTopPlayerEnemyKillAllResponse) {}
+    rpc StatisticsTopPlayerEnemyKillYou (safeplanet_statistics.StatisticsTopPlayerEnemyKillYouRequest) returns (safeplanet_statistics.StatisticsTopPlayerEnemyKillYouResponse) {}
+
+    rpc StatisticsTopPlanetExploredAll (safeplanet_statistics.StatisticsTopPlanetExploredAllRequest) returns (safeplanet_statistics.StatisticsTopPlanetExploredAllResponse) {}
+    rpc StatisticsTopPlanetExploredYou (safeplanet_statistics.StatisticsTopPlanetExploredYouRequest) returns (safeplanet_statistics.StatisticsTopPlanetExploredYouResponse) {}
+
+    rpc StatisticsTopTravelAll (safeplanet_statistics.StatisticsTopTravelAllRequest) returns (safeplanet_statistics.StatisticsTopTravelAllResponse) {}
+    rpc StatisticsTopTravelYou (safeplanet_statistics.StatisticsTopTravelYouRequest) returns (safeplanet_statistics.StatisticsTopTravelYouResponse) {}
+
+    rpc StatisticsTopMissionAll (safeplanet_statistics.StatisticsTopMissionAllRequest) returns (safeplanet_statistics.StatisticsTopMissionAllResponse) {}
+    rpc StatisticsTopMissionYou (safeplanet_statistics.StatisticsTopMissionYouRequest) returns (safeplanet_statistics.StatisticsTopMissionYouResponse) {}
 }

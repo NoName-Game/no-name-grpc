@@ -1,0 +1,88 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package safeplanet_statistics;
+
+message BaseStatistics {
+  string Username = 1;
+  int64 Result = 2;
+}
+
+//************************
+// Enemy Kill
+//************************
+
+// StatisticsTopPlayerEnemyKillAll
+message StatisticsTopPlayerEnemyKillAllRequest {
+  // Empty
+}
+message StatisticsTopPlayerEnemyKillAllResponse {
+  repeated BaseStatistics Results = 1;
+}
+
+// StatisticsTopPlayerEnemyKill
+message StatisticsTopPlayerEnemyKillYouRequest {
+  uint32 PlayerID = 1;
+}
+message StatisticsTopPlayerEnemyKillYouResponse {
+  BaseStatistics Result = 1;
+}
+
+//************************
+// Planet Explored
+//************************
+
+// StatisticsTopPlanetExploredAll
+message StatisticsTopPlanetExploredAllRequest {
+  // Empty
+}
+message StatisticsTopPlanetExploredAllResponse {
+  repeated BaseStatistics Results = 1;
+}
+
+// StatisticsTopPlanetExplored
+message StatisticsTopPlanetExploredYouRequest {
+  uint32 PlayerID = 1;
+}
+message StatisticsTopPlanetExploredYouResponse {
+  BaseStatistics Result = 1;
+}
+
+//************************
+// Travel
+//************************
+
+// StatisticsTopTravelAll
+message StatisticsTopTravelAllRequest {
+  // Empty
+}
+message StatisticsTopTravelAllResponse {
+  repeated BaseStatistics Results = 1;
+}
+
+// StatisticsTopTravel
+message StatisticsTopTravelYouRequest {
+  uint32 PlayerID = 1;
+}
+message StatisticsTopTravelYouResponse {
+  BaseStatistics Result = 1;
+}
+
+//************************
+// Mission
+//************************
+
+// StatisticsTopMissionAll
+message StatisticsTopMissionAllRequest {
+  // Empty
+}
+message StatisticsTopMissionAllResponse {
+  repeated BaseStatistics Results = 1;
+}
+
+// StatisticsTopMission
+message StatisticsTopMissionYouRequest {
+  uint32 PlayerID = 1;
+}
+message StatisticsTopMissionYouResponse {
+  BaseStatistics Result = 1;
+}
