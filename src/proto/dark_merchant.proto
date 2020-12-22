@@ -4,16 +4,17 @@ import "proto/resource.proto";
 package dark_merchant;
 
 
-// DarkMerchantGetResources
-message DarkMerchantGetResourcesRequest {
+// GetDarkMerchant
+message GetDarkMerchantRequest {
   // Empty
 }
-message DarkMerchantGetResourcesResponse {
+message GetDarkMerchantResponse {
    message DarMerchantResources {
      resource.Resource Resource = 1;
      int64 Price = 2;
    }
-  repeated DarMerchantResources Resources = 1;
+  uint32 PlanetID = 1;
+  repeated DarMerchantResources Resources = 2;
 }
 
 // DarkMerchantBuyResource

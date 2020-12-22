@@ -332,6 +332,6 @@ service NoName {
     rpc StatisticsTopMissionYou (safeplanet_statistics.StatisticsTopMissionYouRequest) returns (safeplanet_statistics.StatisticsTopMissionYouResponse) {}
 
     // Dark Merchant
-    rpc DarkMerchantGetResources (dark_merchant.DarkMerchantGetResourcesRequest) returns (dark_merchant.DarkMerchantGetResourcesResponse) {}
+    rpc GetDarkMerchant (dark_merchant.GetDarkMerchantRequest) returns (dark_merchant.GetDarkMerchantResponse) {}
     rpc DarkMerchantBuyResource (dark_merchant.DarkMerchantBuyResourceRequest) returns (dark_merchant.DarkMerchantBuyResourceResponse) {}
 }
