@@ -47,6 +47,7 @@ import "proto/player_achievement.proto";
 import "proto/planet_bookmark.proto";
 import "proto/safeplanet_relax_threecardgame.proto";
 import "proto/safeplanet_statistics.proto";
+import "proto/dark_merchant.proto";
 
 option go_package = ".;pb";
 
@@ -329,4 +330,8 @@ service NoName {
 
     rpc StatisticsTopMissionAll (safeplanet_statistics.StatisticsTopMissionAllRequest) returns (safeplanet_statistics.StatisticsTopMissionAllResponse) {}
     rpc StatisticsTopMissionYou (safeplanet_statistics.StatisticsTopMissionYouRequest) returns (safeplanet_statistics.StatisticsTopMissionYouResponse) {}
+
+    // Dark Merchant
+    rpc DarkMerchantGetResources (dark_merchant.DarkMerchantGetResourcesRequest) returns (dark_merchant.DarkMerchantGetResourcesResponse) {}
+    rpc DarkMerchantBuyResource (dark_merchant.DarkMerchantBuyResourceRequest) returns (dark_merchant.DarkMerchantBuyResourceResponse) {}
 }

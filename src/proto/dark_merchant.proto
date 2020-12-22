@@ -1,0 +1,28 @@
+syntax = "proto3";
+option go_package = ".;pb";
+import "proto/resource.proto";
+package dark_merchant;
+
+
+// DarkMerchantGetResources
+message DarkMerchantGetResourcesRequest {
+  // Empty
+}
+message DarkMerchantGetResourcesResponse {
+   message DarMerchantResources {
+     resource.Resource Resource = 1;
+     int64 Price = 2;
+   }
+  repeated DarMerchantResources Resources = 1;
+}
+
+// DarkMerchantBuyResource
+message DarkMerchantBuyResourceRequest {
+  uint32 PlayerID = 1;
+  uint32 ResourceID = 2;
+  int64 Price = 3;
+  int64 Quantity = 4;
+}
+message DarkMerchantBuyResourceResponse {
+  // Empty
+}
