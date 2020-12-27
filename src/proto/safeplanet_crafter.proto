@@ -2,6 +2,7 @@ syntax = "proto3";
 import "google/protobuf/timestamp.proto";
 import "proto/armor.proto";
 import "proto/weapon.proto";
+import "proto/resource.proto";
 option go_package = ".;pb";
 package safeplanet_crafter;
 
@@ -51,4 +52,18 @@ message CrafterRepairWeaponRequest {
 }
 message CrafterRepairWeaponResponse {
     // Empty
+}
+
+// CrafterDecompose
+message CrafterDecomposeRequest {
+    enum EquipTypeEnum {
+        WEAPON = 0;
+        ARMOR = 1;
+    }
+    uint32 PlayerID = 1;
+    EquipTypeEnum EquipType = 2;
+    uint32 EquipID = 3;
+}
+message CrafterDecomposeResponse {
+    repeated resource.Resource Resources = 1;
 }

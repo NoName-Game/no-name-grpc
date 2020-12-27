@@ -257,8 +257,13 @@ service NoName {
     rpc CrafterStart (safeplanet_crafter.CrafterStartRequest) returns (safeplanet_crafter.CrafterStartResponse) {}
     rpc CrafterEnd (safeplanet_crafter.CrafterEndRequest) returns (safeplanet_crafter.CrafterEndResponse) {}
     rpc CrafterCheck (safeplanet_crafter.CrafterCheckRequest) returns (safeplanet_crafter.CrafterCheckResponse) {}
+
+    // Safeplanet - Crafter - Repair
     rpc CrafterGetRepairWeaponInfo (safeplanet_crafter.CrafterGetRepairWeaponInfoRequest) returns (safeplanet_crafter.CrafterGetRepairWeaponInfoResponse) {}
     rpc CrafterRepairWeapon (safeplanet_crafter.CrafterRepairWeaponRequest) returns (safeplanet_crafter.CrafterRepairWeaponResponse) {}
+
+    // Safeplanet - Crafter - Decompose
+    rpc CrafterDecompose (safeplanet_crafter.CrafterDecomposeRequest) returns (safeplanet_crafter.CrafterDecomposeResponse) {}
 
     // Ability
     rpc GetAbilityForPlayerByCategory (ability.GetAbilityForPlayerByCategoryRequest) returns (ability.GetAbilityForPlayerByCategoryResponse) {}
