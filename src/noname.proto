@@ -214,6 +214,7 @@ service NoName {
     // Ship - Travel
     rpc ShipTravelRadarInfo (ship_travel.ShipTravelInfoRequest) returns (ship_travel.ShipTravelInfoResponse) {}
     rpc ShipTravelFavoriteInfo (ship_travel.ShipTravelInfoRequest) returns (ship_travel.ShipTravelInfoResponse) {}
+    rpc ShipTravelManualInfo (ship_travel.ShipTravelManualInfoRequest) returns (ship_travel.ShipTravelManualInfoResponse) {}
     rpc StartShipTravel (ship_travel.StartShipTravelRequest) returns (ship_travel.StartShipTravelResponse) {}
     rpc CheckShipTravel (ship_travel.CheckShipTravelRequest) returns (ship_travel.CheckShipTravelResponse) {}
     rpc EndShipTravel (ship_travel.EndShipTravelRequest) returns (ship_travel.EndShipTravelResponse) {}
