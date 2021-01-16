@@ -209,6 +209,7 @@ service NoName {
     // Ship - Rests
     rpc GetRestsInfo (ship_rest.GetRestsInfoRequest) returns (ship_rest.GetRestsInfoResponse) {}
     rpc StartPlayerRest (ship_rest.StartPlayerRestRequest) returns (ship_rest.StartPlayerRestResponse) {}
+    rpc RestCheck (ship_rest.RestCheckRequest) returns (ship_rest.RestCheckResponse) {}
     rpc EndPlayerRest (ship_rest.EndPlayerRestRequest) returns (ship_rest.EndPlayerRestResponse) {}
 
     // Ship - Travel

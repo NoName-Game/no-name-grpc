@@ -21,6 +21,14 @@ message StartPlayerRestResponse {
     google.protobuf.Timestamp RestEndTime = 1;
 }
 
+// RestCheck
+message RestCheckRequest {
+    uint32 PlayerID = 1;
+}
+message RestCheckResponse {
+    bool InRest = 1;
+}
+
 // EndPlayerRest
 message EndPlayerRestRequest {
     uint32 PlayerID = 1;
