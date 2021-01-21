@@ -40,6 +40,7 @@ import "proto/safeplanet_research.proto";
 import "proto/ability.proto";
 import "proto/ability_category.proto";
 import "proto/guild.proto";
+import "proto/team.proto";
 import "proto/guild_point.proto";
 import "proto/achievement.proto";
 import "proto/achievement_category.proto";
@@ -275,6 +276,13 @@ service NoName {
     // AbilityCategory
     rpc GetAllAbilityCategory (ability_category.GetAllAbilityCategoryRequest) returns (ability_category.GetAllAbilityCategoryResponse) {}
     rpc GetAbilityCategoryBySlug (ability_category.GetAbilityCategoryBySlugRequest) returns (ability_category.GetAbilityCategoryBySlugResponse) {}
+
+    // Team
+    rpc GetTeamDetails (team.GetTeamDetailsRequest) returns (team.GetTeamDetailsResponse) {}
+    rpc CreateTeam (team.CreateTeamRequest) returns (team.CreateTeamResponse) {}
+    rpc AddPlayerToTeam (team.AddPlayerToTeamRequest) returns (team.AddPlayerToTeamResponse) {}
+    rpc RemovePlayerToTeam (team.RemovePlayerToTeamRequest) returns (team.RemovePlayerToTeamResponse) {}
+    rpc RemovePlayerFromTeam (team.RemovePlayerFromTeamRequest) returns (team.RemovePlayerFromTeamResponse) {}
 
     // Guild
     rpc CheckGuildName (guild.CheckGuildNameRequest) returns (guild.CheckGuildNameResponse) {}

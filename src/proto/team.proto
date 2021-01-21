@@ -1,0 +1,53 @@
+syntax = "proto3";
+import "proto/player.proto";
+option go_package = ".;pb";
+package team;
+
+message Team {
+    uint32 ID = 1;
+    uint32 OwnerID = 2;
+}
+
+// GetTeamDetails
+message GetTeamDetailsRequest {
+    uint32 PlayerID = 1;
+}
+message GetTeamDetailsResponse {
+    player.Player Owner = 1;
+    repeated player.Player Players = 2;
+}
+
+// CreateTeam
+message CreateTeamRequest {
+    uint32 OwnerID = 1;
+}
+message CreateTeamResponse {
+    // Empty
+}
+
+// AddPlayerToTeam
+message AddPlayerToTeamRequest {
+    string PlayerUsername = 1;
+    uint32 TeamID = 2;
+}
+message AddPlayerToTeamResponse {
+    // Empty
+}
+
+// RemovePlayerToTeam
+message RemovePlayerToTeamRequest {
+    string PlayerUsername = 1;
+    uint32 TeamID = 2;
+}
+message RemovePlayerToTeamResponse {
+    // Empty
+}
+
+// RemovePlayerFromTeam
+message RemovePlayerFromTeamRequest {
+    uint32 PlayerID = 1;
+    uint32 TeamID = 2;
+}
+message RemovePlayerFromTeamResponse {
+    // Empty
+}
