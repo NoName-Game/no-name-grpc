@@ -1,0 +1,56 @@
+syntax = "proto3";
+import "proto/player.proto";
+option go_package = ".;pb";
+package party;
+
+message Party {
+    uint32 ID = 1;
+    uint32 OwnerID = 2;
+}
+
+// GetPartyDetails
+message GetPartyDetailsRequest {
+    uint32 PlayerID = 1;
+}
+message GetPartyDetailsResponse {
+    uint32 PartyID = 1;
+    bool InParty = 2;
+    player.Player Owner = 3;
+    int32 NPlayers = 4;
+    repeated player.Player Players = 5;
+}
+
+// CreateParty
+message CreatePartyRequest {
+    uint32 OwnerID = 1;
+}
+message CreatePartyResponse {
+    // Empty
+}
+
+// AddPlayerToParty
+message AddPlayerToPartyRequest {
+    string PlayerUsername = 1;
+    uint32 PartyID = 2;
+}
+message AddPlayerToPartyResponse {
+    // Empty
+}
+
+// RemovePlayerToParty
+message RemovePlayerToPartyRequest {
+    string PlayerUsername = 1;
+    uint32 PartyID = 2;
+}
+message RemovePlayerToPartyResponse {
+    // Empty
+}
+
+// RemovePlayerFromParty
+message RemovePlayerFromPartyRequest {
+    uint32 PlayerID = 1;
+    uint32 PartyID = 2;
+}
+message RemovePlayerFromPartyResponse {
+    // Empty
+}
