@@ -40,6 +40,7 @@ import "proto/safeplanet_research.proto";
 import "proto/ability.proto";
 import "proto/ability_category.proto";
 import "proto/guild.proto";
+import "proto/party.proto";
 import "proto/guild_point.proto";
 import "proto/achievement.proto";
 import "proto/achievement_category.proto";
@@ -275,6 +276,13 @@ service NoName {
     // AbilityCategory
     rpc GetAllAbilityCategory (ability_category.GetAllAbilityCategoryRequest) returns (ability_category.GetAllAbilityCategoryResponse) {}
     rpc GetAbilityCategoryBySlug (ability_category.GetAbilityCategoryBySlugRequest) returns (ability_category.GetAbilityCategoryBySlugResponse) {}
+
+    // Party
+    rpc GetPartyDetails (party.GetPartyDetailsRequest) returns (party.GetPartyDetailsResponse) {}
+    rpc CreateParty (party.CreatePartyRequest) returns (party.CreatePartyResponse) {}
+    rpc AddPlayerToParty (party.AddPlayerToPartyRequest) returns (party.AddPlayerToPartyResponse) {}
+    rpc RemovePlayerToParty (party.RemovePlayerToPartyRequest) returns (party.RemovePlayerToPartyResponse) {}
+    rpc RemovePlayerFromParty (party.RemovePlayerFromPartyRequest) returns (party.RemovePlayerFromPartyResponse) {}
 
     // Guild
     rpc CheckGuildName (guild.CheckGuildNameRequest) returns (guild.CheckGuildNameResponse) {}
