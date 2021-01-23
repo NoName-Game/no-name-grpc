@@ -16,7 +16,8 @@ message GetTeamDetailsResponse {
     uint32 TeamID = 1;
     bool InTeam = 2;
     player.Player Owner = 3;
-    repeated player.Player Players = 4;
+    int32 NPlayers = 4;
+    repeated player.Player Players = 5;
 }
 
 // CreateTeam
