@@ -7,3 +7,11 @@ message Level {
     int32 ExperienceNeeded = 2;
     int64 PlayerMaxLife = 3;
 }
+
+// GetLevelByID
+message GetLevelByIDRequest {
+    uint32 LevelID = 1;
+}
+message GetLevelByIDResponse {
+    Level Level = 1;
+}

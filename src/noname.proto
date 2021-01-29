@@ -49,6 +49,7 @@ import "proto/planet_bookmark.proto";
 import "proto/safeplanet_relax_threecardgame.proto";
 import "proto/safeplanet_statistics.proto";
 import "proto/dark_merchant.proto";
+import "proto/level.proto";
 
 option go_package = ".;pb";
 
@@ -349,4 +350,7 @@ service NoName {
     // Dark Merchant
     rpc GetDarkMerchant (dark_merchant.GetDarkMerchantRequest) returns (dark_merchant.GetDarkMerchantResponse) {}
     rpc DarkMerchantBuyResource (dark_merchant.DarkMerchantBuyResourceRequest) returns (dark_merchant.DarkMerchantBuyResourceResponse) {}
+
+    // Level
+    rpc GetLevelByID (level.GetLevelByIDRequest) returns (level.GetLevelByIDResponse) {}
 }
