@@ -50,6 +50,7 @@ import "proto/safeplanet_relax_threecardgame.proto";
 import "proto/safeplanet_statistics.proto";
 import "proto/dark_merchant.proto";
 import "proto/level.proto";
+import "proto/telegram_status.proto";
 
 option go_package = ".;pb";
 
@@ -353,4 +354,9 @@ service NoName {
 
     // Level
     rpc GetLevelByID (level.GetLevelByIDRequest) returns (level.GetLevelByIDResponse) {}
+
+    // Telegram Status
+    rpc CreateTelegramStatus (telegram_status.CreateTelegramStatusRequest) returns (telegram_status.CreateTelegramStatusResponse) {}
+    rpc GetTelegramStatus (telegram_status.GetTelegramStatusRequest) returns (telegram_status.GetTelegramStatusResponse) {}
+    rpc DeleteTelegramStatus (telegram_status.DeleteTelegramStatusRequest) returns (telegram_status.DeleteTelegramStatusResponse) {}
 }

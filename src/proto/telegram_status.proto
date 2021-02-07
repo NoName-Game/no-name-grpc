@@ -1,0 +1,35 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package telegram_status;
+
+// CreateTelegramStatus
+message CreateTelegramStatusRequest {
+  uint32 PlayerID = 1;
+  int32 Stage = 2;
+  string Controller = 3;
+  string Payload = 4;
+}
+message CreateTelegramStatusResponse {
+  //
+}
+
+// GetTelegramStatus
+message GetTelegramStatusRequest {
+  uint32 PlayerID = 1;
+  string Controller = 3;
+}
+message GetTelegramStatusResponse {
+  uint32 PlayerID = 1;
+  int32 Stage = 2;
+  string Controller = 3;
+  string Payload = 4;
+}
+
+// DeleteTelegramStatus
+message DeleteTelegramStatusRequest {
+  uint32 PlayerID = 1;
+  string Controller = 3;
+}
+message DeleteTelegramStatusResponse {
+  // Empty
+}
