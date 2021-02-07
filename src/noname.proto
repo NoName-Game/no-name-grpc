@@ -51,6 +51,7 @@ import "proto/safeplanet_statistics.proto";
 import "proto/dark_merchant.proto";
 import "proto/level.proto";
 import "proto/telegram_status.proto";
+import "proto/player_titan_drop.proto";
 
 option go_package = ".;pb";
 
@@ -125,6 +126,10 @@ service NoName {
     // Player - Activity - Notify
     rpc GetPlayerActivityToNotify (player_activity.GetPlayerActivityToNotifyRequest) returns (player_activity.GetPlayerActivityToNotifyResponse) {}
     rpc SetPlayerActivityNotified (player_activity.SetPlayerActivityNotifiedRequest) returns (player_activity.SetPlayerActivityNotifiedResponse) {}
+
+    // Player - TitanDrop - Notify
+    rpc GetTitanDropToNotify (player_titan_drop.GetTitanDropToNotifyRequest) returns (player_titan_drop.GetTitanDropToNotifyResponse) {}
+    rpc SetTitanDropNotified (player_titan_drop.SetTitanDropNotifiedRequest) returns (player_titan_drop.SetTitanDropNotifiedResponse) {}
 
     // Enemy
     rpc GetEnemyByID (enemy.GetEnemyByIDRequest) returns (enemy.GetEnemyByIDResponse) {}

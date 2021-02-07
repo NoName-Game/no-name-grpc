@@ -1,0 +1,40 @@
+syntax = "proto3";
+import "proto/player.proto";
+import "proto/titan.proto";
+import "proto/weapon.proto";
+import "proto/armor.proto";
+option go_package = ".;pb";
+package player_titan_drop;
+
+message PlayerTitanDrop {
+    uint32 ID = 1;
+    uint32 TitanID = 2;
+    titan.Titan Titan = 3;
+    uint32 PlayerID = 4;
+    player.Player Player = 5;
+    int64 DamageInflicted = 6;
+    int32 Money = 7;
+    int32 Diamond = 8;
+    int32 Experience = 9;
+    uint32 WeaponID = 10;
+    weapon.Weapon Weapon = 11;
+    uint32 ArmorID = 12;
+    armor.Armor Armor = 13;
+    bool ToNotify = 14;
+}
+
+// GetTitanDropToNotify
+message GetTitanDropToNotifyRequest {
+    // Empty
+}
+message GetTitanDropToNotifyResponse {
+    repeated PlayerTitanDrop TitanDrops = 1;
+}
+
+// SetTitanDropNotified
+message SetTitanDropNotifiedRequest {
+    uint32 TitanDropID = 1;
+}
+message SetTitanDropNotifiedResponse {
+    // Empty
+}
