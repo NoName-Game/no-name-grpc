@@ -7,5 +7,5 @@ message PlanetSystem {
     string Name = 2;
     double Size = 3;
     int32 Density = 4;
-    uint32 Deviation = 5;
+    int32 Deviation = 5;
 }
