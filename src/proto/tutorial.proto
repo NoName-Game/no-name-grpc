@@ -3,14 +3,6 @@ option go_package = ".;pb";
 import "google/protobuf/timestamp.proto";
 package tutorial;
 
-// PlayerStartTutorial
-message PlayerStartTutorialRequest {
-    uint32 PlayerID = 1;
-}
-message PlayerStartTutorialResponse {
-    // Empty
-}
-
 // PlayerEndTutorial
 message PlayerEndTutorialRequest {
     uint32 PlayerID = 1;

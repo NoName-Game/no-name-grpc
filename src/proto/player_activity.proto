@@ -45,35 +45,35 @@ message SetPlayerActivityNotifiedResponse {
     // Empty
 }
 
-// CreatePlayerActivity
-message CreatePlayerActivityRequest {
-    PlayerActivity PlayerActivity = 1;
+
+// GetPlayerActivity
+message GetPlayerActivityRequest {
+    uint32 PlayerID = 1;
+    string Controller = 3;
 }
-message CreatePlayerActivityResponse {
-    PlayerActivity PlayerActivity = 1;
+message GetPlayerActivityResponse {
+    uint32 PlayerID = 1;
+    int32 Stage = 2;
+    string Controller = 3;
+    string Payload = 4;
 }
 
-// UpdatePlayerActivity
-message UpdatePlayerActivityRequest {
-    PlayerActivity PlayerActivity = 1;
+// CreatePlayerActivity
+message CreatePlayerActivityRequest {
+    uint32 PlayerID = 1;
+    int32 Stage = 2;
+    string Controller = 3;
+    string Payload = 4;
 }
-message UpdatePlayerActivityResponse {
-    PlayerActivity PlayerActivity = 1;
+message CreatePlayerActivityResponse {
+    //
 }
 
 // DeletePlayerActivity
 message DeletePlayerActivityRequest {
-    uint32 PlayerActivityID = 1;
+    uint32 PlayerID = 1;
+    string Controller = 3;
 }
 message DeletePlayerActivityResponse {
-    // Empty
-}
-
-// DeletePlayerActivityByController
-message DeletePlayerActivityByControllerRequest {
-    uint32 PlayerID = 1;
-    string Controller = 2;
-}
-message DeletePlayerActivityByControllerResponse {
     // Empty
 }
