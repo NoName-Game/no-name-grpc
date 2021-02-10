@@ -50,7 +50,6 @@ import "proto/safeplanet_relax_threecardgame.proto";
 import "proto/safeplanet_statistics.proto";
 import "proto/dark_merchant.proto";
 import "proto/level.proto";
-import "proto/telegram_status.proto";
 import "proto/player_titan_drop.proto";
 
 option go_package = ".;pb";
@@ -58,7 +57,6 @@ option go_package = ".;pb";
 // The greeting service definition.
 service NoName {
     // Tutorial
-    rpc PlayerStartTutorial (tutorial.PlayerStartTutorialRequest) returns (tutorial.PlayerStartTutorialResponse) {}
     rpc PlayerEndTutorial (tutorial.PlayerEndTutorialRequest) returns (tutorial.PlayerEndTutorialResponse) {}
     rpc StartTravelTutorial (tutorial.StartTravelTutorialRequest) returns (tutorial.StartTravelTutorialResponse) {}
 
@@ -118,10 +116,9 @@ service NoName {
     // Player - Activity
     rpc GetPlayerStateByID (player_activity.GetPlayerActivityByIDRequest) returns (player_activity.GetPlayerActivityByIDResponse) {}
     rpc GetActivePlayerActivities (player_activity.GetActivePlayerActivitiesRequest) returns (player_activity.GetActivePlayerActivitiesResponse) {}
+    rpc GetPlayerActivity (player_activity.GetPlayerActivityRequest) returns (player_activity.GetPlayerActivityResponse) {}
     rpc CreatePlayerActivity (player_activity.CreatePlayerActivityRequest) returns (player_activity.CreatePlayerActivityResponse) {}
-    rpc UpdatePlayerActivity (player_activity.UpdatePlayerActivityRequest) returns (player_activity.UpdatePlayerActivityResponse) {}
     rpc DeletePlayerActivity (player_activity.DeletePlayerActivityRequest) returns (player_activity.DeletePlayerActivityResponse) {}
-    rpc DeletePlayerActivityByController (player_activity.DeletePlayerActivityByControllerRequest) returns (player_activity.DeletePlayerActivityByControllerResponse) {}
 
     // Player - Activity - Notify
     rpc GetPlayerActivityToNotify (player_activity.GetPlayerActivityToNotifyRequest) returns (player_activity.GetPlayerActivityToNotifyResponse) {}
@@ -359,9 +356,4 @@ service NoName {
 
     // Level
     rpc GetLevelByID (level.GetLevelByIDRequest) returns (level.GetLevelByIDResponse) {}
-
-    // Telegram Status
-    rpc CreateTelegramStatus (telegram_status.CreateTelegramStatusRequest) returns (telegram_status.CreateTelegramStatusResponse) {}
-    rpc GetTelegramStatus (telegram_status.GetTelegramStatusRequest) returns (telegram_status.GetTelegramStatusResponse) {}
-    rpc DeleteTelegramStatus (telegram_status.DeleteTelegramStatusRequest) returns (telegram_status.DeleteTelegramStatusResponse) {}
 }
