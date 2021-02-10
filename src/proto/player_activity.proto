@@ -10,7 +10,8 @@ message PlayerActivity {
     int32 Stage = 4;
     string Payload = 5;
     bool ToNotify = 6;
-    google.protobuf.Timestamp FinishAt = 7;
+    bool Finished = 7;
+    google.protobuf.Timestamp FinishAt = 8;
 }
 
 // GetPlayerActivityByID
