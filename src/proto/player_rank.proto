@@ -1,0 +1,9 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package player_rank;
+
+message PlayerRank {
+    uint32 ID = 1;
+    uint32 PointNeeded = 2;
+    string NameCode = 3;
+}

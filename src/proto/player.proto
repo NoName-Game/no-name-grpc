@@ -3,6 +3,7 @@ import "proto/language.proto";
 import "proto/level.proto";
 import "proto/timezone.proto";
 import "proto/item.proto";
+import "proto/player_rank.proto";
 option go_package = ".;pb";
 package player;
 
@@ -20,6 +21,8 @@ message Player {
     language.Language Language = 11;
     uint32 TimezoneID = 12;
     timezone.Timezone Timezone = 13;
+    uint32 RankID = 14;
+    player_rank.PlayerRank Rank = 15;
 }
 
 // GetPlayerByID
