@@ -51,6 +51,7 @@ import "proto/safeplanet_statistics.proto";
 import "proto/dark_merchant.proto";
 import "proto/level.proto";
 import "proto/player_titan_drop.proto";
+import "proto/player_rank.proto";
 
 option go_package = ".;pb";
 
@@ -91,6 +92,7 @@ service NoName {
     rpc GetPlayerExperience (player.GetPlayerExperienceRequest) returns (player.GetPlayerExperienceResponse) {}
     rpc GetPlayerLifePoint (player.GetPlayerLifePointRequest) returns (player.GetPlayerLifePointResponse) {}
     rpc GetPlayerDailyReward (player.GetPlayerDailyRewardRequest) returns (player.GetPlayerDailyRewardResponse) {}
+    rpc GetPlayerRankPoint (player.GetPlayerRankPointRequest) returns (player.GetPlayerRankPointResponse) {}
 
     // Player - Configuration
     rpc PlayerSetLanguage (player_configuration.PlayerSetLanguageRequest) returns (player_configuration.PlayerSetLanguageResponse) {}
@@ -357,4 +359,7 @@ service NoName {
 
     // Level
     rpc GetLevelByID (level.GetLevelByIDRequest) returns (level.GetLevelByIDResponse) {}
+
+    // Rank
+    rpc GetRankByID (player_rank.GetRankByIDRequest) returns (player_rank.GetRankByIDResponse) {}
 }
