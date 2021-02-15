@@ -12,9 +12,17 @@ message Mission {
 
 // GetMission
 message GetMissionRequest {
-    uint32 PlayerID = 1;
+    uint32 MissionID = 1;
 }
 message GetMissionResponse {
+    Mission Mission = 1;
+}
+
+// NewMission
+message NewMissionRequest {
+    uint32 PlayerID = 1;
+}
+message NewMissionResponse {
     Mission Mission = 1;
 }
 

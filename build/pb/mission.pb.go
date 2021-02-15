@@ -92,7 +92,7 @@ func (m *Mission) GetPayload() string {
 
 // GetMission
 type GetMissionRequest struct {
-	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	MissionID uint32 `protobuf:"varint,1,opt,name=MissionID,proto3" json:"MissionID,omitempty"`
 }
 
 func (m *GetMissionRequest) Reset()         { *m = GetMissionRequest{} }
@@ -128,9 +128,9 @@ func (m *GetMissionRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_GetMissionRequest proto.InternalMessageInfo
 
-func (m *GetMissionRequest) GetPlayerID() uint32 {
+func (m *GetMissionRequest) GetMissionID() uint32 {
 	if m != nil {
-		return m.PlayerID
+		return m.MissionID
 	}
 	return 0
 }
@@ -179,6 +179,95 @@ func (m *GetMissionResponse) GetMission() *Mission {
 	return nil
 }
 
+// NewMission
+type NewMissionRequest struct {
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+}
+
+func (m *NewMissionRequest) Reset()         { *m = NewMissionRequest{} }
+func (m *NewMissionRequest) String() string { return proto.CompactTextString(m) }
+func (*NewMissionRequest) ProtoMessage()    {}
+func (*NewMissionRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_19b676c29a8cc6ae, []int{3}
+}
+func (m *NewMissionRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *NewMissionRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_NewMissionRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *NewMissionRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_NewMissionRequest.Merge(m, src)
+}
+func (m *NewMissionRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *NewMissionRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_NewMissionRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_NewMissionRequest proto.InternalMessageInfo
+
+func (m *NewMissionRequest) GetPlayerID() uint32 {
+	if m != nil {
+		return m.PlayerID
+	}
+	return 0
+}
+
+type NewMissionResponse struct {
+	Mission *Mission `protobuf:"bytes,1,opt,name=Mission,proto3" json:"Mission,omitempty"`
+}
+
+func (m *NewMissionResponse) Reset()         { *m = NewMissionResponse{} }
+func (m *NewMissionResponse) String() string { return proto.CompactTextString(m) }
+func (*NewMissionResponse) ProtoMessage()    {}
+func (*NewMissionResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_19b676c29a8cc6ae, []int{4}
+}
+func (m *NewMissionResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *NewMissionResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_NewMissionResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *NewMissionResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_NewMissionResponse.Merge(m, src)
+}
+func (m *NewMissionResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *NewMissionResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_NewMissionResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_NewMissionResponse proto.InternalMessageInfo
+
+func (m *NewMissionResponse) GetMission() *Mission {
+	if m != nil {
+		return m.Mission
+	}
+	return nil
+}
+
 // CheckMission
 type CheckMissionRequest struct {
 	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
@@ -188,7 +277,7 @@ func (m *CheckMissionRequest) Reset()         { *m = CheckMissionRequest{} }
 func (m *CheckMissionRequest) String() string { return proto.CompactTextString(m) }
 func (*CheckMissionRequest) ProtoMessage()    {}
 func (*CheckMissionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_19b676c29a8cc6ae, []int{3}
+	return fileDescriptor_19b676c29a8cc6ae, []int{5}
 }
 func (m *CheckMissionRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -234,7 +323,7 @@ func (m *CheckMissionResponse) Reset()         { *m = CheckMissionResponse{} }
 func (m *CheckMissionResponse) String() string { return proto.CompactTextString(m) }
 func (*CheckMissionResponse) ProtoMessage()    {}
 func (*CheckMissionResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_19b676c29a8cc6ae, []int{4}
+	return fileDescriptor_19b676c29a8cc6ae, []int{6}
 }
 func (m *CheckMissionResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -293,7 +382,7 @@ func (m *GetMissionRewardRequest) Reset()         { *m = GetMissionRewardRequest
 func (m *GetMissionRewardRequest) String() string { return proto.CompactTextString(m) }
 func (*GetMissionRewardRequest) ProtoMessage()    {}
 func (*GetMissionRewardRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_19b676c29a8cc6ae, []int{5}
+	return fileDescriptor_19b676c29a8cc6ae, []int{7}
 }
 func (m *GetMissionRewardRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -339,7 +428,7 @@ func (m *GetMissionRewardResponse) Reset()         { *m = GetMissionRewardRespon
 func (m *GetMissionRewardResponse) String() string { return proto.CompactTextString(m) }
 func (*GetMissionRewardResponse) ProtoMessage()    {}
 func (*GetMissionRewardResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_19b676c29a8cc6ae, []int{6}
+	return fileDescriptor_19b676c29a8cc6ae, []int{8}
 }
 func (m *GetMissionRewardResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -393,6 +482,8 @@ func init() {
 	proto.RegisterType((*Mission)(nil), "mission.Mission")
 	proto.RegisterType((*GetMissionRequest)(nil), "mission.GetMissionRequest")
 	proto.RegisterType((*GetMissionResponse)(nil), "mission.GetMissionResponse")
+	proto.RegisterType((*NewMissionRequest)(nil), "mission.NewMissionRequest")
+	proto.RegisterType((*NewMissionResponse)(nil), "mission.NewMissionResponse")
 	proto.RegisterType((*CheckMissionRequest)(nil), "mission.CheckMissionRequest")
 	proto.RegisterType((*CheckMissionResponse)(nil), "mission.CheckMissionResponse")
 	proto.RegisterType((*GetMissionRewardRequest)(nil), "mission.GetMissionRewardRequest")
@@ -402,30 +493,31 @@ func init() {
 func init() { proto.RegisterFile("proto/mission.proto", fileDescriptor_19b676c29a8cc6ae) }
 
 var fileDescriptor_19b676c29a8cc6ae = []byte{
-	// 355 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2e, 0x28, 0xca, 0x2f,
-	0xc9, 0xd7, 0xcf, 0xcd, 0x2c, 0x2e, 0xce, 0xcc, 0xcf, 0xd3, 0x03, 0xf3, 0x84, 0xd8, 0xa1, 0x5c,
-	0x29, 0x19, 0x14, 0xd9, 0xf8, 0xe4, 0xc4, 0x92, 0xd4, 0xf4, 0xfc, 0xa2, 0x4a, 0x88, 0x32, 0xa5,
-	0x75, 0x8c, 0x5c, 0xec, 0xbe, 0x10, 0x29, 0x21, 0x3e, 0x2e, 0x26, 0x4f, 0x17, 0x09, 0x46, 0x05,
-	0x46, 0x0d, 0xde, 0x20, 0x26, 0x4f, 0x17, 0x21, 0x1d, 0x2e, 0x41, 0xa8, 0x94, 0x33, 0x54, 0x93,
-	0xa7, 0x8b, 0x04, 0x13, 0x58, 0x1a, 0x53, 0x42, 0xc8, 0x9b, 0x8b, 0x1f, 0x4d, 0x50, 0x82, 0x59,
-	0x81, 0x51, 0x83, 0xdb, 0x48, 0x51, 0x0f, 0xc3, 0x6e, 0x34, 0x85, 0x41, 0xe8, 0x3a, 0x85, 0x24,
-	0xb8, 0xd8, 0x03, 0x12, 0x2b, 0x73, 0xf2, 0x13, 0x53, 0x24, 0x58, 0x14, 0x18, 0x35, 0x38, 0x83,
-	0x60, 0x5c, 0x25, 0x7d, 0x2e, 0x41, 0xf7, 0xd4, 0x12, 0xa8, 0xfa, 0xa0, 0xd4, 0xc2, 0xd2, 0xd4,
-	0xe2, 0x12, 0x21, 0x29, 0x2e, 0x8e, 0x80, 0x9c, 0xc4, 0xca, 0xd4, 0x22, 0xb8, 0xfb, 0xe1, 0x7c,
-	0x25, 0x07, 0x2e, 0x21, 0x64, 0x0d, 0xc5, 0x05, 0xf9, 0x79, 0xc5, 0xa9, 0x42, 0x5a, 0x70, 0x6f,
-	0x83, 0x35, 0x70, 0x1b, 0x09, 0xc0, 0x5c, 0x09, 0x73, 0x5c, 0x10, 0x4c, 0x81, 0x92, 0x21, 0x97,
-	0xb0, 0x73, 0x46, 0x6a, 0x72, 0x36, 0x09, 0x96, 0xd6, 0x71, 0x89, 0xa0, 0x6a, 0x81, 0x5a, 0x2b,
-	0xc3, 0xc5, 0xe9, 0x99, 0x87, 0x6c, 0x31, 0x47, 0x10, 0x42, 0x00, 0x24, 0xeb, 0x9c, 0x9f, 0x5b,
-	0x90, 0x93, 0x5a, 0x92, 0x9a, 0x02, 0x0e, 0x68, 0x8e, 0x20, 0x84, 0x00, 0xb2, 0x93, 0x99, 0x09,
-	0x39, 0xd9, 0x94, 0x4b, 0x1c, 0xd9, 0xd3, 0xe5, 0x89, 0x45, 0x29, 0xc4, 0x38, 0x3b, 0x86, 0x4b,
-	0x02, 0x53, 0x1b, 0xd4, 0xe9, 0x22, 0x5c, 0xac, 0xbe, 0xf9, 0x79, 0xa9, 0x95, 0x60, 0x4d, 0xac,
-	0x41, 0x10, 0x0e, 0x28, 0xa2, 0x5c, 0x32, 0x13, 0x73, 0xf3, 0xf3, 0x20, 0x0e, 0x66, 0x0d, 0x82,
-	0x71, 0x85, 0x04, 0xb8, 0x98, 0x5d, 0x2b, 0x0a, 0xc0, 0x4e, 0x65, 0x0d, 0x02, 0x31, 0x9d, 0xe4,
-	0x4e, 0x3c, 0x92, 0x63, 0xbc, 0xf0, 0x48, 0x8e, 0xf1, 0xc1, 0x23, 0x39, 0xc6, 0x09, 0x8f, 0xe5,
-	0x18, 0x2e, 0x3c, 0x96, 0x63, 0xb8, 0xf1, 0x58, 0x8e, 0x21, 0x8a, 0x45, 0xcf, 0xba, 0x20, 0x29,
-	0x89, 0x0d, 0x9c, 0x24, 0x8d, 0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0xfb, 0xfe, 0xd5, 0x6f, 0xd0,
-	0x02, 0x00, 0x00,
+	// 376 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x53, 0xcb, 0x4e, 0xf2, 0x40,
+	0x18, 0x65, 0x80, 0xfe, 0xc0, 0x47, 0x7e, 0x85, 0x81, 0xc4, 0x86, 0x90, 0x06, 0xbb, 0x22, 0xc6,
+	0x40, 0xc0, 0xb8, 0x72, 0x63, 0xa4, 0xc6, 0x34, 0x06, 0x43, 0x66, 0x69, 0x4c, 0x4c, 0x81, 0x89,
+	0x12, 0xa1, 0x53, 0xdb, 0x1a, 0xec, 0xc6, 0x67, 0xf0, 0x49, 0x7c, 0x0e, 0x97, 0x2c, 0x5d, 0x1a,
+	0x78, 0x11, 0xd3, 0xe9, 0xb4, 0x94, 0xb2, 0xf0, 0xb2, 0xeb, 0xb9, 0xe5, 0x9c, 0x69, 0x3b, 0x50,
+	0xb1, 0x6c, 0xe6, 0xb2, 0xf6, 0x6c, 0xe2, 0x38, 0x13, 0x66, 0xb6, 0x38, 0xc2, 0x39, 0x01, 0x6b,
+	0xf5, 0x0d, 0xf5, 0x76, 0x64, 0xb8, 0xf4, 0x8e, 0xd9, 0x5e, 0x60, 0x53, 0xdf, 0x10, 0xe4, 0xfa,
+	0x81, 0x84, 0x77, 0x20, 0xad, 0x6b, 0x32, 0x6a, 0xa0, 0xe6, 0x7f, 0x92, 0xd6, 0x35, 0x7c, 0x08,
+	0x65, 0x21, 0xf5, 0x44, 0x48, 0xd7, 0xe4, 0x34, 0x97, 0xb7, 0x05, 0x7c, 0x09, 0xbb, 0x09, 0x52,
+	0xce, 0x34, 0x50, 0xb3, 0xd8, 0xdd, 0x6f, 0x6d, 0x75, 0x27, 0x8c, 0x24, 0x99, 0xc4, 0x32, 0xe4,
+	0x06, 0x86, 0x37, 0x65, 0xc6, 0x58, 0xce, 0x36, 0x50, 0xb3, 0x40, 0x42, 0xa8, 0x76, 0xa0, 0x7c,
+	0x41, 0x5d, 0xe1, 0x27, 0xf4, 0xf1, 0x89, 0x3a, 0x2e, 0xae, 0x43, 0x41, 0x30, 0xd1, 0x01, 0xd6,
+	0x84, 0x7a, 0x0a, 0x38, 0x1e, 0x71, 0x2c, 0x66, 0x3a, 0x14, 0x1f, 0x44, 0x07, 0xe7, 0x89, 0x62,
+	0xb7, 0x14, 0xee, 0x0c, 0xe7, 0x91, 0xd0, 0xa0, 0xb6, 0xa1, 0x7c, 0x45, 0xe7, 0x89, 0xd2, 0x1a,
+	0xe4, 0x07, 0x53, 0xc3, 0xa3, 0x76, 0xd4, 0x19, 0x61, 0xbf, 0x32, 0x1e, 0xf8, 0x43, 0x65, 0x07,
+	0x2a, 0xbd, 0x7b, 0x3a, 0x7a, 0xf8, 0x45, 0xe9, 0x0b, 0x54, 0x37, 0x23, 0xa2, 0xb6, 0x0e, 0x05,
+	0xdd, 0x8c, 0x17, 0xe7, 0xc9, 0x9a, 0xf0, 0xd5, 0x1e, 0x9b, 0x59, 0x53, 0xea, 0xd2, 0x31, 0xff,
+	0xba, 0x79, 0xb2, 0x26, 0xe2, 0x93, 0x33, 0xdf, 0x4d, 0x3e, 0x86, 0xbd, 0xf8, 0x7b, 0x9e, 0x1b,
+	0xf6, 0xf8, 0x27, 0xb3, 0x6f, 0x40, 0xde, 0x8e, 0x89, 0xe9, 0x55, 0x90, 0xfa, 0xcc, 0xa4, 0x1e,
+	0x0f, 0x49, 0x24, 0x00, 0xfe, 0xdf, 0xa1, 0x4d, 0x8c, 0x19, 0x33, 0x83, 0xc1, 0x12, 0x09, 0x21,
+	0x2e, 0x41, 0xe6, 0xfc, 0xd9, 0xe2, 0x53, 0x25, 0xe2, 0x3f, 0x9e, 0x29, 0xef, 0x4b, 0x05, 0x2d,
+	0x96, 0x0a, 0xfa, 0x5c, 0x2a, 0xe8, 0x75, 0xa5, 0xa4, 0x16, 0x2b, 0x25, 0xf5, 0xb1, 0x52, 0x52,
+	0xd7, 0xd9, 0xd6, 0x89, 0x35, 0x1c, 0xfe, 0xe3, 0xf7, 0xe0, 0xe8, 0x2b, 0x00, 0x00, 0xff, 0xff,
+	0xb4, 0x82, 0xfd, 0x32, 0x45, 0x03, 0x00, 0x00,
 }
 
 func (m *Mission) Marshal() (dAtA []byte, err error) {
@@ -500,8 +592,8 @@ func (m *GetMissionRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.PlayerID != 0 {
-		i = encodeVarintMission(dAtA, i, uint64(m.PlayerID))
+	if m.MissionID != 0 {
+		i = encodeVarintMission(dAtA, i, uint64(m.MissionID))
 		i--
 		dAtA[i] = 0x8
 	}
@@ -524,6 +616,69 @@ func (m *GetMissionResponse) MarshalTo(dAtA []byte) (int, error) {
 }
 
 func (m *GetMissionResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Mission != nil {
+		{
+			size, err := m.Mission.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintMission(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *NewMissionRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *NewMissionRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *NewMissionRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.PlayerID != 0 {
+		i = encodeVarintMission(dAtA, i, uint64(m.PlayerID))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *NewMissionResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *NewMissionResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *NewMissionResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -732,13 +887,38 @@ func (m *GetMissionRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
+	if m.MissionID != 0 {
+		n += 1 + sovMission(uint64(m.MissionID))
+	}
+	return n
+}
+
+func (m *GetMissionResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Mission != nil {
+		l = m.Mission.Size()
+		n += 1 + l + sovMission(uint64(l))
+	}
+	return n
+}
+
+func (m *NewMissionRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
 	if m.PlayerID != 0 {
 		n += 1 + sovMission(uint64(m.PlayerID))
 	}
 	return n
 }
 
-func (m *GetMissionResponse) Size() (n int) {
+func (m *NewMissionResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1008,9 +1188,9 @@ func (m *GetMissionRequest) Unmarshal(dAtA []byte) error {
 		switch fieldNum {
 		case 1:
 			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field PlayerID", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field MissionID", wireType)
 			}
-			m.PlayerID = 0
+			m.MissionID = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowMission
@@ -1020,7 +1200,7 @@ func (m *GetMissionRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.PlayerID |= uint32(b&0x7F) << shift
+				m.MissionID |= uint32(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1076,6 +1256,167 @@ func (m *GetMissionResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: GetMissionResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Mission", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMission
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthMission
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthMission
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Mission == nil {
+				m.Mission = &Mission{}
+			}
+			if err := m.Mission.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipMission(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthMission
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthMission
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *NewMissionRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowMission
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: NewMissionRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: NewMissionRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PlayerID", wireType)
+			}
+			m.PlayerID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMission
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.PlayerID |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipMission(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthMission
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthMission
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *NewMissionResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowMission
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: NewMissionResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: NewMissionResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
