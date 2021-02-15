@@ -6,6 +6,7 @@ package expansion;
 // GetTeletrasportSafePlanetList
 message GetTeletrasportSafePlanetListRequest {
     uint32 PlanetID = 1;
+    uint32 PlayerID = 2;
 }
 message GetTeletrasportSafePlanetListResponse {
     message TeletrasportSafePlanetList {
