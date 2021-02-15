@@ -76,3 +76,11 @@ message GetPlayerDailyRewardResponse {
     int32 Diamond = 3;
     item.Item Item = 4;
 }
+
+// GetPlayerRankPoint
+message GetPlayerRankPointRequest {
+    uint32 PlayerID = 1;
+}
+message GetPlayerRankPointResponse {
+    int64 Value = 1;
+}

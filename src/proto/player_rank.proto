@@ -7,3 +7,11 @@ message PlayerRank {
     uint32 PointNeeded = 2;
     string NameCode = 3;
 }
+
+// GetLevelByID
+message GetRankByIDRequest {
+    uint32 RankID = 1;
+}
+message GetRankByIDResponse {
+    PlayerRank Rank = 1;
+}

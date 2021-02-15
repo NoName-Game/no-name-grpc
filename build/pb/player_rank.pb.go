@@ -82,24 +82,119 @@ func (m *PlayerRank) GetNameCode() string {
 	return ""
 }
 
+// GetLevelByID
+type GetRankByIDRequest struct {
+	RankID uint32 `protobuf:"varint,1,opt,name=RankID,proto3" json:"RankID,omitempty"`
+}
+
+func (m *GetRankByIDRequest) Reset()         { *m = GetRankByIDRequest{} }
+func (m *GetRankByIDRequest) String() string { return proto.CompactTextString(m) }
+func (*GetRankByIDRequest) ProtoMessage()    {}
+func (*GetRankByIDRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_28a9093f644490b8, []int{1}
+}
+func (m *GetRankByIDRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetRankByIDRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetRankByIDRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetRankByIDRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetRankByIDRequest.Merge(m, src)
+}
+func (m *GetRankByIDRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetRankByIDRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetRankByIDRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetRankByIDRequest proto.InternalMessageInfo
+
+func (m *GetRankByIDRequest) GetRankID() uint32 {
+	if m != nil {
+		return m.RankID
+	}
+	return 0
+}
+
+type GetRankByIDResponse struct {
+	Rank *PlayerRank `protobuf:"bytes,1,opt,name=Rank,proto3" json:"Rank,omitempty"`
+}
+
+func (m *GetRankByIDResponse) Reset()         { *m = GetRankByIDResponse{} }
+func (m *GetRankByIDResponse) String() string { return proto.CompactTextString(m) }
+func (*GetRankByIDResponse) ProtoMessage()    {}
+func (*GetRankByIDResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_28a9093f644490b8, []int{2}
+}
+func (m *GetRankByIDResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetRankByIDResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetRankByIDResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetRankByIDResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetRankByIDResponse.Merge(m, src)
+}
+func (m *GetRankByIDResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetRankByIDResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetRankByIDResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetRankByIDResponse proto.InternalMessageInfo
+
+func (m *GetRankByIDResponse) GetRank() *PlayerRank {
+	if m != nil {
+		return m.Rank
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*PlayerRank)(nil), "player_rank.PlayerRank")
+	proto.RegisterType((*GetRankByIDRequest)(nil), "player_rank.GetRankByIDRequest")
+	proto.RegisterType((*GetRankByIDResponse)(nil), "player_rank.GetRankByIDResponse")
 }
 
 func init() { proto.RegisterFile("proto/player_rank.proto", fileDescriptor_28a9093f644490b8) }
 
 var fileDescriptor_28a9093f644490b8 = []byte{
-	// 157 bytes of a gzipped FileDescriptorProto
+	// 219 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2f, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x2f, 0xc8, 0x49, 0xac, 0x4c, 0x2d, 0x8a, 0x2f, 0x4a, 0xcc, 0xcb, 0xd6, 0x03, 0x8b,
 	0x08, 0x71, 0x23, 0x09, 0x29, 0x45, 0x71, 0x71, 0x05, 0x80, 0xb9, 0x41, 0x89, 0x79, 0xd9, 0x42,
 	0x7c, 0x5c, 0x4c, 0x9e, 0x2e, 0x12, 0x8c, 0x0a, 0x8c, 0x1a, 0xbc, 0x41, 0x4c, 0x9e, 0x2e, 0x42,
 	0x0a, 0x5c, 0xdc, 0x01, 0xf9, 0x99, 0x79, 0x25, 0x7e, 0xa9, 0xa9, 0x29, 0xa9, 0x29, 0x12, 0x4c,
 	0x60, 0x09, 0x64, 0x21, 0x21, 0x29, 0x2e, 0x0e, 0xbf, 0xc4, 0xdc, 0x54, 0xe7, 0xfc, 0x94, 0x54,
-	0x09, 0x66, 0x05, 0x46, 0x0d, 0xce, 0x20, 0x38, 0xdf, 0x49, 0xee, 0xc4, 0x23, 0x39, 0xc6, 0x0b,
-	0x8f, 0xe4, 0x18, 0x1f, 0x3c, 0x92, 0x63, 0x9c, 0xf0, 0x58, 0x8e, 0xe1, 0xc2, 0x63, 0x39, 0x86,
-	0x1b, 0x8f, 0xe5, 0x18, 0xa2, 0x58, 0xf4, 0xac, 0x0b, 0x92, 0x92, 0xd8, 0xc0, 0xee, 0x31, 0x06,
-	0x04, 0x00, 0x00, 0xff, 0xff, 0x74, 0xbb, 0xcb, 0x23, 0xaa, 0x00, 0x00, 0x00,
+	0x09, 0x66, 0x05, 0x46, 0x0d, 0xce, 0x20, 0x38, 0x5f, 0x49, 0x87, 0x4b, 0xc8, 0x3d, 0xb5, 0x04,
+	0x64, 0xb0, 0x53, 0xa5, 0xa7, 0x4b, 0x50, 0x6a, 0x61, 0x69, 0x6a, 0x71, 0x89, 0x90, 0x18, 0x17,
+	0x1b, 0x48, 0x08, 0x6e, 0x0f, 0x94, 0xa7, 0xe4, 0xc4, 0x25, 0x8c, 0xa2, 0xba, 0xb8, 0x20, 0x3f,
+	0xaf, 0x38, 0x55, 0x48, 0x9b, 0x8b, 0x05, 0x24, 0x06, 0x56, 0xcc, 0x6d, 0x24, 0xae, 0x87, 0xec,
+	0x1f, 0x84, 0xcb, 0x83, 0xc0, 0x8a, 0x9c, 0xe4, 0x4e, 0x3c, 0x92, 0x63, 0xbc, 0xf0, 0x48, 0x8e,
+	0xf1, 0xc1, 0x23, 0x39, 0xc6, 0x09, 0x8f, 0xe5, 0x18, 0x2e, 0x3c, 0x96, 0x63, 0xb8, 0xf1, 0x58,
+	0x8e, 0x21, 0x8a, 0x45, 0xcf, 0xba, 0x20, 0x29, 0x89, 0x0d, 0x1c, 0x02, 0xc6, 0x80, 0x00, 0x00,
+	0x00, 0xff, 0xff, 0x81, 0x32, 0x03, 0xbb, 0x1c, 0x01, 0x00, 0x00,
 }
 
 func (m *PlayerRank) Marshal() (dAtA []byte, err error) {
@@ -142,6 +237,69 @@ func (m *PlayerRank) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *GetRankByIDRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetRankByIDRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetRankByIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.RankID != 0 {
+		i = encodeVarintPlayerRank(dAtA, i, uint64(m.RankID))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *GetRankByIDResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetRankByIDResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetRankByIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Rank != nil {
+		{
+			size, err := m.Rank.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintPlayerRank(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintPlayerRank(dAtA []byte, offset int, v uint64) int {
 	offset -= sovPlayerRank(v)
 	base := offset
@@ -167,6 +325,31 @@ func (m *PlayerRank) Size() (n int) {
 	}
 	l = len(m.NameCode)
 	if l > 0 {
+		n += 1 + l + sovPlayerRank(uint64(l))
+	}
+	return n
+}
+
+func (m *GetRankByIDRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.RankID != 0 {
+		n += 1 + sovPlayerRank(uint64(m.RankID))
+	}
+	return n
+}
+
+func (m *GetRankByIDResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Rank != nil {
+		l = m.Rank.Size()
 		n += 1 + l + sovPlayerRank(uint64(l))
 	}
 	return n
@@ -276,6 +459,167 @@ func (m *PlayerRank) Unmarshal(dAtA []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			m.NameCode = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipPlayerRank(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthPlayerRank
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthPlayerRank
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetRankByIDRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowPlayerRank
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetRankByIDRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetRankByIDRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field RankID", wireType)
+			}
+			m.RankID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPlayerRank
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.RankID |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipPlayerRank(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthPlayerRank
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthPlayerRank
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetRankByIDResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowPlayerRank
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetRankByIDResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetRankByIDResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Rank", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPlayerRank
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthPlayerRank
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthPlayerRank
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Rank == nil {
+				m.Rank = &PlayerRank{}
+			}
+			if err := m.Rank.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
