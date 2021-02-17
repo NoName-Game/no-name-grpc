@@ -19,6 +19,7 @@ message StartPlayerRestRequest {
 }
 message StartPlayerRestResponse {
     google.protobuf.Timestamp RestEndTime = 1;
+    google.protobuf.Timestamp PlayEndTime = 2;
 }
 
 // RestCheck
