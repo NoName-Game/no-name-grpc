@@ -102,6 +102,7 @@ service NoName {
     rpc GetPlayerResources (player_inventory.GetPlayerResourcesRequest) returns (player_inventory.GetPlayerResourcesResponse) {}
     rpc GetPlayerItems (player_inventory.GetPlayerItemsRequest) returns (player_inventory.GetPlayerItemsResponse) {}
     rpc GetPlayerAmulets (player_inventory.GetPlayerAmuletsRequest) returns (player_inventory.GetPlayerAmuletsResponse) {}
+    rpc GetPlayerPacks (player_inventory.GetPlayerPacksRequest) returns (player_inventory.GetPlayerPacksResponse) {}
     rpc GetPlayerItemByID (player_inventory.GetPlayerItemByIDRequest) returns (player_inventory.GetPlayerItemByIDResponse) {}
     rpc GetPlayerResourceByID (player_inventory.GetPlayerResourceByIDRequest) returns (player_inventory.GetPlayerResourceByIDResponse) {}
 
@@ -193,6 +194,7 @@ service NoName {
     rpc UseItem (item.UseItemRequest) returns (item.UseItemResponse) {}
     rpc BuyItem (item.BuyItemRequest) returns (item.BuyItemResponse) {}
     rpc GetItemByID (item.GetItemByIDRequest) returns (item.GetItemByIDResponse) {}
+    rpc OpenPack (item.OpenPackRequest) returns (item.OpenPackResponse) {}
 
     // ItemCateogory
     rpc GetAllItemCategories (item_category.GetAllItemCategoriesRequest) returns (item_category.GetAllItemCategoriesResponse) {}
