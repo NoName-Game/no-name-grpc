@@ -55,3 +55,12 @@ message GetPlayerResourceByIDRequest {
 message GetPlayerResourceByIDResponse {
     PlayerInventory PlayerInventory = 1;
 }
+
+// GetPlayerPacks
+message GetPlayerPacksRequest {
+    uint32 PlayerID = 1;
+}
+
+message GetPlayerPacksResponse {
+    repeated PlayerInventory PlayerInventory = 1;
+}

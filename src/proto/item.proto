@@ -2,6 +2,7 @@ syntax = "proto3";
 import "proto/item_category.proto";
 import "proto/rarity.proto";
 import "proto/item_recipe.proto";
+import "proto/resource.proto";
 option go_package = ".;pb";
 package item;
 
@@ -77,4 +78,15 @@ message BuyItemRequest {
 }
 message BuyItemResponse {
     // Empty
+}
+
+// OpenPack
+message OpenPackRequest {
+    uint32 PlayerID = 1;
+    uint32 ItemID = 2;
+}
+
+message OpenPackResponse {
+    repeated Item Items = 1;
+    repeated resource.Resource Resources = 2;
 }
