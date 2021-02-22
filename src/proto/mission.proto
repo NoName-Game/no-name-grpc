@@ -45,3 +45,13 @@ message GetMissionRewardResponse {
     int32 Diamond = 2;
     int32 Exp = 3;
 }
+
+// CheckMissionReward
+message CheckMissionRewardRequest {
+    uint32 MissionID = 1;
+}
+message CheckMissionRewardResponse {
+    int32 Money = 1;
+    int32 Diamond = 2;
+    int32 Exp = 3;
+}
