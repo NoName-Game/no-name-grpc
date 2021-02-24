@@ -23,6 +23,7 @@ message ExplorationContinueResponse {
 // ExplorationEnd
 message ExplorationEndRequest {
     uint32 PlayerID = 1;
+    bool QuickEnd = 2;
 }
 message ExplorationEndResponse {
     message ExplorationDropResourcesResult {
