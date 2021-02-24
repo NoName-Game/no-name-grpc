@@ -87,3 +87,13 @@ message RemovePlayerToGuildRequest {
 message RemovePlayerToGuildResponse {
     // Empty
 }
+
+// ChangeVisibility
+message ChangeVisibilityGuildRequest {
+    bool Visibility = 1; // false public | true private
+    uint32 GuildID = 2;
+}
+
+message ChangeVisibilityGuildResponse {
+    // Empty
+}
