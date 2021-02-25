@@ -139,6 +139,7 @@ service NoName {
     rpc GetTitanByID (titan.GetTitanByIDRequest) returns (titan.GetTitanByIDResponse) {}
     rpc GetTitanByName (titan.GetTitanByNameRequest) returns (titan.GetTitanByNameResponse) {}
     rpc GetTitanByPlanetID (titan.GetTitanByPlanetIDRequest) returns (titan.GetTitanByPlanetIDResponse) {}
+    rpc CheckTitanAliveByPlanetID (titan.CheckTitanAliveByPlanetIDRequest) returns (titan.CheckTitanAliveByPlanetIDResponse) {}
     rpc GetTitanByPlanetSystemID (titan.GetTitanByPlanetSystemIDRequest) returns (titan.GetTitanByPlanetSystemIDResponse) {}
     rpc HitTitan (titan.HitTitanRequest) returns (titan.HitTitanResponse) {}
     rpc TitanDiscovered (titan.TitanDiscoveredRequest) returns (titan.TitanDiscoveredResponse) {}

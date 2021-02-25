@@ -30,6 +30,14 @@ message GetTitanByPlanetIDResponse {
     Titan Titan = 1;
 }
 
+// CheckTitanAliveByPlanetID
+message CheckTitanAliveByPlanetIDRequest {
+    uint32 PlanetID = 1;
+}
+message CheckTitanAliveByPlanetIDResponse {
+    Titan Titan = 1;
+}
+
 // GetTitanByPlanetSystemID
 message GetTitanByPlanetSystemIDRequest {
     uint32 PlanetSystemID = 1;
