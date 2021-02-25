@@ -106,3 +106,12 @@ message GetGuildByNameRequest {
 message GetGuildByNameResponse {
     Guild Guild = 1;
 }
+
+// ChangeLeaderGuild
+message ChangeLeaderGuildRequest {
+    string PlayerUsername = 1;
+    uint32 GuildID = 2;
+}
+message ChangeLeaderGuildResponse {
+    // Empty
+}
