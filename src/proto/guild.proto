@@ -97,3 +97,12 @@ message ChangeVisibilityGuildRequest {
 message ChangeVisibilityGuildResponse {
     // Empty
 }
+
+// GetGuildByName
+message GetGuildByNameRequest {
+    string GuildName = 1;
+}
+
+message GetGuildByNameResponse {
+    Guild Guild = 1;
+}
