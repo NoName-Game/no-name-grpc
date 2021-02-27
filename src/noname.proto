@@ -45,13 +45,14 @@ import "proto/guild_point.proto";
 import "proto/achievement.proto";
 import "proto/achievement_category.proto";
 import "proto/player_achievement.proto";
-import "proto/planet_bookmark.proto";
+import "proto/planet_bookmarks.proto";
 import "proto/safeplanet_relax_threecardgame.proto";
 import "proto/safeplanet_statistics.proto";
 import "proto/dark_merchant.proto";
 import "proto/level.proto";
 import "proto/player_titan_drop.proto";
 import "proto/player_rank.proto";
+import "proto/safeplanet_gifts.proto";
 
 option go_package = ".;pb";
 
@@ -176,9 +177,9 @@ service NoName {
     rpc GetSafePlanets (planet.GetSafePlanetsRequest) returns (planet.GetSafePlanetsResponse) {}
 
     // Planet Bookmark
-    rpc AddPlanetBookmark (planet_bookmark.AddPlanetBookmarkRequest) returns (planet_bookmark.AddPlanetBookmarkResponse) {}
-    rpc RemovePlanetBookmark (planet_bookmark.RemovePlanetBookmarkRequest) returns (planet_bookmark.RemovePlanetBookmarkResponse) {}
-    rpc CheckIfPlayerHavePlanetBookmark (planet_bookmark.CheckIfPlayerHavePlanetBookmarkRequest) returns (planet_bookmark.CheckIfPlayerHavePlanetBookmarkResponse) {}
+    rpc AddPlanetBookmark (planet_bookmarks.AddPlanetBookmarkRequest) returns (planet_bookmarks.AddPlanetBookmarkResponse) {}
+    rpc RemovePlanetBookmark (planet_bookmarks.RemovePlanetBookmarkRequest) returns (planet_bookmarks.RemovePlanetBookmarkResponse) {}
+    rpc CheckIfPlayerHavePlanetBookmark (planet_bookmarks.CheckIfPlayerHavePlanetBookmarkRequest) returns (planet_bookmarks.CheckIfPlayerHavePlanetBookmarkResponse) {}
 
     // PlanetMap
     rpc GetPlanetMapByID (planet_map.GetPlanetMapByIDRequest) returns (planet_map.GetPlanetMapByIDResponse) {}
@@ -359,6 +360,9 @@ service NoName {
 
     rpc StatisticsTopMissionAll (safeplanet_statistics.StatisticsTopMissionAllRequest) returns (safeplanet_statistics.StatisticsTopMissionAllResponse) {}
     rpc StatisticsTopMissionYou (safeplanet_statistics.StatisticsTopMissionYouRequest) returns (safeplanet_statistics.StatisticsTopMissionYouResponse) {}
+
+    // Safeplanet - Gift
+    rpc Gift (safeplanet_gifts.GiftRequest) returns (safeplanet_gifts.GiftResponse) {}
 
     // Dark Merchant
     rpc GetDarkMerchant (dark_merchant.GetDarkMerchantRequest) returns (dark_merchant.GetDarkMerchantResponse) {}

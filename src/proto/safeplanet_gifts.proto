@@ -1,0 +1,19 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package safeplanet_gifts;
+
+// Gift
+message GiftRequest {
+    enum GiftTypeEnum {
+        ITEM = 0;
+        RESOURCE = 1;
+    }
+    uint32 FromPlayerID = 1;
+    uint32 ToPlayerID = 2;
+    GiftTypeEnum GiftType = 3;
+    uint32 ItemID = 4;
+}
+message GiftResponse {
+    // Empty
+}
+
