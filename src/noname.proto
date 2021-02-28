@@ -330,6 +330,7 @@ service NoName {
 
     // Achievement
     rpc GetAllAchievement (achievement.GetAllAchievementRequest) returns (achievement.GetAllAchievementResponse) {}
+    rpc GetAchievementByID (achievement.GetAchievementByIDRequest) returns (achievement.GetAchievementByIDResponse) {}
     rpc GetAchievementsByCategoryID (achievement.GetAchievementsByCategoryIDRequest) returns (achievement.GetAchievementsByCategoryIDResponse) {}
     rpc GetAchievementForPlayerByCategory (achievement.GetAchievementForPlayerByCategoryRequest) returns (achievement.GetAchievementForPlayerByCategoryResponse) {}
     rpc CheckIfPlayerHaveAchievement (achievement.CheckIfPlayerHaveAchievementRequest) returns (achievement.CheckIfPlayerHaveAchievementResponse) {}

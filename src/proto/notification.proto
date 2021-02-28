@@ -1,15 +1,17 @@
 syntax = "proto3";
 option go_package = ".;pb";
 import "proto/notification_category.proto";
+import "proto/player.proto";
 package notification;
 
 message Notification {
   uint32 ID = 1;
   uint32 PlayerID = 2;
-  uint32 NotificationCategoryID = 3;
-  notification_category.NotificationCategory NotificationCategory = 4;
-  string Payload = 5;
-  bool ToNotify = 6;
+  player.Player Player = 3;
+  uint32 NotificationCategoryID = 4;
+  notification_category.NotificationCategory NotificationCategory = 5;
+  string Payload = 6;
+  bool ToNotify = 7;
 }
 
 // GetNotifications
