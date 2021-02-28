@@ -23,6 +23,14 @@ message GetAllAchievementResponse {
     repeated Achievement Achievements = 1;
 }
 
+// GetAchievementByID
+message GetAchievementByIDRequest {
+    uint32 AchievementID = 1;
+}
+message GetAchievementByIDResponse {
+    Achievement Achievement = 1;
+}
+
 // GetAchievementsByCategoryID
 message GetAchievementsByCategoryIDRequest {
     uint32 CategoryID = 1;

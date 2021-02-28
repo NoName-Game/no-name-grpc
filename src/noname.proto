@@ -53,6 +53,7 @@ import "proto/level.proto";
 import "proto/player_titan_drop.proto";
 import "proto/player_rank.proto";
 import "proto/safeplanet_gifts.proto";
+import "proto/notification.proto";
 
 option go_package = ".;pb";
 
@@ -329,6 +330,7 @@ service NoName {
 
     // Achievement
     rpc GetAllAchievement (achievement.GetAllAchievementRequest) returns (achievement.GetAllAchievementResponse) {}
+    rpc GetAchievementByID (achievement.GetAchievementByIDRequest) returns (achievement.GetAchievementByIDResponse) {}
     rpc GetAchievementsByCategoryID (achievement.GetAchievementsByCategoryIDRequest) returns (achievement.GetAchievementsByCategoryIDResponse) {}
     rpc GetAchievementForPlayerByCategory (achievement.GetAchievementForPlayerByCategoryRequest) returns (achievement.GetAchievementForPlayerByCategoryResponse) {}
     rpc CheckIfPlayerHaveAchievement (achievement.CheckIfPlayerHaveAchievementRequest) returns (achievement.CheckIfPlayerHaveAchievementResponse) {}
@@ -373,4 +375,8 @@ service NoName {
 
     // Rank
     rpc GetRankByID (player_rank.GetRankByIDRequest) returns (player_rank.GetRankByIDResponse) {}
+
+    // Notification
+    rpc GetNotifications (notification.GetNotificationsRequest) returns (notification.GetNotificationsResponse) {}
+    rpc SetNotificationNotified (notification.SetNotificationNotifiedRequest) returns (notification.SetNotificationNotifiedResponse) {}
 }

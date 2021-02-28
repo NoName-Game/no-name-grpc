@@ -1,0 +1,36 @@
+syntax = "proto3";
+option go_package = ".;pb";
+import "proto/notification_category.proto";
+import "proto/player.proto";
+package notification;
+
+message Notification {
+  uint32 ID = 1;
+  uint32 PlayerID = 2;
+  player.Player Player = 3;
+  uint32 NotificationCategoryID = 4;
+  notification_category.NotificationCategory NotificationCategory = 5;
+  string Payload = 6;
+  bool ToNotify = 7;
+}
+
+// GetNotifications
+message GetNotificationsRequest {
+  // Empty
+}
+message GetNotificationsResponse {
+  repeated Notification Notifications = 1;
+}
+
+// SetNotificationNotified
+message SetNotificationNotifiedRequest {
+  uint32 NotificationID = 1;
+}
+message SetNotificationNotifiedResponse {
+  // Empty
+}
+
+
+
+
+
