@@ -53,6 +53,7 @@ import "proto/level.proto";
 import "proto/player_titan_drop.proto";
 import "proto/player_rank.proto";
 import "proto/safeplanet_gifts.proto";
+import "proto/notification.proto";
 
 option go_package = ".;pb";
 
@@ -373,4 +374,8 @@ service NoName {
 
     // Rank
     rpc GetRankByID (player_rank.GetRankByIDRequest) returns (player_rank.GetRankByIDResponse) {}
+
+    // Notification
+    rpc GetNotification (notification.GetNotificationRequest) returns (notification.GetNotificationResponse) {}
+    rpc SetNotificationNotified (notification.SetNotificationNotifiedRequest) returns (notification.SetNotificationNotifiedResponse) {}
 }
