@@ -376,6 +376,6 @@ service NoName {
     rpc GetRankByID (player_rank.GetRankByIDRequest) returns (player_rank.GetRankByIDResponse) {}
 
     // Notification
-    rpc GetNotification (notification.GetNotificationRequest) returns (notification.GetNotificationResponse) {}
+    rpc GetNotifications (notification.GetNotificationsRequest) returns (notification.GetNotificationsResponse) {}
     rpc SetNotificationNotified (notification.SetNotificationNotifiedRequest) returns (notification.SetNotificationNotifiedResponse) {}
 }

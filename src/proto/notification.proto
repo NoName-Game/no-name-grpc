@@ -12,11 +12,11 @@ message Notification {
   bool ToNotify = 6;
 }
 
-// GetNotification
-message GetNotificationRequest {
+// GetNotifications
+message GetNotificationsRequest {
   // Empty
 }
-message GetNotificationResponse {
+message GetNotificationsResponse {
   repeated Notification Notifications = 1;
 }
 
