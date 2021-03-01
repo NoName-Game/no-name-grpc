@@ -1,0 +1,26 @@
+syntax = "proto3";
+import "proto/guild.proto";
+option go_package = ".;pb";
+package domain;
+
+// GetDomainsByPlanetID
+message GetDomainsByPlanetIDRequest {
+    uint32 PlanetID = 1;
+}
+message GetDomainsByPlanetIDResponse {
+    message DomainList {
+        guild.Guild Guild = 1;
+        int64 NKills = 2;
+    }
+    repeated DomainList Domains = 1;
+}
+
+// GetCurrentDomainByPlanetIDRequest
+message GetCurrentDomainByPlanetIDRequest {
+    uint32 PlanetID = 1;
+}
+message GetCurrentDomainByPlanetIDResponse {
+    guild.Guild Guild = 1;
+    int64 NKills = 2;
+}
+

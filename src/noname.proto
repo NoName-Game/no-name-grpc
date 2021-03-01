@@ -54,6 +54,7 @@ import "proto/player_titan_drop.proto";
 import "proto/player_rank.proto";
 import "proto/safeplanet_gifts.proto";
 import "proto/notification.proto";
+import "proto/domain.proto";
 
 option go_package = ".;pb";
 
@@ -268,6 +269,10 @@ service NoName {
     // Conquerors
     rpc GetConquerorsByPlanetID (conqueror.GetConquerorsByPlanetIDRequest) returns (conqueror.GetConquerorsByPlanetIDResponse) {}
     rpc GetCurrentConquerorByPlanetID (conqueror.GetCurrentConquerorByPlanetIDRequest) returns (conqueror.GetCurrentConquerorByPlanetIDResponse) {}
+
+    // Domains
+    rpc GetDomainsByPlanetID (domain.GetDomainsByPlanetIDRequest) returns (domain.GetDomainsByPlanetIDResponse) {}
+    rpc GetCurrentDomainByPlanetID (domain.GetCurrentDomainByPlanetIDRequest) returns (domain.GetCurrentDomainByPlanetIDResponse) {}
 
     // Safeplanet - Crafter
     rpc CrafterStart (safeplanet_crafter.CrafterStartRequest) returns (safeplanet_crafter.CrafterStartResponse) {}
