@@ -304,7 +304,10 @@ service NoName {
 
     // Guild
     rpc CheckGuildName (guild.CheckGuildNameRequest) returns (guild.CheckGuildNameResponse) {}
+    rpc CheckGuildTag (guild.CheckGuildTagRequest) returns (guild.CheckGuildTagResponse) {}
     rpc CreateGuild (guild.CreateGuildRequest) returns (guild.CreateGuildResponse) {}
+    rpc ChangeGuildName (guild.ChangeGuildNameRequest) returns (guild.ChangeGuildNameResponse) {}
+    rpc ChangeGuildTag (guild.ChangeGuildTagRequest) returns (guild.ChangeGuildTagResponse) {}
     rpc JoinGuild (guild.JoinGuildRequest) returns (guild.JoinGuildResponse) {}
     rpc GetJoinGuildsList (guild.GetJoinGuildsListRequest) returns (guild.GetJoinGuildsListResponse) {}
     rpc GetPlayerGuild (guild.GetPlayerGuildRequest) returns (guild.GetPlayerGuildResponse) {}

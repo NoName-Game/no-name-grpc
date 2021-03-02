@@ -5,9 +5,10 @@ package guild;
 
 message Guild {
     uint32 ID = 1;
-    string Name = 2;
-    bool GuildType = 9;
-    uint32 OwnerID = 13;
+    string Tag = 2;
+    string Name = 3;
+    bool GuildType = 4;
+    uint32 OwnerID = 5;
 }
 
 // CheckGuildName
@@ -16,6 +17,32 @@ message CheckGuildNameRequest {
 }
 message CheckGuildNameResponse {
     bool GuildNameFree = 1;
+}
+
+// CheckGuildTag
+message CheckGuildTagRequest {
+    string Tag = 1;
+}
+message CheckGuildTagResponse {
+    bool GuildTagFree = 1;
+}
+
+// ChangeGuildName
+message ChangeGuildNameRequest {
+    uint32 GuildID = 1;
+    string Name = 2;
+}
+message ChangeGuildNameResponse {
+    // Empty
+}
+
+// ChangeGuildTag
+message ChangeGuildTagRequest {
+    uint32 GuildID = 1;
+    string Tag = 2;
+}
+message ChangeGuildTagResponse {
+    // Empty
 }
 
 // CreateGuild
