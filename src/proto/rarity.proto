@@ -6,6 +6,7 @@ message Rarity {
     uint32 ID = 1;
     string Name = 2;
     string Slug = 3;
+    int32 LevelToEuip = 4;
 }
 
 // GetAllRarities
