@@ -1,5 +1,6 @@
 syntax = "proto3";
 option go_package = ".;pb";
+import "google/protobuf/timestamp.proto";
 package titan;
 
 message Titan {
@@ -12,6 +13,7 @@ message Titan {
     bool Died = 7;
     bool Dropped = 8;
     int32 RespawnCounter = 9;
+    google.protobuf.Timestamp KilledAt = 10;
 }
 
 // GetTitanByID
