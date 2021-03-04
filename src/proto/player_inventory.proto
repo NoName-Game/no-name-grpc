@@ -22,6 +22,15 @@ message GetPlayerResourcesResponse {
     repeated PlayerInventory PlayerInventory = 1;
 }
 
+// GetPlayerResourcesByCategoryID
+message GetPlayerResourcesByCategoryIDRequest {
+    uint32 PlayerID = 1;
+    uint32 ResourceCategoryID = 2;
+}
+message GetPlayerResourcesByCategoryIDResponse {
+    repeated PlayerInventory PlayerInventory = 1;
+}
+
 // GetPlayerItems
 message GetPlayerItemsRequest {
     uint32 PlayerID = 1;
