@@ -203,6 +203,105 @@ func (m *GetPlayerResourcesResponse) GetPlayerInventory() []*PlayerInventory {
 	return nil
 }
 
+// GetPlayerResourcesByCategoryID
+type GetPlayerResourcesByCategoryIDRequest struct {
+	PlayerID           uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	ResourceCategoryID uint32 `protobuf:"varint,2,opt,name=ResourceCategoryID,proto3" json:"ResourceCategoryID,omitempty"`
+}
+
+func (m *GetPlayerResourcesByCategoryIDRequest) Reset()         { *m = GetPlayerResourcesByCategoryIDRequest{} }
+func (m *GetPlayerResourcesByCategoryIDRequest) String() string { return proto.CompactTextString(m) }
+func (*GetPlayerResourcesByCategoryIDRequest) ProtoMessage()    {}
+func (*GetPlayerResourcesByCategoryIDRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_17e463cfd00f9e1f, []int{3}
+}
+func (m *GetPlayerResourcesByCategoryIDRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetPlayerResourcesByCategoryIDRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetPlayerResourcesByCategoryIDRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetPlayerResourcesByCategoryIDRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetPlayerResourcesByCategoryIDRequest.Merge(m, src)
+}
+func (m *GetPlayerResourcesByCategoryIDRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetPlayerResourcesByCategoryIDRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetPlayerResourcesByCategoryIDRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetPlayerResourcesByCategoryIDRequest proto.InternalMessageInfo
+
+func (m *GetPlayerResourcesByCategoryIDRequest) GetPlayerID() uint32 {
+	if m != nil {
+		return m.PlayerID
+	}
+	return 0
+}
+
+func (m *GetPlayerResourcesByCategoryIDRequest) GetResourceCategoryID() uint32 {
+	if m != nil {
+		return m.ResourceCategoryID
+	}
+	return 0
+}
+
+type GetPlayerResourcesByCategoryIDResponse struct {
+	PlayerInventory []*PlayerInventory `protobuf:"bytes,1,rep,name=PlayerInventory,proto3" json:"PlayerInventory,omitempty"`
+}
+
+func (m *GetPlayerResourcesByCategoryIDResponse) Reset() {
+	*m = GetPlayerResourcesByCategoryIDResponse{}
+}
+func (m *GetPlayerResourcesByCategoryIDResponse) String() string { return proto.CompactTextString(m) }
+func (*GetPlayerResourcesByCategoryIDResponse) ProtoMessage()    {}
+func (*GetPlayerResourcesByCategoryIDResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_17e463cfd00f9e1f, []int{4}
+}
+func (m *GetPlayerResourcesByCategoryIDResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetPlayerResourcesByCategoryIDResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetPlayerResourcesByCategoryIDResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetPlayerResourcesByCategoryIDResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetPlayerResourcesByCategoryIDResponse.Merge(m, src)
+}
+func (m *GetPlayerResourcesByCategoryIDResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetPlayerResourcesByCategoryIDResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetPlayerResourcesByCategoryIDResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetPlayerResourcesByCategoryIDResponse proto.InternalMessageInfo
+
+func (m *GetPlayerResourcesByCategoryIDResponse) GetPlayerInventory() []*PlayerInventory {
+	if m != nil {
+		return m.PlayerInventory
+	}
+	return nil
+}
+
 // GetPlayerItems
 type GetPlayerItemsRequest struct {
 	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
@@ -212,7 +311,7 @@ func (m *GetPlayerItemsRequest) Reset()         { *m = GetPlayerItemsRequest{} }
 func (m *GetPlayerItemsRequest) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerItemsRequest) ProtoMessage()    {}
 func (*GetPlayerItemsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_17e463cfd00f9e1f, []int{3}
+	return fileDescriptor_17e463cfd00f9e1f, []int{5}
 }
 func (m *GetPlayerItemsRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -256,7 +355,7 @@ func (m *GetPlayerItemsResponse) Reset()         { *m = GetPlayerItemsResponse{}
 func (m *GetPlayerItemsResponse) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerItemsResponse) ProtoMessage()    {}
 func (*GetPlayerItemsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_17e463cfd00f9e1f, []int{4}
+	return fileDescriptor_17e463cfd00f9e1f, []int{6}
 }
 func (m *GetPlayerItemsResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -301,7 +400,7 @@ func (m *GetPlayerAmuletsRequest) Reset()         { *m = GetPlayerAmuletsRequest
 func (m *GetPlayerAmuletsRequest) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerAmuletsRequest) ProtoMessage()    {}
 func (*GetPlayerAmuletsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_17e463cfd00f9e1f, []int{5}
+	return fileDescriptor_17e463cfd00f9e1f, []int{7}
 }
 func (m *GetPlayerAmuletsRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -345,7 +444,7 @@ func (m *GetPlayerAmuletsResponse) Reset()         { *m = GetPlayerAmuletsRespon
 func (m *GetPlayerAmuletsResponse) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerAmuletsResponse) ProtoMessage()    {}
 func (*GetPlayerAmuletsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_17e463cfd00f9e1f, []int{6}
+	return fileDescriptor_17e463cfd00f9e1f, []int{8}
 }
 func (m *GetPlayerAmuletsResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -391,7 +490,7 @@ func (m *GetPlayerItemByIDRequest) Reset()         { *m = GetPlayerItemByIDReque
 func (m *GetPlayerItemByIDRequest) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerItemByIDRequest) ProtoMessage()    {}
 func (*GetPlayerItemByIDRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_17e463cfd00f9e1f, []int{7}
+	return fileDescriptor_17e463cfd00f9e1f, []int{9}
 }
 func (m *GetPlayerItemByIDRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -442,7 +541,7 @@ func (m *GetPlayerItemByIDResponse) Reset()         { *m = GetPlayerItemByIDResp
 func (m *GetPlayerItemByIDResponse) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerItemByIDResponse) ProtoMessage()    {}
 func (*GetPlayerItemByIDResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_17e463cfd00f9e1f, []int{8}
+	return fileDescriptor_17e463cfd00f9e1f, []int{10}
 }
 func (m *GetPlayerItemByIDResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -488,7 +587,7 @@ func (m *GetPlayerResourceByIDRequest) Reset()         { *m = GetPlayerResourceB
 func (m *GetPlayerResourceByIDRequest) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerResourceByIDRequest) ProtoMessage()    {}
 func (*GetPlayerResourceByIDRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_17e463cfd00f9e1f, []int{9}
+	return fileDescriptor_17e463cfd00f9e1f, []int{11}
 }
 func (m *GetPlayerResourceByIDRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -539,7 +638,7 @@ func (m *GetPlayerResourceByIDResponse) Reset()         { *m = GetPlayerResource
 func (m *GetPlayerResourceByIDResponse) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerResourceByIDResponse) ProtoMessage()    {}
 func (*GetPlayerResourceByIDResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_17e463cfd00f9e1f, []int{10}
+	return fileDescriptor_17e463cfd00f9e1f, []int{12}
 }
 func (m *GetPlayerResourceByIDResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -584,7 +683,7 @@ func (m *GetPlayerPacksRequest) Reset()         { *m = GetPlayerPacksRequest{} }
 func (m *GetPlayerPacksRequest) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerPacksRequest) ProtoMessage()    {}
 func (*GetPlayerPacksRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_17e463cfd00f9e1f, []int{11}
+	return fileDescriptor_17e463cfd00f9e1f, []int{13}
 }
 func (m *GetPlayerPacksRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -628,7 +727,7 @@ func (m *GetPlayerPacksResponse) Reset()         { *m = GetPlayerPacksResponse{}
 func (m *GetPlayerPacksResponse) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerPacksResponse) ProtoMessage()    {}
 func (*GetPlayerPacksResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_17e463cfd00f9e1f, []int{12}
+	return fileDescriptor_17e463cfd00f9e1f, []int{14}
 }
 func (m *GetPlayerPacksResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -668,6 +767,8 @@ func init() {
 	proto.RegisterType((*PlayerInventory)(nil), "player_inventory.PlayerInventory")
 	proto.RegisterType((*GetPlayerResourcesRequest)(nil), "player_inventory.GetPlayerResourcesRequest")
 	proto.RegisterType((*GetPlayerResourcesResponse)(nil), "player_inventory.GetPlayerResourcesResponse")
+	proto.RegisterType((*GetPlayerResourcesByCategoryIDRequest)(nil), "player_inventory.GetPlayerResourcesByCategoryIDRequest")
+	proto.RegisterType((*GetPlayerResourcesByCategoryIDResponse)(nil), "player_inventory.GetPlayerResourcesByCategoryIDResponse")
 	proto.RegisterType((*GetPlayerItemsRequest)(nil), "player_inventory.GetPlayerItemsRequest")
 	proto.RegisterType((*GetPlayerItemsResponse)(nil), "player_inventory.GetPlayerItemsResponse")
 	proto.RegisterType((*GetPlayerAmuletsRequest)(nil), "player_inventory.GetPlayerAmuletsRequest")
@@ -683,34 +784,36 @@ func init() {
 func init() { proto.RegisterFile("proto/player_inventory.proto", fileDescriptor_17e463cfd00f9e1f) }
 
 var fileDescriptor_17e463cfd00f9e1f = []byte{
-	// 427 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x54, 0xcd, 0xaa, 0xd3, 0x40,
-	0x18, 0xed, 0xf4, 0xcf, 0xf2, 0x15, 0xb5, 0x0e, 0x5a, 0xc7, 0x50, 0x87, 0x98, 0x55, 0x16, 0x12,
-	0xa1, 0x45, 0x5c, 0xb8, 0xb2, 0x44, 0x24, 0x08, 0x52, 0x43, 0x57, 0xdd, 0x48, 0x5a, 0x06, 0x0d,
-	0xb6, 0x49, 0x4c, 0x26, 0x42, 0xde, 0xc2, 0xc7, 0x72, 0xd9, 0xa5, 0x4b, 0x69, 0x1f, 0xc1, 0x17,
-	0x90, 0x4c, 0x92, 0x31, 0x4d, 0xbc, 0x97, 0xdc, 0x0b, 0xd9, 0xf5, 0x3b, 0xdf, 0x39, 0x33, 0xe7,
-	0x4c, 0x0f, 0x81, 0x59, 0x10, 0xfa, 0xdc, 0x7f, 0x11, 0xec, 0x9d, 0x84, 0x85, 0x9f, 0x5c, 0xef,
-	0x3b, 0xf3, 0xb8, 0x1f, 0x26, 0x86, 0x80, 0xf1, 0xa4, 0x8a, 0x2b, 0x93, 0x8c, 0xef, 0x72, 0x76,
-	0xc8, 0x38, 0xca, 0xc3, 0x0c, 0x09, 0x59, 0xe4, 0xc7, 0xe1, 0x8e, 0x65, 0xa8, 0xf6, 0x07, 0xc1,
-	0xfd, 0x95, 0x10, 0x5b, 0x85, 0x16, 0xdf, 0x83, 0xae, 0x65, 0x12, 0xa4, 0x22, 0xfd, 0xae, 0xdd,
-	0xb5, 0x4c, 0xac, 0xc0, 0x28, 0xa7, 0x98, 0xa4, 0x2b, 0x50, 0x39, 0xa7, 0xbb, 0x8f, 0xb1, 0xe3,
-	0x71, 0x97, 0x27, 0xa4, 0xa7, 0x22, 0x7d, 0x60, 0xcb, 0x39, 0xdd, 0xbd, 0x15, 0xbf, 0x2c, 0x93,
-	0xf4, 0x33, 0x5d, 0x31, 0xe3, 0xe7, 0xf0, 0x60, 0x1d, 0x3a, 0x5e, 0xe4, 0xec, 0xb8, 0xeb, 0x7b,
-	0xeb, 0x24, 0x60, 0x96, 0x49, 0x06, 0x82, 0x54, 0x5f, 0x60, 0x03, 0x46, 0x76, 0xee, 0x9b, 0x0c,
-	0x55, 0xa4, 0x8f, 0xe7, 0xd8, 0x90, 0x41, 0x8a, 0x8d, 0x2d, 0x39, 0x98, 0x42, 0xdf, 0xe2, 0xec,
-	0x40, 0xee, 0x08, 0x2e, 0x18, 0xe2, 0x19, 0x52, 0xc4, 0x16, 0xb8, 0xf6, 0x0a, 0x9e, 0xbc, 0x63,
-	0x3c, 0x0b, 0x51, 0x88, 0x22, 0x9b, 0x7d, 0x8b, 0x59, 0xc4, 0x2f, 0xe2, 0xa2, 0xcb, 0xb8, 0x9a,
-	0x0b, 0xca, 0xff, 0x84, 0x51, 0xe0, 0x7b, 0x11, 0xc3, 0xef, 0x6b, 0x6f, 0x49, 0x90, 0xda, 0xd3,
-	0xc7, 0xf3, 0x67, 0x46, 0xed, 0x8f, 0xab, 0x10, 0xed, 0xaa, 0x52, 0x5b, 0xc0, 0x23, 0x79, 0x55,
-	0x6a, 0xba, 0x91, 0x3f, 0x06, 0xd3, 0xaa, 0xa8, 0x0d, 0x6f, 0x2f, 0xe1, 0xb1, 0xbc, 0xe6, 0xcd,
-	0x21, 0xde, 0x33, 0xde, 0xc8, 0xdd, 0x67, 0x20, 0x75, 0xd9, 0x75, 0xfe, 0xd0, 0x2d, 0xfd, 0x7d,
-	0x28, 0x5d, 0x94, 0x3e, 0xc3, 0x32, 0xb1, 0xcc, 0x06, 0x06, 0xf1, 0x14, 0x86, 0x29, 0x5d, 0xf6,
-	0x3c, 0x9f, 0xb4, 0x2f, 0xa5, 0xbe, 0xfc, 0x3b, 0xaf, 0x0d, 0xe7, 0x1b, 0x98, 0xd5, 0x0a, 0xd6,
-	0xd4, 0x3d, 0x05, 0x28, 0x24, 0x32, 0x41, 0x09, 0xd1, 0xf6, 0xf0, 0xf4, 0x8a, 0xb3, 0xdb, 0x48,
-	0x52, 0xee, 0xef, 0xca, 0xd9, 0x7d, 0xbd, 0x71, 0x7f, 0x73, 0x51, 0x0b, 0xfd, 0x5d, 0xd2, 0x9f,
-	0x27, 0x8a, 0x8e, 0x27, 0x8a, 0x7e, 0x9f, 0x28, 0xfa, 0x71, 0xa6, 0x9d, 0xe3, 0x99, 0x76, 0x7e,
-	0x9d, 0x69, 0x67, 0xd3, 0x37, 0x5e, 0x07, 0xdb, 0xed, 0x50, 0x7c, 0x1c, 0x17, 0x7f, 0x03, 0x00,
-	0x00, 0xff, 0xff, 0x65, 0xea, 0xc3, 0xdc, 0x76, 0x05, 0x00, 0x00,
+	// 462 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x55, 0xc1, 0xaa, 0xd3, 0x40,
+	0x14, 0xed, 0xf4, 0xf5, 0xd5, 0xc7, 0x7d, 0xa8, 0xcf, 0x41, 0xeb, 0x18, 0xea, 0x10, 0x03, 0x4a,
+	0x16, 0x12, 0xa1, 0x45, 0x5c, 0xb8, 0xb2, 0x46, 0x24, 0x08, 0x52, 0x43, 0x57, 0xdd, 0x48, 0x5a,
+	0x86, 0x1a, 0x6c, 0x93, 0x98, 0x4c, 0x84, 0xfc, 0x85, 0x9f, 0xe5, 0xb2, 0x4b, 0x97, 0xd2, 0x7e,
+	0x82, 0x3f, 0x20, 0x99, 0x24, 0xd3, 0x34, 0xa9, 0x1a, 0x1f, 0x64, 0xd7, 0x39, 0xf7, 0x9c, 0xb9,
+	0xe7, 0xcc, 0xbd, 0x25, 0x30, 0x0c, 0x42, 0x9f, 0xfb, 0xcf, 0x82, 0xb5, 0x93, 0xb0, 0xf0, 0xa3,
+	0xeb, 0x7d, 0x65, 0x1e, 0xf7, 0xc3, 0xc4, 0x10, 0x30, 0xbe, 0xaa, 0xe2, 0xca, 0x55, 0xc6, 0x77,
+	0x39, 0xdb, 0x64, 0x1c, 0xe5, 0x6e, 0x86, 0x84, 0x2c, 0xf2, 0xe3, 0x70, 0xc9, 0x32, 0x54, 0xfb,
+	0x85, 0xe0, 0xf6, 0x54, 0x88, 0xad, 0x42, 0x8b, 0x6f, 0x41, 0xd7, 0x32, 0x09, 0x52, 0x91, 0x7e,
+	0xd3, 0xee, 0x5a, 0x26, 0x56, 0xe0, 0x22, 0xa7, 0x98, 0xa4, 0x2b, 0x50, 0x79, 0x4e, 0x6b, 0x1f,
+	0x62, 0xc7, 0xe3, 0x2e, 0x4f, 0xc8, 0x99, 0x8a, 0xf4, 0x73, 0x5b, 0x9e, 0xd3, 0xda, 0x1b, 0xf1,
+	0xcb, 0x32, 0x49, 0x2f, 0xd3, 0x15, 0x67, 0xfc, 0x14, 0xee, 0xcc, 0x42, 0xc7, 0x8b, 0x9c, 0x25,
+	0x77, 0x7d, 0x6f, 0x96, 0x04, 0xcc, 0x32, 0xc9, 0xb9, 0x20, 0xd5, 0x0b, 0xd8, 0x80, 0x0b, 0x3b,
+	0xf7, 0x4d, 0xfa, 0x2a, 0xd2, 0x2f, 0x47, 0xd8, 0x90, 0x41, 0x8a, 0x8a, 0x2d, 0x39, 0x98, 0x42,
+	0xcf, 0xe2, 0x6c, 0x43, 0x6e, 0x08, 0x2e, 0x18, 0xe2, 0x19, 0x52, 0xc4, 0x16, 0xb8, 0xf6, 0x02,
+	0x1e, 0xbc, 0x65, 0x3c, 0x0b, 0x51, 0x88, 0x22, 0x9b, 0x7d, 0x89, 0x59, 0xc4, 0x8f, 0xe2, 0xa2,
+	0xe3, 0xb8, 0x9a, 0x0b, 0xca, 0x29, 0x61, 0x14, 0xf8, 0x5e, 0xc4, 0xf0, 0xbb, 0xda, 0x5b, 0x12,
+	0xa4, 0x9e, 0xe9, 0x97, 0xa3, 0x47, 0x46, 0x6d, 0x70, 0x15, 0xa2, 0x5d, 0x55, 0x6a, 0x11, 0x3c,
+	0xae, 0xb7, 0x9a, 0x24, 0xaf, 0x1d, 0xce, 0x56, 0x7e, 0x98, 0x58, 0x66, 0x03, 0xbf, 0xd8, 0x00,
+	0x5c, 0x68, 0x0f, 0xc2, 0x7c, 0x88, 0x27, 0x2a, 0x5a, 0x0c, 0x4f, 0xfe, 0xd5, 0xb4, 0x8d, 0xac,
+	0x63, 0xb8, 0x27, 0xdb, 0xa6, 0x03, 0x6a, 0x34, 0x0b, 0x06, 0x83, 0xaa, 0xa8, 0x0d, 0x6f, 0xcf,
+	0xe1, 0xbe, 0x6c, 0xf3, 0x6a, 0x13, 0xaf, 0x19, 0x6f, 0xe4, 0x6e, 0x05, 0xa4, 0x2e, 0xfb, 0x9b,
+	0x3f, 0x74, 0x4d, 0x7f, 0xef, 0x4b, 0x8d, 0xd2, 0x67, 0x98, 0x34, 0x5c, 0x8d, 0x01, 0xf4, 0x53,
+	0xba, 0x5c, 0x87, 0xfc, 0xa4, 0x7d, 0x2a, 0xfd, 0x37, 0x0e, 0xf7, 0xb5, 0xe1, 0x7c, 0x0e, 0xc3,
+	0xda, 0xb2, 0x35, 0x75, 0x4f, 0x01, 0x0a, 0x89, 0x4c, 0x50, 0x42, 0xb4, 0x35, 0x3c, 0xfc, 0xc3,
+	0xdd, 0x6d, 0x24, 0x29, 0xef, 0xef, 0xd4, 0x59, 0x7e, 0xfe, 0xef, 0xfd, 0xcd, 0x45, 0x2d, 0xec,
+	0xef, 0x84, 0x7e, 0xdf, 0x51, 0xb4, 0xdd, 0x51, 0xf4, 0x73, 0x47, 0xd1, 0xb7, 0x3d, 0xed, 0x6c,
+	0xf7, 0xb4, 0xf3, 0x63, 0x4f, 0x3b, 0xf3, 0x9e, 0xf1, 0x32, 0x58, 0x2c, 0xfa, 0xe2, 0x43, 0x30,
+	0xfe, 0x1d, 0x00, 0x00, 0xff, 0xff, 0xcc, 0x31, 0xf1, 0xd8, 0x62, 0x06, 0x00, 0x00,
 }
 
 func (m *PlayerInventory) Marshal() (dAtA []byte, err error) {
@@ -829,6 +932,76 @@ func (m *GetPlayerResourcesResponse) MarshalTo(dAtA []byte) (int, error) {
 }
 
 func (m *GetPlayerResourcesResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.PlayerInventory) > 0 {
+		for iNdEx := len(m.PlayerInventory) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.PlayerInventory[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintPlayerInventory(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *GetPlayerResourcesByCategoryIDRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetPlayerResourcesByCategoryIDRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetPlayerResourcesByCategoryIDRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.ResourceCategoryID != 0 {
+		i = encodeVarintPlayerInventory(dAtA, i, uint64(m.ResourceCategoryID))
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.PlayerID != 0 {
+		i = encodeVarintPlayerInventory(dAtA, i, uint64(m.PlayerID))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *GetPlayerResourcesByCategoryIDResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetPlayerResourcesByCategoryIDResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetPlayerResourcesByCategoryIDResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -1235,6 +1408,36 @@ func (m *GetPlayerResourcesRequest) Size() (n int) {
 }
 
 func (m *GetPlayerResourcesResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.PlayerInventory) > 0 {
+		for _, e := range m.PlayerInventory {
+			l = e.Size()
+			n += 1 + l + sovPlayerInventory(uint64(l))
+		}
+	}
+	return n
+}
+
+func (m *GetPlayerResourcesByCategoryIDRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.PlayerID != 0 {
+		n += 1 + sovPlayerInventory(uint64(m.PlayerID))
+	}
+	if m.ResourceCategoryID != 0 {
+		n += 1 + sovPlayerInventory(uint64(m.ResourceCategoryID))
+	}
+	return n
+}
+
+func (m *GetPlayerResourcesByCategoryIDResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1709,6 +1912,184 @@ func (m *GetPlayerResourcesResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: GetPlayerResourcesResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PlayerInventory", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPlayerInventory
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthPlayerInventory
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthPlayerInventory
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.PlayerInventory = append(m.PlayerInventory, &PlayerInventory{})
+			if err := m.PlayerInventory[len(m.PlayerInventory)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipPlayerInventory(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthPlayerInventory
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthPlayerInventory
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetPlayerResourcesByCategoryIDRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowPlayerInventory
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetPlayerResourcesByCategoryIDRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetPlayerResourcesByCategoryIDRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PlayerID", wireType)
+			}
+			m.PlayerID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPlayerInventory
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.PlayerID |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ResourceCategoryID", wireType)
+			}
+			m.ResourceCategoryID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPlayerInventory
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.ResourceCategoryID |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipPlayerInventory(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthPlayerInventory
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthPlayerInventory
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetPlayerResourcesByCategoryIDResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowPlayerInventory
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetPlayerResourcesByCategoryIDResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetPlayerResourcesByCategoryIDResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
