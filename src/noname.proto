@@ -103,6 +103,7 @@ service NoName {
 
     // Player - Inventory
     rpc GetPlayerResources (player_inventory.GetPlayerResourcesRequest) returns (player_inventory.GetPlayerResourcesResponse) {}
+    rpc GetPlayerResourcesByCategoryID (player_inventory.GetPlayerResourcesByCategoryIDRequest) returns (player_inventory.GetPlayerResourcesByCategoryIDResponse) {}
     rpc GetPlayerItems (player_inventory.GetPlayerItemsRequest) returns (player_inventory.GetPlayerItemsResponse) {}
     rpc GetPlayerAmulets (player_inventory.GetPlayerAmuletsRequest) returns (player_inventory.GetPlayerAmuletsResponse) {}
     rpc GetPlayerPacks (player_inventory.GetPlayerPacksRequest) returns (player_inventory.GetPlayerPacksResponse) {}
