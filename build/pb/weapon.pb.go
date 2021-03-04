@@ -317,6 +317,103 @@ func (m *GetWeaponByNameResponse) GetWeapon() *Weapon {
 	return nil
 }
 
+// GetWeaponByPlayerAndName
+type GetWeaponByPlayerAndNameRequest struct {
+	Name     string `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
+	PlayerID uint32 `protobuf:"varint,2,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+}
+
+func (m *GetWeaponByPlayerAndNameRequest) Reset()         { *m = GetWeaponByPlayerAndNameRequest{} }
+func (m *GetWeaponByPlayerAndNameRequest) String() string { return proto.CompactTextString(m) }
+func (*GetWeaponByPlayerAndNameRequest) ProtoMessage()    {}
+func (*GetWeaponByPlayerAndNameRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a9fb098921f1953d, []int{5}
+}
+func (m *GetWeaponByPlayerAndNameRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetWeaponByPlayerAndNameRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetWeaponByPlayerAndNameRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetWeaponByPlayerAndNameRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetWeaponByPlayerAndNameRequest.Merge(m, src)
+}
+func (m *GetWeaponByPlayerAndNameRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetWeaponByPlayerAndNameRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetWeaponByPlayerAndNameRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetWeaponByPlayerAndNameRequest proto.InternalMessageInfo
+
+func (m *GetWeaponByPlayerAndNameRequest) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *GetWeaponByPlayerAndNameRequest) GetPlayerID() uint32 {
+	if m != nil {
+		return m.PlayerID
+	}
+	return 0
+}
+
+type GetWeaponByPlayerAndNameResponse struct {
+	Weapon *Weapon `protobuf:"bytes,1,opt,name=Weapon,proto3" json:"Weapon,omitempty"`
+}
+
+func (m *GetWeaponByPlayerAndNameResponse) Reset()         { *m = GetWeaponByPlayerAndNameResponse{} }
+func (m *GetWeaponByPlayerAndNameResponse) String() string { return proto.CompactTextString(m) }
+func (*GetWeaponByPlayerAndNameResponse) ProtoMessage()    {}
+func (*GetWeaponByPlayerAndNameResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a9fb098921f1953d, []int{6}
+}
+func (m *GetWeaponByPlayerAndNameResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetWeaponByPlayerAndNameResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetWeaponByPlayerAndNameResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetWeaponByPlayerAndNameResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetWeaponByPlayerAndNameResponse.Merge(m, src)
+}
+func (m *GetWeaponByPlayerAndNameResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetWeaponByPlayerAndNameResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetWeaponByPlayerAndNameResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetWeaponByPlayerAndNameResponse proto.InternalMessageInfo
+
+func (m *GetWeaponByPlayerAndNameResponse) GetWeapon() *Weapon {
+	if m != nil {
+		return m.Weapon
+	}
+	return nil
+}
+
 // GetPlayerWeapons
 type GetPlayerWeaponsRequest struct {
 	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
@@ -326,7 +423,7 @@ func (m *GetPlayerWeaponsRequest) Reset()         { *m = GetPlayerWeaponsRequest
 func (m *GetPlayerWeaponsRequest) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerWeaponsRequest) ProtoMessage()    {}
 func (*GetPlayerWeaponsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a9fb098921f1953d, []int{5}
+	return fileDescriptor_a9fb098921f1953d, []int{7}
 }
 func (m *GetPlayerWeaponsRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -370,7 +467,7 @@ func (m *GetPlayerWeaponsResponse) Reset()         { *m = GetPlayerWeaponsRespon
 func (m *GetPlayerWeaponsResponse) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerWeaponsResponse) ProtoMessage()    {}
 func (*GetPlayerWeaponsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a9fb098921f1953d, []int{6}
+	return fileDescriptor_a9fb098921f1953d, []int{8}
 }
 func (m *GetPlayerWeaponsResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -415,7 +512,7 @@ func (m *GetPlayerWeaponEquippedRequest) Reset()         { *m = GetPlayerWeaponE
 func (m *GetPlayerWeaponEquippedRequest) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerWeaponEquippedRequest) ProtoMessage()    {}
 func (*GetPlayerWeaponEquippedRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a9fb098921f1953d, []int{7}
+	return fileDescriptor_a9fb098921f1953d, []int{9}
 }
 func (m *GetPlayerWeaponEquippedRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -459,7 +556,7 @@ func (m *GetPlayerWeaponEquippedResponse) Reset()         { *m = GetPlayerWeapon
 func (m *GetPlayerWeaponEquippedResponse) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerWeaponEquippedResponse) ProtoMessage()    {}
 func (*GetPlayerWeaponEquippedResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a9fb098921f1953d, []int{8}
+	return fileDescriptor_a9fb098921f1953d, []int{10}
 }
 func (m *GetPlayerWeaponEquippedResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -506,7 +603,7 @@ func (m *EquipWeaponRequest) Reset()         { *m = EquipWeaponRequest{} }
 func (m *EquipWeaponRequest) String() string { return proto.CompactTextString(m) }
 func (*EquipWeaponRequest) ProtoMessage()    {}
 func (*EquipWeaponRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a9fb098921f1953d, []int{9}
+	return fileDescriptor_a9fb098921f1953d, []int{11}
 }
 func (m *EquipWeaponRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -563,7 +660,7 @@ func (m *EquipWeaponResponse) Reset()         { *m = EquipWeaponResponse{} }
 func (m *EquipWeaponResponse) String() string { return proto.CompactTextString(m) }
 func (*EquipWeaponResponse) ProtoMessage()    {}
 func (*EquipWeaponResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a9fb098921f1953d, []int{10}
+	return fileDescriptor_a9fb098921f1953d, []int{12}
 }
 func (m *EquipWeaponResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -598,6 +695,8 @@ func init() {
 	proto.RegisterType((*GetWeaponByIDResponse)(nil), "weapon.GetWeaponByIDResponse")
 	proto.RegisterType((*GetWeaponByNameRequest)(nil), "weapon.GetWeaponByNameRequest")
 	proto.RegisterType((*GetWeaponByNameResponse)(nil), "weapon.GetWeaponByNameResponse")
+	proto.RegisterType((*GetWeaponByPlayerAndNameRequest)(nil), "weapon.GetWeaponByPlayerAndNameRequest")
+	proto.RegisterType((*GetWeaponByPlayerAndNameResponse)(nil), "weapon.GetWeaponByPlayerAndNameResponse")
 	proto.RegisterType((*GetPlayerWeaponsRequest)(nil), "weapon.GetPlayerWeaponsRequest")
 	proto.RegisterType((*GetPlayerWeaponsResponse)(nil), "weapon.GetPlayerWeaponsResponse")
 	proto.RegisterType((*GetPlayerWeaponEquippedRequest)(nil), "weapon.GetPlayerWeaponEquippedRequest")
@@ -609,35 +708,36 @@ func init() {
 func init() { proto.RegisterFile("proto/weapon.proto", fileDescriptor_a9fb098921f1953d) }
 
 var fileDescriptor_a9fb098921f1953d = []byte{
-	// 436 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x53, 0xcd, 0xaa, 0xd3, 0x40,
-	0x14, 0xee, 0xe4, 0xb6, 0xb9, 0xbd, 0x47, 0xd2, 0xc5, 0x78, 0xab, 0x43, 0x91, 0x31, 0x0c, 0x52,
-	0xb2, 0x90, 0x0a, 0x8a, 0x2b, 0x05, 0xb1, 0x8e, 0x48, 0x36, 0x52, 0x66, 0x23, 0xb8, 0x9b, 0xe8,
-	0x20, 0x81, 0xb6, 0x49, 0x93, 0x94, 0xd2, 0xb7, 0xf0, 0x39, 0x7c, 0x12, 0x97, 0x5d, 0xba, 0x94,
-	0xf6, 0x45, 0x64, 0x7e, 0x92, 0xfe, 0x29, 0xde, 0xee, 0xf2, 0x7d, 0xdf, 0x39, 0xe7, 0x3b, 0x73,
-	0x4e, 0x0e, 0xe0, 0xbc, 0xc8, 0xaa, 0xec, 0xd9, 0x4a, 0xc9, 0x3c, 0x9b, 0x8f, 0x0c, 0xc0, 0xbe,
-	0x45, 0x03, 0xa7, 0x15, 0xb2, 0x48, 0xab, 0xb5, 0xd5, 0xd8, 0x0f, 0x0f, 0xfc, 0x4f, 0x46, 0xc6,
-	0x3d, 0xf0, 0x62, 0x4e, 0x50, 0x88, 0xa2, 0x40, 0x78, 0x31, 0xc7, 0x18, 0xda, 0x1f, 0xe5, 0x4c,
-	0x11, 0x2f, 0x44, 0xd1, 0x8d, 0x30, 0xdf, 0xf8, 0x11, 0xdc, 0x08, 0xb9, 0xe2, 0x72, 0x26, 0xbf,
-	0x29, 0x72, 0x15, 0xa2, 0x08, 0x89, 0x3d, 0x81, 0x07, 0xd0, 0x9d, 0x4c, 0xe5, 0x5a, 0x15, 0x31,
-	0x27, 0x6d, 0x53, 0xa7, 0xc1, 0x5a, 0x7b, 0xbf, 0x58, 0xa6, 0x79, 0xae, 0xbe, 0x92, 0x4e, 0x88,
-	0xa2, 0xae, 0x68, 0xb0, 0xd6, 0x84, 0x69, 0x2a, 0xe6, 0xc4, 0xb7, 0x79, 0x35, 0xc6, 0x43, 0xf0,
-	0xed, 0x37, 0xb9, 0x0e, 0x51, 0x74, 0xef, 0x79, 0x6f, 0xe4, 0xfa, 0xb7, 0xac, 0x70, 0xaa, 0xee,
-	0x6c, 0x52, 0xa8, 0x2f, 0x69, 0x99, 0x66, 0x73, 0x02, 0xb6, 0xb3, 0x86, 0xc0, 0x14, 0x80, 0x2f,
-	0x0b, 0x99, 0xa4, 0x53, 0x5d, 0x29, 0x08, 0x51, 0xd4, 0x11, 0x07, 0x0c, 0x7e, 0x02, 0xc1, 0x1e,
-	0xbd, 0x93, 0x39, 0xe9, 0x99, 0x90, 0x63, 0x92, 0x0d, 0xe1, 0xf6, 0x83, 0xaa, 0xec, 0xb8, 0xc6,
-	0xeb, 0x98, 0x0b, 0xb5, 0x58, 0xaa, 0xb2, 0x3a, 0x9d, 0x1c, 0x7b, 0x03, 0xfd, 0x93, 0xb8, 0x32,
-	0xcf, 0xe6, 0xa5, 0xd2, 0x8f, 0xb1, 0xac, 0x09, 0xd6, 0x8f, 0x71, 0x8b, 0xb2, 0xac, 0x70, 0x2a,
-	0x7b, 0x0a, 0x0f, 0x0e, 0x0a, 0xe8, 0xc9, 0xd7, 0x56, 0xf5, 0x52, 0xd0, 0x7e, 0x29, 0xec, 0x2d,
-	0x3c, 0x3c, 0x8b, 0xbe, 0xd0, 0xf0, 0xa5, 0x29, 0x61, 0x97, 0x65, 0xa9, 0xb2, 0x76, 0x3c, 0x5c,
-	0x2a, 0x3a, 0x5e, 0x2a, 0xe3, 0x40, 0xce, 0xd3, 0x9c, 0x75, 0x04, 0xd7, 0x8e, 0x22, 0x28, 0xbc,
-	0xfa, 0x8b, 0x77, 0x2d, 0xb3, 0xd7, 0x40, 0x4f, 0xaa, 0xd4, 0x7f, 0xc6, 0x5d, 0x7a, 0x88, 0xe1,
-	0xf1, 0x3f, 0xb3, 0x2f, 0x9c, 0x42, 0x02, 0xd8, 0xe4, 0x3a, 0xfa, 0xff, 0xe6, 0x5a, 0xb3, 0xc1,
-	0x31, 0x37, 0x77, 0x12, 0x88, 0x06, 0xe3, 0x5b, 0xe8, 0x98, 0x6a, 0xe6, 0x4e, 0xba, 0xc2, 0x02,
-	0xd6, 0x87, 0xfb, 0x47, 0x1e, 0xb6, 0xc5, 0x31, 0xfd, 0xb9, 0xa5, 0x68, 0xb3, 0xa5, 0xe8, 0xf7,
-	0x96, 0xa2, 0xef, 0x3b, 0xda, 0xda, 0xec, 0x68, 0xeb, 0xd7, 0x8e, 0xb6, 0x3e, 0xb7, 0x47, 0xaf,
-	0xf2, 0x24, 0xf1, 0xcd, 0xb9, 0xbe, 0xf8, 0x13, 0x00, 0x00, 0xff, 0xff, 0x2f, 0x11, 0x95, 0xea,
-	0xe0, 0x03, 0x00, 0x00,
+	// 462 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x54, 0xcb, 0x6e, 0xd3, 0x40,
+	0x14, 0xcd, 0xb8, 0x89, 0x9b, 0x5e, 0x94, 0x2c, 0x86, 0x16, 0x46, 0x15, 0x1a, 0x46, 0x23, 0x54,
+	0x79, 0x81, 0x82, 0x04, 0x62, 0x05, 0x12, 0x6a, 0x19, 0x84, 0xcc, 0x02, 0x95, 0xd9, 0x20, 0xb1,
+	0x9b, 0xd0, 0x11, 0xb2, 0xd4, 0xda, 0xae, 0xed, 0xa8, 0xca, 0x5f, 0xf0, 0x1d, 0x7c, 0x09, 0xcb,
+	0x2e, 0x59, 0xa2, 0xe4, 0x47, 0xd0, 0x3c, 0x1c, 0x3f, 0x5a, 0xd4, 0x66, 0x37, 0xe7, 0x9c, 0x3b,
+	0xe7, 0x9e, 0xb9, 0x37, 0x31, 0xe0, 0xbc, 0xc8, 0xaa, 0xec, 0xc5, 0x95, 0x56, 0x79, 0x96, 0xce,
+	0x2c, 0xc0, 0xa1, 0x43, 0x87, 0x5e, 0x2b, 0x54, 0x91, 0x54, 0x4b, 0xa7, 0xf1, 0x5f, 0x01, 0x84,
+	0x5f, 0xad, 0x8c, 0xa7, 0x10, 0xc4, 0x82, 0x20, 0x86, 0xa2, 0x89, 0x0c, 0x62, 0x81, 0x31, 0x0c,
+	0x3f, 0xab, 0x0b, 0x4d, 0x02, 0x86, 0xa2, 0x3d, 0x69, 0xcf, 0xf8, 0x09, 0xec, 0x49, 0x75, 0x25,
+	0xd4, 0x85, 0xfa, 0xa1, 0xc9, 0x0e, 0x43, 0x11, 0x92, 0x0d, 0x81, 0x0f, 0x61, 0x7c, 0x7a, 0xae,
+	0x96, 0xba, 0x88, 0x05, 0x19, 0x5a, 0x9f, 0x0d, 0x36, 0xda, 0x87, 0xcb, 0x45, 0x92, 0xe7, 0xfa,
+	0x8c, 0x8c, 0x18, 0x8a, 0xc6, 0x72, 0x83, 0x8d, 0x26, 0x6d, 0xa8, 0x58, 0x90, 0xd0, 0xdd, 0xab,
+	0x31, 0x3e, 0x82, 0xd0, 0x9d, 0xc9, 0x2e, 0x43, 0xd1, 0x83, 0x97, 0xd3, 0x99, 0xcf, 0xef, 0x58,
+	0xe9, 0x55, 0x93, 0xec, 0xb4, 0xd0, 0xdf, 0x93, 0x32, 0xc9, 0x52, 0x02, 0x2e, 0xd9, 0x86, 0xc0,
+	0x14, 0x40, 0x2c, 0x0a, 0x35, 0x4f, 0xce, 0x8d, 0xd3, 0x84, 0xa1, 0x68, 0x24, 0x5b, 0x0c, 0x7e,
+	0x06, 0x93, 0x06, 0xbd, 0x57, 0x39, 0x99, 0xda, 0x92, 0x2e, 0xc9, 0x8f, 0x60, 0xff, 0xa3, 0xae,
+	0xdc, 0xb8, 0x4e, 0x96, 0xb1, 0x90, 0xfa, 0x72, 0xa1, 0xcb, 0xaa, 0x3f, 0x39, 0xfe, 0x0e, 0x0e,
+	0x7a, 0x75, 0x65, 0x9e, 0xa5, 0xa5, 0x36, 0x8f, 0x71, 0xac, 0x2d, 0x36, 0x8f, 0xf1, 0x8b, 0x72,
+	0xac, 0xf4, 0x2a, 0x7f, 0x0e, 0x8f, 0x5a, 0x06, 0x66, 0xf2, 0x75, 0xab, 0x7a, 0x29, 0xa8, 0x59,
+	0x0a, 0x3f, 0x86, 0xc7, 0x37, 0xaa, 0xb7, 0x6c, 0xf8, 0x05, 0x9e, 0xb6, 0x2c, 0xdc, 0xd2, 0x8e,
+	0xd3, 0xb3, 0x3b, 0x3a, 0x77, 0x16, 0x1e, 0x74, 0x17, 0xce, 0x3f, 0x01, 0xfb, 0xbf, 0xe5, 0x96,
+	0xf1, 0x5e, 0xdb, 0x17, 0x3a, 0x0f, 0x47, 0x95, 0x75, 0xac, 0x76, 0x04, 0xd4, 0x8b, 0x20, 0x80,
+	0xdc, 0xbc, 0xe6, 0x5b, 0x47, 0xb0, 0xeb, 0x29, 0x82, 0xd8, 0xce, 0x2d, 0xbd, 0x6b, 0x99, 0xbf,
+	0x05, 0xda, 0x73, 0xa9, 0x7f, 0xb8, 0xf7, 0xc9, 0x10, 0xdb, 0xc9, 0xde, 0x7e, 0x7b, 0xcb, 0x29,
+	0xcc, 0x01, 0xdb, 0xbb, 0x9e, 0xbe, 0xbb, 0xb9, 0xd1, 0x5c, 0x71, 0xb3, 0x9f, 0x1a, 0xe3, 0x7d,
+	0x18, 0x59, 0x37, 0xfb, 0x37, 0x1e, 0x4b, 0x07, 0xf8, 0x01, 0x3c, 0xec, 0xf4, 0x70, 0x11, 0x4f,
+	0xe8, 0xef, 0x15, 0x45, 0xd7, 0x2b, 0x8a, 0xfe, 0xae, 0x28, 0xfa, 0xb9, 0xa6, 0x83, 0xeb, 0x35,
+	0x1d, 0xfc, 0x59, 0xd3, 0xc1, 0xb7, 0xe1, 0xec, 0x4d, 0x3e, 0x9f, 0x87, 0xf6, 0x6b, 0xf2, 0xea,
+	0x5f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x74, 0x55, 0xd2, 0x2e, 0x7f, 0x04, 0x00, 0x00,
 }
 
 func (m *Weapon) Marshal() (dAtA []byte, err error) {
@@ -838,6 +938,76 @@ func (m *GetWeaponByNameResponse) MarshalTo(dAtA []byte) (int, error) {
 }
 
 func (m *GetWeaponByNameResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Weapon != nil {
+		{
+			size, err := m.Weapon.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintWeapon(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *GetWeaponByPlayerAndNameRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetWeaponByPlayerAndNameRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetWeaponByPlayerAndNameRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.PlayerID != 0 {
+		i = encodeVarintWeapon(dAtA, i, uint64(m.PlayerID))
+		i--
+		dAtA[i] = 0x10
+	}
+	if len(m.Name) > 0 {
+		i -= len(m.Name)
+		copy(dAtA[i:], m.Name)
+		i = encodeVarintWeapon(dAtA, i, uint64(len(m.Name)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *GetWeaponByPlayerAndNameResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetWeaponByPlayerAndNameResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetWeaponByPlayerAndNameResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -1142,6 +1312,35 @@ func (m *GetWeaponByNameRequest) Size() (n int) {
 }
 
 func (m *GetWeaponByNameResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Weapon != nil {
+		l = m.Weapon.Size()
+		n += 1 + l + sovWeapon(uint64(l))
+	}
+	return n
+}
+
+func (m *GetWeaponByPlayerAndNameRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Name)
+	if l > 0 {
+		n += 1 + l + sovWeapon(uint64(l))
+	}
+	if m.PlayerID != 0 {
+		n += 1 + sovWeapon(uint64(m.PlayerID))
+	}
+	return n
+}
+
+func (m *GetWeaponByPlayerAndNameResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1770,6 +1969,199 @@ func (m *GetWeaponByNameResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: GetWeaponByNameResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Weapon", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowWeapon
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthWeapon
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthWeapon
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Weapon == nil {
+				m.Weapon = &Weapon{}
+			}
+			if err := m.Weapon.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipWeapon(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthWeapon
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthWeapon
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetWeaponByPlayerAndNameRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowWeapon
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetWeaponByPlayerAndNameRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetWeaponByPlayerAndNameRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Name", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowWeapon
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthWeapon
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthWeapon
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Name = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PlayerID", wireType)
+			}
+			m.PlayerID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowWeapon
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.PlayerID |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipWeapon(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthWeapon
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthWeapon
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetWeaponByPlayerAndNameResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowWeapon
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetWeaponByPlayerAndNameResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetWeaponByPlayerAndNameResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:

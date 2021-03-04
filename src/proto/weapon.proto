@@ -32,6 +32,15 @@ message GetWeaponByNameResponse {
     Weapon Weapon = 1;
 }
 
+// GetWeaponByPlayerAndName
+message GetWeaponByPlayerAndNameRequest {
+    string Name = 1;
+    uint32 PlayerID = 2;
+}
+message GetWeaponByPlayerAndNameResponse {
+    Weapon Weapon = 1;
+}
+
 // GetPlayerWeapons
 message GetPlayerWeaponsRequest {
     uint32 PlayerID = 1;

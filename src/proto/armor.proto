@@ -34,6 +34,15 @@ message GetArmorByNameResponse {
     Armor Armor = 1;
 }
 
+// GetArmorByPlayerAndName
+message GetArmorByPlayerAndNameRequest {
+    string Name = 1;
+    uint32 PlayerID = 2;
+}
+message GetArmorByPlayerAndNameResponse {
+    Armor Armor = 1;
+}
+
 // GetPlayerArmors
 message GetPlayerArmorsRequest {
     uint32 PlayerID = 1;
