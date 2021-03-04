@@ -72,6 +72,7 @@ service NoName {
     // Armor
     rpc GetArmorByID (armor.GetArmorByIDRequest) returns (armor.GetArmorByIDResponse) {}
     rpc GetArmorByName (armor.GetArmorByNameRequest) returns (armor.GetArmorByNameResponse) {}
+    rpc GetArmorByPlayerAndName (armor.GetArmorByPlayerAndNameRequest) returns (armor.GetArmorByPlayerAndNameResponse) {}
     rpc GetPlayerArmors (armor.GetPlayerArmorsRequest) returns (armor.GetPlayerArmorsResponse) {}
     rpc GetPlayerArmorsByCategoryID (armor.GetPlayerArmorsByCategoryIDRequest) returns (armor.GetPlayerArmorsByCategoryIDResponse) {}
     rpc GetPlayerArmorsEquipped (armor.GetPlayerArmorsEquippedRequest) returns (armor.GetPlayerArmorsEquippedResponse) {}
@@ -85,6 +86,7 @@ service NoName {
     // Weapon
     rpc GetWeaponByID (weapon.GetWeaponByIDRequest) returns (weapon.GetWeaponByIDResponse) {}
     rpc GetWeaponByName (weapon.GetWeaponByNameRequest) returns (weapon.GetWeaponByNameResponse) {}
+    rpc GetWeaponByPlayerAndName (weapon.GetWeaponByPlayerAndNameRequest) returns (weapon.GetWeaponByPlayerAndNameResponse) {}
     rpc GetPlayerWeapons (weapon.GetPlayerWeaponsRequest) returns (weapon.GetPlayerWeaponsResponse) {}
     rpc GetPlayerWeaponEquipped (weapon.GetPlayerWeaponEquippedRequest) returns (weapon.GetPlayerWeaponEquippedResponse) {}
     rpc EquipWeapon (weapon.EquipWeaponRequest) returns (weapon.EquipWeaponResponse) {}
