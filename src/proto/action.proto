@@ -1,0 +1,60 @@
+syntax = "proto3";
+option go_package = ".;pb";
+import "proto/resource.proto";
+package action;
+
+message Action {
+    uint32 ID = 1;
+    uint32 ResourceID = 2;
+    resource.Resource Resource = 3;
+    int32 StartingPrice = 4;
+    int32 MinimumPrice = 5;
+}
+
+message GetActionByIDRequest {
+    uint32 ID = 1;
+}
+
+message GetActionByIDResponse {
+    Action Action = 1;
+    int32 CurrentValue = 2;
+    int32 Quantity = 3;
+}
+
+message PlaceBidRequest {
+    enum BidTypeEnum {
+        BUY = 0;
+        SELL = 1;
+    }
+    uint32 ActionID = 1;
+    uint32 PlayerID = 2;
+    uint32 Quantity = 3;
+    BidTypeEnum Type = 4;
+}
+
+message PlaceBidResponse {
+    resource.Resource Resource = 1;
+    int32 Value = 2;
+}
+
+message GetActionsBySystemIDRequest {
+    uint32 SystemID = 1;
+}
+
+message GetActionsBySystemIDResponse {
+    repeated Action Actions = 1;
+}
+
+message GetBidInfoRequest {
+    enum BidTypeEnum {
+           BUY = 0;
+            SELL = 1;
+    }
+    uint32 ActionID = 1;
+    int32 Quantity = 2;
+    BidTypeEnum Type = 4;
+}
+
+message GetBidInfoResponse {
+    int32 Value = 1;
+}
