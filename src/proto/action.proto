@@ -44,3 +44,12 @@ message GetActionsBySystemIDRequest {
 message GetActionsBySystemIDResponse {
     repeated Action Actions = 1;
 }
+
+message GetBidInfoRequest {
+    uint32 ActionID = 1;
+    int32 Quantity = 2;
+}
+
+message GetBidInfoResponse {
+    int32 Value = 1;
+}

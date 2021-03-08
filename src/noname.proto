@@ -396,4 +396,5 @@ service NoName {
     rpc GetActionByID (action.GetActionByIDRequest) returns (action.GetActionByIDResponse) {}
     rpc PlaceBid (action.PlaceBidRequest) returns (action.PlaceBidResponse) {}
     rpc GetActionsBySystemID (action.GetActionsBySystemIDRequest) returns (action.GetActionsBySystemIDResponse) {}
+    rpc GetBidInfo (action.GetBidInfoRequest) returns (action.GetBidInfoResponse) {}
 }
