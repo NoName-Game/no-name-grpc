@@ -395,6 +395,7 @@ service NoName {
     // Auction
     rpc GetAllAuctions (auction.GetAllAuctionsRequest) returns (auction.GetAllAuctionsResponse) {}
     rpc GetAllAuctionsByCategory (auction.GetAllAuctionsByCategoryRequest) returns (auction.GetAllAuctionsByCategoryResponse) {}
+    rpc GetAllPlayerAuctions (auction.GetAllPlayerAuctionsRequest) returns (auction.GetAllPlayerAuctionsResponse) {}
     rpc GetAuctionByID (auction.GetAuctionByIDRequest) returns (auction.GetAuctionByIDResponse) {}
     rpc NewAuction (auction.NewAuctionRequest) returns (auction.NewAuctionResponse) {}
 

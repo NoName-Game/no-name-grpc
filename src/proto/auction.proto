@@ -41,6 +41,14 @@ message GetAllAuctionsByCategoryResponse {
   repeated Auction Auctions = 1;
 }
 
+// GetAllPlayerAuctions
+message GetAllPlayerAuctionsRequest {
+  uint32 PlayerID = 1;
+}
+message GetAllPlayerAuctionsResponse {
+  repeated Auction Auctions = 1;
+}
+
 // GetAuctionByID
 message GetAuctionByIDRequest {
   uint32 AuctionID = 1;
