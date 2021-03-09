@@ -6,6 +6,7 @@ package pb
 import (
 	fmt "fmt"
 	proto "github.com/gogo/protobuf/proto"
+	types "github.com/gogo/protobuf/types"
 	io "io"
 	math "math"
 	math_bits "math/bits"
@@ -54,6 +55,7 @@ type Auction struct {
 	ItemID       uint32                  `protobuf:"varint,4,opt,name=ItemID,proto3" json:"ItemID,omitempty"`
 	ItemCategory AuctionItemCategoryEnum `protobuf:"varint,5,opt,name=ItemCategory,proto3,enum=auction.AuctionItemCategoryEnum" json:"ItemCategory,omitempty"`
 	MinPrice     int32                   `protobuf:"varint,6,opt,name=MinPrice,proto3" json:"MinPrice,omitempty"`
+	CloseAt      *types.Timestamp        `protobuf:"bytes,7,opt,name=CloseAt,proto3" json:"CloseAt,omitempty"`
 }
 
 func (m *Auction) Reset()         { *m = Auction{} }
@@ -129,6 +131,13 @@ func (m *Auction) GetMinPrice() int32 {
 		return m.MinPrice
 	}
 	return 0
+}
+
+func (m *Auction) GetCloseAt() *types.Timestamp {
+	if m != nil {
+		return m.CloseAt
+	}
+	return nil
 }
 
 type AuctionBid struct {
@@ -290,7 +299,8 @@ func (m *GetAllAuctionsResponse) GetAuctions() []*Auction {
 
 // GetAllAuctionsByCategory
 type GetAllAuctionsByCategoryRequest struct {
-	ItemCategory AuctionItemCategoryEnum `protobuf:"varint,1,opt,name=ItemCategory,proto3,enum=auction.AuctionItemCategoryEnum" json:"ItemCategory,omitempty"`
+	PlayerID     uint32                  `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	ItemCategory AuctionItemCategoryEnum `protobuf:"varint,2,opt,name=ItemCategory,proto3,enum=auction.AuctionItemCategoryEnum" json:"ItemCategory,omitempty"`
 }
 
 func (m *GetAllAuctionsByCategoryRequest) Reset()         { *m = GetAllAuctionsByCategoryRequest{} }
@@ -325,6 +335,13 @@ func (m *GetAllAuctionsByCategoryRequest) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_GetAllAuctionsByCategoryRequest proto.InternalMessageInfo
+
+func (m *GetAllAuctionsByCategoryRequest) GetPlayerID() uint32 {
+	if m != nil {
+		return m.PlayerID
+	}
+	return 0
+}
 
 func (m *GetAllAuctionsByCategoryRequest) GetItemCategory() AuctionItemCategoryEnum {
 	if m != nil {
@@ -466,6 +483,111 @@ func (m *GetAllPlayerAuctionsResponse) GetAuctions() []*Auction {
 	return nil
 }
 
+// GetAllPlayerOfferAuctionsByCategory
+type GetAllPlayerOfferAuctionsByCategoryRequest struct {
+	PlayerID     uint32                  `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	ItemCategory AuctionItemCategoryEnum `protobuf:"varint,2,opt,name=ItemCategory,proto3,enum=auction.AuctionItemCategoryEnum" json:"ItemCategory,omitempty"`
+}
+
+func (m *GetAllPlayerOfferAuctionsByCategoryRequest) Reset() {
+	*m = GetAllPlayerOfferAuctionsByCategoryRequest{}
+}
+func (m *GetAllPlayerOfferAuctionsByCategoryRequest) String() string {
+	return proto.CompactTextString(m)
+}
+func (*GetAllPlayerOfferAuctionsByCategoryRequest) ProtoMessage() {}
+func (*GetAllPlayerOfferAuctionsByCategoryRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f62f8b8316fed145, []int{8}
+}
+func (m *GetAllPlayerOfferAuctionsByCategoryRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetAllPlayerOfferAuctionsByCategoryRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetAllPlayerOfferAuctionsByCategoryRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetAllPlayerOfferAuctionsByCategoryRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetAllPlayerOfferAuctionsByCategoryRequest.Merge(m, src)
+}
+func (m *GetAllPlayerOfferAuctionsByCategoryRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetAllPlayerOfferAuctionsByCategoryRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetAllPlayerOfferAuctionsByCategoryRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetAllPlayerOfferAuctionsByCategoryRequest proto.InternalMessageInfo
+
+func (m *GetAllPlayerOfferAuctionsByCategoryRequest) GetPlayerID() uint32 {
+	if m != nil {
+		return m.PlayerID
+	}
+	return 0
+}
+
+func (m *GetAllPlayerOfferAuctionsByCategoryRequest) GetItemCategory() AuctionItemCategoryEnum {
+	if m != nil {
+		return m.ItemCategory
+	}
+	return AuctionItemCategoryEnum_ARMOR
+}
+
+type GetAllPlayerOfferAuctionsByCategoryResponse struct {
+	Auctions []*Auction `protobuf:"bytes,1,rep,name=Auctions,proto3" json:"Auctions,omitempty"`
+}
+
+func (m *GetAllPlayerOfferAuctionsByCategoryResponse) Reset() {
+	*m = GetAllPlayerOfferAuctionsByCategoryResponse{}
+}
+func (m *GetAllPlayerOfferAuctionsByCategoryResponse) String() string {
+	return proto.CompactTextString(m)
+}
+func (*GetAllPlayerOfferAuctionsByCategoryResponse) ProtoMessage() {}
+func (*GetAllPlayerOfferAuctionsByCategoryResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f62f8b8316fed145, []int{9}
+}
+func (m *GetAllPlayerOfferAuctionsByCategoryResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetAllPlayerOfferAuctionsByCategoryResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetAllPlayerOfferAuctionsByCategoryResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetAllPlayerOfferAuctionsByCategoryResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetAllPlayerOfferAuctionsByCategoryResponse.Merge(m, src)
+}
+func (m *GetAllPlayerOfferAuctionsByCategoryResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetAllPlayerOfferAuctionsByCategoryResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetAllPlayerOfferAuctionsByCategoryResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetAllPlayerOfferAuctionsByCategoryResponse proto.InternalMessageInfo
+
+func (m *GetAllPlayerOfferAuctionsByCategoryResponse) GetAuctions() []*Auction {
+	if m != nil {
+		return m.Auctions
+	}
+	return nil
+}
+
 // GetAuctionByID
 type GetAuctionByIDRequest struct {
 	AuctionID uint32 `protobuf:"varint,1,opt,name=AuctionID,proto3" json:"AuctionID,omitempty"`
@@ -475,7 +597,7 @@ func (m *GetAuctionByIDRequest) Reset()         { *m = GetAuctionByIDRequest{} }
 func (m *GetAuctionByIDRequest) String() string { return proto.CompactTextString(m) }
 func (*GetAuctionByIDRequest) ProtoMessage()    {}
 func (*GetAuctionByIDRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f62f8b8316fed145, []int{8}
+	return fileDescriptor_f62f8b8316fed145, []int{10}
 }
 func (m *GetAuctionByIDRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -519,7 +641,7 @@ func (m *GetAuctionByIDResponse) Reset()         { *m = GetAuctionByIDResponse{}
 func (m *GetAuctionByIDResponse) String() string { return proto.CompactTextString(m) }
 func (*GetAuctionByIDResponse) ProtoMessage()    {}
 func (*GetAuctionByIDResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f62f8b8316fed145, []int{9}
+	return fileDescriptor_f62f8b8316fed145, []int{11}
 }
 func (m *GetAuctionByIDResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -567,7 +689,7 @@ func (m *NewAuctionRequest) Reset()         { *m = NewAuctionRequest{} }
 func (m *NewAuctionRequest) String() string { return proto.CompactTextString(m) }
 func (*NewAuctionRequest) ProtoMessage()    {}
 func (*NewAuctionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f62f8b8316fed145, []int{10}
+	return fileDescriptor_f62f8b8316fed145, []int{12}
 }
 func (m *NewAuctionRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -631,7 +753,7 @@ func (m *NewAuctionResponse) Reset()         { *m = NewAuctionResponse{} }
 func (m *NewAuctionResponse) String() string { return proto.CompactTextString(m) }
 func (*NewAuctionResponse) ProtoMessage()    {}
 func (*NewAuctionResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f62f8b8316fed145, []int{11}
+	return fileDescriptor_f62f8b8316fed145, []int{13}
 }
 func (m *NewAuctionResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -671,7 +793,7 @@ func (m *NewAuctionBidRequest) Reset()         { *m = NewAuctionBidRequest{} }
 func (m *NewAuctionBidRequest) String() string { return proto.CompactTextString(m) }
 func (*NewAuctionBidRequest) ProtoMessage()    {}
 func (*NewAuctionBidRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f62f8b8316fed145, []int{12}
+	return fileDescriptor_f62f8b8316fed145, []int{14}
 }
 func (m *NewAuctionBidRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -728,7 +850,7 @@ func (m *NewAuctionBidResponse) Reset()         { *m = NewAuctionBidResponse{} }
 func (m *NewAuctionBidResponse) String() string { return proto.CompactTextString(m) }
 func (*NewAuctionBidResponse) ProtoMessage()    {}
 func (*NewAuctionBidResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f62f8b8316fed145, []int{13}
+	return fileDescriptor_f62f8b8316fed145, []int{15}
 }
 func (m *NewAuctionBidResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -766,7 +888,7 @@ func (m *GetAuctionBidsRequest) Reset()         { *m = GetAuctionBidsRequest{} }
 func (m *GetAuctionBidsRequest) String() string { return proto.CompactTextString(m) }
 func (*GetAuctionBidsRequest) ProtoMessage()    {}
 func (*GetAuctionBidsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f62f8b8316fed145, []int{14}
+	return fileDescriptor_f62f8b8316fed145, []int{16}
 }
 func (m *GetAuctionBidsRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -812,7 +934,7 @@ func (m *GetAuctionBidsResponse) Reset()         { *m = GetAuctionBidsResponse{}
 func (m *GetAuctionBidsResponse) String() string { return proto.CompactTextString(m) }
 func (*GetAuctionBidsResponse) ProtoMessage()    {}
 func (*GetAuctionBidsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f62f8b8316fed145, []int{15}
+	return fileDescriptor_f62f8b8316fed145, []int{17}
 }
 func (m *GetAuctionBidsResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -872,6 +994,8 @@ func init() {
 	proto.RegisterType((*GetAllAuctionsByCategoryResponse)(nil), "auction.GetAllAuctionsByCategoryResponse")
 	proto.RegisterType((*GetAllPlayerAuctionsRequest)(nil), "auction.GetAllPlayerAuctionsRequest")
 	proto.RegisterType((*GetAllPlayerAuctionsResponse)(nil), "auction.GetAllPlayerAuctionsResponse")
+	proto.RegisterType((*GetAllPlayerOfferAuctionsByCategoryRequest)(nil), "auction.GetAllPlayerOfferAuctionsByCategoryRequest")
+	proto.RegisterType((*GetAllPlayerOfferAuctionsByCategoryResponse)(nil), "auction.GetAllPlayerOfferAuctionsByCategoryResponse")
 	proto.RegisterType((*GetAuctionByIDRequest)(nil), "auction.GetAuctionByIDRequest")
 	proto.RegisterType((*GetAuctionByIDResponse)(nil), "auction.GetAuctionByIDResponse")
 	proto.RegisterType((*NewAuctionRequest)(nil), "auction.NewAuctionRequest")
@@ -885,42 +1009,47 @@ func init() {
 func init() { proto.RegisterFile("proto/auction.proto", fileDescriptor_f62f8b8316fed145) }
 
 var fileDescriptor_f62f8b8316fed145 = []byte{
-	// 547 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x54, 0xcb, 0x6e, 0xd3, 0x4c,
-	0x14, 0xce, 0xc4, 0x89, 0x93, 0x9e, 0xfe, 0x7f, 0x64, 0xa6, 0xa5, 0xb5, 0x42, 0x65, 0xac, 0x59,
-	0x20, 0xab, 0x82, 0x80, 0x82, 0x58, 0x20, 0x56, 0x36, 0x2e, 0xc8, 0x52, 0x2f, 0xd1, 0x6c, 0x90,
-	0xd8, 0x39, 0xb5, 0x55, 0x59, 0x72, 0xe3, 0x10, 0x3b, 0x42, 0x79, 0x8b, 0x8a, 0xb7, 0xe0, 0x4d,
-	0x58, 0x76, 0x07, 0x4b, 0x94, 0xbc, 0x08, 0x9a, 0x5b, 0x1a, 0x9b, 0xb4, 0x54, 0x41, 0xec, 0xe6,
-	0xdc, 0xbf, 0xf3, 0x7d, 0x3e, 0x86, 0x9d, 0xf1, 0x24, 0x2b, 0xb2, 0xe7, 0xe1, 0xf4, 0xbc, 0x48,
-	0xb2, 0x51, 0x8f, 0x5b, 0xb8, 0x25, 0xcd, 0x2e, 0x16, 0xd1, 0x71, 0x1a, 0xce, 0xe2, 0x89, 0x08,
-	0x92, 0xef, 0x08, 0x5a, 0xae, 0x88, 0xe3, 0x0e, 0xd4, 0x03, 0xdf, 0x44, 0x36, 0x72, 0xfe, 0xa7,
-	0xf5, 0xc0, 0xc7, 0x5d, 0x68, 0x0f, 0x78, 0x6e, 0xe0, 0x9b, 0x75, 0xee, 0x5d, 0xda, 0xf8, 0x09,
-	0xe8, 0xe2, 0x6d, 0x6a, 0x36, 0x72, 0xb6, 0xfb, 0x9d, 0x9e, 0x6c, 0x2b, 0xbc, 0x54, 0x46, 0xf1,
-	0x1e, 0xe8, 0x41, 0x11, 0x5f, 0x06, 0xbe, 0xd9, 0xe0, 0x1d, 0xa4, 0x85, 0x7d, 0xf8, 0x8f, 0xbd,
-	0xde, 0x86, 0x45, 0x7c, 0x91, 0x4d, 0x66, 0x66, 0xd3, 0x46, 0x4e, 0xa7, 0x6f, 0xf7, 0x14, 0x74,
-	0x89, 0x69, 0x35, 0xe7, 0x68, 0x34, 0xbd, 0xa4, 0xa5, 0x2a, 0x86, 0xf0, 0x24, 0x19, 0x0d, 0x26,
-	0xc9, 0x79, 0x6c, 0xea, 0x36, 0x72, 0x9a, 0x74, 0x69, 0x93, 0x2b, 0x04, 0x20, 0xbb, 0x78, 0x49,
-	0xf4, 0x4f, 0x96, 0x3b, 0x80, 0x2d, 0x85, 0x53, 0xed, 0x77, 0xe3, 0xc0, 0x06, 0x68, 0xc3, 0x24,
-	0xe2, 0x9b, 0x35, 0x29, 0x7b, 0x92, 0x7d, 0x78, 0xf8, 0x3e, 0x2e, 0xdc, 0x34, 0x95, 0x49, 0x39,
-	0x8d, 0x3f, 0x4d, 0xe3, 0xbc, 0x20, 0xef, 0x60, 0xaf, 0x1a, 0xc8, 0xc7, 0xd9, 0x28, 0x8f, 0xf1,
-	0x53, 0x68, 0x2b, 0x9f, 0x89, 0x6c, 0xcd, 0xd9, 0xee, 0x1b, 0x55, 0x8e, 0xe8, 0x32, 0x83, 0x5c,
-	0xc0, 0xe3, 0x72, 0x1f, 0x6f, 0xa6, 0xb8, 0x92, 0xa3, 0x7e, 0x23, 0x1e, 0x6d, 0x42, 0x3c, 0x19,
-	0x80, 0x7d, 0xfb, 0xa0, 0x8d, 0xa0, 0xbf, 0x86, 0x47, 0xa2, 0xa3, 0xe0, 0xb6, 0xc2, 0x50, 0x49,
-	0x2e, 0x54, 0x96, 0x8b, 0x1c, 0xc3, 0xc1, 0xfa, 0xd2, 0x8d, 0x80, 0xbc, 0x12, 0x22, 0xc9, 0x2f,
-	0x67, 0x16, 0xf8, 0x0a, 0x42, 0x49, 0x6d, 0x54, 0x51, 0x9b, 0xf8, 0x42, 0xc2, 0xd5, 0x32, 0x39,
-	0xfe, 0x70, 0x79, 0x61, 0xbc, 0x6a, 0xdd, 0x74, 0x95, 0x40, 0xbe, 0x22, 0x78, 0x70, 0x1a, 0x7f,
-	0x56, 0xfe, 0x3f, 0x2f, 0xbf, 0x72, 0x60, 0xf5, 0x3b, 0x0f, 0x4c, 0xfb, 0xeb, 0x03, 0x6b, 0x54,
-	0x0e, 0x6c, 0x17, 0xf0, 0x2a, 0x54, 0xb1, 0x2d, 0x19, 0xc2, 0xee, 0x8d, 0xd7, 0x4b, 0xa2, 0x7b,
-	0xb1, 0x77, 0xe7, 0x35, 0x1a, 0xa0, 0x79, 0x49, 0xc4, 0x17, 0x68, 0x52, 0xf6, 0x64, 0x77, 0x54,
-	0x99, 0x21, 0x87, 0x97, 0xb5, 0x4b, 0xa2, 0xfc, 0x7e, 0xda, 0x7d, 0x41, 0x25, 0xf1, 0x78, 0x9d,
-	0x14, 0xaf, 0x0b, 0xed, 0x22, 0x2b, 0xc2, 0x94, 0x21, 0x40, 0x82, 0x00, 0x65, 0xe3, 0x67, 0xd0,
-	0x3a, 0x0e, 0xf3, 0x82, 0x85, 0xea, 0x5c, 0xd8, 0x9d, 0x2a, 0xbb, 0x0c, 0x9b, 0xca, 0x61, 0xe9,
-	0x6e, 0xca, 0x0a, 0x73, 0x53, 0xe3, 0x5f, 0xe1, 0xfa, 0x74, 0x99, 0x73, 0xf8, 0x02, 0xf6, 0x6f,
-	0xd1, 0x08, 0x6f, 0x41, 0xd3, 0xa5, 0x27, 0x67, 0xd4, 0xa8, 0x61, 0x00, 0xfd, 0xc3, 0x91, 0x3b,
-	0x38, 0x3b, 0x35, 0x90, 0x67, 0x7d, 0x9b, 0x5b, 0xe8, 0x7a, 0x6e, 0xa1, 0x9f, 0x73, 0x0b, 0x5d,
-	0x2d, 0xac, 0xda, 0xf5, 0xc2, 0xaa, 0xfd, 0x58, 0x58, 0xb5, 0x8f, 0x8d, 0xde, 0x9b, 0xf1, 0x70,
-	0xa8, 0xf3, 0x5f, 0xfe, 0xcb, 0x5f, 0x01, 0x00, 0x00, 0xff, 0xff, 0xe5, 0x61, 0x47, 0x0a, 0x26,
-	0x06, 0x00, 0x00,
+	// 627 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xc4, 0x55, 0x4d, 0x6f, 0xd3, 0x4c,
+	0x10, 0xce, 0xda, 0x4d, 0xd2, 0x4e, 0xdf, 0xb7, 0x0a, 0xdb, 0xd2, 0x5a, 0xa1, 0x72, 0x2d, 0x1f,
+	0x50, 0x54, 0xc0, 0x41, 0x01, 0x0e, 0x88, 0x93, 0x53, 0x17, 0x64, 0xa9, 0x6d, 0x22, 0x0b, 0x09,
+	0x09, 0x4e, 0x4e, 0xb3, 0x89, 0x2c, 0x39, 0x71, 0x88, 0x37, 0x42, 0x39, 0x73, 0x06, 0x55, 0xfc,
+	0x0b, 0xfe, 0x09, 0xc7, 0x1e, 0x39, 0xa2, 0xe4, 0x8f, 0x20, 0xef, 0x47, 0x12, 0x5b, 0x69, 0x14,
+	0x05, 0x21, 0x6e, 0x3b, 0xb3, 0xf3, 0xf1, 0x3c, 0xcf, 0xac, 0xc7, 0xb0, 0x3f, 0x18, 0x46, 0x34,
+	0xaa, 0xfa, 0xa3, 0x6b, 0x1a, 0x44, 0x7d, 0x8b, 0x59, 0xb8, 0x28, 0xcc, 0x32, 0xe6, 0xb7, 0x83,
+	0xd0, 0x1f, 0x93, 0x21, 0xbf, 0x2c, 0x9f, 0x74, 0xa3, 0xa8, 0x1b, 0x92, 0x2a, 0xb3, 0x5a, 0xa3,
+	0x4e, 0x95, 0x06, 0x3d, 0x12, 0x53, 0xbf, 0x37, 0xe0, 0x01, 0xe6, 0x17, 0x05, 0x8a, 0x36, 0x2f,
+	0x80, 0xf7, 0x40, 0x71, 0x1d, 0x0d, 0x19, 0xa8, 0xf2, 0xbf, 0xa7, 0xb8, 0x0e, 0x2e, 0xc3, 0x76,
+	0x93, 0x15, 0x73, 0x1d, 0x4d, 0x61, 0xde, 0x99, 0x8d, 0x1f, 0x42, 0x81, 0x9f, 0x35, 0xd5, 0x40,
+	0x95, 0xdd, 0xda, 0x9e, 0x25, 0xfa, 0x72, 0xaf, 0x27, 0x6e, 0xf1, 0x21, 0x14, 0x5c, 0x4a, 0x7a,
+	0xae, 0xa3, 0x6d, 0xb1, 0x0a, 0xc2, 0xc2, 0x0e, 0xfc, 0x97, 0x9c, 0xce, 0x7c, 0x4a, 0xba, 0xd1,
+	0x70, 0xac, 0xe5, 0x0d, 0x54, 0xd9, 0xab, 0x19, 0x96, 0xe4, 0x26, 0x30, 0x2d, 0xc6, 0x9c, 0xf7,
+	0x47, 0x3d, 0x2f, 0x95, 0x95, 0x20, 0xbc, 0x0c, 0xfa, 0xcd, 0x61, 0x70, 0x4d, 0xb4, 0x82, 0x81,
+	0x2a, 0x79, 0x6f, 0x66, 0xe3, 0xe7, 0x50, 0x3c, 0x0b, 0xa3, 0x98, 0xd8, 0x54, 0x2b, 0x32, 0x88,
+	0x65, 0x8b, 0x8b, 0x61, 0x49, 0x31, 0xac, 0xb7, 0x52, 0x0c, 0x4f, 0x86, 0x9a, 0x37, 0x08, 0x40,
+	0xf4, 0xae, 0x07, 0xed, 0xbf, 0x22, 0xc9, 0x31, 0xec, 0x48, 0x76, 0x52, 0x95, 0xb9, 0x03, 0x97,
+	0x40, 0x6d, 0x05, 0x6d, 0xa6, 0x47, 0xde, 0x4b, 0x8e, 0xe6, 0x11, 0xdc, 0x7f, 0x43, 0xa8, 0x1d,
+	0x86, 0x22, 0x28, 0xf6, 0xc8, 0xc7, 0x11, 0x89, 0xa9, 0xf9, 0x1a, 0x0e, 0xb3, 0x17, 0xf1, 0x20,
+	0xea, 0xc7, 0x04, 0x3f, 0x86, 0x6d, 0xe9, 0xd3, 0x90, 0xa1, 0x56, 0x76, 0x6b, 0xa5, 0xac, 0xb2,
+	0xde, 0x2c, 0xc2, 0xfc, 0x8c, 0xe0, 0x24, 0x5d, 0xa8, 0x3e, 0x96, 0x12, 0x8b, 0x5e, 0x29, 0xe2,
+	0x28, 0x43, 0x3c, 0x3b, 0x4b, 0x65, 0x93, 0x59, 0x9a, 0x4d, 0x30, 0xee, 0x06, 0xb1, 0x11, 0xaf,
+	0x97, 0xf0, 0x80, 0x57, 0xe4, 0x48, 0x33, 0xf2, 0xad, 0xa2, 0x64, 0x5e, 0xc0, 0xf1, 0xf2, 0xd4,
+	0x8d, 0x80, 0x7c, 0x45, 0x70, 0xba, 0x58, 0xae, 0xd1, 0xe9, 0xcc, 0x6b, 0xfe, 0x0b, 0xad, 0x3f,
+	0xc0, 0xa3, 0xb5, 0xf0, 0x6c, 0xc4, 0xf6, 0x05, 0x7f, 0xaf, 0xe2, 0x23, 0x1a, 0xbb, 0x8e, 0xe4,
+	0x95, 0x7a, 0xf8, 0x28, 0xf3, 0xf0, 0x4d, 0x87, 0xbf, 0xe6, 0xc5, 0x34, 0xd1, 0xfe, 0x74, 0xb6,
+	0xa2, 0x58, 0xd6, 0xb2, 0xee, 0x32, 0xc0, 0xfc, 0x8e, 0xe0, 0xde, 0x15, 0xf9, 0x24, 0xfd, 0x6b,
+	0x28, 0x3a, 0xdf, 0x50, 0xca, 0xca, 0x0d, 0xa5, 0xfe, 0xf1, 0x86, 0xda, 0x4a, 0x6f, 0x28, 0xf3,
+	0x00, 0xf0, 0x22, 0x54, 0xce, 0xd6, 0x6c, 0xc1, 0xc1, 0xdc, 0x5b, 0x0f, 0xda, 0x6b, 0xa9, 0xb7,
+	0x72, 0x31, 0x95, 0x40, 0xad, 0x07, 0x6d, 0x46, 0x20, 0xef, 0x25, 0xc7, 0x64, 0xa5, 0x64, 0x7a,
+	0x88, 0xe6, 0xe9, 0xd9, 0x05, 0xed, 0x78, 0xbd, 0xd9, 0x7d, 0x43, 0xa9, 0xe1, 0xb1, 0x3c, 0x31,
+	0xbc, 0x32, 0x6c, 0xd3, 0x88, 0xfa, 0x61, 0x82, 0x00, 0x71, 0x01, 0xa4, 0x8d, 0x9f, 0x40, 0xf1,
+	0xc2, 0x8f, 0x69, 0x72, 0xa5, 0xb0, 0xc1, 0xee, 0x67, 0xd5, 0x4d, 0xb0, 0xc9, 0x98, 0x24, 0xdc,
+	0x0e, 0x93, 0xc4, 0x58, 0x53, 0xd9, 0x2b, 0x5c, 0x1e, 0x2e, 0x62, 0x4e, 0x9f, 0xc2, 0xd1, 0x1d,
+	0x33, 0xc2, 0x3b, 0x90, 0xb7, 0xbd, 0xcb, 0x86, 0x57, 0xca, 0x61, 0x80, 0xc2, 0xbb, 0x73, 0xbb,
+	0xd9, 0xb8, 0x2a, 0xa1, 0xba, 0xfe, 0x63, 0xa2, 0xa3, 0xdb, 0x89, 0x8e, 0x7e, 0x4d, 0x74, 0x74,
+	0x33, 0xd5, 0x73, 0xb7, 0x53, 0x3d, 0xf7, 0x73, 0xaa, 0xe7, 0xde, 0x6f, 0x59, 0xaf, 0x06, 0xad,
+	0x56, 0x81, 0xfd, 0x39, 0x9e, 0xfd, 0x0e, 0x00, 0x00, 0xff, 0xff, 0x52, 0xee, 0x0e, 0x41, 0x88,
+	0x07, 0x00, 0x00,
 }
 
 func (m *Auction) Marshal() (dAtA []byte, err error) {
@@ -943,6 +1072,18 @@ func (m *Auction) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
+	if m.CloseAt != nil {
+		{
+			size, err := m.CloseAt.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintAuction(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x3a
+	}
 	if m.MinPrice != 0 {
 		i = encodeVarintAuction(dAtA, i, uint64(m.MinPrice))
 		i--
@@ -1121,6 +1262,11 @@ func (m *GetAllAuctionsByCategoryRequest) MarshalToSizedBuffer(dAtA []byte) (int
 	if m.ItemCategory != 0 {
 		i = encodeVarintAuction(dAtA, i, uint64(m.ItemCategory))
 		i--
+		dAtA[i] = 0x10
+	}
+	if m.PlayerID != 0 {
+		i = encodeVarintAuction(dAtA, i, uint64(m.PlayerID))
+		i--
 		dAtA[i] = 0x8
 	}
 	return len(dAtA) - i, nil
@@ -1207,6 +1353,76 @@ func (m *GetAllPlayerAuctionsResponse) MarshalTo(dAtA []byte) (int, error) {
 }
 
 func (m *GetAllPlayerAuctionsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Auctions) > 0 {
+		for iNdEx := len(m.Auctions) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.Auctions[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintAuction(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *GetAllPlayerOfferAuctionsByCategoryRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetAllPlayerOfferAuctionsByCategoryRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetAllPlayerOfferAuctionsByCategoryRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.ItemCategory != 0 {
+		i = encodeVarintAuction(dAtA, i, uint64(m.ItemCategory))
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.PlayerID != 0 {
+		i = encodeVarintAuction(dAtA, i, uint64(m.PlayerID))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *GetAllPlayerOfferAuctionsByCategoryResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetAllPlayerOfferAuctionsByCategoryResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetAllPlayerOfferAuctionsByCategoryResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -1536,6 +1752,10 @@ func (m *Auction) Size() (n int) {
 	if m.MinPrice != 0 {
 		n += 1 + sovAuction(uint64(m.MinPrice))
 	}
+	if m.CloseAt != nil {
+		l = m.CloseAt.Size()
+		n += 1 + l + sovAuction(uint64(l))
+	}
 	return n
 }
 
@@ -1594,6 +1814,9 @@ func (m *GetAllAuctionsByCategoryRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
+	if m.PlayerID != 0 {
+		n += 1 + sovAuction(uint64(m.PlayerID))
+	}
 	if m.ItemCategory != 0 {
 		n += 1 + sovAuction(uint64(m.ItemCategory))
 	}
@@ -1628,6 +1851,36 @@ func (m *GetAllPlayerAuctionsRequest) Size() (n int) {
 }
 
 func (m *GetAllPlayerAuctionsResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.Auctions) > 0 {
+		for _, e := range m.Auctions {
+			l = e.Size()
+			n += 1 + l + sovAuction(uint64(l))
+		}
+	}
+	return n
+}
+
+func (m *GetAllPlayerOfferAuctionsByCategoryRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.PlayerID != 0 {
+		n += 1 + sovAuction(uint64(m.PlayerID))
+	}
+	if m.ItemCategory != 0 {
+		n += 1 + sovAuction(uint64(m.ItemCategory))
+	}
+	return n
+}
+
+func (m *GetAllPlayerOfferAuctionsByCategoryResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1924,6 +2177,42 @@ func (m *Auction) Unmarshal(dAtA []byte) error {
 					break
 				}
 			}
+		case 7:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field CloseAt", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowAuction
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthAuction
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthAuction
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.CloseAt == nil {
+				m.CloseAt = &types.Timestamp{}
+			}
+			if err := m.CloseAt.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipAuction(dAtA[iNdEx:])
@@ -2284,6 +2573,25 @@ func (m *GetAllAuctionsByCategoryRequest) Unmarshal(dAtA []byte) error {
 		switch fieldNum {
 		case 1:
 			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PlayerID", wireType)
+			}
+			m.PlayerID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowAuction
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.PlayerID |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field ItemCategory", wireType)
 			}
 			m.ItemCategory = 0
@@ -2511,6 +2819,184 @@ func (m *GetAllPlayerAuctionsResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: GetAllPlayerAuctionsResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Auctions", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowAuction
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthAuction
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthAuction
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Auctions = append(m.Auctions, &Auction{})
+			if err := m.Auctions[len(m.Auctions)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipAuction(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthAuction
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthAuction
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetAllPlayerOfferAuctionsByCategoryRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowAuction
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetAllPlayerOfferAuctionsByCategoryRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetAllPlayerOfferAuctionsByCategoryRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PlayerID", wireType)
+			}
+			m.PlayerID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowAuction
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.PlayerID |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ItemCategory", wireType)
+			}
+			m.ItemCategory = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowAuction
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.ItemCategory |= AuctionItemCategoryEnum(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipAuction(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthAuction
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthAuction
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetAllPlayerOfferAuctionsByCategoryResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowAuction
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetAllPlayerOfferAuctionsByCategoryResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetAllPlayerOfferAuctionsByCategoryResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:

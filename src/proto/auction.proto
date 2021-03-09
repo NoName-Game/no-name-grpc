@@ -1,6 +1,7 @@
 syntax = "proto3";
 option go_package = ".;pb";
 import "proto/player.proto";
+import "google/protobuf/timestamp.proto";
 package auction;
 
 enum AuctionItemCategoryEnum {
@@ -15,6 +16,7 @@ message Auction {
   uint32 ItemID = 4;
   AuctionItemCategoryEnum ItemCategory = 5;
   int32 MinPrice = 6;
+  google.protobuf.Timestamp CloseAt = 7;
 }
 
 message AuctionBid {
@@ -35,7 +37,8 @@ message GetAllAuctionsResponse {
 
 // GetAllAuctionsByCategory
 message GetAllAuctionsByCategoryRequest {
-  AuctionItemCategoryEnum ItemCategory = 1;
+  uint32 PlayerID = 1;
+  AuctionItemCategoryEnum ItemCategory = 2;
 }
 message GetAllAuctionsByCategoryResponse {
   repeated Auction Auctions = 1;
@@ -46,6 +49,15 @@ message GetAllPlayerAuctionsRequest {
   uint32 PlayerID = 1;
 }
 message GetAllPlayerAuctionsResponse {
+  repeated Auction Auctions = 1;
+}
+
+// GetAllPlayerOfferAuctionsByCategory
+message GetAllPlayerOfferAuctionsByCategoryRequest {
+  uint32 PlayerID = 1;
+  AuctionItemCategoryEnum ItemCategory = 2;
+}
+message GetAllPlayerOfferAuctionsByCategoryResponse {
   repeated Auction Auctions = 1;
 }
 
