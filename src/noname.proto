@@ -56,6 +56,7 @@ import "proto/safeplanet_gifts.proto";
 import "proto/notification.proto";
 import "proto/domain.proto";
 import "proto/auction.proto";
+import "proto/action.proto";
 
 option go_package = ".;pb";
 
@@ -391,6 +392,12 @@ service NoName {
     // Notification
     rpc GetNotifications (notification.GetNotificationsRequest) returns (notification.GetNotificationsResponse) {}
     rpc SetNotificationNotified (notification.SetNotificationNotifiedRequest) returns (notification.SetNotificationNotifiedResponse) {}
+
+    // Action
+    rpc GetActionByID (action.GetActionByIDRequest) returns (action.GetActionByIDResponse) {}
+    rpc PlaceBid (action.PlaceBidRequest) returns (action.PlaceBidResponse) {}
+    rpc GetActionsBySystemID (action.GetActionsBySystemIDRequest) returns (action.GetActionsBySystemIDResponse) {}
+    rpc GetBidInfo (action.GetBidInfoRequest) returns (action.GetBidInfoResponse) {}
 
     // Auction
     rpc GetAllAuctions (auction.GetAllAuctionsRequest) returns (auction.GetAllAuctionsResponse) {}
