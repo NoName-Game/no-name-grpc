@@ -24,7 +24,8 @@ message AuctionBid {
   uint32 PlayerID = 2;
   player.Player Player = 3;
   uint32 AuctionID = 4;
-  int32 bid = 5;
+  int32 PartialBid = 5;
+  int32 Bid = 6;
 }
 
 // GetAllAuctions
