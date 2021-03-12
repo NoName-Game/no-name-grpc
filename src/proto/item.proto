@@ -65,6 +65,7 @@ message GetCraftableItemsByCategoryIDResponse {
 message UseItemRequest {
     uint32 PlayerID = 1;
     uint32 ItemID = 2;
+    uint32 Quantity = 3;
 }
 message UseItemResponse {
     // Empty
