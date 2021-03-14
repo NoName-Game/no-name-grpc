@@ -1,0 +1,102 @@
+syntax = "proto3";
+option go_package = ".;pb";
+import "proto/player.proto";
+import "google/protobuf/timestamp.proto";
+package auction;
+
+enum AuctionItemCategoryEnum {
+  ARMOR = 0;
+  WEAPON = 1;
+}
+
+message Auction {
+  uint32 ID = 1;
+  uint32 PlayerID = 2;
+  player.Player Player = 3;
+  uint32 ItemID = 4;
+  AuctionItemCategoryEnum ItemCategory = 5;
+  int32 MinPrice = 6;
+  google.protobuf.Timestamp CloseAt = 7;
+}
+
+message AuctionBid {
+  uint32 ID = 1;
+  uint32 PlayerID = 2;
+  player.Player Player = 3;
+  uint32 AuctionID = 4;
+  int32 PartialBid = 5;
+  int32 Bid = 6;
+}
+
+// GetAllAuctions
+message GetAllAuctionsRequest {
+  // Empty
+}
+message GetAllAuctionsResponse {
+  repeated Auction Auctions = 1;
+}
+
+// GetAllAuctionsByCategory
+message GetAllAuctionsByCategoryRequest {
+  uint32 PlayerID = 1;
+  AuctionItemCategoryEnum ItemCategory = 2;
+}
+message GetAllAuctionsByCategoryResponse {
+  repeated Auction Auctions = 1;
+}
+
+// GetAllPlayerAuctions
+message GetAllPlayerAuctionsRequest {
+  uint32 PlayerID = 1;
+}
+message GetAllPlayerAuctionsResponse {
+  repeated Auction Auctions = 1;
+}
+
+// GetAllPlayerOfferAuctionsByCategory
+message GetAllPlayerOfferAuctionsByCategoryRequest {
+  uint32 PlayerID = 1;
+  AuctionItemCategoryEnum ItemCategory = 2;
+}
+message GetAllPlayerOfferAuctionsByCategoryResponse {
+  repeated Auction Auctions = 1;
+}
+
+// GetAuctionByID
+message GetAuctionByIDRequest {
+  uint32 AuctionID = 1;
+}
+message GetAuctionByIDResponse {
+  Auction Auction = 1;
+}
+
+// NewAuction
+message NewAuctionRequest {
+  uint32 PlayerID = 1;
+  uint32 ItemID = 2;
+  AuctionItemCategoryEnum ItemCategory = 3;
+  int32 MinPrice = 4;
+}
+message NewAuctionResponse {
+  // Empty
+}
+
+// NewAuctionBid
+message NewAuctionBidRequest {
+  uint32 AuctionID = 1;
+  uint32 PlayerID = 2;
+  int32 Bid = 3;
+}
+message NewAuctionBidResponse {
+  // Empty
+}
+
+// GetAuctionBids
+message GetAuctionBidsRequest {
+  uint32 AuctionID = 1;
+}
+message GetAuctionBidsResponse {
+  int32 totalBid = 1;
+  AuctionBid LastBid = 2;
+  repeated AuctionBid AllBids = 3;
+}

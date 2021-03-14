@@ -55,6 +55,7 @@ import "proto/player_rank.proto";
 import "proto/safeplanet_gifts.proto";
 import "proto/notification.proto";
 import "proto/domain.proto";
+import "proto/auction.proto";
 import "proto/action.proto";
 
 option go_package = ".;pb";
@@ -397,4 +398,15 @@ service NoName {
     rpc PlaceBid (action.PlaceBidRequest) returns (action.PlaceBidResponse) {}
     rpc GetActionsBySystemID (action.GetActionsBySystemIDRequest) returns (action.GetActionsBySystemIDResponse) {}
     rpc GetBidInfo (action.GetBidInfoRequest) returns (action.GetBidInfoResponse) {}
+
+    // Auction
+    rpc GetAllAuctions (auction.GetAllAuctionsRequest) returns (auction.GetAllAuctionsResponse) {}
+    rpc GetAllAuctionsByCategory (auction.GetAllAuctionsByCategoryRequest) returns (auction.GetAllAuctionsByCategoryResponse) {}
+    rpc GetAllPlayerAuctions (auction.GetAllPlayerAuctionsRequest) returns (auction.GetAllPlayerAuctionsResponse) {}
+    rpc GetAllPlayerOfferAuctionsByCategory (auction.GetAllPlayerOfferAuctionsByCategoryRequest) returns (auction.GetAllPlayerOfferAuctionsByCategoryResponse) {}
+    rpc GetAuctionByID (auction.GetAuctionByIDRequest) returns (auction.GetAuctionByIDResponse) {}
+    rpc NewAuction (auction.NewAuctionRequest) returns (auction.NewAuctionResponse) {}
+
+    rpc NewAuctionBid (auction.NewAuctionBidRequest) returns (auction.NewAuctionBidResponse) {}
+    rpc GetAuctionBids (auction.GetAuctionBidsRequest) returns (auction.GetAuctionBidsResponse) {}
 }
