@@ -88,6 +88,6 @@ message OpenPackRequest {
 }
 
 message OpenPackResponse {
-    repeated Item Items = 1;
-    repeated resource.Resource Resources = 2;
+    int32 Diamonds = 1;
+    map<uint32, int32> Resources = 2;
 }
