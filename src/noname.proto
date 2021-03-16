@@ -250,6 +250,7 @@ service NoName {
     rpc GetMission (mission.GetMissionRequest) returns (mission.GetMissionResponse) {}
     rpc NewMission (mission.NewMissionRequest) returns (mission.NewMissionResponse) {}
     rpc CheckMission (mission.CheckMissionRequest) returns (mission.CheckMissionResponse) {}
+    rpc LeaveMission (mission.LeaveMissionRequest) returns (mission.LeaveMissionResponse) {}
     rpc GetMissionReward (mission.GetMissionRewardRequest) returns (mission.GetMissionRewardResponse) {}
     rpc CheckMissionReward (mission.CheckMissionRewardRequest) returns (mission.CheckMissionRewardResponse) {}
 
