@@ -95,3 +95,12 @@ message WithdrawResourceRequest {
 message WithdrawResourceResponse {
     // empty
 }
+
+// GetDepositedResources
+message GetDepositedResourcesRequest {
+    uint32 PlayerID = 1;
+}
+
+message GetDepositedResourcesResponse {
+    repeated PlayerInventory PlayerInventory = 1;
+}
