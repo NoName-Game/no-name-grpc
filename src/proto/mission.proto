@@ -36,6 +36,15 @@ message CheckMissionResponse {
     Mission Mission = 3;
 }
 
+// LeaveMission
+message LeaveMissionRequest {
+    uint32 PlayerID = 1;
+}
+message LeaveMissionResponse {
+    //Empty
+}
+
+
 // GetMissionReward
 message GetMissionRewardRequest {
     uint32 PlayerID = 1;
