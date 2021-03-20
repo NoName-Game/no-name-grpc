@@ -1,0 +1,10 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package weapon_efficency;
+
+message WeaponEfficency {
+    uint32 ID = 1;
+    string Name = 2;
+    string Slug = 3;
+}
+
