@@ -1,5 +1,6 @@
 syntax = "proto3";
 import "proto/rarity.proto";
+import "proto/weapon_efficency.proto";
 option go_package = ".;pb";
 package weapon;
 
@@ -11,9 +12,11 @@ message Weapon {
     bool Equipped = 5;
     uint32 RarityID = 6;
     rarity.Rarity Rarity = 7;
+    uint32 EfficencyID = 8;
+    weapon_efficency.WeaponEfficency Efficency = 9;
     double Precision = 10;
-    int32 Durability = 13;
-    int32 DurabilityCap = 14;
+    int32 Durability = 11;
+    int32 DurabilityCap = 12;
 }
 
 // GetWeaponByID
