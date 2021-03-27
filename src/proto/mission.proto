@@ -36,6 +36,15 @@ message CheckMissionResponse {
     Mission Mission = 3;
 }
 
+// AcceptMission
+message AcceptMissionRequest {
+    uint32 PlayerID = 1;
+    uint32 MissionID = 2;
+}
+message AcceptMissionResponse {
+    //Empty
+}
+
 // LeaveMission
 message LeaveMissionRequest {
     uint32 PlayerID = 1;
@@ -63,4 +72,25 @@ message CheckMissionRewardResponse {
     int32 Money = 1;
     int32 Diamond = 2;
     int32 Exp = 3;
+}
+
+message TopMissionList {
+    Mission Mission = 1;
+    int64 Counter = 2;
+}
+
+// GetMissionsMostCompleted
+message GetMissionsMostCompletedRequest {
+    // Empty
+}
+message GetMissionsMostCompletedResponse {
+    repeated TopMissionList Missions = 1;
+}
+
+// GetMissionsMostLeaved
+message GetMissionsMostLeavedRequest {
+    // Empty
+}
+message GetMissionsMostLeavedResponse {
+    repeated TopMissionList Missions = 1;
 }

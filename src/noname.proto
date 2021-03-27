@@ -250,9 +250,12 @@ service NoName {
     rpc GetMission (mission.GetMissionRequest) returns (mission.GetMissionResponse) {}
     rpc NewMission (mission.NewMissionRequest) returns (mission.NewMissionResponse) {}
     rpc CheckMission (mission.CheckMissionRequest) returns (mission.CheckMissionResponse) {}
+    rpc AcceptMission (mission.AcceptMissionRequest) returns (mission.AcceptMissionResponse) {}
     rpc LeaveMission (mission.LeaveMissionRequest) returns (mission.LeaveMissionResponse) {}
     rpc GetMissionReward (mission.GetMissionRewardRequest) returns (mission.GetMissionRewardResponse) {}
     rpc CheckMissionReward (mission.CheckMissionRewardRequest) returns (mission.CheckMissionRewardResponse) {}
+    rpc GetMissionsMostCompleted (mission.GetMissionsMostCompletedRequest) returns (mission.GetMissionsMostCompletedResponse) {}
+    rpc GetMissionsMostLeaved (mission.GetMissionsMostLeavedRequest) returns (mission.GetMissionsMostLeavedResponse) {}
 
     // Expansion
     rpc GetTeletrasportSafePlanetList (expansion.GetTeletrasportSafePlanetListRequest) returns (expansion.GetTeletrasportSafePlanetListResponse) {}
