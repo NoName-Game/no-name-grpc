@@ -120,6 +120,7 @@ service NoName {
     rpc CountPlanetVisited (player_position.CountPlanetVisitedRequest) returns (player_position.CountPlanetVisitedResponse) {}
     rpc CountSystemVisited (player_position.CountSystemVisitedRequest) returns (player_position.CountSystemVisitedResponse) {}
     rpc CountPlayerVisitedCurrentPlanet (player_position.CountPlayerVisitedCurrentPlanetRequest) returns (player_position.CountPlayerVisitedCurrentPlanetResponse) {}
+    rpc CountPlayerCurrentPlanet (player_position.CountPlayerCurrentPlanetRequest) returns (player_position.CountPlayerCurrentPlanetResponse) {}
 
     // Player - Signin
     rpc SignIn (player.SignInRequest) returns (player.SignInResponse) {}

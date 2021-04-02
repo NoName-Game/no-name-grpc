@@ -49,3 +49,11 @@ message CountPlayerVisitedCurrentPlanetRequest {
 message CountPlayerVisitedCurrentPlanetResponse {
     uint32 Value = 1;
 }
+
+// CountPlayerCurrentPlanet
+message CountPlayerCurrentPlanetRequest {
+    uint32 PlanetID = 1;
+}
+message CountPlayerCurrentPlanetResponse {
+    uint32 Value = 1;
+}
