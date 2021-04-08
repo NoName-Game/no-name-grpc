@@ -57,6 +57,7 @@ import "proto/notification.proto";
 import "proto/domain.proto";
 import "proto/auction.proto";
 import "proto/action.proto";
+import "proto/assault.proto";
 
 option go_package = ".;pb";
 
@@ -416,4 +417,8 @@ service NoName {
 
     rpc NewAuctionBid (auction.NewAuctionBidRequest) returns (auction.NewAuctionBidResponse) {}
     rpc GetAuctionBids (auction.GetAuctionBidsRequest) returns (auction.GetAuctionBidsResponse) {}
+
+    // Assault
+    rpc Scan(assault.ScanPlanetRequest) returns (assault.ScanPlanetResponse) {}
+    rpc StartAssault(assault.StartAssaultRequest) returns (assault.StartAssaultResponse) {}
 }

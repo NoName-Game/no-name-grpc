@@ -1,0 +1,36 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package assault;
+
+// ScanPlanet
+message ScanPlanetRequest {
+    uint32 PlayerID = 1;
+}
+message ScanPlanetResponse {
+    uint32 PlayerID = 1;
+    bool InParty = 2;
+}
+
+// StartAssault
+message StartAssaultRequest {
+    uint32 AttackerID = 1;
+    uint32 AttackerPartyID = 2;
+    uint32 DefenderID = 3;
+    uint32 DefenderPartyID = 4;
+}
+
+message StartAssaultResponse {
+     bool AttackerDefeated = 1;
+     double AttackerTotalDamage = 2;
+     bool DefenderDefeated = 3;
+     double DefenderTotalDamage = 4;
+     uint32 Turns = 5;
+}
+
+// EndAssault
+message EndAssaultRequest {
+    uint32 PlayerID = 1;
+}
+message EndAssaultResponse {
+    // Empty
+}
