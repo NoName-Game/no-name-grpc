@@ -67,3 +67,11 @@ message CrafterDecomposeRequest {
 message CrafterDecomposeResponse {
     repeated resource.Resource Resources = 1;
 }
+
+// CrafterGetDecomposePrice
+message CrafterGetDecomposePriceRequest {
+    uint32 RarityID = 1;
+}
+message CrafterGetDecomposePriceResponse {
+    int32 Price = 1;
+}

@@ -544,6 +544,7 @@ type NoNameClient interface {
 	CrafterRepairWeapon(ctx context.Context, in *CrafterRepairWeaponRequest, opts ...grpc.CallOption) (*CrafterRepairWeaponResponse, error)
 	// Safeplanet - Crafter - Decompose
 	CrafterDecompose(ctx context.Context, in *CrafterDecomposeRequest, opts ...grpc.CallOption) (*CrafterDecomposeResponse, error)
+	CrafterGetDecomposePrice(ctx context.Context, in *CrafterGetDecomposePriceRequest, opts ...grpc.CallOption) (*CrafterGetDecomposePriceResponse, error)
 	// Ability
 	GetAbilityForPlayerByCategory(ctx context.Context, in *GetAbilityForPlayerByCategoryRequest, opts ...grpc.CallOption) (*GetAbilityForPlayerByCategoryResponse, error)
 	LearnAbility(ctx context.Context, in *LearnAbilityRequest, opts ...grpc.CallOption) (*LearnAbilityResponse, error)
@@ -2003,6 +2004,15 @@ func (c *noNameClient) CrafterDecompose(ctx context.Context, in *CrafterDecompos
 	return out, nil
 }
 
+func (c *noNameClient) CrafterGetDecomposePrice(ctx context.Context, in *CrafterGetDecomposePriceRequest, opts ...grpc.CallOption) (*CrafterGetDecomposePriceResponse, error) {
+	out := new(CrafterGetDecomposePriceResponse)
+	err := c.cc.Invoke(ctx, "/NoName/CrafterGetDecomposePrice", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *noNameClient) GetAbilityForPlayerByCategory(ctx context.Context, in *GetAbilityForPlayerByCategoryRequest, opts ...grpc.CallOption) (*GetAbilityForPlayerByCategoryResponse, error) {
 	out := new(GetAbilityForPlayerByCategoryResponse)
 	err := c.cc.Invoke(ctx, "/NoName/GetAbilityForPlayerByCategory", in, out, opts...)
@@ -2909,6 +2919,7 @@ type NoNameServer interface {
 	CrafterRepairWeapon(context.Context, *CrafterRepairWeaponRequest) (*CrafterRepairWeaponResponse, error)
 	// Safeplanet - Crafter - Decompose
 	CrafterDecompose(context.Context, *CrafterDecomposeRequest) (*CrafterDecomposeResponse, error)
+	CrafterGetDecomposePrice(context.Context, *CrafterGetDecomposePriceRequest) (*CrafterGetDecomposePriceResponse, error)
 	// Ability
 	GetAbilityForPlayerByCategory(context.Context, *GetAbilityForPlayerByCategoryRequest) (*GetAbilityForPlayerByCategoryResponse, error)
 	LearnAbility(context.Context, *LearnAbilityRequest) (*LearnAbilityResponse, error)
@@ -3463,6 +3474,9 @@ func (*UnimplementedNoNameServer) CrafterRepairWeapon(ctx context.Context, req *
 }
 func (*UnimplementedNoNameServer) CrafterDecompose(ctx context.Context, req *CrafterDecomposeRequest) (*CrafterDecomposeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CrafterDecompose not implemented")
+}
+func (*UnimplementedNoNameServer) CrafterGetDecomposePrice(ctx context.Context, req *CrafterGetDecomposePriceRequest) (*CrafterGetDecomposePriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CrafterGetDecomposePrice not implemented")
 }
 func (*UnimplementedNoNameServer) GetAbilityForPlayerByCategory(ctx context.Context, req *GetAbilityForPlayerByCategoryRequest) (*GetAbilityForPlayerByCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAbilityForPlayerByCategory not implemented")
@@ -6406,6 +6420,24 @@ func _NoName_CrafterDecompose_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NoName_CrafterGetDecomposePrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CrafterGetDecomposePriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NoNameServer).CrafterGetDecomposePrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/NoName/CrafterGetDecomposePrice",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NoNameServer).CrafterGetDecomposePrice(ctx, req.(*CrafterGetDecomposePriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NoName_GetAbilityForPlayerByCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAbilityForPlayerByCategoryRequest)
 	if err := dec(in); err != nil {
@@ -8431,6 +8463,10 @@ var _NoName_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CrafterDecompose",
 			Handler:    _NoName_CrafterDecompose_Handler,
+		},
+		{
+			MethodName: "CrafterGetDecomposePrice",
+			Handler:    _NoName_CrafterGetDecomposePrice_Handler,
 		},
 		{
 			MethodName: "GetAbilityForPlayerByCategory",

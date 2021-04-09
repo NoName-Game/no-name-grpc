@@ -298,6 +298,7 @@ service NoName {
 
     // Safeplanet - Crafter - Decompose
     rpc CrafterDecompose (safeplanet_crafter.CrafterDecomposeRequest) returns (safeplanet_crafter.CrafterDecomposeResponse) {}
+    rpc CrafterGetDecomposePrice (safeplanet_crafter.CrafterGetDecomposePriceRequest) returns (safeplanet_crafter.CrafterGetDecomposePriceResponse) {}
 
     // Ability
     rpc GetAbilityForPlayerByCategory (ability.GetAbilityForPlayerByCategoryRequest) returns (ability.GetAbilityForPlayerByCategoryResponse) {}
