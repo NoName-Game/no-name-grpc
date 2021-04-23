@@ -346,6 +346,103 @@ func (m *EndAssaultResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_EndAssaultResponse proto.InternalMessageInfo
 
+// GetFormation
+type GetFormationRequest struct {
+	PlayerID uint32 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	PartyID  uint32 `protobuf:"varint,2,opt,name=PartyID,proto3" json:"PartyID,omitempty"`
+}
+
+func (m *GetFormationRequest) Reset()         { *m = GetFormationRequest{} }
+func (m *GetFormationRequest) String() string { return proto.CompactTextString(m) }
+func (*GetFormationRequest) ProtoMessage()    {}
+func (*GetFormationRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6f6aeb8097ff9b7d, []int{6}
+}
+func (m *GetFormationRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetFormationRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetFormationRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetFormationRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetFormationRequest.Merge(m, src)
+}
+func (m *GetFormationRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetFormationRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetFormationRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetFormationRequest proto.InternalMessageInfo
+
+func (m *GetFormationRequest) GetPlayerID() uint32 {
+	if m != nil {
+		return m.PlayerID
+	}
+	return 0
+}
+
+func (m *GetFormationRequest) GetPartyID() uint32 {
+	if m != nil {
+		return m.PartyID
+	}
+	return 0
+}
+
+type GetFormationResponse struct {
+	Formation map[uint32]*Ship `protobuf:"bytes,1,rep,name=Formation,proto3" json:"Formation,omitempty" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+}
+
+func (m *GetFormationResponse) Reset()         { *m = GetFormationResponse{} }
+func (m *GetFormationResponse) String() string { return proto.CompactTextString(m) }
+func (*GetFormationResponse) ProtoMessage()    {}
+func (*GetFormationResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6f6aeb8097ff9b7d, []int{7}
+}
+func (m *GetFormationResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetFormationResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetFormationResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetFormationResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetFormationResponse.Merge(m, src)
+}
+func (m *GetFormationResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetFormationResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetFormationResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetFormationResponse proto.InternalMessageInfo
+
+func (m *GetFormationResponse) GetFormation() map[uint32]*Ship {
+	if m != nil {
+		return m.Formation
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*ScanPlanetRequest)(nil), "assault.ScanPlanetRequest")
 	proto.RegisterType((*ScanPlanetResponse)(nil), "assault.ScanPlanetResponse")
@@ -353,33 +450,43 @@ func init() {
 	proto.RegisterType((*StartAssaultResponse)(nil), "assault.StartAssaultResponse")
 	proto.RegisterType((*EndAssaultRequest)(nil), "assault.EndAssaultRequest")
 	proto.RegisterType((*EndAssaultResponse)(nil), "assault.EndAssaultResponse")
+	proto.RegisterType((*GetFormationRequest)(nil), "assault.GetFormationRequest")
+	proto.RegisterType((*GetFormationResponse)(nil), "assault.GetFormationResponse")
+	proto.RegisterMapType((map[uint32]*Ship)(nil), "assault.GetFormationResponse.FormationEntry")
 }
 
 func init() { proto.RegisterFile("proto/assault.proto", fileDescriptor_6f6aeb8097ff9b7d) }
 
 var fileDescriptor_6f6aeb8097ff9b7d = []byte{
-	// 331 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x92, 0x31, 0x4f, 0x32, 0x31,
-	0x18, 0xc7, 0xe9, 0x0b, 0xbc, 0x90, 0x27, 0x21, 0x6a, 0x61, 0xb8, 0x38, 0x34, 0xe4, 0x26, 0xe2,
-	0x00, 0x26, 0x8e, 0x4e, 0x98, 0x73, 0xc0, 0x89, 0x14, 0x26, 0xb7, 0x07, 0xa8, 0x0e, 0x9e, 0x3d,
-	0xbc, 0xf6, 0x06, 0xbe, 0x85, 0x5f, 0xc3, 0x6f, 0xe2, 0xc8, 0xe8, 0x68, 0xee, 0x16, 0x3f, 0x86,
-	0x69, 0x4b, 0xf1, 0x3c, 0x09, 0xe3, 0xff, 0xd7, 0x3c, 0xbf, 0xfe, 0x7b, 0xf7, 0x40, 0x77, 0x9d,
-	0x26, 0x3a, 0x19, 0xa1, 0x52, 0x98, 0xc5, 0x7a, 0x68, 0x13, 0x6d, 0xed, 0x62, 0x38, 0x82, 0xb3,
-	0xd9, 0x12, 0xe5, 0x34, 0x46, 0x29, 0x34, 0x17, 0x2f, 0x99, 0x50, 0x9a, 0x9e, 0x43, 0x7b, 0x1a,
-	0xe3, 0x46, 0xa4, 0x93, 0x28, 0x20, 0x7d, 0x32, 0xe8, 0xf0, 0x7d, 0x0e, 0xef, 0x80, 0x96, 0x07,
-	0xd4, 0x3a, 0x91, 0x4a, 0x1c, 0x9b, 0xa0, 0x01, 0xb4, 0x26, 0x72, 0x8a, 0xa9, 0xde, 0x04, 0xff,
-	0xfa, 0x64, 0xd0, 0xe6, 0x3e, 0x86, 0x6f, 0x04, 0xba, 0x33, 0x8d, 0xa9, 0x1e, 0xbb, 0x36, 0xfe,
-	0x7e, 0x06, 0x30, 0xd6, 0x1a, 0x97, 0x4f, 0x25, 0x5f, 0x89, 0xd0, 0x01, 0x9c, 0xf8, 0x64, 0x45,
-	0x93, 0xc8, 0x9a, 0x3b, 0xbc, 0x8a, 0x8d, 0x29, 0x12, 0x0f, 0x42, 0xae, 0xac, 0xa9, 0xee, 0x4c,
-	0x3f, 0xc4, 0x98, 0x7c, 0xf2, 0xa6, 0x86, 0x33, 0x55, 0x70, 0xf8, 0x45, 0xa0, 0xf7, 0xbb, 0xeb,
-	0xee, 0xe9, 0x17, 0x70, 0xea, 0x6f, 0x35, 0x33, 0xa8, 0xc5, 0xca, 0x56, 0x6e, 0xf3, 0x3f, 0x9c,
-	0x5e, 0x42, 0xd7, 0xb3, 0x79, 0xa2, 0x31, 0x8e, 0xf0, 0x19, 0x1f, 0x85, 0x2d, 0x4f, 0xf8, 0xa1,
-	0x23, 0x63, 0xf7, 0x4d, 0xf6, 0xf6, 0xba, 0xb3, 0x57, 0xb9, 0xb1, 0x7b, 0x56, 0xb6, 0x37, 0x9c,
-	0xfd, 0xc0, 0x11, 0xed, 0x41, 0x73, 0x9e, 0xa5, 0x52, 0x05, 0x4d, 0xfb, 0x68, 0x17, 0xcc, 0x4e,
-	0xdc, 0xca, 0x55, 0xe5, 0x9f, 0x1c, 0xdb, 0x89, 0x1e, 0xd0, 0xf2, 0x80, 0xfb, 0x30, 0x37, 0xec,
-	0x3d, 0x67, 0x64, 0x9b, 0x33, 0xf2, 0x99, 0x33, 0xf2, 0x5a, 0xb0, 0xda, 0xb6, 0x60, 0xb5, 0x8f,
-	0x82, 0xd5, 0xee, 0x1b, 0xc3, 0xeb, 0xf5, 0x62, 0xf1, 0xdf, 0xae, 0xe2, 0xd5, 0x77, 0x00, 0x00,
-	0x00, 0xff, 0xff, 0x21, 0x0f, 0x4f, 0xb1, 0xa1, 0x02, 0x00, 0x00,
+	// 441 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x93, 0x41, 0x6f, 0xd3, 0x30,
+	0x14, 0xc7, 0xeb, 0xb5, 0x65, 0xe5, 0x4d, 0x83, 0xe2, 0xe4, 0x10, 0xf5, 0x60, 0x45, 0x39, 0x45,
+	0x08, 0x65, 0x68, 0x5c, 0x10, 0x9c, 0x86, 0x32, 0xa0, 0xe3, 0x52, 0xb9, 0x3b, 0x71, 0xf3, 0x56,
+	0xc3, 0xaa, 0x65, 0x4e, 0x48, 0x1c, 0xa4, 0x7c, 0x0b, 0xbe, 0x06, 0x12, 0x1f, 0x84, 0xe3, 0x8e,
+	0x1c, 0x51, 0x7b, 0xe1, 0x63, 0x20, 0xdb, 0x71, 0x96, 0x84, 0x6a, 0xe2, 0x96, 0xff, 0xff, 0xe9,
+	0xfd, 0xf2, 0xb7, 0xdf, 0x33, 0x38, 0x59, 0x9e, 0xca, 0xf4, 0x88, 0x15, 0x05, 0x2b, 0x13, 0x19,
+	0x69, 0x85, 0xf7, 0x6b, 0x39, 0x9b, 0x9a, 0x6a, 0x71, 0xb5, 0xce, 0x4c, 0x29, 0x38, 0x82, 0x27,
+	0xcb, 0x4b, 0x26, 0x16, 0x09, 0x13, 0x5c, 0x52, 0xfe, 0xa5, 0xe4, 0x85, 0xc4, 0x33, 0x98, 0x2c,
+	0x12, 0x56, 0xf1, 0x7c, 0x1e, 0x7b, 0xc8, 0x47, 0xe1, 0x21, 0x6d, 0x74, 0x70, 0x06, 0xb8, 0xdd,
+	0x50, 0x64, 0xa9, 0x28, 0xf8, 0x7d, 0x1d, 0xd8, 0x83, 0xfd, 0xb9, 0x58, 0xb0, 0x5c, 0x56, 0xde,
+	0x9e, 0x8f, 0xc2, 0x09, 0xb5, 0x32, 0xf8, 0x8e, 0xc0, 0x59, 0x4a, 0x96, 0xcb, 0x13, 0x93, 0xcf,
+	0xfe, 0x9f, 0x00, 0x9c, 0x48, 0xc9, 0x2e, 0xaf, 0x5b, 0xbc, 0x96, 0x83, 0x43, 0x78, 0x6c, 0x95,
+	0x06, 0xcd, 0x63, 0x4d, 0x3e, 0xa4, 0x7d, 0x5b, 0x91, 0x62, 0xfe, 0x89, 0x8b, 0x95, 0x26, 0x0d,
+	0x0d, 0xe9, 0xce, 0x51, 0x24, 0xab, 0x2c, 0x69, 0x64, 0x48, 0x3d, 0x3b, 0xf8, 0x83, 0xc0, 0xed,
+	0x66, 0xad, 0x8f, 0xfe, 0x14, 0xa6, 0xf6, 0xaf, 0xaa, 0x87, 0x49, 0xbe, 0xd2, 0x91, 0x27, 0xf4,
+	0x1f, 0x1f, 0x3f, 0x07, 0xc7, 0x7a, 0xe7, 0xa9, 0x64, 0x49, 0xcc, 0x6e, 0xd8, 0x67, 0xae, 0xc3,
+	0x23, 0xba, 0xab, 0xa4, 0xe8, 0x36, 0x49, 0x43, 0x1f, 0x1a, 0x7a, 0xdf, 0x57, 0x74, 0xeb, 0xb5,
+	0xe9, 0x23, 0x43, 0xdf, 0x51, 0xc2, 0x2e, 0x8c, 0xcf, 0xcb, 0x5c, 0x14, 0xde, 0x58, 0x1f, 0xda,
+	0x08, 0xb5, 0x13, 0xa7, 0x62, 0xd5, 0x9b, 0xc9, 0x7d, 0x3b, 0xe1, 0x02, 0x6e, 0x37, 0x98, 0x8b,
+	0x09, 0x3e, 0x80, 0xf3, 0x8e, 0xcb, 0xb7, 0x69, 0x7e, 0xc3, 0xe4, 0x3a, 0x15, 0xff, 0x01, 0x52,
+	0xab, 0xd2, 0x1d, 0xa8, 0x95, 0xc1, 0x0f, 0x04, 0x6e, 0x97, 0x56, 0x5f, 0xff, 0x19, 0x3c, 0x6c,
+	0x4c, 0x0f, 0xf9, 0xc3, 0xf0, 0xe0, 0xf8, 0x59, 0x64, 0xd7, 0x7f, 0x57, 0x47, 0xd4, 0x38, 0xa7,
+	0x42, 0xe6, 0x15, 0xbd, 0x6b, 0x9f, 0xbd, 0x87, 0x47, 0xdd, 0x22, 0x9e, 0xc2, 0xf0, 0x9a, 0x57,
+	0x75, 0x4e, 0xf5, 0x89, 0x7d, 0x18, 0x7f, 0x65, 0x49, 0x69, 0x86, 0x76, 0x70, 0x0c, 0x91, 0x7e,
+	0x4c, 0xcb, 0xab, 0x75, 0x46, 0x4d, 0xe1, 0xd5, 0xde, 0x4b, 0xf4, 0x86, 0xfc, 0xdc, 0x10, 0x74,
+	0xbb, 0x21, 0xe8, 0xf7, 0x86, 0xa0, 0x6f, 0x5b, 0x32, 0xb8, 0xdd, 0x92, 0xc1, 0xaf, 0x2d, 0x19,
+	0x7c, 0x1c, 0x45, 0xaf, 0xb3, 0x8b, 0x8b, 0x07, 0xfa, 0xf5, 0xbd, 0xf8, 0x1b, 0x00, 0x00, 0xff,
+	0xff, 0xc0, 0xdb, 0xfa, 0x82, 0xaf, 0x03, 0x00, 0x00,
 }
 
 func (m *ScanPlanetRequest) Marshal() (dAtA []byte, err error) {
@@ -602,6 +709,86 @@ func (m *EndAssaultResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *GetFormationRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetFormationRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetFormationRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.PartyID != 0 {
+		i = encodeVarintAssault(dAtA, i, uint64(m.PartyID))
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.PlayerID != 0 {
+		i = encodeVarintAssault(dAtA, i, uint64(m.PlayerID))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *GetFormationResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetFormationResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetFormationResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Formation) > 0 {
+		for k := range m.Formation {
+			v := m.Formation[k]
+			baseI := i
+			if v != nil {
+				{
+					size, err := v.MarshalToSizedBuffer(dAtA[:i])
+					if err != nil {
+						return 0, err
+					}
+					i -= size
+					i = encodeVarintAssault(dAtA, i, uint64(size))
+				}
+				i--
+				dAtA[i] = 0x12
+			}
+			i = encodeVarintAssault(dAtA, i, uint64(k))
+			i--
+			dAtA[i] = 0x8
+			i = encodeVarintAssault(dAtA, i, uint64(baseI-i))
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintAssault(dAtA []byte, offset int, v uint64) int {
 	offset -= sovAssault(v)
 	base := offset
@@ -703,6 +890,43 @@ func (m *EndAssaultResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
+	return n
+}
+
+func (m *GetFormationRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.PlayerID != 0 {
+		n += 1 + sovAssault(uint64(m.PlayerID))
+	}
+	if m.PartyID != 0 {
+		n += 1 + sovAssault(uint64(m.PartyID))
+	}
+	return n
+}
+
+func (m *GetFormationResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.Formation) > 0 {
+		for k, v := range m.Formation {
+			_ = k
+			_ = v
+			l = 0
+			if v != nil {
+				l = v.Size()
+				l += 1 + sovAssault(uint64(l))
+			}
+			mapEntrySize := 1 + sovAssault(uint64(k)) + l
+			n += mapEntrySize + 1 + sovAssault(uint64(mapEntrySize))
+		}
+	}
 	return n
 }
 
@@ -1240,6 +1464,265 @@ func (m *EndAssaultResponse) Unmarshal(dAtA []byte) error {
 			return fmt.Errorf("proto: EndAssaultResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipAssault(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthAssault
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthAssault
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetFormationRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowAssault
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetFormationRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetFormationRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PlayerID", wireType)
+			}
+			m.PlayerID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowAssault
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.PlayerID |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PartyID", wireType)
+			}
+			m.PartyID = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowAssault
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.PartyID |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipAssault(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthAssault
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthAssault
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetFormationResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowAssault
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetFormationResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetFormationResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Formation", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowAssault
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthAssault
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthAssault
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Formation == nil {
+				m.Formation = make(map[uint32]*Ship)
+			}
+			var mapkey uint32
+			var mapvalue *Ship
+			for iNdEx < postIndex {
+				entryPreIndex := iNdEx
+				var wire uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowAssault
+					}
+					if iNdEx >= l {
+						return io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					wire |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				fieldNum := int32(wire >> 3)
+				if fieldNum == 1 {
+					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return ErrIntOverflowAssault
+						}
+						if iNdEx >= l {
+							return io.ErrUnexpectedEOF
+						}
+						b := dAtA[iNdEx]
+						iNdEx++
+						mapkey |= uint32(b&0x7F) << shift
+						if b < 0x80 {
+							break
+						}
+					}
+				} else if fieldNum == 2 {
+					var mapmsglen int
+					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return ErrIntOverflowAssault
+						}
+						if iNdEx >= l {
+							return io.ErrUnexpectedEOF
+						}
+						b := dAtA[iNdEx]
+						iNdEx++
+						mapmsglen |= int(b&0x7F) << shift
+						if b < 0x80 {
+							break
+						}
+					}
+					if mapmsglen < 0 {
+						return ErrInvalidLengthAssault
+					}
+					postmsgIndex := iNdEx + mapmsglen
+					if postmsgIndex < 0 {
+						return ErrInvalidLengthAssault
+					}
+					if postmsgIndex > l {
+						return io.ErrUnexpectedEOF
+					}
+					mapvalue = &Ship{}
+					if err := mapvalue.Unmarshal(dAtA[iNdEx:postmsgIndex]); err != nil {
+						return err
+					}
+					iNdEx = postmsgIndex
+				} else {
+					iNdEx = entryPreIndex
+					skippy, err := skipAssault(dAtA[iNdEx:])
+					if err != nil {
+						return err
+					}
+					if skippy < 0 {
+						return ErrInvalidLengthAssault
+					}
+					if (iNdEx + skippy) > postIndex {
+						return io.ErrUnexpectedEOF
+					}
+					iNdEx += skippy
+				}
+			}
+			m.Formation[mapkey] = mapvalue
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipAssault(dAtA[iNdEx:])
