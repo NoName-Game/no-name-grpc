@@ -120,26 +120,26 @@ func (m *ScanPlanetResponse) GetInParty() bool {
 	return false
 }
 
-// StartAssault
-type StartAssaultRequest struct {
+// Assault
+type AssaultRequest struct {
 	AttackerID      uint32 `protobuf:"varint,1,opt,name=AttackerID,proto3" json:"AttackerID,omitempty"`
 	AttackerPartyID uint32 `protobuf:"varint,2,opt,name=AttackerPartyID,proto3" json:"AttackerPartyID,omitempty"`
 	DefenderID      uint32 `protobuf:"varint,3,opt,name=DefenderID,proto3" json:"DefenderID,omitempty"`
 	DefenderPartyID uint32 `protobuf:"varint,4,opt,name=DefenderPartyID,proto3" json:"DefenderPartyID,omitempty"`
 }
 
-func (m *StartAssaultRequest) Reset()         { *m = StartAssaultRequest{} }
-func (m *StartAssaultRequest) String() string { return proto.CompactTextString(m) }
-func (*StartAssaultRequest) ProtoMessage()    {}
-func (*StartAssaultRequest) Descriptor() ([]byte, []int) {
+func (m *AssaultRequest) Reset()         { *m = AssaultRequest{} }
+func (m *AssaultRequest) String() string { return proto.CompactTextString(m) }
+func (*AssaultRequest) ProtoMessage()    {}
+func (*AssaultRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_6f6aeb8097ff9b7d, []int{2}
 }
-func (m *StartAssaultRequest) XXX_Unmarshal(b []byte) error {
+func (m *AssaultRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *StartAssaultRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *AssaultRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_StartAssaultRequest.Marshal(b, m, deterministic)
+		return xxx_messageInfo_AssaultRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -149,66 +149,65 @@ func (m *StartAssaultRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte,
 		return b[:n], nil
 	}
 }
-func (m *StartAssaultRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_StartAssaultRequest.Merge(m, src)
+func (m *AssaultRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AssaultRequest.Merge(m, src)
 }
-func (m *StartAssaultRequest) XXX_Size() int {
+func (m *AssaultRequest) XXX_Size() int {
 	return m.Size()
 }
-func (m *StartAssaultRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_StartAssaultRequest.DiscardUnknown(m)
+func (m *AssaultRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_AssaultRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_StartAssaultRequest proto.InternalMessageInfo
+var xxx_messageInfo_AssaultRequest proto.InternalMessageInfo
 
-func (m *StartAssaultRequest) GetAttackerID() uint32 {
+func (m *AssaultRequest) GetAttackerID() uint32 {
 	if m != nil {
 		return m.AttackerID
 	}
 	return 0
 }
 
-func (m *StartAssaultRequest) GetAttackerPartyID() uint32 {
+func (m *AssaultRequest) GetAttackerPartyID() uint32 {
 	if m != nil {
 		return m.AttackerPartyID
 	}
 	return 0
 }
 
-func (m *StartAssaultRequest) GetDefenderID() uint32 {
+func (m *AssaultRequest) GetDefenderID() uint32 {
 	if m != nil {
 		return m.DefenderID
 	}
 	return 0
 }
 
-func (m *StartAssaultRequest) GetDefenderPartyID() uint32 {
+func (m *AssaultRequest) GetDefenderPartyID() uint32 {
 	if m != nil {
 		return m.DefenderPartyID
 	}
 	return 0
 }
 
-type StartAssaultResponse struct {
-	AttackerDefeated    bool    `protobuf:"varint,1,opt,name=AttackerDefeated,proto3" json:"AttackerDefeated,omitempty"`
-	AttackerTotalDamage float64 `protobuf:"fixed64,2,opt,name=AttackerTotalDamage,proto3" json:"AttackerTotalDamage,omitempty"`
-	DefenderDefeated    bool    `protobuf:"varint,3,opt,name=DefenderDefeated,proto3" json:"DefenderDefeated,omitempty"`
-	DefenderTotalDamage float64 `protobuf:"fixed64,4,opt,name=DefenderTotalDamage,proto3" json:"DefenderTotalDamage,omitempty"`
-	Turns               uint32  `protobuf:"varint,5,opt,name=Turns,proto3" json:"Turns,omitempty"`
+type AssaultResponse struct {
+	AttackerDefeated bool    `protobuf:"varint,1,opt,name=AttackerDefeated,proto3" json:"AttackerDefeated,omitempty"`
+	AttackerDamage   float64 `protobuf:"fixed64,2,opt,name=AttackerDamage,proto3" json:"AttackerDamage,omitempty"`
+	DefenderDefeated bool    `protobuf:"varint,3,opt,name=DefenderDefeated,proto3" json:"DefenderDefeated,omitempty"`
+	DefenderDamage   float64 `protobuf:"fixed64,4,opt,name=DefenderDamage,proto3" json:"DefenderDamage,omitempty"`
 }
 
-func (m *StartAssaultResponse) Reset()         { *m = StartAssaultResponse{} }
-func (m *StartAssaultResponse) String() string { return proto.CompactTextString(m) }
-func (*StartAssaultResponse) ProtoMessage()    {}
-func (*StartAssaultResponse) Descriptor() ([]byte, []int) {
+func (m *AssaultResponse) Reset()         { *m = AssaultResponse{} }
+func (m *AssaultResponse) String() string { return proto.CompactTextString(m) }
+func (*AssaultResponse) ProtoMessage()    {}
+func (*AssaultResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_6f6aeb8097ff9b7d, []int{3}
 }
-func (m *StartAssaultResponse) XXX_Unmarshal(b []byte) error {
+func (m *AssaultResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *StartAssaultResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *AssaultResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_StartAssaultResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_AssaultResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -218,49 +217,42 @@ func (m *StartAssaultResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte
 		return b[:n], nil
 	}
 }
-func (m *StartAssaultResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_StartAssaultResponse.Merge(m, src)
+func (m *AssaultResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AssaultResponse.Merge(m, src)
 }
-func (m *StartAssaultResponse) XXX_Size() int {
+func (m *AssaultResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *StartAssaultResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_StartAssaultResponse.DiscardUnknown(m)
+func (m *AssaultResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_AssaultResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_StartAssaultResponse proto.InternalMessageInfo
+var xxx_messageInfo_AssaultResponse proto.InternalMessageInfo
 
-func (m *StartAssaultResponse) GetAttackerDefeated() bool {
+func (m *AssaultResponse) GetAttackerDefeated() bool {
 	if m != nil {
 		return m.AttackerDefeated
 	}
 	return false
 }
 
-func (m *StartAssaultResponse) GetAttackerTotalDamage() float64 {
+func (m *AssaultResponse) GetAttackerDamage() float64 {
 	if m != nil {
-		return m.AttackerTotalDamage
+		return m.AttackerDamage
 	}
 	return 0
 }
 
-func (m *StartAssaultResponse) GetDefenderDefeated() bool {
+func (m *AssaultResponse) GetDefenderDefeated() bool {
 	if m != nil {
 		return m.DefenderDefeated
 	}
 	return false
 }
 
-func (m *StartAssaultResponse) GetDefenderTotalDamage() float64 {
+func (m *AssaultResponse) GetDefenderDamage() float64 {
 	if m != nil {
-		return m.DefenderTotalDamage
-	}
-	return 0
-}
-
-func (m *StartAssaultResponse) GetTurns() uint32 {
-	if m != nil {
-		return m.Turns
+		return m.DefenderDamage
 	}
 	return 0
 }
@@ -446,8 +438,8 @@ func (m *GetFormationResponse) GetFormation() map[uint32]*Ship {
 func init() {
 	proto.RegisterType((*ScanPlanetRequest)(nil), "assault.ScanPlanetRequest")
 	proto.RegisterType((*ScanPlanetResponse)(nil), "assault.ScanPlanetResponse")
-	proto.RegisterType((*StartAssaultRequest)(nil), "assault.StartAssaultRequest")
-	proto.RegisterType((*StartAssaultResponse)(nil), "assault.StartAssaultResponse")
+	proto.RegisterType((*AssaultRequest)(nil), "assault.AssaultRequest")
+	proto.RegisterType((*AssaultResponse)(nil), "assault.AssaultResponse")
 	proto.RegisterType((*EndAssaultRequest)(nil), "assault.EndAssaultRequest")
 	proto.RegisterType((*EndAssaultResponse)(nil), "assault.EndAssaultResponse")
 	proto.RegisterType((*GetFormationRequest)(nil), "assault.GetFormationRequest")
@@ -458,35 +450,34 @@ func init() {
 func init() { proto.RegisterFile("proto/assault.proto", fileDescriptor_6f6aeb8097ff9b7d) }
 
 var fileDescriptor_6f6aeb8097ff9b7d = []byte{
-	// 441 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x93, 0x41, 0x6f, 0xd3, 0x30,
-	0x14, 0xc7, 0xeb, 0xb5, 0x65, 0xe5, 0x4d, 0x83, 0xe2, 0xe4, 0x10, 0xf5, 0x60, 0x45, 0x39, 0x45,
-	0x08, 0x65, 0x68, 0x5c, 0x10, 0x9c, 0x86, 0x32, 0xa0, 0xe3, 0x52, 0xb9, 0x3b, 0x71, 0xf3, 0x56,
-	0xc3, 0xaa, 0x65, 0x4e, 0x48, 0x1c, 0xa4, 0x7c, 0x0b, 0xbe, 0x06, 0x12, 0x1f, 0x84, 0xe3, 0x8e,
-	0x1c, 0x51, 0x7b, 0xe1, 0x63, 0x20, 0xdb, 0x71, 0x96, 0x84, 0x6a, 0xe2, 0x96, 0xff, 0xff, 0xe9,
-	0xfd, 0xf2, 0xb7, 0xdf, 0x33, 0x38, 0x59, 0x9e, 0xca, 0xf4, 0x88, 0x15, 0x05, 0x2b, 0x13, 0x19,
-	0x69, 0x85, 0xf7, 0x6b, 0x39, 0x9b, 0x9a, 0x6a, 0x71, 0xb5, 0xce, 0x4c, 0x29, 0x38, 0x82, 0x27,
-	0xcb, 0x4b, 0x26, 0x16, 0x09, 0x13, 0x5c, 0x52, 0xfe, 0xa5, 0xe4, 0x85, 0xc4, 0x33, 0x98, 0x2c,
-	0x12, 0x56, 0xf1, 0x7c, 0x1e, 0x7b, 0xc8, 0x47, 0xe1, 0x21, 0x6d, 0x74, 0x70, 0x06, 0xb8, 0xdd,
-	0x50, 0x64, 0xa9, 0x28, 0xf8, 0x7d, 0x1d, 0xd8, 0x83, 0xfd, 0xb9, 0x58, 0xb0, 0x5c, 0x56, 0xde,
-	0x9e, 0x8f, 0xc2, 0x09, 0xb5, 0x32, 0xf8, 0x8e, 0xc0, 0x59, 0x4a, 0x96, 0xcb, 0x13, 0x93, 0xcf,
-	0xfe, 0x9f, 0x00, 0x9c, 0x48, 0xc9, 0x2e, 0xaf, 0x5b, 0xbc, 0x96, 0x83, 0x43, 0x78, 0x6c, 0x95,
-	0x06, 0xcd, 0x63, 0x4d, 0x3e, 0xa4, 0x7d, 0x5b, 0x91, 0x62, 0xfe, 0x89, 0x8b, 0x95, 0x26, 0x0d,
-	0x0d, 0xe9, 0xce, 0x51, 0x24, 0xab, 0x2c, 0x69, 0x64, 0x48, 0x3d, 0x3b, 0xf8, 0x83, 0xc0, 0xed,
-	0x66, 0xad, 0x8f, 0xfe, 0x14, 0xa6, 0xf6, 0xaf, 0xaa, 0x87, 0x49, 0xbe, 0xd2, 0x91, 0x27, 0xf4,
-	0x1f, 0x1f, 0x3f, 0x07, 0xc7, 0x7a, 0xe7, 0xa9, 0x64, 0x49, 0xcc, 0x6e, 0xd8, 0x67, 0xae, 0xc3,
-	0x23, 0xba, 0xab, 0xa4, 0xe8, 0x36, 0x49, 0x43, 0x1f, 0x1a, 0x7a, 0xdf, 0x57, 0x74, 0xeb, 0xb5,
-	0xe9, 0x23, 0x43, 0xdf, 0x51, 0xc2, 0x2e, 0x8c, 0xcf, 0xcb, 0x5c, 0x14, 0xde, 0x58, 0x1f, 0xda,
-	0x08, 0xb5, 0x13, 0xa7, 0x62, 0xd5, 0x9b, 0xc9, 0x7d, 0x3b, 0xe1, 0x02, 0x6e, 0x37, 0x98, 0x8b,
-	0x09, 0x3e, 0x80, 0xf3, 0x8e, 0xcb, 0xb7, 0x69, 0x7e, 0xc3, 0xe4, 0x3a, 0x15, 0xff, 0x01, 0x52,
-	0xab, 0xd2, 0x1d, 0xa8, 0x95, 0xc1, 0x0f, 0x04, 0x6e, 0x97, 0x56, 0x5f, 0xff, 0x19, 0x3c, 0x6c,
-	0x4c, 0x0f, 0xf9, 0xc3, 0xf0, 0xe0, 0xf8, 0x59, 0x64, 0xd7, 0x7f, 0x57, 0x47, 0xd4, 0x38, 0xa7,
-	0x42, 0xe6, 0x15, 0xbd, 0x6b, 0x9f, 0xbd, 0x87, 0x47, 0xdd, 0x22, 0x9e, 0xc2, 0xf0, 0x9a, 0x57,
-	0x75, 0x4e, 0xf5, 0x89, 0x7d, 0x18, 0x7f, 0x65, 0x49, 0x69, 0x86, 0x76, 0x70, 0x0c, 0x91, 0x7e,
-	0x4c, 0xcb, 0xab, 0x75, 0x46, 0x4d, 0xe1, 0xd5, 0xde, 0x4b, 0xf4, 0x86, 0xfc, 0xdc, 0x10, 0x74,
-	0xbb, 0x21, 0xe8, 0xf7, 0x86, 0xa0, 0x6f, 0x5b, 0x32, 0xb8, 0xdd, 0x92, 0xc1, 0xaf, 0x2d, 0x19,
-	0x7c, 0x1c, 0x45, 0xaf, 0xb3, 0x8b, 0x8b, 0x07, 0xfa, 0xf5, 0xbd, 0xf8, 0x1b, 0x00, 0x00, 0xff,
-	0xff, 0xc0, 0xdb, 0xfa, 0x82, 0xaf, 0x03, 0x00, 0x00,
+	// 421 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x93, 0xc1, 0x8e, 0xd2, 0x40,
+	0x18, 0xc7, 0x99, 0x2d, 0xba, 0xf8, 0x6d, 0x96, 0xc5, 0xd9, 0x3d, 0x34, 0x1c, 0x26, 0x4d, 0x0f,
+	0xa6, 0x31, 0xa6, 0x9b, 0xac, 0x17, 0xa3, 0xa7, 0x35, 0xa0, 0x82, 0x17, 0x32, 0xdc, 0xbc, 0x0d,
+	0x30, 0x0a, 0xa1, 0x4c, 0x6b, 0x3b, 0x98, 0xf4, 0x2d, 0x7c, 0x08, 0x8f, 0xbe, 0x80, 0x6f, 0xe0,
+	0x91, 0xa3, 0x47, 0x03, 0x2f, 0x62, 0x66, 0xa6, 0x53, 0xda, 0x6a, 0x88, 0x37, 0xfe, 0xbf, 0x8f,
+	0xef, 0x37, 0x5f, 0xfb, 0x75, 0xe0, 0x3a, 0x49, 0x63, 0x19, 0xdf, 0xb2, 0x2c, 0x63, 0xdb, 0x48,
+	0x86, 0x3a, 0xe1, 0xf3, 0x22, 0xf6, 0x7b, 0xa6, 0x9a, 0x2d, 0x57, 0x89, 0x29, 0xf9, 0xb7, 0xf0,
+	0x78, 0x3a, 0x67, 0x62, 0x12, 0x31, 0xc1, 0x25, 0xe5, 0x9f, 0xb7, 0x3c, 0x93, 0xb8, 0x0f, 0x9d,
+	0x49, 0xc4, 0x72, 0x9e, 0x8e, 0x06, 0x2e, 0xf2, 0x50, 0x70, 0x49, 0xcb, 0xec, 0x8f, 0x01, 0x57,
+	0x1b, 0xb2, 0x24, 0x16, 0x19, 0x3f, 0xd5, 0x81, 0x5d, 0x38, 0x1f, 0x89, 0x09, 0x4b, 0x65, 0xee,
+	0x9e, 0x79, 0x28, 0xe8, 0x50, 0x1b, 0xfd, 0x6f, 0x08, 0xba, 0xf7, 0x66, 0x34, 0x7b, 0x34, 0x01,
+	0xb8, 0x97, 0x92, 0xcd, 0xd7, 0x15, 0x55, 0x85, 0xe0, 0x00, 0xae, 0x6c, 0xd2, 0x8e, 0xd1, 0x40,
+	0x4b, 0x2f, 0x69, 0x13, 0x2b, 0xd3, 0x80, 0x7f, 0xe4, 0x62, 0xa1, 0x4d, 0x8e, 0x31, 0x1d, 0x89,
+	0x32, 0xd9, 0x64, 0x4d, 0x6d, 0x63, 0x6a, 0x60, 0xff, 0x07, 0x82, 0xab, 0x72, 0xcc, 0xe2, 0x81,
+	0x9f, 0x42, 0xcf, 0x1e, 0xa8, 0xfe, 0xce, 0x24, 0x5f, 0xe8, 0x69, 0x3b, 0xf4, 0x2f, 0x8e, 0x9f,
+	0x40, 0xb7, 0x64, 0x6c, 0xc3, 0x3e, 0x71, 0x3d, 0x32, 0xa2, 0x0d, 0xaa, 0x9c, 0xf6, 0xe8, 0xd2,
+	0xe9, 0x18, 0x67, 0x93, 0x2b, 0x67, 0xc9, 0x8c, 0xb3, 0x6d, 0x9c, 0x75, 0xaa, 0xf6, 0x3b, 0x14,
+	0x8b, 0xc6, 0x4b, 0x3e, 0xb5, 0xdf, 0x1b, 0xc0, 0xd5, 0x06, 0xf3, 0xb8, 0xfe, 0x7b, 0xb8, 0x7e,
+	0xcb, 0xe5, 0x9b, 0x38, 0xdd, 0x30, 0xb9, 0x8a, 0xc5, 0x7f, 0x88, 0xd4, 0xda, 0xeb, 0x1b, 0xb2,
+	0xd1, 0xff, 0x8e, 0xe0, 0xa6, 0x6e, 0x2b, 0x5e, 0xea, 0x18, 0x1e, 0x95, 0xd0, 0x45, 0x9e, 0x13,
+	0x5c, 0xdc, 0x3d, 0x0b, 0xed, 0xa7, 0xfc, 0xaf, 0x8e, 0xb0, 0x24, 0x43, 0x21, 0xd3, 0x9c, 0x1e,
+	0xdb, 0xfb, 0xef, 0xa0, 0x5b, 0x2f, 0xe2, 0x1e, 0x38, 0x6b, 0x9e, 0x17, 0x73, 0xaa, 0x9f, 0xd8,
+	0x83, 0x07, 0x5f, 0x58, 0xb4, 0x35, 0xfb, 0xb8, 0xb8, 0x83, 0x50, 0x5f, 0x8c, 0xe9, 0x72, 0x95,
+	0x50, 0x53, 0x78, 0x79, 0xf6, 0x02, 0xbd, 0x26, 0x3f, 0xf7, 0x04, 0xed, 0xf6, 0x04, 0xfd, 0xde,
+	0x13, 0xf4, 0xf5, 0x40, 0x5a, 0xbb, 0x03, 0x69, 0xfd, 0x3a, 0x90, 0xd6, 0x87, 0x76, 0xf8, 0x2a,
+	0x99, 0xcd, 0x1e, 0xea, 0x9b, 0xf4, 0xfc, 0x4f, 0x00, 0x00, 0x00, 0xff, 0xff, 0xa9, 0xe4, 0x00,
+	0xf4, 0x7b, 0x03, 0x00, 0x00,
 }
 
 func (m *ScanPlanetRequest) Marshal() (dAtA []byte, err error) {
@@ -555,7 +546,7 @@ func (m *ScanPlanetResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *StartAssaultRequest) Marshal() (dAtA []byte, err error) {
+func (m *AssaultRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -565,12 +556,12 @@ func (m *StartAssaultRequest) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *StartAssaultRequest) MarshalTo(dAtA []byte) (int, error) {
+func (m *AssaultRequest) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *StartAssaultRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *AssaultRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -598,7 +589,7 @@ func (m *StartAssaultRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *StartAssaultResponse) Marshal() (dAtA []byte, err error) {
+func (m *AssaultResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -608,24 +599,19 @@ func (m *StartAssaultResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *StartAssaultResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *AssaultResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *StartAssaultResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *AssaultResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.Turns != 0 {
-		i = encodeVarintAssault(dAtA, i, uint64(m.Turns))
-		i--
-		dAtA[i] = 0x28
-	}
-	if m.DefenderTotalDamage != 0 {
+	if m.DefenderDamage != 0 {
 		i -= 8
-		encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(math.Float64bits(float64(m.DefenderTotalDamage))))
+		encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(math.Float64bits(float64(m.DefenderDamage))))
 		i--
 		dAtA[i] = 0x21
 	}
@@ -639,9 +625,9 @@ func (m *StartAssaultResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0x18
 	}
-	if m.AttackerTotalDamage != 0 {
+	if m.AttackerDamage != 0 {
 		i -= 8
-		encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(math.Float64bits(float64(m.AttackerTotalDamage))))
+		encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(math.Float64bits(float64(m.AttackerDamage))))
 		i--
 		dAtA[i] = 0x11
 	}
@@ -827,7 +813,7 @@ func (m *ScanPlanetResponse) Size() (n int) {
 	return n
 }
 
-func (m *StartAssaultRequest) Size() (n int) {
+func (m *AssaultRequest) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -848,7 +834,7 @@ func (m *StartAssaultRequest) Size() (n int) {
 	return n
 }
 
-func (m *StartAssaultResponse) Size() (n int) {
+func (m *AssaultResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -857,17 +843,14 @@ func (m *StartAssaultResponse) Size() (n int) {
 	if m.AttackerDefeated {
 		n += 2
 	}
-	if m.AttackerTotalDamage != 0 {
+	if m.AttackerDamage != 0 {
 		n += 9
 	}
 	if m.DefenderDefeated {
 		n += 2
 	}
-	if m.DefenderTotalDamage != 0 {
+	if m.DefenderDamage != 0 {
 		n += 9
-	}
-	if m.Turns != 0 {
-		n += 1 + sovAssault(uint64(m.Turns))
 	}
 	return n
 }
@@ -1100,7 +1083,7 @@ func (m *ScanPlanetResponse) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *StartAssaultRequest) Unmarshal(dAtA []byte) error {
+func (m *AssaultRequest) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1123,10 +1106,10 @@ func (m *StartAssaultRequest) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: StartAssaultRequest: wiretype end group for non-group")
+			return fmt.Errorf("proto: AssaultRequest: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: StartAssaultRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: AssaultRequest: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1229,7 +1212,7 @@ func (m *StartAssaultRequest) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *StartAssaultResponse) Unmarshal(dAtA []byte) error {
+func (m *AssaultResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1252,10 +1235,10 @@ func (m *StartAssaultResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: StartAssaultResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: AssaultResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: StartAssaultResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: AssaultResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1280,7 +1263,7 @@ func (m *StartAssaultResponse) Unmarshal(dAtA []byte) error {
 			m.AttackerDefeated = bool(v != 0)
 		case 2:
 			if wireType != 1 {
-				return fmt.Errorf("proto: wrong wireType = %d for field AttackerTotalDamage", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field AttackerDamage", wireType)
 			}
 			var v uint64
 			if (iNdEx + 8) > l {
@@ -1288,7 +1271,7 @@ func (m *StartAssaultResponse) Unmarshal(dAtA []byte) error {
 			}
 			v = uint64(encoding_binary.LittleEndian.Uint64(dAtA[iNdEx:]))
 			iNdEx += 8
-			m.AttackerTotalDamage = float64(math.Float64frombits(v))
+			m.AttackerDamage = float64(math.Float64frombits(v))
 		case 3:
 			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field DefenderDefeated", wireType)
@@ -1311,7 +1294,7 @@ func (m *StartAssaultResponse) Unmarshal(dAtA []byte) error {
 			m.DefenderDefeated = bool(v != 0)
 		case 4:
 			if wireType != 1 {
-				return fmt.Errorf("proto: wrong wireType = %d for field DefenderTotalDamage", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field DefenderDamage", wireType)
 			}
 			var v uint64
 			if (iNdEx + 8) > l {
@@ -1319,26 +1302,7 @@ func (m *StartAssaultResponse) Unmarshal(dAtA []byte) error {
 			}
 			v = uint64(encoding_binary.LittleEndian.Uint64(dAtA[iNdEx:]))
 			iNdEx += 8
-			m.DefenderTotalDamage = float64(math.Float64frombits(v))
-		case 5:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Turns", wireType)
-			}
-			m.Turns = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowAssault
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.Turns |= uint32(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
+			m.DefenderDamage = float64(math.Float64frombits(v))
 		default:
 			iNdEx = preIndex
 			skippy, err := skipAssault(dAtA[iNdEx:])

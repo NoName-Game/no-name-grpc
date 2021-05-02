@@ -421,6 +421,6 @@ service NoName {
 
     // Assault
     rpc Scan(assault.ScanPlanetRequest) returns (assault.ScanPlanetResponse) {}
-    rpc StartAssault(assault.StartAssaultRequest) returns (assault.StartAssaultResponse) {}
+    rpc Assault(assault.AssaultRequest) returns (assault.AssaultResponse) {}
     rpc GetFormation(assault.GetFormationRequest) returns (assault.GetFormationResponse) {}
 }

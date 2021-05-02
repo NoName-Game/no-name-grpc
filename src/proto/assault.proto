@@ -12,20 +12,19 @@ message ScanPlanetResponse {
     bool InParty = 2;
 }
 
-// StartAssault
-message StartAssaultRequest {
+// Assault
+message AssaultRequest {
     uint32 AttackerID = 1;
     uint32 AttackerPartyID = 2;
     uint32 DefenderID = 3;
     uint32 DefenderPartyID = 4;
 }
 
-message StartAssaultResponse {
+message AssaultResponse {
      bool AttackerDefeated = 1;
-     double AttackerTotalDamage = 2;
+     double AttackerDamage = 2;
      bool DefenderDefeated = 3;
-     double DefenderTotalDamage = 4;
-     uint32 Turns = 5;
+     double DefenderDamage = 4;
 }
 
 // EndAssault
