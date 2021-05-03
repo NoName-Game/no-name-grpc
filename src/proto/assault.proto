@@ -27,12 +27,13 @@ message AssaultResponse {
      double DefenderDamage = 4;
 }
 
-// EndAssault
-message EndAssaultRequest {
+// GetAssaultRewards
+message GetAssaultRewardRequest {
     uint32 PlayerID = 1;
 }
-message EndAssaultResponse {
-    // Empty
+message GetAssaultRewardResponse {
+    uint32 DebridPerPlayer = 1;
+    uint32 ExpPerPlayer = 2;
 }
 
 // GetFormation

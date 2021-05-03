@@ -423,4 +423,5 @@ service NoName {
     rpc Scan(assault.ScanPlanetRequest) returns (assault.ScanPlanetResponse) {}
     rpc Assault(assault.AssaultRequest) returns (assault.AssaultResponse) {}
     rpc GetFormation(assault.GetFormationRequest) returns (assault.GetFormationResponse) {}
+    rpc GetAssaultReward(assault.GetAssaultRewardRequest) returns (assault.GetAssaultRewardResponse) {}
 }
