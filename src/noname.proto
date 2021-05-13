@@ -57,6 +57,7 @@ import "proto/notification.proto";
 import "proto/domain.proto";
 import "proto/auction.proto";
 import "proto/action.proto";
+import "proto/assault.proto";
 
 option go_package = ".;pb";
 
@@ -113,6 +114,9 @@ service NoName {
     rpc GetPlayerPacks (player_inventory.GetPlayerPacksRequest) returns (player_inventory.GetPlayerPacksResponse) {}
     rpc GetPlayerItemByID (player_inventory.GetPlayerItemByIDRequest) returns (player_inventory.GetPlayerItemByIDResponse) {}
     rpc GetPlayerResourceByID (player_inventory.GetPlayerResourceByIDRequest) returns (player_inventory.GetPlayerResourceByIDResponse) {}
+    rpc DepositResource(player_inventory.DepositResourceRequest) returns (player_inventory.DepositResourceResponse) {}
+    rpc WithdrawResource(player_inventory.WithdrawResourceRequest) returns (player_inventory.WithdrawResourceResponse) {}
+    rpc GetDepositedResources(player_inventory.GetDepositedResourcesRequest) returns (player_inventory.GetDepositedResourcesResponse) {}
 
     // Player - Position
     rpc CreatePlayerPosition (player_position.CreatePlayerPositionRequest) returns (player_position.CreatePlayerPositionResponse) {}
@@ -414,4 +418,10 @@ service NoName {
 
     rpc NewAuctionBid (auction.NewAuctionBidRequest) returns (auction.NewAuctionBidResponse) {}
     rpc GetAuctionBids (auction.GetAuctionBidsRequest) returns (auction.GetAuctionBidsResponse) {}
+
+    // Assault
+    rpc Scan(assault.ScanPlanetRequest) returns (assault.ScanPlanetResponse) {}
+    rpc Assault(assault.AssaultRequest) returns (assault.AssaultResponse) {}
+    rpc GetFormation(assault.GetFormationRequest) returns (assault.GetFormationResponse) {}
+    rpc GetAssaultReward(assault.GetAssaultRewardRequest) returns (assault.GetAssaultRewardResponse) {}
 }

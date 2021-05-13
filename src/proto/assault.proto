@@ -1,0 +1,46 @@
+syntax = "proto3";
+import "proto/ship.proto";
+option go_package = ".;pb";
+package assault;
+
+// ScanPlanet
+message ScanPlanetRequest {
+    uint32 PlayerID = 1;
+}
+message ScanPlanetResponse {
+    uint32 PlayerID = 1;
+    bool InParty = 2;
+}
+
+// Assault
+message AssaultRequest {
+    uint32 AttackerID = 1;
+    uint32 AttackerPartyID = 2;
+    uint32 DefenderID = 3;
+    uint32 DefenderPartyID = 4;
+}
+
+message AssaultResponse {
+     bool AttackerDefeated = 1;
+     double AttackerDamage = 2;
+     bool DefenderDefeated = 3;
+     double DefenderDamage = 4;
+}
+
+// GetAssaultRewards
+message GetAssaultRewardRequest {
+    uint32 PlayerID = 1;
+}
+message GetAssaultRewardResponse {
+    uint32 DebridPerPlayer = 1;
+    uint32 ExpPerPlayer = 2;
+}
+
+// GetFormation
+message GetFormationRequest {
+    uint32 PlayerID = 1;
+    uint32 PartyID = 2;
+}
+message GetFormationResponse {
+    map<uint32,ship.Ship> Formation = 1;
+}
