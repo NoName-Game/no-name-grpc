@@ -1,0 +1,17 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package global_message;
+
+message Message {
+    uint32 ID = 1;
+    string Text = 2;
+    bool Sent = 3;
+}
+
+message RetrieveMessageRequest {
+    // Empty
+}
+
+message RetrieveMessageResponse {
+    repeated Message Messages = 1;
+}

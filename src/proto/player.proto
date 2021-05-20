@@ -84,3 +84,11 @@ message GetPlayerRankPointRequest {
 message GetPlayerRankPointResponse {
     int64 Value = 1;
 }
+
+message GetAllPlayersRequest {
+    // Empty
+}
+
+message GetAllPlayersResponse {
+    repeated Player Players = 1;
+}

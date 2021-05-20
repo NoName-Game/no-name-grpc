@@ -58,6 +58,7 @@ import "proto/domain.proto";
 import "proto/auction.proto";
 import "proto/action.proto";
 import "proto/assault.proto";
+import "proto/global_message.proto";
 
 option go_package = ".;pb";
 
@@ -101,6 +102,7 @@ service NoName {
     rpc GetPlayerLifePoint (player.GetPlayerLifePointRequest) returns (player.GetPlayerLifePointResponse) {}
     rpc GetPlayerDailyReward (player.GetPlayerDailyRewardRequest) returns (player.GetPlayerDailyRewardResponse) {}
     rpc GetPlayerRankPoint (player.GetPlayerRankPointRequest) returns (player.GetPlayerRankPointResponse) {}
+    rpc GetAllPlayers (player.GetAllPlayersRequest) returns (player.GetAllPlayersResponse) {}
 
     // Player - Configuration
     rpc PlayerSetLanguage (player_configuration.PlayerSetLanguageRequest) returns (player_configuration.PlayerSetLanguageResponse) {}
@@ -424,4 +426,7 @@ service NoName {
     rpc Assault(assault.AssaultRequest) returns (assault.AssaultResponse) {}
     rpc GetFormation(assault.GetFormationRequest) returns (assault.GetFormationResponse) {}
     rpc GetAssaultReward(assault.GetAssaultRewardRequest) returns (assault.GetAssaultRewardResponse) {}
+
+    // GlobalMessage
+    rpc RetrieveMessage(global_message.RetrieveMessageRequest) returns (global_message.RetrieveMessageResponse) {}
 }
