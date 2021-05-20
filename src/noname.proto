@@ -119,6 +119,7 @@ service NoName {
     rpc DepositResource(player_inventory.DepositResourceRequest) returns (player_inventory.DepositResourceResponse) {}
     rpc WithdrawResource(player_inventory.WithdrawResourceRequest) returns (player_inventory.WithdrawResourceResponse) {}
     rpc GetDepositedResources(player_inventory.GetDepositedResourcesRequest) returns (player_inventory.GetDepositedResourcesResponse) {}
+    rpc DepositAllResources(player_inventory.DepositAllResourcesRequest) returns (player_inventory.DepositAllResourcesResponse) {}
 
     // Player - Position
     rpc CreatePlayerPosition (player_position.CreatePlayerPositionRequest) returns (player_position.CreatePlayerPositionResponse) {}

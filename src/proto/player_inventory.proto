@@ -104,3 +104,10 @@ message GetDepositedResourcesRequest {
 message GetDepositedResourcesResponse {
     repeated PlayerInventory PlayerInventory = 1;
 }
+
+message DepositAllResourcesRequest {
+    uint32 PlayerID = 1;
+}
+
+message DepositAllResourcesResponse {
+}
