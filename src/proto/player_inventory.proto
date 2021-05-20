@@ -73,3 +73,34 @@ message GetPlayerPacksRequest {
 message GetPlayerPacksResponse {
     repeated PlayerInventory PlayerInventory = 1;
 }
+
+// DepositResources
+message DepositResourceRequest {
+    uint32 ResourceID = 1;
+    uint32 PlayerID = 2;
+    int32 Quantity = 3;
+}
+
+message DepositResourceResponse {
+    // empty
+}
+
+// WithdrawResources
+message WithdrawResourceRequest {
+    uint32 ResourceID = 1;
+    uint32 PlayerID = 2;
+    int32 Quantity = 3;
+}
+
+message WithdrawResourceResponse {
+    // empty
+}
+
+// GetDepositedResources
+message GetDepositedResourcesRequest {
+    uint32 PlayerID = 1;
+}
+
+message GetDepositedResourcesResponse {
+    repeated PlayerInventory PlayerInventory = 1;
+}
