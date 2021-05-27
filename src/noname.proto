@@ -98,6 +98,7 @@ service NoName {
     // Player
     rpc GetPlayerByID (player.GetPlayerByIDRequest) returns (player.GetPlayerByIDResponse) {}
     rpc GetPlayerByUsername (player.GetPlayerByUsernameRequest) returns (player.GetPlayerByUsernameResponse) {}
+    rpc GetPlayerByChatID (player.GetPlayerByChatIDRequest) returns (player.GetPlayerByChatIDResponse) {}
     rpc GetPlayerExperience (player.GetPlayerExperienceRequest) returns (player.GetPlayerExperienceResponse) {}
     rpc GetPlayerLifePoint (player.GetPlayerLifePointRequest) returns (player.GetPlayerLifePointResponse) {}
     rpc GetPlayerDailyReward (player.GetPlayerDailyRewardRequest) returns (player.GetPlayerDailyRewardResponse) {}
