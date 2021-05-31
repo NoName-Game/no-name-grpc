@@ -41,6 +41,14 @@ message GetPlayerByUsernameResponse {
     Player Player = 1;
 }
 
+// FindPlayerByChatID
+message GetPlayerByChatIDRequest {
+    int64 ChatID = 1;
+}
+message GetPlayerByChatIDResponse {
+    Player Player = 1;
+}
+
 // SignIn
 message SignInRequest {
     string Username = 1;

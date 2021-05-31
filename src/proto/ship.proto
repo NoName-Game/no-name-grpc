@@ -18,6 +18,9 @@ message Ship {
     double Speed = 12;
     int32 Radar = 13;
     bool Equipped = 14;
+    int32 Cargo = 15;
+    double Damage = 16;
+    double Shield = 17;
 }
 
 // GetShipByID
