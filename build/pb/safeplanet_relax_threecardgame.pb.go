@@ -949,10 +949,7 @@ func (m *ThreeCardGamePlayRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetRelaxThreecardgame
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetRelaxThreecardgame
 			}
 			if (iNdEx + skippy) > l {
@@ -1002,10 +999,7 @@ func (m *ThreeCardGamePlayResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetRelaxThreecardgame
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetRelaxThreecardgame
 			}
 			if (iNdEx + skippy) > l {
@@ -1093,10 +1087,7 @@ func (m *ThreeCardGameCheckRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetRelaxThreecardgame
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetRelaxThreecardgame
 			}
 			if (iNdEx + skippy) > l {
@@ -1256,10 +1247,7 @@ func (m *ThreeCardGameCheckResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetRelaxThreecardgame
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetRelaxThreecardgame
 			}
 			if (iNdEx + skippy) > l {
@@ -1328,10 +1316,7 @@ func (m *ThreeCardGameRecoverPlayRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetRelaxThreecardgame
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetRelaxThreecardgame
 			}
 			if (iNdEx + skippy) > l {
@@ -1491,10 +1476,7 @@ func (m *ThreeCardGameRecoverPlayResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetRelaxThreecardgame
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetRelaxThreecardgame
 			}
 			if (iNdEx + skippy) > l {
@@ -1563,10 +1545,7 @@ func (m *ThreeCardGameEndGameRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetRelaxThreecardgame
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetRelaxThreecardgame
 			}
 			if (iNdEx + skippy) > l {
@@ -1616,10 +1595,7 @@ func (m *ThreeCardGameEndGameResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetRelaxThreecardgame
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetRelaxThreecardgame
 			}
 			if (iNdEx + skippy) > l {

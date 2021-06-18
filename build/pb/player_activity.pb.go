@@ -1845,10 +1845,7 @@ func (m *PlayerActivity) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerActivity
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerActivity
 			}
 			if (iNdEx + skippy) > l {
@@ -1917,10 +1914,7 @@ func (m *GetPlayerActivityByIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerActivity
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerActivity
 			}
 			if (iNdEx + skippy) > l {
@@ -2006,10 +2000,7 @@ func (m *GetPlayerActivityByIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerActivity
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerActivity
 			}
 			if (iNdEx + skippy) > l {
@@ -2078,10 +2069,7 @@ func (m *GetActivePlayerActivitiesRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerActivity
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerActivity
 			}
 			if (iNdEx + skippy) > l {
@@ -2165,10 +2153,7 @@ func (m *GetActivePlayerActivitiesResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerActivity
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerActivity
 			}
 			if (iNdEx + skippy) > l {
@@ -2218,10 +2203,7 @@ func (m *GetPlayerActivityToNotifyRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerActivity
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerActivity
 			}
 			if (iNdEx + skippy) > l {
@@ -2305,10 +2287,7 @@ func (m *GetPlayerActivityToNotifyResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerActivity
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerActivity
 			}
 			if (iNdEx + skippy) > l {
@@ -2377,10 +2356,7 @@ func (m *SetPlayerActivityNotifiedRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerActivity
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerActivity
 			}
 			if (iNdEx + skippy) > l {
@@ -2430,10 +2406,7 @@ func (m *SetPlayerActivityNotifiedResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerActivity
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerActivity
 			}
 			if (iNdEx + skippy) > l {
@@ -2534,10 +2507,7 @@ func (m *GetPlayerActivityRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerActivity
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerActivity
 			}
 			if (iNdEx + skippy) > l {
@@ -2689,10 +2659,7 @@ func (m *GetPlayerActivityResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerActivity
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerActivity
 			}
 			if (iNdEx + skippy) > l {
@@ -2844,10 +2811,7 @@ func (m *CreatePlayerActivityRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerActivity
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerActivity
 			}
 			if (iNdEx + skippy) > l {
@@ -2897,10 +2861,7 @@ func (m *CreatePlayerActivityResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerActivity
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerActivity
 			}
 			if (iNdEx + skippy) > l {
@@ -3001,10 +2962,7 @@ func (m *DeletePlayerActivityRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerActivity
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerActivity
 			}
 			if (iNdEx + skippy) > l {
@@ -3054,10 +3012,7 @@ func (m *DeletePlayerActivityResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerActivity
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerActivity
 			}
 			if (iNdEx + skippy) > l {

@@ -1501,10 +1501,7 @@ func (m *Achievement) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAchievement
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAchievement
 			}
 			if (iNdEx + skippy) > l {
@@ -1554,10 +1551,7 @@ func (m *GetAllAchievementRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAchievement
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAchievement
 			}
 			if (iNdEx + skippy) > l {
@@ -1641,10 +1635,7 @@ func (m *GetAllAchievementResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAchievement
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAchievement
 			}
 			if (iNdEx + skippy) > l {
@@ -1713,10 +1704,7 @@ func (m *GetAchievementByIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAchievement
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAchievement
 			}
 			if (iNdEx + skippy) > l {
@@ -1802,10 +1790,7 @@ func (m *GetAchievementByIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAchievement
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAchievement
 			}
 			if (iNdEx + skippy) > l {
@@ -1874,10 +1859,7 @@ func (m *GetAchievementsByCategoryIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAchievement
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAchievement
 			}
 			if (iNdEx + skippy) > l {
@@ -1961,10 +1943,7 @@ func (m *GetAchievementsByCategoryIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAchievement
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAchievement
 			}
 			if (iNdEx + skippy) > l {
@@ -2052,10 +2031,7 @@ func (m *GetAchievementForPlayerByCategoryRequest) Unmarshal(dAtA []byte) error 
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAchievement
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAchievement
 			}
 			if (iNdEx + skippy) > l {
@@ -2141,10 +2117,7 @@ func (m *GetAchievementForPlayerByCategoryResponse) Unmarshal(dAtA []byte) error
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAchievement
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAchievement
 			}
 			if (iNdEx + skippy) > l {
@@ -2232,10 +2205,7 @@ func (m *CheckIfPlayerHaveAchievementRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAchievement
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAchievement
 			}
 			if (iNdEx + skippy) > l {
@@ -2341,10 +2311,7 @@ func (m *CheckIfPlayerHaveAchievementResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAchievement
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAchievement
 			}
 			if (iNdEx + skippy) > l {

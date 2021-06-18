@@ -2497,10 +2497,7 @@ func (m *Player) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -2569,10 +2566,7 @@ func (m *GetPlayerByIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -2658,10 +2652,7 @@ func (m *GetPlayerByIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -2743,10 +2734,7 @@ func (m *GetPlayerByUsernameRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -2832,10 +2820,7 @@ func (m *GetPlayerByUsernameResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -2904,10 +2889,7 @@ func (m *GetPlayerByChatIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -2993,10 +2975,7 @@ func (m *GetPlayerByChatIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -3097,10 +3076,7 @@ func (m *SignInRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -3186,10 +3162,7 @@ func (m *SignInResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -3258,10 +3231,7 @@ func (m *GetPlayerExperienceRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -3330,10 +3300,7 @@ func (m *GetPlayerExperienceResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -3402,10 +3369,7 @@ func (m *GetPlayerLifePointRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -3474,10 +3438,7 @@ func (m *GetPlayerLifePointResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -3546,10 +3507,7 @@ func (m *GetPlayerDailyRewardRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -3692,10 +3650,7 @@ func (m *GetPlayerDailyRewardResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -3764,10 +3719,7 @@ func (m *GetPlayerRankPointRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -3836,10 +3788,7 @@ func (m *GetPlayerRankPointResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -3889,10 +3838,7 @@ func (m *GetAllPlayersRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {
@@ -3976,10 +3922,7 @@ func (m *GetAllPlayersResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayer
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayer
 			}
 			if (iNdEx + skippy) > l {

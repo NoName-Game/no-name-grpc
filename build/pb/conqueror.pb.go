@@ -609,10 +609,7 @@ func (m *GetConquerorsByPlanetIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthConqueror
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthConqueror
 			}
 			if (iNdEx + skippy) > l {
@@ -696,10 +693,7 @@ func (m *GetConquerorsByPlanetIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthConqueror
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthConqueror
 			}
 			if (iNdEx + skippy) > l {
@@ -804,10 +798,7 @@ func (m *GetConquerorsByPlanetIDResponse_ConquerorList) Unmarshal(dAtA []byte) e
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthConqueror
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthConqueror
 			}
 			if (iNdEx + skippy) > l {
@@ -876,10 +867,7 @@ func (m *GetCurrentConquerorByPlanetIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthConqueror
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthConqueror
 			}
 			if (iNdEx + skippy) > l {
@@ -984,10 +972,7 @@ func (m *GetCurrentConquerorByPlanetIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthConqueror
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthConqueror
 			}
 			if (iNdEx + skippy) > l {

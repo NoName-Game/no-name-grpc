@@ -1657,10 +1657,7 @@ func (m *BaseStatistics) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -1710,10 +1707,7 @@ func (m *StatisticsTopPlayerEnemyKillAllRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -1797,10 +1791,7 @@ func (m *StatisticsTopPlayerEnemyKillAllResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -1869,10 +1860,7 @@ func (m *StatisticsTopPlayerEnemyKillYouRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -1958,10 +1946,7 @@ func (m *StatisticsTopPlayerEnemyKillYouResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -2011,10 +1996,7 @@ func (m *StatisticsTopPlanetExploredAllRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -2098,10 +2080,7 @@ func (m *StatisticsTopPlanetExploredAllResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -2170,10 +2149,7 @@ func (m *StatisticsTopPlanetExploredYouRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -2259,10 +2235,7 @@ func (m *StatisticsTopPlanetExploredYouResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -2312,10 +2285,7 @@ func (m *StatisticsTopTravelAllRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -2399,10 +2369,7 @@ func (m *StatisticsTopTravelAllResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -2471,10 +2438,7 @@ func (m *StatisticsTopTravelYouRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -2560,10 +2524,7 @@ func (m *StatisticsTopTravelYouResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -2613,10 +2574,7 @@ func (m *StatisticsTopMissionAllRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -2700,10 +2658,7 @@ func (m *StatisticsTopMissionAllResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -2772,10 +2727,7 @@ func (m *StatisticsTopMissionYouRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {
@@ -2861,10 +2813,7 @@ func (m *StatisticsTopMissionYouResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetStatistics
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetStatistics
 			}
 			if (iNdEx + skippy) > l {

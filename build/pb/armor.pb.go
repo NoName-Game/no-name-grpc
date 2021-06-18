@@ -2142,10 +2142,7 @@ func (m *Armor) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -2214,10 +2211,7 @@ func (m *GetArmorByIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -2303,10 +2297,7 @@ func (m *GetArmorByIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -2388,10 +2379,7 @@ func (m *GetArmorByNameRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -2477,10 +2465,7 @@ func (m *GetArmorByNameResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -2581,10 +2566,7 @@ func (m *GetArmorByPlayerAndNameRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -2670,10 +2652,7 @@ func (m *GetArmorByPlayerAndNameResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -2742,10 +2721,7 @@ func (m *GetPlayerArmorsRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -2829,10 +2805,7 @@ func (m *GetPlayerArmorsResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -2920,10 +2893,7 @@ func (m *GetPlayerArmorsByCategoryIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -3007,10 +2977,7 @@ func (m *GetPlayerArmorsByCategoryIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -3079,10 +3046,7 @@ func (m *GetPlayerArmorsEquippedRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -3166,10 +3130,7 @@ func (m *GetPlayerArmorsEquippedResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -3257,10 +3218,7 @@ func (m *GetPlayerArmorEquippedByCategoryIDRequest) Unmarshal(dAtA []byte) error
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -3346,10 +3304,7 @@ func (m *GetPlayerArmorEquippedByCategoryIDResponse) Unmarshal(dAtA []byte) erro
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -3457,10 +3412,7 @@ func (m *EquipArmorRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {
@@ -3510,10 +3462,7 @@ func (m *EquipArmorResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthArmor
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthArmor
 			}
 			if (iNdEx + skippy) > l {

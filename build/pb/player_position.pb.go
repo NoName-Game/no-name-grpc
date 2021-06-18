@@ -1316,10 +1316,7 @@ func (m *PlayerPosition) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerPosition
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerPosition
 			}
 			if (iNdEx + skippy) > l {
@@ -1407,10 +1404,7 @@ func (m *CreatePlayerPositionRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerPosition
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerPosition
 			}
 			if (iNdEx + skippy) > l {
@@ -1460,10 +1454,7 @@ func (m *CreatePlayerPositionResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerPosition
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerPosition
 			}
 			if (iNdEx + skippy) > l {
@@ -1532,10 +1523,7 @@ func (m *GetPlayerCurrentPlanetRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerPosition
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerPosition
 			}
 			if (iNdEx + skippy) > l {
@@ -1621,10 +1609,7 @@ func (m *GetPlayerCurrentPlanetResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerPosition
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerPosition
 			}
 			if (iNdEx + skippy) > l {
@@ -1693,10 +1678,7 @@ func (m *CountPlanetVisitedRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerPosition
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerPosition
 			}
 			if (iNdEx + skippy) > l {
@@ -1765,10 +1747,7 @@ func (m *CountPlanetVisitedResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerPosition
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerPosition
 			}
 			if (iNdEx + skippy) > l {
@@ -1837,10 +1816,7 @@ func (m *CountSystemVisitedRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerPosition
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerPosition
 			}
 			if (iNdEx + skippy) > l {
@@ -1909,10 +1885,7 @@ func (m *CountSystemVisitedResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerPosition
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerPosition
 			}
 			if (iNdEx + skippy) > l {
@@ -1981,10 +1954,7 @@ func (m *CountPlayerVisitedCurrentPlanetRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerPosition
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerPosition
 			}
 			if (iNdEx + skippy) > l {
@@ -2053,10 +2023,7 @@ func (m *CountPlayerVisitedCurrentPlanetResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerPosition
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerPosition
 			}
 			if (iNdEx + skippy) > l {
@@ -2125,10 +2092,7 @@ func (m *CountPlayerCurrentPlanetRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerPosition
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerPosition
 			}
 			if (iNdEx + skippy) > l {
@@ -2197,10 +2161,7 @@ func (m *CountPlayerCurrentPlanetResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerPosition
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerPosition
 			}
 			if (iNdEx + skippy) > l {

@@ -1315,10 +1315,7 @@ func (m *TitanEventQuestion) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTitanEvent
 			}
 			if (iNdEx + skippy) > l {
@@ -1458,10 +1455,7 @@ func (m *TitanEventAnswer) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTitanEvent
 			}
 			if (iNdEx + skippy) > l {
@@ -1511,10 +1505,7 @@ func (m *GetTitanEventQuestionsRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTitanEvent
 			}
 			if (iNdEx + skippy) > l {
@@ -1598,10 +1589,7 @@ func (m *GetTitanEventQuestionsResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTitanEvent
 			}
 			if (iNdEx + skippy) > l {
@@ -1670,10 +1658,7 @@ func (m *GetTitanEventQuestionByIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTitanEvent
 			}
 			if (iNdEx + skippy) > l {
@@ -1759,10 +1744,7 @@ func (m *GetTitanEventQuestionByIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTitanEvent
 			}
 			if (iNdEx + skippy) > l {
@@ -1831,10 +1813,7 @@ func (m *GetTitanEventAnswerByIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTitanEvent
 			}
 			if (iNdEx + skippy) > l {
@@ -1920,10 +1899,7 @@ func (m *GetTitanEventAnswerByIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTitanEvent
 			}
 			if (iNdEx + skippy) > l {
@@ -2030,10 +2006,7 @@ func (m *TitanEventSubmitAnswerRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTitanEvent
 			}
 			if (iNdEx + skippy) > l {
@@ -2220,10 +2193,7 @@ func (m *TitanEventSubmitAnswerResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTitanEvent
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTitanEvent
 			}
 			if (iNdEx + skippy) > l {

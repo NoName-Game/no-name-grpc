@@ -1513,10 +1513,7 @@ func (m *ShipTravelInfoRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipTravel
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipTravel
 			}
 			if (iNdEx + skippy) > l {
@@ -1600,10 +1597,7 @@ func (m *ShipTravelInfoResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipTravel
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipTravel
 			}
 			if (iNdEx + skippy) > l {
@@ -1769,10 +1763,7 @@ func (m *ShipTravelInfoResponse_ShipTravelInfo) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipTravel
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipTravel
 			}
 			if (iNdEx + skippy) > l {
@@ -1873,10 +1864,7 @@ func (m *ShipTravelManualInfoRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipTravel
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipTravel
 			}
 			if (iNdEx + skippy) > l {
@@ -2042,10 +2030,7 @@ func (m *ShipTravelManualInfoResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipTravel
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipTravel
 			}
 			if (iNdEx + skippy) > l {
@@ -2146,10 +2131,7 @@ func (m *StartShipTravelRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipTravel
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipTravel
 			}
 			if (iNdEx + skippy) > l {
@@ -2235,10 +2217,7 @@ func (m *StartShipTravelResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipTravel
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipTravel
 			}
 			if (iNdEx + skippy) > l {
@@ -2307,10 +2286,7 @@ func (m *CheckShipTravelRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipTravel
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipTravel
 			}
 			if (iNdEx + skippy) > l {
@@ -2436,10 +2412,7 @@ func (m *CheckShipTravelResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipTravel
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipTravel
 			}
 			if (iNdEx + skippy) > l {
@@ -2508,10 +2481,7 @@ func (m *EndShipTravelRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipTravel
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipTravel
 			}
 			if (iNdEx + skippy) > l {
@@ -2561,10 +2531,7 @@ func (m *EndShipTravelResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipTravel
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipTravel
 			}
 			if (iNdEx + skippy) > l {
@@ -2633,10 +2600,7 @@ func (m *TravelRescueRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipTravel
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipTravel
 			}
 			if (iNdEx + skippy) > l {
@@ -2686,10 +2650,7 @@ func (m *TravelRescueResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipTravel
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipTravel
 			}
 			if (iNdEx + skippy) > l {

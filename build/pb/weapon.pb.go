@@ -1776,10 +1776,7 @@ func (m *Weapon) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthWeapon
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthWeapon
 			}
 			if (iNdEx + skippy) > l {
@@ -1848,10 +1845,7 @@ func (m *GetWeaponByIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthWeapon
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthWeapon
 			}
 			if (iNdEx + skippy) > l {
@@ -1937,10 +1931,7 @@ func (m *GetWeaponByIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthWeapon
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthWeapon
 			}
 			if (iNdEx + skippy) > l {
@@ -2022,10 +2013,7 @@ func (m *GetWeaponByNameRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthWeapon
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthWeapon
 			}
 			if (iNdEx + skippy) > l {
@@ -2111,10 +2099,7 @@ func (m *GetWeaponByNameResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthWeapon
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthWeapon
 			}
 			if (iNdEx + skippy) > l {
@@ -2215,10 +2200,7 @@ func (m *GetWeaponByPlayerAndNameRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthWeapon
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthWeapon
 			}
 			if (iNdEx + skippy) > l {
@@ -2304,10 +2286,7 @@ func (m *GetWeaponByPlayerAndNameResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthWeapon
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthWeapon
 			}
 			if (iNdEx + skippy) > l {
@@ -2376,10 +2355,7 @@ func (m *GetPlayerWeaponsRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthWeapon
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthWeapon
 			}
 			if (iNdEx + skippy) > l {
@@ -2463,10 +2439,7 @@ func (m *GetPlayerWeaponsResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthWeapon
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthWeapon
 			}
 			if (iNdEx + skippy) > l {
@@ -2535,10 +2508,7 @@ func (m *GetPlayerWeaponEquippedRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthWeapon
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthWeapon
 			}
 			if (iNdEx + skippy) > l {
@@ -2624,10 +2594,7 @@ func (m *GetPlayerWeaponEquippedResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthWeapon
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthWeapon
 			}
 			if (iNdEx + skippy) > l {
@@ -2735,10 +2702,7 @@ func (m *EquipWeaponRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthWeapon
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthWeapon
 			}
 			if (iNdEx + skippy) > l {
@@ -2788,10 +2752,7 @@ func (m *EquipWeaponResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthWeapon
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthWeapon
 			}
 			if (iNdEx + skippy) > l {

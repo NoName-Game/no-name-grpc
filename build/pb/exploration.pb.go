@@ -1427,10 +1427,7 @@ func (m *ExplorationStartRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExploration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExploration
 			}
 			if (iNdEx + skippy) > l {
@@ -1516,10 +1513,7 @@ func (m *ExplorationStartResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExploration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExploration
 			}
 			if (iNdEx + skippy) > l {
@@ -1588,10 +1582,7 @@ func (m *ExplorationContinueRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExploration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExploration
 			}
 			if (iNdEx + skippy) > l {
@@ -1677,10 +1668,7 @@ func (m *ExplorationContinueResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExploration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExploration
 			}
 			if (iNdEx + skippy) > l {
@@ -1769,10 +1757,7 @@ func (m *ExplorationEndRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExploration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExploration
 			}
 			if (iNdEx + skippy) > l {
@@ -1875,10 +1860,7 @@ func (m *ExplorationEndResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExploration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExploration
 			}
 			if (iNdEx + skippy) > l {
@@ -1966,10 +1948,7 @@ func (m *ExplorationEndResponse_ExplorationDropResourcesResult) Unmarshal(dAtA [
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExploration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExploration
 			}
 			if (iNdEx + skippy) > l {
@@ -2038,10 +2017,7 @@ func (m *ExplorationCheckRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExploration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExploration
 			}
 			if (iNdEx + skippy) > l {
@@ -2167,10 +2143,7 @@ func (m *ExplorationCheckResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExploration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExploration
 			}
 			if (iNdEx + skippy) > l {
@@ -2239,10 +2212,7 @@ func (m *ExplorationDropResourcesRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExploration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExploration
 			}
 			if (iNdEx + skippy) > l {
@@ -2360,10 +2330,7 @@ func (m *ExplorationDropResourcesResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExploration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExploration
 			}
 			if (iNdEx + skippy) > l {
@@ -2471,10 +2438,7 @@ func (m *ExplorationDropResourcesResponse_DropResult) Unmarshal(dAtA []byte) err
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExploration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExploration
 			}
 			if (iNdEx + skippy) > l {

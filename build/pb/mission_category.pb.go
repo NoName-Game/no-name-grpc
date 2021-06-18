@@ -747,10 +747,7 @@ func (m *MissionCategory) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthMissionCategory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthMissionCategory
 			}
 			if (iNdEx + skippy) > l {
@@ -838,10 +835,7 @@ func (m *MissionResourcesFinding) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthMissionCategory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthMissionCategory
 			}
 			if (iNdEx + skippy) > l {
@@ -910,10 +904,7 @@ func (m *MissionKillMob) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthMissionCategory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthMissionCategory
 			}
 			if (iNdEx + skippy) > l {
@@ -982,10 +973,7 @@ func (m *MissionPlanetFinding) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthMissionCategory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthMissionCategory
 			}
 			if (iNdEx + skippy) > l {
@@ -1035,10 +1023,7 @@ func (m *GetAllMissionCategoriesRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthMissionCategory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthMissionCategory
 			}
 			if (iNdEx + skippy) > l {
@@ -1122,10 +1107,7 @@ func (m *GetAllMissionCategoriesResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthMissionCategory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthMissionCategory
 			}
 			if (iNdEx + skippy) > l {

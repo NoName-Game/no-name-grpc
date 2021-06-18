@@ -687,10 +687,7 @@ func (m *PlayerEconomy) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerEconomy
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerEconomy
 			}
 			if (iNdEx + skippy) > l {
@@ -778,10 +775,7 @@ func (m *GetPlayerEconomyRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerEconomy
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerEconomy
 			}
 			if (iNdEx + skippy) > l {
@@ -850,10 +844,7 @@ func (m *GetPlayerEconomyResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerEconomy
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerEconomy
 			}
 			if (iNdEx + skippy) > l {

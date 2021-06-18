@@ -1098,10 +1098,7 @@ func (m *PlayerTitanDrop) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerTitanDrop
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerTitanDrop
 			}
 			if (iNdEx + skippy) > l {
@@ -1151,10 +1148,7 @@ func (m *GetTitanDropToNotifyRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerTitanDrop
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerTitanDrop
 			}
 			if (iNdEx + skippy) > l {
@@ -1238,10 +1232,7 @@ func (m *GetTitanDropToNotifyResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerTitanDrop
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerTitanDrop
 			}
 			if (iNdEx + skippy) > l {
@@ -1310,10 +1301,7 @@ func (m *SetTitanDropNotifiedRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerTitanDrop
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerTitanDrop
 			}
 			if (iNdEx + skippy) > l {
@@ -1363,10 +1351,7 @@ func (m *SetTitanDropNotifiedResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerTitanDrop
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerTitanDrop
 			}
 			if (iNdEx + skippy) > l {

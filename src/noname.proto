@@ -59,6 +59,7 @@ import "proto/auction.proto";
 import "proto/action.proto";
 import "proto/assault.proto";
 import "proto/global_message.proto";
+import "proto/emblem.proto";
 
 option go_package = ".;pb";
 
@@ -432,4 +433,7 @@ service NoName {
 
     // GlobalMessage
     rpc RetrieveMessage(global_message.RetrieveMessageRequest) returns (global_message.RetrieveMessageResponse) {}
+
+    // Emblem
+    rpc GetPlayerEmblems(emblem.GetPlayerEmblemsRequest) returns (emblem.GetPlayerEmblemsResponse) {}
 }

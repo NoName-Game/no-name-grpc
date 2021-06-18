@@ -601,10 +601,7 @@ func (m *GetDarkMerchantRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthDarkMerchant
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthDarkMerchant
 			}
 			if (iNdEx + skippy) > l {
@@ -707,10 +704,7 @@ func (m *GetDarkMerchantResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthDarkMerchant
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthDarkMerchant
 			}
 			if (iNdEx + skippy) > l {
@@ -815,10 +809,7 @@ func (m *GetDarkMerchantResponse_DarMerchantResources) Unmarshal(dAtA []byte) er
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthDarkMerchant
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthDarkMerchant
 			}
 			if (iNdEx + skippy) > l {
@@ -944,10 +935,7 @@ func (m *DarkMerchantBuyResourceRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthDarkMerchant
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthDarkMerchant
 			}
 			if (iNdEx + skippy) > l {
@@ -997,10 +985,7 @@ func (m *DarkMerchantBuyResourceResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthDarkMerchant
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthDarkMerchant
 			}
 			if (iNdEx + skippy) > l {

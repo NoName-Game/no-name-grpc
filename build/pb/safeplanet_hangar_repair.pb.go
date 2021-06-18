@@ -1253,10 +1253,7 @@ func (m *GetShipRepairInfoRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetHangarRepair
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetHangarRepair
 			}
 			if (iNdEx + skippy) > l {
@@ -1398,10 +1395,7 @@ func (m *GetShipRepairInfoResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetHangarRepair
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetHangarRepair
 			}
 			if (iNdEx + skippy) > l {
@@ -1544,10 +1538,7 @@ func (m *GetShipRepairInfoResponse_ShipRepairInfo) Unmarshal(dAtA []byte) error 
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetHangarRepair
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetHangarRepair
 			}
 			if (iNdEx + skippy) > l {
@@ -1654,10 +1645,7 @@ func (m *StartShipRepairRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetHangarRepair
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetHangarRepair
 			}
 			if (iNdEx + skippy) > l {
@@ -1777,10 +1765,7 @@ func (m *StartShipRepairResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetHangarRepair
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetHangarRepair
 			}
 			if (iNdEx + skippy) > l {
@@ -1868,10 +1853,7 @@ func (m *StartShipRepairResponse_RepairResources) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetHangarRepair
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetHangarRepair
 			}
 			if (iNdEx + skippy) > l {
@@ -1940,10 +1922,7 @@ func (m *CheckShipRepairRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetHangarRepair
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetHangarRepair
 			}
 			if (iNdEx + skippy) > l {
@@ -2069,10 +2048,7 @@ func (m *CheckShipRepairResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetHangarRepair
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetHangarRepair
 			}
 			if (iNdEx + skippy) > l {
@@ -2141,10 +2117,7 @@ func (m *EndShipRepairRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetHangarRepair
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetHangarRepair
 			}
 			if (iNdEx + skippy) > l {
@@ -2194,10 +2167,7 @@ func (m *EndShipRepairResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetHangarRepair
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetHangarRepair
 			}
 			if (iNdEx + skippy) > l {
