@@ -651,10 +651,7 @@ func (m *ShipCategory) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipCategory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipCategory
 			}
 			if (iNdEx + skippy) > l {
@@ -704,10 +701,7 @@ func (m *GetAllShipCategoriesRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipCategory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipCategory
 			}
 			if (iNdEx + skippy) > l {
@@ -791,10 +785,7 @@ func (m *GetAllShipCategoriesResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipCategory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipCategory
 			}
 			if (iNdEx + skippy) > l {
@@ -863,10 +854,7 @@ func (m *GetShipCategoryByIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipCategory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipCategory
 			}
 			if (iNdEx + skippy) > l {
@@ -952,10 +940,7 @@ func (m *GetShipCategoryByIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipCategory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipCategory
 			}
 			if (iNdEx + skippy) > l {

@@ -472,10 +472,7 @@ func (m *GetGuildPointsRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuildPoint
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuildPoint
 			}
 			if (iNdEx + skippy) > l {
@@ -544,10 +541,7 @@ func (m *GetGuildPointsResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuildPoint
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuildPoint
 			}
 			if (iNdEx + skippy) > l {
@@ -635,10 +629,7 @@ func (m *GetPlayerGuildPointsRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuildPoint
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuildPoint
 			}
 			if (iNdEx + skippy) > l {
@@ -707,10 +698,7 @@ func (m *GetPlayerGuildPointsResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuildPoint
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuildPoint
 			}
 			if (iNdEx + skippy) > l {

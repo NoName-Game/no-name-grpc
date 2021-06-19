@@ -638,10 +638,7 @@ func (m *GetTeletrasportSafePlanetListRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExpansion
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExpansion
 			}
 			if (iNdEx + skippy) > l {
@@ -725,10 +722,7 @@ func (m *GetTeletrasportSafePlanetListResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExpansion
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExpansion
 			}
 			if (iNdEx + skippy) > l {
@@ -833,10 +827,7 @@ func (m *GetTeletrasportSafePlanetListResponse_TeletrasportSafePlanetList) Unmar
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExpansion
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExpansion
 			}
 			if (iNdEx + skippy) > l {
@@ -943,10 +934,7 @@ func (m *EndTeletrasportSafePlanetRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExpansion
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExpansion
 			}
 			if (iNdEx + skippy) > l {
@@ -996,10 +984,7 @@ func (m *EndTeletrasportSafePlanetResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthExpansion
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthExpansion
 			}
 			if (iNdEx + skippy) > l {

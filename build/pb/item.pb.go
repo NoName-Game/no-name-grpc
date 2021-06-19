@@ -2197,10 +2197,7 @@ func (m *Item) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -2250,10 +2247,7 @@ func (m *GetAllItemsRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -2337,10 +2331,7 @@ func (m *GetAllItemsResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -2390,10 +2381,7 @@ func (m *GetShoppableItemsRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -2477,10 +2465,7 @@ func (m *GetShoppableItemsResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -2549,10 +2534,7 @@ func (m *GetItemByIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -2638,10 +2620,7 @@ func (m *GetItemByIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -2710,10 +2689,7 @@ func (m *GetItemsByCategoryIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -2797,10 +2773,7 @@ func (m *GetItemsByCategoryIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -2869,10 +2842,7 @@ func (m *GetCraftableItemsByCategoryIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -2956,10 +2926,7 @@ func (m *GetCraftableItemsByCategoryIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -3066,10 +3033,7 @@ func (m *UseItemRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -3119,10 +3083,7 @@ func (m *UseItemResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -3229,10 +3190,7 @@ func (m *BuyItemRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -3282,10 +3240,7 @@ func (m *BuyItemResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -3373,10 +3328,7 @@ func (m *OpenPackRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {
@@ -3527,7 +3479,7 @@ func (m *OpenPackResponse) Unmarshal(dAtA []byte) error {
 					if err != nil {
 						return err
 					}
-					if skippy < 0 {
+					if (skippy < 0) || (iNdEx+skippy) < 0 {
 						return ErrInvalidLengthItem
 					}
 					if (iNdEx + skippy) > postIndex {
@@ -3544,10 +3496,7 @@ func (m *OpenPackResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthItem
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthItem
 			}
 			if (iNdEx + skippy) > l {

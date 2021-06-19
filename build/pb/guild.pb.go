@@ -3066,10 +3066,7 @@ func (m *Guild) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -3151,10 +3148,7 @@ func (m *CheckGuildNameRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -3224,10 +3218,7 @@ func (m *CheckGuildNameResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -3309,10 +3300,7 @@ func (m *CheckGuildTagRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -3382,10 +3370,7 @@ func (m *CheckGuildTagResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -3486,10 +3471,7 @@ func (m *ChangeGuildNameRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -3539,10 +3521,7 @@ func (m *ChangeGuildNameResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -3643,10 +3622,7 @@ func (m *ChangeGuildTagRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -3696,10 +3672,7 @@ func (m *ChangeGuildTagResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -3820,10 +3793,7 @@ func (m *CreateGuildRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -3873,10 +3843,7 @@ func (m *CreateGuildResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -3977,10 +3944,7 @@ func (m *JoinGuildRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -4030,10 +3994,7 @@ func (m *JoinGuildResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -4083,10 +4044,7 @@ func (m *GetJoinGuildsListRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -4170,10 +4128,7 @@ func (m *GetJoinGuildsListResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -4242,10 +4197,7 @@ func (m *GetPlayerGuildRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -4351,10 +4303,7 @@ func (m *GetPlayerGuildResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -4423,10 +4372,7 @@ func (m *LeaveGuildRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -4476,10 +4422,7 @@ func (m *LeaveGuildResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -4548,10 +4491,7 @@ func (m *GetPlayersGuildRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -4635,10 +4575,7 @@ func (m *GetPlayersGuildResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -4739,10 +4676,7 @@ func (m *AddPlayerToGuildRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -4792,10 +4726,7 @@ func (m *AddPlayerToGuildResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -4896,10 +4827,7 @@ func (m *RemovePlayerToGuildRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -4949,10 +4877,7 @@ func (m *RemovePlayerToGuildResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -5041,10 +4966,7 @@ func (m *ChangeVisibilityGuildRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -5094,10 +5016,7 @@ func (m *ChangeVisibilityGuildResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -5179,10 +5098,7 @@ func (m *GetGuildByNameRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -5268,10 +5184,7 @@ func (m *GetGuildByNameResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -5372,10 +5285,7 @@ func (m *ChangeLeaderGuildRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {
@@ -5425,10 +5335,7 @@ func (m *ChangeLeaderGuildResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthGuild
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthGuild
 			}
 			if (iNdEx + skippy) > l {

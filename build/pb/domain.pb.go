@@ -607,10 +607,7 @@ func (m *GetDomainsByPlanetIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthDomain
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthDomain
 			}
 			if (iNdEx + skippy) > l {
@@ -694,10 +691,7 @@ func (m *GetDomainsByPlanetIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthDomain
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthDomain
 			}
 			if (iNdEx + skippy) > l {
@@ -802,10 +796,7 @@ func (m *GetDomainsByPlanetIDResponse_DomainList) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthDomain
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthDomain
 			}
 			if (iNdEx + skippy) > l {
@@ -874,10 +865,7 @@ func (m *GetCurrentDomainByPlanetIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthDomain
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthDomain
 			}
 			if (iNdEx + skippy) > l {
@@ -982,10 +970,7 @@ func (m *GetCurrentDomainByPlanetIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthDomain
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthDomain
 			}
 			if (iNdEx + skippy) > l {

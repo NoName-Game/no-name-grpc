@@ -884,10 +884,7 @@ func (m *GetRestsInfoRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipRest
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipRest
 			}
 			if (iNdEx + skippy) > l {
@@ -995,10 +992,7 @@ func (m *GetRestsInfoResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipRest
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipRest
 			}
 			if (iNdEx + skippy) > l {
@@ -1067,10 +1061,7 @@ func (m *StartPlayerRestRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipRest
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipRest
 			}
 			if (iNdEx + skippy) > l {
@@ -1192,10 +1183,7 @@ func (m *StartPlayerRestResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipRest
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipRest
 			}
 			if (iNdEx + skippy) > l {
@@ -1264,10 +1252,7 @@ func (m *RestCheckRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipRest
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipRest
 			}
 			if (iNdEx + skippy) > l {
@@ -1337,10 +1322,7 @@ func (m *RestCheckResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipRest
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipRest
 			}
 			if (iNdEx + skippy) > l {
@@ -1409,10 +1391,7 @@ func (m *EndPlayerRestRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipRest
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipRest
 			}
 			if (iNdEx + skippy) > l {
@@ -1481,10 +1460,7 @@ func (m *EndPlayerRestResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipRest
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipRest
 			}
 			if (iNdEx + skippy) > l {

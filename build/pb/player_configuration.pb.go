@@ -475,10 +475,7 @@ func (m *PlayerSetLanguageRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerConfiguration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerConfiguration
 			}
 			if (iNdEx + skippy) > l {
@@ -528,10 +525,7 @@ func (m *PlayerSetLanguageResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerConfiguration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerConfiguration
 			}
 			if (iNdEx + skippy) > l {
@@ -619,10 +613,7 @@ func (m *PlayerSetTimezoneRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerConfiguration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerConfiguration
 			}
 			if (iNdEx + skippy) > l {
@@ -672,10 +663,7 @@ func (m *PlayerSetTimezoneResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerConfiguration
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerConfiguration
 			}
 			if (iNdEx + skippy) > l {

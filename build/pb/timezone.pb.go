@@ -837,10 +837,7 @@ func (m *Timezone) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTimezone
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTimezone
 			}
 			if (iNdEx + skippy) > l {
@@ -922,10 +919,7 @@ func (m *GetTimezoneByDescriptionRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTimezone
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTimezone
 			}
 			if (iNdEx + skippy) > l {
@@ -1011,10 +1005,7 @@ func (m *GetTimezoneByDescriptionResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTimezone
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTimezone
 			}
 			if (iNdEx + skippy) > l {
@@ -1096,10 +1087,7 @@ func (m *GetTimezoneByNameRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTimezone
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTimezone
 			}
 			if (iNdEx + skippy) > l {
@@ -1185,10 +1173,7 @@ func (m *GetTimezoneByNameResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTimezone
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTimezone
 			}
 			if (iNdEx + skippy) > l {
@@ -1238,10 +1223,7 @@ func (m *GetAllTimezonesRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTimezone
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTimezone
 			}
 			if (iNdEx + skippy) > l {
@@ -1325,10 +1307,7 @@ func (m *GetAllTimezonesResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthTimezone
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthTimezone
 			}
 			if (iNdEx + skippy) > l {

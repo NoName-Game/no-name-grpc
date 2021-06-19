@@ -2512,10 +2512,7 @@ func (m *PlayerInventory) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -2584,10 +2581,7 @@ func (m *GetPlayerResourcesRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -2671,10 +2665,7 @@ func (m *GetPlayerResourcesResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -2762,10 +2753,7 @@ func (m *GetPlayerResourcesByCategoryIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -2849,10 +2837,7 @@ func (m *GetPlayerResourcesByCategoryIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -2921,10 +2906,7 @@ func (m *GetPlayerItemsRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -3008,10 +2990,7 @@ func (m *GetPlayerItemsResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -3080,10 +3059,7 @@ func (m *GetPlayerAmuletsRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -3169,10 +3145,7 @@ func (m *GetPlayerAmuletsResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -3260,10 +3233,7 @@ func (m *GetPlayerItemByIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -3349,10 +3319,7 @@ func (m *GetPlayerItemByIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -3440,10 +3407,7 @@ func (m *GetPlayerResourceByIDRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -3529,10 +3493,7 @@ func (m *GetPlayerResourceByIDResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -3601,10 +3562,7 @@ func (m *GetPlayerPacksRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -3688,10 +3646,7 @@ func (m *GetPlayerPacksResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -3798,10 +3753,7 @@ func (m *DepositResourceRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -3851,10 +3803,7 @@ func (m *DepositResourceResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -3961,10 +3910,7 @@ func (m *WithdrawResourceRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -4014,10 +3960,7 @@ func (m *WithdrawResourceResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -4086,10 +4029,7 @@ func (m *GetDepositedResourcesRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -4173,10 +4113,7 @@ func (m *GetDepositedResourcesResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -4245,10 +4182,7 @@ func (m *DepositAllResourcesRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {
@@ -4298,10 +4232,7 @@ func (m *DepositAllResourcesResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlayerInventory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlayerInventory
 			}
 			if (iNdEx + skippy) > l {

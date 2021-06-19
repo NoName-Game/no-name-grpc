@@ -673,10 +673,7 @@ func (m *AddPlanetBookmarkRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlanetBookmarks
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlanetBookmarks
 			}
 			if (iNdEx + skippy) > l {
@@ -726,10 +723,7 @@ func (m *AddPlanetBookmarkResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlanetBookmarks
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlanetBookmarks
 			}
 			if (iNdEx + skippy) > l {
@@ -817,10 +811,7 @@ func (m *RemovePlanetBookmarkRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlanetBookmarks
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlanetBookmarks
 			}
 			if (iNdEx + skippy) > l {
@@ -870,10 +861,7 @@ func (m *RemovePlanetBookmarkResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlanetBookmarks
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlanetBookmarks
 			}
 			if (iNdEx + skippy) > l {
@@ -961,10 +949,7 @@ func (m *CheckIfPlayerHavePlanetBookmarkRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlanetBookmarks
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlanetBookmarks
 			}
 			if (iNdEx + skippy) > l {
@@ -1034,10 +1019,7 @@ func (m *CheckIfPlayerHavePlanetBookmarkResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthPlanetBookmarks
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthPlanetBookmarks
 			}
 			if (iNdEx + skippy) > l {

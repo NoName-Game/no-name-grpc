@@ -806,10 +806,7 @@ func (m *Research) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetResearch
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetResearch
 			}
 			if (iNdEx + skippy) > l {
@@ -859,10 +856,7 @@ func (m *GetRecapActiveResearchRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetResearch
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetResearch
 			}
 			if (iNdEx + skippy) > l {
@@ -986,10 +980,7 @@ func (m *GetRecapActiveResearchResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetResearch
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetResearch
 			}
 			if (iNdEx + skippy) > l {
@@ -1096,10 +1087,7 @@ func (m *ResearchDonationRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetResearch
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetResearch
 			}
 			if (iNdEx + skippy) > l {
@@ -1149,10 +1137,7 @@ func (m *ResearchDonationResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetResearch
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetResearch
 			}
 			if (iNdEx + skippy) > l {

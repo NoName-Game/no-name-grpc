@@ -1670,7 +1670,7 @@ func (m *CrafterStartRequest) Unmarshal(dAtA []byte) error {
 					if err != nil {
 						return err
 					}
-					if skippy < 0 {
+					if (skippy < 0) || (iNdEx+skippy) < 0 {
 						return ErrInvalidLengthSafeplanetCrafter
 					}
 					if (iNdEx + skippy) > postIndex {
@@ -1770,10 +1770,7 @@ func (m *CrafterStartRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetCrafter
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetCrafter
 			}
 			if (iNdEx + skippy) > l {
@@ -1859,10 +1856,7 @@ func (m *CrafterStartResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetCrafter
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetCrafter
 			}
 			if (iNdEx + skippy) > l {
@@ -1931,10 +1925,7 @@ func (m *CrafterEndRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetCrafter
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetCrafter
 			}
 			if (iNdEx + skippy) > l {
@@ -2056,10 +2047,7 @@ func (m *CrafterEndResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetCrafter
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetCrafter
 			}
 			if (iNdEx + skippy) > l {
@@ -2128,10 +2116,7 @@ func (m *CrafterCheckRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetCrafter
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetCrafter
 			}
 			if (iNdEx + skippy) > l {
@@ -2257,10 +2242,7 @@ func (m *CrafterCheckResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetCrafter
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetCrafter
 			}
 			if (iNdEx + skippy) > l {
@@ -2329,10 +2311,7 @@ func (m *CrafterGetRepairWeaponInfoRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetCrafter
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetCrafter
 			}
 			if (iNdEx + skippy) > l {
@@ -2401,10 +2380,7 @@ func (m *CrafterGetRepairWeaponInfoResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetCrafter
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetCrafter
 			}
 			if (iNdEx + skippy) > l {
@@ -2492,10 +2468,7 @@ func (m *CrafterRepairWeaponRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetCrafter
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetCrafter
 			}
 			if (iNdEx + skippy) > l {
@@ -2545,10 +2518,7 @@ func (m *CrafterRepairWeaponResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetCrafter
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetCrafter
 			}
 			if (iNdEx + skippy) > l {
@@ -2655,10 +2625,7 @@ func (m *CrafterDecomposeRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetCrafter
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetCrafter
 			}
 			if (iNdEx + skippy) > l {
@@ -2742,10 +2709,7 @@ func (m *CrafterDecomposeResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetCrafter
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetCrafter
 			}
 			if (iNdEx + skippy) > l {
@@ -2814,10 +2778,7 @@ func (m *CrafterGetDecomposePriceRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetCrafter
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetCrafter
 			}
 			if (iNdEx + skippy) > l {
@@ -2886,10 +2847,7 @@ func (m *CrafterGetDecomposePriceResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthSafeplanetCrafter
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthSafeplanetCrafter
 			}
 			if (iNdEx + skippy) > l {

@@ -941,10 +941,7 @@ func (m *LaboratoryStartCraftingRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipLaboratory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipLaboratory
 			}
 			if (iNdEx + skippy) > l {
@@ -1030,10 +1027,7 @@ func (m *LaboratoryStartCraftingResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipLaboratory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipLaboratory
 			}
 			if (iNdEx + skippy) > l {
@@ -1121,10 +1115,7 @@ func (m *LaboratoryCheckHaveResourceForCraftingRequest) Unmarshal(dAtA []byte) e
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipLaboratory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipLaboratory
 			}
 			if (iNdEx + skippy) > l {
@@ -1194,10 +1185,7 @@ func (m *LaboratoryCheckHaveResourceForCraftingResponse) Unmarshal(dAtA []byte) 
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipLaboratory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipLaboratory
 			}
 			if (iNdEx + skippy) > l {
@@ -1266,10 +1254,7 @@ func (m *LaboratoryCheckCraftingRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipLaboratory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipLaboratory
 			}
 			if (iNdEx + skippy) > l {
@@ -1395,10 +1380,7 @@ func (m *LaboratoryCheckCraftingResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipLaboratory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipLaboratory
 			}
 			if (iNdEx + skippy) > l {
@@ -1467,10 +1449,7 @@ func (m *LaboratoryEndCraftingRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipLaboratory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipLaboratory
 			}
 			if (iNdEx + skippy) > l {
@@ -1556,10 +1535,7 @@ func (m *LaboratoryEndCraftingResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthShipLaboratory
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthShipLaboratory
 			}
 			if (iNdEx + skippy) > l {

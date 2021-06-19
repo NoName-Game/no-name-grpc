@@ -1179,10 +1179,7 @@ func (m *Party) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthParty
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthParty
 			}
 			if (iNdEx + skippy) > l {
@@ -1251,10 +1248,7 @@ func (m *GetPartyDetailsRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthParty
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthParty
 			}
 			if (iNdEx + skippy) > l {
@@ -1432,10 +1426,7 @@ func (m *GetPartyDetailsResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthParty
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthParty
 			}
 			if (iNdEx + skippy) > l {
@@ -1504,10 +1495,7 @@ func (m *CreatePartyRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthParty
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthParty
 			}
 			if (iNdEx + skippy) > l {
@@ -1557,10 +1545,7 @@ func (m *CreatePartyResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthParty
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthParty
 			}
 			if (iNdEx + skippy) > l {
@@ -1661,10 +1646,7 @@ func (m *AddPlayerToPartyRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthParty
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthParty
 			}
 			if (iNdEx + skippy) > l {
@@ -1714,10 +1696,7 @@ func (m *AddPlayerToPartyResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthParty
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthParty
 			}
 			if (iNdEx + skippy) > l {
@@ -1818,10 +1797,7 @@ func (m *RemovePlayerToPartyRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthParty
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthParty
 			}
 			if (iNdEx + skippy) > l {
@@ -1871,10 +1847,7 @@ func (m *RemovePlayerToPartyResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthParty
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthParty
 			}
 			if (iNdEx + skippy) > l {
@@ -1962,10 +1935,7 @@ func (m *RemovePlayerFromPartyRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthParty
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthParty
 			}
 			if (iNdEx + skippy) > l {
@@ -2015,10 +1985,7 @@ func (m *RemovePlayerFromPartyResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthParty
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthParty
 			}
 			if (iNdEx + skippy) > l {

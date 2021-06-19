@@ -1096,10 +1096,7 @@ func (m *Ability) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAbility
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAbility
 			}
 			if (iNdEx + skippy) > l {
@@ -1187,10 +1184,7 @@ func (m *GetAbilityForPlayerByCategoryRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAbility
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAbility
 			}
 			if (iNdEx + skippy) > l {
@@ -1276,10 +1270,7 @@ func (m *GetAbilityForPlayerByCategoryResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAbility
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAbility
 			}
 			if (iNdEx + skippy) > l {
@@ -1367,10 +1358,7 @@ func (m *CheckIfPlayerHaveAbilityRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAbility
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAbility
 			}
 			if (iNdEx + skippy) > l {
@@ -1476,10 +1464,7 @@ func (m *CheckIfPlayerHaveAbilityResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAbility
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAbility
 			}
 			if (iNdEx + skippy) > l {
@@ -1567,10 +1552,7 @@ func (m *LearnAbilityRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAbility
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAbility
 			}
 			if (iNdEx + skippy) > l {
@@ -1620,10 +1602,7 @@ func (m *LearnAbilityResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthAbility
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthAbility
 			}
 			if (iNdEx + skippy) > l {
