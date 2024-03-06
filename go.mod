@@ -1,4 +1,4 @@
-module bitbucket.org/no-name-game/nn-grpc
+module nn-grpc
 
 go 1.16
 
